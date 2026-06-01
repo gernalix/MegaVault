@@ -5,7 +5,7 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 ## Stato operativo verificato
 - Verificato: 2026-06-01 14:17 CEST, prompt `#847392`.
 - Repository: `/home/daniele/codex-workspace/surface-recovery-hardening`
-- Commit verificato: `3f455ea`
+- Commit verificato: `2bcbd5a`
 - Transfer attivo: `rsync-transfer.service` transient user unit.
 - Sorgente: `/dev/sdb2` aperta come `/dev/mapper/source_bitlocker`, montata read-only su `/media/daniele/Seagate Expansion Drive`.
 - Destinazione: `/dev/sdc1`, UUID `75e5363d-6736-4a7e-84be-5242f4735a27`, ext4 rw su `/media/daniele/Seagate6TB2`.
@@ -14,7 +14,7 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 ## Servizi
 - `rsync-transfer.service`: transient, avviato con `systemd-run --user`, non persistente per evitare duplicati.
 - `transfer-usb-io-watchdog.service`: system-wide, enabled, monitora eventi USB/I/O e mette in pausa rsync se vede errori critici.
-- `rsync-uptime-kuma-push.service`: user, enabled, invia stato a Kuma usando match sul vero comando rsync.
+- `rsync-uptime-kuma-push.service`: user, enabled, invia stato a Kuma usando match sul vero comando rsync e mantiene green durante scansione attiva anche se il log progress e temporaneamente fermo.
 - `transfer-vecchio-disco-adaptive-throttle.service`: user, enabled, mantiene profilo I/O conservativo.
 - `media-daniele-Seagate6TB2.automount`: system-wide, enabled, monta la destinazione per UUID.
 

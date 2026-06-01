@@ -4,7 +4,7 @@ slug=surface-recovery-hardening
 path=/home/daniele/codex-workspace/surface-recovery-hardening
 remote=git@github.com:gernalix/surface-recovery-hardening.git
 branch=main
-verified_commit=3f455ea
+verified_commit=2bcbd5a
 verified_at=2026-06-01T14:17:44+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
@@ -44,7 +44,7 @@ arch=rsync-transfer.service is transient, not persistent; support watchdog/throt
 security=do not print BitLocker key or Kuma push URL
 perf=default BW_LIMIT=5120 KiB/s; timeout=900; nice=19; ionice low priority
 recovery=critical USB/I/O events pause target rsync; do not auto-resume after storage error
-version=repo commit 3f455ea fixes verify-mapping automount/source mapper validation
+version=repo commits 3f455ea+2bcbd5a fix mapping validation and Kuma stale-log health
 BUILD:
 cmd=UNKNOWN
 env=sudo -n required; key file local only; user systemd active; source/dest USB present
@@ -63,7 +63,7 @@ DestMount=/media/daniele/Seagate6TB2 rw,noatime
 DestDir=/media/daniele/Seagate6TB2/vecchio disco
 Logs=/home/daniele/transfer_vecchio_disco_phase2.log,/home/daniele/transfer_vecchio_disco_phase2_warnings_errors.log,/home/daniele/rsync_uptime_kuma_push.log,/home/daniele/transfer_usb_io_watchdog.log,/home/daniele/transfer_vecchio_disco_adaptive_throttle.log
 State=/home/daniele/transfer_vecchio_disco_phase2_status.env,/home/daniele/transfer_vecchio_disco_phase2_rsync.pid,/home/daniele/transfer_vecchio_disco_phase2_script.pid,/home/daniele/.rsync_uptime_kuma_push.state
-Backup=/home/daniele/transfer_vecchio_disco_recovery_commands.sh.bak-20260601-141559
+Backup=/home/daniele/transfer_vecchio_disco_recovery_commands.sh.bak-20260601-141559,/home/daniele/rsync_uptime_kuma_push.sh.bak-20260601-142223
 DNB:
 dnb=do not create persistent rsync-transfer.service duplicate
 dnb=do not use rsync --delete
@@ -77,6 +77,8 @@ cause=script compared multiline UUID/SOURCE as single value
 fix=3f455ea selects real final mount row and validates source mapper
 issue=unmount_safe only closed old bitlk mapper name
 fix=3f455ea closes source_bitlocker and legacy mapper if active
+issue=Kuma pusher returned down log_stale while rsync was alive and scanning without progress log writes
+fix=2bcbd5a treats stale-log rsync as up when exact target pid gains CPU ticks and mounts remain safe
 RISK:
 risk=multi-TB USB transfer stresses hub/cable/controller; watch kernel USB/I/O
 risk=stale pid/status/log files can survive crash; require live /proc cmdline validation
