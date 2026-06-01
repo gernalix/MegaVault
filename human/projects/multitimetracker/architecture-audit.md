@@ -42,3 +42,16 @@
 - Estimate: capsulization after prompt `#728419` is 100 percent for documented feature ownership. Remaining MainViewModel code is composition/infrastructure wiring, not feature business ownership.
 - Validation: `compileDebugKotlin`, `testDebugUnitTest` and `assembleDebug` passed locally.
 - Validation: Pixel 8a ran `connectedAndroidTest -Pmtt.testBuildType=deviceTest` on clone `com.example.multitimetracker.devicetest` / test app `com.example.multitimetracker.devicetest.test`: 53 tests, 3 skipped, 0 failed.
+
+## Prompt #462918
+- Scope: post-capsulization regression/stabilization audit, with no UX or DB compatibility changes.
+- Code commit: `7186e9a22041582bf903e6545d4b722bf61bea37` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Found: strict audit list included `SINCE_WHEN`, but LifePeriod create/update/delete still lived directly in MainViewModel and the AI doc did not list a SINCE_WHEN capsule.
+- Fixed: added `SinceWhenCapsuleViewModel` and `SinceWhenCapsuleAccess`; MainViewModel keeps only compatibility wrappers delegating add/update/delete LifePeriod to the capsule.
+- Fixed: moved LifePeriod duplicate-submit key out of MainViewModel source into `SinceWhenSubmitKey.kt`; the duplicate-submit guard now belongs to the SINCE_WHEN capsule.
+- Guard: `CapsuleBoundaryOwnershipTest` now covers SINCE_WHEN and fails if LifePeriod mutation state returns to MainViewModel.
+- Guard: `SinceWhenCapsuleViewModelTest` covers create/update/delete, write blocking, valid-tag filtering and default display units.
+- Estimate: capsulization after prompt `#462918` is 100 percent strict for the audited capsule list: NOW, TAGS, TIMELINE, QUICK_EVENTS, CHAINS, ALERTS, IMPORT_EXPORT, AUDIT_LOG and SINCE_WHEN.
+- Validation: `compileDebugKotlin`, `testDebugUnitTest` and `assembleDebug` passed locally.
+- Validation: Pixel 8a ran `connectedAndroidTest -Pmtt.testBuildType=deviceTest` on clone `com.example.multitimetracker.devicetest` / test app `com.example.multitimetracker.devicetest.test`: 53 tests, 3 skipped, 0 failed.
+- Validation: clone APK was installed/launched manually via ADB; `pidof com.example.multitimetracker.devicetest` returned a running process.
