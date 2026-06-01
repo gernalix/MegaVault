@@ -4,8 +4,8 @@ slug=supercontacts
 path=/home/daniele/codex-workspace/SuperContacts
 remote=https://github.com/gernalix/SuperContacts.git
 branch=codex/prompt-729604-capsule-audit
-verified_commit=97441c4
-verified_at=2026-06-02T00:16:57+02:00
+verified_commit=working_tree_prompt_384917
+verified_at=2026-06-02T01:12:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
 purpose=Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-d
@@ -33,6 +33,7 @@ data=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupMana
 data=app/src/main/java/com/supercontacts/app/data/local/BackupMetadataEntity.kt:BackupMetadataEntity
 data=app/src/main/java/com/supercontacts/app/data/local/ContactEntity.kt:ContactEntity
 data=app/src/main/java/com/supercontacts/app/data/local/ContactEventEntity.kt:ContactEventEntity
+data=app/src/main/java/com/supercontacts/app/data/local/SavedSearchEntity.kt:SavedSearchEntity,SavedSearchTagCrossRef
 FLOW:
 flow=entry->app/src/main/AndroidManifest.xml=>app/src/main/assets/countries-v1.csv
 flow=script->tools/build-finalize.ps1=>app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json
@@ -127,7 +128,7 @@ rule=future_audits_must_treat_100_percent_capsulization_as_minimum_baseline
 
 CAPSULE_OWNERS:
 owner=ContactHomeCapsule
-owns=home_search_query,active_tag_filters,home_sort,available_home_tags,contact_list,show_added_edited
+owns=home_search_query,active_tag_filters,home_sort,available_home_tags,contact_list,show_added_edited,saved_searches,home_filter_reset
 api=ContactHomeOwner
 access=ContactsViewModel_facade_only
 
@@ -203,12 +204,15 @@ missing_task_note=:app:testDebugUnitTest_not_generated_because_testBuildType=dev
 
 UX_INVARIANTS:
 field_descriptions=edit_mode_only_never_reading_mode
-dob_age=ignored_by_user_request_2026-06-01
+age=field_type_age_source_birth_date_or_manual_age_timestamped
+saved_searches=stored_in_sqlite_deeplink_host_search_filters_query_and_tags
+backup=whole_sqlite_db_exported_to_saf_photos_only_allowed_external_data
 
 CHANGELOG:
 2026-06-01_prompt_184926=v20; split ContactsViewModel feature state into explicit owner capsules; ContactsViewModel now facade/wiring; reading mode no longer exposes field description controls/values; added capsulization enforcement tests; bridge_residue=none_feature_bridge
 2026-06-02_prompt_729604=v21; audit found ContactsViewModel zero_logic PASS and root/cross_capsule enforcement_gap FAIL_corrected; strengthened CapsuleArchitectureEnforcementTest for SuperContactsApp/MainActivity/AppContainer/cross_capsule boundaries; app_code_logic_unchanged
 2026-06-02_prompt_491837=doc_only; made final capsulization percentage explicit as 100%; confirmed real post_v20 audit, zero_logic facade, root_wiring_only, no feature bridges, passing enforcement tests, and permanent blocking baseline
+2026-06-02_prompt_384917=v22; home_count_filtered_contacts, distance_row_real_km_when_origin_available, sort_scroll_top, saved_searches_with_deeplink, reset_search_and_tags, age_field_birthdate_or_manual, PH_Filipino_nationality, edit_mode_description_buttons_restored, schema_v11_saved_searches
 
 VERIFICATION:
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:compileDebugKotlin
