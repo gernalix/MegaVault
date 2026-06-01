@@ -1,18 +1,22 @@
 # surface-recovery-hardening Overview
 
-Kit locale per rendere un Surface Pro con Linux Mint piu recuperabile durante trasferimenti USB pesanti:
+Questo progetto documenta e supporta le operazioni di recovery del Surface Linux Mint durante trasferimenti USB pesanti. Il caso operativo attuale e `rsync-transfer`: copia conservativa dal disco Seagate 4TB BitLocker al disco ext4 `Seagate6TB2`.
 
-## Stato e codice
+## Stato operativo verificato
+- Verificato: 2026-06-01 14:17 CEST, prompt `#847392`.
 - Repository: `/home/daniele/codex-workspace/surface-recovery-hardening`
-- Branch/commit verificati: `main` / `0868849`
-- File codice/config/test/script analizzati: 31 su 31
-- Stack rilevato: Python, Shell, UNKNOWN, UNKNOWN
+- Commit verificato: `3f455ea`
+- Transfer attivo: `rsync-transfer.service` transient user unit.
+- Sorgente: `/dev/sdb2` aperta come `/dev/mapper/source_bitlocker`, montata read-only su `/media/daniele/Seagate Expansion Drive`.
+- Destinazione: `/dev/sdc1`, UUID `75e5363d-6736-4a7e-84be-5242f4735a27`, ext4 rw su `/media/daniele/Seagate6TB2`.
+- Destinazione dati: `/media/daniele/Seagate6TB2/vecchio disco`.
 
-## Orientamento rapido
-- Entrypoint: `UNKNOWN`
-- Core/data: `configs/mint-xfce-layout-guard.desktop,dev/project.metadata.json,systemd/freeze-reboot-monitor.service,scripts/restore_mint_scaling_theme_backup.sh`
-- Test: `UNKNOWN`
-- Script/build: `configs/xrdp_startwm.sh,scripts/bundle_freeze_reboot_monitor_logs.sh,scripts/freeze_reboot_monitor.sh,scripts/low_memory_mode.sh`
+## Servizi
+- `rsync-transfer.service`: transient, avviato con `systemd-run --user`, non persistente per evitare duplicati.
+- `transfer-usb-io-watchdog.service`: system-wide, enabled, monitora eventi USB/I/O e mette in pausa rsync se vede errori critici.
+- `rsync-uptime-kuma-push.service`: user, enabled, invia stato a Kuma usando match sul vero comando rsync.
+- `transfer-vecchio-disco-adaptive-throttle.service`: user, enabled, mantiene profilo I/O conservativo.
+- `media-daniele-Seagate6TB2.automount`: system-wide, enabled, monta la destinazione per UUID.
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/surface-recovery-hardening.md)

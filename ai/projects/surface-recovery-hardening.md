@@ -4,92 +4,93 @@ slug=surface-recovery-hardening
 path=/home/daniele/codex-workspace/surface-recovery-hardening
 remote=git@github.com:gernalix/surface-recovery-hardening.git
 branch=main
-verified_commit=0868849
-verified_at=2026-06-01T13:59:53+02:00
+verified_commit=3f455ea
+verified_at=2026-06-01T14:17:44+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
-purpose=Kit locale per rendere un Surface Pro con Linux Mint piu recuperabile durante trasferimenti USB pesanti:
+purpose=Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy.
 STACK:
-lang=Python,Shell
-fw=UNKNOWN
-db=SQLite
-platform=UNKNOWN
-tools=Chrome,Uptime Kuma,restic,systemd
+lang=Shell,Python
+db=SQLite for source_cleanup_analyzer only
+platform=Linux Mint/XFCE,systemd,user-systemd,USB storage,Uptime Kuma
+tools=cryptsetup bitlk,ntfs-3g/fuseblk,rsync,systemd-run,journalctl,findmnt,lsblk,lsusb
 MAP:
-entry=UNKNOWN
-ui=scripts/fix_mint_scaling_theme.sh,scripts/screen_watchdog.sh,scripts/show_scaling_theme_status.sh
-core=configs/mint-xfce-layout-guard.desktop,dev/project.metadata.json,systemd/freeze-reboot-monitor.service,systemd/mint-xfce-layout-guard.service,systemd/mint-xfce-layout-guard.timer
-db=scripts/restore_mint_scaling_theme_backup.sh
+entry=/home/daniele/transfer_vecchio_disco_phase2_limited.sh
+ui=/home/daniele/transfer_vecchio_disco_dashboard.sh
+core=scripts/transfer_vecchio_disco_recovery_commands.sh,scripts/transfer_usb_io_watchdog.sh,scripts/transfer_vecchio_disco_adaptive_throttle.sh,scripts/rsync_uptime_kuma_push.sh
+db=scripts/source_cleanup_analyzer.py
 tests=UNKNOWN
-scripts=configs/xrdp_startwm.sh,scripts/bundle_freeze_reboot_monitor_logs.sh,scripts/freeze_reboot_monitor.sh,scripts/low_memory_mode.sh,scripts/memory_pressure_guardian.sh
+scripts=scripts/transfer_vecchio_disco_phase2_limited.sh,scripts/transfer_vecchio_disco_recovery_commands.sh,scripts/transfer_usb_io_watchdog.sh,scripts/transfer_vecchio_disco_adaptive_throttle.sh,scripts/rsync_uptime_kuma_push.sh
 build=UNKNOWN
-avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
+avoid=secrets,tokens,cookies,generated reports,untracked .codexmeta backups
 ARCH:
-ui=scripts/fix_mint_scaling_theme.sh:add_path,xfconf_set,log,get_value,display0_panel_pids,physical_session_env_value
-ui=scripts/screen_watchdog.sh:timestamp,now_s,log,event,event_limited,save_state
-ui=scripts/show_scaling_theme_status.sh:value
-script=scripts/freeze_reboot_monitor.sh:timestamp,stamp_file,ensure_layout,write_readme,log_event,rotate_one
-script=scripts/low_memory_mode.sh:timestamp,log,cmdline_for_pid,is_gradle_pid
-script=scripts/memory_pressure_guardian.sh:timestamp,stamp_file,usage,log,run_or_log,meminfo_mb
-script=scripts/recovery_dump.sh:run
-script=scripts/recovery_status.sh:once
+transfer=transient user unit rsync-transfer.service -> sudo -> phase2_limited -> rsync --append-verify
+support_system=transfer-usb-io-watchdog.service(enabled):kernel USB/I/O monitor; pauses target rsync on critical events
+support_user=rsync-uptime-kuma-push.service(enabled):Kuma heartbeat for exact target rsync cmdline
+support_user=transfer-vecchio-disco-adaptive-throttle.service(enabled):renice/ionice/bw profile control
+mount_dest=media-daniele-Seagate6TB2.automount(enabled)+.mount(disabled,triggered)
+mount_source=cryptsetup open --type bitlk --readonly /dev/sdb2 source_bitlocker; mount ro at /media/daniele/Seagate Expansion Drive
 FLOW:
-flow=script->configs/xrdp_startwm.sh=>scripts/restore_mint_scaling_theme_backup.sh
-flow=data->scripts/restore_mint_scaling_theme_backup.sh
-flow=scripts/restore_mint_scaling_theme_backup.sh:5:printf 'Usage: %s [backup.tar.gz]\n' "$0"
-flow=scripts/restore_mint_scaling_theme_backup.sh:9:BACKUP="${1:-}"
-flow=scripts/restore_mint_scaling_theme_backup.sh:10:if [ -z "$BACKUP" ]; then
+preflight=read metadata+AI doc; verify no active target rsync; verify SOURCE mapper ro; verify DEST uuid rw; scan recent kernel USB/I/O
+start=systemd-run --user --unit=rsync-transfer /usr/bin/env BW_LIMIT=5120 RSYNC_IO_TIMEOUT=900 /home/daniele/transfer_vecchio_disco_phase2_limited.sh
+rsync=source:/media/daniele/Seagate Expansion Drive/ -> dest:/media/daniele/Seagate6TB2/vecchio disco/
+resume=append-verify; rerun launcher while active exits 0 via lock, no duplicate rsync
+monitor=journalctl + transfer logs + Kuma dry-run health + pgrep exact cmdline
 INV:
-arch=scripts/fix_mint_scaling_theme.sh:add_path,xfconf_set,log,get_value,display0_panel_pids; scripts/screen_watchdog.sh:timestamp,now_s,log,event,event_limited; scripts/show_scaling_theme_status.sh:value; scripts/freeze_reboot_monitor.sh:tim...
-data=scripts/restore_mint_scaling_theme_backup.sh:5:printf 'Usage: %s [backup.tar.gz]\n' "$0"; scripts/restore_mint_scaling_theme_backup.sh:9:BACKUP="${1:-}"
-ux=scripts/screen_watchdog.sh:182:loginctl unlock-sessions >/dev/null 2>&1 || true; scripts/screen_watchdog.sh:183:notify "display-fix-1" "Surface display fix livello 1" "Tentato wake display/DPMS/unlock-session." 300
-backup=scripts/restore_mint_scaling_theme_backup.sh:5:printf 'Usage: %s [backup.tar.gz]\n' "$0"; scripts/restore_mint_scaling_theme_backup.sh:9:BACKUP="${1:-}"
-migration=scripts/source_cleanup_analyzer.py:94:CREATE TABLE IF NOT EXISTS errors (
-version=dev/project.metadata.json:9:"metadata_version": 1,
-i18n=UNKNOWN
-security=scripts/fix_mint_scaling_theme.sh:173:systemctl --user import-environment QT_AUTO_SCREEN_SCALE_FACTOR QT_ENABLE_HIGHDPI_SCALING QT_SCALE_FACTOR QT_SCREEN_SCALE_FACTORS DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSIO...; scripts/show_sc...
-perf=systemd/freeze-reboot-monitor.service:16:Environment=FREEZE_REBOOT_MEMORY_GUARDIAN_ENABLED=1; systemd/freeze-reboot-monitor.service:17:Environment=FREEZE_GUARDIAN_MODE=active
+backup=source BitLocker must be mounted read-only; never write source
+data=destination UUID must be 75e5363d-6736-4a7e-84be-5242f4735a27
+data=findmnt -T can return root or automount wrapper; reject / and select real last mount row
+arch=rsync-transfer.service is transient, not persistent; support watchdog/throttle/Kuma services are persistent
+security=do not print BitLocker key or Kuma push URL
+perf=default BW_LIMIT=5120 KiB/s; timeout=900; nice=19; ionice low priority
+recovery=critical USB/I/O events pause target rsync; do not auto-resume after storage error
+version=repo commit 3f455ea fixes verify-mapping automount/source mapper validation
 BUILD:
-files=UNKNOWN
 cmd=UNKNOWN
+env=sudo -n required; key file local only; user systemd active; source/dest USB present
+requirements=cryptsetup bitlk,ntfs/fuseblk mount support,rsync,systemd user session
 TEST:
-files=UNKNOWN
-cmd=UNKNOWN
+syntax=bash -n transfer_vecchio_disco_recovery_commands.sh
+smoke=transfer_vecchio_disco_recovery_commands.sh verify-mapping
+integration=systemd-run --user --unit=rsync-transfer ...
+runtime=systemctl --user status rsync-transfer.service; DRY_RUN=1 RUN_ONCE=1 LOCK_FILE=/tmp/rsync_uptime_kuma_push_check.lock rsync_uptime_kuma_push.sh
 DATA:
-db=systemd/mint-xfce-layout-guard.timer:12:WantedBy=timers.target; scripts/freeze_reboot_monitor.sh:23:DMESG_PATTERN='usb|uas|reset|disconnect|I/O error|Buffer I/O|ext4|jbd2|nvme|sda|sdb|sdc|dm-0|thermal|temperature|critical|watchdog|panic|...
-paths=scripts/restore_mint_scaling_theme_backup.sh:5:printf 'Usage: %s [backup.tar.gz]\n' "$0"; scripts/restore_mint_scaling_theme_backup.sh:9:BACKUP="${1:-}"
-backup=scripts/restore_mint_scaling_theme_backup.sh:5:printf 'Usage: %s [backup.tar.gz]\n' "$0"; scripts/restore_mint_scaling_theme_backup.sh:9:BACKUP="${1:-}"
-restore=scripts/restore_mint_scaling_theme_backup.sh:5:printf 'Usage: %s [backup.tar.gz]\n' "$0"; scripts/restore_mint_scaling_theme_backup.sh:9:BACKUP="${1:-}"
-import=scripts/restore_mint_scaling_theme_backup.sh:20:printf 'Backup not readable: %s\n' "$BACKUP" >&2; scripts/fix_mint_scaling_theme.sh:173:systemctl --user import-environment QT_AUTO_SCREEN_SCALE_FACTOR QT_ENABLE_HIGHDPI_SCALING QT_SCALE_FA...
-export=scripts/fix_mint_scaling_theme.sh:153:# GTK is governed by XFCE xsettings; do not export GDK_SCALE globally.; scripts/show_scaling_theme_status.sh:114:printf ' WARN: GDK_SCALE is exported; this can double-scale GTK under XFCE xsettings.\n'
-migration=UNKNOWN
-retention=scripts/source_cleanup_analyzer.py:56:def safe_rel(path: Path, source: Path) -> str:; scripts/source_cleanup_analyzer.py:130:"mode": "DELETE CONFIRMED" if delete_confirmed else "DRY-RUN",
+SourceDev=/dev/sdb2 BitLocker ST4000LM024-2AN17V serial=WFF0FEX8
+SourceMapper=/dev/mapper/source_bitlocker readonly
+SourceMount=/media/daniele/Seagate Expansion Drive fuseblk ro
+DestDev=/dev/sdc1 ext4 label=Seagate6TB serial=ZCT3KG54
+DestMount=/media/daniele/Seagate6TB2 rw,noatime
+DestDir=/media/daniele/Seagate6TB2/vecchio disco
+Logs=/home/daniele/transfer_vecchio_disco_phase2.log,/home/daniele/transfer_vecchio_disco_phase2_warnings_errors.log,/home/daniele/rsync_uptime_kuma_push.log,/home/daniele/transfer_usb_io_watchdog.log,/home/daniele/transfer_vecchio_disco_adaptive_throttle.log
+State=/home/daniele/transfer_vecchio_disco_phase2_status.env,/home/daniele/transfer_vecchio_disco_phase2_rsync.pid,/home/daniele/transfer_vecchio_disco_phase2_script.pid,/home/daniele/.rsync_uptime_kuma_push.state
+Backup=/home/daniele/transfer_vecchio_disco_recovery_commands.sh.bak-20260601-141559
 DNB:
-dnb=systemd/surface_recovery_configs_no-suspend.service:2:Description=Block sleep/idle during Surface recovery hardening
-dnb=systemd/surface_recovery_configs_no-suspend.service:8:ExecStart=/usr/bin/systemd-inhibit --what=sleep:idle --why=Surface-recovery-hardening-keeps-backend-reachable --mode=block /usr/bin/sleep infinity
-dnb=scripts/fix_mint_scaling_theme.sh:260:LOCK="$HOME/.cache/mint-xfce-layout-guard.lock"
-dnb=scripts/fix_mint_scaling_theme.sh:269:mkdir -p "$(dirname "$LOG")" "$(dirname "$LOCK")" "$BACKUP_DIR"
-dnb=scripts/fix_mint_scaling_theme.sh:271:exec 9>"$LOCK"
-dnb=scripts/fix_mint_scaling_theme.sh:272:if ! flock -n 9; then
-dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
+dnb=do not create persistent rsync-transfer.service duplicate
+dnb=do not use rsync --delete
+dnb=do not classify helper-only rsync_uptime_kuma_push as data transfer
+dnb=do not trust findmnt -T if it resolves source path to /
+dnb=do not restart after recent DEST USB/I/O/JBD2/EXT4 errors without storage verification
+dnb=never commit secrets or local reports/backups unless explicitly scoped
 BUG:
-issue=scripts/fix_mint_scaling_theme.sh:346:log "error missing default panel XML: $DEFAULT_PANEL"
-issue=scripts/freeze_reboot_monitor.sh:23:DMESG_PATTERN='usb|uas|reset|disconnect|I/O error|Buffer I/O|ext4|jbd2|nvme|sda|sdb|sdc|dm-0|thermal|temperature|critical|watchdog|panic|oom|killed process|hung task|blocked for mor...
+issue=verify-mapping failed under DEST automount because findmnt returned systemd-1 and /dev/sdc1 rows
+cause=script compared multiline UUID/SOURCE as single value
+fix=3f455ea selects real final mount row and validates source mapper
+issue=unmount_safe only closed old bitlk mapper name
+fix=3f455ea closes source_bitlocker and legacy mapper if active
 RISK:
-risk=systemd/surface_recovery_configs_no-suspend.service:2:Description=Block sleep/idle during Surface recovery hardening
-risk=systemd/surface_recovery_configs_no-suspend.service:8:ExecStart=/usr/bin/systemd-inhibit --what=sleep:idle --why=Surface-recovery-hardening-keeps-backend-reachable --mode=block /usr/bin/sleep infinity
-risk=scripts/fix_mint_scaling_theme.sh:260:LOCK="$HOME/.cache/mint-xfce-layout-guard.lock"
-risk=scripts/fix_mint_scaling_theme.sh:269:mkdir -p "$(dirname "$LOG")" "$(dirname "$LOCK")" "$BACKUP_DIR"
-risk=scripts/fix_mint_scaling_theme.sh:271:exec 9>"$LOCK"
-risk=scripts/fix_mint_scaling_theme.sh:272:if ! flock -n 9; then
+risk=multi-TB USB transfer stresses hub/cable/controller; watch kernel USB/I/O
+risk=stale pid/status/log files can survive crash; require live /proc cmdline validation
+risk=Kuma push service may restart on network timeout; runtime dry-run health verifies local truth
+risk=source key exists locally; path may be documented, value must not
 ROAD:
-now=UNKNOWN
-next=UNKNOWN
-later=UNKNOWN
+now=keep rsync-transfer running and monitor logs/kernel
+next=consider persistent documented helper for source read-only mount only if repeated manual remounts continue
+later=clean generated legacy reports from repo policy if user requests
 LINK:
 meta=../../../surface-recovery-hardening/dev/project.metadata.json
 human=../../human/projects/surface-recovery-hardening/overview.md
 legacy=../../../surface-recovery-hardening/dev/legacy
 repo=../../../surface-recovery-hardening
 OPEN:
-open=tests=UNKNOWN_OR_ABSENT
+open=tests absent
+open=rsync-transfer intentionally transient; persistence policy documented but no persistent unit by design
