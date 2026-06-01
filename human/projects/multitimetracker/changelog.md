@@ -4,6 +4,14 @@
 - 2026-06-01: `#739482` ha migrato docs locali in `dev/legacy` e creato metadata/MegaVault.
 - 2026-06-01: `#842915` ha arricchito AI/Human docs da legacy e repo structure.
 - 2026-06-01T13:39:31+02:00: `#604927` ha auditato codice attivo, arricchito Human docs e compresso AI doc.
+- 2026-06-01: `#483921` patch v525 UI: drawer impostazioni scorrevole, hamburger su Since when, focus automatico nei quick event, stato capsule verificato.
+
+## v525 prompt #483921
+- Sidebar: la voce Impostazioni resta nel drawer e il drawer ora scorre, quindi la voce rimane raggiungibile anche su viewport bassi.
+- Since when: aggiunto hamburger coerente con Now/Events/Tags/Timeline tramite `LocalOpenAppMenu`.
+- Events: il dialog "Customize quick event" mette il focus sul primo campo testuale utile; se Title e timestamp sono gia valorizzati, privilegia il primo custom field testuale obbligatorio senza default e apre la tastiera.
+- Events: rimosso il campo note ridondante dai Quick Events; eventuale testo aggiuntivo va modellato come campo custom del pulsante.
+- Capsule: esistono slice per NOW, TAGS, TIMELINE, QUICK_EVENTS, CHAINS, AUDIT_LOG, ALERTS e IMPORT_EXPORT; resta parziale perche MainViewModel e ancora orchestratore/bridge con tag CRUD, runtime alerts e session/timeline CRUD da decomporre.
 
 ## Evidenza audit
 - File codice/config/test/script analizzati: 224 / 224.

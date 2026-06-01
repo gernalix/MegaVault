@@ -33,6 +33,10 @@ data=app/src/main/java/com/example/multitimetracker/capsules/system/ImportExport
 data=app/src/main/java/com/example/multitimetracker/capsules/system/ImportExportCapsuleAccess.kt:ImportExportCapsuleAccess,exportSnapshot,activateImportedSnapshotFromStore,persist,scheduleAutoBackup,computeB...
 data=app/src/main/java/com/example/multitimetracker/data/importexport/FallbackRestoreManager.kt:FallbackRestoreManager,shouldTriggerFallback,buildUserMessage
 data=app/src/main/java/com/example/multitimetracker/data/importexport/ImportExportIntegrityValidator.kt:ImportExportCounts,ImportExportIntegrityValidator,compare
+capsules=present: NOW,TAGS,TIMELINE,QUICK_EVENTS,CHAINS,AUDIT_LOG,ALERTS,IMPORT_EXPORT via app/src/main/java/com/example/multitimetracker/capsules/*
+capsules=partial: MainViewModel still root orchestrator/legacy bridge; tag CRUD has CapsuleAudit warnings; alerts runtime evaluation and timeline/session CRUD still bridge through MainViewModel
+capsules=missing: full ownership enforcement/decomposition not complete; dev/legacy ROADMAP_ACTIVE lists MainViewModel decomposition and capsule ownership enforcement as out_of_scope
+quick_events=v525: removed redundant note/defaultNote fields from QuickEventTemplate, QuickEventEntry, QuickEventMacro and active Quick Events UI/import/export paths; text details now belong in custom fields
 FLOW:
 flow=entry->app/src/main/AndroidManifest.xml=>app/src/main/java/com/example/multitimetracker/AppPatchVersion.kt
 flow=script->dev/tools/check_hardcoded_ui_strings.py=>app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt
@@ -86,9 +90,11 @@ risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:72:val schem
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:104:val integrityBlock by vm.integrityBlock.collectAsState()
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// otherwise empty/default state could race against the real restore decision.
 risk=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
+risk=capsules: feature slices exist but MainViewModel remains oversized bridge; avoid moving ownership without targeted tests for session/tag/import/export/time-machine flows
 ROAD:
 now=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:98:// Persist permission for future sessions.
 next=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:110:// Roll back the saved URI to avoid future "Export fallito" loops.
+next=capsules: concrete TODOs are MainViewModel decomposition, tag CRUD ownership removal from MainViewModel, alerts runtime boundary split, session/timeline CRUD bridge reduction
 later=app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
 LINK:
 meta=../../../projects/MultiTimeTracker/dev/project.metadata.json
