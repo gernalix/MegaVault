@@ -3,9 +3,9 @@ name=SuperContacts
 slug=supercontacts
 path=/home/daniele/codex-workspace/SuperContacts
 remote=https://github.com/gernalix/SuperContacts.git
-branch=codex/prompt-184926-capsules
-verified_commit=fbe61e2
-verified_at=2026-06-01T23:58:00+02:00
+branch=codex/prompt-729604-capsule-audit
+verified_commit=97441c4
+verified_at=2026-06-02T00:16:57+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
 purpose=Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-d
@@ -102,8 +102,8 @@ CAPSULE_ENFORCEMENT:
 status=100_percent_capsulization
 baseline=100_percent_minimum
 prompt=184926
-version=20
-branch=codex/prompt-184926-capsules
+version=21
+branch=codex/prompt-729604-capsule-audit
 invariant=capsulization_is_architectural_invariant
 rule=no_future_prompt_may_reduce_capsulization
 rule=every_new_feature_must_start_with_explicit_capsule_owner
@@ -180,7 +180,14 @@ rule=no_direct_access_to_other_capsule_internal_MutableStateFlow_Job_or_private_
 ENFORCEMENT_TESTS:
 required=app/src/test/java/com/supercontacts/app/CapsuleArchitectureEnforcementTest.kt
 checks=ContactsViewModel_facade_only_no_MutableStateFlow_no_MutableSharedFlow_no_Job_no_repository_calls_no_manager_calls
+checks=ContactsViewModel_no_viewModelScope_launch_no_runCatching_no_mutableStateOf_no_AppContainer_no_database_constructor
+checks=SuperContactsApp_may_use_AppContainer_only_for_generation_and_ViewModel_factory_dependencies
+checks=SuperContactsApp_no_direct_repository_database_backup_manager_or_flow_wiring
+checks=MainActivity_android_entry_only_no_ViewModel_repository_database_flow_or_coroutine_work
+checks=AppContainer_dependency_wiring_only_no_UI_capsule_or_feature_model_knowledge
 checks=required_owner_capsule_classes_present
+checks=required_owner_contract_interfaces_present
+checks=capsules_do_not_directly_reference_other_capsule_implementations_except_status_owner_and_ViewModel_wiring
 checks=reading_mode_has_no_field_description_buttons_or_values
 required=app/src/androidTest/java/com/supercontacts/app/ContactFieldDescriptionUiTest.kt
 checks=field_descriptions_persist_but_do_not_appear_in_reading_mode
@@ -193,12 +200,11 @@ dob_age=ignored_by_user_request_2026-06-01
 
 CHANGELOG:
 2026-06-01_prompt_184926=v20; split ContactsViewModel feature state into explicit owner capsules; ContactsViewModel now facade/wiring; reading mode no longer exposes field description controls/values; added capsulization enforcement tests; bridge_residue=none_feature_bridge
+2026-06-02_prompt_729604=v21; audit found ContactsViewModel zero_logic PASS and root/cross_capsule enforcement_gap FAIL_corrected; strengthened CapsuleArchitectureEnforcementTest for SuperContactsApp/MainActivity/AppContainer/cross_capsule boundaries; app_code_logic_unchanged
 
 VERIFICATION:
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:compileDebugKotlin
 result=PASS
-cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:testDebugUnitTest
-result=BLOCKED_TASK_NOT_GENERATED
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:testDeviceTestUnitTest
 result=PASS
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:assembleDebug
