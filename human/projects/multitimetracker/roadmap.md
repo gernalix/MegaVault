@@ -15,6 +15,9 @@
 - app/src/main/java/com/example/multitimetracker/persistence/IntegrityStatsSqlite.kt:169:while (c.moveToNext()) {
 
 ## Debito/rischi da considerare
+- Capsulizzazione: TAGS e ALERTS sono stati ridotti a owner espliciti con test boundary; prossimo blocco e session owner per NOW/TIMELINE.
+- Residuo MainViewModel: session CRUD/stop policies, QUICK_EVENTS mutations, CHAINS mutations, AUDIT_LOG filters/undo, IMPORT_EXPORT persistence hooks.
+- Stato `#847261`: capsulizzazione stimata 72 percento dopo test JVM e Pixel clone verdi; 100 percento richiede la rimozione dei bridge residui sopra.
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:67:// v138 Capsule Audit Engine: emit known capsule boundary leaks in Logcat (debug only)
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:254:is FirstRunSetupState.RestoreFailed -> context.getString(R.string.first_run_restore_failed_title)
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:296:is FirstRunSetupState.RestoreFailed -> context.getString(

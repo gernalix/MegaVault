@@ -4,6 +4,10 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 
 ## Mappa funzionale dal codice
 - `app/src/main/java/com/example/multitimetracker/MainActivity.kt`: FirstRunWorkStep, MainActivity, onCreate, MultiTimeTrackerApp, resolveContinuationMode, refreshSetupState, onReceive, requiresExactAlarmPermission
+- `app/src/main/java/com/example/multitimetracker/capsules/tags/TagsCapsuleViewModel.kt`: owner CRUD TAGS, audit/persist, hierarchy validation, rename session title projection.
+- `app/src/main/java/com/example/multitimetracker/capsules/alerts/AlertsCapsuleViewModel.kt`: owner ALERTS rule mutation, runtime evaluation, timer/notification reconciliation.
+- `app/src/test/java/com/example/multitimetracker/capsules/CapsuleBoundaryOwnershipTest.kt`: source-level guard for TAGS and ALERTS ownership boundaries.
+- `app/src/main/java/com/example/multitimetracker/persistence/SqliteVault.kt`: stable vault export con nomi esatti per database primario, temporaneo ed emergency copy.
 - `app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt`: BackupFolderInspection, FolderChosenEmpty, ExistingDataFound, RestoreSucceeded, RestoreFailed, FallbackToContinuation, FirstRunContinuationMode, BackupFolderInspectionKind
 - `app/src/main/java/com/example/multitimetracker/MainViewModelSnapshotCoordinator.kt`: PreparedSnapshotRuntimeState, AppliedSnapshotState, MainViewModelSnapshotCoordinator, SnapshotLoadMode, InstallAtMsPolicy, reconcileSnapshotTagsForPersistence, unionTotalMs, reconcileTimeFenceAlarms
 - `app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt`: FinalizedImport, ImportExportCapsuleViewModel, ImportRollbackOutcome, createImportExportCapsule, showLongToast, setBackupRootFolder, inspectBackupFolder, exportBackup
