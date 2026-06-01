@@ -100,6 +100,13 @@ open=none
 
 CAPSULE_ENFORCEMENT:
 status=100_percent_capsulization
+percentuale_capsulizzazione_finale=100%
+capsulizzazione_reale=si_verificata_da_audit_mirato_post_v20
+contacts_viewmodel=facade_zero_logic
+root_wiring=MainActivity_SuperContactsApp_AppContainer_solo_wiring_infrastrutturale_consentito
+bridge_feature_residui=nessuno
+enforcement_test=rafforzati_e_passanti
+baseline_permanente=100_percent_capsulization_is_blocking_invariant_for_every_future_prompt
 baseline=100_percent_minimum
 prompt=184926
 version=21
@@ -201,6 +208,7 @@ dob_age=ignored_by_user_request_2026-06-01
 CHANGELOG:
 2026-06-01_prompt_184926=v20; split ContactsViewModel feature state into explicit owner capsules; ContactsViewModel now facade/wiring; reading mode no longer exposes field description controls/values; added capsulization enforcement tests; bridge_residue=none_feature_bridge
 2026-06-02_prompt_729604=v21; audit found ContactsViewModel zero_logic PASS and root/cross_capsule enforcement_gap FAIL_corrected; strengthened CapsuleArchitectureEnforcementTest for SuperContactsApp/MainActivity/AppContainer/cross_capsule boundaries; app_code_logic_unchanged
+2026-06-02_prompt_491837=doc_only; made final capsulization percentage explicit as 100%; confirmed real post_v20 audit, zero_logic facade, root_wiring_only, no feature bridges, passing enforcement tests, and permanent blocking baseline
 
 VERIFICATION:
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:compileDebugKotlin
