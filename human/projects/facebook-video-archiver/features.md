@@ -1,36 +1,22 @@
 # facebook-video-archiver Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- dev/legacy/README.md: # Facebook Video Archiver v4
-- dev/legacy/README.md: ## Modes
-- dev/legacy/README.md: ## Dashboard
-- dev/legacy/dev/OPERATIONS.md: ## Dashboard
-- dev/legacy/README.md: Conservative local archiver for Facebook videos/posts that you own or are explicitly authorized to download. The default page is:
-- dev/legacy/dev/INDEX.md: Start here for Codex/operator work on `facebook-video-archiver`.
-- dev/legacy/dev/ARCHITECTURE.md: `facebook_video_archiver.sh` is the operator entrypoint. It wraps `yt-dlp` and delegates persistent manual-login browser work to `facebook_session_browser.py`.
-- dev/legacy/dev/TEST_PLAN.md: bash -n facebook_video_archiver.sh
-- dev/legacy/dev/OPERATIONS.md: cd ~/codex-workspace/facebook-video-archiver
-- dev/legacy/dev/LEGAL_AND_SAFETY.md: This project is only for videos you own or are explicitly authorized to archive.
-- facebook_archive_dashboard.py: ARCHIVE_ROOT = Path(os.environ.get("ARCHIVE_ROOT", "/media/daniele/Seagate6TB2/facebook-video-archive"))
-- facebook_session_browser.py: from urllib.parse import parse_qsl, urlencode, unquote, urlparse, urlunparse
+## Mappa funzionale dal codice
+- `facebook_archive_dashboard.py`: human_bytes, count_files_and_bytes, read_urls, recent_log, tail_lines, process_status, active_part_file, parse_progress
+- `facebook_session_browser.py`: expand, load_env_file, safe_print, normalize_facebook_url, read_existing_urls, write_deduped_urls, write_json, read_checkpoint
+- `facebook_video_archiver.sh`: usage, log, die, load_env, require_archive_mount, rel_or_abs, mask_path, expand_path
 
-## Useful Limits And Boundaries
-- dev/legacy/README.md: The dashboard is terminal-only and reports `non stimabile` instead of inventing unknown totals or ETA.
-- dev/legacy/README.md: If `/home/daniele/codex-workspace/scripts/amici_fb/telegram_notify.py` exists and `ENABLE_TELEGRAM=1` is set in `.env`, v4 sends a short final notification with status, new count, and errors. Missing Telegram support never fails the archi
-- dev/legacy/README.md: Sessione non loggata: run `--login-browser`, complete login/2FA/checkpoint manually, then press Enter in the terminal.
-- dev/legacy/README.md: Video privati/non autorizzati: do not download them. Use only content you own or are explicitly authorized to archive.
-- dev/legacy/dev/INDEX.md: Required safety posture:
-- dev/legacy/dev/INDEX.md: - Do not bypass DRM, paywalls, login restrictions, privacy controls, rate limits, or technical protections.
-- dev/legacy/dev/INDEX.md: - Do not commit real cookies, tokens, logs with secrets, or downloaded media.
-- dev/legacy/dev/INDEX.md: - Do not commit `.venv`, browser profiles, `.env`, or exported cookie files.
-- dev/legacy/dev/AGENT_RULES.md: - Every executable script must start with a first-line version comment such as `# v4`.
-- dev/legacy/dev/AGENT_RULES.md: - Never save real Facebook cookies, session exports, Telegram tokens, or downloaded videos in git.
-- dev/legacy/dev/AGENT_RULES.md: - Cookie/profile support must use only external paths outside the repo.
-- dev/legacy/dev/AGENT_RULES.md: - Never ask for or automate Facebook username/password login.
-
-## Where The Feature Code Appears To Live
-- `facebook_archive_dashboard.py`
-- `facebook_session_browser.py`
-- `facebook_video_archiver.sh`
+## Confini operativi
+- facebook_archive_dashboard.py:124:if any(token in line.lower() for token in ("warning", "error", "failed", "unsupported", "unable")):
+- facebook_session_browser.py:5:import http.cookiejar
+- facebook_session_browser.py:17:DEFAULT_COOKIE_EXPORT = "~/.config/facebook-video-archiver/facebook-cookies.txt"
+- facebook_session_browser.py:133:cookies = await context.cookies("https://www.facebook.com")
+- facebook_session_browser.py:134:cookie_names = {cookie.get("name", "") for cookie in cookies}
+- facebook_session_browser.py:135:if "c_user" in cookie_names or "xs" in cookie_names:
+- facebook_session_browser.py:205:safe_print("Nessun URL trovato. Possibili limiti: cookie/sessione scaduti, checkpoint, rendering Facebook non estraibile, contenuto privato/non auto
+- facebook_session_browser.py:339:def cookie_expires(cookie: dict) -> int:
+- dev/project.metadata.json:9:"metadata_version": 1,
+- facebook_session_browser.py:43:def safe_print(message: str) -> None:
+- facebook_session_browser.py:101:safe_print(f"ERROR: Playwright is not available in this environment: {exc}")
+- facebook_session_browser.py:102:safe_print("Run: ./facebook_video_archiver.sh --setup")

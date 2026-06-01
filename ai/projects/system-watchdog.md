@@ -1,240 +1,135 @@
-# system_watchdog AI OPERATIONS
-
-PROJECT
-- name: system_watchdog
-- slug: system-watchdog
-- purpose: Persistent heartbeat sender for a Uptime Kuma push monitor.
-- current_status: Working tree has 7 non-clean entries; do not mix unrelated changes. First entries: ?? .codexmeta, ?? .codexmeta.bak.20260528_191731, ?? .codexmeta.bak.20260528_191758, ?? .codexmeta.bak.20260528_191912, ?? .codexmeta.bak.20260528_193715
-- repo_path: `/home/daniele/codex-workspace/system_watchdog`
-- remote: `none`
-- branch: `master`
-- last_verified_commit/date: `d93002d` / `2026-06-01T13:20:29+02:00`
-
-STACK
-- languages: Python, Shell
-- frameworks: Python tooling
-- DB: UNKNOWN
-- platform: UNKNOWN
-- external_tools/services: systemd
-
-CODE_MAP
-entrypoints:
-- `watchdog.py`
-important_folders:
-- `dev`
-- `systemd`
-important_files:
-- `requirements.txt`
-- `dev/README.md`
-tests:
+META:
+name=system_watchdog
+slug=system-watchdog
+path=/home/daniele/codex-workspace/system_watchdog
+remote=none
+branch=master
+verified_commit=d93002d
+verified_at=2026-06-01T13:39:31+02:00
+PURPOSE:
+- Persistent heartbeat sender for a Uptime Kuma push monitor.
+STACK:
+lang=Python,Shell;fw=UNKNOWN;db=SQLite;platform=UNKNOWN;tools=Uptime Kuma,systemd
+MAP:
+entry=UNKNOWN
+core=dev/project.metadata.json,systemd/system-watchdog.service,watchdog.py
+ui=UNKNOWN
+db=UNKNOWN
+tests=UNKNOWN
+scripts=install.sh,logs.sh,status.sh,uninstall.sh
+build=UNKNOWN
+ci=UNKNOWN
+avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
+ARCH:
+- watchdog.py=>utc_now,utc_iso,local_iso,read_text,boot_id,uptime_seconds,connect_db
+- systemd/system-watchdog.service:5:StartLimitIntervalSec=0
+- systemd/system-watchdog.service:17:ExecStart=/usr/bin/python3 ~/cw/system_watchdog/watchdog.py run
+- systemd/system-watchdog.service:18:Restart=always
+- systemd/system-watchdog.service:19:RestartSec=10
+- watchdog.py:2:import argparse
+- watchdog.py:3:import json
+FLOW:
+- systemd/system-watchdog.service:5:StartLimitIntervalSec=0
+- systemd/system-watchdog.service:17:ExecStart=/usr/bin/python3 ~/cw/system_watchdog/watchdog.py run
+- systemd/system-watchdog.service:18:Restart=always
+- systemd/system-watchdog.service:19:RestartSec=10
+- watchdog.py:2:import argparse
+- watchdog.py:3:import json
+- watchdog.py:4:import os
+- watchdog.py:5:import signal
+- watchdog.py:6:import sqlite3
+- watchdog.py:7:import sys
+- watchdog.py:8:import time
+- watchdog.py:9:import urllib.error
+INV:
+arch=dev/project.metadata.json:9:"metadata_version": 1,
+arch=systemd/system-watchdog.service:15:Environment=WATCHDOG_TIMEOUT=20
+arch=watchdog.py:144:def push(url, timeout):
+arch=watchdog.py:148:with urllib.request.urlopen(req, timeout=timeout) as resp:
+arch=watchdog.py:183:ok, status, error, response_ms = push(args.push_url, args.timeout)
+arch=watchdog.py:202:ok, status, error, response_ms = push(args.push_url, args.timeout)
+data=systemd/system-watchdog.service:12:Environment=WATCHDOG_DB=~/cw/system_watchdog/watchdog.sqlite
+data=watchdog.py:2:import argparse
+data=watchdog.py:3:import json
+data=watchdog.py:4:import os
+safety=install.sh:10:sudo install -m 0644 "$SERVICE_SRC" "$SERVICE_DST"
+safety=install.sh:11:sudo systemctl daemon-reload
+safety=install.sh:12:sudo systemctl enable --now system-watchdog.service
+safety=install.sh:13:sudo systemctl --no-pager --full status system-watchdog.service // true
+safety=uninstall.sh:4:sudo systemctl disable --now system-watchdog.service // true
+safety=uninstall.sh:5:sudo rm -f /etc/systemd/system/system-watchdog.service
+safety=uninstall.sh:6:sudo systemctl daemon-reload
+ux=UNKNOWN
+version=dev/project.metadata.json:9:"metadata_version": 1,
+version=watchdog.py:144:def push(url, timeout):
+version=watchdog.py:183:ok, status, error, response_ms = push(args.push_url, args.timeout)
+version=watchdog.py:202:ok, status, error, response_ms = push(args.push_url, args.timeout)
+i18n=UNKNOWN
+BUILD:
+- install.sh:1:#!/usr/bin/env bash
+- install.sh:8:python3 --version >/dev/null
+- install.sh:11:sudo systemctl daemon-reload
+- install.sh:12:sudo systemctl enable --now system-watchdog.service
+- install.sh:13:sudo systemctl --no-pager --full status system-watchdog.service // true
+- logs.sh:1:#!/usr/bin/env bash
+- logs.sh:4:journalctl -u system-watchdog.service -n "${1:-100}" --no-pager
+- status.sh:1:#!/usr/bin/env bash
+- status.sh:5:systemctl --no-pager --full status system-watchdog.service // true
+- status.sh:7:python3 "$ROOT/watchdog.py" last // true
+- uninstall.sh:1:#!/usr/bin/env bash
+- uninstall.sh:4:sudo systemctl disable --now system-watchdog.service // true
+TEST:
 - UNKNOWN
-scripts:
-- `install.sh`
-- `logs.sh`
-- `status.sh`
-- `uninstall.sh`
-- `watchdog.py`
-generated/runtime/avoid_touch_casually:
-- `dev/legacy`
-
-ARCH
-summary:
-- dev/legacy/README.md: Persistent heartbeat sender for a Uptime Kuma push monitor.
-- dev/legacy/docs/ARCHITECTURE.md: The Mint watchdog is intentionally small:
-- dev/legacy/docs/TROUBLESHOOTING.md: If HTTP push fails, the service continues retrying. Check network reachability to:
-- dev/legacy/docs/CODEX_CONTEXT.md: `/home/daniele/codex-workspace/system_watchdog`
-- dev/legacy/docs/UPDATE_PROCEDURE.md: sudo systemctl restart system-watchdog.service
-- requirements.txt: # No third-party Python packages are required.
-- install.sh: ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-- logs.sh: journalctl -u system-watchdog.service -n "${1:-100}" --no-pager
-- status.sh: ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-- uninstall.sh: sudo systemctl disable --now system-watchdog.service // true
-components/dataflow/design_decisions:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | # Linux Mint System Watchdog |
-| `dev/legacy/README.md` | ## Commands |
-| `dev/legacy/README.md` | ## Files |
-| `dev/legacy/docs/ARCHITECTURE.md` | # Architecture |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | # Troubleshooting |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | # Codex Context |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | # Update Procedure |
-| `requirements.txt` | # No third-party Python packages are required. |
-| `requirements.txt` | # watchdog.py uses only the Python standard library. |
-| `install.sh` | #!/usr/bin/env bash |
-| `logs.sh` | #!/usr/bin/env bash |
-| `status.sh` | #!/usr/bin/env bash |
-| `uninstall.sh` | #!/usr/bin/env bash |
-| `watchdog.py` | #!/usr/bin/env python3 |
-| `dev/legacy/README.md` | Persistent heartbeat sender for a Uptime Kuma push monitor. |
-| `dev/legacy/docs/ARCHITECTURE.md` | The Mint watchdog is intentionally small: |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | If HTTP push fails, the service continues retrying. Check network reachability to: |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | `/home/daniele/codex-workspace/system_watchdog` |
-
-INVARIANTS
-architecture/data/UX/safety/versioning/localization:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | Persistent heartbeat sender for a Uptime Kuma push monitor. |
-| `dev/legacy/README.md` | It runs on Linux Mint as `system-watchdog.service`, sends one push every 60 seconds to the remote Kuma endpoint, and records each attempt in local SQLite at: |
-| `dev/legacy/README.md` | - `watchdog.sqlite`: runtime database |
-| `dev/legacy/docs/ARCHITECTURE.md` | - `watchdog.py` sends an HTTP push to Uptime Kuma every 60 seconds. |
-| `dev/legacy/docs/ARCHITECTURE.md` | - Push failures are recorded but do not stop the loop. |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | Run one push manually: |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | If HTTP push fails, the service continues retrying. Check network reachability to: |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | - Push interval: 60 seconds |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | - Do not add local Telegram sending. |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | - Do not add Docker on Mint. |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | - Verify with `systemctl`, SQLite queries, and a real HTTP push. |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | 4. Commit locally: |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | git commit -m "update system watchdog" |
-| `install.sh` | python3 --version >/dev/null |
-| `uninstall.sh` | echo "Database and logs left in place: watchdog.sqlite watchdog.log" |
-| `watchdog.py` | DEFAULT_PUSH_URL = "http://150.230.148.128:3001/api/push/W1h8mBAnP8?status=up&msg=OK&ping=" |
-| `watchdog.py` | id INTEGER PRIMARY KEY AUTOINCREMENT, |
-| `watchdog.py` | conn.commit() |
-| `watchdog.py` | def push(url, timeout): |
-| `watchdog.py` | ok, status, error, response_ms = push(args.push_url, args.timeout) |
-| `watchdog.py` | p = argparse.ArgumentParser(description="Linux Mint heartbeat watchdog for Uptime Kuma push monitors") |
-| `watchdog.py` | p.add_argument("--push-url", default=os.environ.get("WATCHDOG_PUSH_URL", DEFAULT_PUSH_URL)) |
-
-BUILD_TEST
-build_files:
-- `requirements.txt`
-commands_found:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | sudo systemctl restart system-watchdog.service |
-| `dev/legacy/README.md` | sudo systemctl stop system-watchdog.service |
-| `dev/legacy/README.md` | python3 watchdog.py once |
-| `dev/legacy/README.md` | python3 watchdog.py last |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | python3 watchdog.py last |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | python3 watchdog.py once |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | git status --short |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | sudo systemctl restart system-watchdog.service |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | python3 watchdog.py last |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | git add . |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | git commit -m "update system watchdog" |
-| `install.sh` | #!/usr/bin/env bash |
-| `install.sh` | python3 --version >/dev/null |
-| `install.sh` | sudo systemctl daemon-reload |
-| `install.sh` | sudo systemctl enable --now system-watchdog.service |
-| `install.sh` | sudo systemctl --no-pager --full status system-watchdog.service // true |
-| `logs.sh` | #!/usr/bin/env bash |
-| `logs.sh` | journalctl -u system-watchdog.service -n "${1:-100}" --no-pager |
-| `status.sh` | #!/usr/bin/env bash |
-| `status.sh` | systemctl --no-pager --full status system-watchdog.service // true |
-| `status.sh` | python3 "$ROOT/watchdog.py" last // true |
-| `uninstall.sh` | #!/usr/bin/env bash |
-| `uninstall.sh` | sudo systemctl disable --now system-watchdog.service // true |
-| `uninstall.sh` | sudo systemctl daemon-reload |
-test_targets:
-- UNKNOWN
-known_test_flakiness_or_requirements:
-- watchdog.py: def push(url, timeout):
-- watchdog.py: with urllib.request.urlopen(req, timeout=timeout) as resp:
-- watchdog.py: ok, status, error, response_ms = push(args.push_url, args.timeout)
-- watchdog.py: p.add_argument("--timeout", type=int, default=int(os.environ.get("WATCHDOG_TIMEOUT", "20")))
-
-VERSIONING_RELEASE
-rules/artifacts/commit_push/release_blockers:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | Persistent heartbeat sender for a Uptime Kuma push monitor. |
-| `dev/legacy/README.md` | It runs on Linux Mint as `system-watchdog.service`, sends one push every 60 seconds to the remote Kuma endpoint, and records each attempt in local SQLite at: |
-| `dev/legacy/docs/ARCHITECTURE.md` | - `watchdog.py` sends an HTTP push to Uptime Kuma every 60 seconds. |
-| `dev/legacy/docs/ARCHITECTURE.md` | - Push failures are recorded but do not stop the loop. |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | Run one push manually: |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | If HTTP push fails, the service continues retrying. Check network reachability to: |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | - Push interval: 60 seconds |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | - Verify with `systemctl`, SQLite queries, and a real HTTP push. |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | 4. Commit locally: |
-| `dev/legacy/docs/UPDATE_PROCEDURE.md` | git commit -m "update system watchdog" |
-| `install.sh` | python3 --version >/dev/null |
-| `watchdog.py` | DEFAULT_PUSH_URL = "http://150.230.148.128:3001/api/push/W1h8mBAnP8?status=up&msg=OK&ping=" |
-| `watchdog.py` | conn.commit() |
-| `watchdog.py` | def push(url, timeout): |
-| `watchdog.py` | ok, status, error, response_ms = push(args.push_url, args.timeout) |
-| `watchdog.py` | p = argparse.ArgumentParser(description="Linux Mint heartbeat watchdog for Uptime Kuma push monitors") |
-| `watchdog.py` | p.add_argument("--push-url", default=os.environ.get("WATCHDOG_PUSH_URL", DEFAULT_PUSH_URL)) |
-
-DATA_STORAGE
-DB_paths/backup/import/export/migration/retention/user_data_safety:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | It runs on Linux Mint as `system-watchdog.service`, sends one push every 60 seconds to the remote Kuma endpoint, and records each attempt in local SQLite at: |
-| `dev/legacy/README.md` | - `watchdog.sqlite`: runtime database |
-| `dev/legacy/docs/CODEX_CONTEXT.md` | - Verify with `systemctl`, SQLite queries, and a real HTTP push. |
-| `uninstall.sh` | echo "Database and logs left in place: watchdog.sqlite watchdog.log" |
-| `logs.sh` | #!/usr/bin/env bash |
-| `logs.sh` | journalctl -u system-watchdog.service -n "${1:-100}" --no-pager |
-| `watchdog.py` | import sqlite3 |
-| `watchdog.py` | conn = sqlite3.connect(path) |
-| `watchdog.py` | import urllib.error |
-
-KNOWN_BUGS
-active/historical/root_causes/regression_checklist:
-| source | fact |
-|---|---|
-| `dev/legacy/docs/ARCHITECTURE.md` | - At process start, the previous heartbeat is compared with current time and boot ID to estimate gaps after freeze, power loss, reboot, or downtime. |
-| `watchdog.py` | import urllib.error |
-| `watchdog.py` | error TEXT, |
-| `watchdog.py` | def push(url, timeout): |
-| `watchdog.py` | with urllib.request.urlopen(req, timeout=timeout) as resp: |
-| `watchdog.py` | except urllib.error.HTTPError as exc: |
-| `watchdog.py` | (utc_ts, local_ts, boot_id, uptime_seconds, push_ok, http_status, error, response_ms) |
-| `watchdog.py` | result["error"], |
-| `watchdog.py` | ok, status, error, response_ms = push(args.push_url, args.timeout) |
-| `watchdog.py` | "error": error, |
-| `watchdog.py` | SELECT utc_ts, local_ts, boot_id, uptime_seconds, push_ok, http_status, error, response_ms |
-| `watchdog.py` | keys = ["utc_ts", "local_ts", "boot_id", "uptime_seconds", "push_ok", "http_status", "error", "response_ms"] |
-| `watchdog.py` | p.add_argument("--timeout", type=int, default=int(os.environ.get("WATCHDOG_TIMEOUT", "20"))) |
-
-DO_NOT_BREAK
-- Preserve `dev/project.metadata.json` -> this AI doc -> Human docs workflow.
-- Preserve `dev/legacy/`; do not delete or rewrite historical docs without explicit migration intent.
-- dev/legacy/README.md: - `watchdog.sqlite`: runtime database
-- dev/legacy/docs/ARCHITECTURE.md: - Push failures are recorded but do not stop the loop.
-- dev/legacy/docs/CODEX_CONTEXT.md: - Do not add local Telegram sending.
-- dev/legacy/docs/CODEX_CONTEXT.md: - Do not add Docker on Mint.
-- install.sh: python3 --version >/dev/null
-- uninstall.sh: echo "Database and logs left in place: watchdog.sqlite watchdog.log"
-
-RECENT_DECISIONS
-| source | fact |
-|---|---|
-| `UNKNOWN` | no verified recent decisions found in read sources. |
-
-ROADMAP
-active/deferred/risky:
-| source | fact |
-|---|---|
-| `UNKNOWN` | no verified roadmap found in read sources. |
-
-LEGACY_SUMMARY
-- legacy_docs_read_count: 12
-- legacy_docs_read:
-- `dev/README.md`
-- `dev/legacy/README.md`
-- `dev/legacy/docs/ARCHITECTURE.md`
-- `dev/legacy/docs/TROUBLESHOOTING.md`
-- `dev/legacy/docs/CODEX_CONTEXT.md`
-- `dev/legacy/docs/UPDATE_PROCEDURE.md`
-- `requirements.txt`
-- `install.sh`
-- `logs.sh`
-- `status.sh`
-- `uninstall.sh`
-- `watchdog.py`
-- extracted: purpose, stack, commands, invariants, bugs, roadmap, changelog, code map.
-- historical_only: original local docs in `dev/legacy`; use only when AI doc lacks detail or for audit history.
-
-LINKS
-- metadata: [dev/project.metadata.json](../../../system_watchdog/dev/project.metadata.json)
-- human_overview: [human overview](../../human/projects/system-watchdog/overview.md)
-- human_folder: [human folder](../../human/projects/system-watchdog)
-- legacy_docs: [dev/legacy](../../../system_watchdog/dev/legacy)
-- repo_path: [repo](../../../system_watchdog)
-
-OPEN_QUESTIONS
-- watchdog.py: with urllib.request.urlopen(req, timeout=timeout) as resp:
+DATA:
+db=systemd/system-watchdog.service:12:Environment=WATCHDOG_DB=~/cw/system_watchdog/watchdog.sqlite
+db=watchdog.py:2:import argparse
+db=watchdog.py:3:import json
+db=watchdog.py:4:import os
+backup=UNKNOWN
+import=watchdog.py:2:import argparse
+import=watchdog.py:3:import json
+import=watchdog.py:4:import os
+export=UNKNOWN
+migration=UNKNOWN
+retention=UNKNOWN
+DNB:
+- install.sh:10:sudo install -m 0644 "$SERVICE_SRC" "$SERVICE_DST"
+- install.sh:11:sudo systemctl daemon-reload
+- install.sh:12:sudo systemctl enable --now system-watchdog.service
+- install.sh:13:sudo systemctl --no-pager --full status system-watchdog.service // true
+- uninstall.sh:4:sudo systemctl disable --now system-watchdog.service // true
+- uninstall.sh:5:sudo rm -f /etc/systemd/system/system-watchdog.service
+- uninstall.sh:6:sudo systemctl daemon-reload
+- dev/project.metadata.json:9:"metadata_version": 1,
+- install.sh:8:python3 --version >/dev/null
+- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks
+BUG:
+- systemd/system-watchdog.service:15:Environment=WATCHDOG_TIMEOUT=20
+- systemd/system-watchdog.service:21:StandardError=journal
+- watchdog.py:9:import urllib.error
+- watchdog.py:38:except OSError:
+- watchdog.py:50:except (ValueError, IndexError):
+- watchdog.py:67:error TEXT,
+- watchdog.py:100:except ValueError:
+- watchdog.py:140:except OSError:
+- watchdog.py:144:def push(url, timeout):
+- watchdog.py:148:with urllib.request.urlopen(req, timeout=timeout) as resp:
+RISK:
+- install.sh:10:sudo install -m 0644 "$SERVICE_SRC" "$SERVICE_DST"
+- install.sh:11:sudo systemctl daemon-reload
+- install.sh:12:sudo systemctl enable --now system-watchdog.service
+- install.sh:13:sudo systemctl --no-pager --full status system-watchdog.service // true
+- uninstall.sh:4:sudo systemctl disable --now system-watchdog.service // true
+- uninstall.sh:5:sudo rm -f /etc/systemd/system/system-watchdog.service
+- uninstall.sh:6:sudo systemctl daemon-reload
+ROAD:
+now=systemd/system-watchdog.service:15:Environment=WATCHDOG_TIMEOUT=20
+next=systemd/system-watchdog.service:21:StandardError=journal
+later=watchdog.py:9:import urllib.error
+LINK:
+meta=../../../system_watchdog/dev/project.metadata.json
+human=../../human/projects/system-watchdog/overview.md
+legacy=../../../system_watchdog/dev/legacy
+repo=../../../system_watchdog
+OPEN:
+- no tests detected by static scan

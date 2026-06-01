@@ -1,42 +1,31 @@
 # MultiTimeTracker Roadmap
 
-Roadmap items are extracted from legacy roadmap, changelog, TODO, operations, and troubleshooting material. Dates are only included when they were present in source text.
+## Segnali dal codice
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:124:// we won't receive ON_RESUME and the "app usage" counter would stay frozen until the next resume.
+- app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:98:// Persist permission for future sessions.
+- app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:110:// Roll back the saved URI to avoid future "Export fallito" loops.
+- app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:250:// clear the saved URI so the next tap will re-open the folder picker.
+- app/src/main/java/com/example/multitimetracker/export/CsvImporter.kt:920:val next = if (i + 1 < line.length) line[i + 1] else null
+- app/src/main/java/com/example/multitimetracker/export/CsvImporter.kt:921:if (next == '"') {
+- app/src/main/java/com/example/multitimetracker/export/ZipBackupExporter.kt:54:zos.putNextEntry(entry)
+- app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
+- app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:33:* - It makes future Multi-DB isolation possible (state vaults vs log streams).
+- app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:79:while (c.moveToNext()) {
+- app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:93:fun hasLaterEventsForEntity(
+- app/src/main/java/com/example/multitimetracker/persistence/IntegrityStatsSqlite.kt:169:while (c.moveToNext()) {
 
-## Active Or Near-Term Work
-| source | fact |
-|---|---|
-| `dev/archive/transient/codex log.txt` | - roadmap attiva/storica |
-| `dev/legacy/dev/human/INDEX.md` | - `ROADMAP.md`: readable active/later roadmap. |
-| `dev/legacy/dev/human/INDEX.md` | - `PLAYSTORE_READINESS_REPORT.md`: Play Store readiness status and pending checks. |
-| `dev/legacy/dev/human/INDEX.md` | - `ROADMAP_EXPLAINED.md`: readable roadmap state. |
-| `dev/legacy/dev/ai/ARCHITECTURE_LOCK.md` | Future device tests must use only the clone package and must preserve the main app. |
-| `dev/legacy/dev/ai/OPERATING_RULES.md` | ## PRIORITY |
-| `dev/legacy/dev/ai/BUG_REGISTRY.md` | / TCL_DEVICE / PENDING / no TCL validation device currently confirmed / |
-| `dev/legacy/dev/ai/RISK_REGISTER.md` | / startup_reopen_ANR / WATCH / v521 recovery/startup clone tests PASS; release/main smoke pending / |
-| `dev/legacy/dev/ai/RISK_REGISTER.md` | / exact_alarm_OEM_behavior / WATCH / v518 copy scoped; device/OEM still pending / |
-| `dev/legacy/dev/ai/RISK_REGISTER.md` | / fullscreen_policy / WATCH / v518 runtime copy scoped; store/artifact/device still pending / |
-| `dev/legacy/dev/ai/RISK_REGISTER.md` | / screenshot_listing_cleanliness / pending visual pass / |
-| `dev/legacy/dev/ai/RISK_REGISTER.md` | / accessibility_static_sanity / pending UI pass / |
-| `dev/legacy/en/Troubleshooting/Troubleshooting.md` | If it is a concrete stretch of activity, it is a session. If it is a broader phase that answers “since when,” it probably belongs in [[en/Features/Life Periods/Life Periods]]. |
-| `dev/legacy/dev/ROADMAP_ACTIVE.md` | # MOVED: ROADMAP ACTIVE |
-| `dev/legacy/dev/ROADMAP_ACTIVE.md` | Active roadmap status moved to `dev/ai/ROADMAP_ACTIVE.md`. |
-| `dev/legacy/dev/ROADMAP_HISTORY.md` | Operational roadmap status lives in `dev/ai/ROADMAP_ACTIVE.md`. |
-
-## Deferred Or Risky Work
-- dev/legacy/en/Workflows/Common Tracking Workflows.md: Minimal use works best when paired with a small, stable tag set. It is better to track five important blocks clearly than to fail trying to capture everything.
-- dev/legacy/dev/ai/TEST_GATES.md: / 524b / connectedDeviceTestAndroidTest clone / BLOCKED_BY_ANDROID_UTP; runner NoClassDefFoundError com.google.common.util.concurrent.AbstractFuture$Failure$1; no main-package reset used /
-- dev/legacy/dev/BUG_REGISTRY.md: Current blocker/high/medium/low risk state moved to `dev/ai/RISK_REGISTER.md`.
-- dev/legacy/dev/ai/RISK_REGISTER.md: ## BLOCKER
-- dev/legacy/dev/ai/RISK_REGISTER.md: / 516 / receiver flag lint blocker fixed /
-- dev/legacy/dev/ai/ROADMAP_ACTIVE.md: / connected_clone / BLOCKED_BY_ANDROID_UTP; deviceTest runner crashed with NoClassDefFoundError in com.google.common.util.concurrent.AbstractFuture$Failure$1 after local code fix /
-- dev/legacy/dev/human/ROADMAP_EXPLAINED.md: - Closed the v515 static lint blocker for app-open snapshot-change receiver registration.
-- dev/legacy/dev/human/CHANGELOG.md: - Fixed the remaining v515 lint blocker by registering the app-open snapshot-change receiver as not exported through AndroidX `ContextCompat`.
-- dev/legacy/en/Features/Timed Sessions and Alerts.md: Timed sessions are best when the duration belongs naturally to the tag itself. Examples include focused intervals, standard breaks, review blocks, or routines with a known length. A timed tag can also choose
-- dev/legacy/dev/CONTRACT.md: Product, data, UX, and locked runtime invariants moved to `dev/ai/ARCHITECTURE_LOCK.md`.
-- dev/legacy/en/Interface/Chronology.md: Gaps are equally important. A gap is not necessarily a bug. It might be untracked life, forgotten capture, or a sign that the day needs reconstruction. Chronology makes those questions visible.
-- dev/archive/transient/codex log.txt: - DATABASE TIME
-
-## Practical Priority
-- First preserve the invariants listed in the AI doc.
-- Then resolve active bugs/regressions from troubleshooting evidence.
-- Only then expand features or release workflows.
+## Debito/rischi da considerare
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:67:// v138 Capsule Audit Engine: emit known capsule boundary leaks in Logcat (debug only)
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:254:is FirstRunSetupState.RestoreFailed -> context.getString(R.string.first_run_restore_failed_title)
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:296:is FirstRunSetupState.RestoreFailed -> context.getString(
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:298:R.string.first_run_restore_failed_keep_current_body_fmt
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:300:R.string.first_run_restore_failed_empty_body_fmt
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:325:FirstRunFallbackReason.RESTORE_FAILED -> context.getString(
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:327:R.string.first_run_restore_failed_keep_current_body_fmt
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:329:R.string.first_run_restore_failed_empty_body_fmt
+- app/src/main/AndroidManifest.xml:53:android:showWhenLocked="true"
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:46:import com.example.multitimetracker.perf.StartupPerfTrace
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:55:private enum class FirstRunWorkStep {
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:66:StartupPerfTrace.section("main_activity_on_create") {
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:72:val schemaChanged = StartupPerfTrace.section("ensure_session_tables") {
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt:98:private fun MultiTimeTrackerApp(

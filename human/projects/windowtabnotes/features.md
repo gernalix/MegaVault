@@ -1,47 +1,40 @@
 # WindowTabNotes Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- dev/legacy/dev/BUG_REGISTRY.md: ## Chrome doppia UI
-- dev/legacy/dev/BUG_REGISTRY.md: ## Search launcher apre una UI vuota
-- dev/legacy/docs/INSTALLAZIONE.md: sudo apt-get install -y python3 python3-gi gir1.2-gtk-3.0 sqlite3 rofi wmctrl xdotool x11-utils jq
-- system/windowtabnotes/__init__.py: from .version import VERSION, version_label
-- system/windowtabnotes/active_watch.py: from __future__ import annotations
-- system/windowtabnotes/api.py: from __future__ import annotations
-- system/windowtabnotes/cli.py: from __future__ import annotations
-- system/windowtabnotes/config.py: from __future__ import annotations
-- system/windowtabnotes/daemon.py: from __future__ import annotations
-- system/windowtabnotes/db.py: from __future__ import annotations
-- system/windowtabnotes/gtk_ui.py: from __future__ import annotations
-- system/windowtabnotes/logging_setup.py: from __future__ import annotations
-- system/windowtabnotes/native_debug.py: from __future__ import annotations
-- system/windowtabnotes/native_host.py: from __future__ import annotations
+## Mappa funzionale dal codice
+- `system/windowtabnotes/cli.py`: main, create_note_for_active_window, anchored_note_geometry, check_status
+- `browser-extension/content_script.js`: cleanupLegacyUi, LEGACY_SELECTORS
+- `browser-extension/dashboard.js`: openGlobalDashboard, statusEl, params, focusSearch, response
+- `browser-extension/focus.js`: params
+- `browser-extension/popup.js`: setStatus, setTabInfo, load, statusEl, tabInfoEl, openNoteEl, dashboardEl, searchEl
+- `browser-extension/service_worker.js`: createEmptyState, sanitizeState, loadState, saveState, enqueueMutation, mutateState, nativeMessage, nativeError
+- `system/windowtabnotes/active_watch.py`: OverlayController, sync_open_windows, active_note_for_current_context, handle_active_window, run_active_window_watch, active_window_watch_debug, _start_xprop_spy, _current_active_id
+- `system/windowtabnotes/api.py`: handle_native_message, _record_from_tab, _tab_row, _is_internal_focus_tab, _require_dict, _require_str, _require_int, _error
+- `system/windowtabnotes/config.py`: Settings, xdg_data_home, xdg_config_home, xdg_cache_home, data_dir, config_dir, cache_dir, db_path
+- `system/windowtabnotes/daemon.py`: run_daemon
+- `system/windowtabnotes/db.py`: now_ms, new_id, connect, db, init_db, migrate, get_schema_version, set_metadata
+- `system/windowtabnotes/gtk_ui.py`: _gtk, open_note_window, open_dashboard, overlay_debug, dashboard_debug, _context_row, _populate_settings, _activate_context
+- `system/windowtabnotes/logging_setup.py`: setup_logging
+- `system/windowtabnotes/native_debug.py`: native_host_path, repo_root, native_manifest_paths, expected_manifest, run_native_debug, build_report, write_manifest, inspect_manifest
+- `system/windowtabnotes/native_host.py`: main, _write, native_host_status, _record_start, _record_message, _read_metrics, _metrics_path, _metrics_lock_path
+- `system/windowtabnotes/overlay_runtime.py`: overlay_lock, cleanup_overlays, cleanup_overlays_locked, list_overlay_processes, overlay_count, find_overlay_process, write_overlay_state, read_json_metadata
+- `system/windowtabnotes/rofi.py`: SearchItem, RuntimeSearchState, refresh_runtime_contexts, run_search_launcher, install_search_launcher, run_global_search, _runtime_search_state, _build_search_items
+- `system/windowtabnotes/shortcuts.py`: expected_command, install_shortcuts, shortcuts_status, print_shortcuts_status, _run, _run_optional, _xfsettingsd_running, _start_xfsettingsd
+- `system/windowtabnotes/version.py`: version_label
+- `system/windowtabnotes/windows.py`: WindowSnapshot, WindowGeometry, dependency_status, require_x11_tools, active_window, active_window_id, window_snapshot, is_manageable_window
+- `system/scripts/install.sh`: usage
 
-## Useful Limits And Boundaries
-- dev/legacy/dev/ARCHITECTURE.md: - Overlay invariant: prima di qualunque autoshow/manual open viene preso `overlay.lock`, vengono chiusi gli overlay `open-note` non correnti, poi viene mostrato solo il target. `overlay-debug --fix` e `overlay-cleanup` riparano 
-- dev/legacy/dev/ARCHITECTURE.md: - Search data invariant: backend e debug devono garantire che ogni risultato di query non vuota contenga la query case-insensitive in `notes.text`. Titolo finestra, app, URL, workspace e tab metadata sono solo display/attivazion
-- dev/legacy/dev/TEST_PLAN.md: - salvare manualmente una geometry fuori schermo, con width/height <= 0 o sotto la soglia irrecuperabile 16x8 nel database di test, eseguire `overlay-debug --fix-geometry` e confermare che solo quei valori impossibili vengano ripar
-- dev/legacy/dev/BUG_REGISTRY.md: - `search-debug QUERY` fallisce se trova risultati in cui `QUERY` non e nel body nota.
-- dev/legacy/dev/BUG_REGISTRY.md: - `overlay-debug --fix-geometry` ripara solo dimensioni <= 0, valori non parseabili o coordinate completamente fuori schermo.
-- dev/legacy/dev/BUG_REGISTRY.md: - dopo la rimozione dei clamp/min-size aggressivi l'overlay non decorato risultava di fatto non ridimensionabile manualmente.
-- dev/legacy/dev/BUG_REGISTRY.md: - `overlay-debug --fix-geometry` ripara solo geometry non parseabili, width/height <= 0, coordinate completamente offscreen o dimensioni irrecuperabili sotto 16x8 px; 17x9 resta valido e non viene ingrandito.
-- dev/legacy/dev/BUG_REGISTRY.md: - non usare `overlay-debug --fix-geometry` per normalizzare preferenze piccole ma recuperabili dell'utente.
-- dev/legacy/dev/BUG_REGISTRY.md: - il filtro resta body-only: metadati visibili non devono diventare l'unico motivo di match.
-- dev/legacy/dev/BUG_REGISTRY.md: - non c'era un blocco esplicito del watcher durante una apertura manuale da search.
-
-## Where The Feature Code Appears To Live
-- `system/windowtabnotes/cli.py`
-- `system/windowtabnotes/native_host.py`
-- `browser-extension/content_script.js`
-- `browser-extension/content_style.css`
-- `browser-extension/dashboard.css`
-- `browser-extension/dashboard.html`
-- `browser-extension/dashboard.js`
-- `browser-extension/icons/icon128.png`
-- `browser-extension/icons/icon16.png`
-- `browser-extension/icons/icon32.png`
-- `browser-extension/icons/icon48.png`
-- `browser-extension/manifest.json`
-- `system/bin/windowtabnotes`
-- `system/bin/windowtabnotes-native-host`
+## Confini operativi
+- browser-extension/content_script.js:13:element.remove();
+- browser-extension/focus.js:9:return chrome.tabs.remove(tab.id);
+- browser-extension/service_worker.js:135:async function removeOpenTab(tabId) {
+- browser-extension/service_worker.js:138:delete snapshot[String(tabId)];
+- browser-extension/service_worker.js:259:pendingTabSyncs.delete(key);
+- browser-extension/service_worker.js:312:await chrome.tabs.remove(numericTabId);
+- browser-extension/service_worker.js:410:chrome.tabs.onRemoved.addListener((tabId) => {
+- browser-extension/service_worker.js:411:removeOpenTab(tabId).catch(() => {});
+- browser-extension/manifest.json:2:"manifest_version": 3,
+- browser-extension/manifest.json:4:"version": "20.0.0",
+- browser-extension/manifest.json:5:"version_name": "v20",
+- system/windowtabnotes/cli.py:18:from .version import version_label

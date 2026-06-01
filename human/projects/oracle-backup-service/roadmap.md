@@ -1,26 +1,20 @@
 # oracle-backup-service Roadmap
 
-Roadmap items are extracted from legacy roadmap, changelog, TODO, operations, and troubleshooting material. Dates are only included when they were present in source text.
+## Segnali dal codice
+- scripts/oracle-backup-healthcheck.sh:379:f"/ usage {root_used_pct}% >= {ROOT_USAGE_WARN_PCT}% first observation; warning deferred unless persistent for {ROOT_USAGE_WARN_PERSIST_SEC
 
-## Active Or Near-Term Work
-| source | fact |
-|---|---|
-| `dev/legacy/docs/OPERATIONS.md` | Give SSH priority and demote any currently running backup until the deployed |
-| `dev/legacy/docs/OPERATIONS.md` | For the persistent SSH priority override: |
-| `scripts/oracle-backup-healthcheck.sh` | f"/ usage {root_used_pct}% >= {ROOT_USAGE_WARN_PCT}% first observation; warning deferred unless persistent for {ROOT_USAGE_WARN_PERSIST_SECONDS}s or worsens by {ROOT_USAGE_WORSEN_PCT_POINTS} points", |
-| `scripts/oracle-backup-healthcheck.sh` | "root_usage:PENDING", |
-
-## Deferred Or Risky Work
-- dev/legacy/docs/TROUBLESHOOTING.md: The failure happened even for a 1-byte `rclone copyto` test, so restic could not reliably create locks or write pack data. The remote repo was effectively write-blocked by quota.
-- dev/legacy/docs/OPERATIONS.md: sudo dmesg -T / egrep -i 'oom/out of memory/killed process/blocked for more/hung task/throttl/i/o error' / tail -120
-- scripts/backup.sh: record_remote_failure "$repo" "${last_repo_error:-unknown repo failure}"
-- scripts/backup.sh: echo "[!] local fallback repo failed: $LOCAL_FALLBACK_REPO (${last_repo_error:-unknown repo failure})"
-- scripts/check_remote_quota.py: print(f"REMOTE_QUOTA UNKNOWN path={path} error={exc}")
-- dev/legacy/README.md: Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, and the current SQLite snapshot directory, then records a success marker only after at least 
-- dev/legacy/README.md: - `Backup remote degraded` warning when the remote is blocked but emergency repo protection is recent
-- dev/legacy/README.md: `/var/lib/oracle_backup/sqlite_snapshots` contains temporary SQLite online-backup copies created before restic runs. They are safe to prune after restic has had a chance to back up recent copies; live databases are outside this directory.
-
-## Practical Priority
-- First preserve the invariants listed in the AI doc.
-- Then resolve active bugs/regressions from troubleshooting evidence.
-- Only then expand features or release workflows.
+## Debito/rischi da considerare
+- scripts/backup.sh:2:set -euo pipefail
+- scripts/backup.sh:13:LAST_REMOTE_ERROR_FILE="$STATE_DIR/last_remote_error"
+- scripts/backup.sh:14:LAST_REMOTE_FAILURE_EPOCH_FILE="$STATE_DIR/last_remote_failure_epoch"
+- scripts/backup.sh:36:RESTIC_BACKUP_TIMEOUT_SECONDS="${RESTIC_BACKUP_TIMEOUT_SECONDS:-5400}"
+- scripts/backup.sh:37:RESTIC_PRUNE_TIMEOUT_SECONDS="${RESTIC_PRUNE_TIMEOUT_SECONDS:-3600}"
+- scripts/backup.sh:38:REMOTE_PREFLIGHT_FAILURE_COOLDOWN_SECONDS="${REMOTE_PREFLIGHT_FAILURE_COOLDOWN_SECONDS:-21600}"
+- scripts/backup.sh:82:cleanup_failed_snapshot() {
+- scripts/backup.sh:96:cleanup_failed_snapshot
+- scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
+- scripts/backup.sh:24:export RESTIC_PASSWORD
+- scripts/backup.sh:59:if [[ "${FORCE_ORACLE_BACKUP:-0}" != "1" && "$last_any_success" =~ ^[0-9]+$ && "$MIN_BACKUP_INTERVAL_SECONDS" -gt 0 ]]; then
+- scripts/backup.sh:68:exec 9>"$RESTIC_RUN_LOCK"
+- scripts/backup.sh:69:if ! flock -n 9; then
+- scripts/backup.sh:85:rm -rf -- "$snap_run_dir"

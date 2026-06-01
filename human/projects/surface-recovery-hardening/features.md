@@ -1,48 +1,36 @@
 # surface-recovery-hardening Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- dev/legacy/docs/ARCHITECTURE.md: ## Failure Model
-- dev/legacy/docs/TROUBLESHOOTING.md: ## UAS Quirks
-- dev/legacy/reports/display_theme_scaling_report_v2.txt: SESSION UID USER SEAT TTY STATE IDLE SINCE
-- dev/legacy/reports/display_theme_scaling_report_v2.txt: # ~/.profile: executed by the command interpreter for login shells.
-- dev/legacy/reports/REPORT_v4_usb_io_hardening.md: ## Rischi Residui
-- dev/legacy/reports/prompt684_did_error_20260514_070407/FINAL_REPORT.md: ## Recovery Commands Created
-- dev/legacy/reports/prompt684_did_error_20260514_070407/FINAL_REPORT.md: ## Services Touched
-- dev/legacy/docs/OPERATIONS.md: /home/daniele/transfer_vecchio_disco_dashboard.sh --once
-- dev/legacy/reports/prompt418_recovery_restart_20260510_224929/pre_start_pgrep_af_rsync_required.txt: 84085 /bin/bash -c set -euo pipefail logdir=$(cat /tmp/prompt418_logdir) kill -TERM 63966 2>/dev/null // true sleep 1 pgrep -af rsync > "$logdir/pre_start_pgre
-- dev/legacy/reports/prompt418_recovery_restart_20260510_224929/source_mapper_lsblk_after_open.txt: NAME FSTYPE FSVER LABEL UUID FSAVAIL FSUSE% MOUNTPOINTS
-- dev/legacy/reports/prompt684_did_error_20260514_070407/user_services_status.txt: ● transfer-vecchio-disco-adaptive-throttle.service - Adaptive conservative throttle for transfer_vecchio_disco phase 2
-- dev/legacy/reports/prompt734_post_crash_20260510_222255/dmesg_filtered_usb_io_before_quirk.txt: [Sun May 10 22:16:01 2026] Command line: BOOT_IMAGE=/boot/vmlinuz-6.19.8-surface-3 root=UUID=a4bf0d13-b036-490e-9a14-aea83baf37a6 ro quiet splash rootdelay=10 i915.
-- dev/legacy/reports/prompt734_post_crash_20260510_222255/previous_boot_kernel_filtered_usb_io.txt: May 10 07:05:13 daniele-Surface-Pro kernel: Command line: BOOT_IMAGE=/boot/vmlinuz-6.19.8-surface-2 root=UUID=a4bf0d13-b036-490e-9a14-aea83baf37a6 ro quiet splash
-- configs/xrdp_startwm.sh: if command -v startxfce4 >/dev/null 2>&1; then
+## Mappa funzionale dal codice
+- `scripts/fix_mint_scaling_theme.sh`: add_path, xfconf_set, log, get_value, display0_panel_pids, physical_session_env_value, start_display0_panel
+- `scripts/screen_watchdog.sh`: timestamp, now_s, log, event, event_limited, save_state, telegram_env_args, notify
+- `scripts/show_scaling_theme_status.sh`: value
+- `scripts/freeze_reboot_monitor.sh`: timestamp, stamp_file, ensure_layout, write_readme, log_event, rotate_one, rotate_logs, safe_cmd
+- `scripts/low_memory_mode.sh`: timestamp, log, cmdline_for_pid, is_gradle_pid
+- `scripts/memory_pressure_guardian.sh`: timestamp, stamp_file, usage, log, run_or_log, meminfo_mb, psi_value_hundredths, decimal_to_hundredths
+- `scripts/recovery_dump.sh`: run
+- `scripts/recovery_status.sh`: once
+- `scripts/remote_recovery_tmux.sh`: ensure_window, ensure_session
+- `scripts/rsync_uptime_kuma_push.sh`: log, read_state, write_state, cmdline_for_pid, is_target_rsync_cmdline, proc_state, rsync_active, push_kuma
+- `scripts/source_cleanup_analyzer.py`: StopRequested, RunState, request_stop, now_iso, gb, safe_rel, atomic_write_json, open_db
+- `scripts/surface_recovery_rollback.sh`: log, restore_file
+- `scripts/transfer_usb_io_diag.sh`: run
+- `scripts/transfer_usb_io_watchdog.sh`: timestamp, now_s, log, save_state, sanitize_output, run_root, cmdline_for_pid, is_target_rsync_cmdline
+- `scripts/transfer_vecchio_disco_adaptive_throttle.sh`: log, run_root, cmdline_for_pid, is_target_rsync_cmdline, unique_lines, target_rsync_pids, current_bwlimit, meminfo_mb
+- `scripts/transfer_vecchio_disco_phase2_limited.sh`: timestamp, log_full, decode_findmnt_target, mountpoint_for_source, resolve_destination_device, write_status, classify_rsync_line
+- `scripts/transfer_vecchio_disco_recovery_commands.sh`: usage, cmdline_for_pid, is_target_rsync_cmdline, target_rsync_pids, run_root, assert_no_running_rsync, status, pause_rsync
 
-## Useful Limits And Boundaries
-- dev/legacy/README.md: abort journal, read-only filesystem, errori xHCI/UAS, oppure reset USB ripetuti
-- dev/legacy/README.md: 5. Se appaiono `read-only filesystem`, `Buffer I/O`, `JBD2 abort`, `device offline` o disconnect, fermare solo dopo decisione esplicita e pianificare recovery offline.
-- dev/legacy/README.md: Il rollback ripristina i backup in `/home/daniele/surface_recovery_backups/...`, rimuove i servizi recovery e rigenera GRUB.
-- dev/legacy/docs/ARCHITECTURE.md: - source disk: Seagate Expansion `0bc2:2322`, internal model `ST4000LM024-2AN17V`, serial `WFF0FEX8`, USB path `2-1.2`, driver `usb-storage`, BitLocker mapper mounted read-only at `/media/daniele/Seagate Expansion Drive`.
-- dev/legacy/docs/ARCHITECTURE.md: Safety invariants:
-- dev/legacy/docs/ARCHITECTURE.md: - source mount is read-only;
-- dev/legacy/docs/ARCHITECTURE.md: - `/home/daniele/transfer_vecchio_disco_phase2_limited.sh`: rsync launcher and UUID safety gate.
-- dev/legacy/docs/ARCHITECTURE.md: - `/home/daniele/transfer_vecchio_disco_recovery_commands.sh`: explicit recovery command entrypoint. It prepares resume but never runs it unless called with `resume`.
-- dev/legacy/docs/TROUBLESHOOTING.md: - less likely: filesystem corruption, because ext4 stayed mounted read-write and no `JBD2 abort`, `EXT4-fs error`, read-only remount or disconnect was observed;
-- dev/legacy/docs/TROUBLESHOOTING.md: journalctl -k --since '30 minutes ago' --no-pager / grep -Ei 'JBD2/EXT4-fs.*error/aborting journal/read-only/Buffer I/O/device offline/disconnect/DID_ERROR/I/O error/reset SuperSpeed'
-- dev/legacy/docs/TROUBLESHOOTING.md: 4. If only USB reset plus read error is present and mounts remain healthy, do not fsck live. Keep stopped or resume only after operator decision.
-- dev/legacy/docs/TROUBLESHOOTING.md: Do not send `SIGCONT` while the operator instruction says rsync must stay stopped.
-
-## Where The Feature Code Appears To Live
-- `scripts/source_cleanup_analyzer.py`
-- `configs/xrdp_startwm.sh`
-- `scripts/bundle_freeze_reboot_monitor_logs.sh`
-- `scripts/fix_mint_scaling_theme.sh`
-- `scripts/freeze_reboot_monitor.sh`
-- `scripts/low_memory_mode.sh`
-- `scripts/memory_pressure_guardian.sh`
-- `scripts/mint-xfce-layout-guard`
-- `scripts/recovery_dump.sh`
-- `scripts/recovery_status.sh`
-- `scripts/remote_recovery_tmux.sh`
-- `scripts/restore_mint_scaling_theme_backup.sh`
-- `scripts/rsync_uptime_kuma_push.sh`
+## Confini operativi
+- systemd/mint-xfce-layout-guard.service:6:KillMode=process
+- systemd/surface_recovery_configs_no-suspend.service:2:Description=Block sleep/idle during Surface recovery hardening
+- systemd/surface_recovery_configs_no-suspend.service:8:ExecStart=/usr/bin/systemd-inhibit --what=sleep:idle --why=Surface-recovery-hardening-keeps-backend-reachable --mode=block /us
+- scripts/fix_mint_scaling_theme.sh:83:kill "$pid" >/dev/null 2>&1 // true
+- scripts/fix_mint_scaling_theme.sh:89:pkill -u "$USER" xfconfd >/tmp/xfconfd-kill.log 2>&1 // true
+- scripts/fix_mint_scaling_theme.sh:260:LOCK="$HOME/.cache/mint-xfce-layout-guard.lock"
+- scripts/fix_mint_scaling_theme.sh:269:mkdir -p "$(dirname "$LOG")" "$(dirname "$LOCK")" "$BACKUP_DIR"
+- scripts/fix_mint_scaling_theme.sh:271:exec 9>"$LOCK"
+- scripts/restore_mint_scaling_theme_backup.sh:5:printf 'Usage: %s [backup.tar.gz]\n' "$0"
+- scripts/restore_mint_scaling_theme_backup.sh:9:BACKUP="${1:-}"
+- scripts/restore_mint_scaling_theme_backup.sh:10:if [ -z "$BACKUP" ]; then
+- scripts/restore_mint_scaling_theme_backup.sh:11:if [ -r "$HOME/xfce_theme_scaling_latest_backup.txt" ]; then

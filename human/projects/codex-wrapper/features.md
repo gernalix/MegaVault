@@ -1,12 +1,10 @@
 # codex-wrapper Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- UNKNOWN: no explicit feature list found in source docs.
-
-## Useful Limits And Boundaries
-- No explicit limits found; inspect AI doc before changes.
-
-## Where The Feature Code Appears To Live
+## Mappa funzionale dal codice
 - UNKNOWN
+
+## Confini operativi
+- dev/project.metadata.json:9:"metadata_version": 1,
+- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks

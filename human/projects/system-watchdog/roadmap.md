@@ -1,18 +1,20 @@
 # system_watchdog Roadmap
 
-Roadmap items are extracted from legacy roadmap, changelog, TODO, operations, and troubleshooting material. Dates are only included when they were present in source text.
+## Segnali dal codice
+- no tests detected by static scan
 
-## Active Or Near-Term Work
-| source | fact |
-|---|---|
-| UNKNOWN | No explicit roadmap found. |
-
-## Deferred Or Risky Work
-- dev/legacy/README.md: - `watchdog.sqlite`: runtime database
-- dev/legacy/docs/TROUBLESHOOTING.md: Run one push manually:
-- uninstall.sh: echo "Database and logs left in place: watchdog.sqlite watchdog.log"
-
-## Practical Priority
-- First preserve the invariants listed in the AI doc.
-- Then resolve active bugs/regressions from troubleshooting evidence.
-- Only then expand features or release workflows.
+## Debito/rischi da considerare
+- systemd/system-watchdog.service:15:Environment=WATCHDOG_TIMEOUT=20
+- systemd/system-watchdog.service:21:StandardError=journal
+- watchdog.py:9:import urllib.error
+- watchdog.py:38:except OSError:
+- watchdog.py:50:except (ValueError, IndexError):
+- watchdog.py:67:error TEXT,
+- watchdog.py:100:except ValueError:
+- watchdog.py:140:except OSError:
+- install.sh:10:sudo install -m 0644 "$SERVICE_SRC" "$SERVICE_DST"
+- install.sh:11:sudo systemctl daemon-reload
+- install.sh:12:sudo systemctl enable --now system-watchdog.service
+- install.sh:13:sudo systemctl --no-pager --full status system-watchdog.service // true
+- uninstall.sh:4:sudo systemctl disable --now system-watchdog.service // true
+- uninstall.sh:5:sudo rm -f /etc/systemd/system/system-watchdog.service

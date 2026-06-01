@@ -1,19 +1,20 @@
 # facebook-video-archiver Roadmap
 
-Roadmap items are extracted from legacy roadmap, changelog, TODO, operations, and troubleshooting material. Dates are only included when they were present in source text.
+## Segnali dal codice
+- no tests detected by static scan
 
-## Active Or Near-Term Work
-| source | fact |
-|---|---|
-| UNKNOWN | No explicit roadmap found. |
-
-## Deferred Or Risky Work
-- dev/legacy/README.md: The dashboard is terminal-only and reports `non stimabile` instead of inventing unknown totals or ETA.
-- dev/legacy/README.md: Sessione non loggata: run `--login-browser`, complete login/2FA/checkpoint manually, then press Enter in the terminal.
-- dev/legacy/dev/TEST_PLAN.md: - Do not run `--login-browser` as an automated test; the operator must log in manually.
-- dev/legacy/dev/OPERATIONS.md: - Sessione non loggata: run `--login-browser`, finish manual login/checkpoint, then rerun `--check-session`.
-
-## Practical Priority
-- First preserve the invariants listed in the AI doc.
-- Then resolve active bugs/regressions from troubleshooting evidence.
-- Only then expand features or release workflows.
+## Debito/rischi da considerare
+- facebook_archive_dashboard.py:38:except OSError:
+- facebook_archive_dashboard.py:47:for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+- facebook_archive_dashboard.py:62:lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+- facebook_archive_dashboard.py:69:except subprocess.CalledProcessError:
+- facebook_archive_dashboard.py:89:except OSError:
+- facebook_archive_dashboard.py:96:except OSError:
+- facebook_archive_dashboard.py:124:if any(token in line.lower() for token in ("warning", "error", "failed", "unsupported", "unable")):
+- facebook_archive_dashboard.py:162:"ultimi warning/errori:",
+- facebook_archive_dashboard.py:124:if any(token in line.lower() for token in ("warning", "error", "failed", "unsupported", "unable")):
+- facebook_session_browser.py:5:import http.cookiejar
+- facebook_session_browser.py:17:DEFAULT_COOKIE_EXPORT = "~/.config/facebook-video-archiver/facebook-cookies.txt"
+- facebook_session_browser.py:133:cookies = await context.cookies("https://www.facebook.com")
+- facebook_session_browser.py:134:cookie_names = {cookie.get("name", "") for cookie in cookies}
+- facebook_session_browser.py:135:if "c_user" in cookie_names or "xs" in cookie_names:

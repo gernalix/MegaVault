@@ -1,27 +1,20 @@
 # MultiTimeTracker Overview
 
-MultiTimeTracker is documented in the MegaVault because local project docs were consolidated and archived under `dev/legacy`. Verified purpose from the source corpus: MultiTimeTracker is a local-first Android time tracker. The main data lives in the app SQLite database, with sessions and shared tags as the core model.
+MultiTimeTracker is a local-first Android time tracker. The main data lives in the app SQLite database, with sessions and shared tags as the core model.
 
-## Why It Exists
-- dev/archive/transient/codex log.txt: Leggi solo questi file, in quest’ordine, e non fare repo tour:
-- dev/archive/transient/last_fix_attempts.txt: - Fix: replace gradle.buildFinished(...) with gradle.addBuildListener(BuildAdapter.buildFinished) to avoid Kotlin DSL/Closure mismatch on Gradle 9.x.
-- dev/legacy/dev/human/PROJECT_OVERVIEW.md: MultiTimeTracker is a local-first Android time tracker. The main data lives in the app SQLite database, with sessions and shared tags as the core model.
-- dev/legacy/dev/CAPSULE_INDEX.md: Capsule ownership notes moved to `dev/ai/CAPSULES.md`.
-- dev/legacy/dev/ai/CAPSULE_INDEX.md: / NOW / capsules/now, NowScreen.kt /
-- dev/legacy/dev/ai/INDEX.md: STYLE=neocodecs; terse; tables; no_long_prose
-- dev/legacy/dev/archive/INDEX.md: `dev/archive/*` is historical evidence only.
-
-## Current State
+## Stato e codice
 - Repository: `/home/daniele/codex-workspace/projects/MultiTimeTracker`
-- Branch at enrichment: `codex/v488-release-safe-ui-lockdown`
-- Latest local commit at enrichment: `80f88c0`
-- Stack signals: Kotlin, Python, Shell, Gradle, Jetpack Compose, Android
-- Documentation quality: enriched from legacy docs and repository structure
+- Branch/commit verificati: `codex/v488-release-safe-ui-lockdown` / `80f88c0`
+- File codice/config/test/script analizzati: 224 su 224
+- Stack rilevato: Kotlin, Python, Shell, Gradle, Jetpack Compose, Android
 
-## How To Use This Documentation
-Start with the AI doc for operational work, then read these Human pages for explanation. Legacy docs are historical context, not the primary operating source after this enrichment.
+## Orientamento rapido
+- Entrypoint: `app/src/main/AndroidManifest.xml,app/src/main/java/com/example/multitimetracker/MainActivity.kt,benchmark/src/main/AndroidManifest.xml`
+- Core/data: `app/src/main/java/com/example/multitimetracker/AppPatchVersion.kt,app/src/main/java/com/example/multitimetracker/SessionOnlyGuards.kt,app/src/main/java/com/example/multitimetracker/SingleSubmitGuard.kt,app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt,app/src/main/java/com/example/multitimetracker/MainViewModelSnapshotCoordinator.kt,app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt`
+- Test: `app/src/androidTest/java/com/example/multitimetracker/ExampleInstrumentedTest.kt,app/src/androidTest/java/com/example/multitimetracker/MainViewModelRecoveryTest.kt,app/src/androidTest/java/com/example/multitimetracker/SessionOnlyE2eTest.kt,app/src/androidTest/java/com/example/multitimetracker/TimedSessionNotificationFlowTest.kt,app/src/androidTest/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModelTest.kt`
+- Script/build: `dev/tools/check_hardcoded_ui_strings.py,dev/tools/check_single_submit_confirm_buttons.sh,dev/tools/clean_transients.sh,preflight_check.ps1,app/build.gradle,app/build.gradle.kts,benchmark/build.gradle.kts,build.gradle.kts`
 
-## Links
+## Link
 - AI doc: [AI doc](../../../ai/projects/multitimetracker.md)
 - Metadata: [dev/project.metadata.json](../../../../projects/MultiTimeTracker/dev/project.metadata.json)
 - Legacy docs: [dev/legacy](../../../../projects/MultiTimeTracker/dev/legacy)

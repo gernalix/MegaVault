@@ -1,69 +1,46 @@
 # SuperContacts Troubleshooting
 
-Use this page for symptoms and checks. For operational decisions, confirm against the AI doc first.
+## Problemi e sintomi rilevati nel codice
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:180:import kotlinx.coroutines.withTimeoutOrNull
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:348:viewModel.clearError()
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:362:errorMessage = uiState.errorMessage,
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:364:onErrorDismiss = viewModel::clearError,
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:417:errorMessage = uiState.errorMessage,
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:422:onErrorDismiss = viewModel::clearError,
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:449:viewModel.clearError()
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:463:errorMessage = uiState.errorMessage,
+- app/src/main/java/com/supercontacts/app/data/backup/BackupModels.kt:9:val lastError: String? = null,
+- app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:33:fun readLastError(): String? = prefs.getString(KEY_LAST_ERROR, null)
+- app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:35:fun writeLastError(error: String?) {
+- app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:36:prefs.edit().putString(KEY_LAST_ERROR, error).apply()
+- app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:44:private const val KEY_LAST_ERROR = "last_error"
+- app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:74:}.onFailure { error ->
+- app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:75:recordError(error.message ?: appContext.getString(R.string.backup_export_failed))
+- app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:93:prefs.writeLastError(null)
+- app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:95:} catch (error: Throwable) {
+- app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:97:recordError(error.message ?: appContext.getString(R.string.backup_folder_access_failed))
 
-## Known Problems And Symptoms
-| source | fact |
-|---|---|
-| `dev/legacy/dev/NEODOC.md` | - Cold-start and already-running intents route through the same resolver. Missing/invalid contacts show a friendly message and do not crash. |
-| `dev/legacy/dev/NEODOC.md` | - Deletion checks existence, ignores missing files, logs only minimal success/failure, and must not crash UI. |
-| `dev/legacy/dev/NEODOC.md` | ## Known Limits |
-| `dev/legacy/dev/NEODOC.md` | - Final report must include version, changed files, root cause, UX, deep link schema, sort persistence, cleanup strategy, docs state, limits, commit hash, git status, Pixel evidence. |
-| `tools/build-finalize.ps1` | Write-Log ("FAIL: exit code {0}" -f $exitCode) |
-| `tools/build-finalize.ps1` | Write-Log ("TELEGRAM {0}: FAIL exit code {1}" -f $ArtifactType, $exitCode) |
-| `tools/build-finalize.ps1` | Write-Log ("TELEGRAM {0}: FAIL {1}" -f $ArtifactType, $_.Exception.Message) |
-| `tools/build-finalize.ps1` | Write-Log ("ESITO: FAIL ({0}) - {1}" -f $Command, $_.Exception.Message) |
-| `tools/build-finalize.sh` | log "FAIL: exit code $status" |
-| `tools/build-finalize.sh` | log "TELEGRAM $label: FAIL" |
-| `tools/build-finalize.sh` | if [[ -e "$repo_root/$path" ]] && ! is_generated_path "$path" && ! git -C "$repo_root" ls-files --error-unmatch "$path" >/dev/null 2>&1; then |
-| `tools/codex_guardrails.ps1` | Write-Error $_ |
-| `tools/guardrails/engine.py` | except Exception as exc: # pragma: no cover - failure path |
-| `tools/guardrails/engine.py` | code="adb-ddmlib-timeout-non-blocking", |
-| `tools/tests/test_guardrails_engine.py` | "stderr_preview": "com.android.ddmlib.TimeoutException: timeout after test completion", |
-| `tools/tests/test_guardrails_engine.py` | self.assertEqual(warnings[0]["code"], "adb-ddmlib-timeout-non-blocking") |
-| `app/src/androidTest/java/com/supercontacts/app/BackupManagerInstrumentedTest.kt` | val failure = runCatching { |
-| `app/src/androidTest/java/com/supercontacts/app/BackupManagerInstrumentedTest.kt` | assertNotNull(failure) |
-| `app/src/androidTest/java/com/supercontacts/app/BackupManagerInstrumentedTest.kt` | ?: error("Phone field missing") |
-| `app/src/androidTest/java/com/supercontacts/app/ContactsRepositoryEventTest.kt` | ?: error("Phone field missing") |
-| `app/src/androidTest/java/com/supercontacts/app/ContactsRepositoryEventTest.kt` | val detail = repository.getContactById(contactId).first() ?: error("Missing contact") |
-| `app/src/androidTest/java/com/supercontacts/app/ContactsRepositoryEventTest.kt` | val updated = repository.getContactById(contactId).first() ?: error("Missing updated contact") |
+## Comandi/verifiche utili trovati
+- tools/build-finalize.ps1:124:function Invoke-Git {
+- tools/build-finalize.ps1:131:Invoke-LoggedCommand -FilePath "git" -Arguments $gitArguments
+- tools/build-finalize.ps1:141:& git @gitArguments
+- tools/build-finalize.ps1:143:throw ("git failed: {0}" -f ($Arguments -join " "))
+- tools/build-finalize.ps1:170:throw ("Gradle wrapper not found: {0}" -f $GradleWrapper)
+- tools/build-finalize.ps1:245:Invoke-Git -Arguments @("archive", "--format=zip", "--output=$zipPath", "HEAD")
+- tools/build-finalize.ps1:259:$python = Get-Command python -ErrorAction SilentlyContinue
+- tools/build-finalize.ps1:260:if ($python) {
+- tools/build-finalize.sh:1:#!/usr/bin/env bash
 
-## Useful Checks Or Commands
-| source | fact |
-|---|---|
-| `dev/legacy/dev/NEODOC.md` | - Device smoke package for manual adb flows: `com.supercontacts.app.debug`. |
-| `dev/legacy/dev/NEODOC.md` | - Final report must include version, changed files, root cause, UX, deep link schema, sort persistence, cleanup strategy, docs state, limits, commit hash, git status, Pixel evidence. |
-| `dev/legacy/apps_installate_mint.txt` | bash-completion/noble,noble,now 1:2.11-8 all [installed] |
-| `dev/legacy/apps_installate_mint.txt` | bash/noble,now 5.2.21-2ubuntu4 amd64 [installed] |
-| `dev/legacy/apps_installate_mint.txt` | flatpak/noble-updates,noble-security,now 1.14.6-1ubuntu0.1 amd64 [installed] |
-| `dev/legacy/apps_installate_mint.txt` | gh/noble-updates,noble-security,now 2.45.0-1ubuntu0.3 amd64 [installed] |
-| `dev/legacy/apps_installate_mint.txt` | git-man/noble-updates,noble-updates,noble-security,noble-security,now 1:2.43.0-1ubuntu7.3 all [installed,automatic] |
-| `dev/legacy/apps_installate_mint.txt` | git/noble-updates,noble-security,now 1:2.43.0-1ubuntu7.3 amd64 [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python-apt-common/noble-security,noble-security,now 2.7.7ubuntu5.1 all [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-apport/noble-updates,noble-updates,noble-security,noble-security,now 2.28.1-0ubuntu3.8 all [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-apt/noble-security,now 2.7.7ubuntu5.1 amd64 [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-aptdaemon.gtk3widgets/noble,noble,now 1.1.1+bzr982-0ubuntu44 all [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-aptdaemon/noble,noble,now 1.1.1+bzr982-0ubuntu44 all [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-argcomplete/noble-updates,noble-updates,now 3.1.4-1ubuntu0.1 all [installed,automatic] |
-| `dev/legacy/apps_installate_mint.txt` | python3-blinker/noble,noble,now 1.7.0-1 all [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-brlapi/noble,now 6.6-4ubuntu5 amd64 [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-brotli/noble,now 1.1.0-2build2 amd64 [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-bs4/noble,noble,now 4.12.3-1 all [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-cairo/noble,now 1.25.1-2build2 amd64 [installed] |
-| `dev/legacy/apps_installate_mint.txt` | python3-certifi/noble,noble,now 2023.11.17-1 all [installed] |
-
-## Safety Checks Before Fixing
-- dev/legacy/dev/NEODOC.md: - Patch runtime version source: `app/src/main/assets/patch-version.txt`. It is an integer asset, not Gradle config.
-- dev/legacy/dev/NEODOC.md: - Pixel validation uses debug/deviceTest packages only; never overwrite the personal `com.supercontacts.app` install.
-- dev/legacy/dev/NEODOC.md: - SQLite is primary storage. Core tables: `contacts`, `contact_fields`; related tables: events, initiatives, tags, backup metadata.
-- dev/legacy/dev/NEODOC.md: - Home cards show display name from name, nickname, email, else `Unnamed contact`; never phone.
-- dev/legacy/dev/NEODOC.md: - Home search never displays photo path/filename/URI/storage internals. Photo field values are excluded from match metadata; phone matches are not rendered on Home.
-- dev/legacy/dev/NEODOC.md: - Cold-start and already-running intents route through the same resolver. Missing/invalid contacts show a friendly message and do not crash.
-- dev/legacy/dev/NEODOC.md: - Photos are app-owned files under backup/SAF root `photos/`; DB stores relative references like `photos/<file>.jpg`.
-- dev/legacy/dev/NEODOC.md: - UI must never show photo filename/path, SAF URI, content URI, or raw storage internals.
-- dev/legacy/dev/NEODOC.md: - Replace/remove flow: DB transaction commits first and returns the old unreferenced path; old file is deleted after commit. If DB update fails after staging a new file, the staged file is deleted as rollback cleanup.
-- dev/legacy/dev/NEODOC.md: - Backup/import keeps `super_contacts_backup.sqlite` plus sibling `photos/` usable; relative photo references must survive restore.
-- dev/legacy/dev/NEODOC.md: - v17: Real nationality field with local versioned country/nationality asset, live autocomplete, free-text fallback, ISO country code persistence, flag display, Room v10 migration, and wider field-description verification across displ
-- dev/legacy/dev/NEODOC.md: - v15: Generic field descriptions with parent-bound add/edit/remove UI, localized EN/IT strings, Room v9 migration, parent-aware history events, and backup/import preservation.
-- dev/legacy/dev/NEODOC.md: - Distance sorting still depends on saved coordinates and current device location permission.
-- dev/legacy/dev/NEODOC.md: - Required for v17 nationality/field descriptions: `:app:compileDebugKotlin`, debug build, repository/history instrumentation, backup/import instrumentation, Pixel debug install/open, and UI evidence for description actions on name/ph
+## Safety prima di correggere
+- app/src/main/java/com/supercontacts/app/MainActivity.kt:15:private var latestIntent by mutableStateOf<Intent?>(null)
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:551:onDelete = { contactId ->
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:552:viewModel.deleteContact(contactId) {
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:567:onRemoveTag = { contactId, tagId -> viewModel.removeTagFromContact(contactId, tagId) },
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:660:private fun ContactListScreen(
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:897:private suspend fun loadPatchVersion(context: Context): String =
+- app/src/main/AndroidManifest.xml:1:<?xml version="1.0" encoding="utf-8"?>
+- app/src/main/AndroidManifest.xml:10:android:allowBackup="false"
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialValue = "", context) {

@@ -1,39 +1,28 @@
 # codex-html-live Troubleshooting
 
-Use this page for symptoms and checks. For operational decisions, confirm against the AI doc first.
+## Problemi e sintomi rilevati nel codice
+- codex_html_live.py:56:if path.exists() and path.read_text(encoding="utf-8", errors="replace") == content:
+- codex_html_live.py:58:except OSError:
+- codex_html_live.py:118:with path.open("r", encoding="utf-8", errors="replace") as handle:
+- codex_html_live.py:132:except json.JSONDecodeError as exc:
+- codex_html_live.py:133:return message_row("tool", "", f"JSON parse error: {exc}\n{raw[:1000]}")
+- codex_html_live.py:322:except FileNotFoundError:
+- codex_html_live.py:380:except Exception as exc:
+- codex_html_live.py:381:print(f"codex-html-live error: {exc}", file=sys.stderr, flush=True)
 
-## Known Problems And Symptoms
-| source | fact |
-|---|---|
-| `dev/legacy/dev/AGENT_RULES.md` | ## Regression Areas |
-| `dev/legacy/dev/TEST_PLAN.md` | ## Permission Regression Test |
-| `codex_html_live.py` | return message_row("tool", "", f"JSON parse error: {exc}\n{raw[:1000]}") |
-| `codex_html_live.py` | print(f"codex-html-live error: {exc}", file=sys.stderr, flush=True) |
+## Comandi/verifiche utili trovati
+- UNKNOWN: nessun comando rilevato in build/script/CI.
 
-## Useful Checks Or Commands
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | python3 codex_html_live.py install |
-| `dev/legacy/README.md` | systemctl --user is-active codex-html-live.service |
-| `dev/legacy/README.md` | journalctl --user -u codex-html-live.service -n 80 --no-pager |
-| `dev/legacy/dev/ARCHITECTURE.md` | systemctl --user status codex-html-live.service |
-| `dev/legacy/dev/ARCHITECTURE.md` | journalctl --user -u codex-html-live.service -n 120 --no-pager |
-| `dev/legacy/dev/TEST_PLAN.md` | python3 -m py_compile codex_html_live.py |
-| `dev/legacy/dev/TEST_PLAN.md` | python3 codex_html_live.py install |
-| `dev/legacy/dev/TEST_PLAN.md` | systemctl --user is-active codex-html-live.service |
-| `dev/legacy/dev/TEST_PLAN.md` | systemctl --user status codex-html-live.service --no-pager |
-| `dev/legacy/dev/TEST_PLAN.md` | journalctl --user -u codex-html-live.service -n 120 --no-pager |
-| `codex_html_live.py` | #!/usr/bin/env python3 |
-| `codex_html_live.py` | wrapper.write_text(f"#!/bin/sh\nexec /usr/bin/env python3 {Path(__file__).resolve()} \"$@\"\n", encoding="utf-8") |
-
-## Safety Checks Before Fixing
-- dev/legacy/README.md: - Original Codex sessions, read-only: `~/.codex/sessions/**/*.jsonl`
-- dev/legacy/README.md: Generated HTML and Codex JSONL session files are not source files and must not be committed.
-- dev/legacy/dev/ARCHITECTURE.md: - Original JSONL files are opened read-only by the daemon.
-- dev/legacy/dev/ARCHITECTURE.md: Do not edit or commit:
-- dev/legacy/dev/AGENT_RULES.md: ## Safety
-- dev/legacy/dev/AGENT_RULES.md: - Do not commit Codex JSONL sessions, generated HTML output, logs, credentials, or private runtime data.
-- dev/legacy/dev/AGENT_RULES.md: - Keep the project portable. Do not hardcode `/home/daniele` in source files; resolve paths at runtime with `Path.home()`.
-- dev/legacy/dev/AGENT_RULES.md: - Low CPU/I/O behavior: do not reread unchanged JSONL files in every poll, debounce changed active sessions, and avoid rewriting identical HTML.
-- dev/legacy/dev/AGENT_RULES.md: - Use clear commit messages that describe the operator-visible change.
-- codex_html_live.py: <meta name="viewport" content="width=device-width, initial-scale=1">
+## Safety prima di correggere
+- codex_html_live.py:199:@media (max-width: 720px) { .top { display: block; } th:nth-child(3), td:nth-child(3) { display: none; } .wrap { padding: 14px; } }
+- codex_html_live.py:348:removed = set(previous) - set(observed)
+- codex_html_live.py:349:for path in removed:
+- codex_html_live.py:352:if removed or ((set(previous) != set(rendered_state) or changed or not (OUTPUT_DIR / "index.html").exists()) and index_due):
+- codex_html_live.py:44:def safe_name(value: str) -> str:
+- codex_html_live.py:94:role_class = safe_name(role.lower())
+- codex_html_live.py:109:html_path=OUTPUT_DIR / f"{safe_name(fallback_id)}.html",
+- codex_html_live.py:145:session.html_path = OUTPUT_DIR / f"{safe_name(session.session_id)}.html"
+- codex_html_live.py:199:@media (max-width: 720px) { .top { display: block; } th:nth-child(3), td:nth-child(3) { display: none; } .wrap { padding: 14px; } }
+- codex_html_live.py:331:target = cached_session.html_path if cached_session else OUTPUT_DIR / f"{safe_name(path.stem)}.html"
+- dev/project.metadata.json:9:"metadata_version": 1,
+- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks

@@ -1,28 +1,21 @@
 # codex-html-live Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- dev/legacy/README.md: ## Quick Use
-- dev/legacy/README.md: ## Commands
-- dev/legacy/README.md: Live HTML archive for Codex JSONL sessions without tmux.
-- dev/legacy/dev/CHANGELOG.md: - Fixed dashboard UX so session IDs and an explicit `Open` column link to chat HTML files, with full-row hover and pointer affordance.
-- codex_html_live.py: from dataclasses import dataclass, field
+## Mappa funzionale dal codice
+- `codex_html_live.py`: RenderedSession, iso_from_mtime, safe_name, ensure_output_dir, atomic_write, text_from_content, short_json, message_row
+- `tests/test_codex_html_live.py`: CodexHtmlLiveTests
 
-## Useful Limits And Boundaries
-- dev/legacy/README.md: - Original Codex sessions, read-only: `~/.codex/sessions/**/*.jsonl`
-- dev/legacy/README.md: Generated HTML and Codex JSONL session files are not source files and must not be committed.
-- dev/legacy/dev/ARCHITECTURE.md: - Original JSONL files are opened read-only by the daemon.
-- dev/legacy/dev/ARCHITECTURE.md: Do not edit or commit:
-- dev/legacy/dev/AGENT_RULES.md: ## Safety
-- dev/legacy/dev/AGENT_RULES.md: - Treat `~/.codex/sessions/**/*.jsonl` as source data owned by Codex. The daemon must only read those files.
-- dev/legacy/dev/AGENT_RULES.md: - Do not commit Codex JSONL sessions, generated HTML output, logs, credentials, or private runtime data.
-- dev/legacy/dev/AGENT_RULES.md: - Keep the project portable. Do not hardcode `/home/daniele` in source files; resolve paths at runtime with `Path.home()`.
-- dev/legacy/dev/AGENT_RULES.md: - Avoid heavy mandatory dependencies. The default path must work with Python 3 standard library and systemd user services.
-- dev/legacy/dev/AGENT_RULES.md: - The daemon must detect new JSONL files after startup without manual intervention.
-- dev/legacy/dev/AGENT_RULES.md: - The daemon must refresh changed session HTML and the index automatically.
-- dev/legacy/dev/AGENT_RULES.md: - Low CPU/I/O behavior: do not reread unchanged JSONL files in every poll, debounce changed active sessions, and avoid rewriting identical HTML.
-
-## Where The Feature Code Appears To Live
-- `codex_html_live.py`
-- `tests/test_codex_html_live.py`
+## Confini operativi
+- codex_html_live.py:199:@media (max-width: 720px) { .top { display: block; } th:nth-child(3), td:nth-child(3) { display: none; } .wrap { padding: 14px; } }
+- codex_html_live.py:348:removed = set(previous) - set(observed)
+- codex_html_live.py:349:for path in removed:
+- codex_html_live.py:352:if removed or ((set(previous) != set(rendered_state) or changed or not (OUTPUT_DIR / "index.html").exists()) and index_due):
+- codex_html_live.py:44:def safe_name(value: str) -> str:
+- codex_html_live.py:94:role_class = safe_name(role.lower())
+- codex_html_live.py:109:html_path=OUTPUT_DIR / f"{safe_name(fallback_id)}.html",
+- codex_html_live.py:145:session.html_path = OUTPUT_DIR / f"{safe_name(session.session_id)}.html"
+- codex_html_live.py:199:@media (max-width: 720px) { .top { display: block; } th:nth-child(3), td:nth-child(3) { display: none; } .wrap { padding: 14px; } }
+- codex_html_live.py:331:target = cached_session.html_path if cached_session else OUTPUT_DIR / f"{safe_name(path.stem)}.html"
+- dev/project.metadata.json:9:"metadata_version": 1,
+- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks

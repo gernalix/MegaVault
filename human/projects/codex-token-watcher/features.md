@@ -1,12 +1,15 @@
 # codex-token-watcher Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- UNKNOWN: no explicit feature list found in source docs.
-
-## Useful Limits And Boundaries
-- No explicit limits found; inspect AI doc before changes.
-
-## Where The Feature Code Appears To Live
+## Mappa funzionale dal codice
 - UNKNOWN
+
+## Confini operativi
+- dev/project.metadata.json:2:"project_name": "codex-token-watcher",
+- dev/project.metadata.json:3:"project_slug": "codex-token-watcher",
+- dev/project.metadata.json:4:"project_root": "~/cw/codex-token-watcher",
+- dev/project.metadata.json:6:"ai_doc": "~/cw/MegaVault/ai/projects/codex-token-watcher.md",
+- dev/project.metadata.json:7:"human_doc": "~/cw/MegaVault/human/projects/codex-token-watcher",
+- dev/project.metadata.json:9:"metadata_version": 1,
+- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks

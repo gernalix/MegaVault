@@ -1,71 +1,44 @@
 # amici_fb Troubleshooting
 
-Use this page for symptoms and checks. For operational decisions, confirm against the AI doc first.
+## Problemi e sintomi rilevati nel codice
+- _shared/telegram_notify.py:38:raise RuntimeError(
+- _shared/telegram_notify.py:72:except Exception:
+- _shared/telegram_notify.py:85:raise RuntimeError(f"{action} failed: HTTP {response.status_code}: {body}")
+- _shared/telegram_notify.py:94:response = requests.post(_telegram_url("sendMessage"), json=payload, timeout=20)
+- _shared/telegram_notify.py:104:timeout=20,
+- _shared/telegram_notify.py:119:raise FileNotFoundError(str(path))
+- _shared/telegram_notify.py:133:timeout=60,
+- _shared/telegram_notify.py:160:parser.error("title and message are required unless --check is used")
+- amici_fb.py:52:DEFAULT_NAVIGATION_TIMEOUT_MS = 120000
+- amici_fb.py:53:POST_FRIENDS_GOTO_TIMEOUT_MS = 10000
+- amici_fb.py:114:def exceptions_file_path() -> Path:
+- amici_fb.py:183:def debug_rejected_csv_path(run_stamp: str):
+- amici_fb.py:184:return str(output_dir_path() / f"debug_rejected_{run_stamp}.csv")
+- amici_fb.py:187:def debug_cards_csv_path(run_stamp: str):
+- amici_fb.py:188:return str(output_dir_path() / f"debug_cards_{run_stamp}.csv")
+- amici_fb.py:245:self._thread.join(timeout=1.0)
+- amici_fb_task_runner.py:18:KUMA_CONNECT_TIMEOUT_ENV = "UPTIME_KUMA_CONNECT_TIMEOUT_SECONDS"
+- amici_fb_task_runner.py:29:def _failure_reason(exc: BaseException / str) -> str:
 
-## Known Problems And Symptoms
-| source | fact |
-|---|---|
-| `dev/legacy/docs/ARCHITECTURE.md` | sends Uptime Kuma status after success/failure. |
-| `dev/legacy/docs/ARCHITECTURE.md` | - Failure: `status=down`, `msg=FAILED:<short reason>`. |
-| `dev/legacy/docs/ARCHITECTURE.md` | - Push errors are logged as warnings and never fail the scraper. |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | Symptom: Python missing, imports fail, or copied venv has broken symlinks. |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | ## Network or DNS Failure |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | or navigation timeout. |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | journalctl --user -u amici_fb.service --since "3 days ago" --no-pager / grep -Ei 'ERR_/Timeout/DNS/internet' |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | Known evidence: on 2026-05-13 the service failed at |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | ## SQLite or Data Path Issue |
-| `dev/legacy/docs/OPERATIONS.md` | curl -fsS --get --connect-timeout 2 --max-time 5 \ |
-| `dev/legacy/docs/OPERATIONS.md` | ## Success and Failure Signals |
-| `dev/legacy/docs/OPERATIONS.md` | Failure: |
-| `dev/legacy/docs/OPERATIONS.md` | - Journal traceback includes Playwright, network, login, or config failure. |
-| `dev/legacy/AGENTS.md` | - `data/browser_diag_*`: failure evidence and screenshots/HTML from Playwright. |
-| `_shared/telegram_notify.py` | response = requests.post(_telegram_url("sendMessage"), json=payload, timeout=20) |
-| `_shared/telegram_notify.py` | timeout=20, |
-| `_shared/telegram_notify.py` | timeout=60, |
-| `_shared/telegram_notify.py` | parser.error("title and message are required unless --check is used") |
-| `_shared/telegram_notify.py` | print(f"ERROR: {type(exc).__name__}: {exc}", file=sys.stderr) |
-| `amici_fb.py` | self._thread.join(timeout=1.0) |
-| `amici_fb.py` | return f"error:{type(e).__name__}:{e}" |
-| `amici_fb.py` | return f"<url-error {type(e).__name__}: {e}>" |
-| `amici_fb.py` | return f"<title-error {type(e).__name__}: {e}>" |
-| `amici_fb.py` | logger.log(f"save_artifacts.state_failed label={label} error={type(e).__name__}: {e}") |
+## Comandi/verifiche utili trovati
+- install_ubuntu_autorun.sh:1:#!/usr/bin/env bash
+- install_ubuntu_autorun.sh:7:PYTHON_BIN="$VENV_DIR/bin/python3"
+- install_ubuntu_autorun.sh:12:python3 -m venv "$VENV_DIR"
+- install_ubuntu_autorun.sh:22:systemctl --user daemon-reload
+- install_ubuntu_autorun.sh:23:systemctl --user enable --now amici_fb.timer
+- install_ubuntu_autorun.sh:27:systemctl --user start amici_fb.service
+- install_ubuntu_autorun.sh:31:systemctl --user list-timers amici_fb.timer --no-pager
 
-## Useful Checks Or Commands
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | git status --short |
-| `dev/legacy/README.md` | systemctl --user status amici_fb.service amici_fb.timer --no-pager |
-| `dev/legacy/README.md` | systemctl --user list-timers amici_fb.timer --no-pager |
-| `dev/legacy/README.md` | journalctl --user -u amici_fb.service -u amici_fb.timer --since "30 minutes ago" --no-pager |
-| `dev/legacy/README.md` | systemctl --user daemon-reload |
-| `dev/legacy/docs/ARCHITECTURE.md` | systemctl --user start amici_fb.service |
-| `dev/legacy/docs/ARCHITECTURE.md` | journalctl --user -u amici_fb.service -u amici_fb.timer --since "30 minutes ago" --no-pager |
-| `dev/legacy/docs/ARCHITECTURE.md` | systemctl --user status amici_fb.service --no-pager |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | systemctl --user status amici_fb.timer --no-pager |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | systemctl --user list-timers amici_fb.timer --no-pager |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | systemctl --user cat amici_fb.timer |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | systemctl --user daemon-reload |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | systemctl --user enable --now amici_fb.timer |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | systemctl --user cat amici_fb.service |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | systemctl --user start amici_fb.service |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | .venv/bin/python -c 'import playwright, requests, sqlite3; print("imports ok")' |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | python3 -m venv .venv |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | journalctl --user -u amici_fb.service --since "3 days ago" --no-pager / grep -Ei 'login/checkpoint/special/Sessione' |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | journalctl --user -u amici_fb.service --since "3 days ago" --no-pager / grep -Ei 'ERR_/Timeout/DNS/internet' |
-| `dev/legacy/docs/TROUBLESHOOTING.md` | journalctl --user -u amici_fb.service --since "30 minutes ago" --no-pager / grep -Ei 'telegram' |
-
-## Safety Checks Before Fixing
-- dev/legacy/README.md: Privacy: do not commit `.env`, `fb_storage_state.json`, browser artifacts,
-- dev/legacy/README.md: cookies, Telegram tokens, or the real Uptime Kuma Push URL.
-- dev/legacy/docs/ARCHITECTURE.md: - `.env.example`: safe placeholder env file. Real `.env` is private and ignored.
-- dev/legacy/docs/ARCHITECTURE.md: - `amici_fb.sqlite3`: SQLite history database in the project root when present.
-- dev/legacy/docs/ARCHITECTURE.md: 10. Save snapshot CSV, update SQLite, select a safe previous CSV for comparison,
-- dev/legacy/docs/ARCHITECTURE.md: 11. Close page/context/browser/database in `finally`.
-- dev/legacy/docs/ARCHITECTURE.md: - `fb_storage_state.json` is the saved login/session file. Do not commit or
-- dev/legacy/docs/ARCHITECTURE.md: ## Uptime Kuma Push
-- dev/legacy/docs/ARCHITECTURE.md: - Push errors are logged as warnings and never fail the scraper.
-- dev/legacy/docs/TROUBLESHOOTING.md: Use conservative fixes. Do not remove `.env`, `fb_storage_state.json`,
-- dev/legacy/docs/TROUBLESHOOTING.md: .venv/bin/python -m playwright --version
-- dev/legacy/docs/TROUBLESHOOTING.md: Never print the real URL.
-- dev/legacy/docs/TROUBLESHOOTING.md: Fix: do not delete state files. If a service process is genuinely stale and no
-- dev/legacy/docs/TROUBLESHOOTING.md: Symptom: database errors, missing CSVs, or no previous snapshot found.
+## Safety prima di correggere
+- fb_storage_state.json:1:{"cookies": [{"name": "dbln", "value": "%7B%22100014592815674%22%3A%222eEvA3fb%22%7D", "domain": ".facebook.com", "path": "/login/device-based/", "expires":
+- _shared/telegram_notify.py:6:- TELEGRAM_BOT_TOKEN
+- _shared/telegram_notify.py:22:TOKEN_ENV_NAMES = ("TELEGRAM_BOT_TOKEN",)
+- _shared/telegram_notify.py:35:_, token = _first_env(TOKEN_ENV_NAMES)
+- _shared/telegram_notify.py:37:if not token or not chat_id:
+- _shared/telegram_notify.py:39:"Missing Telegram configuration: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set."
+- _shared/telegram_notify.py:41:return token, chat_id
+- _shared/telegram_notify.py:57:token_name, token = _first_env(TOKEN_ENV_NAMES)
+- _shared/telegram_notify.py:39:"Missing Telegram configuration: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set."
+- amici_fb.py:70:"temporarily blocked",
+- amici_fb.py:198:self._lock = threading.Lock()
+- amici_fb.py:208:with self._lock:

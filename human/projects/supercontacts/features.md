@@ -1,46 +1,41 @@
 # SuperContacts Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- gradle.properties: # For more details on how to configure your build environment visit
-- gradle.properties: # http://www.gradle.org/docs/current/userguide/build_environment.html
-- gradle.properties: # When configured, Gradle will run in incubating parallel mode.
-- gradle.properties: # https://developer.android.com/r/tools/gradle-multi-project-decoupled-projects
-- build.gradle.kts: // Top-level build file where you can add configuration options common to all sub-projects/modules.
-- tools/build-finalize.sh: build/preflight/validate/finalize/send-artifacts) ;;
-- tools/codex_guardrails.py: from __future__ import annotations
-- tools/guardrails/engine.py: from __future__ import annotations
-- tools/tests/test_guardrails_engine.py: from __future__ import annotations
-- app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt: import androidx.test.platform.app.InstrumentationRegistry
-- app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt: import androidx.test.platform.app.InstrumentationRegistry
-- app/src/androidTest/java/com/supercontacts/app/BackupManagerInstrumentedTest.kt: import android.database.sqlite.SQLiteDatabase
-- app/src/androidTest/java/com/supercontacts/app/ContactDuplicateUiTest.kt: import androidx.compose.ui.test.assertIsDisplayed
-- app/src/androidTest/java/com/supercontacts/app/ContactFieldDescriptionUiTest.kt: import androidx.compose.ui.test.assertIsDisplayed
+## Mappa funzionale dal codice
+- `app/src/main/java/com/supercontacts/app/MainActivity.kt`: MainActivity, onCreate, onNewIntent
+- `app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt`: SuperContactsApp, ContactListScreen, selectHomeSort, loadPatchVersion, EmojiToolbarButton, HomeSortStatus, HomeSortDialog, homeSortLabel
+- `app/src/main/java/com/supercontacts/app/data/backup/BackupModels.kt`: BackupState
+- `app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt`: BackupPreferencesStore, readFolderUri, writeFolderUri, clearFolderUri, readAutoExportEnabled, writeAutoExportEnabled, readLastExportAt, writeLastExportAt
+- `app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt`: PreparedImport, SuperContactsBackupManager, notifyDatabaseChanged, setBackupFolder, setAutoExportEnabled, exportNow, importFromUri, importFromBackupFolder
+- `app/src/main/java/com/supercontacts/app/data/local/BackupMetadataEntity.kt`: BackupMetadataEntity
+- `app/src/main/java/com/supercontacts/app/data/local/ContactEntity.kt`: ContactEntity
+- `app/src/main/java/com/supercontacts/app/data/local/ContactEventEntity.kt`: ContactEventEntity
+- `app/src/main/java/com/supercontacts/app/data/local/ContactFieldEntity.kt`: ContactFieldEntity
+- `app/src/main/java/com/supercontacts/app/data/local/ContactInitiativeEntity.kt`: ContactInitiativeEntity
+- `app/src/main/java/com/supercontacts/app/data/local/ContactsDao.kt`: ContactsDao, insertContact, updateContact, deleteContact, insertField, insertEvent, insertInitiative, insertTag
+- `app/src/main/java/com/supercontacts/app/data/local/SuperContactsDatabase.kt`: SuperContactsDatabase, contactsDao, getInstance, openTemporary, closeInstance, canMigrateFrom, buildDatabase, migrate
+- `app/src/main/java/com/supercontacts/app/data/local/TagEntity.kt`: TagEntity
+- `app/src/main/java/com/supercontacts/app/data/repository/AddressAutocompleteRepository.kt`: AddressSuggestion, ResolvedAddress, AddressSuggestionSource, AddressAutocompleteRepository, search, resolve, resetSession, client
+- `app/src/main/java/com/supercontacts/app/data/repository/AppContainer.kt`: AppContainer, contactsRepository, addressAutocompleteRepository, contactPhotoStore, backupManager, homePreferencesStore, database, closeDataLayer
+- `app/src/main/java/com/supercontacts/app/data/repository/ContactDuplicateModels.kt`: ContactDuplicateCandidate, ContactDuplicateReason
+- `app/src/main/java/com/supercontacts/app/data/repository/ContactDuplicateNormalizer.kt`: ContactDuplicateNormalizer, normalizePhone, normalizeEmail, normalizeLinkOrUsername, normalizeLooseText, phoneMatches, looseTextMatches, firstTokenPrefix
+- `app/src/main/java/com/supercontacts/app/data/repository/ContactFieldType.kt`: ContactFieldType
+- `app/src/main/java/com/supercontacts/app/data/repository/ContactInput.kt`: ContactInput, hasAnyValue
+- `app/src/main/java/com/supercontacts/app/data/repository/ContactModels.kt`: ContactSummary, ContactSearchMatch, ContactFieldSuggestion, ContactPhotoReference, ContactTag, ContactFieldTimestamp, ContactFieldDescriptor, ContactEvent
+- `app/src/main/java/com/supercontacts/app/data/repository/ContactPhotoStore.kt`: ContactPhotoCropSpec, BitmapCrop, ContactPhotoStore, loadPreviewBitmap, saveCroppedPhoto, migrateLegacyPhotoToSaf, deletePhoto, loadPhotoBitmap
+- `app/src/main/java/com/supercontacts/app/data/repository/ContactsRepository.kt`: DuplicateLinkValue, ContactsRepository, EventEntityType, EventActionType, listContacts, searchContacts, filterContacts, getContactsByTag
 
-## Useful Limits And Boundaries
-- dev/legacy/dev/NEODOC.md: - Branch-only work. Preserve unrelated local files and ignored artifacts.
-- dev/legacy/dev/NEODOC.md: - Pixel validation uses debug/deviceTest packages only; never overwrite the personal `com.supercontacts.app` install.
-- dev/legacy/dev/NEODOC.md: - SQLite is primary storage. Core tables: `contacts`, `contact_fields`; related tables: events, initiatives, tags, backup metadata.
-- dev/legacy/dev/NEODOC.md: - Frequent paths must stay indexed or bounded; no heavy real-time UI work.
-- dev/legacy/dev/NEODOC.md: - Phone normalization is centralized; phone can be searched but must not appear on Home cards.
-- dev/legacy/dev/NEODOC.md: - Home cards show display name from name, nickname, email, else `Unnamed contact`; never phone.
-- dev/legacy/dev/NEODOC.md: - Home search never displays photo path/filename/URI/storage internals. Photo field values are excluded from match metadata; phone matches are not rendered on Home.
-- dev/legacy/dev/NEODOC.md: - UI must always show `Sorted by: <criterion> (<ASC/DESC>)`; direction toggle persists immediately.
-- dev/legacy/dev/NEODOC.md: - Cold-start and already-running intents route through the same resolver. Missing/invalid contacts show a friendly message and do not crash.
-- dev/legacy/dev/NEODOC.md: - Photos are app-owned files under backup/SAF root `photos/`; DB stores relative references like `photos/<file>.jpg`.
-- dev/legacy/dev/NEODOC.md: - UI must never show photo filename/path, SAF URI, content URI, or raw storage internals.
-- dev/legacy/dev/NEODOC.md: - New photo writes use contact-aware unique filenames. Cleanup deletes only app-owned relative photo references or legacy app file paths.
-
-## Where The Feature Code Appears To Live
-- `app/src/main/AndroidManifest.xml`
-- `app/src/main/java/com/supercontacts/app/MainActivity.kt`
-- `tools/codex_guardrails.py`
-- `tools/tests/test_guardrails_engine.py`
-- `gradlew`
-- `tools/build-finalize.ps1`
-- `tools/build-finalize.sh`
-- `tools/codex_guardrails.ps1`
-- `tools/codex_guardrails.sh`
-- `tools/guardrails/__init__.py`
-- `tools/guardrails/engine.py`
+## Confini operativi
+- app/src/main/java/com/supercontacts/app/MainActivity.kt:15:private var latestIntent by mutableStateOf<Intent?>(null)
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:551:onDelete = { contactId ->
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:552:viewModel.deleteContact(contactId) {
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:567:onRemoveTag = { contactId, tagId -> viewModel.removeTagFromContact(contactId, tagId) },
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:660:private fun ContactListScreen(
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:897:private suspend fun loadPatchVersion(context: Context): String =
+- app/src/main/AndroidManifest.xml:1:<?xml version="1.0" encoding="utf-8"?>
+- app/src/main/AndroidManifest.xml:10:android:allowBackup="false"
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),
+- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialValue = "", context) {

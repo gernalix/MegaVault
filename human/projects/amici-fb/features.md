@@ -1,42 +1,23 @@
 # amici_fb Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- dev/legacy/README.md: ## Main Commands
-- dev/legacy/docs/TROUBLESHOOTING.md: ## Service Path or Unit Wrong
-- dev/legacy/docs/OPERATIONS.md: ## Service and Timer
-- dev/legacy/AGENTS.md: ## Standard Workflow
-- dev/legacy/AGENTS.md: ## Git Workflow
-- dev/legacy/README.md: `amici_fb` is a Linux Mint user-level automation that opens Facebook with
-- dev/legacy/CHANGELOG.md: - Repaired the Linux Mint user-level `amici_fb.service` and
-- amici_fb.py: from urllib.parse import urlparse, parse_qs, unquote, urlencode
+## Mappa funzionale dal codice
+- `_shared/telegram_notify.py`: _first_env, _config, validate_config, _masked, config_summary, fix_mojibake, _telegram_url, _raise_for_response
+- `amici_fb.py`: DiagLogger, BrowserProcessWatcher, iso_utc_z, filename_stamp_utc, ensure_output_dir, project_path, output_dir_path, storage_state_path
+- `amici_fb_task_runner.py`: _sanitize_log_text, _failure_reason, _push_url_base, push_kuma, main
+- `telegram_notify.py`: _load_project_env, _first_env, _config, validate_config, _masked, config_summary, fix_mojibake, _telegram_url
 
-## Useful Limits And Boundaries
-- dev/legacy/README.md: Privacy: do not commit `.env`, `fb_storage_state.json`, browser artifacts,
-- dev/legacy/docs/ARCHITECTURE.md: - `.env.example`: safe placeholder env file. Real `.env` is private and ignored.
-- dev/legacy/docs/ARCHITECTURE.md: 10. Save snapshot CSV, update SQLite, select a safe previous CSV for comparison,
-- dev/legacy/docs/ARCHITECTURE.md: - `fb_storage_state.json` is the saved login/session file. Do not commit or
-- dev/legacy/docs/ARCHITECTURE.md: - Push errors are logged as warnings and never fail the scraper.
-- dev/legacy/docs/TROUBLESHOOTING.md: Use conservative fixes. Do not remove `.env`, `fb_storage_state.json`,
-- dev/legacy/docs/TROUBLESHOOTING.md: Never print the real URL.
-- dev/legacy/docs/TROUBLESHOOTING.md: Fix: do not delete state files. If a service process is genuinely stale and no
-- dev/legacy/docs/TROUBLESHOOTING.md: Fix: preserve the database and CSVs; use `AMICI_FB_DB` only for an explicit test
-- dev/legacy/docs/OPERATIONS.md: Do not paste token values into logs or reports.
-- dev/legacy/docs/OPERATIONS.md: Safe test through the runner helper:
-- dev/legacy/docs/OPERATIONS.md: Safe raw curl test without printing the URL:
-
-## Where The Feature Code Appears To Live
-- `_shared/telegram_notify.py`
-- `amici_fb.py`
-- `amici_fb_task_runner.py`
-- `telegram_notify.py`
-- `.gitignore`
-- `_shared/__init__.py`
-- `amici-fb.service`
-- `amici-fb.timer`
-- `amici_fb.service`
-- `amici_fb.sqlite3`
-- `amici_fb.timer`
-- `amici_fb.zip`
-- `amici_fb_daily.cmd`
+## Confini operativi
+- fb_storage_state.json:1:{"cookies": [{"name": "dbln", "value": "%7B%22100014592815674%22%3A%222eEvA3fb%22%7D", "domain": ".facebook.com", "path": "/login/device-based/", "expires":
+- _shared/telegram_notify.py:6:- TELEGRAM_BOT_TOKEN
+- _shared/telegram_notify.py:22:TOKEN_ENV_NAMES = ("TELEGRAM_BOT_TOKEN",)
+- _shared/telegram_notify.py:35:_, token = _first_env(TOKEN_ENV_NAMES)
+- _shared/telegram_notify.py:37:if not token or not chat_id:
+- _shared/telegram_notify.py:39:"Missing Telegram configuration: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set."
+- _shared/telegram_notify.py:41:return token, chat_id
+- _shared/telegram_notify.py:57:token_name, token = _first_env(TOKEN_ENV_NAMES)
+- _shared/telegram_notify.py:39:"Missing Telegram configuration: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set."
+- amici_fb.py:70:"temporarily blocked",
+- amici_fb.py:198:self._lock = threading.Lock()
+- amici_fb.py:208:with self._lock:

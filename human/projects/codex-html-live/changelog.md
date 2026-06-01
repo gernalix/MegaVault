@@ -1,20 +1,10 @@
 # codex-html-live Changelog
 
-This is a synthesized changelog from legacy docs and migration evidence. It does not invent missing dates.
+## Eventi MegaVault
+- 2026-06-01: `#739482` ha migrato docs locali in `dev/legacy` e creato metadata/MegaVault.
+- 2026-06-01: `#842915` ha arricchito AI/Human docs da legacy e repo structure.
+- 2026-06-01T13:39:31+02:00: `#604927` ha auditato codice attivo, arricchito Human docs e compresso AI doc.
 
-## Extracted Milestones
-| source | fact |
-|---|---|
-| `dev/legacy/dev/CHANGELOG.md` | # Changelog |
-| `dev/legacy/dev/CHANGELOG.md` | ## 2026-05-10 |
-| `dev/legacy/dev/CHANGELOG.md` | - Fixed dashboard UX so session IDs and an explicit `Open` column link to chat HTML files, with full-row hover and pointer affordance. |
-| `dev/legacy/dev/CHANGELOG.md` | - Created `codex_html_live.py` with daemon, renderer, CLI, installer, and systemd user-service support. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added live polling of `~/.codex/sessions/**/*.jsonl` with metadata caching to avoid reparsing unchanged sessions. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added dark HTML session pages with user, assistant, and tool separation. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added live `index.html` sorted by recent activity. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added strict generated-output permissions: output directory `700`, HTML files `600`. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added codex-friendly project documentation and Git ignore rules. |
-
-## MegaVault Documentation Events
-- 2026-06-01: `#739482` moved legacy documentation into `dev/legacy` and created metadata/initial MegaVault docs.
-- 2026-06-01T13:20:29+02:00: `#842915` enriched AI and Human docs from legacy docs, repo structure, scripts, tests, and build files.
+## Evidenza audit
+- File codice/config/test/script analizzati: 3 / 3.
+- Invarianti estratte: 15; data/storage facts: 17; rischi: 4; bug markers: 8.

@@ -1,27 +1,20 @@
 # WindowTabNotes Overview
 
-WindowTabNotes is documented in the MegaVault because local project docs were consolidated and archived under `dev/legacy`. Verified purpose from the source corpus: Root repository: `WindowTabNotes/`.
+Root repository: `WindowTabNotes/`.
 
-## Why It Exists
-- dev/legacy/README.md: Repo unico per il sistema locale Linux + Chrome WindowTabNotes.
-- dev/legacy/docs/README_UTENTE.md: WindowTabNotes collega note persistenti a:
-- dev/legacy/dev/INDEX.md: Root repository: `WindowTabNotes/`.
-- dev/legacy/dev/ARCHITECTURE.md: WindowTabNotes è un prodotto locale unico Linux + Chrome.
-- dev/legacy/dev/AGENT_RULES.md: - non trattare `browser-extension/` come root progetto.
-- dev/legacy/dev/TEST_PLAN.md: system/bin/windowtabnotes version
-- dev/legacy/dev/BUG_REGISTRY.md: Registro sintetico per patch future Codex. Obiettivo: evitare re-analisi e regressioni su overlay, search, Chrome e Native Messaging.
-
-## Current State
+## Stato e codice
 - Repository: `/home/daniele/codex-workspace/WindowTabNotes`
-- Branch at enrichment: `codex/prompt-581472`
-- Latest local commit at enrichment: `68e0170`
-- Stack signals: JavaScript/TypeScript, Python, Shell, UNKNOWN, UNKNOWN
-- Documentation quality: enriched from legacy docs and repository structure
+- Branch/commit verificati: `codex/prompt-581472` / `68e0170`
+- File codice/config/test/script analizzati: 32 su 32
+- Stack rilevato: JS/TS, Python, Shell, UNKNOWN, UNKNOWN
 
-## How To Use This Documentation
-Start with the AI doc for operational work, then read these Human pages for explanation. Legacy docs are historical context, not the primary operating source after this enrichment.
+## Orientamento rapido
+- Entrypoint: `browser-extension/manifest.json,system/windowtabnotes/cli.py`
+- Core/data: `browser-extension/content_script.js,browser-extension/content_style.css,browser-extension/dashboard.css`
+- Test: `UNKNOWN`
+- Script/build: `system/scripts/install.sh,system/scripts/uninstall.sh`
 
-## Links
+## Link
 - AI doc: [AI doc](../../../ai/projects/windowtabnotes.md)
 - Metadata: [dev/project.metadata.json](../../../../WindowTabNotes/dev/project.metadata.json)
 - Legacy docs: [dev/legacy](../../../../WindowTabNotes/dev/legacy)

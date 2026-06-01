@@ -1,23 +1,20 @@
 # remote-codex-phone Overview
 
-remote-codex-phone is documented in the MegaVault because local project docs were consolidated and archived under `dev/legacy`. Verified purpose from the source corpus: Prompt #438 setup for controlling Codex from an Android phone through:
+Prompt #438 setup for controlling Codex from an Android phone through:
 
-## Why It Exists
-- dev/legacy/README.md: Prompt #438 setup for controlling Codex from an Android phone through:
-- dev/legacy/TROUBLESHOOTING.md: systemctl status ssh --no-pager
-- dev/legacy/OPERATIONS.md: - Termius, or Termux with `openssh`
-
-## Current State
+## Stato e codice
 - Repository: `/home/daniele/codex-workspace/remote-codex-phone`
-- Branch at enrichment: `master`
-- Latest local commit at enrichment: `e1280bc`
-- Stack signals: UNKNOWN, UNKNOWN, UNKNOWN
-- Documentation quality: enriched from legacy docs and repository structure
+- Branch/commit verificati: `master` / `e1280bc`
+- File codice/config/test/script analizzati: 1 su 1
+- Stack rilevato: UNKNOWN, UNKNOWN, UNKNOWN
 
-## How To Use This Documentation
-Start with the AI doc for operational work, then read these Human pages for explanation. Legacy docs are historical context, not the primary operating source after this enrichment.
+## Orientamento rapido
+- Entrypoint: `UNKNOWN`
+- Core/data: `dev/project.metadata.json`
+- Test: `UNKNOWN`
+- Script/build: `UNKNOWN`
 
-## Links
+## Link
 - AI doc: [AI doc](../../../ai/projects/remote-codex-phone.md)
 - Metadata: [dev/project.metadata.json](../../../../remote-codex-phone/dev/project.metadata.json)
 - Legacy docs: [dev/legacy](../../../../remote-codex-phone/dev/legacy)

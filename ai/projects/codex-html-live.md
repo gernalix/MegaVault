@@ -1,198 +1,125 @@
-# codex-html-live AI OPERATIONS
-
-PROJECT
-- name: codex-html-live
-- slug: codex-html-live
-- purpose: Live HTML archive for Codex JSONL sessions: watches session files and renders browser-readable chat archives without relying on tmux.
-- current_status: Working tree has 7 non-clean entries; do not mix unrelated changes. First entries: ?? .codexmeta, ?? .codexmeta.bak.20260528_191731, ?? .codexmeta.bak.20260528_191758, ?? .codexmeta.bak.20260528_191912, ?? .codexmeta.bak.20260528_193715
-- repo_path: `/home/daniele/codex-workspace/codex-html-live`
-- remote: `none`
-- branch: `master`
-- last_verified_commit/date: `1e8ecaa` / `2026-06-01T13:20:29+02:00`
-
-STACK
-- languages: Python
-- frameworks: UNKNOWN
-- DB: UNKNOWN
-- platform: UNKNOWN
-- external_tools/services: UNKNOWN
-
-CODE_MAP
-entrypoints:
-- `codex_html_live.py`
-important_folders:
-- `dev`
-- `tests`
-important_files:
-- `dev/README.md`
-tests:
-- `tests/test_codex_html_live.py`
-scripts:
-- `codex_html_live.py`
-- `tests/test_codex_html_live.py`
-generated/runtime/avoid_touch_casually:
-- `dev/legacy`
-
-ARCH
-summary:
-- dev/legacy/README.md: Live HTML archive for Codex JSONL sessions without tmux.
-- dev/legacy/dev/ARCHITECTURE.md: - `codex_html_live.py`: Python standard-library CLI, renderer, daemon loop, installer.
-- dev/legacy/dev/AGENT_RULES.md: These rules are binding for future Codex sessions working on this project.
-- dev/legacy/dev/TEST_PLAN.md: python3 -m py_compile codex_html_live.py
-- dev/legacy/dev/CHANGELOG.md: - Fixed dashboard UX so session IDs and an explicit `Open` column link to chat HTML files, with full-row hover and pointer affordance.
-- codex_html_live.py: from dataclasses import dataclass, field
-- tests/test_codex_html_live.py: ROOT = Path(__file__).resolve().parents[1]
-components/dataflow/design_decisions:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | # codex-html-live |
-| `dev/legacy/README.md` | ## Quick Use |
-| `dev/legacy/README.md` | ## What It Watches And Writes |
-| `dev/legacy/README.md` | ## Install |
-| `dev/legacy/README.md` | ## Commands |
-| `dev/legacy/README.md` | ## Verify |
-| `dev/legacy/README.md` | ## Troubleshooting |
-| `dev/legacy/README.md` | ## Source Files |
-| `dev/legacy/dev/ARCHITECTURE.md` | # Architecture |
-| `dev/legacy/dev/ARCHITECTURE.md` | ## Components |
-| `dev/legacy/dev/ARCHITECTURE.md` | ## Data Flow |
-| `dev/legacy/dev/ARCHITECTURE.md` | ## JSONL Rendering |
-| `dev/legacy/dev/ARCHITECTURE.md` | ## systemd |
-| `dev/legacy/dev/ARCHITECTURE.md` | ## Security |
-| `dev/legacy/dev/ARCHITECTURE.md` | ## Generated Files |
-| `dev/legacy/dev/AGENT_RULES.md` | # Agent Rules |
-| `dev/legacy/dev/AGENT_RULES.md` | ## Safety |
-| `dev/legacy/dev/AGENT_RULES.md` | ## Operational Contract |
-
-INVARIANTS
-architecture/data/UX/safety/versioning/localization:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | - Original Codex sessions, read-only: `~/.codex/sessions/**/*.jsonl` |
-| `dev/legacy/README.md` | Generated HTML and Codex JSONL session files are not source files and must not be committed. |
-| `dev/legacy/dev/ARCHITECTURE.md` | All dynamic content is HTML-escaped. Tool output is rendered in `<pre>` blocks to preserve stdout/stderr formatting. |
-| `dev/legacy/dev/ARCHITECTURE.md` | - Original JSONL files are opened read-only by the daemon. |
-| `dev/legacy/dev/ARCHITECTURE.md` | Do not edit or commit: |
-| `dev/legacy/dev/AGENT_RULES.md` | ## Safety |
-| `dev/legacy/dev/AGENT_RULES.md` | - Treat `~/.codex/sessions/**/*.jsonl` as source data owned by Codex. The daemon must only read those files. |
-| `dev/legacy/dev/AGENT_RULES.md` | - Do not commit Codex JSONL sessions, generated HTML output, logs, credentials, or private runtime data. |
-| `dev/legacy/dev/AGENT_RULES.md` | - Keep the project portable. Do not hardcode `/home/daniele` in source files; resolve paths at runtime with `Path.home()`. |
-| `dev/legacy/dev/AGENT_RULES.md` | - Avoid heavy mandatory dependencies. The default path must work with Python 3 standard library and systemd user services. |
-| `dev/legacy/dev/AGENT_RULES.md` | - The daemon must detect new JSONL files after startup without manual intervention. |
-| `dev/legacy/dev/AGENT_RULES.md` | - The daemon must refresh changed session HTML and the index automatically. |
-| `dev/legacy/dev/AGENT_RULES.md` | When editing, explicitly protect: |
-| `dev/legacy/dev/AGENT_RULES.md` | - Low CPU/I/O behavior: do not reread unchanged JSONL files in every poll, debounce changed active sessions, and avoid rewriting identical HTML. |
-| `dev/legacy/dev/AGENT_RULES.md` | - Use clear commit messages that describe the operator-visible change. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added live polling of `~/.codex/sessions/**/*.jsonl` with metadata caching to avoid reparsing unchanged sessions. |
-| `codex_html_live.py` | <meta name="viewport" content="width=device-width, initial-scale=1"> |
-
-BUILD_TEST
-build_files:
+META:
+name=codex-html-live
+slug=codex-html-live
+path=/home/daniele/codex-workspace/codex-html-live
+remote=none
+branch=master
+verified_commit=1e8ecaa
+verified_at=2026-06-01T13:39:31+02:00
+PURPOSE:
+- Live HTML archive for Codex JSONL sessions: watches session files and renders browser-readable chat archives without relying on tmux.
+STACK:
+lang=Python;fw=UNKNOWN;db=UNKNOWN;platform=UNKNOWN;tools=systemd
+MAP:
+entry=UNKNOWN
+core=codex_html_live.py,dev/project.metadata.json
+ui=UNKNOWN
+db=UNKNOWN
+tests=tests/test_codex_html_live.py
+scripts=UNKNOWN
+build=UNKNOWN
+ci=UNKNOWN
+avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
+ARCH:
+- codex_html_live.py=>RenderedSession,iso_from_mtime,safe_name,ensure_output_dir,atomic_write,text_from_content,short_
+- codex_html_live.py:2:import argparse
+- codex_html_live.py:3:import gc
+- codex_html_live.py:4:import html
+- codex_html_live.py:5:import json
+- codex_html_live.py:6:import os
+- codex_html_live.py:7:import re
+FLOW:
+- codex_html_live.py:2:import argparse
+- codex_html_live.py:3:import gc
+- codex_html_live.py:4:import html
+- codex_html_live.py:5:import json
+- codex_html_live.py:6:import os
+- codex_html_live.py:7:import re
+- codex_html_live.py:8:import subprocess
+- codex_html_live.py:9:import sys
+- tests/test_codex_html_live.py:1:import importlib.util
+- tests/test_codex_html_live.py:2:import tempfile
+- tests/test_codex_html_live.py:3:import unittest
+- tests/test_codex_html_live.py:4:from pathlib import Path
+INV:
+arch=codex_html_live.py:44:def safe_name(value: str) -> str:
+arch=codex_html_live.py:94:role_class = safe_name(role.lower())
+arch=codex_html_live.py:109:html_path=OUTPUT_DIR / f"{safe_name(fallback_id)}.html",
+arch=codex_html_live.py:145:session.html_path = OUTPUT_DIR / f"{safe_name(session.session_id)}.html"
+arch=codex_html_live.py:199:@media (max-width: 720px) { .top { display: block; } th:nth-child(3), td:nth-child(3) { d
+arch=codex_html_live.py:331:target = cached_session.html_path if cached_session else OUTPUT_DIR / f"{safe_name(path.s
+data=codex_html_live.py:2:import argparse
+data=codex_html_live.py:3:import gc
+data=codex_html_live.py:4:import html
+data=codex_html_live.py:5:import json
+safety=codex_html_live.py:199:@media (max-width: 720px) { .top { display: block; } th:nth-child(3), td:nth-child(3) { d
+safety=codex_html_live.py:348:removed = set(previous) - set(observed)
+safety=codex_html_live.py:349:for path in removed:
+safety=codex_html_live.py:352:if removed or ((set(previous) != set(rendered_state) or changed or not (OUTPUT_DIR / "ind
+safety=codex_html_live.py:44:def safe_name(value: str) -> str:
+safety=codex_html_live.py:94:role_class = safe_name(role.lower())
+safety=codex_html_live.py:109:html_path=OUTPUT_DIR / f"{safe_name(fallback_id)}.html",
+ux=UNKNOWN
+version=dev/project.metadata.json:9:"metadata_version": 1,
+i18n=UNKNOWN
+BUILD:
 - UNKNOWN
-commands_found:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | python3 codex_html_live.py install |
-| `dev/legacy/README.md` | systemctl --user is-active codex-html-live.service |
-| `dev/legacy/README.md` | journalctl --user -u codex-html-live.service -n 80 --no-pager |
-| `dev/legacy/dev/ARCHITECTURE.md` | systemctl --user status codex-html-live.service |
-| `dev/legacy/dev/ARCHITECTURE.md` | journalctl --user -u codex-html-live.service -n 120 --no-pager |
-| `dev/legacy/dev/TEST_PLAN.md` | python3 -m py_compile codex_html_live.py |
-| `dev/legacy/dev/TEST_PLAN.md` | python3 codex_html_live.py install |
-| `dev/legacy/dev/TEST_PLAN.md` | systemctl --user is-active codex-html-live.service |
-| `dev/legacy/dev/TEST_PLAN.md` | systemctl --user status codex-html-live.service --no-pager |
-| `dev/legacy/dev/TEST_PLAN.md` | journalctl --user -u codex-html-live.service -n 120 --no-pager |
-| `codex_html_live.py` | #!/usr/bin/env python3 |
-| `codex_html_live.py` | wrapper.write_text(f"#!/bin/sh\nexec /usr/bin/env python3 {Path(__file__).resolve()} \"$@\"\n", encoding="utf-8") |
-test_targets:
-- `tests/test_codex_html_live.py`
-known_test_flakiness_or_requirements:
-- dev/legacy/dev/TEST_PLAN.md: ## Permission Regression Test
-
-VERSIONING_RELEASE
-rules/artifacts/commit_push/release_blockers:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | Generated HTML and Codex JSONL session files are not source files and must not be committed. |
-| `dev/legacy/dev/ARCHITECTURE.md` | All dynamic content is HTML-escaped. Tool output is rendered in `<pre>` blocks to preserve stdout/stderr formatting. |
-| `dev/legacy/dev/ARCHITECTURE.md` | Do not edit or commit: |
-| `dev/legacy/dev/AGENT_RULES.md` | - Do not commit Codex JSONL sessions, generated HTML output, logs, credentials, or private runtime data. |
-| `dev/legacy/dev/AGENT_RULES.md` | - Use clear commit messages that describe the operator-visible change. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added strict generated-output permissions: output directory `700`, HTML files `600`. |
-
-DATA_STORAGE
-DB_paths/backup/import/export/migration/retention/user_data_safety:
-| source | fact |
-|---|---|
-| `dev/legacy/dev/AGENT_RULES.md` | - Do not commit Codex JSONL sessions, generated HTML output, logs, credentials, or private runtime data. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added live polling of `~/.codex/sessions/**/*.jsonl` with metadata caching to avoid reparsing unchanged sessions. |
-
-KNOWN_BUGS
-active/historical/root_causes/regression_checklist:
-| source | fact |
-|---|---|
-| `dev/legacy/dev/AGENT_RULES.md` | ## Regression Areas |
-| `dev/legacy/dev/TEST_PLAN.md` | ## Permission Regression Test |
-| `codex_html_live.py` | return message_row("tool", "", f"JSON parse error: {exc}\n{raw[:1000]}") |
-| `codex_html_live.py` | print(f"codex-html-live error: {exc}", file=sys.stderr, flush=True) |
-
-DO_NOT_BREAK
-- Preserve `dev/project.metadata.json` -> this AI doc -> Human docs workflow.
-- Preserve `dev/legacy/`; do not delete or rewrite historical docs without explicit migration intent.
-- dev/legacy/README.md: Generated HTML and Codex JSONL session files are not source files and must not be committed.
-- dev/legacy/dev/ARCHITECTURE.md: All dynamic content is HTML-escaped. Tool output is rendered in `<pre>` blocks to preserve stdout/stderr formatting.
-- dev/legacy/dev/ARCHITECTURE.md: Do not edit or commit:
-- dev/legacy/dev/AGENT_RULES.md: ## Safety
-- dev/legacy/dev/AGENT_RULES.md: - Treat `~/.codex/sessions/**/*.jsonl` as source data owned by Codex. The daemon must only read those files.
-- dev/legacy/dev/AGENT_RULES.md: - Do not commit Codex JSONL sessions, generated HTML output, logs, credentials, or private runtime data.
-- dev/legacy/dev/AGENT_RULES.md: - Keep the project portable. Do not hardcode `/home/daniele` in source files; resolve paths at runtime with `Path.home()`.
-- dev/legacy/dev/AGENT_RULES.md: - Avoid heavy mandatory dependencies. The default path must work with Python 3 standard library and systemd user services.
-- dev/legacy/dev/AGENT_RULES.md: - The daemon must detect new JSONL files after startup without manual intervention.
-- dev/legacy/dev/AGENT_RULES.md: - The daemon must refresh changed session HTML and the index automatically.
-- dev/legacy/dev/AGENT_RULES.md: When editing, explicitly protect:
-- dev/legacy/dev/AGENT_RULES.md: - Low CPU/I/O behavior: do not reread unchanged JSONL files in every poll, debounce changed active sessions, and avoid rewriting identical HTML.
-- dev/legacy/dev/CHANGELOG.md: - Added live polling of `~/.codex/sessions/**/*.jsonl` with metadata caching to avoid reparsing unchanged sessions.
-
-RECENT_DECISIONS
-| source | fact |
-|---|---|
-| `dev/legacy/dev/CHANGELOG.md` | # Changelog |
-| `dev/legacy/dev/CHANGELOG.md` | ## 2026-05-10 |
-| `dev/legacy/dev/CHANGELOG.md` | - Fixed dashboard UX so session IDs and an explicit `Open` column link to chat HTML files, with full-row hover and pointer affordance. |
-| `dev/legacy/dev/CHANGELOG.md` | - Created `codex_html_live.py` with daemon, renderer, CLI, installer, and systemd user-service support. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added live polling of `~/.codex/sessions/**/*.jsonl` with metadata caching to avoid reparsing unchanged sessions. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added dark HTML session pages with user, assistant, and tool separation. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added live `index.html` sorted by recent activity. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added strict generated-output permissions: output directory `700`, HTML files `600`. |
-| `dev/legacy/dev/CHANGELOG.md` | - Added codex-friendly project documentation and Git ignore rules. |
-
-ROADMAP
-active/deferred/risky:
-| source | fact |
-|---|---|
-| `dev/legacy/README.md` | - `dev/AGENT_RULES.md`: binding rules for future Codex work. |
-| `dev/legacy/dev/AGENT_RULES.md` | These rules are binding for future Codex sessions working on this project. |
-
-LEGACY_SUMMARY
-- legacy_docs_read_count: 8
-- legacy_docs_read:
-- `dev/README.md`
-- `dev/legacy/README.md`
-- `dev/legacy/dev/ARCHITECTURE.md`
-- `dev/legacy/dev/AGENT_RULES.md`
-- `dev/legacy/dev/TEST_PLAN.md`
-- `dev/legacy/dev/CHANGELOG.md`
-- `codex_html_live.py`
-- `tests/test_codex_html_live.py`
-- extracted: purpose, stack, commands, invariants, bugs, roadmap, changelog, code map.
-- historical_only: original local docs in `dev/legacy`; use only when AI doc lacks detail or for audit history.
-
-LINKS
-- metadata: [dev/project.metadata.json](../../../codex-html-live/dev/project.metadata.json)
-- human_overview: [human overview](../../human/projects/codex-html-live/overview.md)
-- human_folder: [human folder](../../human/projects/codex-html-live)
-- legacy_docs: [dev/legacy](../../../codex-html-live/dev/legacy)
-- repo_path: [repo](../../../codex-html-live)
-
-OPEN_QUESTIONS
-- none detected in extracted sources
+TEST:
+- tests/test_codex_html_live.py:3:import unittest
+- tests/test_codex_html_live.py:10:assert SPEC.loader is not None
+- tests/test_codex_html_live.py:14:class CodexHtmlLiveTests(unittest.TestCase):
+- tests/test_codex_html_live.py:15:def test_changed_session_is_rate_limited(self) -> None:
+- tests/test_codex_html_live.py:40:self.assertTrue(changed)
+- tests/test_codex_html_live.py:42:self.assertTrue(html_path.exists())
+- tests/test_codex_html_live.py:57:self.assertFalse(changed)
+- tests/test_codex_html_live.py:58:self.assertEqual(first_mtime, html_path.stat().st_mtime_ns)
+- tests/test_codex_html_live.py:67:self.assertTrue(changed)
+- tests/test_codex_html_live.py:68:self.assertGreater(html_path.stat().st_mtime_ns, first_mtime)
+DATA:
+db=codex_html_live.py:2:import argparse
+db=codex_html_live.py:3:import gc
+db=codex_html_live.py:4:import html
+db=codex_html_live.py:5:import json
+backup=UNKNOWN
+import=codex_html_live.py:2:import argparse
+import=codex_html_live.py:3:import gc
+import=codex_html_live.py:4:import html
+export=UNKNOWN
+migration=UNKNOWN
+retention=UNKNOWN
+DNB:
+- codex_html_live.py:199:@media (max-width: 720px) { .top { display: block; } th:nth-child(3), td:nth-child(3) { displ
+- codex_html_live.py:348:removed = set(previous) - set(observed)
+- codex_html_live.py:349:for path in removed:
+- codex_html_live.py:352:if removed or ((set(previous) != set(rendered_state) or changed or not (OUTPUT_DIR / "index.h
+- codex_html_live.py:44:def safe_name(value: str) -> str:
+- codex_html_live.py:94:role_class = safe_name(role.lower())
+- codex_html_live.py:109:html_path=OUTPUT_DIR / f"{safe_name(fallback_id)}.html",
+- codex_html_live.py:145:session.html_path = OUTPUT_DIR / f"{safe_name(session.session_id)}.html"
+- codex_html_live.py:331:target = cached_session.html_path if cached_session else OUTPUT_DIR / f"{safe_name(path.stem)
+- dev/project.metadata.json:9:"metadata_version": 1,
+BUG:
+- codex_html_live.py:56:if path.exists() and path.read_text(encoding="utf-8", errors="replace") == content:
+- codex_html_live.py:58:except OSError:
+- codex_html_live.py:118:with path.open("r", encoding="utf-8", errors="replace") as handle:
+- codex_html_live.py:132:except json.JSONDecodeError as exc:
+- codex_html_live.py:133:return message_row("tool", "", f"JSON parse error: {exc}\n{raw[:1000]}")
+- codex_html_live.py:322:except FileNotFoundError:
+- codex_html_live.py:380:except Exception as exc:
+- codex_html_live.py:381:print(f"codex-html-live error: {exc}", file=sys.stderr, flush=True)
+RISK:
+- codex_html_live.py:199:@media (max-width: 720px) { .top { display: block; } th:nth-child(3), td:nth-child(3) { displ
+- codex_html_live.py:348:removed = set(previous) - set(observed)
+- codex_html_live.py:349:for path in removed:
+- codex_html_live.py:352:if removed or ((set(previous) != set(rendered_state) or changed or not (OUTPUT_DIR / "index.h
+ROAD:
+now=codex_html_live.py:315:next_cache: dict[Path, RenderedSession] = {}
+next=codex_html_live.py:328:next_cache[path] = cache[path]
+later=codex_html_live.py:336:next_cache[path] = cached_session
+LINK:
+meta=../../../codex-html-live/dev/project.metadata.json
+human=../../human/projects/codex-html-live/overview.md
+legacy=../../../codex-html-live/dev/legacy
+repo=../../../codex-html-live
+OPEN:
+- none

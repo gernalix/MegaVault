@@ -1,36 +1,22 @@
 # remote_opt_oracle_backup Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- backup.sh: # Use sqlite online backup API
-- backup.sh: # Now run restic backup to each repo
-- backup.sh: ENV_FILE="/etc/oracle_backup/oracle_backup.env"
-- check_backup_health.py: import os, time, sys, traceback
-- prune.sh: ENV_FILE="/etc/oracle_backup/oracle_backup.env"
-- prune_local_snapshots.sh: STATE_DIR="/var/lib/oracle_backup"
+## Mappa funzionale dal codice
+- `backup.sh`: cleanup_failed_snapshot, snapshot_one_db, run_backup_repo
+- `check_backup_health.py`: load_env_file, notify, main
+- `prune_local_snapshots.sh`: bytes_from_gb, snapshot_dirs, count_dirs, total_bytes, free_bytes, delete_oldest
 
-## Useful Limits And Boundaries
-- backup.sh: echo "[*] oracle-backup @ $ts"
-- backup.sh: echo "[!] Another oracle-backup restic job is already running."
-- backup.sh: # Use sqlite online backup API
-- backup.sh: sqlite3 "$src" ".timeout 5000" ".backup '$dst'"
-- backup.sh: # Now run restic backup to each repo
-- backup.sh: echo "[*] Restic backup..."
-- backup.sh: if ! rclone copyto "$preflight_file" "$remote_path/.oracle-backup-write-test" --retries 1 --low-level-retries 1; then
-- backup.sh: rclone deletefile "$remote_path/.oracle-backup-write-test" // true
-- backup.sh: restic -r "$repo" backup \
-- backup.sh: echo "[!] all backup repos failed"
-- backup.sh: echo "[!] backup OK with repo_success=$repo_success repo_fail=$repo_fail"
-- check_backup_health.py: def notify(msg: str, title: str = "Backup alert"):
-
-## Where The Feature Code Appears To Live
-- `check_backup_health.py`
-- `backup.sh`
-- `backup.sh.bak.20260331_220235`
-- `backup.sh.bak.20260502_025422`
-- `prune.sh`
-- `prune.sh.bak.20260331_220235`
-- `prune.sh.bak.20260502_032503`
-- `prune_local_snapshots.sh`
-- `prune_local_snapshots.sh.bak.20260502_025422`
+## Confini operativi
+- backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
+- backup.sh:15:export RESTIC_PASSWORD
+- backup.sh:36:exec 9>"$RESTIC_RUN_LOCK"
+- backup.sh:37:if ! flock -n 9; then
+- backup.sh:42:ORACLE_BACKUP_LOCK_HELD=1 KEEP_LOCAL_SNAPSHOTS=3 MAX_LOCAL_SNAPSHOT_GB=8 MIN_FREE_GB=8 \
+- backup.sh:52:rm -rf -- "$snap_run_dir"
+- backup.sh:102:rclone deletefile "$remote_path/.oracle-backup-write-test" // true
+- backup.sh:110:restic -r "$repo" unlock
+- backup.sh:4:ENV_FILE="/etc/oracle_backup/oracle_backup.env"
+- backup.sh:5:STATE_DIR="/var/lib/oracle_backup"
+- backup.sh:6:LOG_DIR="/var/log/oracle_backup"
+- backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"

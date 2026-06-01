@@ -1,26 +1,18 @@
 # system_watchdog Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- dev/legacy/README.md: ## Commands
-- requirements.txt: # No third-party Python packages are required.
-- dev/legacy/README.md: Persistent heartbeat sender for a Uptime Kuma push monitor.
-- dev/legacy/docs/TROUBLESHOOTING.md: If HTTP push fails, the service continues retrying. Check network reachability to:
-- dev/legacy/docs/UPDATE_PROCEDURE.md: sudo systemctl restart system-watchdog.service
-- logs.sh: journalctl -u system-watchdog.service -n "${1:-100}" --no-pager
-- uninstall.sh: sudo systemctl disable --now system-watchdog.service // true
-- watchdog.py: from datetime import datetime, timezone
+## Mappa funzionale dal codice
+- `watchdog.py`: utc_now, utc_iso, local_iso, read_text, boot_id, uptime_seconds, connect_db, last_heartbeat
 
-## Useful Limits And Boundaries
-- dev/legacy/docs/ARCHITECTURE.md: - Push failures are recorded but do not stop the loop.
-- dev/legacy/docs/TROUBLESHOOTING.md: Run one push manually:
-- dev/legacy/docs/CODEX_CONTEXT.md: - Do not add local Telegram sending.
-- dev/legacy/docs/CODEX_CONTEXT.md: - Do not add Docker on Mint.
-
-## Where The Feature Code Appears To Live
-- `watchdog.py`
-- `install.sh`
-- `logs.sh`
-- `status.sh`
-- `uninstall.sh`
+## Confini operativi
+- install.sh:10:sudo install -m 0644 "$SERVICE_SRC" "$SERVICE_DST"
+- install.sh:11:sudo systemctl daemon-reload
+- install.sh:12:sudo systemctl enable --now system-watchdog.service
+- install.sh:13:sudo systemctl --no-pager --full status system-watchdog.service // true
+- uninstall.sh:4:sudo systemctl disable --now system-watchdog.service // true
+- uninstall.sh:5:sudo rm -f /etc/systemd/system/system-watchdog.service
+- uninstall.sh:6:sudo systemctl daemon-reload
+- dev/project.metadata.json:9:"metadata_version": 1,
+- install.sh:8:python3 --version >/dev/null
+- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks

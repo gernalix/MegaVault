@@ -1,14 +1,10 @@
 # parcel-tracker Features
 
-This page translates extracted project facts into a user-readable feature view. Items marked `UNKNOWN` need manual confirmation before product or release decisions.
+Questa pagina deriva dal codice attivo auditato con `#604927`.
 
-## Main Capabilities
-- dev/legacy/dev/INDEX.md: Servizio leggero user-level per monitorare la spedizione `XT329499807TS`.
-- parcel_tracker.py: from __future__ import annotations
+## Mappa funzionale dal codice
+- `parcel_tracker.py`: TrackingSnapshot, utc_now, log, db, get_state, set_state, fetch_url, clean_text
 
-## Useful Limits And Boundaries
-- No explicit limits found; inspect AI doc before changes.
-
-## Where The Feature Code Appears To Live
-- `parcel_tracker.py`
-- `parcel_tracker.sh`
+## Confini operativi
+- dev/project.metadata.json:9:"metadata_version": 1,
+- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks

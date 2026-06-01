@@ -1,15 +1,10 @@
 # WindowTabNotes Changelog
 
-This is a synthesized changelog from legacy docs and migration evidence. It does not invent missing dates.
+## Eventi MegaVault
+- 2026-06-01: `#739482` ha migrato docs locali in `dev/legacy` e creato metadata/MegaVault.
+- 2026-06-01: `#842915` ha arricchito AI/Human docs da legacy e repo structure.
+- 2026-06-01T13:39:31+02:00: `#604927` ha auditato codice attivo, arricchito Human docs e compresso AI doc.
 
-## Extracted Milestones
-| source | fact |
-|---|---|
-| `dev/legacy/dev/BUG_REGISTRY.md` | ## Search v17 lascia overlay pinzato e confonde risultati storici |
-| `dev/legacy/dev/BUG_REGISTRY.md` | ## Search/focus v18: tab fantasma, note vuote automatiche, search storica nel default |
-| `dev/legacy/dev/BUG_REGISTRY.md` | ## Native host v20: CPU alta e reconnect storm |
-| `dev/legacy/dev/VERSIONING.md` | # Versioning |
-
-## MegaVault Documentation Events
-- 2026-06-01: `#739482` moved legacy documentation into `dev/legacy` and created metadata/initial MegaVault docs.
-- 2026-06-01T13:20:29+02:00: `#842915` enriched AI and Human docs from legacy docs, repo structure, scripts, tests, and build files.
+## Evidenza audit
+- File codice/config/test/script analizzati: 32 / 32.
+- Invarianti estratte: 90; data/storage facts: 80; rischi: 57; bug markers: 70.
