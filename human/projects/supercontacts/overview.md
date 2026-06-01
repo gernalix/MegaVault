@@ -4,9 +4,13 @@ Android contacts app backed by Room/SQLite; repo files and tests cover contact C
 
 ## Stato e codice
 - Repository: `/home/daniele/codex-workspace/SuperContacts`
-- Branch/commit verificati: `codex/prompt-xxx` / `3aa6287`
+- Branch/commit verificati: `codex/prompt-184926-capsules` / `fbe61e2`
 - File codice/config/test/script analizzati: 96 su 96
 - Stack rilevato: Kotlin, Python, Shell, Gradle, Jetpack Compose, Android
+- Capsulizzazione: 100% reale, baseline minima permanente.
+- Bridge feature residui: nessuno.
+- Owner capsule: `ContactHomeCapsule`, `ContactDetailCapsule`, `ContactHistoryCapsule`, `ContactInitiativeCapsule`, `ContactSuggestionCapsule`, `ContactDuplicateCapsule`, `ContactBackupCapsule`, `ContactOperationStatusCapsule`.
+- Enforcement obbligatorio: `CapsuleArchitectureEnforcementTest` per architettura e `ContactFieldDescriptionUiTest` per descrizioni fuori dal reading mode.
 
 ## Orientamento rapido
 - Entrypoint: `app/src/main/AndroidManifest.xml,app/src/main/java/com/supercontacts/app/MainActivity.kt,app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt`
