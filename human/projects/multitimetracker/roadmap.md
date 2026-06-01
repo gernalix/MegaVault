@@ -16,8 +16,9 @@
 
 ## Debito/rischi da considerare
 - Capsulizzazione `#539824`: session CRUD/stop policy, QUICK_EVENTS, CHAINS, snapshot ALERTS reconciliation e CSV ImportExport sono dietro capsule owner/API esplicite.
-- Residuo MainViewModel: AUDIT_LOG filters/event refresh/clear/undo e hook infrastrutturali comuni (state update, persistence, context, logging, core access).
-- Stato `#539824`: capsulizzazione stimata 92 percento dopo test JVM e Pixel clone verdi; 100 percento richiede AuditLog owner API con copertura undo/time-machine/history replay.
+- Capsulizzazione `#728419`: AUDIT_LOG filters/event refresh/clear/undo sono in `AuditLogCapsuleViewModel` con API esplicita verso session/tag owner e guardrail in `CapsuleBoundaryOwnershipTest`.
+- Residuo MainViewModel: hook infrastrutturali comuni per composition root (state update, persistence, context, logging, core access), non business logic di feature documentata.
+- Stato `#728419`: capsulizzazione stimata 100 percento per ownership feature documentata dopo test JVM e Pixel clone verdi; future riduzioni devono riguardare solo il peso infrastrutturale della shell.
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:67:// v138 Capsule Audit Engine: emit known capsule boundary leaks in Logcat (debug only)
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:254:is FirstRunSetupState.RestoreFailed -> context.getString(R.string.first_run_restore_failed_title)
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:296:is FirstRunSetupState.RestoreFailed -> context.getString(

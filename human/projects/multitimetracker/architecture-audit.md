@@ -29,3 +29,16 @@
 - Estimate: capsulization after prompt `#539824` is about 92 percent. The missing 8 percent is mainly AUDIT_LOG owner extraction and further reduction of composition-root hooks.
 - Validation: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug` passed locally.
 - Validation: Pixel 8a ran `connectedAndroidTest -Pmtt.testBuildType=deviceTest` on clone `com.example.multitimetracker.devicetest` / test app `com.example.multitimetracker.devicetest.test`: 53 tests, 3 skipped, 0 failed.
+
+## Prompt #728419
+- Scope: remove the last AUDIT_LOG legacy bridge from MainViewModel without changing DB compatibility or UX.
+- Code commit: `d7f347e155e32757a23a968391fbcd5b15fe4060` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Before: capsulization estimated at 92 percent after `#539824`; remaining bridge was AUDIT_LOG filter state, event refresh, clear and undo orchestration in MainViewModel.
+- Fixed: `AuditLogCapsuleViewModel` now owns audit event state, filters, preference persistence, event refresh/projection, clear, undo, audit DB writes and undo write suppression.
+- Fixed: undo calls session/tag owners only through `AuditLogCapsuleAccess`: session delete, tag delete, tag parent restore, stopped-session restore and post-undo runtime refresh.
+- Fixed: MainViewModel no longer owns `_auditEvents`, audit filter flows, `refreshAuditEvents`, `undoAuditEvent`, `clearAuditLog`, `setAuditUndoEnabled` or `suppressAuditLog`; it only wires context, write guard, time-machine target and owner capsule APIs.
+- Guard: `CapsuleBoundaryOwnershipTest` now fails if AUDIT_LOG state/undo/clear/refresh logic returns to MainViewModel.
+- Guard: `AuditLogCapsuleViewModelTest` covers action category mapping, filter projection, system/undone visibility, undo flag gating and time-machine historical undone projection.
+- Estimate: capsulization after prompt `#728419` is 100 percent for documented feature ownership. Remaining MainViewModel code is composition/infrastructure wiring, not feature business ownership.
+- Validation: `compileDebugKotlin`, `testDebugUnitTest` and `assembleDebug` passed locally.
+- Validation: Pixel 8a ran `connectedAndroidTest -Pmtt.testBuildType=deviceTest` on clone `com.example.multitimetracker.devicetest` / test app `com.example.multitimetracker.devicetest.test`: 53 tests, 3 skipped, 0 failed.

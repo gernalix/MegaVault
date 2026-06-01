@@ -9,7 +9,9 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - `app/src/main/java/com/example/multitimetracker/capsules/sessions/SessionOwnerCapsuleViewModel.kt`: owner NOW/TIMELINE session CRUD, running-session creation and stop policies.
 - `app/src/main/java/com/example/multitimetracker/capsules/quickevents/QuickEventsCapsuleViewModel.kt`: owner QUICK_EVENTS template/entry/macro mutation and DB refresh.
 - `app/src/main/java/com/example/multitimetracker/capsules/chains/ChainsCapsuleViewModel.kt`: owner CHAINS mutation, start/stop and session-stop auto advance.
-- `app/src/test/java/com/example/multitimetracker/capsules/CapsuleBoundaryOwnershipTest.kt`: source-level guard for TAGS, ALERTS, session owner, CHAINS, QUICK_EVENTS and CSV ImportExport ownership boundaries.
+- `app/src/main/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleViewModel.kt`: owner AUDIT_LOG filters, event refresh/projection, clear, undo, audit state and undo write suppression.
+- `app/src/test/java/com/example/multitimetracker/capsules/CapsuleBoundaryOwnershipTest.kt`: source-level guard for TAGS, ALERTS, session owner, CHAINS, QUICK_EVENTS, CSV ImportExport and AUDIT_LOG ownership boundaries.
+- `app/src/test/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleViewModelTest.kt`: JVM guard for AUDIT_LOG category mapping, filters, undo flag and time-machine projection.
 - `app/src/main/java/com/example/multitimetracker/persistence/SqliteVault.kt`: stable vault export con nomi esatti per database primario, temporaneo ed emergency copy.
 - `app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt`: BackupFolderInspection, FolderChosenEmpty, ExistingDataFound, RestoreSucceeded, RestoreFailed, FallbackToContinuation, FirstRunContinuationMode, BackupFolderInspectionKind
 - `app/src/main/java/com/example/multitimetracker/MainViewModelSnapshotCoordinator.kt`: PreparedSnapshotRuntimeState, AppliedSnapshotState, MainViewModelSnapshotCoordinator, SnapshotLoadMode, InstallAtMsPolicy, reconcileSnapshotTagsForPersistence, unionTotalMs
