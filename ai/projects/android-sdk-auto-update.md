@@ -5,116 +5,79 @@ path=/home/daniele/codex-workspace/android-sdk-auto-update
 remote=none
 branch=master
 verified_commit=7d6a23b
-verified_at=2026-06-01T13:39:31+02:00
+verified_at=2026-06-01T13:59:53+02:00
+protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
-- Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu.
+purpose=Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu
 STACK:
-lang=Shell;fw=UNKNOWN;db=SQLite;platform=UNKNOWN;tools=UNKNOWN
+lang=Shell
+fw=UNKNOWN
+db=SQLite
+platform=UNKNOWN
+tools=UNKNOWN
 MAP:
 entry=UNKNOWN
-core=dev/project.metadata.json
 ui=UNKNOWN
+core=dev/project.metadata.json
 db=UNKNOWN
 tests=UNKNOWN
 scripts=android_sdk_auto_update.sh
 build=UNKNOWN
-ci=UNKNOWN
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
 ARCH:
-- android_sdk_auto_update.sh:49:--run Backward-compatible alias for "--install --yes" used by the user timer.
-- android_sdk_auto_update.sh:51:--test-telegram Send a Telegram test notification using configured credentials.
-- android_sdk_auto_update.sh:114:export "$key=$value"
-- android_sdk_auto_update.sh:207:send_telegram() {
-- android_sdk_auto_update.sh:242:"https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" >>"$LOG_FILE" 2>&1; t
-- android_sdk_auto_update.sh:436:local update_count start end exit_status timestamp package old_version new_version si
+script=android_sdk_auto_update.sh:usage,info,warn,error,utc_now,epoch_now
 FLOW:
-- android_sdk_auto_update.sh:49:--run Backward-compatible alias for "--install --yes" used by the user timer.
-- android_sdk_auto_update.sh:51:--test-telegram Send a Telegram test notification using configured credentials.
-- android_sdk_auto_update.sh:114:export "$key=$value"
-- android_sdk_auto_update.sh:207:send_telegram() {
-- android_sdk_auto_update.sh:242:"https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" >>"$LOG_FILE" 2>&1; t
-- android_sdk_auto_update.sh:436:local update_count start end exit_status timestamp package old_version new_version si
-- android_sdk_auto_update.sh:467:start="$(epoch_now)"
-- android_sdk_auto_update.sh:483:append_history "$timestamp" "$package" "$old_version" "$new_version" "$operation" "$s
+flow=script->android_sdk_auto_update.sh=>dev/project.metadata.json
+flow=android_sdk_auto_update.sh:49:--run Backward-compatible alias for "--install --yes" used by the user timer.
+flow=android_sdk_auto_update.sh:51:--test-telegram Send a Telegram test notification using configured credentials.
+flow=android_sdk_auto_update.sh:114:export "$key=$value"
 INV:
-arch=dev/project.metadata.json:9:"metadata_version": 1,
-arch=android_sdk_auto_update.sh:12:LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/${APP_NAME}.lock"
-arch=android_sdk_auto_update.sh:16:RUN_TIMEOUT_SECONDS="${ANDROID_SDK_AUTO_UPDATE_TIMEOUT_SECONDS:-3600}"
-arch=android_sdk_auto_update.sh:17:SDKMANAGER_TIMEOUT_SECONDS="${ANDROID_SDK_AUTO_UPDATE_SDKMANAGER_TIMEOUT_SECONDS:-
-arch=android_sdk_auto_update.sh:23:DRY_RUN=0
-arch=android_sdk_auto_update.sh:37:android_sdk_auto_update.sh [--check] [--dry-run]
-data=android_sdk_auto_update.sh:11:SQLITE_FILE="$HISTORY_DIR/android_updates_history.sqlite"
-data=android_sdk_auto_update.sh:64:SQLite: logs/android_updates_history.sqlite
-safety=android_sdk_auto_update.sh:12:LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/${APP_NAME}.lock"
-safety=android_sdk_auto_update.sh:39:android_sdk_auto_update.sh --remove-emulator --yes [--dry-run]
-safety=android_sdk_auto_update.sh:45:--remove-emulator Remove only the Android SDK package named "emulator".
-safety=android_sdk_auto_update.sh:46:This never deletes AVDs, system images, SDK cache, or the SDK root.
-safety=android_sdk_auto_update.sh:48:--yes Required for real install/remove operations and license acceptance.
-safety=android_sdk_auto_update.sh:51:--test-telegram Send a Telegram test notification using configured credentials.
-safety=android_sdk_auto_update.sh:60:It does not upgrade apt/system packages, delete AVDs, delete system images,
-ux=UNKNOWN
-version=dev/project.metadata.json:9:"metadata_version": 1,
-i18n=UNKNOWN
-BUILD:
-- android_sdk_auto_update.sh:1:#!/usr/bin/env bash
-- android_sdk_auto_update.sh:37:android_sdk_auto_update.sh [--check] [--dry-run]
-- android_sdk_auto_update.sh:38:android_sdk_auto_update.sh --install --yes [--dry-run]
-- android_sdk_auto_update.sh:39:android_sdk_auto_update.sh --remove-emulator --yes [--dry-run]
-- android_sdk_auto_update.sh:40:android_sdk_auto_update.sh --test-telegram
-- android_sdk_auto_update.sh:61:delete caches, change global PATH, update app Gradle/AGP/Kotlin files, or save secrets
-- android_sdk_auto_update.sh:142:if command -v sqlite3 >/dev/null 2>&1; then
-- android_sdk_auto_update.sh:143:sqlite3 "$SQLITE_FILE" >/dev/null <<'SQL'
-TEST:
-- UNKNOWN
-DATA:
-db=android_sdk_auto_update.sh:10:CSV_FILE="$HISTORY_DIR/android_updates_history.csv"
-db=android_sdk_auto_update.sh:11:SQLITE_FILE="$HISTORY_DIR/android_updates_history.sqlite"
-db=android_sdk_auto_update.sh:64:SQLite: logs/android_updates_history.sqlite
-db=android_sdk_auto_update.sh:65:CSV: logs/android_updates_history.csv
+arch=android_sdk_auto_update.sh:usage,info,warn,error,utc_now
+data=dev/project.metadata.json:9:"metadata_version": 1,; android_sdk_auto_update.sh:10:CSV_FILE="$HISTORY_DIR/android_updates_history.csv"
+ux=android_sdk_auto_update.sh:51:--test-telegram Send a Telegram test notification using configured credentials.; android_sdk_auto_update.sh:48:--yes Required for real install/remove operations and license acceptance.
 backup=UNKNOWN
-import=UNKNOWN
-export=android_sdk_auto_update.sh:114:export "$key=$value"
 migration=UNKNOWN
-retention=android_sdk_auto_update.sh:46:This never deletes AVDs, system images, SDK cache, or the SDK root.
-retention=android_sdk_auto_update.sh:60:It does not upgrade apt/system packages, delete AVDs, delete system images,
-retention=android_sdk_auto_update.sh:61:delete caches, change global PATH, update app Gradle/AGP/Kotlin files, or save sec
+version=dev/project.metadata.json:9:"metadata_version": 1,; android_sdk_auto_update.sh:138:printf '%s\n' 'timestamp_utc,package,previous_version,new_version,operation,size_bytes,size_mb,exit_status,duration_seconds,hostname,username,sdk_path' >"...
+i18n=UNKNOWN
+security=android_sdk_auto_update.sh:114:export "$key=$value"; android_sdk_auto_update.sh:51:--test-telegram Send a Telegram test notification using configured credentials.
+perf=android_sdk_auto_update.sh:12:LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/${APP_NAME}.lock"; android_sdk_auto_update.sh:16:RUN_TIMEOUT_SECONDS="${ANDROID_SDK_AUTO_UPDATE_TIMEOUT_SECONDS:-3600}"
+BUILD:
+files=UNKNOWN
+cmd=UNKNOWN
+TEST:
+files=UNKNOWN
+cmd=UNKNOWN
+DATA:
+db=android_sdk_auto_update.sh:11:SQLITE_FILE="$HISTORY_DIR/android_updates_history.sqlite"; android_sdk_auto_update.sh:64:SQLite: logs/android_updates_history.sqlite
+paths=android_sdk_auto_update.sh:11:SQLITE_FILE="$HISTORY_DIR/android_updates_history.sqlite"; android_sdk_auto_update.sh:64:SQLite: logs/android_updates_history.sqlite
+backup=UNKNOWN
+restore=UNKNOWN
+import=android_sdk_auto_update.sh:10:CSV_FILE="$HISTORY_DIR/android_updates_history.csv"; android_sdk_auto_update.sh:65:CSV: logs/android_updates_history.csv
+export=android_sdk_auto_update.sh:10:CSV_FILE="$HISTORY_DIR/android_updates_history.csv"; android_sdk_auto_update.sh:65:CSV: logs/android_updates_history.csv
+migration=UNKNOWN
+retention=android_sdk_auto_update.sh:10:CSV_FILE="$HISTORY_DIR/android_updates_history.csv"; android_sdk_auto_update.sh:11:SQLITE_FILE="$HISTORY_DIR/android_updates_history.sqlite"
 DNB:
-- android_sdk_auto_update.sh:12:LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/${APP_NAME}.lock"
-- android_sdk_auto_update.sh:39:android_sdk_auto_update.sh --remove-emulator --yes [--dry-run]
-- android_sdk_auto_update.sh:45:--remove-emulator Remove only the Android SDK package named "emulator".
-- android_sdk_auto_update.sh:46:This never deletes AVDs, system images, SDK cache, or the SDK root.
-- android_sdk_auto_update.sh:48:--yes Required for real install/remove operations and license acceptance.
-- android_sdk_auto_update.sh:51:--test-telegram Send a Telegram test notification using configured credentials.
-- android_sdk_auto_update.sh:60:It does not upgrade apt/system packages, delete AVDs, delete system images,
-- android_sdk_auto_update.sh:61:delete caches, change global PATH, update app Gradle/AGP/Kotlin files, or save secrets
-- dev/project.metadata.json:9:"metadata_version": 1,
-- android_sdk_auto_update.sh:23:DRY_RUN=0
+dnb=android_sdk_auto_update.sh:12:LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/${APP_NAME}.lock"
+dnb=android_sdk_auto_update.sh:46:This never deletes AVDs, system images, SDK cache, or the SDK root.
+dnb=android_sdk_auto_update.sh:60:It does not upgrade apt/system packages, delete AVDs, delete system images,
+dnb=android_sdk_auto_update.sh:61:delete caches, change global PATH, update app Gradle/AGP/Kotlin files, or save secrets.
+dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
 BUG:
-- android_sdk_auto_update.sh:3:set -Eeuo pipefail
-- android_sdk_auto_update.sh:16:RUN_TIMEOUT_SECONDS="${ANDROID_SDK_AUTO_UPDATE_TIMEOUT_SECONDS:-3600}"
-- android_sdk_auto_update.sh:17:SDKMANAGER_TIMEOUT_SECONDS="${ANDROID_SDK_AUTO_UPDATE_SDKMANAGER_TIMEOUT_SECONDS:-1800
-- android_sdk_auto_update.sh:25:STATUS="ERROR"
-- android_sdk_auto_update.sh:71:error() { log "ERROR" "$*"; }
-- android_sdk_auto_update.sh:224:warn "Telegram helper failed, trying curl fallback"
-- android_sdk_auto_update.sh:238:if curl --fail --silent --show-error --max-time 20 \
-- android_sdk_auto_update.sh:246:warn "Telegram curl fallback failed"
+issue=android_sdk_auto_update.sh:224:warn "Telegram helper failed, trying curl fallback"
+issue=android_sdk_auto_update.sh:246:warn "Telegram curl fallback failed"
 RISK:
-- android_sdk_auto_update.sh:12:LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/${APP_NAME}.lock"
-- android_sdk_auto_update.sh:39:android_sdk_auto_update.sh --remove-emulator --yes [--dry-run]
-- android_sdk_auto_update.sh:45:--remove-emulator Remove only the Android SDK package named "emulator".
-- android_sdk_auto_update.sh:46:This never deletes AVDs, system images, SDK cache, or the SDK root.
-- android_sdk_auto_update.sh:48:--yes Required for real install/remove operations and license acceptance.
-- android_sdk_auto_update.sh:51:--test-telegram Send a Telegram test notification using configured credentials.
-- android_sdk_auto_update.sh:60:It does not upgrade apt/system packages, delete AVDs, delete system images,
-- android_sdk_auto_update.sh:61:delete caches, change global PATH, update app Gradle/AGP/Kotlin files, or save secrets
+risk=android_sdk_auto_update.sh:12:LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/${APP_NAME}.lock"
+risk=android_sdk_auto_update.sh:46:This never deletes AVDs, system images, SDK cache, or the SDK root.
+risk=android_sdk_auto_update.sh:60:It does not upgrade apt/system packages, delete AVDs, delete system images,
+risk=android_sdk_auto_update.sh:61:delete caches, change global PATH, update app Gradle/AGP/Kotlin files, or save secrets.
 ROAD:
-now=android_sdk_auto_update.sh:354:/^Available Updates:/ { in_updates=1; next }
-next=android_sdk_auto_update.sh:371:/^Installed packages:/ // /^Installed Packages:/ { in_installed=1; next }
-later=android_sdk_auto_update.sh:387:/^Available Updates:/ { in_updates=1; print; next }
+now=UNKNOWN
+next=UNKNOWN
+later=UNKNOWN
 LINK:
 meta=../../../android-sdk-auto-update/dev/project.metadata.json
 human=../../human/projects/android-sdk-auto-update/overview.md
 legacy=../../../android-sdk-auto-update/dev/legacy
 repo=../../../android-sdk-auto-update
 OPEN:
-- no tests detected by static scan
+open=tests=UNKNOWN_OR_ABSENT

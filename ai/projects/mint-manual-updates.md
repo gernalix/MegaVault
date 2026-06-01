@@ -5,79 +5,69 @@ path=/home/daniele/codex-workspace/mint-manual-updates
 remote=none
 branch=master
 verified_commit=bd9d452
-verified_at=2026-06-01T13:39:31+02:00
+verified_at=2026-06-01T13:59:53+02:00
+protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
-- Servizio user systemd v4 per controllare e applicare aggiornamenti prudenti su Linux Mint 22.3 / Ubuntu noble.
+purpose=Servizio user systemd v4 per controllare e applicare aggiornamenti prudenti su Linux Mint 22.3 / Ubuntu noble
 STACK:
-lang=UNKNOWN;fw=UNKNOWN;db=UNKNOWN;platform=UNKNOWN;tools=UNKNOWN
+lang=UNKNOWN
+fw=UNKNOWN
+db=UNKNOWN
+platform=UNKNOWN
+tools=UNKNOWN
 MAP:
 entry=UNKNOWN
-core=dev/project.metadata.json
-core=systemd/user/mint-extra-updater.service
-core=systemd/user/mint-extra-updater.timer
-core=systemd/user/mint-manual-updates.service
-core=systemd/user/mint-manual-updates.timer
 ui=UNKNOWN
+core=dev/project.metadata.json,systemd/user/mint-extra-updater.service,systemd/user/mint-extra-updater.timer,systemd/user/mint-manual-updates.service,systemd/user/mint-manual-updates.timer
 db=UNKNOWN
 tests=UNKNOWN
 scripts=UNKNOWN
 build=UNKNOWN
-ci=UNKNOWN
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
 ARCH:
-- systemd/user/mint-extra-updater.service:11:ExecStart=~/cw/mint-manual-updates/bin/mint-extra-updater --run
-- systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
-- systemd/user/mint-extra-updater.timer:4:[Timer]
-- systemd/user/mint-extra-updater.timer:11:WantedBy=timers.target
-- systemd/user/mint-manual-updates.service:11:ExecStart=~/cw/mint-manual-updates/bin/mint-manual-updates --run
-- systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
+arch=UNKNOWN
 FLOW:
-- systemd/user/mint-extra-updater.service:11:ExecStart=~/cw/mint-manual-updates/bin/mint-extra-updater --run
-- systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
-- systemd/user/mint-extra-updater.timer:4:[Timer]
-- systemd/user/mint-extra-updater.timer:11:WantedBy=timers.target
-- systemd/user/mint-manual-updates.service:11:ExecStart=~/cw/mint-manual-updates/bin/mint-manual-updates --run
-- systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
-- systemd/user/mint-manual-updates.timer:4:[Timer]
-- systemd/user/mint-manual-updates.timer:11:WantedBy=timers.target
+flow=systemd/user/mint-extra-updater.service:11:ExecStart=/home/daniele/codex-workspace/mint-manual-updates/bin/mint-extra-updater --run
+flow=systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
+flow=systemd/user/mint-extra-updater.timer:4:[Timer]
 INV:
-arch=dev/project.metadata.json:9:"metadata_version": 1,
-arch=systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
-arch=systemd/user/mint-manual-updates.service:2:Description=Linux Mint manual safe updates v1
-arch=systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
-arch=systemd/user/mint-manual-updates.timer:2:Description=Weekly Linux Mint manual safe updates v1
-data=UNKNOWN
-safety=dev/project.metadata.json:9:"metadata_version": 1,
-safety=systemd/user/mint-manual-updates.service:2:Description=Linux Mint manual safe updates v1
-safety=systemd/user/mint-manual-updates.timer:2:Description=Weekly Linux Mint manual safe updates v1
-safety=preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks
+arch=UNKNOWN
+data=dev/project.metadata.json:9:"metadata_version": 1,; systemd/user/mint-extra-updater.timer:11:WantedBy=timers.target
 ux=UNKNOWN
+backup=UNKNOWN
+migration=UNKNOWN
 version=dev/project.metadata.json:9:"metadata_version": 1,
 i18n=UNKNOWN
+security=UNKNOWN
+perf=systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200; systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
 BUILD:
-- UNKNOWN
+files=UNKNOWN
+cmd=UNKNOWN
 TEST:
-- UNKNOWN
+files=UNKNOWN
+cmd=UNKNOWN
 DATA:
-db=UNKNOWN
+db=systemd/user/mint-extra-updater.timer:11:WantedBy=timers.target; systemd/user/mint-manual-updates.timer:11:WantedBy=timers.target
+paths=UNKNOWN
 backup=UNKNOWN
-import=UNKNOWN
-export=UNKNOWN
+restore=UNKNOWN
+import=dev/project.metadata.json:9:"metadata_version": 1,
+export=dev/project.metadata.json:9:"metadata_version": 1,
 migration=UNKNOWN
 retention=UNKNOWN
 DNB:
-- dev/project.metadata.json:9:"metadata_version": 1,
-- systemd/user/mint-manual-updates.service:2:Description=Linux Mint manual safe updates v1
-- systemd/user/mint-manual-updates.timer:2:Description=Weekly Linux Mint manual safe updates v1
-- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks
+dnb=dev/project.metadata.json:9:"metadata_version": 1,
+dnb=systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
+dnb=systemd/user/mint-manual-updates.service:2:Description=Linux Mint manual safe updates v1
+dnb=systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
+dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
 BUG:
-- systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
-- systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
+issue=UNKNOWN
 RISK:
-- UNKNOWN
+risk=UNKNOWN
 ROAD:
-now=systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
-next=systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
+now=UNKNOWN
+next=UNKNOWN
 later=UNKNOWN
 LINK:
 meta=../../../mint-manual-updates/dev/project.metadata.json
@@ -85,5 +75,4 @@ human=../../human/projects/mint-manual-updates/overview.md
 legacy=../../../mint-manual-updates/dev/legacy
 repo=../../../mint-manual-updates
 OPEN:
-- no tests detected by static scan
-- data/storage rules absent from active code
+open=tests=UNKNOWN_OR_ABSENT

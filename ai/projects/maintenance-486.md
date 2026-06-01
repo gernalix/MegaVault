@@ -5,73 +5,72 @@ path=/home/daniele/codex-workspace/projects/vm_oracle/maintenance-486
 remote=none
 branch=master
 verified_commit=ed9de94
-verified_at=2026-06-01T13:39:31+02:00
+verified_at=2026-06-01T13:59:53+02:00
+protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
-- Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited a...
+purpose=Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be verified before remote changes
 STACK:
-lang=Shell;fw=UNKNOWN;db=UNKNOWN;platform=UNKNOWN;tools=UNKNOWN
+lang=Shell
+fw=UNKNOWN
+db=UNKNOWN
+platform=UNKNOWN
+tools=UNKNOWN
 MAP:
 entry=UNKNOWN
-core=dev/project.metadata.json
 ui=UNKNOWN
+core=dev/project.metadata.json
 db=UNKNOWN
 tests=UNKNOWN
 scripts=scripts/ssh_diag_486.sh
 build=UNKNOWN
-ci=UNKNOWN
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
 ARCH:
-- UNKNOWN
+arch=UNKNOWN
 FLOW:
-- UNKNOWN
+flow=script->scripts/ssh_diag_486.sh=>dev/project.metadata.json
 INV:
-arch=dev/project.metadata.json:9:"metadata_version": 1,
-arch=scripts/ssh_diag_486.sh:10:timeout 10 nc -vz "$host" 22 // true
-arch=scripts/ssh_diag_486.sh:13:timeout 12 bash -lc "exec 3<>/dev/tcp/$host/22; IFS= read -r -t 8 line <&3; printf '%
-arch=scripts/ssh_diag_486.sh:16:timeout 35 ssh \
-arch=scripts/ssh_diag_486.sh:18:-o ConnectTimeout=12 \
-data=UNKNOWN
-safety=dev/project.metadata.json:9:"metadata_version": 1,
-safety=preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks
+arch=UNKNOWN
+data=dev/project.metadata.json:9:"metadata_version": 1,
 ux=UNKNOWN
+backup=UNKNOWN
+migration=UNKNOWN
 version=dev/project.metadata.json:9:"metadata_version": 1,
 i18n=UNKNOWN
+security=scripts/ssh_diag_486.sh:10:timeout 10 nc -vz "$host" 22 || true; scripts/ssh_diag_486.sh:13:timeout 12 bash -lc "exec 3<>/dev/tcp/$host/22; IFS= read -r -t 8 line <&3; printf '%s\n' \"\$line\"" || true
+perf=scripts/ssh_diag_486.sh:10:timeout 10 nc -vz "$host" 22 || true; scripts/ssh_diag_486.sh:13:timeout 12 bash -lc "exec 3<>/dev/tcp/$host/22; IFS= read -r -t 8 line <&3; printf '%s\n' \"\$line\"" || true
 BUILD:
-- scripts/ssh_diag_486.sh:1:#!/usr/bin/env bash
-- scripts/ssh_diag_486.sh:5:key="${2:-../ssh-key-2026-02-01.key}"
-- scripts/ssh_diag_486.sh:12:echo "=== raw SSH banner ==="
-- scripts/ssh_diag_486.sh:13:timeout 12 bash -lc "exec 3<>/dev/tcp/$host/22; IFS= read -r -t 8 line <&3; printf '%s\n'
-- scripts/ssh_diag_486.sh:15:echo "=== short SSH command ==="
-- scripts/ssh_diag_486.sh:16:timeout 35 ssh \
+files=UNKNOWN
+cmd=UNKNOWN
 TEST:
-- UNKNOWN
+files=UNKNOWN
+cmd=UNKNOWN
 DATA:
-db=UNKNOWN
+db=DB=UNKNOWN
+paths=UNKNOWN
 backup=UNKNOWN
-import=UNKNOWN
-export=UNKNOWN
+restore=UNKNOWN
+import=dev/project.metadata.json:9:"metadata_version": 1,; scripts/ssh_diag_486.sh:13:timeout 12 bash -lc "exec 3<>/dev/tcp/$host/22; IFS= read -r -t 8 line <&3; printf '%s\n' \"\$line\"" || true
+export=dev/project.metadata.json:9:"metadata_version": 1,
 migration=UNKNOWN
 retention=UNKNOWN
 DNB:
-- dev/project.metadata.json:9:"metadata_version": 1,
-- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks
+dnb=dev/project.metadata.json:9:"metadata_version": 1,
+dnb=scripts/ssh_diag_486.sh:10:timeout 10 nc -vz "$host" 22 || true
+dnb=scripts/ssh_diag_486.sh:13:timeout 12 bash -lc "exec 3<>/dev/tcp/$host/22; IFS= read -r -t 8 line <&3; printf '%s\n' \"\$line\"" || true
+dnb=scripts/ssh_diag_486.sh:16:timeout 35 ssh \
+dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
 BUG:
-- scripts/ssh_diag_486.sh:2:set -euo pipefail
-- scripts/ssh_diag_486.sh:10:timeout 10 nc -vz "$host" 22 // true
-- scripts/ssh_diag_486.sh:13:timeout 12 bash -lc "exec 3<>/dev/tcp/$host/22; IFS= read -r -t 8 line <&3; printf '%s\n'
-- scripts/ssh_diag_486.sh:16:timeout 35 ssh \
-- scripts/ssh_diag_486.sh:18:-o ConnectTimeout=12 \
+issue=UNKNOWN
 RISK:
-- UNKNOWN
+risk=UNKNOWN
 ROAD:
-now=scripts/ssh_diag_486.sh:2:set -euo pipefail
-next=scripts/ssh_diag_486.sh:10:timeout 10 nc -vz "$host" 22 // true
-later=scripts/ssh_diag_486.sh:13:timeout 12 bash -lc "exec 3<>/dev/tcp/$host/22; IFS= read -r -t 8 line <&3; printf '%s\n'
+now=UNKNOWN
+next=UNKNOWN
+later=UNKNOWN
 LINK:
 meta=../../../projects/vm_oracle/maintenance-486/dev/project.metadata.json
 human=../../human/projects/maintenance-486/overview.md
 legacy=../../../projects/vm_oracle/maintenance-486/dev/legacy
 repo=../../../projects/vm_oracle/maintenance-486
 OPEN:
-- no tests detected by static scan
-- data/storage rules absent from active code
+open=tests=UNKNOWN_OR_ABSENT

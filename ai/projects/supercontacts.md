@@ -5,202 +5,95 @@ path=/home/daniele/codex-workspace/SuperContacts
 remote=https://github.com/gernalix/SuperContacts.git
 branch=codex/prompt-xxx
 verified_commit=3aa6287
-verified_at=2026-06-01T13:39:31+02:00
+verified_at=2026-06-01T13:59:53+02:00
+protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
-- Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, add...
+purpose=Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-d
 STACK:
-lang=Kotlin,Python,Shell;fw=Gradle,Jetpack Compose;db=Room/SQLite,SQLite;platform=Android;tools=ADB,Chrome
+lang=Kotlin,Python,Shell
+fw=Gradle,Jetpack Compose
+db=Room/SQLite,SQLite
+platform=Android
+tools=ADB,Chrome
 MAP:
-entry=app/src/main/AndroidManifest.xml
-entry=app/src/main/java/com/supercontacts/app/MainActivity.kt
-entry=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt
-core=app/src/main/assets/countries-v1.csv
-core=app/src/main/java/com/supercontacts/app/data/local/ContactAddressSuggestionRow.kt
-core=app/src/main/java/com/supercontacts/app/data/local/ContactEventWithContactName.kt
-core=app/src/main/java/com/supercontacts/app/data/local/ContactFieldSuggestionRow.kt
-core=app/src/main/java/com/supercontacts/app/data/local/ContactHomeMetricRow.kt
-core=app/src/main/java/com/supercontacts/app/data/local/ContactInitiativeWithContactName.kt
-core=app/src/main/java/com/supercontacts/app/data/local/ContactTagCrossRef.kt
-core=app/src/main/java/com/supercontacts/app/data/local/ContactWithFields.kt
-ui=app/src/main/java/com/supercontacts/app/ui/contacts/ContactTimeFormatter.kt
-ui=app/src/main/java/com/supercontacts/app/ui/contacts/ContactsViewModel.kt
-ui=app/src/main/java/com/supercontacts/app/ui/theme/Color.kt
-ui=app/src/main/java/com/supercontacts/app/ui/theme/Theme.kt
-ui=app/src/main/java/com/supercontacts/app/ui/theme/Type.kt
-ui=app/src/main/res/values/themes.xml
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/2.json
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/3.json
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/5.json
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/6.json
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/7.json
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/9.json
-tests=app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt
-tests=app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt
-tests=app/src/androidTest/java/com/supercontacts/app/BackupManagerInstrumentedTest.kt
-tests=app/src/androidTest/java/com/supercontacts/app/ContactDuplicateUiTest.kt
-tests=app/src/androidTest/java/com/supercontacts/app/ContactFieldDescriptionUiTest.kt
-tests=app/src/androidTest/java/com/supercontacts/app/ContactFormScrollDeviceTest.kt
-tests=app/src/androidTest/java/com/supercontacts/app/ContactPhotoCropUiTest.kt
-tests=app/src/androidTest/java/com/supercontacts/app/ContactPhotoDeviceTest.kt
-scripts=tools/build-finalize.ps1
-scripts=tools/build-finalize.sh
-scripts=tools/codex_guardrails.ps1
-scripts=tools/codex_guardrails.py
-scripts=tools/codex_guardrails.sh
-scripts=tools/guardrails/__init__.py
-scripts=tools/guardrails/engine.py
+entry=app/src/main/AndroidManifest.xml,app/src/main/java/com/supercontacts/app/MainActivity.kt,app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt
+ui=app/src/main/java/com/supercontacts/app/ui/contacts/ContactTimeFormatter.kt,app/src/main/java/com/supercontacts/app/ui/contacts/ContactsViewModel.kt,app/src/main/java/com/supercontacts/app/ui/theme/Color.kt
+core=app/src/main/assets/countries-v1.csv,app/src/main/java/com/supercontacts/app/data/local/ContactAddressSuggestionRow.kt,app/src/main/java/com/supercontacts/app/data/local/ContactEventWithContactName.kt,app/src/main/java/com/supercontacts/app/data/local/ContactFieldSuggestionRow.kt,app/src/main/java/com/supercontacts/app/data/local/ContactHomeMetricRow.kt
+db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json,app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json,app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/2.json,app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/3.json,app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/5.json
+tests=app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt,app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt,app/src/androidTest/java/com/supercontacts/app/BackupManagerInstrumentedTest.kt,app/src/androidTest/java/com/supercontacts/app/ContactDuplicateUiTest.kt,app/src/androidTest/java/com/supercontacts/app/ContactFieldDescriptionUiTest.kt
+scripts=tools/build-finalize.ps1,tools/build-finalize.sh,tools/codex_guardrails.ps1,tools/codex_guardrails.py,tools/codex_guardrails.sh
 build=app/build.gradle.kts,build.gradle.kts,gradle.properties,settings.gradle.kts
-ci=UNKNOWN
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
 ARCH:
-- app/src/main/java/com/supercontacts/app/MainActivity.kt=>MainActivity,onCreate,onNewIntent
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt=>SuperContactsApp,ContactListScreen,selectHomeSor
-- app/src/main/java/com/supercontacts/app/data/backup/BackupModels.kt=>BackupState
-- app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt=>BackupPreferencesStore,readFolderUri,
-- app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt=>PreparedImport,SuperContactsBacku
-- app/src/main/java/com/supercontacts/app/data/local/BackupMetadataEntity.kt=>BackupMetadataEntity
-- app/src/main/java/com/supercontacts/app/data/local/ContactEntity.kt=>ContactEntity
-- app/src/main/java/com/supercontacts/app/data/local/ContactEventEntity.kt=>ContactEventEntity
-- app/src/main/java/com/supercontacts/app/data/local/ContactFieldEntity.kt=>ContactFieldEntity
-- app/src/main/java/com/supercontacts/app/data/local/ContactInitiativeEntity.kt=>ContactInitiativeEntity
-- app/src/main/java/com/supercontacts/app/data/local/ContactsDao.kt=>ContactsDao,insertContact,updateContact,deleteCon
-- app/src/main/java/com/supercontacts/app/data/local/SuperContactsDatabase.kt=>SuperContactsDatabase,contactsDao,getIn
-- app/src/main/java/com/supercontacts/app/data/local/TagEntity.kt=>TagEntity
-- app/src/main/java/com/supercontacts/app/data/repository/AddressAutocompleteRepository.kt=>AddressSuggestion,Resolved
-- app/src/main/AndroidManifest.xml:10:android:allowBackup="false"
-- app/src/main/AndroidManifest.xml:21:android:exported="true"
+entry=app/src/main/java/com/supercontacts/app/MainActivity.kt:MainActivity,onCreate,onNewIntent
+entry=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:SuperContactsApp,ContactListScreen,selectHomeSort,loadPatchVersion,EmojiToolbarButton,HomeSortStatus
+data=app/src/main/java/com/supercontacts/app/data/backup/BackupModels.kt:BackupState
+data=app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:BackupPreferencesStore,readFolderUri,writeFolderUri,clearFolderUri,readAutoExportEnabled,writeAutoExportEnabled
+data=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:PreparedImport,SuperContactsBackupManager,notifyDatabaseChanged,setBackupFolder,setAutoExportEnabled,exportNow
+data=app/src/main/java/com/supercontacts/app/data/local/BackupMetadataEntity.kt:BackupMetadataEntity
+data=app/src/main/java/com/supercontacts/app/data/local/ContactEntity.kt:ContactEntity
+data=app/src/main/java/com/supercontacts/app/data/local/ContactEventEntity.kt:ContactEventEntity
 FLOW:
-- app/src/main/AndroidManifest.xml:10:android:allowBackup="false"
-- app/src/main/AndroidManifest.xml:21:android:exported="true"
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:3:import android.content.Intent
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:4:import android.os.Bundle
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:5:import androidx.activity.ComponentActivity
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:6:import androidx.activity.compose.setContent
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:7:import androidx.activity.enableEdgeToEdge
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:8:import androidx.compose.runtime.getValue
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:9:import androidx.compose.runtime.mutableStateOf
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:10:import androidx.compose.runtime.setValue
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:3:import android.Manifest
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:4:import android.content.ClipData
+flow=entry->app/src/main/AndroidManifest.xml=>app/src/main/assets/countries-v1.csv
+flow=script->tools/build-finalize.ps1=>app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json
+flow=data->app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json
+flow=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"
+flow=app/src/main/AndroidManifest.xml:21:android:exported="true"
+flow=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
 INV:
-arch=app/src/main/AndroidManifest.xml:1:<?xml version="1.0" encoding="utf-8"?>
-arch=app/src/main/AndroidManifest.xml:2:<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-arch=app/src/main/AndroidManifest.xml:3:xmlns:tools="http://schemas.android.com/tools">
-arch=app/src/main/AndroidManifest.xml:5:<uses-permission android:name="android.permission.INTERNET" />
-arch=app/src/main/AndroidManifest.xml:6:<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-arch=app/src/main/AndroidManifest.xml:7:<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-data=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:3:"database": {
-data=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:3:"database": {
-data=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
-data=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT E
-data=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:24:"fieldPath": "schemaVersion",
-data=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:25:"columnName": "schema_version",
-safety=app/src/main/java/com/supercontacts/app/MainActivity.kt:15:private var latestIntent by mutableStateOf<Intent?>(n
-safety=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUn
-safety=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUn
-safety=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:551:onDelete = { contactId ->
-safety=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:552:viewModel.deleteContact(contactId) {
-safety=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:567:onRemoveTag = { contactId, tagId -> viewM
-safety=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:660:private fun ContactListScreen(
-ux=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:180:import kotlinx.coroutines.withTimeoutOrNu
-ux=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManage
-ux=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialV
-ux=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:200:value = loadPatchVersion(context)
-version=app/src/main/AndroidManifest.xml:1:<?xml version="1.0" encoding="utf-8"?>
-version=app/src/main/AndroidManifest.xml:2:<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-version=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialV
-version=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:200:value = loadPatchVersion(context)
-i18n=strings/resources present; verify no hardcoded UI
+arch=app/src/main/java/com/supercontacts/app/MainActivity.kt:MainActivity,onCreate,onNewIntent; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:SuperContactsApp,ContactListScreen,selectHomeSort,loadPatchVersion,EmojiToolbar...
+data=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialV...
+ux=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialV...
+backup=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),
+migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:2:"formatVersion": 1,; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:4:"version": 1,
+version=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialValue = "", context) {; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:200:value = loadPatchVersion(context)
+i18n=app/src/main/java/com/supercontacts/app/ui/app/BackupSettingsScreen.kt:191:text = stringResource(R.string.backup_last_error, lastError),; app/src/main/res/values-it/strings.xml:88:<string name="distance_geocoding_failed">Indirizzo non lo...
+security=app/src/main/AndroidManifest.xml:5:<uses-permission android:name="android.permission.INTERNET" />; app/src/main/AndroidManifest.xml:6:<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+perf=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:200:value = loadPatchVersion(context); app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:897:private suspend fun loadPatchVersion(context: Context): Stri...
 BUILD:
-- tools/build-finalize.ps1:124:function Invoke-Git {
-- tools/build-finalize.ps1:131:Invoke-LoggedCommand -FilePath "git" -Arguments $gitArguments
-- tools/build-finalize.ps1:141:& git @gitArguments
-- tools/build-finalize.ps1:143:throw ("git failed: {0}" -f ($Arguments -join " "))
-- tools/build-finalize.ps1:170:throw ("Gradle wrapper not found: {0}" -f $GradleWrapper)
-- tools/build-finalize.ps1:245:Invoke-Git -Arguments @("archive", "--format=zip", "--output=$zipPath", "HEAD")
-- tools/build-finalize.ps1:259:$python = Get-Command python -ErrorAction SilentlyContinue
-- tools/build-finalize.ps1:260:if ($python) {
-- tools/build-finalize.sh:1:#!/usr/bin/env bash
+files=app/build.gradle.kts,build.gradle.kts,gradle.properties,settings.gradle.kts
+cmd_hint=gradlew=present
 TEST:
-- app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt:3:import androidx.test.platform.
-- app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt:6:import org.junit.Assert.assert
-- app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt:11:@Test
-- app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt:13:assumeTrue(BuildConfig.GOOGLE
-- app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt:16:InstrumentationRegistry.getIn
-- app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt:21:assertTrue(suggestions.isNotE
-- app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt:4:import androidx.test.platform.app.Ins
-- app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt:12:import org.junit.Assert.assertEquals
-- app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt:13:import org.junit.Assert.assertTrue
-- app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt:23:val context = InstrumentationRegistr
-- app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt:24:database = Room.inMemoryDatabaseBuil
-- app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt:27:).build()
+files=app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt,app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt,app/src/androidTest/java/com/supercontacts/app/BackupManagerInstrumentedTest.kt,app/src/androidTest/java/com/supercontacts/app/ContactDuplicateUiTest.kt,app/src/androidTest/java/com/supercontacts/app/ContactFieldDescriptionUiTest.kt
+cmd=UNKNOWN
 DATA:
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:3:"database": {
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:3:"database": {
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT E
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:24:"fieldPath": "schemaVersion",
-db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:25:"columnName": "schema_version",
-backup=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
-backup=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT E
-backup=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:30:"fieldPath": "backupFormatVersion"
-backup=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:31:"columnName": "backup_format_versi
-import=app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:3:import android.content.Context
-import=app/src/main/java/com/supercontacts/app/MainActivity.kt:3:import android.content.Intent
-import=app/src/main/java/com/supercontacts/app/MainActivity.kt:4:import android.os.Bundle
-export=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:36:"fieldPath": "exportedAt",
-export=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:37:"columnName": "exported_at",
-export=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/6.json:36:"fieldPath": "exportedAt",
-migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:3:"database": {
-migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:3:"database": {
-migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
-migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT E
-retention=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUn
-retention=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUn
-retention=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:551:onDelete = { contactId ->
+db=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_...
+paths=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
+backup=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
+restore=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:46:private const val ROLLBACK_DB_NAME = "super_contacts_pre_restore.sqlite"; app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager...
+import=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_...
+export=app/src/main/AndroidManifest.xml:21:android:exported="true"; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
+migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_...
+retention=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::de...
 DNB:
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:15:private var latestIntent by mutableStateOf<Intent?>(null)
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnused
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUnused
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:551:onDelete = { contactId ->
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:552:viewModel.deleteContact(contactId) {
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:567:onRemoveTag = { contactId, tagId -> viewModel
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:660:private fun ContactListScreen(
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:897:private suspend fun loadPatchVersion(context:
-- app/src/main/AndroidManifest.xml:1:<?xml version="1.0" encoding="utf-8"?>
-- app/src/main/AndroidManifest.xml:10:android:allowBackup="false"
+dnb=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
+dnb=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
+dnb=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:551:onDelete = { contactId ->
+dnb=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:552:viewModel.deleteContact(contactId) {
+dnb=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:897:private suspend fun loadPatchVersion(context: Context): String =
+dnb=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:185:"onDelete": "CASCADE",
+dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
 BUG:
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:180:import kotlinx.coroutines.withTimeoutOrNull
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:348:viewModel.clearError()
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:362:errorMessage = uiState.errorMessage,
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:364:onErrorDismiss = viewModel::clearError,
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:417:errorMessage = uiState.errorMessage,
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:422:onErrorDismiss = viewModel::clearError,
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:449:viewModel.clearError()
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:463:errorMessage = uiState.errorMessage,
-- app/src/main/java/com/supercontacts/app/data/backup/BackupModels.kt:9:val lastError: String? = null,
-- app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:33:fun readLastError(): String? = pref
+issue=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:362:errorMessage = uiState.errorMessage,
+issue=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:417:errorMessage = uiState.errorMessage,
+issue=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:463:errorMessage = uiState.errorMessage,
+issue=app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:33:fun readLastError(): String? = prefs.getString(KEY_LAST_ERROR, null)
+issue=app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:36:prefs.edit().putString(KEY_LAST_ERROR, error).apply()
 RISK:
-- app/src/main/java/com/supercontacts/app/MainActivity.kt:15:private var latestIntent by mutableStateOf<Intent?>(null)
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnused
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUnused
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:551:onDelete = { contactId ->
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:552:viewModel.deleteContact(contactId) {
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:567:onRemoveTag = { contactId, tagId -> viewModel
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:660:private fun ContactListScreen(
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:897:private suspend fun loadPatchVersion(context:
-- app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:907:private fun EmojiToolbarButton(
-- app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:185:"onDelete": "CASCADE",
+risk=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
+risk=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
+risk=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:551:onDelete = { contactId ->
+risk=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:552:viewModel.deleteContact(contactId) {
+risk=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:897:private suspend fun loadPatchVersion(context: Context): String =
+risk=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:185:"onDelete": "CASCADE",
 ROAD:
-now=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:382:onNextMonth = viewModel::nextHistoryMonth,
-next=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:2027:onNextMonth: () -> Unit,
-later=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:2062:onNextMonth = onNextMonth,
+now=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:403:copyPhotoDocuments(sourcePhotos, targetPhotos)
+next=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:431:private fun copyPhotoDocuments(
+later=app/src/main/java/com/supercontacts/app/data/repository/ContactPhotoStore.kt:163:val ratio = ceil(largestSide.toDouble() / maxSizePx.toDouble()).roundToInt()
 LINK:
 meta=../../../SuperContacts/dev/project.metadata.json
 human=../../human/projects/supercontacts/overview.md
 legacy=../../../SuperContacts/dev/legacy
 repo=../../../SuperContacts
 OPEN:
-- none
+open=none
