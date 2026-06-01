@@ -4,8 +4,8 @@ slug=multitimetracker
 path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
 branch=codex/v488-release-safe-ui-lockdown
-verified_commit=6ddeebb
-verified_at=2026-06-01T20:51:14+02:00
+verified_commit=15c1d2246bf641bd21b69d53f7a5a526b900f545
+verified_at=2026-06-01T22:06:39+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
 purpose=local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model
@@ -35,9 +35,13 @@ data=app/src/main/java/com/example/multitimetracker/data/importexport/FallbackRe
 data=app/src/main/java/com/example/multitimetracker/data/importexport/ImportExportIntegrityValidator.kt:ImportExportCounts,ImportExportIntegrityValidator,compare
 capsules=present: NOW,TAGS,TIMELINE,QUICK_EVENTS,CHAINS,AUDIT_LOG,ALERTS,IMPORT_EXPORT via app/src/main/java/com/example/multitimetracker/capsules/*
 capsules=owned: TAGS CRUD policy/audit/persist/rename-projection in capsules/tags/TagsCapsuleViewModel.kt via TagsCapsuleAccess owner primitives; MainViewModel keeps wrappers only
-capsules=owned: ALERTS rule mutation plus runtime evaluation/reconciliation/schedule/cancel in capsules/alerts/AlertsCapsuleViewModel.kt; MainViewModel keeps async wrappers only
-capsules=partial: MainViewModel still root composition shell plus legacy bridge for NOW/TIMELINE session CRUD, QUICK_EVENTS, CHAINS, AUDIT_LOG, IMPORT_EXPORT state/persistence hooks
-capsules=missing: full ownership enforcement/decomposition not complete; session/timeline CRUD and quick-events/chains/audit-log bridges still need owner APIs
+capsules=owned: ALERTS rule mutation plus runtime evaluation/reconciliation/schedule/cancel in capsules/alerts/AlertsCapsuleViewModel.kt; snapshot post-load alarm reconciliation is behind AlertsCapsuleViewModel.reconcileSnapshotRuntimeAlarms
+capsules=owned: NOW/TIMELINE session CRUD and stop policies route through SessionOwnerCapsuleViewModel via SessionOwnerCapsuleAccess; Now/Timeline access contracts no longer expose direct session mutation
+capsules=owned: QUICK_EVENTS template/entry/macro mutation and screen refresh live in QuickEventsCapsuleViewModel via QuickEventsCapsuleAccess owner primitives
+capsules=owned: CHAINS create/update/delete/start/stop/advance live in ChainsCapsuleViewModel via ChainsCapsuleAccess owner primitives
+capsules=owned: IMPORT_EXPORT owns backup/import/restore plus manual CSV export/import through ImportExportCapsule; MainViewModel only supplies export snapshot/apply hooks
+capsules=partial: AUDIT_LOG UI capsule exists but filter flows, event refresh, clear and undo orchestration still live in MainViewModel because undo crosses TAGS/session/time-machine replay semantics
+capsules=percent: before_prompt_539824=72; after_prompt_539824=92; remaining_to_100=AUDIT_LOG owner extraction plus root composition/infrastructure hook shrink
 quick_events=v525: removed redundant note/defaultNote fields from QuickEventTemplate, QuickEventEntry, QuickEventMacro and active Quick Events UI/import/export paths; text details now belong in custom fields
 backup=v525: SqliteVault creates stable primary/temp/emergency database files with exact names even when DocumentFile providers add MIME extensions
 FLOW:
@@ -96,11 +100,11 @@ risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:72:val schem
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:104:val integrityBlock by vm.integrityBlock.collectAsState()
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// otherwise empty/default state could race against the real restore decision.
 risk=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
-risk=capsules: TAGS and ALERTS boundary tests exist; MainViewModel remains oversized bridge for session CRUD, quick events, chains, audit log, import/export hooks; avoid further moves without targeted tests for session/time-machine/import-export flows
+risk=capsules: MainViewModel is now mostly composition shell/infrastructure bridge; AUDIT_LOG filters/undo/refresh remain root-owned and must not be moved without targeted tests for undo, time-machine/history replay, tags and session restore semantics
 ROAD:
 now=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:98:// Persist permission for future sessions.
 next=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:110:// Roll back the saved URI to avoid future "Export fallito" loops.
-next=capsules: move NOW/TIMELINE session CRUD and stop policies behind explicit session owner API; then move QUICK_EVENTS, CHAINS, AUDIT_LOG wrapper logic out of MainViewModel
+next=capsules: extract AUDIT_LOG filter/event/undo ownership behind an AuditLog owner API; then shrink MainViewModel infrastructure hooks after time-machine/history replay tests exist
 later=app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
 LINK:
 meta=../../../projects/MultiTimeTracker/dev/project.metadata.json
@@ -108,4 +112,4 @@ human=../../human/projects/multitimetracker/overview.md
 legacy=../../../projects/MultiTimeTracker/dev/legacy
 repo=../../../projects/MultiTimeTracker
 OPEN:
-open=capsulization_not_100_percent: session/timeline CRUD, quick-events, chains, audit-log, import/export persistence hooks still depend on MainViewModel composition state
+open=capsulization_not_100_percent: AUDIT_LOG filter/event/undo orchestration still depends on MainViewModel state and persistence hooks; composition root still supplies shared infrastructure APIs to capsules

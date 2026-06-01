@@ -13,3 +13,19 @@
 - Residual: NOW/TIMELINE session CRUD and stop policies still run through MainViewModel legacy wrappers.
 - Residual: QUICK_EVENTS, CHAINS, AUDIT_LOG, IMPORT_EXPORT still use MainViewModel state/persistence hooks.
 - Estimate: capsulization after prompt `#847261` is about 72 percent; 100 percent requires a session owner API and migration of remaining feature mutation bridges.
+
+## Prompt #539824
+- Scope: remove remaining legacy bridges where risk was bounded, keep MainViewModel as composition shell/infrastructure adapter.
+- Code commit: `15c1d2246bf641bd21b69d53f7a5a526b900f545` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Before: capsulization estimated at 72 percent after `#847261`.
+- Fixed: introduced `SessionOwnerCapsuleViewModel` and `SessionOwnerCapsuleAccess`; NOW/TIMELINE session CRUD and stop policies no longer live in MainViewModel business logic.
+- Fixed: `ChainsCapsuleViewModel` owns chain create/update/delete/restore/purge/start/stop/advance; MainViewModel wrappers only delegate.
+- Fixed: `QuickEventsCapsuleViewModel` owns template/entry/macro mutation and quick-event screen refresh.
+- Fixed: `ImportExportCapsule` owns manual CSV export/import in addition to backup/import/restore flows.
+- Fixed: `MainViewModelSnapshotCoordinator` no longer imports ALERTS reconciliation helpers directly; post-snapshot alarm reconciliation is behind `AlertsCapsuleViewModel.reconcileSnapshotRuntimeAlarms`.
+- Guard: `CapsuleBoundaryOwnershipTest` now checks TAGS, ALERTS, session owner, CHAINS, QUICK_EVENTS and CSV ImportExport boundaries.
+- Residual: AUDIT_LOG filters, event refresh, clear and undo orchestration still live in MainViewModel; this remains because undo crosses session restore, tag hierarchy, time-machine/history replay and audit DB semantics.
+- Residual: MainViewModel still provides infrastructure hooks for state update, persistence, logging, context and shared cores to capsules.
+- Estimate: capsulization after prompt `#539824` is about 92 percent. The missing 8 percent is mainly AUDIT_LOG owner extraction and further reduction of composition-root hooks.
+- Validation: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug` passed locally.
+- Validation: Pixel 8a ran `connectedAndroidTest -Pmtt.testBuildType=deviceTest` on clone `com.example.multitimetracker.devicetest` / test app `com.example.multitimetracker.devicetest.test`: 53 tests, 3 skipped, 0 failed.
