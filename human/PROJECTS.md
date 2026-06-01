@@ -1,27 +1,29 @@
-# Projects
+# MegaVault Projects
 
-| Project | Description | Human docs |
-|---|---|---|
-| SuperContacts | SuperContacts (supercontacts) | `/home/daniele/codex-workspace/MegaVault/human/projects/supercontacts` |
-| WindowTabNotes | WindowTabNotes (windowtabnotes) | `/home/daniele/codex-workspace/MegaVault/human/projects/windowtabnotes` |
-| android-sdk-auto-update | android-sdk-auto-update (android-sdk-auto-update) | `/home/daniele/codex-workspace/MegaVault/human/projects/android-sdk-auto-update` |
-| aw-converter | aw-converter (aw-converter) | `/home/daniele/codex-workspace/MegaVault/human/projects/aw-converter` |
-| chatgpt-chrome-debug | chatgpt-chrome-debug (chatgpt-chrome-debug) | `/home/daniele/codex-workspace/MegaVault/human/projects/chatgpt-chrome-debug` |
-| codex-html-live | codex-html-live (codex-html-live) | `/home/daniele/codex-workspace/MegaVault/human/projects/codex-html-live` |
-| codex-token-watcher | codex-token-watcher (codex-token-watcher) | `/home/daniele/codex-workspace/MegaVault/human/projects/codex-token-watcher` |
-| codex-wrapper | codex-wrapper (codex-wrapper) | `/home/daniele/codex-workspace/MegaVault/human/projects/codex-wrapper` |
-| facebook-video-archiver | facebook-video-archiver (facebook-video-archiver) | `/home/daniele/codex-workspace/MegaVault/human/projects/facebook-video-archiver` |
-| installa-app | installa-app (installa-app) | `/home/daniele/codex-workspace/MegaVault/human/projects/installa-app` |
-| linux-mint-service-dashboard | linux-mint-service-dashboard (linux-mint-service-dashboard) | `/home/daniele/codex-workspace/MegaVault/human/projects/linux-mint-service-dashboard` |
-| mint-manual-updates | mint-manual-updates (mint-manual-updates) | `/home/daniele/codex-workspace/MegaVault/human/projects/mint-manual-updates` |
-| os-observer | os-observer (os-observer) | `/home/daniele/codex-workspace/MegaVault/human/projects/os-observer` |
-| owntracks-watcher | owntracks-watcher (owntracks-watcher) | `/home/daniele/codex-workspace/MegaVault/human/projects/owntracks-watcher` |
-| parcel-tracker | parcel-tracker (parcel-tracker) | `/home/daniele/codex-workspace/MegaVault/human/projects/parcel-tracker` |
-| MultiTimeTracker | MultiTimeTracker (multitimetracker) | `/home/daniele/codex-workspace/MegaVault/human/projects/multitimetracker` |
-| maintenance-486 | maintenance-486 (maintenance-486) | `/home/daniele/codex-workspace/MegaVault/human/projects/maintenance-486` |
-| oracle-backup-service | oracle-backup-service (oracle-backup-service) | `/home/daniele/codex-workspace/MegaVault/human/projects/oracle-backup-service` |
-| remote_opt_oracle_backup | remote_opt_oracle_backup (remote-opt-oracle-backup) | `/home/daniele/codex-workspace/MegaVault/human/projects/remote-opt-oracle-backup` |
-| remote-codex-phone | remote-codex-phone (remote-codex-phone) | `/home/daniele/codex-workspace/MegaVault/human/projects/remote-codex-phone` |
-| amici_fb | amici_fb (amici-fb) | `/home/daniele/codex-workspace/MegaVault/human/projects/amici-fb` |
-| surface-recovery-hardening | surface-recovery-hardening (surface-recovery-hardening) | `/home/daniele/codex-workspace/MegaVault/human/projects/surface-recovery-hardening` |
-| system_watchdog | system_watchdog (system-watchdog) | `/home/daniele/codex-workspace/MegaVault/human/projects/system-watchdog` |
+Updated: 2026-06-01T13:20:29+02:00
+
+| Project | What it is | Human overview | AI doc | metadata |
+|---|---|---|---|---|
+| SuperContacts | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-device validation. | [overview](projects/supercontacts/overview.md) | [AI](../ai/projects/supercontacts.md) | [metadata](../../SuperContacts/dev/project.metadata.json) |
+| WindowTabNotes | Root repository: `WindowTabNotes/`. | [overview](projects/windowtabnotes/overview.md) | [AI](../ai/projects/windowtabnotes.md) | [metadata](../../WindowTabNotes/dev/project.metadata.json) |
+| android-sdk-auto-update | Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu. | [overview](projects/android-sdk-auto-update/overview.md) | [AI](../ai/projects/android-sdk-auto-update.md) | [metadata](../../android-sdk-auto-update/dev/project.metadata.json) |
+| aw-converter | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/aw-converter/overview.md) | [AI](../ai/projects/aw-converter.md) | [metadata](../../aw-converter/dev/project.metadata.json) |
+| chatgpt-chrome-debug | ChatGPT Chrome Redirect Debug Toolkit | [overview](projects/chatgpt-chrome-debug/overview.md) | [AI](../ai/projects/chatgpt-chrome-debug.md) | [metadata](../../chatgpt-chrome-debug/dev/project.metadata.json) |
+| codex-html-live | Live HTML archive for Codex JSONL sessions: watches session files and renders browser-readable chat archives without relying on tmux. | [overview](projects/codex-html-live/overview.md) | [AI](../ai/projects/codex-html-live.md) | [metadata](../../codex-html-live/dev/project.metadata.json) |
+| codex-token-watcher | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/codex-token-watcher/overview.md) | [AI](../ai/projects/codex-token-watcher.md) | [metadata](../../codex-token-watcher/dev/project.metadata.json) |
+| codex-wrapper | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/codex-wrapper/overview.md) | [AI](../ai/projects/codex-wrapper.md) | [metadata](../../codex-wrapper/dev/project.metadata.json) |
+| facebook-video-archiver | Start here for Codex/operator work on `facebook-video-archiver`. | [overview](projects/facebook-video-archiver/overview.md) | [AI](../ai/projects/facebook-video-archiver.md) | [metadata](../../facebook-video-archiver/dev/project.metadata.json) |
+| installa-app | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/installa-app/overview.md) | [AI](../ai/projects/installa-app.md) | [metadata](../../installa-app/dev/project.metadata.json) |
+| linux-mint-service-dashboard | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE. | [overview](projects/linux-mint-service-dashboard/overview.md) | [AI](../ai/projects/linux-mint-service-dashboard.md) | [metadata](../../linux-mint-service-dashboard/dev/project.metadata.json) |
+| mint-manual-updates | Servizio user systemd v4 per controllare e applicare aggiornamenti prudenti su Linux Mint 22.3 / Ubuntu noble. | [overview](projects/mint-manual-updates/overview.md) | [AI](../ai/projects/mint-manual-updates.md) | [metadata](../../mint-manual-updates/dev/project.metadata.json) |
+| os-observer | Linux Mint black-box recorder: user-systemd timer records read-only telemetry into SQLite, maintains diagnostic knowledge, exports bounded context for ChatGPT/Codex, and has guarded autofix/heartbeat logic. | [overview](projects/os-observer/overview.md) | [AI](../ai/projects/os-observer.md) | [metadata](../../os-observer/dev/project.metadata.json) |
+| owntracks-watcher | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/owntracks-watcher/overview.md) | [AI](../ai/projects/owntracks-watcher.md) | [metadata](../../owntracks-watcher/dev/project.metadata.json) |
+| parcel-tracker | Servizio leggero user-level per monitorare la spedizione `XT329499807TS`. | [overview](projects/parcel-tracker/overview.md) | [AI](../ai/projects/parcel-tracker.md) | [metadata](../../parcel-tracker/dev/project.metadata.json) |
+| MultiTimeTracker | MultiTimeTracker is a local-first Android time tracker. The main data lives in the app SQLite database, with sessions and shared tags as the core model. | [overview](projects/multitimetracker/overview.md) | [AI](../ai/projects/multitimetracker.md) | [metadata](../../projects/MultiTimeTracker/dev/project.metadata.json) |
+| maintenance-486 | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be verified before remote changes. | [overview](projects/maintenance-486/overview.md) | [AI](../ai/projects/maintenance-486.md) | [metadata](../../projects/vm_oracle/maintenance-486/dev/project.metadata.json) |
+| oracle-backup-service | Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, and the current SQLite snapshot directory, then records a success marker only after at least on | [overview](projects/oracle-backup-service/overview.md) | [AI](../ai/projects/oracle-backup-service.md) | [metadata](../../projects/vm_oracle/oracle-backup-service/dev/project.metadata.json) |
+| remote_opt_oracle_backup | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remote runtime before edits. | [overview](projects/remote-opt-oracle-backup/overview.md) | [AI](../ai/projects/remote-opt-oracle-backup.md) | [metadata](../../projects/vm_oracle/remote_opt_oracle_backup/dev/project.metadata.json) |
+| remote-codex-phone | Prompt #438 setup for controlling Codex from an Android phone through: | [overview](projects/remote-codex-phone/overview.md) | [AI](../ai/projects/remote-codex-phone.md) | [metadata](../../remote-codex-phone/dev/project.metadata.json) |
+| amici_fb | Linux Mint user-level Facebook automation that opens Facebook with a browser profile, processes friends/URLs, and records local state in SQLite; treat credentials and browser session data as sensitive. | [overview](projects/amici-fb/overview.md) | [AI](../ai/projects/amici-fb.md) | [metadata](../../scripts/amici_fb/dev/project.metadata.json) |
+| surface-recovery-hardening | Kit locale per rendere un Surface Pro con Linux Mint piu recuperabile durante trasferimenti USB pesanti: | [overview](projects/surface-recovery-hardening/overview.md) | [AI](../ai/projects/surface-recovery-hardening.md) | [metadata](../../surface-recovery-hardening/dev/project.metadata.json) |
+| system_watchdog | Persistent heartbeat sender for a Uptime Kuma push monitor. | [overview](projects/system-watchdog/overview.md) | [AI](../ai/projects/system-watchdog.md) | [metadata](../../system_watchdog/dev/project.metadata.json) |

@@ -1,5 +1,17 @@
 # remote-codex-phone Troubleshooting
 
-Start from the AI vault entry and inspect legacy troubleshooting or bug files only for historical context.
+Use this page for symptoms and checks. For operational decisions, confirm against the AI doc first.
 
-- dev/legacy/TROUBLESHOOTING.md
+## Known Problems And Symptoms
+| source | fact |
+|---|---|
+| UNKNOWN | No explicit known bugs found. |
+
+## Useful Checks Or Commands
+| source | fact |
+|---|---|
+| `dev/legacy/TROUBLESHOOTING.md` | systemctl status ssh --no-pager |
+| `dev/legacy/TROUBLESHOOTING.md` | systemctl status tailscaled --no-pager |
+
+## Safety Checks Before Fixing
+- UNKNOWN: no explicit safety checklist found.

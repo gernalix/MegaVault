@@ -1,50 +1,109 @@
-PROJECT: codex-wrapper
-SLUG: codex-wrapper
-PATH: /home/daniele/codex-workspace/codex-wrapper
-REMOTE: none
-BRANCH: codex/prompt-582746
+# codex-wrapper AI OPERATIONS
 
-STACK:
-- unknown/local-tooling
+PROJECT
+- name: codex-wrapper
+- slug: codex-wrapper
+- purpose: UNKNOWN: source docs do not state a clear purpose.
+- current_status: Clean after documentation migration at extraction time.
+- repo_path: `/home/daniele/codex-workspace/codex-wrapper`
+- remote: `none`
+- branch: `codex/prompt-582746`
+- last_verified_commit/date: `6d34d48` / `2026-06-01T13:20:29+02:00`
 
-ARCH:
-- source: legacy docs in dev/legacy; central doc is authoritative after 2026-06-01T07:23:54+02:00
-- legacy_archived: 0
-- dirty_docs_skipped: 0
+STACK
+- languages: UNKNOWN
+- frameworks: UNKNOWN
+- DB: UNKNOWN
+- platform: UNKNOWN
+- external_tools/services: UNKNOWN
 
-DB:
-- not detected
+CODE_MAP
+entrypoints:
+- UNKNOWN
+important_folders:
+- `dev`
+important_files:
+- `dev/README.md`
+tests:
+- UNKNOWN
+scripts:
+- UNKNOWN
+generated/runtime/avoid_touch_casually:
+- `dev/legacy`
 
-BUILD:
-- not declared
+ARCH
+summary:
+- UNKNOWN: no verified architecture summary found in read sources.
+components/dataflow/design_decisions:
+| source | fact |
+|---|---|
+| `UNKNOWN` | no verified architecture/design details found in read sources. |
 
-TEST:
-- not detected
+INVARIANTS
+architecture/data/UX/safety/versioning/localization:
+| source | fact |
+|---|---|
+| `UNKNOWN` | no verified invariants found in read sources. |
 
-VERSIONING:
-- git_branch: codex/prompt-582746
-- git_remote: none
-- preexisting_status_count: 0
+BUILD_TEST
+build_files:
+- UNKNOWN
+commands_found:
+| source | fact |
+|---|---|
+| `UNKNOWN` | no verified commands found in read sources. |
+test_targets:
+- UNKNOWN
+known_test_flakiness_or_requirements:
+- UNKNOWN
 
-RULES:
-- Open dev/project.metadata.json first.
-- This AI doc is primary. Human docs derive from it.
-- Legacy docs are historical only.
-- Do not modify app code/db/build for docs-only migration.
+VERSIONING_RELEASE
+rules/artifacts/commit_push/release_blockers:
+| source | fact |
+|---|---|
+| `UNKNOWN` | no verified versioning/release rules found in read sources. |
 
-ACTIVE_WORK:
-- clean before migration
+DATA_STORAGE
+DB_paths/backup/import/export/migration/retention/user_data_safety:
+| source | fact |
+|---|---|
+| `UNKNOWN` | no verified data storage policy found in read sources. |
 
-KNOWN_BUGS:
-- not indexed; inspect legacy if needed
+KNOWN_BUGS
+active/historical/root_causes/regression_checklist:
+| source | fact |
+|---|---|
+| `UNKNOWN` | no verified bugs/troubleshooting facts found in read sources. |
 
-ROADMAP:
-- not indexed; inspect legacy if needed
+DO_NOT_BREAK
+- Preserve `dev/project.metadata.json` -> this AI doc -> Human docs workflow.
+- Preserve `dev/legacy/`; do not delete or rewrite historical docs without explicit migration intent.
+- UNKNOWN: no verified do-not-break rules found in read sources.
 
-LEGACY_DOCS:
-- none
+RECENT_DECISIONS
+| source | fact |
+|---|---|
+| `UNKNOWN` | no verified recent decisions found in read sources. |
 
-SKIPPED_DOCS:
-- none
+ROADMAP
+active/deferred/risky:
+| source | fact |
+|---|---|
+| `UNKNOWN` | no verified roadmap found in read sources. |
 
-LAST_VERIFIED: 2026-06-01T07:23:54+02:00
+LEGACY_SUMMARY
+- legacy_docs_read_count: 1
+- legacy_docs_read:
+- `dev/README.md`
+- extracted: purpose, stack, commands, invariants, bugs, roadmap, changelog, code map.
+- historical_only: original local docs in `dev/legacy`; use only when AI doc lacks detail or for audit history.
+
+LINKS
+- metadata: [dev/project.metadata.json](../../../codex-wrapper/dev/project.metadata.json)
+- human_overview: [human overview](../../human/projects/codex-wrapper/overview.md)
+- human_folder: [human folder](../../human/projects/codex-wrapper)
+- legacy_docs: [dev/legacy](../../../codex-wrapper/dev/legacy)
+- repo_path: [repo](../../../codex-wrapper)
+
+OPEN_QUESTIONS
+- OPEN QUESTION: source corpus is thin; verify purpose/commands/invariants manually before major work.
