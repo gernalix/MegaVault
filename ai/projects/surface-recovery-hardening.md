@@ -4,7 +4,7 @@ slug=surface-recovery-hardening
 path=/home/daniele/codex-workspace/surface-recovery-hardening
 remote=git@github.com:gernalix/surface-recovery-hardening.git
 branch=main
-verified_commit=2bcbd5a
+verified_commit=6c3868c
 verified_at=2026-06-01T14:17:44+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
@@ -44,7 +44,7 @@ arch=rsync-transfer.service is transient, not persistent; support watchdog/throt
 security=do not print BitLocker key or Kuma push URL
 perf=default BW_LIMIT=5120 KiB/s; timeout=900; nice=19; ionice low priority
 recovery=critical USB/I/O events pause target rsync; do not auto-resume after storage error
-version=repo commits 3f455ea+2bcbd5a fix mapping validation and Kuma stale-log health
+version=repo commits 3f455ea+2bcbd5a+6c3868c fix mapping validation and Kuma health resilience
 BUILD:
 cmd=UNKNOWN
 env=sudo -n required; key file local only; user systemd active; source/dest USB present
@@ -79,6 +79,8 @@ issue=unmount_safe only closed old bitlk mapper name
 fix=3f455ea closes source_bitlocker and legacy mapper if active
 issue=Kuma pusher returned down log_stale while rsync was alive and scanning without progress log writes
 fix=2bcbd5a treats stale-log rsync as up when exact target pid gains CPU ticks and mounts remain safe
+issue=Kuma pusher exited on curl rc=7/28 before logging nonfatal push failure
+fix=6c3868c wraps curl with set +e/set -e and returns success after logging failure
 RISK:
 risk=multi-TB USB transfer stresses hub/cable/controller; watch kernel USB/I/O
 risk=stale pid/status/log files can survive crash; require live /proc cmdline validation

@@ -4,11 +4,12 @@
 - 2026-06-01: `#739482` ha migrato docs locali in `dev/legacy` e creato metadata/MegaVault.
 - 2026-06-01: `#842915` ha arricchito AI/Human docs da legacy e repo structure.
 - 2026-06-01T13:39:31+02:00: `#604927` ha auditato codice attivo, arricchito Human docs e compresso AI doc.
-- 2026-06-01T14:17:44+02:00: `#847392` ha riavviato `rsync-transfer`, montato source BitLocker read-only, corretto `verify-mapping`, corretto il falso down `log_stale` del Kuma pusher e aggiornato docs senza creare nuovo slug.
+- 2026-06-01T14:17:44+02:00: `#847392` ha riavviato `rsync-transfer`, montato source BitLocker read-only, corretto `verify-mapping`, corretto il falso down `log_stale` e l'uscita su curl failure del Kuma pusher, aggiornando docs senza creare nuovo slug.
 
 ## Evidenza #847392
 - `rsync-transfer.service`: active/running, transient user unit.
 - PID rsync: `2171819`; secondo processo rsync child presente nello stesso gruppo.
 - Health locale Kuma: `status=up msg=running pid=2171819`.
 - Health Kuma dopo fix stale-log: service active/running e dry-run `status=up`.
+- Test curl failure: `PUSH_URL=http://127.0.0.1:9 RUN_ONCE=1` esce `0` e logga errore non fatale.
 - Secondo avvio launcher: `rc=0`, lock held, conteggio rsync invariato.

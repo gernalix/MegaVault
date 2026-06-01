@@ -11,6 +11,7 @@
 - `verify-mapping` falliva sulla destinazione con automount per output multilinea `systemd-1` + `/dev/sdc1`.
 - `unmount_safe` chiudeva solo il vecchio mapper `bitlk-...`, non `source_bitlocker`.
 - `rsync-uptime-kuma-push` tornava `down log_stale` mentre rsync era vivo e leggeva dati in fase di scansione/lista.
+- `rsync-uptime-kuma-push` usciva con status curl (`7`/`28`) invece di restare vivo e loggare il push fallito.
 
 ## Fix applicati
 - Aperta source con mapper read-only `source_bitlocker`.
@@ -18,6 +19,7 @@
 - Fix script `transfer_vecchio_disco_recovery_commands.sh`: seleziona la riga reale di `findmnt`, richiede source mapper e chiude entrambi i nomi mapper noti.
 - Backup live creato: `/home/daniele/transfer_vecchio_disco_recovery_commands.sh.bak-20260601-141559`.
 - Fix script `rsync_uptime_kuma_push.sh`: se il log e stale ma il pid rsync target consuma CPU e i mount sono safe, lo stato resta `up`.
+- Fix script `rsync_uptime_kuma_push.sh`: errori curl sono non fatali e non fanno cadere il servizio.
 - Backup live creato: `/home/daniele/rsync_uptime_kuma_push.sh.bak-20260601-142223`.
 
 ## Quando fermarsi

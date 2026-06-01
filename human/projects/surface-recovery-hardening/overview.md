@@ -5,7 +5,7 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 ## Stato operativo verificato
 - Verificato: 2026-06-01 14:17 CEST, prompt `#847392`.
 - Repository: `/home/daniele/codex-workspace/surface-recovery-hardening`
-- Commit verificato: `2bcbd5a`
+- Commit verificato: `6c3868c`
 - Transfer attivo: `rsync-transfer.service` transient user unit.
 - Sorgente: `/dev/sdb2` aperta come `/dev/mapper/source_bitlocker`, montata read-only su `/media/daniele/Seagate Expansion Drive`.
 - Destinazione: `/dev/sdc1`, UUID `75e5363d-6736-4a7e-84be-5242f4735a27`, ext4 rw su `/media/daniele/Seagate6TB2`.
