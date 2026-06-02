@@ -4,8 +4,8 @@ slug=supercontacts
 path=/home/daniele/codex-workspace/SuperContacts
 remote=https://github.com/gernalix/SuperContacts.git
 branch=codex/prompt-729604-capsule-audit
-verified_commit=working_tree_prompt_384917
-verified_at=2026-06-02T01:12:00+02:00
+verified_commit=working_tree_prompt_messaging_links_v27_ux
+verified_at=2026-06-02T14:28:28+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
 purpose=Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-d
@@ -33,6 +33,7 @@ data=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupMana
 data=app/src/main/java/com/supercontacts/app/data/local/BackupMetadataEntity.kt:BackupMetadataEntity
 data=app/src/main/java/com/supercontacts/app/data/local/ContactEntity.kt:ContactEntity
 data=app/src/main/java/com/supercontacts/app/data/local/ContactEventEntity.kt:ContactEventEntity
+data=app/src/main/java/com/supercontacts/app/data/local/ContactMessagingLinkEntity.kt:contact_messaging_links
 data=app/src/main/java/com/supercontacts/app/data/local/SavedSearchEntity.kt:SavedSearchEntity,SavedSearchTagCrossRef
 FLOW:
 flow=entry->app/src/main/AndroidManifest.xml=>app/src/main/assets/countries-v1.csv
@@ -41,12 +42,13 @@ flow=data->app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.
 flow=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"
 flow=app/src/main/AndroidManifest.xml:21:android:exported="true"
 flow=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
+flow=phone_field_change->ContactsRepository.synchronizeMessagingLinksForContact->contact_messaging_links
 INV:
 arch=app/src/main/java/com/supercontacts/app/MainActivity.kt:MainActivity,onCreate,onNewIntent; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:SuperContactsApp,ContactListScreen,selectHomeSort,loadPatchVersion,EmojiToolbar...
 data=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialV...
 ux=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialV...
 backup=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),
-migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:2:"formatVersion": 1,; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json:4:"version": 1,
+migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/12.json:2:"formatVersion": 1,; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/12.json:4:"version": 12,
 version=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialValue = "", context) {; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:200:value = loadPatchVersion(context)
 i18n=app/src/main/java/com/supercontacts/app/ui/app/BackupSettingsScreen.kt:191:text = stringResource(R.string.backup_last_error, lastError),; app/src/main/res/values-it/strings.xml:88:<string name="distance_geocoding_failed">Indirizzo non lo...
 security=app/src/main/AndroidManifest.xml:5:<uses-permission android:name="android.permission.INTERNET" />; app/src/main/AndroidManifest.xml:6:<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -64,7 +66,7 @@ backup=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"; app/sche
 restore=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:46:private const val ROLLBACK_DB_NAME = "super_contacts_pre_restore.sqlite"; app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager...
 import=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_...
 export=app/src/main/AndroidManifest.xml:21:android:exported="true"; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
-migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_...
+migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/12.json:8:"tableName": "contact_messaging_links",; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/12.json:9:"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_...
 retention=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::de...
 DNB:
 dnb=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
@@ -137,6 +139,11 @@ owns=selected_contact_detail,contact_stats,contact_crud,field_description_mutati
 api=ContactDetailOwner
 access=ContactsViewModel_facade_only
 
+owner=ContactMessagingCapsule
+owns=messaging_link_scan_single,messaging_link_scan_all,manual_confirm_reject_reset
+api=ContactMessagingOwner
+access=ContactsViewModel_facade_only
+
 owner=ContactHistoryCapsule
 owns=contact_history,global_history,history_filters,history_sort,history_calendar,history_range,history_timestamp_edit
 api=ContactHistoryOwner
@@ -197,6 +204,7 @@ checks=required_owner_capsule_classes_present
 checks=required_owner_contract_interfaces_present
 checks=capsules_do_not_directly_reference_other_capsule_implementations_except_status_owner_and_ViewModel_wiring
 checks=reading_mode_has_no_field_description_buttons
+checks=messaging_link_feature_owned_by_ContactMessagingCapsule_repository_trigger_not_root_UI_logic
 required=app/src/androidTest/java/com/supercontacts/app/ContactFieldDescriptionUiTest.kt
 checks=field_description_text_visible_in_reading_and_edit_modes_buttons_edit_only
 required_command=./gradlew --console=plain --no-daemon --max-workers=2 :app:testDeviceTestUnitTest
@@ -209,6 +217,7 @@ saved_searches=stored_in_sqlite_deeplink_host_search_filters_query_and_tags; v25
 home_sort=v25_any_criterion_or_ASC_DESC_change_requests_contacts_list_top_scroll; direction_indicator_single_toggle_only
 search_results=v25_name_match_highlighted_in_title_no_duplicate_Name_row_when_same_as_card_title
 backup=whole_sqlite_db_exported_to_saf_photos_only_allowed_external_data
+messaging_links=v27_local_only_generation_from_saved_phone_numbers; no_scraping_no_upload_no_registration_check; statuses=link_generated,unverified,manually_confirmed,manually_rejected,last_scan_at; trigger=ContactsRepository_create_update_phone_incremental; ui_unverified_only_cards; confirmed_quick_action_icon_only; rejected_hidden; manager_dialog_nonpersistent
 
 CHANGELOG:
 2026-06-01_prompt_184926=v20; split ContactsViewModel feature state into explicit owner capsules; ContactsViewModel now facade/wiring; reading mode no longer exposes field description controls/values; added capsulization enforcement tests; bridge_residue=none_feature_bridge
@@ -218,11 +227,15 @@ CHANGELOG:
 2026-06-02_prompt_927463=v23; pixel_smoke_fix_edit_mode_field_description_buttons_for_all_editable_fields_including_empty_targets_and_telegram; field_description_text_visible_in_reading_and_edit_modes; reading_mode_still_hides_description_buttons
 2026-06-02_prompt_615284=v24; backup_instrumented_expected_contact_fields_fixed_for_latest_state_without_age; export_regression_asserts_all_application_tables_are_present_and_roundtrip_counts_match; connected_tests_pinned_to_single_pixel_serial; pixel_form_scroll_and_photo_list_tests_stabilized
 2026-06-02_prompt_384729=v25; saved_searches_moved_to_home_entry_dialog_with_apply_copy_delete_confirm; repository_delete_saved_search_test; sort_change_scroll_top_for_criterion_and_direction; search_name_match_title_highlight_no_duplicate_name_row; single_ASC_DESC_toggle_indicator
+2026-06-02_prompt_620622=v26; messaging_links_auto_generated_for_international_phone_numbers; schema_v12_contact_messaging_links; platforms=whatsapp_telegram_signal_best_effort; no_registration_certification; manual_confirm_reject_preserved_on_identical_scan; ContactMessagingCapsule_owner; repository_incremental_trigger
+2026-06-02_prompt_messaging_links_v27_ux=v27; messaging_links_section_visible_only_for_unverified_decisions; manually_confirmed_moves_to_detail_quick_action_icon; manually_rejected_hidden; manage_messaging_links_dialog_nonpersistent; scanner_db_deeplinks_unchanged
 
 VERIFICATION:
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:compileDebugKotlin
 result=PASS
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:testDeviceTestUnitTest
+result=PASS
+cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:connectedDeviceTestAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.supercontacts.app.ContactsRepositoryMessagingLinkTest
 result=PASS
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:assembleDebug
 result=PASS
