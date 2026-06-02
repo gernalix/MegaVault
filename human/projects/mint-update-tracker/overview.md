@@ -46,27 +46,43 @@ Use system-level systemd so the recorder works without a graphical session or
 active user login:
 
 ```bash
-cd /home/daniele/codex-workspace/mint-update-tracker
+sudo mkdir -p /opt/software-audit /home/ubuntu/sync_root/db
+sudo chown -R ubuntu:ubuntu /opt/software-audit /home/ubuntu/sync_root/db
+rsync -az ./ ubuntu@VM:/opt/software-audit/
 sudo cp systemd/system/software-audit*.service systemd/system/software-audit-backfill.timer /etc/systemd/system/
 sudo systemctl daemon-reload
+python3 /opt/software-audit/mint_update_tracker.py backfill
 sudo systemctl enable --now software-audit.service software-audit-backfill.timer
-./mint_update_tracker.py verify
+python3 /opt/software-audit/mint_update_tracker.py verify
 ```
 
-If the project is deployed at a different path on Oracle, adjust `WorkingDirectory`
-and `ExecStart` in the system unit before enabling it.
+The live Oracle deployment uses `/opt/software-audit` and its own local
+`/home/ubuntu/sync_root/db/software_audit.db`. It does not use the Mint DB.
+
+## Oracle Live State
+
+Verified on 2026-06-02:
+
+- Host: `instance-20260201-1126`
+- OS: `Ubuntu 22.04.5 LTS`
+- Service: `software-audit.service`, enabled, active/running, watchdog `2min`
+- Timer: `software-audit-backfill.timer`, enabled, active/waiting
+- DB integrity: `ok`
+- Counts: `events=4378`, `snapshots=1`, `current_inventory=1282`
+- Inventory managers: `dpkg=1166`, `snap=18`, `pip=97`, `npm_global=1`
+- Restart test: service stayed active after `systemctl restart software-audit.service`
 
 ## Roadmap
 
-- Install and verify the user service on Mint.
-- Deploy the same code on Oracle with the system service and its own local DB.
+- Keep Mint and Oracle deployments autonomous, each with its own local DB.
+- Monitor the first scheduled Oracle backfill after the 6 hour timer interval.
 - Add export/import aggregation only as a separate future workflow.
 
 ## Changelog
 
 - v2: adds full snapshots, multi-manager inventory, host/OS metadata, daemon
   heartbeat, watchdog-aware systemd units, `verify`, `backfill`, `vacuum`, and
-  headless/server test coverage.
+  headless/server test coverage. Oracle live deployment added in `/opt/software-audit`.
 - v1: apt/dpkg/Mint update event tracker with periodic scan timer.
 
 ## Troubleshooting
