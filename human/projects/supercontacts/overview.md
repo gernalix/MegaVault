@@ -11,6 +11,8 @@ Android contacts app backed by Room/SQLite; repo files and tests cover contact C
 - Bridge feature residui: nessuno.
 - Owner capsule: `ContactHomeCapsule`, `ContactDetailCapsule`, `ContactHistoryCapsule`, `ContactInitiativeCapsule`, `ContactSuggestionCapsule`, `ContactDuplicateCapsule`, `ContactBackupCapsule`, `ContactOperationStatusCapsule`.
 - Enforcement obbligatorio: `CapsuleArchitectureEnforcementTest` per facade zero-logic, root wiring, AppContainer, owner/contract map e boundary cross-capsule; `ContactFieldDescriptionUiTest` per descrizioni fuori dal reading mode.
+- Ultimo fix smoke Pixel: v23 reintroduce in modalità edit i pulsanti `+` descrizione per tutti i campi editabili, inclusi i campi vuoti preparati al bisogno; le descrizioni inserite restano visibili sia in reading sia in edit, mentre i pulsanti descrizione restano nascosti in reading.
+- Ultima chiusura test: v24 corregge il test backup/export per lo stato aggiornato senza campo età e aggiunge regressione sui conteggi di tutte le tabelle applicative esportate/importate.
 
 ## Orientamento rapido
 - Entrypoint: `app/src/main/AndroidManifest.xml,app/src/main/java/com/supercontacts/app/MainActivity.kt,app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt`
