@@ -12,6 +12,7 @@
 - `unmount_safe` chiudeva solo il vecchio mapper `bitlk-...`, non `source_bitlocker`.
 - `rsync-uptime-kuma-push` tornava `down log_stale` mentre rsync era vivo e leggeva dati in fase di scansione/lista.
 - `rsync-uptime-kuma-push` usciva con status curl (`7`/`28`) invece di restare vivo e loggare il push fallito.
+- 2026-06-03: `transfer-usb-io-watchdog` ha messo in pausa rsync per `usb 1-5` Marvell Bluetooth/WLAN, evento non-storage.
 
 ## Fix applicati
 - Aperta source con mapper read-only `source_bitlocker`.
@@ -21,6 +22,10 @@
 - Fix script `rsync_uptime_kuma_push.sh`: se il log e stale ma il pid rsync target consuma CPU e i mount sono safe, lo stato resta `up`.
 - Fix script `rsync_uptime_kuma_push.sh`: errori curl sono non fatali e non fanno cadere il servizio.
 - Backup live creato: `/home/daniele/rsync_uptime_kuma_push.sh.bak-20260601-142223`.
+- Fix script `transfer_usb_io_watchdog.sh`: `usb disconnect` e reset pausano rsync solo con contesto storage del transfer (`sdb`, `sdc`, `dm-0`, `source_bitlocker`, `Seagate`, `uas`, `ext4`, `jbd2`, `usb 2-1.[123]`).
+- Fix script `transfer_usb_io_watchdog.sh`: notifica Telegram non fatale sotto `set -e`.
+- Backup live creato: `/home/daniele/transfer_usb_io_watchdog.sh.bak-20260603-013451`.
+- Ripresa 2026-06-03: `SIGCONT` su PID `3481045 3481050 3504182`; `write_bytes` cresciuto da `273024778240` a `273098440704` in 15s; Kuma `up msg=running pid=3481045`.
 
 ## Quando fermarsi
 - Non rilanciare automaticamente se il watchdog segnala USB/I/O critico.

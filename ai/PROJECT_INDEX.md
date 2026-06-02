@@ -1,6 +1,6 @@
 # PROJECT_INDEX
 
-Updated: 2026-06-02T08:15:21+02:00
+Updated: 2026-06-03T01:37:21+02:00
 
 | name | slug | purpose | AI doc | Human overview | metadata | repo |
 |---|---|---|---|---|---|---|

@@ -4,8 +4,8 @@ slug=surface-recovery-hardening
 path=/home/daniele/codex-workspace/surface-recovery-hardening
 remote=git@github.com:gernalix/surface-recovery-hardening.git
 branch=main
-verified_commit=6c3868c
-verified_at=2026-06-01T14:17:44+02:00
+verified_commit=a7d791d
+verified_at=2026-06-03T01:37:21+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
 purpose=Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy.
@@ -25,7 +25,7 @@ build=UNKNOWN
 avoid=secrets,tokens,cookies,generated reports,untracked .codexmeta backups
 ARCH:
 transfer=transient user unit rsync-transfer.service -> sudo -> phase2_limited -> rsync --append-verify
-support_system=transfer-usb-io-watchdog.service(enabled):kernel USB/I/O monitor; pauses target rsync on critical events
+support_system=transfer-usb-io-watchdog.service(enabled):kernel USB/I/O monitor; pauses target rsync on transfer-storage critical events
 support_user=rsync-uptime-kuma-push.service(enabled):Kuma heartbeat for exact target rsync cmdline
 support_user=transfer-vecchio-disco-adaptive-throttle.service(enabled):renice/ionice/bw profile control
 mount_dest=media-daniele-Seagate6TB2.automount(enabled)+.mount(disabled,triggered)
@@ -34,17 +34,18 @@ FLOW:
 preflight=read metadata+AI doc; verify no active target rsync; verify SOURCE mapper ro; verify DEST uuid rw; scan recent kernel USB/I/O
 start=systemd-run --user --unit=rsync-transfer /usr/bin/env BW_LIMIT=5120 RSYNC_IO_TIMEOUT=900 /home/daniele/transfer_vecchio_disco_phase2_limited.sh
 rsync=source:/media/daniele/Seagate Expansion Drive/ -> dest:/media/daniele/Seagate6TB2/vecchio disco/
-resume=append-verify; rerun launcher while active exits 0 via lock, no duplicate rsync
+resume=append-verify; verify mapping+ext4 clean+no recent transfer-storage error; SIGCONT paused target pids; launcher rerun exits 0 via lock
 monitor=journalctl + transfer logs + Kuma dry-run health + pgrep exact cmdline
 INV:
 backup=source BitLocker must be mounted read-only; never write source
 data=destination UUID must be 75e5363d-6736-4a7e-84be-5242f4735a27
 data=findmnt -T can return root or automount wrapper; reject / and select real last mount row
 arch=rsync-transfer.service is transient, not persistent; support watchdog/throttle/Kuma services are persistent
+watchdog=usb 1-5 Marvell WLAN disconnect is non-transfer; must not pause rsync
 security=do not print BitLocker key or Kuma push URL
 perf=default BW_LIMIT=5120 KiB/s; timeout=900; nice=19; ionice low priority
 recovery=critical USB/I/O events pause target rsync; do not auto-resume after storage error
-version=repo commits 3f455ea+2bcbd5a+6c3868c fix mapping validation and Kuma health resilience
+version=repo commits 3f455ea+2bcbd5a+6c3868c+a7d791d fix mapping validation,Kuma health,watchdog filtering
 BUILD:
 cmd=UNKNOWN
 env=sudo -n required; key file local only; user systemd active; source/dest USB present
@@ -63,7 +64,7 @@ DestMount=/media/daniele/Seagate6TB2 rw,noatime
 DestDir=/media/daniele/Seagate6TB2/vecchio disco
 Logs=/home/daniele/transfer_vecchio_disco_phase2.log,/home/daniele/transfer_vecchio_disco_phase2_warnings_errors.log,/home/daniele/rsync_uptime_kuma_push.log,/home/daniele/transfer_usb_io_watchdog.log,/home/daniele/transfer_vecchio_disco_adaptive_throttle.log
 State=/home/daniele/transfer_vecchio_disco_phase2_status.env,/home/daniele/transfer_vecchio_disco_phase2_rsync.pid,/home/daniele/transfer_vecchio_disco_phase2_script.pid,/home/daniele/.rsync_uptime_kuma_push.state
-Backup=/home/daniele/transfer_vecchio_disco_recovery_commands.sh.bak-20260601-141559,/home/daniele/rsync_uptime_kuma_push.sh.bak-20260601-142223
+Backup=/home/daniele/transfer_vecchio_disco_recovery_commands.sh.bak-20260601-141559,/home/daniele/rsync_uptime_kuma_push.sh.bak-20260601-142223,/home/daniele/transfer_usb_io_watchdog.sh.bak-20260603-013451
 DNB:
 dnb=do not create persistent rsync-transfer.service duplicate
 dnb=do not use rsync --delete
@@ -81,13 +82,16 @@ issue=Kuma pusher returned down log_stale while rsync was alive and scanning wit
 fix=2bcbd5a treats stale-log rsync as up when exact target pid gains CPU ticks and mounts remain safe
 issue=Kuma pusher exited on curl rc=7/28 before logging nonfatal push failure
 fix=6c3868c wraps curl with set +e/set -e and returns success after logging failure
+issue=watchdog paused transfer on usb 1-5 Marvell WLAN disconnect
+cause=usb disconnect matched broad critical regex without transfer-storage context
+fix=a7d791d gates usb disconnect/reset pause to transfer storage markers or usb 2-1.[123]; Telegram notify nonfatal under set -e
 RISK:
 risk=multi-TB USB transfer stresses hub/cable/controller; watch kernel USB/I/O
 risk=stale pid/status/log files can survive crash; require live /proc cmdline validation
 risk=Kuma push service may restart on network timeout; runtime dry-run health verifies local truth
 risk=source key exists locally; path may be documented, value must not
 ROAD:
-now=keep rsync-transfer running and monitor logs/kernel
+now=keep rsync-transfer running; monitor watchdog filter,Kuma up,write_bytes growth
 next=consider persistent documented helper for source read-only mount only if repeated manual remounts continue
 later=clean generated legacy reports from repo policy if user requests
 LINK:
