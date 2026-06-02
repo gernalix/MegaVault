@@ -15,6 +15,7 @@ Generated: 2026-06-01T07:23:54+02:00
 | facebook-video-archiver | facebook-video-archiver | `/home/daniele/codex-workspace/facebook-video-archiver` | `none` | `work/v4-deep-discovery` | 16 | 8 | 8 | 0 | True |
 | installa-app | installa-app | `/home/daniele/codex-workspace/installa-app` | `none` | `codex/prompt-582746` | 0 | 0 | 0 | 0 | True |
 | linux-mint-service-dashboard | linux-mint-service-dashboard | `/home/daniele/codex-workspace/linux-mint-service-dashboard` | `none` | `prompt-816-local-dashboard` | 21 | 12 | 12 | 0 | True |
+| mint-cloud-backup | mint-cloud-backup | `/home/daniele/codex-projects/mint-cloud-backup` | `none` | `master` | 0 | 5 | 0 | 0 | True |
 | mint-manual-updates | mint-manual-updates | `/home/daniele/codex-workspace/mint-manual-updates` | `none` | `master` | 0 | 4 | 4 | 0 | True |
 | os-observer | os-observer | `/home/daniele/codex-workspace/os-observer` | `none` | `codex/prompt-914582` | 12 | 25 | 25 | 0 | True |
 | owntracks-watcher | owntracks-watcher | `/home/daniele/codex-workspace/owntracks-watcher` | `none` | `codex/prompt-384917` | 0 | 0 | 0 | 0 | True |
