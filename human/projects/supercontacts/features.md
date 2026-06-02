@@ -27,6 +27,9 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - `app/src/main/java/com/supercontacts/app/data/repository/ContactsRepository.kt`: DuplicateLinkValue, ContactsRepository, EventEntityType, EventActionType, listContacts, searchContacts, filterContacts, getContactsByTag
 
 ## Confini operativi
+- Home v25: `ContactHomeCapsule` possiede anche delete saved-search; `ContactsViewModel` resta facade; `SuperContactsApp` mostra solo entry `Saved searches` in Home e delega apply/copy/delete tramite callback.
+- Home v25: cambio criterio sort e toggle ASC/DESC richiedono scroll immediato in cima; la riga `Sorted by` non include la direzione, che resta nel solo toggle a destra.
+- Home v25: nei risultati ricerca, se il match Name coincide con il titolo card, il titolo viene evidenziato e la riga `Name: ...` non viene ripetuta; altri campi matchati diversi restano visibili.
 - app/src/main/java/com/supercontacts/app/MainActivity.kt:15:private var latestIntent by mutableStateOf<Intent?>(null)
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
