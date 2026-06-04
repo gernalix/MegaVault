@@ -4,8 +4,8 @@ slug=mint-update-tracker
 path=/home/daniele/codex-workspace/mint-update-tracker
 remote=none
 branch=master
-verified_commit=6fa598c39a57d07b950bc78720c48d7cb2461427
-verified_at=2026-06-02T08:56:15+02:00
+verified_commit=35a34c53ae58520dc1bf0bc3874250a1f3385cc3
+verified_at=2026-06-04T05:21:32+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
 purpose=Read-only software black-box recorder for Linux Mint desktop and Oracle Ubuntu Server; records installs, updates, downgrades, removals, snapshots and historical log backfill.
@@ -25,17 +25,19 @@ scripts=none
 build=none
 avoid=updates,package_changes,shared_sqlite_network_db,NFS,SMB,system_mutation
 ARCH:
-daemon=mint_update_tracker.py daemon=>scan+snapshot+heartbeat+systemd_notify
+daemon=mint_update_tracker.py daemon=>scan+snapshot+heartbeat+native_sd_notify+independent_watchdog_thread+Kuma_push
 events=logs/history=>events(event_hash UNIQUE)
 snapshot=collect_inventory=>software_snapshots+software_snapshot_items+current_inventory+snapshot_diffs
 backfill=apt/dpkg/mintupdate logs + snap changes + flatpak history; idempotent
 verify=SQLite integrity+FK+schema+log coverage+systemd user/system watchdog+heartbeat
 systemd_user=systemd/user/mint-update-tracker.service + mint-update-tracker.timer
 systemd_system=Oracle /opt/software-audit; systemd/system/software-audit.service + software-audit-backfill.timer; User=ubuntu
+integration=Mint user unit env `SOFTWARE_AUDIT_KUMA_PUSH_URL`; push health uses SQLite quick_check+counts; failures logged/nonfatal
 FLOW:
 startup=ensure_initial_snapshot->parse_logs->optional_snapshot->heartbeat
 first_run=full_inventory_required before future-only scan
 periodic=daemon interval 300s, snapshot interval 3600s, recovery backfill timer 6h
+watchdog=thread sends WATCHDOG independent of slow scan/snapshot; freeze stops thread=>systemd restart
 export=export-csv reads events only
 vacuum=quick_check->wal_checkpoint(TRUNCATE)->VACUUM->optimize
 INV:
@@ -43,6 +45,7 @@ data=DB path fixed per-host `/home/ubuntu/sync_root/db/software_audit.db`
 data=each machine has independent local SQLite file; host fields identify origin only
 security=read-only commands only; no apt/snap/flatpak/pip/npm mutation
 resilience=event dedupe by hash; file_state handles log rotation; backfill repeatable
+resilience=flatpak history parser normalizes Unicode/variable whitespace timestamps; repair dedupes prior unstable hashes
 cross_host=Mint user service; Oracle VM system service; no GUI/session required
 version=event_hash includes host_id to keep exported data traceable; DB not shared
 perf=low duty cycle; 300s scan; 3600s snapshot; optional managers skipped if absent; size lookup disabled unless SOFTWARE_AUDIT_RESOLVE_SIZES=1
@@ -63,7 +66,10 @@ Import=historical logs idempotent
 Export=export-csv
 Migration=additive ALTER TABLE for v1 events
 Retention=none yet; years-long append-only event log
-Paths=logs/,exports/,state/heartbeat.json
+Paths=logs/,exports/,state/heartbeat.json,state/kuma_push.json
+MintCounts_2026-06-04=events=6441,snapshots=9,current_inventory=2344,integrity=ok,range=2026-01-08T19:19:30Z..2026-06-04T03:11:40Z
+MintBackfill_2026-06-04=manual_recovery inserted=5 before repair; flatpak duplicate repair deleted=38; final consecutive backfills inserted=0 skipped=4078
+MintKuma_2026-06-04=push HTTP200 msg=`OK events=6441 inventory=2344` ping=385ms
 OracleCounts=events=4378,snapshots=1,current_inventory=1282,inventory=dpkg:1166+npm_global:1+pip:97+snap:18,integrity=ok
 DNB:
 dnb=never apply updates or remove packages
@@ -71,15 +77,22 @@ dnb=never create shared SQLite/network writer model
 dnb=do not move DB outside /home/ubuntu/sync_root/db/software_audit.db
 dnb=optional managers missing is warning, not failure
 dnb=Oracle mode must work headless via system unit
+dnb=do not copy Mint Kuma push URL into Oracle system units
 BUG:
-issue=none_active
+issue=Mint 2026-06-04 service appeared unhealthy
+cause=old notify path used systemd-notify subprocess; watchdog notifications could be rejected/non-independent during long inventory cycle
+fix=native sd_notify + independent watchdog thread + restart proof
+issue=Mint 2026-06-04 backfill inserted repeated flatpak events
+cause=flatpak history Unicode/variable whitespace timestamp parsed as utc_now
+fix=stable flatpak timestamp parser + DB repair/dedupe; final backfills inserted=0
 RISK:
 risk=log permissions may hide system logs on restricted users; verify reports unscanned coverage
 risk=flatpak/snap history format may vary; parsers are conservative
 risk=Oracle system unit assumes stable path `/opt/software-audit`; if moved, update unit before restart
+risk=events already rotated/deleted from apt/dpkg/mintupdate/snap/flatpak history cannot be reconstructed
 ROAD:
-now=Mint user service and Oracle system service deployed with separate local DBs
-next=monitor first scheduled backfill after 6h
+now=Mint user service recovered with Kuma push; Oracle system service deployed with separate local DBs
+next=monitor scheduled Mint/Oracle backfills and Kuma freshness
 later=separate export/import aggregation if user requests it
 LINK:
 meta=../../../mint-update-tracker/dev/project.metadata.json

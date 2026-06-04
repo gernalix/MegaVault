@@ -26,6 +26,8 @@ SQLite, NFS, SMB or network database writes.
 - Stores host identity, hostname, OS name and OS version on each event.
 - Uses SQLite WAL, foreign keys, indexes, unique event hashes and safe vacuum.
 - Provides `status`, `verify`, `backfill`, `recent`, `export-csv` and `vacuum`.
+- Pushes Mint health to Uptime Kuma from the user service when the DB quick
+  check and minimal counts pass.
 
 ## Mint Desktop Install
 
@@ -39,6 +41,31 @@ systemctl --user daemon-reload
 systemctl --user enable --now mint-update-tracker.service mint-update-tracker.timer
 ./mint_update_tracker.py verify
 ```
+
+## Mint Live State
+
+Verified on 2026-06-04:
+
+- DB existed and was not recreated: `/home/ubuntu/sync_root/db/software_audit.db`
+- DB files present: main DB, `software_audit.db-wal`, `software_audit.db-shm`
+- DB integrity: `ok`
+- Counts: `events=6441`, `software_snapshots=9`, `current_inventory=2344`
+- Event range: `2026-01-08T19:19:30Z` to `2026-06-04T03:11:40Z`
+- Service: `mint-update-tracker.service`, enabled, active/running, watchdog `2min`, restarts `0` after final restart
+- Timer: `mint-update-tracker.timer`, enabled, active/waiting
+- User linger: `yes`
+- Uptime Kuma: last push HTTP `200`, `OK events=6441 inventory=2344`
+
+The reported missing DB was not actually absent during the 2026-06-04 recovery.
+The path was present on local ext4 storage under `/home/ubuntu/sync_root/db`.
+The service looked unhealthy because earlier watchdog notifications could be
+rejected or delayed during long inventory cycles.
+
+Historical recovery uses available apt, dpkg, Mint Update, snap and flatpak
+history. Events already rotated away or deleted from those logs cannot be
+reconstructed. The 2026-06-04 recovery found 5 new historical flatpak events,
+then repaired duplicate flatpak rows caused by an unstable timestamp parser.
+Two final backfill runs inserted 0 events and skipped 4078 duplicates.
 
 ## Oracle Ubuntu Server Install
 
@@ -76,6 +103,7 @@ Verified on 2026-06-02:
 
 - Keep Mint and Oracle deployments autonomous, each with its own local DB.
 - Monitor the first scheduled Oracle backfill after the 6 hour timer interval.
+- Monitor Mint Kuma freshness and scheduled backfills after the 2026-06-04 recovery.
 - Add export/import aggregation only as a separate future workflow.
 
 ## Changelog
@@ -94,3 +122,5 @@ Verified on 2026-06-02:
   bounded retry.
 - If logs were rotated, run `./mint_update_tracker.py backfill`; imports are
   idempotent.
+- If Kuma is red, check `state/kuma_push.json` and the user unit environment
+  `SOFTWARE_AUDIT_KUMA_PUSH_URL`.
