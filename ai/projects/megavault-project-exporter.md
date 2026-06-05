@@ -4,8 +4,8 @@ slug=megavault-project-exporter
 path=/home/daniele/codex-workspace/megavault-project-exporter
 remote=none
 branch=master
-verified_commit=c5cb161
-verified_at=2026-06-05T13:25:00+02:00
+verified_commit=ae556aa
+verified_at=2026-06-05T13:31:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
 prompt=#271684
 
@@ -45,7 +45,7 @@ cache_hit=state HEADs+dirty markers match and ZIP exists with matching sha256 ->
 cache_miss=archive project + MegaVault in temp dir -> zip final under bundles/ -> write state
 local=copy file reference via wl-copy/xclip/xsel else print path
 vm=scp to MINT_DEST_DIR -> remote sha256 verify -> remote clipboard verify
-headless=print ready scp/rsync/local clipboard commands
+headless=print ready scp/rsync/local clipboard command that tries wl-copy,xclip,xsel,fallback path
 
 INV:
 menu=no hardcoded projects; no cached menu; live MegaVault indices are reread each start
