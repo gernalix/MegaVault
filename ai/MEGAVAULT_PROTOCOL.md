@@ -1,6 +1,6 @@
 # MEGAVAULT_PROTOCOL.md
 
-VERSION=2
+VERSION=3
 
 PURPOSE=Global documentation constitution. Defines how MegaVault is structured, written, validated, maintained and consumed by Codex.
 
@@ -519,6 +519,58 @@ Update Human docs when:
 
 ---
 
+# MEGAVAULT SIZE RULE
+
+MegaVault stores lightweight operational documentation only.
+
+Forbidden in MegaVault:
+
+* huge files
+* raw dumps
+* massive logs
+* complete snapshots
+* archives
+* databases
+* reports hundreds of MB large
+
+Every single file in MegaVault must stay at most a few MB.
+
+If analysis generates large output:
+
+1. Store the large artifact outside MegaVault.
+2. Add only a compact MegaVault summary.
+3. Summary must include external path, date, purpose and operational notes.
+
+Before every MegaVault commit or push:
+
+1. List staged files with sizes.
+2. Block the commit if any staged file exceeds a few MB.
+3. Do not use Git LFS for MegaVault unless the user explicitly changes this protocol.
+
+---
+
+
+# MEGAVAULT GIT SYNC RULE
+
+If any file under MegaVault/ai or MegaVault/human is modified:
+
+1. Run git status in the MegaVault repository.
+2. Commit the MegaVault changes with a clear descriptive message.
+3. Run git push for the MegaVault repository.
+4. Include the MegaVault commit hash in the final report.
+
+If git push cannot be completed because of network, credentials, conflicts, remote rejection or any other error:
+
+* do not report success silently
+* preserve local changes
+* report the exact failure
+* report whether commit succeeded locally
+* report the manual command needed to finish the sync
+
+MegaVault documentation changes are incomplete until committed and pushed, unless the user explicitly requested local-only changes.
+
+---
+
 # VALIDATION CHECKLIST
 
 Every project must have:
@@ -570,4 +622,3 @@ after reading:
 2. ai/projects/<slug>.md
 
 without repository-wide exploration.
-

@@ -28,6 +28,7 @@ transfer=transient user unit rsync-transfer.service -> sudo -> phase2_limited ->
 support_system=transfer-usb-io-watchdog.service(enabled):kernel USB/I/O monitor; pauses target rsync on transfer-storage critical events
 support_user=rsync-uptime-kuma-push.service(enabled):Kuma heartbeat for exact target rsync cmdline
 support_user=transfer-vecchio-disco-adaptive-throttle.service(enabled):renice/ionice/bw profile control
+anti_freeze_disabled=2026-06-05 prompt_584731 disabled screen-watchdog.service; transfer-usb-io-watchdog.service intentionally remains enabled as rsync safety guard, not generic anti-freeze
 mount_dest=media-daniele-Seagate6TB2.automount(enabled)+.mount(disabled,triggered)
 mount_source=cryptsetup open --type bitlk --readonly /dev/sdb2 source_bitlocker; mount ro at /media/daniele/Seagate Expansion Drive
 FLOW:
@@ -71,6 +72,7 @@ dnb=do not use rsync --delete
 dnb=do not classify helper-only rsync_uptime_kuma_push as data transfer
 dnb=do not trust findmnt -T if it resolves source path to /
 dnb=do not restart after recent DEST USB/I/O/JBD2/EXT4 errors without storage verification
+dnb=do not disable transfer-usb-io-watchdog.service under generic anti-freeze cleanup; it is transfer data-safety guard
 dnb=never commit secrets or local reports/backups unless explicitly scoped
 BUG:
 issue=verify-mapping failed under DEST automount because findmnt returned systemd-1 and /dev/sdc1 rows

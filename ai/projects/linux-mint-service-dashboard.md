@@ -87,6 +87,7 @@ later=UNKNOWN
 LINK:
 meta=../../../linux-mint-service-dashboard/dev/project.metadata.json
 human=../../human/projects/linux-mint-service-dashboard/overview.md
+report_custom_services=../../human/system/custom-services-status.md
 legacy=../../../linux-mint-service-dashboard/dev/legacy
 repo=../../../linux-mint-service-dashboard
 OPEN:

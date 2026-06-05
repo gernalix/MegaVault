@@ -28,8 +28,17 @@
 - scripts/prune.sh:53:restic -r "$repo" forget \
 - scripts/prune.sh:58:restic -r "$repo" prune \
 
+## Stato 2026-06-05
+- Quota remota OCI ancora critica: `oci:bucket-20260206-0730` usa `22.262 GBytes` (`23903533548` bytes), soglia critical `21 GiB`, limite assunto `22 GiB`.
+- Repo remoto `rclone:oci:bucket-20260206-0730/oraclevm`: 837 snapshot `oracle-vm,autosnap-5min`, dal 2026-05-02 al 2026-05-05.
+- Policy configurata: `RESTIC_KEEP_LAST=48`, `RESTIC_FORGET_GROUP_BY=host,tags`. Esistono snapshot prunabili secondo policy, ma restic standard non riesce a creare il lock perche' il backend rifiuta upload su `locks/...` con `StorageLimitExceeded`.
+- Non eseguire prune distruttivo con `--no-lock` senza approvazione esplicita o temporaneo aumento quota. Prima scelta sicura: ottenere headroom quota, poi eseguire `/opt/oracle_backup/prune.sh`.
+- Fallback locale valido: `/var/lib/oracle_backup/emergency_repo`, 27 snapshot, circa 9.572 GiB raw-data. Non cancellare finche' il remoto e' degradato.
+- Pulizia `/` applicata senza toccare backup/DB: `apt-get clean`, `journalctl --vacuum-size=300M`, compressione `/var/log/syslog.1` in `/var/log/syslog.1.gz`; spazio passato da 6.6G liberi/86% a 7.5G liberi/84%.
+
 ## Safety prima di correggere
 - scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
+- Non cancellare `/var/lib/oracle_backup/emergency_repo`, `/var/lib/oracle_backup/sqlite_snapshots`, DB SQLite, WAL/SHM o repo restic per liberare spazio senza snapshot/verifica e policy documentata.
 - scripts/backup.sh:24:export RESTIC_PASSWORD
 - scripts/backup.sh:59:if [[ "${FORCE_ORACLE_BACKUP:-0}" != "1" && "$last_any_success" =~ ^[0-9]+$ && "$MIN_BACKUP_INTERVAL_SECONDS" -gt 0 ]]; then
 - scripts/backup.sh:68:exec 9>"$RESTIC_RUN_LOCK"

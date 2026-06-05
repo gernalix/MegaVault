@@ -1,18 +1,18 @@
 # codex-token-watcher Overview
 
-UNKNOWN: source docs do not state a clear purpose.
+Monitor locale Mint per leggere la dashboard ChatGPT Codex Analytics, salvare lo storico quota in SQLite/CSV, notificare Telegram quando cambia la percentuale settimanale e fare heartbeat Uptime Kuma remoto sulla VM Oracle.
 
 ## Stato e codice
-- Repository: `/home/daniele/codex-workspace/codex-token-watcher`
-- Branch/commit verificati: `codex/prompt-384921` / `e8f36f5`
-- File codice/config/test/script analizzati: 1 su 1
-- Stack rilevato: UNKNOWN, UNKNOWN, UNKNOWN
+- Runtime autorevole: `/home/daniele/codex-workspace/codex-token-watcher`
+- VM Oracle: solo endpoint Uptime Kuma; scraping Codex disabilitato
+- Branch runtime: `codex/prompt-384921`
+- Stack rilevato: Python, Playwright/Chromium CDP, SQLite, systemd user timer
 
 ## Orientamento rapido
-- Entrypoint: `UNKNOWN`
-- Core/data: `dev/project.metadata.json`
-- Test: `UNKNOWN`
-- Script/build: `UNKNOWN`
+- Entrypoint: `/home/daniele/codex-workspace/codex-token-watcher/codex_usage_monitor.py`
+- Core/data: `extract_dashboard`, `command_once`, `maybe_notify_weekly_change`, SQLite in `~/.local/share/codex-usage-monitor/`
+- Test: `python3 -m py_compile`, sample parser, dry-run weekly change
+- Script/build: `systemd/codex-usage-monitor.service`, `systemd/codex-usage-monitor.timer`
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/codex-token-watcher.md)

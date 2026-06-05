@@ -1,15 +1,18 @@
 # codex-token-watcher Features
 
-Questa pagina deriva dal codice attivo auditato con `#604927`.
+Questa pagina deriva dalla verifica runtime locale del 2026-06-02.
 
 ## Mappa funzionale dal codice
-- UNKNOWN
+- Poll ogni 5 minuti via systemd user timer.
+- Chrome persistente locale dedicato per `https://chatgpt.com/codex/cloud/settings/analytics#usage`.
+- Parser v3 per blocchi `Saldo`, `Limite di utilizzo di 5 ore`, `Limite di utilizzo settimanale`, reset 5h e reset weekly.
+- Storico in SQLite/CSV con migrazioni idempotenti.
+- Stato atomico `last_weekly_percent.json`.
+- Telegram solo quando `weekly_percent` cambia rispetto all'ultimo valore salvato; baseline iniziale silenziosa salvo env esplicito.
+- Diagnostica HTML, screenshot e raw text su parsing/login/challenge failure.
+- Push Uptime Kuma remoto `up` su ciclo leggibile e `down` su parsing fallito.
 
 ## Confini operativi
-- dev/project.metadata.json:2:"project_name": "codex-token-watcher",
-- dev/project.metadata.json:3:"project_slug": "codex-token-watcher",
-- dev/project.metadata.json:4:"project_root": "~/cw/codex-token-watcher",
-- dev/project.metadata.json:6:"ai_doc": "~/cw/MegaVault/ai/projects/codex-token-watcher.md",
-- dev/project.metadata.json:7:"human_doc": "~/cw/MegaVault/human/projects/codex-token-watcher",
-- dev/project.metadata.json:9:"metadata_version": 1,
-- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks
+- Non committare token, cookie, env o profilo Chromium.
+- Runtime autorevole locale: `/home/daniele/codex-workspace/codex-token-watcher`.
+- VM Oracle solo endpoint Kuma; non deve fare scraping della dashboard Codex.

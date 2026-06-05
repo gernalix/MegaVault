@@ -9,6 +9,9 @@ verified_at=2026-06-01T13:59:53+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
 purpose=Persistent heartbeat sender for a Uptime Kuma push monitor
+status=DISABLED_OPERATIONALLY_PROMPT_584731
+status_ts=2026-06-05T07:48:36+02:00
+status_reason=anti-freeze/watchdog residual removal; Kuma reliability now delegated to service-specific pushers/monitors
 STACK:
 lang=Python,Shell
 fw=UNKNOWN
@@ -67,8 +70,8 @@ issue=UNKNOWN
 RISK:
 risk=UNKNOWN
 ROAD:
-now=UNKNOWN
-next=UNKNOWN
+now=disabled: systemctl status system-watchdog.service => inactive/dead, unit disabled
+next=keep disabled unless operator explicitly restores generic host heartbeat
 later=UNKNOWN
 LINK:
 meta=../../../system_watchdog/dev/project.metadata.json

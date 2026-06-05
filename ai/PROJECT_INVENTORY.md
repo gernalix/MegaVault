@@ -1,11 +1,12 @@
 # PROJECT_INVENTORY
 
-Generated: 2026-06-01T07:23:54+02:00
+Generated: 2026-06-05T11:50:00+02:00
 
 | name | slug | path | remote | branch | git_status_count | docs_found | docs_archived | docs_skipped | dev |
 |---|---|---|---|---|---:|---:|---:|---:|---|
 | SuperContacts | supercontacts | `/home/daniele/codex-workspace/SuperContacts` | `https://github.com/gernalix/SuperContacts.git` | `codex/prompt-xxx` | 8 | 4 | 3 | 0 | True |
 | WindowTabNotes | windowtabnotes | `/home/daniele/codex-workspace/WindowTabNotes` | `git@github.com:gernalix/WindowTabNotes.git` | `codex/prompt-581472` | 7 | 13 | 13 | 0 | True |
+| android | android | `/home/daniele/codex-workspace/projects/android` | `none` | `home-git-worktree` | 0 | 3 | 0 | 0 | True |
 | android-sdk-auto-update | android-sdk-auto-update | `/home/daniele/codex-workspace/android-sdk-auto-update` | `none` | `master` | 7 | 5 | 5 | 0 | True |
 | aw-converter | aw-converter | `/home/daniele/codex-workspace/aw-converter` | `none` | `master` | 0 | 0 | 0 | 0 | True |
 | chatgpt-chrome-debug | chatgpt-chrome-debug | `/home/daniele/codex-workspace/chatgpt-chrome-debug` | `none` | `master` | 7 | 7 | 7 | 0 | True |

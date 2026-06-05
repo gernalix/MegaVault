@@ -1,0 +1,4 @@
+prompt=584731
+created=2026-06-05T07:43:54+02:00
+host=daniele-Surface-Pro
+cwd=/home/daniele

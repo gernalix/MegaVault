@@ -1,0 +1,14 @@
+[Unit]
+Description=Freeze-resilient Codex prompt runner %i
+Documentation=file:/home/daniele/codex-workspace/os-observer/README.md
+After=default.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/daniele
+ExecStart=/usr/bin/python3 /home/daniele/codex-workspace/os-observer/codex_freeze_runner.py recover --prompt %i
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+NoNewPrivileges=true
+PrivateTmp=true

@@ -1,0 +1,20 @@
+NEXT                              LEFT LAST                               PASSED UNIT                                   ACTIVATES
+Fri 2026-06-05 07:44:22 CEST       27s Fri 2026-06-05 07:43:22 CEST      32s ago mint-cloud-backup-kuma-push.timer      mint-cloud-backup-kuma-push.service
+Fri 2026-06-05 07:44:55 CEST   1min 0s Fri 2026-06-05 07:39:55 CEST 3min 59s ago disk-usage-monitor.timer               disk-usage-monitor.service
+Fri 2026-06-05 08:33:19 CEST     49min Fri 2026-06-05 07:34:03 CEST     9min ago anacron.timer                          anacron.service
+Fri 2026-06-05 08:39:50 CEST     55min Fri 2026-06-05 07:01:54 CEST    41min ago fwupd-refresh.timer                    fwupd-refresh.service
+Fri 2026-06-05 08:45:10 CEST   1h 1min Mon 2026-06-01 00:24:30 CEST            - mintupdate-automation-autoremove.timer mintupdate-automation-autoremove.service
+Fri 2026-06-05 09:17:03 CEST  1h 33min Thu 2026-06-04 02:44:22 CEST            - man-db.timer                           man-db.service
+Fri 2026-06-05 13:23:03 CEST  5h 39min Thu 2026-06-04 02:55:38 CEST            - plocate-updatedb.timer                 plocate-updatedb.service
+Fri 2026-06-05 14:33:24 CEST        6h Thu 2026-06-04 07:57:37 CEST            - apt-daily.timer                        apt-daily.service
+Fri 2026-06-05 23:12:43 CEST       15h Fri 2026-06-05 07:10:16 CEST    33min ago motd-news.timer                        motd-news.service
+Sat 2026-06-06 00:00:00 CEST       16h Fri 2026-06-05 05:43:51 CEST  2h 0min ago dpkg-db-backup.timer                   dpkg-db-backup.service
+Sat 2026-06-06 00:00:00 CEST       16h Fri 2026-06-05 05:43:51 CEST  2h 0min ago logrotate.timer                        logrotate.service
+Sat 2026-06-06 00:10:42 CEST       16h Fri 2026-06-05 05:44:17 CEST 1h 59min ago mint-cloud-backup.timer                mint-cloud-backup.service
+Sat 2026-06-06 00:40:38 CEST       16h Fri 2026-06-05 07:34:25 CEST     9min ago mintupdate-automation-upgrade.timer    mintupdate-automation-upgrade.service
+Sat 2026-06-06 05:58:39 CEST       22h Fri 2026-06-05 05:58:39 CEST 1h 45min ago systemd-tmpfiles-clean.timer           systemd-tmpfiles-clean.service
+Sat 2026-06-06 06:19:20 CEST       22h Fri 2026-06-05 06:16:53 CEST 1h 27min ago apt-daily-upgrade.timer                apt-daily-upgrade.service
+Sun 2026-06-07 03:10:47 CEST 1 day 19h Sun 2026-05-31 03:10:21 CEST            - e2scrub_all.timer                      e2scrub_all.service
+Mon 2026-06-08 01:02:34 CEST    2 days Mon 2026-06-01 01:25:53 CEST            - fstrim.timer                           fstrim.service
+
+17 timers listed.

@@ -1,0 +1,18 @@
+NEXT                             LEFT LAST                               PASSED UNIT                                  ACTIVATES
+Fri 2026-06-05 07:44:00 CEST       5s Fri 2026-06-05 07:43:29 CEST      24s ago mint-xfce-layout-guard.timer          mint-xfce-layout-guard.service
+Fri 2026-06-05 07:44:00 CEST       5s Fri 2026-06-05 07:43:29 CEST      24s ago terminal-logger-codex-snapshot.timer  terminal-logger-codex-snapshot.service
+Fri 2026-06-05 07:44:29 CEST      35s Fri 2026-06-05 07:43:44 CEST       9s ago home-backup-retention-kuma-push.timer home-backup-retention-kuma-push.service
+Fri 2026-06-05 07:46:43 CEST 2min 48s Fri 2026-06-05 07:41:42 CEST 2min 11s ago home-backup-kuma-push.timer           home-backup-kuma-push.service
+Fri 2026-06-05 07:49:47 CEST     5min Fri 2026-06-05 07:19:42 CEST    24min ago parcel-tracker.timer                  parcel-tracker.service
+Fri 2026-06-05 08:00:00 CEST    16min Fri 2026-06-05 07:00:51 CEST    43min ago codex-usage-monitor.timer             codex-usage-monitor.service
+Fri 2026-06-05 09:00:00 CEST 1h 16min Thu 2026-06-04 09:00:00 CEST            - amici_fb.timer                        amici_fb.service
+Fri 2026-06-05 10:32:02 CEST 2h 48min Thu 2026-06-04 10:18:57 CEST            - logseq-update-checker.timer           logseq-update-checker.service
+Fri 2026-06-05 11:53:40 CEST  4h 9min Fri 2026-06-05 05:53:40 CEST 1h 50min ago mint-update-tracker.timer             mint-update-tracker-backfill.service
+Sat 2026-06-06 00:05:39 CEST      16h Fri 2026-06-05 05:44:56 CEST 1h 58min ago terminal-logger-maintenance.timer     terminal-logger-maintenance.service
+Sat 2026-06-06 04:05:40 CEST      20h Fri 2026-06-05 07:42:44 CEST 1min 10s ago home-incremental-backup.timer         home-incremental-backup.service
+Sat 2026-06-06 05:48:57 CEST      22h Fri 2026-06-05 05:48:57 CEST 1h 54min ago launchpadlib-cache-clean.timer        launchpadlib-cache-clean.service
+Sat 2026-06-06 06:22:50 CEST      22h Fri 2026-06-05 06:33:14 CEST 1h 10min ago android-sdk-auto-update.timer         android-sdk-auto-update.service
+Mon 2026-06-08 00:15:44 CEST   2 days Mon 2026-06-01 01:36:50 CEST            - mint-manual-updates.timer             mint-manual-updates.service
+Mon 2026-06-08 05:34:21 CEST   2 days -                                       - mint-extra-updater.timer              mint-extra-updater.service
+
+15 timers listed.

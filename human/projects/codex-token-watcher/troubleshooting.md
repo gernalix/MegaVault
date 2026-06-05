@@ -1,16 +1,31 @@
 # codex-token-watcher Troubleshooting
 
 ## Problemi e sintomi rilevati nel codice
-- Nessun bug marker rilevato staticamente.
+- Parser v2 obsoleto: cercava contesti generici `usage/week/5h` e non salvava percentuali strutturate.
+- Stato locale attuale: la diagnostica mostra pagina Cloudflare `Just a moment...`; finche' resta cosi', le quote reali non sono leggibili.
+- Sintomo journal precedente: `dashboard loaded but expected Codex usage text was not visible`.
 
 ## Comandi/verifiche utili trovati
-- UNKNOWN: nessun comando rilevato in build/script/CI.
+- `cd /home/daniele/codex-workspace/codex-token-watcher && ./codex_usage_monitor.py doctor`
+- `cd /home/daniele/codex-workspace/codex-token-watcher && ./codex_usage_monitor.py once`
+- `systemctl --user status codex-usage-monitor.service codex-usage-monitor.timer --no-pager`
+- `journalctl --user -u codex-usage-monitor.service -n 80 --no-pager`
+- `sqlite3 ~/.local/share/codex-usage-monitor/codex_usage.sqlite3 'select id,ts_utc,status,five_hour_percent,weekly_percent,error from observations order by id desc limit 5;'`
+
+## Stato 2026-06-05
+- Timer e DB sono sani, ma la pagina e' bloccata da Cloudflare/challenge: ultimo run id `71`, `2026-06-05T06:00:01Z`, `status=error`, titolo `Just a moment...`, Kuma `down:ok`.
+- Diagnostica: `/home/daniele/.local/state/codex-usage-monitor/diagnostics/20260605T060053Z-dashboard-parse.{txt,html,png}`.
+- Profilo Chrome corretto: `/home/daniele/.local/share/codex-usage-monitor/chrome-profile/Default`.
+- Recovery manuale senza bypass:
+  - `systemctl --user stop codex-usage-monitor.timer`
+  - `cd /home/daniele/codex-workspace/codex-token-watcher && CODEX_USAGE_HEADLESS=0 ./codex_usage_monitor.py open-login`
+  - risolvere Cloudflare/login nel browser aperto, verificare la pagina Codex Analytics, chiudere Chrome;
+  - `./codex_usage_monitor.py doctor && ./codex_usage_monitor.py once`
+  - `systemctl --user start codex-usage-monitor.timer`
 
 ## Safety prima di correggere
-- dev/project.metadata.json:2:"project_name": "codex-token-watcher",
-- dev/project.metadata.json:3:"project_slug": "codex-token-watcher",
-- dev/project.metadata.json:4:"project_root": "~/cw/codex-token-watcher",
-- dev/project.metadata.json:6:"ai_doc": "~/cw/MegaVault/ai/projects/codex-token-watcher.md",
-- dev/project.metadata.json:7:"human_doc": "~/cw/MegaVault/human/projects/codex-token-watcher",
-- dev/project.metadata.json:9:"metadata_version": 1,
-- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks
+- Stop timer prima di login/debug profilo Chrome.
+- VM Oracle non deve eseguire scraping Codex; lasciare `codex-usage-monitor.timer` disabilitato sulla VM.
+- Non stampare env file o token Telegram/Kuma.
+- Env file deve restare mode `600`.
+- Non tentare bypass Cloudflare, stealth scraping o automazioni della challenge.
