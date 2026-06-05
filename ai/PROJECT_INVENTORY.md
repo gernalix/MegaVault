@@ -1,6 +1,6 @@
 # PROJECT_INVENTORY
 
-Generated: 2026-06-05T11:50:00+02:00
+Generated: 2026-06-05T13:11:18+02:00
 
 | name | slug | path | remote | branch | git_status_count | docs_found | docs_archived | docs_skipped | dev |
 |---|---|---|---|---|---:|---:|---:|---:|---|
@@ -16,6 +16,7 @@ Generated: 2026-06-05T11:50:00+02:00
 | facebook-video-archiver | facebook-video-archiver | `/home/daniele/codex-workspace/facebook-video-archiver` | `none` | `work/v4-deep-discovery` | 16 | 8 | 8 | 0 | True |
 | installa-app | installa-app | `/home/daniele/codex-workspace/installa-app` | `none` | `codex/prompt-582746` | 0 | 0 | 0 | 0 | True |
 | linux-mint-service-dashboard | linux-mint-service-dashboard | `/home/daniele/codex-workspace/linux-mint-service-dashboard` | `none` | `prompt-816-local-dashboard` | 21 | 12 | 12 | 0 | True |
+| megavault-project-exporter | megavault-project-exporter | `/home/daniele/codex-workspace/megavault-project-exporter` | `none` | `master` | 0 | 3 | 0 | 0 | True |
 | mint-cloud-backup | mint-cloud-backup | `/home/daniele/codex-projects/mint-cloud-backup` | `none` | `master` | 0 | 5 | 0 | 0 | True |
 | mint-manual-updates | mint-manual-updates | `/home/daniele/codex-workspace/mint-manual-updates` | `none` | `master` | 0 | 4 | 4 | 0 | True |
 | os-observer | os-observer | `/home/daniele/codex-workspace/os-observer` | `none` | `codex/prompt-914582` | 12 | 25 | 25 | 0 | True |

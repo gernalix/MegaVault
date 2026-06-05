@@ -1,6 +1,6 @@
 # PROJECT_INDEX
 
-Updated: 2026-06-05T11:50:00+02:00
+Updated: 2026-06-05T13:11:18+02:00
 
 | name | slug | purpose | AI doc | Human overview | metadata | repo |
 |---|---|---|---|---|---|---|
@@ -16,6 +16,7 @@ Updated: 2026-06-05T11:50:00+02:00
 | facebook-video-archiver | facebook-video-archiver | Start here for Codex/operator work on `facebook-video-archiver`. | [AI](projects/facebook-video-archiver.md) | [Human](../human/projects/facebook-video-archiver/overview.md) | [metadata](../../facebook-video-archiver/dev/project.metadata.json) | [repo](../../facebook-video-archiver) |
 | installa-app | installa-app | UNKNOWN: source docs do not state a clear purpose. | [AI](projects/installa-app.md) | [Human](../human/projects/installa-app/overview.md) | [metadata](../../installa-app/dev/project.metadata.json) | [repo](../../installa-app) |
 | linux-mint-service-dashboard | linux-mint-service-dashboard | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE. | [AI](projects/linux-mint-service-dashboard.md) | [Human](../human/projects/linux-mint-service-dashboard/overview.md) | [metadata](../../linux-mint-service-dashboard/dev/project.metadata.json) | [repo](../../linux-mint-service-dashboard) |
+| megavault-project-exporter | megavault-project-exporter | Fast cached exporter for bundling one MegaVault-registered project together with the MegaVault documentation archive. | [AI](projects/megavault-project-exporter.md) | [Human](../human/projects/megavault-project-exporter/overview.md) | [metadata](../../megavault-project-exporter/dev/project.metadata.json) | [repo](../../megavault-project-exporter) |
 | mint-cloud-backup | mint-cloud-backup | Linux Mint root filesystem backup to Backblaze B2 via restic, with local monitor, localhost dashboard, and Uptime Kuma push heartbeat. | [AI](projects/mint-cloud-backup.md) | [Human](../human/projects/mint-cloud-backup/overview.md) | [metadata](../../../codex-projects/mint-cloud-backup/dev/project.metadata.json) | [repo](../../../codex-projects/mint-cloud-backup) |
 | mint-manual-updates | mint-manual-updates | Servizio user systemd v4 per controllare e applicare aggiornamenti prudenti su Linux Mint 22.3 / Ubuntu noble. | [AI](projects/mint-manual-updates.md) | [Human](../human/projects/mint-manual-updates/overview.md) | [metadata](../../mint-manual-updates/dev/project.metadata.json) | [repo](../../mint-manual-updates) |
 | mint-update-tracker | mint-update-tracker | Read-only software black-box recorder for Linux Mint desktop and Oracle Ubuntu Server; records installs, updates, downgrades, removals, snapshots and historical log backfill. | [AI](projects/mint-update-tracker.md) | [Human](../human/projects/mint-update-tracker/overview.md) | [metadata](../../mint-update-tracker/dev/project.metadata.json) | [repo](../../mint-update-tracker) |

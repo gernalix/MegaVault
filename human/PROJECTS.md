@@ -1,6 +1,6 @@
 # MegaVault Projects
 
-Updated: 2026-06-03T01:37:21+02:00
+Updated: 2026-06-05T13:11:18+02:00
 
 | Project | What it is | Human overview | AI doc | metadata |
 |---|---|---|---|---|
@@ -15,6 +15,7 @@ Updated: 2026-06-03T01:37:21+02:00
 | facebook-video-archiver | Start here for Codex/operator work on `facebook-video-archiver`. | [overview](projects/facebook-video-archiver/overview.md) | [AI](../ai/projects/facebook-video-archiver.md) | [metadata](../../facebook-video-archiver/dev/project.metadata.json) |
 | installa-app | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/installa-app/overview.md) | [AI](../ai/projects/installa-app.md) | [metadata](../../installa-app/dev/project.metadata.json) |
 | linux-mint-service-dashboard | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE. | [overview](projects/linux-mint-service-dashboard/overview.md) | [AI](../ai/projects/linux-mint-service-dashboard.md) | [metadata](../../linux-mint-service-dashboard/dev/project.metadata.json) |
+| megavault-project-exporter | Fast cached exporter for bundling one MegaVault-registered project together with the MegaVault documentation archive. | [overview](projects/megavault-project-exporter/overview.md) | [AI](../ai/projects/megavault-project-exporter.md) | [metadata](../../megavault-project-exporter/dev/project.metadata.json) |
 | mint-manual-updates | Servizio user systemd v4 per controllare e applicare aggiornamenti prudenti su Linux Mint 22.3 / Ubuntu noble. | [overview](projects/mint-manual-updates/overview.md) | [AI](../ai/projects/mint-manual-updates.md) | [metadata](../../mint-manual-updates/dev/project.metadata.json) |
 | mint-update-tracker | Read-only software black-box recorder for Linux Mint desktop and Oracle Ubuntu Server; records installs, updates, downgrades, removals, snapshots and historical log backfill. | [overview](projects/mint-update-tracker/overview.md) | [AI](../ai/projects/mint-update-tracker.md) | [metadata](../../mint-update-tracker/dev/project.metadata.json) |
 | os-observer | Linux Mint black-box recorder: user-systemd timer records read-only telemetry into SQLite, maintains diagnostic knowledge, exports bounded context for ChatGPT/Codex, and has guarded autofix/heartbeat logic. | [overview](projects/os-observer/overview.md) | [AI](../ai/projects/os-observer.md) | [metadata](../../os-observer/dev/project.metadata.json) |
