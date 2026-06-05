@@ -2,85 +2,79 @@ META:
 name=codex-token-watcher
 slug=codex-token-watcher
 path=/home/daniele/codex-workspace/codex-token-watcher
+vm_path=/home/ubuntu/codex-workspace/codex-usage-monitor
+vm_host=ubuntu@150.230.148.128
 remote=none
 branch=codex/prompt-384921
-verified_commit=fa7b3b0
-verified_at=2026-06-02T10:10:00+02:00
-protocol=MEGAVAULT_PROTOCOL.md:v2
+verified_commit=UNKNOWN
+verified_at=2026-06-05T12:36:18+02:00
+protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
-purpose=Monitor ChatGPT Codex Analytics quota from Linux Mint local persistent Chrome profile; persist local SQLite/CSV diagnostics; notify Telegram on weekly percent changes; push remote Uptime Kuma heartbeat on Oracle VM.
+purpose=Monitor Codex CLI health/status from Oracle VM without browser automation; persist small redacted CLI stdout/stderr logs and SQLite observations; keep Chrome/Playwright only as legacy fallback disabled by default.
 STACK:
-lang=Python3
-fw=Playwright+Chromium/CDP
-db=SQLite+CSV
-platform=Linux_Mint_local; Oracle_VM_only_Kuma_endpoint
-tools=systemd_user_timer,telegram_notify.py,Uptime_Kuma
+lang=Python3 stdlib
+source=Codex_CLI
+db=SQLite
+platform=Oracle_VM_user_systemd
+tools=codex-cli,npm,nodejs,systemd_user_timer
 MAP:
-entry=/home/daniele/codex-workspace/codex-token-watcher/codex_usage_monitor.py
-ui=UNKNOWN
-core=extract_dashboard,command_once,maybe_notify_weekly_change,push_kuma,command_doctor,command_stats,command_setup_login/open-login
-db=/home/daniele/.local/share/codex-usage-monitor/codex_usage.sqlite3
-tests=py_compile+stats+doctor+sqlite_last_record+systemd_status
-scripts=systemd/codex-usage-monitor.service,systemd/codex-usage-monitor.timer
-build=.venv+requirements.txt local
-avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
+entry=/home/ubuntu/codex-workspace/codex-usage-monitor/codex_cli_status_watcher.py
+legacy_browser=/home/ubuntu/codex-workspace/codex-usage-monitor/codex_usage_monitor.py
+local_stage=/home/daniele/codex-workspace/codex-token-watcher
+db=/home/ubuntu/.local/share/codex-usage-monitor/codex_usage.sqlite3
+table=cli_status_observations
+raw_logs=/home/ubuntu/.local/state/codex-usage-monitor/cli-status-logs
+systemd=/home/ubuntu/.config/systemd/user/codex-usage-monitor.service
+timer=/home/ubuntu/.config/systemd/user/codex-usage-monitor.timer
+env=/home/ubuntu/.config/codex-usage-monitor/codex-usage-monitor.env
 ARCH:
-arch=Local Mint authoritative runtime. Browser profile/env/db/state live outside repo. Oracle VM must not scrape Codex; it is only remote Uptime Kuma endpoint. Timer runs local oneshot poll hourly after login/challenge is cleared.
+arch=Oracle VM authoritative runtime. Normal path is CLI-only: codex doctor --json + codex login status -> redacted raw log -> SQLite cli_status_observations -> optional Kuma push.
+legacy=Chrome/Playwright code remains for manual fallback only; systemd normal path does not call browser, Chrome, Playwright, Cloudflare, or web login.
 FLOW:
-flow=local_systemd_timer_hourly->codex_usage_monitor.py once->local Chrome persistent profile->Codex Analytics visible text->parse 5h/weekly percent+reset->local SQLite/CSV->weekly state atomic->Telegram on weekly change->remote Kuma up/down.
+flow=systemd_user_timer_hourly->codex_cli_status_watcher.py once->codex --version->codex login status->codex doctor --json->parse auth/runtime fields->save raw redacted JSON log->insert SQLite row source=cli_status->Kuma if env URL configured.
 INV:
-arch=Do not duplicate project slug; local repo path is runtime source; VM scraping disabled.
-data=dev/project.metadata.json:9:"metadata_version": 1,; dev/project.metadata.json:2:"project_name": "codex-token-watcher",
-ux=UNKNOWN
-backup=Runtime DB/CSV/state outside git; diagnostics html/png/txt under /home/daniele/.local/state/codex-usage-monitor/diagnostics.
-migration=UNKNOWN
-version=script_VERSION=v3 deployed_local_hourly
-i18n=UNKNOWN
-security=env_file mode 600; never log Telegram tokens/cookies/Kuma URL token; Chrome profile outside repo.
-perf=one compact log line per cycle; timeout managed by systemd; hourly polling reduces browser launches from 288/day to about 24/day.
+source=All new rows use source=cli_status.
+states=ok,unavailable,parse_error
+security=Do not read/copy/commit ~/.codex/auth.json; do not store tokens/cookies/API keys; redact stdout/stderr; raw logs capped and retained max 30 timestamped logs plus latest.
+data=Historical SQLite data is preserved; new table is additive.
+runtime=VM path is authoritative; Mint local repo is staging/versioning.
+browser=Do not open browser for normal run.
+package=Codex CLI fixed 2026-06-05 by NodeSource nodejs 22.22.3 and npm @openai/codex 0.137.0; stale /usr/local/bin/codex removed; active codex=/usr/bin/codex.
 BUILD:
-files=/home/daniele/codex-workspace/codex-token-watcher/requirements.txt
-cmd=python3 -m py_compile codex_usage_monitor.py
+cmd=python3 -m py_compile codex_cli_status_watcher.py codex_usage_monitor.py
+deploy=scp script+systemd+docs to VM; install -m 755 script; install -m 644 units; systemctl --user daemon-reload
 TEST:
-files=codex_usage_monitor.py
-cmd=python3 -m py_compile codex_usage_monitor.py; synthetic extract_dashboard sample; weekly state dry-run with fake Telegram helper; ./codex_usage_monitor.py once local
+cmd=which codex; codex --help; codex status; codex /status; codex login status; codex doctor --json; codex exec --skip-git-repo-check --json smoke; ./codex_cli_status_watcher.py once; sqlite3 latest row; systemctl --user status service/timer
+result=2026-06-05 service code=0/SUCCESS; timer active(waiting), next=2026-06-05T11:00:00Z; latest DB row id=5 status=ok source=cli_status codex_version=0.137.0 auth_mode=chatgpt stored_chatgpt_tokens=1 model=gpt-5.4 websocket_status=ok quota_fields_available=0.
 DATA:
-db=SQLite /home/daniele/.local/share/codex-usage-monitor/codex_usage.sqlite3
-paths=CSV /home/daniele/.local/share/codex-usage-monitor/codex_usage.csv; state /home/daniele/.local/state/codex-usage-monitor/last_weekly_percent.json; diagnostics /home/daniele/.local/state/codex-usage-monitor/diagnostics
-backup=external runtime data not committed
-restore=UNKNOWN
-import=dashboard visible text
-export=SQLite observations,notification_events,monitor_state; CSV observation log
-migration=init_db ALTER TABLE adds v3 fields idempotently
-retention=hourly observations are small; diagnostics html/png/txt are only written on dashboard/parse errors.
+db=/home/ubuntu/.local/share/codex-usage-monitor/codex_usage.sqlite3
+table=cli_status_observations columns=id,ts_utc,source,status,codex_bin,codex_version,login_status,auth_mode,auth_configured,stored_chatgpt_tokens,stored_api_key,overall_status,model,model_provider,websocket_status,websocket_summary,provider_reachability_status,provider_reachability_summary,quota_fields_available,quota_fields_json,raw_log_path,error,created_at
+logs=/home/ubuntu/.local/state/codex-usage-monitor/cli-status-logs/YYYYMMDDTHHMMSSZ-cli-status.json; latest-cli-status.json
+log_size=observed about 15-16KB each on 2026-06-05; retention=30 timestamped logs
+backup=No historical DB deletion performed.
 DNB:
-dnb=dev/project.metadata.json:2:"project_name": "codex-token-watcher",
-dnb=dev/project.metadata.json:3:"project_slug": "codex-token-watcher",
-dnb=dev/project.metadata.json:4:"project_root": "/home/daniele/codex-workspace/codex-token-watcher",
-dnb=dev/project.metadata.json:6:"ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/codex-token-watcher.md",
-dnb=dev/project.metadata.json:7:"human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/codex-token-watcher",
-dnb=do_not_print_or_commit_env_tokens_cookies
-dnb=do_not_notify_weekly_on_identical_polling_value
-dnb=first_successful_weekly_percent_is_baseline_unless_TELEGRAM_NOTIFY_WEEKLY_BASELINE=1
-dnb=save diagnostics on parse failure before returning status=error
-dnb=Kuma push down on parse failure, up on readable cycle
-dnb=Oracle_VM_must_not_scrape_Codex_dashboard
-dnb=do_not_bypass_Cloudflare_or_automate_challenge
+dnb=Do not create duplicate project/repo/service names.
+dnb=Do not use Chrome/Playwright/Cloudflare/login web in normal backend.
+dnb=Do not commit DB/logs/env/auth files.
+dnb=Do not store secrets from ~/.codex/auth.json or env files.
+dnb=Do not treat codex status or codex /status as automation-safe; they require TTY and open interactive UI.
 BUG:
-issue=2026-06-02 old parser looked for generic usage contexts and missed new Codex Analytics Saldo blocks; VM scraping disabled because Cloudflare/login is unstable; local dedicated Chrome profile currently also sees Cloudflare challenge until manual profile verification.
-issue=2026-06-02 local Cloudflare diagnosis: URL=https://chatgpt.com/codex/cloud/settings/analytics#usage; Chrome=/usr/bin/google-chrome Google Chrome 148; profile=/home/daniele/.local/share/codex-usage-monitor/chrome-profile/Default; chatgpt/openai cookies present; systemd graphical env OK DISPLAY=:0 DBUS/XDG_RUNTIME_DIR present; latest challenge screenshot shows Cloudflare "Verify you are human"; doctor reports navigator.webdriver=True in Playwright session.
+issue=2026-06-05 pre-migration CLI existed at /usr/local/bin/codex but failed with Node v12 SyntaxError top-level await. Fixed by installing NodeSource nodejs 22.22.3 and @openai/codex 0.137.0 under /usr; removed stale /usr/local/bin/codex.
+issue=2026-06-05 codex status and codex /status over non-TTY return Error: stdin is not a terminal; with TTY they open interactive UI and produce no parsable status before timeout.
 RISK:
-risk=Cloudflare/login challenge blocks headless scraping; headed local Playwright uses real Chrome+dedicated profile but exposes navigator.webdriver=True. Do not add aggressive bypasses or stealth workarounds.
-risk=Dashboard text labels can drift; parser must stay label+percent contextual, not selector-specific.
+risk=Codex CLI 0.137.0 exposes auth/runtime health but not quota/token-budget fields non-interactively; watcher records quota_fields_available=0.
+risk=doctor --json takes about 20-30s because it checks websocket and Codex SQLite state.
+risk=Kuma URL not configured on VM as of 2026-06-05; Telegram helper /home/ubuntu/telegram_notify.py missing.
 ROAD:
-now=Local watcher installed with hourly user timer; Oracle VM remains Kuma-only; doctor exposes browser/profile/env/last diagnostics; open-login opens same profile for manual login/challenge.
-next=Use stats before design changes; current all-history sample is 12 runs over 1.30h, success=50%, Cloudflare=33.3%, recommendation=observe more. Run open-login manually only if Cloudflare becomes sustained.
-later=Add fixture from real successful dashboard HTML/text if labels drift again.
+now=CLI-only watcher deployed on VM; browser backend disabled in service/timer.
+next=If future Codex CLI exposes non-interactive quota fields, extend parser and set quota_fields_available=1 without reintroducing browser.
+later=Optional Telegram integration only after helper/env exists on VM; keep secrets outside repo.
 LINK:
 meta=../../../codex-token-watcher/dev/project.metadata.json
 human=../../human/projects/codex-token-watcher/overview.md
 legacy=../../../codex-token-watcher/dev/legacy
 repo=../../../codex-token-watcher
 OPEN:
-open=2026-06-05 Cloudflare remains current blocker: latest local systemd run id=71 at 2026-06-05T06:00:01Z wrote DB status=error, page_title="Just a moment...", Kuma down push returned ok, diagnostics at /home/daniele/.local/state/codex-usage-monitor/diagnostics/20260605T060053Z-dashboard-parse.{txt,html,png}. Timer/service and DB are healthy. Manual open-login is required; do not bypass Cloudflare and do not move scraping to Oracle VM.
-open=Manual recovery command: cd /home/daniele/codex-workspace/codex-token-watcher && CODEX_USAGE_HEADLESS=0 ./codex_usage_monitor.py open-login. Use profile /home/daniele/.local/share/codex-usage-monitor/chrome-profile/Default, resolve Cloudflare/login manually, confirm Codex Analytics is visible, close Chrome, then run ./codex_usage_monitor.py doctor and ./codex_usage_monitor.py once.
+open=Kuma not configured: no CODEX_USAGE_KUMA_PUSH_URL in /home/ubuntu/.config/codex-usage-monitor/codex-usage-monitor.env on 2026-06-05.
+open=Telegram not configured: /home/ubuntu/telegram_notify.py missing on 2026-06-05.
+open=No non-interactive Codex quota fields found in CLI 0.137.0; current extracted fields are runtime/auth/model/websocket/provider status.
