@@ -40,6 +40,7 @@ INV:
 source=All new rows use source=cli_status.
 deep_source=All deep rows use source=cli_status_deep.
 states=ok,unavailable,parse_error
+systemd=oneshot exits 0 after persisting measurement; monitor truth is SQLite status field, not systemd success alone.
 security=Do not read/copy/commit ~/.codex/auth.json; do not store tokens/cookies/API keys; redact stdout/stderr; raw logs capped and retained max 30 timestamped logs plus latest.
 deep_security=Deep collector reads rollout JSONL only, extracts selected rate_limits/token_usage/path/line; no auth file, Authorization header, token, cookie, or API key read.
 data=Historical SQLite data is preserved; new table is additive.
@@ -74,7 +75,7 @@ issue=2026-06-05 installed JS package has wrapper only; native code is stripped 
 RISK:
 risk=Codex CLI 0.137.0 exposes auth/runtime health but not quota/token-budget fields via non-interactive command; watcher once records quota_fields_available=0.
 risk=Deep quota values are cache-derived from session token_count events and can be stale if no Codex session has run recently.
-risk=doctor --json takes about 20-30s because it checks websocket and Codex SQLite state.
+risk=doctor --json can take 20-90s or timeout on Codex internal SQLite checks; row status records unavailable while systemd success only means measurement persisted.
 risk=Kuma URL not configured on VM as of 2026-06-05; Telegram helper /home/ubuntu/telegram_notify.py missing.
 ROAD:
 now=CLI-only watcher deployed on VM; deep local session-cache quota collector available manually; browser backend disabled in service/timer.
