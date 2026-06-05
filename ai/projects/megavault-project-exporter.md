@@ -4,10 +4,10 @@ slug=megavault-project-exporter
 path=/home/daniele/codex-workspace/megavault-project-exporter
 remote=none
 branch=master
-verified_commit=63c9fe8
-verified_at=2026-06-05T13:43:00+02:00
+verified_commit=5213031
+verified_at=2026-06-05T13:36:41+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
-prompt=#271684
+prompt=#271684,#583940
 
 PURPOSE:
 purpose=Ultra-fast cached ZIP bundler for sharing any MegaVault-registered project plus MegaVault docs with ChatGPT.
@@ -22,6 +22,8 @@ deps_optional=wl-copy,xclip,xsel,ssh,scp,rsync
 
 MAP:
 entry=exporter.sh
+command=megavault-exporter
+launcher=/home/daniele/.local/bin/megavault-exporter -> /home/daniele/codex-workspace/megavault-project-exporter/exporter.sh
 config=config/config.env.example; runtime config in ~/.config/megavault-project-exporter/config.env
 state=state/<project_slug>.env
 bundles=bundles/megavault_bundle_<project>_<projectHEADshort>_<vaultHEADshort>.zip
@@ -58,12 +60,16 @@ clipboard=do not claim verified clipboard unless paste/remote command confirms o
 
 BUILD:
 cmd=chmod +x exporter.sh
+global_cmd=ln -sfn /home/daniele/codex-workspace/megavault-project-exporter/exporter.sh /home/daniele/.local/bin/megavault-exporter
 env=Linux shell with git+zip+sha256sum
 requirements=git repository for selected project and MegaVault
 
 TEST:
 syntax=bash -n exporter.sh
+exec=test -x /home/daniele/codex-workspace/megavault-project-exporter/exporter.sh
+launcher=ls -l /home/daniele/.local/bin/megavault-exporter; command -v megavault-exporter
 menu=./exporter.sh --list
+global_menu=megavault-exporter --list
 headless=./exporter.sh --project megavault-project-exporter --headless --yes
 cache=run same command twice; second must report BUNDLE_ACTION=reused
 archive=unzip -l bundles/<zip> must show project archive and MegaVault archive

@@ -1,6 +1,7 @@
 # megavault-project-exporter Changelog
 
 ## 2026-06-05
+- Prompt `#583940`: added global command symlink `/home/daniele/.local/bin/megavault-exporter` pointing to `exporter.sh`; `~/.local/bin` was already in PATH.
 - Created exporter project for prompt `#271684`.
 - Added cached project+MegaVault bundle creation.
 - Added local, remote Mint SSH, and headless transfer modes.

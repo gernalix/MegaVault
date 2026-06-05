@@ -11,10 +11,18 @@
 
 ## Runtime paths
 - Script: `/home/daniele/codex-workspace/megavault-project-exporter/exporter.sh`
+- Global command: `megavault-exporter`
+- Symlink: `/home/daniele/.local/bin/megavault-exporter`
 - Bundles: `/home/daniele/codex-workspace/megavault-project-exporter/bundles/`
 - State: `/home/daniele/codex-workspace/megavault-project-exporter/state/`
 - Logs: `/home/daniele/codex-workspace/megavault-project-exporter/logs/`
 - Config: `~/.config/megavault-project-exporter/config.env`
+
+## Command check
+- Executable bit: `test -x /home/daniele/codex-workspace/megavault-project-exporter/exporter.sh`
+- Launcher target: `ls -l /home/daniele/.local/bin/megavault-exporter`
+- PATH resolution: `command -v megavault-exporter`
+- Menu smoke test: `megavault-exporter --list`
 
 ## Modes
 - Mint desktop: create/reuse bundle and copy the file reference with `wl-copy`, `xclip`, or `xsel`; otherwise print the path.
