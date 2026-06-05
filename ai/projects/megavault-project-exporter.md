@@ -4,8 +4,8 @@ slug=megavault-project-exporter
 path=/home/daniele/codex-workspace/megavault-project-exporter
 remote=none
 branch=master
-verified_commit=ae556aa
-verified_at=2026-06-05T13:31:00+02:00
+verified_commit=7a52bb4
+verified_at=2026-06-05T13:36:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
 prompt=#271684
 
@@ -43,9 +43,9 @@ FLOW:
 run=ensure dirs/config -> reload menu -> select project -> read git HEADs -> cache check -> archive if needed -> transfer/clipboard mode
 cache_hit=state HEADs+dirty markers match and ZIP exists with matching sha256 -> reuse immediately
 cache_miss=archive project + MegaVault in temp dir -> zip final under bundles/ -> write state
-local=copy file reference via wl-copy/xclip/xsel else print path
+local=copy file reference via wl-copy when Wayland works; X11 xclip/xsel copy verified text path
 vm=scp to MINT_DEST_DIR -> remote sha256 verify -> remote clipboard verify
-headless=print ready scp/rsync/local clipboard command that tries wl-copy,xclip,xsel,fallback path
+headless=print ready scp/rsync/local clipboard command that tries wl-copy file-reference, then xclip/xsel text path, then fallback path
 
 INV:
 menu=no hardcoded projects; no cached menu; live MegaVault indices are reread each start
@@ -98,6 +98,8 @@ workaround=headless mode prints scp/rsync/Mint clipboard commands
 issue=2026-06-05 wl-copy installed on X11 Mint but no Wayland socket
 cause=tool presence did not mean usable clipboard backend
 fix=try wl-copy first, then fall through to xclip/xsel when wl-copy exits nonzero
+issue=2026-06-05 xclip x-special target verified immediately but did not remain available on XFCE/X11
+fix=use persistent verified text path for xclip/xsel; keep wl-copy file-reference for Wayland
 
 RISK:
 risk=git archive excludes uncommitted changes; warning is mandatory when dirty
