@@ -4,8 +4,8 @@ slug=megavault-project-exporter
 path=/home/daniele/codex-workspace/megavault-project-exporter
 remote=none
 branch=master
-verified_commit=4cb0216
-verified_at=2026-06-05T13:11:18+02:00
+verified_commit=c5cb161
+verified_at=2026-06-05T13:25:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
 prompt=#271684
 
@@ -95,6 +95,9 @@ BUG:
 issue=clipboard tools absent on headless shells
 cause=wl-copy/xclip/xsel are desktop-session tools
 workaround=headless mode prints scp/rsync/Mint clipboard commands
+issue=2026-06-05 wl-copy installed on X11 Mint but no Wayland socket
+cause=tool presence did not mean usable clipboard backend
+fix=try wl-copy first, then fall through to xclip/xsel when wl-copy exits nonzero
 
 RISK:
 risk=git archive excludes uncommitted changes; warning is mandatory when dirty
