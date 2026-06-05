@@ -4,8 +4,8 @@ slug=megavault-project-exporter
 path=/home/daniele/codex-workspace/megavault-project-exporter
 remote=none
 branch=master
-verified_commit=7a52bb4
-verified_at=2026-06-05T13:36:00+02:00
+verified_commit=63c9fe8
+verified_at=2026-06-05T13:43:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
 prompt=#271684
 
@@ -100,6 +100,8 @@ cause=tool presence did not mean usable clipboard backend
 fix=try wl-copy first, then fall through to xclip/xsel when wl-copy exits nonzero
 issue=2026-06-05 xclip x-special target verified immediately but did not remain available on XFCE/X11
 fix=use persistent verified text path for xclip/xsel; keep wl-copy file-reference for Wayland
+issue=2026-06-05 xclip text path can disappear when provider remains in the command session process group
+fix=launch xclip/xsel via setsid -f, then verify after short delay
 
 RISK:
 risk=git archive excludes uncommitted changes; warning is mandatory when dirty
