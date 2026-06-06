@@ -1,6 +1,7 @@
 # WindowTabNotes Changelog
 
 ## Eventi MegaVault
+- 2026-06-06: `#482916` aggiunge estensione Firefox MV3 con codice comune Chrome, manifest Gecko `windowtabnotes@local`, install wrapper `system/scripts/install-firefox.sh` e diagnostica native host Chrome/Firefox separata.
 - 2026-06-01T18:25:43+02:00: `#482719` follow-up ha portato a `v22`: il daemon ora crea e mostra la nota per il contesto attivo quando manca; verificato `overlay_count=1`.
 - 2026-06-01T18:16:12+02:00: `#482719` ha portato WindowTabNotes a `v21`, hardenato `windowtabnotes.service`, aggiunto `windowtabnotes-status` e migrato lo schema SQLite a v5 con snapshot del contesto nota.
 - 2026-06-01: `#739482` ha migrato docs locali in `dev/legacy` e creato metadata/MegaVault.

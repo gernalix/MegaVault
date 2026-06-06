@@ -1,5 +1,19 @@
 # WindowTabNotes Troubleshooting
 
+## Browser bridge Chrome/Firefox
+- Installazione Chrome: `system/scripts/install.sh --extension-id <chrome_extension_id>`, poi ricaricare `browser-extension/` in `chrome://extensions`.
+- Installazione Firefox: `system/scripts/install-firefox.sh`, poi aprire `about:debugging#/runtime/this-firefox` e caricare `browser-extension-firefox/manifest.json`.
+- Verifica Chrome: `system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json`.
+- Verifica Firefox: `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json`.
+- Stato globale: `system/bin/windowtabnotes-status --json` oppure `system/bin/windowtabnotes check --json`.
+
+## Se le note browser non compaiono
+- Controllare che `system/bin/windowtabnotes status --json` riporti DB ok, servizio attivo e `chrome_bridge`/`firefox_bridge` configurato secondo il browser usato.
+- Chrome: il manifest native deve esistere sotto `~/.config/google-chrome/NativeMessagingHosts/` o `~/.config/chromium/NativeMessagingHosts/` e contenere `allowed_origins`.
+- Firefox: il manifest native deve esistere in `~/.mozilla/native-messaging-hosts/com.windowtabnotes.host.json` e contenere `allowed_extensions: ["windowtabnotes@local"]`.
+- Se il popup dice host non pronto, rieseguire il comando `native-debug ... --fix`, ricaricare l'estensione nel browser e riprovare su una pagina `http`, `https` o `file`.
+- Firefox Snap/Flatpak puo non vedere il manifest o il binario host del filesystem host; usare Firefox non confinato o verificare i permessi del portale native messaging.
+
 ## Problemi e sintomi rilevati nel codice
 - system/windowtabnotes/cli.py:9:from .active_watch import active_note_for_current_context, active_window_watch_debug, sync_open_windows
 - system/windowtabnotes/cli.py:12:from .gtk_ui import dashboard_debug, open_dashboard, open_note_window, overlay_debug

@@ -9,14 +9,14 @@ verified_at=2026-06-01T18:16:12+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v2
 
 PURPOSE:
-purpose=Linux/X11 + Chrome tab note overlay; stores notes in local SQLite and binds each note to a normal window, Chrome tab, or workspace context.
+purpose=Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context.
 
 STACK:
 lang=Python,JavaScript,Shell
-ui=GTK via PyGObject,Chrome MV3 extension,rofi
+ui=GTK via PyGObject,Chrome MV3 extension,Firefox MV3 extension,rofi
 db=SQLite WAL
 service=systemd --user windowtabnotes.service
-platform=Linux Mint/XFCE/X11,Chrome/Chromium Native Messaging
+platform=Linux Mint/XFCE/X11,Chrome/Chromium Native Messaging,Firefox Native Messaging
 
 MAP:
 entry=system/bin/windowtabnotes -> python3 -m windowtabnotes.cli
@@ -25,6 +25,7 @@ daemon=system/windowtabnotes/daemon.py,system/windowtabnotes/active_watch.py
 db=system/windowtabnotes/db.py
 native=system/bin/windowtabnotes-native-host,system/windowtabnotes/native_host.py,system/windowtabnotes/api.py
 chrome=browser-extension/manifest.json,browser-extension/service_worker.js,browser-extension/content_script.js,browser-extension/popup.js
+firefox=browser-extension-firefox/manifest.json + symlinked common files from browser-extension/
 ui=system/windowtabnotes/gtk_ui.py,browser-extension/dashboard.html,browser-extension/dashboard.js
 search=system/windowtabnotes/rofi.py
 shortcuts=system/windowtabnotes/shortcuts.py
@@ -40,7 +41,7 @@ windows=wmctrl lists normal windows; xprop/xdotool read active id,title,class,pi
 overlay=GTK note process launched per note; overlay_runtime tracks visible note in DB metadata and cleans stale overlay windows
 db=single local SQLite DB; note rows keep relational context_id plus v5 denormalized context snapshot
 native_host=Chrome starts stdio host per native message; wrapper and Python metrics throttle reconnect storms
-chrome_bridge=service_worker syncs open tabs/active tab to native host; backend stores browser_tabs and active_browser_tab metadata
+browser_bridge=shared service_worker.js syncs open tabs/active tab to native host; backend stores browser_tabs and active_browser_tab metadata
 search=rofi/global search reads DB search index and queues Chrome focus requests through DB metadata
 
 FLOW:
@@ -60,13 +61,15 @@ data=browser note identity prefers normalized_url+profile note_key; falls back t
 service=user unit must stay enabled and active; linger currently yes on host
 service=daemon must log and skip transient sqlite locked/xdotool timeout rather than exiting
 chrome=Native Messaging host name com.windowtabnotes.host; installed manifests under Chrome/Chromium NativeMessagingHosts
+firefox=Native Messaging host name com.windowtabnotes.host; add-on id windowtabnotes@local; manifest under ~/.mozilla/native-messaging-hosts/
 ux=do not break overlay/search behavior while changing persistence/service code
-version=monotonic integer in system/windowtabnotes/version.py and browser-extension/manifest.json
+version=monotonic integer in system/windowtabnotes/version.py,browser-extension/manifest.json,browser-extension-firefox/manifest.json
 
 BUILD:
 cmd=none
 run=system/bin/windowtabnotes <command>
-install=system/scripts/install.sh --extension-id <chrome_extension_id>
+install_chrome=system/scripts/install.sh --extension-id <chrome_extension_id>
+install_firefox=system/scripts/install-firefox.sh [windowtabnotes@local]
 deps=python3,python3-gi,GTK3,sqlite3,rofi,wmctrl,xdotool,xprop,jq optional
 
 TEST:
@@ -74,6 +77,8 @@ compile=python3 -m compileall -q system/windowtabnotes tests
 unit=PYTHONPATH=system python3 -m unittest tests/test_context_persistence.py
 service=systemctl --user is-active windowtabnotes.service; systemctl --user is-enabled windowtabnotes.service; journalctl --user -u windowtabnotes.service --since '2 minutes ago'
 status=system/bin/windowtabnotes-status --json
+native_chrome=system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json
+native_firefox=system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json
 
 DATA:
 DB=SQLite
@@ -93,6 +98,7 @@ Retention=logs rotate; native metrics overwrite JSON
 DNB:
 * real_user_notes
 * browser-extension/service_worker.js tab sync/focus request polling
+* browser-extension-firefox/manifest.json must use background.scripts; Firefox does not support background.service_worker
 * system/windowtabnotes/rofi.py search launcher free-text behavior
 * overlay_runtime cleanup state and manual overlay suppression
 * Native Messaging host manifest path/id
