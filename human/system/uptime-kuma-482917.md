@@ -17,7 +17,7 @@ Aggiornato: 2026-06-06.
 | Monitor | Stato operativo | Note |
 |---|---|---|
 | cloud backup | attivo/up | interval 180s, timeout 60s, retries 2; pusher con lock e messaggi non vuoti |
-| mint-home-backup | attivo/down reale | timer heartbeat 2 minuti; non silenziato: ultimo errore reale `rsync_exit=137` |
+| mint-home-backup | attivo/up warning | follow-up `#618903`: `rsync_exit=137` era abort controllato dal runtime guard (`ABORTED_SAFE`) classificato male; heartbeat resta warning, non successo |
 | amici_fb | attivo/up | invariato salvo tag MegaVault/Kuma |
 | disk-usage-monitor | attivo/up | interval 420s, timeout 60s, retries 2; heartbeat RUNNING iniziale |
 | parcel-tracker | attivo/up | interval 2400s, timeout 60s |
@@ -38,5 +38,5 @@ Questa pagina copre i cambiamenti che attraversano piu progetti o script live fu
 
 ## Problemi aperti
 
-- `mint-home-backup` resta un alert reale con heartbeat esplicito `BACKUP_FAILURE`: `rsync_exit=137` deve essere gestito con una diagnosi backup separata.
+- `mint-home-backup`: follow-up `#618903` completato. Il caso 2026-06-06 e `ABORTED_SAFE` per load alto; `rsync_exit=137` resta DOWN se non esiste un motivo `WHY_ABORTED` persistito dal guard.
 - I report storici generati da vecchie migrazioni MegaVault possono ancora contenere riferimenti a `os-observer`; non sono stati riscritti per evitare churn su artefatti storici.

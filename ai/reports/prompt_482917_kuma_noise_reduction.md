@@ -5,6 +5,7 @@ prompt=482917
 date=2026-06-06
 scope=Uptime Kuma VM + local heartbeat pushers; os-observer explicitly excluded and removed from live MegaVault project indexes
 protocol=MEGAVAULT_PROTOCOL.md:v2
+follow_up=prompt_618903_mint_home_backup_rsync137.md resolves mint-home-backup rsync_exit=137 as ABORTED_SAFE load-guard classification bug; this report remains the historical #482917 baseline.
 
 KUMA:
 host=http://150.230.148.128:3001
