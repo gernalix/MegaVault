@@ -6,7 +6,7 @@ remote=none
 branch=master
 verified_at=2026-06-06T00:00:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
-prompt=618472
+prompt=927384
 PURPOSE:
 purpose=Single user-systemd Linux Mint updater for system packages, local Python venvs, dev tools, Android Studio, and Android SDK
 official_command=bin/mint-manual-updates --run
@@ -35,7 +35,7 @@ systemd=ExecStart=/home/daniele/codex-workspace/mint-manual-updates/bin/mint-man
 guardrails=load,RAM,swap,PSI,heavy_processes,freeze,apt_dpkg,battery before updates
 venv_flow=discover /home/daniele/codex-workspace patterns */venv/bin/python,*/.venv/bin/python,*/env/bin/python; prune .git,node_modules,build,dist,.gradle,.cache,__pycache__; --run reports outdated then upgrades pip/setuptools/wheel and outdated packages inside each venv; continue on failure
 android_flow=find SDK root from ANDROID_SDK_ROOT,ANDROID_HOME,~/Android/Sdk,/opt/android-sdk,~/android-sdk -> find sdkmanager -> sdkmanager --list -> history -> licenses -> sdkmanager --update
-android_studio_flow=find local tar install -> fetch https://developer.android.com/studio -> parse Linux archive URL and SHA -> download -> sha256sum verify -> extract -> compare product-info buildNumber -> backup old install -> replace install
+android_studio_flow=find local tar install -> read product-info build/release -> fetch https://developer.android.com/studio metadata page only -> parse Linux URL/SHA/release/build-if-present -> skip if installed release/build current -> skip safe if remote build unknown -> log URL/dest/size before needed download -> sha256sum verify -> extract -> compare product-info buildNumber -> backup old install -> replace install
 INV:
 no_duplicate_updater=do not recreate duplicate updater script, wrapper, alias, service, timer, docs, or command
 official_command_only=bin/mint-manual-updates --run
@@ -47,6 +47,7 @@ android_not_scope=Gradle/AGP/Kotlin project files, AVD deletion, SDK root deleti
 npm_update_scope=npm global packages via npm update -g
 gem_cargo_scope=report-only unless project objective explicitly changes
 android_studio_update_scope=local tar install, not flatpak/snap/apt package
+android_studio_download_guard=never download 1GB+ archive just to confirm same version; >500MB allowed only after metadata proves update needed
 BUILD:
 cmd=bash -n bin/mint-manual-updates
 install=bin/mint-manual-updates --install
@@ -72,6 +73,7 @@ dnb=do not use sudo pip, pip global, pip3 global, --break-system-packages for sy
 dnb=do not bypass guardrails for venv, dev-tool, or Android updates
 dnb=do not remove AVDs, system-images, SDK cache, SDK root, Gradle/Kotlin project files
 dnb=do not install Android Studio from unofficial package sources; use official Android Developers Linux archive and SHA
+dnb=do not download Android Studio archive when installed build/release is current or remote build is unknown
 dnb=do not embed Telegram tokens or package secrets
 dnb=do not auto-update gem/cargo globals; keep report-only unless user changes project objective
 BUG:
@@ -79,10 +81,10 @@ issue=fwupdmgr get-updates can return non-zero for no updatable devices; classif
 issue=sdkmanager license acceptance is noninteractive via yes pipe; rely on sdkmanager rc not yes SIGPIPE
 RISK:
 risk=sdkmanager --update can update platform-tools/cmdline-tools/build-tools/platforms and may run long; timeouts configurable via ANDROID_SDK_AUTO_UPDATE_* env
-risk=Android Studio archive is large; preserve backup before replacing local tar install
+risk=Android Studio archive is large; precheck metadata and skip unknown/current remote build before download; preserve backup before replacing local tar install
 risk=venv package upgrades can break projects; guardrails, per-venv logs, and failure continuation required
 ROAD:
-now=prompt618472 single-command consolidation complete
+now=prompt927384 Android Studio large-download guard added
 next=keep single-command invariant and docs current when updater scope changes
 later=only add gem/cargo mutation if project objective explicitly expands
 LINK:

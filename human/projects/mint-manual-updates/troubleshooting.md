@@ -5,6 +5,7 @@
 - `status=skipped_guardrail`: il run e stato bloccato da load/RAM/swap/PSI/processi pesanti/freeze/apt/batteria.
 - Un venv fallisce: controllare il file dedicato in `~/.local/state/mint-manual-updates/venv-logs/`; gli altri venv continuano.
 - Android SDK fallisce: controllare `~/.local/state/mint-manual-updates/android-sdk-history/available-updates-*.txt` e `last-report.txt`.
+- Android Studio segnala `remote build unknown`: download automatico saltato per evitare archivio 1+ GB inutile; seguire il comando manuale nel report solo se serve.
 
 ## Comandi utili
 
@@ -22,3 +23,4 @@ systemctl --user status mint-manual-updates.timer --no-pager
 - Non ricreare updater duplicati.
 - Non aggiungere service/timer paralleli.
 - Non rimuovere AVD, SDK root, system-images o file Gradle/Kotlin di progetto.
+- Non scaricare archivi Android Studio grandi solo per verificare che la build installata sia identica.

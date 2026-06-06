@@ -12,7 +12,7 @@
 - Venv: discovery sotto `/home/daniele/codex-workspace`, report outdated, upgrade `pip setuptools wheel`, upgrade pacchetti outdated, log per venv, continuazione su fallimento.
 - Tool sviluppo: `yt-dlp`, `pipx upgrade-all`, `rustup update`, `npm update -g`.
 - Report-only: Ruby gems e Cargo installed crates.
-- Android: Android Studio da archivio Linux ufficiale con SHA-256; Android SDK via `sdkmanager --list`, licenze, `sdkmanager --update`, storico CSV/SQLite.
+- Android: Android Studio controlla metadata e versione installata prima di scaricare archivi grandi; Android SDK via `sdkmanager --list`, licenze, `sdkmanager --update`, storico CSV/SQLite.
 
 ## Confini operativi
 

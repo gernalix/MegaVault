@@ -11,6 +11,7 @@
 - `systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200`
 - Upgrade venv può rompere dipendenze progetto-specifiche; mantenere log per venv e continuazione su fallimento.
 - Android SDK/Studio possono essere lenti e pesanti; mantenere timeout, storico e backup.
+- Android Studio archive e grande; mantenere precheck metadata e skip sicuro prima di ogni download.
 
 ## Prossimo vincolo
 
