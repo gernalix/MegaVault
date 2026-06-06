@@ -19,7 +19,6 @@ Generated: 2026-06-05T13:11:18+02:00
 | megavault-project-exporter | megavault-project-exporter | `/home/daniele/codex-workspace/megavault-project-exporter` | `none` | `master` | 0 | 3 | 0 | 0 | True |
 | mint-cloud-backup | mint-cloud-backup | `/home/daniele/codex-projects/mint-cloud-backup` | `none` | `master` | 0 | 5 | 0 | 0 | True |
 | mint-manual-updates | mint-manual-updates | `/home/daniele/codex-workspace/mint-manual-updates` | `none` | `master` | 0 | 4 | 4 | 0 | True |
-| os-observer | os-observer | `/home/daniele/codex-workspace/os-observer` | `none` | `codex/prompt-914582` | 12 | 25 | 25 | 0 | True |
 | owntracks-watcher | owntracks-watcher | `/home/daniele/codex-workspace/owntracks-watcher` | `none` | `codex/prompt-384917` | 0 | 0 | 0 | 0 | True |
 | parcel-tracker | parcel-tracker | `/home/daniele/codex-workspace/parcel-tracker` | `none` | `master` | 7 | 4 | 4 | 0 | True |
 | MultiTimeTracker | multitimetracker | `/home/daniele/codex-workspace/projects/MultiTimeTracker` | `https://github.com/gernalix/MultiTimeTracker.git` | `codex/v488-release-safe-ui-lockdown` | 9 | 98 | 97 | 0 | True |

@@ -12,6 +12,7 @@ purpose=Persistent heartbeat sender for a Uptime Kuma push monitor
 status=DISABLED_OPERATIONALLY_PROMPT_584731
 status_ts=2026-06-05T07:48:36+02:00
 status_reason=anti-freeze/watchdog residual removal; Kuma reliability now delegated to service-specific pushers/monitors
+status_kuma_482917=Kuma monitor id=1 `mint heartbeat` disabled on 2026-06-06 as obsolete generic heartbeat; tags=482917-reviewed,push-monitor,obsolete-disabled
 STACK:
 lang=Python,Shell
 fw=UNKNOWN
@@ -70,7 +71,7 @@ issue=UNKNOWN
 RISK:
 risk=UNKNOWN
 ROAD:
-now=disabled: systemctl status system-watchdog.service => inactive/dead, unit disabled
+now=disabled: systemctl status system-watchdog.service => inactive/dead, unit disabled; Kuma `mint heartbeat` disabled in #482917
 next=keep disabled unless operator explicitly restores generic host heartbeat
 later=UNKNOWN
 LINK:

@@ -32,7 +32,8 @@ backfill=apt/dpkg/mintupdate logs + snap changes + flatpak history; idempotent
 verify=SQLite integrity+FK+schema+log coverage+systemd user/system watchdog+heartbeat
 systemd_user=systemd/user/mint-update-tracker.service + mint-update-tracker.timer
 systemd_system=Oracle /opt/software-audit; systemd/system/software-audit.service + software-audit-backfill.timer; User=ubuntu
-integration=Mint user unit env `SOFTWARE_AUDIT_KUMA_PUSH_URL`; push health uses SQLite quick_check+counts; failures logged/nonfatal
+integration=Mint user unit reads `SOFTWARE_AUDIT_KUMA_PUSH_URL` from `%h/.config/mint-update-tracker/kuma.env`; push health uses SQLite quick_check+counts; failures logged/nonfatal
+integration_482917=SQLite busy timeout 30000ms, 8 retry attempts with backoff, Kuma push lock, DB locked/busy maps to UP `DB_BUSY retrying`; Kuma monitor interval=120 timeout=60 maxretries=2 tags=482917-reviewed,push-monitor
 FLOW:
 startup=ensure_initial_snapshot->parse_logs->optional_snapshot->heartbeat
 first_run=full_inventory_required before future-only scan
@@ -67,6 +68,7 @@ Export=export-csv
 Migration=additive ALTER TABLE for v1 events
 Retention=none yet; years-long append-only event log
 Paths=logs/,exports/,state/heartbeat.json,state/kuma_push.json
+KumaEnv=/home/daniele/.config/mint-update-tracker/kuma.env mode 0600 local-only; do not commit token
 MintCounts_2026-06-04=events=6441,snapshots=9,current_inventory=2344,integrity=ok,range=2026-01-08T19:19:30Z..2026-06-04T03:11:40Z
 MintBackfill_2026-06-04=manual_recovery inserted=5 before repair; flatpak duplicate repair deleted=38; final consecutive backfills inserted=0 skipped=4078
 MintKuma_2026-06-04=push HTTP200 msg=`OK events=6441 inventory=2344` ping=385ms
@@ -78,6 +80,7 @@ dnb=do not move DB outside /home/ubuntu/sync_root/db/software_audit.db
 dnb=optional managers missing is warning, not failure
 dnb=Oracle mode must work headless via system unit
 dnb=do not copy Mint Kuma push URL into Oracle system units
+dnb=do not commit Kuma push URLs; user unit must reference the local env file
 BUG:
 issue=Mint 2026-06-04 service appeared unhealthy
 cause=old notify path used systemd-notify subprocess; watchdog notifications could be rejected/non-independent during long inventory cycle
@@ -85,13 +88,16 @@ fix=native sd_notify + independent watchdog thread + restart proof
 issue=Mint 2026-06-04 backfill inserted repeated flatpak events
 cause=flatpak history Unicode/variable whitespace timestamp parsed as utc_now
 fix=stable flatpak timestamp parser + DB repair/dedupe; final backfills inserted=0
+issue=#482917 false Kuma down DB_ERROR OperationalError
+cause=concurrent daemon scan and manual/timer push could see temporary SQLite busy/locked and report DOWN
+fix=busy_timeout 30000ms, longer retry/backoff, push lock, locked/busy downgraded to UP `DB_BUSY retrying`, user unit moved Kuma URL to local env file
 RISK:
 risk=log permissions may hide system logs on restricted users; verify reports unscanned coverage
 risk=flatpak/snap history format may vary; parsers are conservative
 risk=Oracle system unit assumes stable path `/opt/software-audit`; if moved, update unit before restart
 risk=events already rotated/deleted from apt/dpkg/mintupdate/snap/flatpak history cannot be reconstructed
 ROAD:
-now=Mint user service recovered with Kuma push; Oracle system service deployed with separate local DBs
+now=Mint user service recovered with Kuma push; Oracle system service deployed with separate local DBs; #482917 Kuma DB_BUSY false down fixed
 next=monitor scheduled Mint/Oracle backfills and Kuma freshness
 later=separate export/import aggregation if user requests it
 LINK:

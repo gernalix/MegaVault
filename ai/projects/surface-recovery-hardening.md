@@ -26,7 +26,7 @@ avoid=secrets,tokens,cookies,generated reports,untracked .codexmeta backups
 ARCH:
 transfer=transient user unit rsync-transfer.service -> sudo -> phase2_limited -> rsync --append-verify
 support_system=transfer-usb-io-watchdog.service(enabled):kernel USB/I/O monitor; pauses target rsync on transfer-storage critical events
-support_user=rsync-uptime-kuma-push.service(enabled):Kuma heartbeat for exact target rsync cmdline
+support_user=rsync-uptime-kuma-push.service(disabled 2026-06-06 #482917): old Kuma heartbeat for exact target rsync cmdline; no live rsync-transfer runner/source verified during Kuma cleanup
 support_user=transfer-vecchio-disco-adaptive-throttle.service(enabled):renice/ionice/bw profile control
 anti_freeze_disabled=2026-06-05 prompt_584731 disabled screen-watchdog.service; transfer-usb-io-watchdog.service intentionally remains enabled as rsync safety guard, not generic anti-freeze
 mount_dest=media-daniele-Seagate6TB2.automount(enabled)+.mount(disabled,triggered)
@@ -43,6 +43,7 @@ data=destination UUID must be 75e5363d-6736-4a7e-84be-5242f4735a27
 data=findmnt -T can return root or automount wrapper; reject / and select real last mount row
 arch=rsync-transfer.service is transient, not persistent; support watchdog/throttle/Kuma services are persistent
 watchdog=usb 1-5 Marvell WLAN disconnect is non-transfer; must not pause rsync
+kuma_482917=Kuma monitor id=2 `rsync-transfer` disabled as obsolete/no active transfer; service reset to inactive/dead disabled; tags=482917-reviewed,push-monitor,obsolete-disabled
 security=do not print BitLocker key or Kuma push URL
 perf=default BW_LIMIT=5120 KiB/s; timeout=900; nice=19; ionice low priority
 recovery=critical USB/I/O events pause target rsync; do not auto-resume after storage error
@@ -91,9 +92,10 @@ RISK:
 risk=multi-TB USB transfer stresses hub/cable/controller; watch kernel USB/I/O
 risk=stale pid/status/log files can survive crash; require live /proc cmdline validation
 risk=Kuma push service may restart on network timeout; runtime dry-run health verifies local truth
+risk=disabled rsync-transfer Kuma monitor must not be used as transfer health evidence; verify live transfer process/mounts before re-enabling
 risk=source key exists locally; path may be documented, value must not
 ROAD:
-now=keep rsync-transfer running; monitor watchdog filter,Kuma up,write_bytes growth
+now=rsync-transfer Kuma pusher disabled after #482917 cleanup; before any future transfer, verify source/dest/process and re-enable only if the transfer is intentionally active
 next=consider persistent documented helper for source read-only mount only if repeated manual remounts continue
 later=clean generated legacy reports from repo policy if user requests
 LINK:

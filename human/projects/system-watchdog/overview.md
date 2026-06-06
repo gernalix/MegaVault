@@ -7,6 +7,7 @@ Persistent heartbeat sender for a Uptime Kuma push monitor.
 - Branch/commit verificati: `master` / `d93002d`
 - File codice/config/test/script analizzati: 7 su 7
 - Stack rilevato: Python, Shell, UNKNOWN, UNKNOWN
+- Stato operativo 2026-06-06: servizio generico disabilitato; Kuma monitor `mint heartbeat` disattivato come obsoleto in `#482917`.
 
 ## Orientamento rapido
 - Entrypoint: `UNKNOWN`

@@ -14,9 +14,13 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 ## Servizi
 - `rsync-transfer.service`: transient, avviato con `systemd-run --user`, non persistente per evitare duplicati.
 - `transfer-usb-io-watchdog.service`: system-wide, enabled, monitora eventi USB/I/O storage del transfer e mette in pausa rsync solo su eventi critici rilevanti.
-- `rsync-uptime-kuma-push.service`: user, enabled, invia stato a Kuma usando match sul vero comando rsync e mantiene green durante scansione attiva anche se il log progress e temporaneamente fermo.
+- `rsync-uptime-kuma-push.service`: user, disabilitato in `#482917` perche non risultava un transfer live sicuro da monitorare; riabilitarlo solo insieme a un nuovo `rsync-transfer` verificato.
 - `transfer-vecchio-disco-adaptive-throttle.service`: user, enabled, mantiene profilo I/O conservativo.
 - `media-daniele-Seagate6TB2.automount`: system-wide, enabled, monta la destinazione per UUID.
+
+## Kuma #482917
+- Monitor Kuma `rsync-transfer` disattivato come obsoleto/no live runner.
+- Non usare il rosso storico di Kuma come evidenza di transfer fallito; verificare sempre processi, mount e log live prima di riattivare il pusher.
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/surface-recovery-hardening.md)
