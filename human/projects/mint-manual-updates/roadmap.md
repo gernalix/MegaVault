@@ -1,11 +1,17 @@
 # mint-manual-updates Roadmap
 
-## Segnali dal codice
-- no tests detected by static scan
-- data/storage rules absent from active code
-- prompt #482917 aggiunge modalità venv; mantenere test smoke per report-only e discovery
+## Stato attuale
+
+- `#618472`: consolidamento completato.
+- Comando ufficiale unico: `bin/mint-manual-updates --run`.
+- Nessun secondo script/service/timer updater nel repo.
 
 ## Debito/rischi da considerare
-- systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
-- systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
-- upgrade venv può rompere dipendenze progetto-specifiche; default resta report-only
+
+- `systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200`
+- Upgrade venv può rompere dipendenze progetto-specifiche; mantenere log per venv e continuazione su fallimento.
+- Android SDK/Studio possono essere lenti e pesanti; mantenere timeout, storico e backup.
+
+## Prossimo vincolo
+
+- Ogni nuova funzione deve entrare nel comando unico o essere rifiutata; non creare nuovi updater paralleli.

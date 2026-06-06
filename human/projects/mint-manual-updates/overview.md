@@ -1,21 +1,25 @@
 # mint-manual-updates Overview
 
-Servizio user systemd v5 per controllare e applicare aggiornamenti prudenti su Linux Mint 22.3 / Ubuntu noble, inclusi report e upgrade espliciti dei venv Python locali.
+Servizio user systemd v6 con un solo updater ufficiale per Linux Mint: sistema, venv Python locali, tool di sviluppo, Android Studio e Android SDK.
 
 ## Stato e codice
+
 - Repository: `/home/daniele/codex-workspace/mint-manual-updates`
-- Branch/commit verificati: `master` / `pending prompt #482917`
-- File codice/config/test/script analizzati: 5 su 5
-- Stack rilevato: UNKNOWN, UNKNOWN, UNKNOWN
+- Branch/commit verificati: `master` / `pending prompt #618472`
+- Comando ufficiale unico: `bin/mint-manual-updates --run`
+- Script duplicato rimosso: `removed duplicate script`
+- Unit duplicate rimosse: `removed duplicate service`, `removed duplicate timer`
 
 ## Orientamento rapido
-- Entrypoint manuale: `bin/mint-manual-updates`
-- Entrypoint extra: `bin/mint-extra-updater`
-- Stato manuale: `~/.local/state/mint-manual-updates/`
+
+- Entrypoint: `bin/mint-manual-updates`
+- Stato: `~/.local/state/mint-manual-updates/`
 - Log venv: `~/.local/state/mint-manual-updates/venv-logs/`
+- Storico Android: `~/.local/state/mint-manual-updates/android-sdk-history/`
 - Test: `bash -n bin/mint-manual-updates`, `shellcheck bin/mint-manual-updates` se disponibile
 
 ## Link
+
 - AI doc: [AI doc](../../../ai/projects/mint-manual-updates.md)
 - Metadata: [dev/project.metadata.json](../../../../mint-manual-updates/dev/project.metadata.json)
 - Legacy docs: [dev/legacy](../../../../mint-manual-updates/dev/legacy)

@@ -1,21 +1,24 @@
 # mint-manual-updates Troubleshooting
 
-## Problemi e sintomi rilevati nel codice
-- systemd/user/mint-extra-updater.service:12:TimeoutStartSec=7200
-- systemd/user/mint-manual-updates.service:12:TimeoutStartSec=7200
-- Se `--upgrade-venvs` salta tutto con `status=skipped_guardrail`, controllare `~/.local/state/mint-manual-updates/last-report.txt` e i dettagli `guardrail-detail` nel log.
-- Se un singolo venv fallisce, gli altri continuano; controllare il file specifico in `~/.local/state/mint-manual-updates/venv-logs/`.
+## Sintomi
 
-## Comandi/verifiche utili trovati
-- `bin/mint-manual-updates --upgrade-venvs-report-only`
-- `bin/mint-manual-updates --upgrade-venvs`
-- `bin/mint-manual-updates --status`
-- `tail -n 220 ~/.local/state/mint-manual-updates/mint-manual-updates.log`
+- `status=skipped_guardrail`: il run e stato bloccato da load/RAM/swap/PSI/processi pesanti/freeze/apt/batteria.
+- Un venv fallisce: controllare il file dedicato in `~/.local/state/mint-manual-updates/venv-logs/`; gli altri venv continuano.
+- Android SDK fallisce: controllare `~/.local/state/mint-manual-updates/android-sdk-history/available-updates-*.txt` e `last-report.txt`.
+
+## Comandi utili
+
+```bash
+bin/mint-manual-updates --run
+bin/mint-manual-updates --status
+tail -n 220 ~/.local/state/mint-manual-updates/mint-manual-updates.log
+systemctl --user status mint-manual-updates.service --no-pager
+systemctl --user status mint-manual-updates.timer --no-pager
+```
 
 ## Safety prima di correggere
-- dev/project.metadata.json:9:"metadata_version": 1,
+
 - Non usare `sudo pip`, `pip` globale o `pip3` globale per aggiornamenti Python di sistema.
-- Il root venv default e `/home/daniele/codex-workspace`; usare `--venvs-root PATH` solo se si vuole esplicitamente uscire da quel perimetro.
-- systemd/user/mint-manual-updates.service:2:Description=Linux Mint manual safe updates v5
-- systemd/user/mint-manual-updates.timer:2:Description=Weekly Linux Mint manual safe updates v5
-- preserve metadata, dev/legacy, AI/Human links; no code/DB edits for doc tasks
+- Non ricreare updater duplicati.
+- Non aggiungere service/timer paralleli.
+- Non rimuovere AVD, SDK root, system-images o file Gradle/Kotlin di progetto.
