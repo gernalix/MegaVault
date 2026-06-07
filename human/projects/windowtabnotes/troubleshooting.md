@@ -5,6 +5,8 @@
 - Installazione Firefox: `system/scripts/install-firefox.sh`, poi aprire `about:debugging#/runtime/this-firefox` e caricare `browser-extension-firefox/manifest.json`.
 - Verifica Chrome: `system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json`.
 - Verifica Firefox: `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json`.
+- Stato Firefox reale: `system/bin/windowtabnotes firefox-status --json`.
+- Smoke Firefox reale: `system/scripts/test-firefox-extension.sh`.
 - Stato globale: `system/bin/windowtabnotes-status --json` oppure `system/bin/windowtabnotes check --json`.
 
 ## Servizio systemd --user
@@ -22,8 +24,12 @@
 - Controllare che `system/bin/windowtabnotes status --json` riporti DB ok, servizio attivo e `chrome_bridge`/`firefox_bridge` configurato secondo il browser usato.
 - Chrome: il manifest native deve esistere sotto `~/.config/google-chrome/NativeMessagingHosts/` o `~/.config/chromium/NativeMessagingHosts/` e contenere `allowed_origins`.
 - Firefox: il manifest native deve esistere in `~/.mozilla/native-messaging-hosts/com.windowtabnotes.host.json` e contenere `allowed_extensions: ["windowtabnotes@local"]`.
+- Firefox attuale su Mint usa profili sotto `~/.config/mozilla/firefox/`; `firefox-status --json` deve mostrare il profilo attivo e se `windowtabnotes@local` e caricato in `extensions.json`.
+- Se `firefox-status` mostra `extension_uuid_exists_but_addon_not_loaded` o `temporary_addon_path_seen_but_not_loaded`, il profilo conserva stato di un temporaneo precedente ma l'add-on non e caricato: ricaricare il manifest temporaneo da `browser-extension-firefox/manifest.json`.
+- `browser-extension-firefox/` deve essere self-contained. I symlink verso `browser-extension/` fanno fallire `web-ext lint`/packaging con file background/content/icon mancanti.
 - Se il popup dice host non pronto, rieseguire il comando `native-debug ... --fix`, ricaricare l'estensione nel browser e riprovare su una pagina `http`, `https` o `file`.
 - Firefox Snap/Flatpak puo non vedere il manifest o il binario host del filesystem host; usare Firefox non confinato o verificare i permessi del portale native messaging.
+- Firefox standard non installa permanentemente estensioni locali non firmate; per permanenza serve pacchetto firmato oppure Developer/Nightly/ESR con policy/firma gestita.
 
 ## Problemi e sintomi rilevati nel codice
 - system/windowtabnotes/cli.py:9:from .active_watch import active_note_for_current_context, active_window_watch_debug, sync_open_windows

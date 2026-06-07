@@ -4,7 +4,7 @@ slug=windowtabnotes
 path=/home/daniele/codex-workspace/WindowTabNotes
 remote=git@github.com:gernalix/WindowTabNotes.git
 branch=codex/prompt-581472
-verified_commit=a7bd0ff
+verified_commit=4dfce59
 verified_at=2026-06-07T09:02:18+02:00
 megavault_branch=codex/prompt-927384-android-studio-download-guard
 protocol=MEGAVAULT_PROTOCOL.md:v2
@@ -26,12 +26,15 @@ daemon=system/windowtabnotes/daemon.py,system/windowtabnotes/active_watch.py
 db=system/windowtabnotes/db.py
 native=system/bin/windowtabnotes-native-host,system/windowtabnotes/native_host.py,system/windowtabnotes/api.py
 chrome=browser-extension/manifest.json,browser-extension/service_worker.js,browser-extension/content_script.js,browser-extension/popup.js
-firefox=browser-extension-firefox/manifest.json + symlinked common files from browser-extension/
+firefox=browser-extension-firefox/manifest.json + copied shared assets from browser-extension/; installer keeps Firefox copy synced because symlink packaging fails
+firefox_status=system/bin/windowtabnotes firefox-status --json -> active profile, loaded add-on, real Gecko id, native manifests, native ping, permanent-install limit
 ui=system/windowtabnotes/gtk_ui.py,browser-extension/dashboard.html,browser-extension/dashboard.js
 search=system/windowtabnotes/rofi.py
 shortcuts=system/windowtabnotes/shortcuts.py
 systemd=system/systemd/windowtabnotes.service.in,~/.config/systemd/user/windowtabnotes.service
 install=system/scripts/install.sh
+install_firefox=system/scripts/install-firefox.sh syncs self-contained browser-extension-firefox assets from browser-extension before native manifest/status checks
+test_firefox=system/scripts/test-firefox-extension.sh -> web-ext real Firefox smoke using /usr/bin/firefox and native metrics delta
 tests=tests/test_context_persistence.py
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated,__pycache__
 
@@ -65,6 +68,8 @@ service=daemon must log and skip transient sqlite locked/xdotool timeout rather 
 service=human_status=systemctl --user status windowtabnotes.service --no-pager; logs=journalctl --user -u windowtabnotes.service -n 80 --no-pager; restart=systemctl --user restart windowtabnotes.service
 chrome=Native Messaging host name com.windowtabnotes.host; installed manifests under Chrome/Chromium NativeMessagingHosts
 firefox=Native Messaging host name com.windowtabnotes.host; add-on id windowtabnotes@local; manifest under ~/.mozilla/native-messaging-hosts/
+firefox=profile_current=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release; standard Firefox 151 cannot permanently install unsigned local add-on; temp load is required unless signed/dev-edition path is used
+firefox=browser-extension-firefox must be self-contained; symlinks make web-ext/Firefox packaging report missing background/content/icon files
 ux=do not break overlay/search behavior while changing persistence/service code
 version=monotonic integer in system/windowtabnotes/version.py,browser-extension/manifest.json,browser-extension-firefox/manifest.json
 
@@ -83,6 +88,9 @@ status=system/bin/windowtabnotes-status --json
 prompt_739284=daemon-reload+enable --now; is-enabled=enabled; is-active=active; status active running; journal readable; restart active; SIGTERM MainPID -> NRestarts=1 active; dashboard-debug ok; search-debug ok; overlay-debug ok; check --json db ok with window_sync skipped on live DB lock
 native_chrome=system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json
 native_firefox=system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json
+firefox_status=system/bin/windowtabnotes firefox-status --json
+firefox_lint=npx --yes web-ext@10.3.0 lint --source-dir browser-extension-firefox --self-hosted
+firefox_smoke=system/scripts/test-firefox-extension.sh; expected ok true and native metrics total_messages+UPSERT_TAB increase
 
 DATA:
 DB=SQLite
@@ -119,6 +127,10 @@ issue=v21 daemon stayed active but showed no overlay for windows without pre-exi
 fix=v22 handle_active_window uses create_if_missing=True for the active context; verified overlay_count=1/open_notes=1.
 issue=Prompt #739284 live `check --json` failed on transient SQLite lock while daemon was active.
 fix=check_status retries DB init and reports window_sync separately; DB ok returns exit 0 even when live sync is skipped due daemon-held lock.
+issue=Prompt #618739 Firefox current profile did not work.
+cause=active profile had stale `windowtabnotes@local` UUID/toolbar/tmpExtDir prefs but no loaded add-on in extensions.json; Firefox source dir was symlink-based and web-ext lint showed missing service_worker/content/icons.
+fix=browser-extension-firefox self-contained; installer resyncs assets, writes both Firefox native manifest locations, and `firefox-status` exposes active profile/add-on/native truth.
+test=web-ext real Firefox smoke loaded temp add-on and increased native metrics total_messages/UPSERT_TAB/SYNC_OPEN_TABS/GET_FOCUS_REQUEST.
 
 RISK:
 risk=SQLite lock contention from daemon + many Chrome native-host invocations.
@@ -127,6 +139,7 @@ risk=xdotool/xprop can timeout or fail under X11/session transitions.
 risk=Killing native-host or Chrome processes can interrupt active browser bridge; avoid unless user approves.
 risk=Deleting orphan browser notes would destroy user data; do not clean automatically.
 risk=`journalctl -n 80` can include older Jun 01 crash traces; current status command uses recent error scan and reports last_service_error empty after Jun 07 restart/kill tests.
+risk=Firefox standard release blocks permanent unsigned local extensions; do not claim profile current is fixed until `firefox-status` shows extension installed+active.
 
 ROAD:
 now=v22 service hardening/context snapshot/status command; daemon auto-creates active context note when missing
