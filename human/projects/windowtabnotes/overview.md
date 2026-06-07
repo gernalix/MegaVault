@@ -4,7 +4,7 @@ Root repository: `WindowTabNotes/`.
 
 ## Stato e codice
 - Repository: `/home/daniele/codex-workspace/WindowTabNotes`
-- Branch/commit verificati: `codex/prompt-581472` / `7a19e0e+dirty_prompt_739284_service`
+- Branch/commit verificati: `codex/prompt-581472` / `a7bd0ff`
 - Branch MegaVault operativo: `codex/prompt-927384-android-studio-download-guard`
 - Versione corrente: `v22`
 - Servizio utente: `windowtabnotes.service`, installato in `~/.config/systemd/user/windowtabnotes.service`
