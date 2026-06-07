@@ -1,12 +1,12 @@
 # MEGAVAULT_PROTOCOL.md
-VERSION=7
+VERSION=8
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
 AUDIENCE=codex
 PRIMARY_OUTPUT=operational_knowledge
 HUMAN_READABILITY=secondary
-PROSE=minimal
+PROSE=avoid
 NARRATIVE=forbidden
 FILLER=forbidden
 
@@ -37,6 +37,7 @@ P18=unknown_explicit
 P19=human_docs_not_operational_source
 P20=final_report_must_include_sync_state
 P21=host_profile_mandatory_for_system_level_work
+P22=all_task_repos_remote_clean_pushed_required
 
 # HOST_PROFILE_RULE
 HOST_PROFILE=mandatory
@@ -67,16 +68,27 @@ ENTRY_ALLOW=targeted_source_inspection_after_ai_doc,targeted_legacy_if_needed,ta
 # MEGAVAULT_CLEAN_STATE
 CLEAN_STATE_REQUIRED=before_task+after_task
 PRE_TASK_CHECK=git_status,branch,unpushed_commits,uncommitted_changes,remote_sync
-CLEAN_DEF=git_status_clean+unpushed_commits_0+uncommitted_changes_0+branch_synced_origin
+CLEAN_DEF=porcelain_empty+untracked_0+staged_0+modified_0+unpushed_commits_0+origin_configured+branch_synced_origin
 DIRTY_STATE=protocol_violation
 IF_DIRTY=resolve_first,push_pending,report_failure,block_normal_work_until_clean
-IF_PUSH_FAIL=preserve_changes,report_exact_error,report_local_commit_status,report_manual_sync_cmd
+IF_PUSH_FAIL=success_forbidden+preserve_changes+report_exact_error+report_local_hash+report_sync_state+report_manual_sync_cmd
 FINAL_REQ=MEGAVAULT_STATUS=clean,MEGAVAULT_COMMIT=<hash>,MEGAVAULT_PUSH=success
+
+# GIT_REMOTE_RULE
+GIT_REMOTE=mandatory_for_every_project
+REMOTE_NAME=origin
+REMOTE_REQUIRED_FOR=project_repo,megavault_repo,task_touched_repo
+IF_NO_REMOTE=create_remote>configure_origin>push_current_branch>set_upstream>verify_sync
+IF_HAS_REMOTE=verify_remote>push_local_commits>verify_sync
+SYNC_VERIFY=git_status_porcelain_empty+rev_list_left_right_0_0+ls_remote_head_matches_HEAD
+FINAL_DIRTY_FORBID=untracked_files,staged_files,modified_files,local_unpushed_commits,unpushed_project,unpushed_megavault,missing_remote
+END_PROMPT_BLOCK_IF=dirty_worktree,missing_remote,no_upstream,local_ahead,remote_ahead_unresolved,push_failed,sync_unverified
+GIT_SUCCESS_REQUIRES=all_task_repos_clean+all_task_repos_origin_configured+all_task_repos_pushed+megavault_clean+megavault_origin_configured+megavault_pushed
+IF_SYNC_ERROR=success_forbidden+report_real_error+report_local_hash+report_sync_state
 
 # MEGAVAULT_GIT_SYNC
 ON_ANY_MEGAVAULT_CHANGE=git_status>stage>size_check>commit>push>verify>report_hash
 DOC_CHANGE_COMPLETE_ONLY_IF=committed+pushed+verified
-LOCAL_ONLY_ALLOWED=only_if_user_explicit
 COMMIT_MSG=clear_descriptive
 PUSH_REQUIRED=yes
 HASH_REQUIRED=yes
@@ -111,33 +123,27 @@ METADATA_BRANCH_REQUIRED=yes
 METADATA_MISSING_BRANCH=metadata_bug
 
 # AI_DOC_FORMAT
-AI_DOC_ONE_FILE=yes
+AI_DOC=one_file
 AI_DOC_REQ=META,PURPOSE,STACK,MAP,ARCH,FLOW,INV,BUILD,TEST,DATA,DNB,BUG,RISK,ROAD,LINK,OPEN
 AI_DOC_OPT=DECISIONS,RELEASE,PERF,SECURITY,INTEGRATIONS,REUSE,OPS,SEC,OBSERVABILITY
 MISS_AI_SECTION=doc_bug
 AI_DOC_EXTENSION=.md
-AI_DOC_FORMAT=ultracompressed_operational
 
 # AI_DOC_LANGUAGE
 LANG=key_value,lists,checklists,paths,commands,ids,abbreviations
 LINE_RULE=1_line=1_operational_fact
 LINE_MUST_ANSWER=what|where|how|why|risk|invariant|command|dependency|status
 IF_LINE_ANSWERS_NONE=delete
-PROSE=avoid
 INTRO=forbidden
 TUTORIAL=forbidden
 MARKETING=forbidden
-FILLER=forbidden
 REPEATED_TRUTH=forbidden
 COMPRESSION_GOAL=max_useful_info_per_token
 COMPRESSION_FORBID=removing_operational_knowledge
 
 # AI_DOC_EXAMPLES
-BAD="The application uses Room to store user data."
-GOOD=DB=Room
-BETTER=DB=Room;Schema=v10;Backup=validate_before_swap
-BAD_INVENTORY=src/,test/,build/,assets/
-GOOD_MAP=entry=MainActivity.kt;import=ImportManager.kt;timeline=TimelineViewModel.kt
+EXAMPLE_BAD=generic_prose,full_repo_inventory
+EXAMPLE_GOOD=DB=Room;Schema=v10;Backup=validate_before_swap;MAP=entry:MainActivity.kt,import:ImportManager.kt,timeline:TimelineViewModel.kt
 
 # MAP_RULE
 MAP_REQ=entry,ui,core,db,tests,scripts,avoid
@@ -155,9 +161,7 @@ INV=highest_value_section
 INV_TYPES=arch,data,ux,backup,migration,version,i18n,security,perf,ops
 MISS_INV=doc_bug
 INV_FORMAT=<type>=<must_never_break>
-EXAMPLE=data=Tags_shared(Session,Event)
-EXAMPLE=backup=validate_before_swap
-EXAMPLE=version=monotonic_only
+INV_EXAMPLE=data:Tags_shared(Session,Event),backup:validate_before_swap,version:monotonic_only
 
 # DNB_RULE
 DNB=do_not_break
@@ -199,9 +203,8 @@ TEST_OUTPUT_SUMMARY_REQUIRED=yes
 
 # HUMAN_DOC_RULE
 HUMAN_REQ=overview,features,roadmap,changelog,troubleshooting
-HUMAN_STYLE=explain_for_user
+HUMAN_STYLE=user_readable
 HUMAN_DERIVED_FROM=ai_doc+code_reality
-HUMAN_MAY_EXPLAIN=yes
 HUMAN_MUST_NOT_OVERRIDE_AI=yes
 
 # LINK_RULE
@@ -220,13 +223,13 @@ DOC_SKIP_REPORT=state_no_doc_change_needed
 
 # NEW_PROJECT_WORKFLOW
 NEW_PROJECT_ORDER=clean_check>create_metadata>create_ai_doc>create_human_overview>create_human_roadmap>create_human_changelog>create_human_troubleshooting>create_links>reuse_discovery>commit>push
-FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
+NEW_PROJECT_FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
 NEW_PROJECT_MUST_SEARCH_ARCHIVE=yes
 NEW_PROJECT_MUST_SEARCH_SIMILAR_ACTIVE=yes
 
 # UNDOCUMENTED_EXISTING_PROJECT_WORKFLOW
 UNDOC_ORDER=clean_check>inspect_repo_targeted>identify_entrypoints>identify_arch>identify_storage>identify_build_test>identify_branch>create_metadata>create_ai_doc>create_human_docs>mark_unknowns>commit>push
-FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
+UNDOC_FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
 REPO_WIDE_SCAN_ALLOWED=only_if_targeted_inspection_insufficient
 UNKNOWN_NOT_GUESS=yes
 
@@ -321,14 +324,15 @@ VERSION_SKIP=forbidden
 VERSION_LOCATION_DOC=yes
 
 # TEST_FINAL_REPORT_RULE
-FINAL_REPORT_REQ=prompt_id_if_available,files_changed,tests_run,test_result,docs_updated,megavault_status,commit_hash,push_status,known_risks,next_steps_if_any
-FINAL_REPORT_FORBID=silent_failures,claim_success_without_test,claim_push_without_push
+FINAL_REPORT_REQ=prompt_id_if_available,files_changed,tests_run,test_result,docs_updated,repo_status,megavault_status,commit_hash,push_status,sync_state,known_risks,next_steps_if_any
+FINAL_REPORT_FORBID=silent_failures,claim_success_without_test,claim_push_without_push,claim_clean_without_porcelain_empty,claim_sync_without_remote_verify
 IF_PARTIAL=state_partial+reason+remaining_work
 
 # VALIDATION
 VALIDATE_PROJECT=metadata_exists,ai_doc_exists,human_docs_exist,links_work,branch_doc_exists,clean_git_state
 VALIDATE_AI_DOC=required_sections_present,inv_present,dnb_present,data_rules_present,build_test_present,links_present
-VALIDATE_MEGAVAULT=small_files,no_dirty_state,pushed
+VALIDATE_GIT=origin_configured,porcelain_empty,rev_list_left_right_0_0,remote_head_matches_local_head
+VALIDATE_MEGAVAULT=small_files,no_dirty_state,origin_configured,pushed,remote_verified
 FAIL_ON_MISSING_REQUIRED=yes
 
 # SUCCESS_CRITERION
