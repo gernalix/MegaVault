@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL.md
-VERSION=6
+VERSION=7
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -36,17 +36,31 @@ P17=large_artifacts_outside_megavault
 P18=unknown_explicit
 P19=human_docs_not_operational_source
 P20=final_report_must_include_sync_state
+P21=host_profile_mandatory_for_system_level_work
+
+# HOST_PROFILE_RULE
+HOST_PROFILE=mandatory
+HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
+READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>ai_doc
+READ_ORDER_1=MEGAVAULT_PROTOCOL
+READ_ORDER_2=HOST_PROFILE
+READ_ORDER_3=project.metadata.json
+READ_ORDER_4=ai_doc
+HOST_PROFILE_REQUIRED_FOR=performance_work,monitoring_work,automation_work,service_work,system_tuning,Android_tooling,backup_work,storage_work,Linux_Mint_work,freeze_investigations
+HOST_PROFILE_AUTHORITY=hardware_constraints
+HOST_PROFILE_IGNORE_SYSTEM_WORK=process_bug
+HOST_PROFILE_UNKNOWN_RULE=mark_UNKNOWN_do_not_invent
 
 # SOURCE_PRIORITY
-SRC_ORDER=project.metadata.json>ai_doc>repo_code>human_docs>legacy_docs
-CONFLICT_RESOLUTION=metadata>ai_doc>code>human>legacy
+SRC_ORDER=HOST_PROFILE_for_hardware_constraints>project.metadata.json>ai_doc>repo_code>human_docs>legacy_docs
+CONFLICT_RESOLUTION=HOST_PROFILE_for_hardware_constraints>metadata>ai_doc>code>human>legacy
 IF_CONFLICT=report+prefer_higher_priority
 IF_DOC_STALE=update_from_code
 IF_UNKNOWN=mark_UNKNOWN
 INVENT_FACTS=forbidden
 
 # CODEX_ENTRY
-ENTRY_ORDER=megavault_clean_check>metadata>ai_doc>task_relevant_files>reuse_discovery>implementation
+ENTRY_ORDER=megavault_clean_check>MEGAVAULT_PROTOCOL>HOST_PROFILE>metadata>ai_doc>task_relevant_files>reuse_discovery>implementation
 ENTRY_FORBID=repo_wide_scan_before_ai_doc,human_docs_as_operational_source,legacy_as_primary_source,blind_code_copy
 ENTRY_ALLOW=targeted_source_inspection_after_ai_doc,targeted_legacy_if_needed,targeted_archive_reuse
 
