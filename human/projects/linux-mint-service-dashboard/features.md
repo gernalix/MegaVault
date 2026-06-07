@@ -4,10 +4,15 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 
 ## Mappa funzionale dal codice
 - `app/server.py`: DashboardHandler, parse_args, main
-- `app/collectors.py`: CommandResult, now_local, iso_now, display_now, version, redact_text, redact, run
-- `app/static/app.js`: escapeHtml, statusClass, scalar, renderOverview, statCard, renderTabs, renderPanel, renderOverviewPanel
+- `app/collectors.py`: CommandResult, now_local, iso_now, display_now, version, redact_text, redact, run, collect_freeze_forensics
+- `app/static/app.js`: escapeHtml, statusClass, scalar, renderOverview, statCard, renderTabs, renderPanel, renderOverviewPanel, renderFreezePanel
 - `tests/playwright-smoke.js`: URL, VIEWPORTS, browser, errors, page, tabs, info
 - `tests/test_dashboard.py`: DashboardTests
+
+## Freeze / Rallentamenti
+- Collector: `collect_freeze_forensics()` invoca `~/.local/bin/mint-freeze-forensics dashboard-json`.
+- Rendering: `renderFreezePanel()` mostra stato attuale, ultimo freeze, 24h, 7d, spiegazione, azioni e timeline.
+- Pulsanti: copiano comandi sicuri (`human-report`, `recent`, `sample`, `dashboard-json`); non eseguono azioni sul sistema.
 
 ## Confini operativi
 - app/server.py:9:import traceback

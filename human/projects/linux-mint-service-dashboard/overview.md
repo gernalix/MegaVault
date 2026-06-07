@@ -14,6 +14,14 @@ Dashboard locale read-only per i servizi operativi importanti di questo host Lin
 - Test: `tests/playwright-smoke.js,tests/test_dashboard.py`
 - Script/build: `UNKNOWN`
 
+## Freeze / Rallentamenti
+- Tab aggiunta: `Freeze / Rallentamenti`.
+- Fonte dati: `mint-freeze-forensics dashboard-json`.
+- Mostra: stato umano, ultimo freeze, riepilogo 24h, riepilogo 7d, spiegazione, azioni consigliate e comandi diagnostici copiabili.
+- Sicurezza: nessun kill, restart o remediation dalla dashboard.
+- Polling UI: 30s, senza refresh concorrenti.
+- Test: `python3 -m unittest tests/test_dashboard.py`; `DASHBOARD_URL=http://127.0.0.1:8881/ node tests/playwright-smoke.js`.
+
 ## Link
 - AI doc: [AI doc](../../../ai/projects/linux-mint-service-dashboard.md)
 - Metadata: [dev/project.metadata.json](../../../../linux-mint-service-dashboard/dev/project.metadata.json)

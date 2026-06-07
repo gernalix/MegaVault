@@ -30,6 +30,7 @@ kuma=Oracle VM Docker container
 storage=SQLite DB + WAL under /opt/uptime-kuma/data
 notifications=Telegram notification id=1
 integration=Mint services push HTTP /api/push/<token>
+status_page_mint_freeze=slug mint-freeze-analysis; title Mint Freeze Analysis; monitors 13-17; auto_refresh_interval=60
 FLOW:
 mint_push=local pusher -> http://150.230.148.128:3001/api/push/<token>
 config_change=backup DB -> sqlite update -> docker restart uptime-kuma -> verify healthy
@@ -52,10 +53,11 @@ db=sudo sqlite3 /opt/uptime-kuma/data/kuma.db 'select id,name from monitor'
 push=Mint sample status HTTP 200
 DATA:
 DB=SQLite
-Schema=monitor,monitor_notification,tag,monitor_tag
+Schema=monitor,monitor_notification,tag,monitor_tag,status_page,monitor_group
 Backup=/opt/uptime-kuma/backups/kuma-pre-847261-freeze-analysis.db
 Retention=managed by Kuma
 Paths=/opt/uptime-kuma/data/kuma.db,/opt/uptime-kuma/docker-compose.yml
+MintFreezeDashboard=http://150.230.148.128:3001/status/mint-freeze-analysis
 DNB:
 dnb=do not use Kuma for reboot/restart/kill remediation
 dnb=do not commit push URLs/tokens
@@ -67,7 +69,7 @@ RISK:
 risk=DB schema can change with Kuma upgrades; inspect schema before writes
 risk=push monitor down state can be alert noise if local pusher stopped intentionally
 ROAD:
-now=Mint Freeze Analysis group active
+now=Mint Freeze Analysis group + status page active
 next=review graphs after 24-72h
 later=replace direct DB edit with authenticated API if available
 LINK:

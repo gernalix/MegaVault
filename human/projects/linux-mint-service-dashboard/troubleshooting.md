@@ -1,5 +1,10 @@
 # linux-mint-service-dashboard Troubleshooting
 
+## Freeze / Rallentamenti
+- Se la tab mostra `mint-freeze-forensics non installato`: verificare `~/.local/bin/mint-freeze-forensics dashboard-json`.
+- Se lo stato è `Rischio freeze alto`: leggere `mint-freeze-forensics recent` e `mint-freeze-forensics human-report`; la dashboard non esegue remediation.
+- Se `/api/status` è lento sotto carico: il frontend evita refresh concorrenti e usa polling 30s; verificare con `python3 -m unittest tests/test_dashboard.py` e smoke headless.
+
 ## Problemi e sintomi rilevati nel codice
 - app/server.py:53:except Exception as exc: # pragma: no cover - defensive server boundary
 - app/server.py:56:"status": "error",

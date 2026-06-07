@@ -15,6 +15,13 @@ Gruppo creato:
 
 - `Mint Freeze Analysis`, id `12`
 
+Status page:
+
+- `Mint Freeze Analysis`, slug `mint-freeze-analysis`
+- URL: `http://150.230.148.128:3001/status/mint-freeze-analysis`
+- Monitor associati: 13-17
+- Refresh: 60s
+
 Monitor prompt `#847261`:
 
 | ID | Nome | Tipo | Frequenza | Timeout | Retries |
@@ -31,5 +38,5 @@ Telegram:
 
 Regola:
 
-- Kuma e solo scatola nera, cronologia, alerting e visualizzazione.
+- Kuma è solo scatola nera, cronologia, alerting e visualizzazione.
 - Nessun reboot/restart/kill deve partire da Kuma.

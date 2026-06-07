@@ -26,8 +26,8 @@ build=UNKNOWN
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
 ARCH:
 entry=app/server.py:DashboardHandler,parse_args,main
-core=app/collectors.py:CommandResult,now_local,iso_now,display_now,version,redact_text
-ui=app/static/app.js:escapeHtml,statusClass,scalar,renderOverview,statCard,renderTabs
+core=app/collectors.py:CommandResult,now_local,iso_now,display_now,version,redact_text,collect_freeze_forensics,freeze_forensics_service_from_payload
+ui=app/static/app.js:escapeHtml,statusClass,scalar,renderOverview,statCard,renderTabs,renderFreezePanel
 test=tests/playwright-smoke.js:URL,VIEWPORTS,browser,errors,page,tabs
 test=tests/test_dashboard.py:DashboardTests
 FLOW:
@@ -35,10 +35,11 @@ flow=entry->app/server.py=>app/__init__.py
 flow=app/server.py:10:from http import HTTPStatus
 flow=launchers/linux-mint-service-dashboard.desktop:9:StartupNotify=false
 flow=systemd/system-service-dashboard.service:9:ExecStart=/usr/bin/python3 /home/daniele/codex-workspace/linux-mint-service-dashboard/app/server.py --host 127.0.0.1 --port 8788
+flow_freeze=collect_all->collect_freeze_forensics->mint-freeze-forensics dashboard-json->renderFreezePanel
 INV:
 arch=app/server.py:DashboardHandler,parse_args,main; app/collectors.py:CommandResult,now_local,iso_now,display_now,version; app/static/app.js:escapeHtml,statusClass,scalar,renderOverview,statCard; tests/playwright-smoke.js:URL,VIEWPORTS,brows...
 data=app/server.py:80:self.send_json({"status": "ok", "version": version(), "refresh_display": display_now(), "read_only": True}); dev/project.metadata.json:9:"metadata_version": 1,
-ux=app/server.py:26:server_version = f"LinuxMintServiceDashboard/{version()}"; app/server.py:116:parser = argparse.ArgumentParser(description="Linux Mint local read-only service dashboard")
+ux=app/server.py:26:server_version = f"LinuxMintServiceDashboard/{version()}"; app/server.py:116:parser = argparse.ArgumentParser(description="Linux Mint local read-only service dashboard"); freeze tab plain-language state/24h/7d/explanation/safe command-copy buttons
 backup=UNKNOWN
 migration=UNKNOWN
 version=app/server.py:18:from app.collectors import collect_all, display_now, redact_text, version; app/server.py:26:server_version = f"LinuxMintServiceDashboard/{version()}"
@@ -68,6 +69,7 @@ dnb=app/collectors.py:44:r"error|failed|fail|warning|warn|critical|blocked|stall
 dnb=app/collectors.py:45:r"storage|lock|TRUE_PRE_EMERGENCY|PRE_EMERGENCY|abort|skipped",
 dnb=app/collectors.py:77:for pattern in SECRET_PATTERNS:
 dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
+dnb=freeze tab reads mint-freeze-forensics dashboard-json; must not duplicate freeze scoring or execute kill/restart/remediation
 BUG:
 issue=app/collectors.py:44:r"error|failed|fail|warning|warn|critical|blocked|stalled|corrupt|I/O|input/output|timeout|degraded|"
 issue=tests/test_dashboard.py:104:last_error: Exception | None = None
@@ -81,8 +83,8 @@ risk=app/collectors.py:44:r"error|failed|fail|warning|warn|critical|blocked|stal
 risk=app/collectors.py:45:r"storage|lock|TRUE_PRE_EMERGENCY|PRE_EMERGENCY|abort|skipped",
 risk=app/collectors.py:77:for pattern in SECRET_PATTERNS:
 ROAD:
-now=UNKNOWN
-next=UNKNOWN
+now=Freeze / Rallentamenti tab integrated with mint-freeze-forensics
+next=review wording after >=3 real freeze events
 later=UNKNOWN
 LINK:
 meta=../../../linux-mint-service-dashboard/dev/project.metadata.json
