@@ -4,8 +4,9 @@ slug=windowtabnotes
 path=/home/daniele/codex-workspace/WindowTabNotes
 remote=git@github.com:gernalix/WindowTabNotes.git
 branch=codex/prompt-581472
-verified_commit=68e0170+dirty_prompt_482719_v22
-verified_at=2026-06-01T18:16:12+02:00
+verified_commit=7a19e0e+dirty_prompt_739284_service
+verified_at=2026-06-07T09:02:18+02:00
+megavault_branch=codex/prompt-927384-android-studio-download-guard
 protocol=MEGAVAULT_PROTOCOL.md:v2
 
 PURPOSE:
@@ -50,6 +51,7 @@ chrome_tab=Chrome service_worker snapshotTab -> native UPSERT_TAB/SYNC_OPEN_TABS
 chrome_focus=search queues chrome_focus_request metadata -> service_worker GET_FOCUS_REQUEST poll -> chrome.tabs/window focus or close
 save_text=content/GTK -> native SAVE_NOTE_TEXT or local UI -> db.update_note_text -> refresh context snapshot -> notes.updated_at
 service=~/.config/systemd/user/windowtabnotes.service -> system/bin/windowtabnotes daemon -> Restart=always
+service_prompt_739284=enabled+active; MainPID restarts after SIGTERM; linger=yes; ExecStart=/home/daniele/codex-workspace/WindowTabNotes/system/bin/windowtabnotes daemon; WorkingDirectory=/home/daniele/codex-workspace/WindowTabNotes
 
 INV:
 data=do_not_delete_real_notes_during_tests_or_repair
@@ -60,6 +62,7 @@ data=browser_tabs owns browser_tab_id,browser_window_id,url,title,fav_icon_url,a
 data=browser note identity prefers normalized_url+profile note_key; falls back to Chrome window/tab ids
 service=user unit must stay enabled and active; linger currently yes on host
 service=daemon must log and skip transient sqlite locked/xdotool timeout rather than exiting
+service=human_status=systemctl --user status windowtabnotes.service --no-pager; logs=journalctl --user -u windowtabnotes.service -n 80 --no-pager; restart=systemctl --user restart windowtabnotes.service
 chrome=Native Messaging host name com.windowtabnotes.host; installed manifests under Chrome/Chromium NativeMessagingHosts
 firefox=Native Messaging host name com.windowtabnotes.host; add-on id windowtabnotes@local; manifest under ~/.mozilla/native-messaging-hosts/
 ux=do not break overlay/search behavior while changing persistence/service code
@@ -77,6 +80,7 @@ compile=python3 -m compileall -q system/windowtabnotes tests
 unit=PYTHONPATH=system python3 -m unittest tests/test_context_persistence.py
 service=systemctl --user is-active windowtabnotes.service; systemctl --user is-enabled windowtabnotes.service; journalctl --user -u windowtabnotes.service --since '2 minutes ago'
 status=system/bin/windowtabnotes-status --json
+prompt_739284=daemon-reload+enable --now; is-enabled=enabled; is-active=active; status active running; journal readable; restart active; SIGTERM MainPID -> NRestarts=1 active; dashboard-debug ok; search-debug ok; overlay-debug ok; check --json db ok with window_sync skipped on live DB lock
 native_chrome=system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json
 native_firefox=system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json
 
@@ -113,6 +117,8 @@ issue=Native host metrics show high GET_FOCUS_REQUEST starts/rate-limited starts
 impact=Chrome bridge works but polling can be noisy; monitor via windowtabnotes-status/native-host-status.
 issue=v21 daemon stayed active but showed no overlay for windows without pre-existing notes.
 fix=v22 handle_active_window uses create_if_missing=True for the active context; verified overlay_count=1/open_notes=1.
+issue=Prompt #739284 live `check --json` failed on transient SQLite lock while daemon was active.
+fix=check_status retries DB init and reports window_sync separately; DB ok returns exit 0 even when live sync is skipped due daemon-held lock.
 
 RISK:
 risk=SQLite lock contention from daemon + many Chrome native-host invocations.
@@ -120,6 +126,7 @@ risk=Chrome unpacked extension may keep stale service_worker until reloaded in c
 risk=xdotool/xprop can timeout or fail under X11/session transitions.
 risk=Killing native-host or Chrome processes can interrupt active browser bridge; avoid unless user approves.
 risk=Deleting orphan browser notes would destroy user data; do not clean automatically.
+risk=`journalctl -n 80` can include older Jun 01 crash traces; current status command uses recent error scan and reports last_service_error empty after Jun 07 restart/kill tests.
 
 ROAD:
 now=v22 service hardening/context snapshot/status command; daemon auto-creates active context note when missing

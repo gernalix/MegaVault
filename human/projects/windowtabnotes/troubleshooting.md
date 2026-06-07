@@ -7,6 +7,17 @@
 - Verifica Firefox: `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json`.
 - Stato globale: `system/bin/windowtabnotes-status --json` oppure `system/bin/windowtabnotes check --json`.
 
+## Servizio systemd --user
+- Unit file: `~/.config/systemd/user/windowtabnotes.service`.
+- ExecStart: `/home/daniele/codex-workspace/WindowTabNotes/system/bin/windowtabnotes daemon`.
+- WorkingDirectory: `/home/daniele/codex-workspace/WindowTabNotes`.
+- Stato: `systemctl --user status windowtabnotes.service --no-pager`.
+- Log: `journalctl --user -u windowtabnotes.service -n 80 --no-pager`.
+- Riavvio: `systemctl --user restart windowtabnotes.service`.
+- Persistenza: `systemctl --user is-enabled windowtabnotes.service` deve essere `enabled`; `loginctl show-user daniele -p Linger` deve essere `Linger=yes`.
+- Crash test #739284: SIGTERM su `MainPID` ha prodotto nuovo `MainPID` e `NRestarts=1` con stato `active`.
+- Nota: `system/bin/windowtabnotes check --json` puo riportare `window_sync: skipped: database is locked` durante attivita del daemon; se `database: ok` e `windowtabnotes-status --json` e ok, il DB non va resettato.
+
 ## Se le note browser non compaiono
 - Controllare che `system/bin/windowtabnotes status --json` riporti DB ok, servizio attivo e `chrome_bridge`/`firefox_bridge` configurato secondo il browser usato.
 - Chrome: il manifest native deve esistere sotto `~/.config/google-chrome/NativeMessagingHosts/` o `~/.config/chromium/NativeMessagingHosts/` e contenere `allowed_origins`.
