@@ -26,7 +26,7 @@ tests=py_compile,sample,simulate-gap,guardian --simulate-alert,human-report,syst
 scripts=systemd/user/*.service,systemd/user/*.timer
 avoid=automatic remediation,secret tokens in repo,huge logs
 ARCH:
-sampler=5s loop; /proc first; vmstat/pidstat/iostat fallback; bounded JSONL
+sampler=5s loop; /proc first; vmstat/pidstat/iostat fallback cached every 60s; bounded JSONL
 gap_detector=monotonic delta >30s => PROBABLE_FREEZE_OR_STALL
 evidence=journalctl+dmesg around gap window stored under freeze-evidence/<event_id>
 guardian=separate command/timer; detects pressure; prompts only in terminal; systemd path records/telemeters
@@ -88,3 +88,4 @@ kuma=oracle-uptime-kuma.md
 OPEN:
 open=causal percentages heuristic; validate after real freeze corpus
 open=Kuma screenshots/browser not used; all config via Oracle VM DB+push
+tool_interval=MFF_TOOL_SAMPLE_INTERVAL_SECONDS default 60
