@@ -1,17 +1,17 @@
 # HOST_PROFILE
-VERSION=1
+VERSION=2
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-06-07
-PROMPT=847261
+UPDATED=2026-06-07T19:30:00+02:00
+PROMPT=418572
 
 META:
 host=daniele-Surface-Pro
 user=daniele
 role=primary Linux Mint workstation for Codex,Android,backup,monitoring,automation
-source=live_commands+MegaVault_docs+installed_services
+source=live_commands+MegaVault_docs+installed_services+operator_physical_inventory
 read_after=ai/MEGAVAULT_PROTOCOL.md
 human=../../human/global/HOST_PROFILE.md
 protocol=../MEGAVAULT_PROTOCOL.md
@@ -34,7 +34,7 @@ cpu_topology=2c/4t;max=3.5GHz;min=400MHz;VT-x=yes
 ram=8054644kB about 7.7GiB
 swap=/swapfile 8G;used_at_2026-06-07=2.9G
 gpu=Intel HD Graphics 620;driver=i915
-constraints=low_core_count,limited_ram,old_surface_firmware,USB_root_disk,thermal/battery_laptop_profile
+constraints=low_core_count,limited_ram,old_surface_firmware,USB_root_disk,USB_hub_critical_path,thermal/battery_laptop_profile
 unknown=exact_Surface_generation,DIMM_layout
 
 STORAGE:
@@ -46,7 +46,27 @@ external_source=/dev/sdb ST4000LM024-2AN17V serial=WFF0FEX8 usb 3.6T;partition /
 external_backup=/dev/sdc ST6000DM003-2CY186 serial=ZCT3KG54 usb 5.5T;/dev/sdc1 ext4 label=Seagate6TB uuid=75e5363d-6736-4a7e-84be-5242f4735a27 mounted /media/daniele/Seagate6TB2 rw,noatime
 backup_path=/media/daniele/Seagate6TB2/home-backups
 transfer_dest=/media/daniele/Seagate6TB2/vecchio disco
-storage_constraints=root_on_USB_SSD,large_USB_HDD_workloads,BitLocker_source_readonly_required,avoid_rsync_delete,verify_mounts_not_autofs_wrapper
+storage_constraints=root_on_USB_SSD,root_on_USB_hub,large_USB_HDD_workloads,shared_USB_bandwidth,shared_USB_controller,BitLocker_source_readonly_required,avoid_rsync_delete,verify_mounts_not_autofs_wrapper,do_not_assume_independent_storage_paths
+
+HUB_USB:
+vendor=SABRENT
+model=HB-BUP7
+name=SABRENT USB Hub Active 3.2 x1
+ports=7
+power_supply=36W
+powered=yes
+individual_switches=yes
+kernel_chipset=Realtek RTS5411/0bda:0411 hub observed by lsusb
+topology=all_primary_external_storage_connected_through_this_hub
+host_connection=single_USB_port_on_Surface_Pro
+live_tree=Bus002 root_hub xhci_hcd 5000M -> Realtek hub Dev002 -> ports 1/2/3 mass_storage + port4 nested hub
+
+TOPOLOGY:
+path=Surface_Pro_USB_port -> SABRENT_HB-BUP7_powered_hub -> Samsung_PSSD_T7_Shield(root_Linux),Seagate_ST4000LM024_4TB_BitLocker_source,Seagate_ST6000DM003_6TB_backup_destination
+port1=Samsung_PSSD_T7_Shield /dev/sda root Linux
+port2=Seagate_ST4000LM024_4TB_BitLocker_source /dev/sdb
+port3=Seagate_ST6000DM003_6TB_backup_destination /dev/sdc
+constraints=single_usb_root_path=yes,shared_usb_bandwidth=yes,shared_usb_controller=yes,USB_hub_is_critical_infrastructure=yes,storage_performance_and_freeze_investigations_must_consider_hub_topology=yes,large_parallel_IO_can_affect_all_attached_storage=yes,do_not_assume_independent_storage_paths=yes
 
 PHONES:
 adb=/home/daniele/Android/Sdk/platform-tools/adb version=37.0.0-14910828
@@ -89,9 +109,9 @@ constraint=no automatic reboot/restart/kill remediation during freeze work
 IO_BOTTLENECK_HISTORY:
 home_backup_2026-06-06=rsync_exit=137 caused by runtime load guard ABORTED_SAFE load_x100 622>600;not OOM;not disk full;not kernel IO error
 backup_threshold=normal_load_x100_max=600
-transfer_history=multi_TB USB BitLocker->Seagate6TB2 rsync stressed USB/hub/controller;watch kernel USB/I/O/JBD2/EXT4
+transfer_history=multi_TB USB BitLocker->Seagate6TB2 rsync stressed shared SABRENT hub/USB controller;watch kernel USB/I/O/JBD2/EXT4
 watchdog=transfer-usb-io-watchdog.service enabled;data_safety_guard_not_generic_antifreeze
-constraint=do_not_auto_resume_after_storage_error;verify exact rsync process,mounts,/proc IO before health claims
+constraint=do_not_auto_resume_after_storage_error;verify exact rsync process,mounts,/proc IO and HUB_USB topology before health claims
 
 BACKUP_INFRA:
 local_home=home-incremental-backup.timer;dest=/media/daniele/Seagate6TB2/home-backups;guarded load/I/O behavior;Kuma push split backup vs retention
@@ -110,7 +130,7 @@ DEPLOYMENT_CONSTRAINTS:
 mint=prefer_existing_user/systemd_units,document_runtime_changes,avoid_focus_stealing_UI,keep_scripts_local_paths_stable
 android=builds/tests may need real device online;current ADB empty blocks connected tests;Pixel/TCL pairing can drift by port/IP
 oracle=remote runtime must be verified over SSH;Kuma direct DB edits require backup+restart+verify
-storage=large transfers/backups must be conservative due USB root/storage and load guard history
+storage=large transfers/backups must be conservative due root+source+destination sharing one powered USB hub,USB root/storage path,and load guard history
 economic=direct budget UNKNOWN;documented economic/quota constraint is OCI backup remote at assumed 22GiB limit,avoid paid/quota-changing/destructive actions without explicit operator approval
 
 DNB:

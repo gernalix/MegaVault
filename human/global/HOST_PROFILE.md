@@ -1,6 +1,6 @@
 # Profilo host globale
 
-Aggiornato: 2026-06-07, prompt `#847261`.
+Aggiornato: 2026-06-07, prompt `#418572`.
 
 Questo documento e' la versione umana del profilo host obbligatorio. La versione operativa per Codex e' [HOST_PROFILE AI](../../ai/global/HOST_PROFILE.md). Il protocollo che ne impone la lettura e' [MEGAVAULT_PROTOCOL](../../ai/MEGAVAULT_PROTOCOL.md).
 
@@ -20,7 +20,7 @@ Questo documento e' la versione umana del profilo host obbligatorio. La versione
 - Swap: `/swapfile` da 8 GiB; al rilevamento usati circa 2.9 GiB.
 - GPU: Intel HD Graphics 620 con driver `i915`.
 
-Vincoli pratici: macchina laptop con pochi core, RAM limitata, firmware vecchio, root filesystem su SSD USB e workload storage pesanti. I lavori di performance, Android, backup, freeze e storage devono partire da questi limiti.
+Vincoli pratici: macchina laptop con pochi core, RAM limitata, firmware vecchio, root filesystem su SSD USB e workload storage pesanti. Il root Linux e i dischi esterni principali passano dallo stesso hub USB alimentato, quindi i lavori di performance, Android, backup, freeze e storage devono partire da questi limiti.
 
 ## Storage
 
@@ -32,7 +32,18 @@ Vincoli pratici: macchina laptop con pochi core, RAM limitata, firmware vecchio,
 - Backup home: `/media/daniele/Seagate6TB2/home-backups`.
 - Destinazione transfer storico: `/media/daniele/Seagate6TB2/vecchio disco`.
 
-Vincoli storage: verificare sempre mount reali e non solo wrapper autofs; sorgenti BitLocker devono restare read-only; evitare `rsync --delete`; non riprendere automaticamente dopo errori USB/I/O.
+## Hub USB e topologia storage
+
+- Hub fisico: SABRENT HB-BUP7, "SABRENT USB Hub Active 3.2 x1".
+- Porte: 7.
+- Alimentazione: 36W, hub alimentato, con switch individuali.
+- Collegamento host: una singola porta USB del Surface Pro.
+- Vista kernel: hub Realtek su bus USB 3.0; i tre storage principali risultano sotto lo stesso ramo USB a 5000M.
+- Topologia: `Surface Pro USB port -> SABRENT HB-BUP7 powered hub -> T7 root Linux + Seagate 4TB source + Seagate 6TB backup/destination`.
+
+In pratica il Samsung T7 Shield, il Seagate 4TB BitLocker e il Seagate 6TB passano tutti dallo stesso hub alimentato. L'intero sistema Linux gira dal T7 collegato tramite quell'hub. Quindi un rallentamento, freeze, reset USB, saturazione I/O o problema sul controller/hub puo' impattare contemporaneamente root, sorgente e destinazione backup/transfer.
+
+Vincoli storage: verificare sempre mount reali e non solo wrapper autofs; sorgenti BitLocker devono restare read-only; evitare `rsync --delete`; non riprendere automaticamente dopo errori USB/I/O; non assumere percorsi storage indipendenti.
 
 ## Android e telefoni
 
@@ -71,6 +82,8 @@ La diagnostica freeze attiva e' `mint-freeze-forensics.service`, con sampler ogn
 Artefatti legacy anti-freeze rimossi: `freeze-reboot-monitor`, `freeze-zram-swap`, `screen-watchdog`, `system-watchdog`, `os-observer-autofix` e vecchi script correlati.
 
 Storico I/O importante: il caso `rsync_exit=137` del 2026-06-06 era un abort controllato da load guard (`ABORTED_SAFE`, load_x100 sopra 600), non OOM, non disco pieno e non errore kernel I/O. `ABORTED_SAFE` non equivale a backup completato.
+
+Per freeze, rallentamenti USB o problemi I/O bisogna considerare prima la topologia dell'hub: browser, processi o servizi non vanno accusati senza verificare che root T7, sorgente 4TB e destinazione 6TB condividono la stessa porta USB fisica, lo stesso hub e la stessa banda/controller.
 
 ## Backup
 
