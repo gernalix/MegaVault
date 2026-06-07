@@ -1,6 +1,6 @@
 # MEGAVAULT_PROTOCOL.md
 
-VERSION=3
+VERSION=4
 
 PURPOSE=Global documentation constitution. Defines how MegaVault is structured, written, validated, maintained and consumed by Codex.
 
@@ -622,3 +622,241 @@ after reading:
 2. ai/projects/<slug>.md
 
 without repository-wide exploration.
+
+
+---
+
+# NEW PROJECT WORKFLOW
+
+Mandatory order:
+
+1. Create project.metadata.json
+2. Create AI doc
+3. Create Human overview
+4. Create Human roadmap
+5. Create Human changelog
+6. Create Human troubleshooting
+7. Create bidirectional links
+8. Commit MegaVault
+9. Push MegaVault
+
+Feature work starts only after documentation baseline exists.
+
+---
+
+# UNDOCUMENTED EXISTING PROJECT WORKFLOW
+
+Mandatory order:
+
+1. Inspect repository
+2. Identify entrypoints
+3. Identify architecture
+4. Identify storage
+5. Identify build/test process
+6. Create metadata
+7. Create AI doc
+8. Create Human docs
+9. Mark unknowns as UNKNOWN
+10. Commit MegaVault
+11. Push MegaVault
+
+Feature work starts only after documentation baseline exists.
+
+---
+
+# MEGAVAULT CLEAN STATE RULE
+
+MegaVault must never be left in a dirty state between tasks.
+
+Before starting any new task involving MegaVault:
+
+1. Check git status.
+2. Check local commits ahead of origin.
+3. Check pending pushes.
+
+If dirty state exists:
+
+1. Resolve it first.
+2. Push pending MegaVault commits.
+3. Report any failure.
+4. Do not continue normal project work until MegaVault state is clean.
+
+Clean state definition:
+
+git_status=clean
+unpushed_commits=0
+uncommitted_changes=0
+branch_sync=origin
+
+Dirty MegaVault state is a protocol violation.
+
+---
+
+# TASK COMPLETION RULE
+
+A task touching MegaVault is not complete until:
+
+1. Documentation updated.
+2. Changes committed.
+3. Changes pushed.
+4. Push verified.
+5. Commit hash reported.
+
+Final report must include:
+
+MEGAVAULT_STATUS=clean
+MEGAVAULT_COMMIT=<hash>
+MEGAVAULT_PUSH=success
+
+---
+
+# AI DOC LANGUAGE SPEC
+
+FORMAT=ultracompressed
+STYLE=operational
+PROSE=forbidden
+FILLER=forbidden
+NARRATIVE=forbidden
+
+Allowed:
+
+key=value
+lists
+checklists
+paths
+commands
+identifiers
+abbreviations
+
+Rule:
+
+1 line = 1 operational fact
+
+Example:
+
+DB=Room
+Schema=v12
+Backup=validate_before_swap
+
+Not:
+
+"The application uses Room and stores user data locally."
+
+
+
+---
+
+# GIT BRANCH DOCUMENTATION RULE
+
+Every project metadata and AI doc must document the operational Git branch.
+
+Required:
+
+GIT:
+repo=<repository>
+branch=<primary_operational_branch>
+
+If multiple active branches exist:
+
+branch_main=<branch>
+branch_release=<branch>
+branch_hotfix=<branch>
+
+Codex must:
+
+1. Read documented branch before work.
+2. Verify current branch matches documentation.
+3. Update documentation if workflow changes.
+4. Report branch mismatches.
+
+Missing operational branch documentation = documentation bug.
+
+---
+
+# PROJECT METADATA REQUIREMENT
+
+project.metadata.json must include:
+
+repo
+branch
+project_type
+status
+ai_doc
+human_overview
+
+Missing branch field = metadata bug.
+
+
+---
+
+# PROJECT DELETION RULE
+
+Default action = archive.
+
+Project deletion requests must be interpreted as archive unless the user explicitly requests permanent destruction.
+
+ARCHIVE:
+
+1. Remove active code/repository if requested.
+2. Move AI docs to archive.
+3. Move Human docs to archive.
+4. Mark metadata:
+
+STATUS=archived
+
+5. Update MegaVault indexes.
+
+PURGE:
+
+Only when explicitly requested.
+
+Before purge:
+
+1. Report assets to be destroyed.
+2. Require confirmation.
+
+After confirmation:
+
+1. Delete code.
+2. Delete repository.
+3. Delete AI docs.
+4. Delete Human docs.
+5. Remove index references.
+
+Archive is preferred.
+Purge is exceptional.
+
+---
+
+# ARCHIVE DISCOVERY RULE
+
+MegaVault must maintain archive indexes.
+
+Required files:
+
+ai/archive/ARCHIVE_INDEX.md
+human/archive/ARCHIVE_INDEX.md
+
+Each archived project entry must include:
+
+slug=
+old_repo=
+status=archived
+archived_at=
+reason=
+keywords=
+domain=
+stack=
+former_ai_doc=
+former_human_docs=
+reuse_notes=
+
+Before creating a new project:
+
+1. Read active project index.
+2. Read archive index.
+3. Search archive keywords/domain/stack.
+4. Report possible reusable archived projects.
+5. Reuse knowledge when relevant.
+
+Missing archive index = documentation bug.

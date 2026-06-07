@@ -28,7 +28,7 @@ transfer=transient user unit rsync-transfer.service -> sudo -> phase2_limited ->
 support_system=transfer-usb-io-watchdog.service(enabled):kernel USB/I/O monitor; pauses target rsync on transfer-storage critical events
 support_user=rsync-uptime-kuma-push.service(disabled 2026-06-06 #482917): old Kuma heartbeat for exact target rsync cmdline; no live rsync-transfer runner/source verified during Kuma cleanup
 support_user=transfer-vecchio-disco-adaptive-throttle.service(enabled):renice/ionice/bw profile control
-anti_freeze_disabled=2026-06-05 prompt_584731 disabled screen-watchdog.service; transfer-usb-io-watchdog.service intentionally remains enabled as rsync safety guard, not generic anti-freeze
+anti_freeze_removed=2026-06-07 prompt_847261 removed screen-watchdog/freeze-reboot-monitor legacy artifacts; transfer-usb-io-watchdog.service intentionally remains enabled as rsync safety guard, not generic anti-freeze
 mount_dest=media-daniele-Seagate6TB2.automount(enabled)+.mount(disabled,triggered)
 mount_source=cryptsetup open --type bitlk --readonly /dev/sdb2 source_bitlocker; mount ro at /media/daniele/Seagate Expansion Drive
 FLOW:

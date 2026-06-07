@@ -19,6 +19,8 @@ Generated: 2026-06-05T13:11:18+02:00
 | megavault-project-exporter | megavault-project-exporter | `/home/daniele/codex-workspace/megavault-project-exporter` | `none` | `master` | 0 | 3 | 0 | 0 | True |
 | mint-cloud-backup | mint-cloud-backup | `/home/daniele/codex-projects/mint-cloud-backup` | `none` | `master` | 0 | 5 | 0 | 0 | True |
 | mint-manual-updates | mint-manual-updates | `/home/daniele/codex-workspace/mint-manual-updates` | `none` | `master` | 0 | 4 | 4 | 0 | True |
+| mint-freeze-forensics | mint-freeze-forensics | `/home/daniele/codex-workspace/mint-freeze-forensics` | `none` | `main` | 0 | 1 | 0 | 0 | True |
+| Oracle Uptime Kuma | oracle-uptime-kuma | `/home/daniele/codex-workspace/projects/vm_oracle/oracle-uptime-kuma` | `runtime` | `runtime` | 0 | 1 | 0 | 0 | True |
 | owntracks-watcher | owntracks-watcher | `/home/daniele/codex-workspace/owntracks-watcher` | `none` | `codex/prompt-384917` | 0 | 0 | 0 | 0 | True |
 | parcel-tracker | parcel-tracker | `/home/daniele/codex-workspace/parcel-tracker` | `none` | `master` | 7 | 4 | 4 | 0 | True |
 | MultiTimeTracker | multitimetracker | `/home/daniele/codex-workspace/projects/MultiTimeTracker` | `https://github.com/gernalix/MultiTimeTracker.git` | `codex/v488-release-safe-ui-lockdown` | 9 | 98 | 97 | 0 | True |
@@ -28,4 +30,3 @@ Generated: 2026-06-05T13:11:18+02:00
 | remote-codex-phone | remote-codex-phone | `/home/daniele/codex-workspace/remote-codex-phone` | `none` | `master` | 7 | 3 | 3 | 0 | True |
 | amici_fb | amici-fb | `/home/daniele/codex-workspace/scripts/amici_fb` | `https://github.com/gernalix/amici_fb.git` | `master` | 8 | 7 | 6 | 0 | True |
 | surface-recovery-hardening | surface-recovery-hardening | `/home/daniele/codex-workspace/surface-recovery-hardening` | `git@github.com:gernalix/surface-recovery-hardening.git` | `main` | 10 | 21 | 21 | 0 | True |
-| system_watchdog | system-watchdog | `/home/daniele/codex-workspace/system_watchdog` | `none` | `master` | 7 | 6 | 5 | 0 | True |

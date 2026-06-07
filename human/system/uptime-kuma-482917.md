@@ -34,7 +34,8 @@ Questa pagina copre i cambiamenti che attraversano piu progetti o script live fu
 - `mint-cloud-backup`
 - `mint-update-tracker`
 - `surface-recovery-hardening`
-- `system-watchdog`
+- `oracle-uptime-kuma`
+- `mint-freeze-forensics`
 
 ## Problemi aperti
 
