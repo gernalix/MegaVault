@@ -1,862 +1,322 @@
 # MEGAVAULT_PROTOCOL.md
-
-VERSION=4
-
-PURPOSE=Global documentation constitution. Defines how MegaVault is structured, written, validated, maintained and consumed by Codex.
-
-GOAL=Maximize Codex decision quality, project understanding, safety, maintainability and recovery speed.
-
-PRIMARY_OUTPUT=Operational knowledge.
-
-NOT=Documentation for humans.
-
----
-
-# CORE PRINCIPLES
-
-P1=AI Vault authoritative.
-P2=Human Vault derived.
-P3=Legacy docs historical.
-P4=1 AI doc/project.
-P5=Max useful information density.
-P6=No duplicated truths.
-P7=No invented knowledge.
-P8=Documentation debt is technical debt.
-P9=Code reality > documentation assumptions.
-P10=Codex should become productive after reading metadata+AI doc.
-
----
-
-# SOURCE PRIORITY
-
-1=project.metadata.json
-2=AI doc
-3=Repository code
-4=Human docs
-5=Legacy docs
-
-Conflict resolution:
-
-metadata > ai_doc > code > human > legacy
-
----
-
-# CODEX ENTRY WORKFLOW
-
-Mandatory order:
-
-1. Read dev/project.metadata.json
-2. Read ai_doc
-3. Read task-relevant files
-4. Read legacy only if needed
-
-Forbidden:
-
-* repository-wide exploration before ai_doc
-* using Human docs as operational source
-* using legacy as primary source
-
----
-
-# AI DOC OBJECTIVE
-
-Question:
-
-"What does Codex need to know to modify this project safely and efficiently?"
-
-Only information answering that question belongs inside AI docs.
-
----
-
-# AI DOC FORMAT
-
-One file only.
-
-Required sections:
-
-META
-PURPOSE
-STACK
-MAP
-ARCH
-FLOW
-INV
-BUILD
-TEST
-DATA
-DNB
-BUG
-RISK
-ROAD
-LINK
-OPEN
-
-Optional:
-
-DECISIONS
-RELEASE
-PERF
-SECURITY
-INTEGRATIONS
-
-Missing required section = documentation bug.
-
----
-
-# AI DOC STYLE
-
-Allowed:
-
-* key=value
-* lists
-* checklists
-* abbreviations
-* identifiers
-* commands
-* paths
-
-Avoid:
-
-* prose
-* introductions
-* tutorials
-* marketing text
-* filler
-* repeated information
-
-BAD:
-
-"The application uses Room to store user data."
-
-GOOD:
-
-DB=Room
-
-BETTER:
-
-DB=Room
-Schema=v10
-Backup=multitimer.db
-Import=validate_before_swap
-
----
-
-# INFORMATION DENSITY RULE
-
-Every line must answer at least one question:
-
-* what?
-* where?
-* how?
-* why?
-* risk?
-* invariant?
-* command?
-* dependency?
-
-If none:
-
-DELETE LINE.
-
----
-
-# TOKEN OPTIMIZATION RULE
-
-Goal is NOT:
-
-min_tokens
-
-Goal IS:
-
-max_useful_information_per_token
-
-BAD:
-
-DB=Room
-
-BETTER:
-
-DB=Room
-Schema=v10
-Backup=multitimer.db
-Import=validate_before_swap
-Retention=snapshot_history,audit_events
-
-Compression must never remove operational knowledge.
-
----
-
-# ANTI-INVENTORY RULE
-
-Repository inventories are low value.
-
-BAD:
-
-src/
-test/
-build/
-assets/
-
-GOOD:
-
-entry=MainActivity.kt
-import=ImportManager.kt
-timeline=TimelineViewModel.kt
-
-Only document files/directories operationally relevant.
-
----
-
-# CODE-FIRST ENRICHMENT RULE
-
-When documentation is weak:
-
-1. metadata
-2. ai_doc
-3. human docs
-4. legacy docs
-5. README
-6. build files
-7. scripts
-8. tests
-9. source code
-
-Code is authoritative.
-
-Documentation must be updated from code reality.
-
-Never assume docs are correct.
-
----
-
-# ENRICHMENT PRIORITY
-
-Extract knowledge in this order:
-
-1. entrypoints
-2. architecture
-3. data flow
-4. storage
-5. backup
-6. import/export
-7. migrations
-8. integrations
-9. tests
-10. scripts
-11. release process
-12. invariants
-13. risks
-14. roadmap
-
----
-
-# MAP RULES
-
-Must contain:
-
-entry=
-ui=
-core=
-db=
-tests=
-scripts=
-avoid=
-
-Avoid listing entire repository.
-
-List only development-critical locations.
-
----
-
-# ARCH RULES
-
-ARCH explains:
-
-* components
-* responsibilities
-* boundaries
-
-FLOW explains:
-
-* data flow
-* event flow
-* critical workflows
-
-ARCH ≠ folder tree.
-
----
-
-# INVARIANT RULES
-
-INV is highest-value section.
-
-Types:
-
-arch=
-data=
-ux=
-backup=
-migration=
-version=
-i18n=
-security=
-perf=
-
-Examples:
-
-data=Tags shared(Session,Event)
-ux=Timeline derives START/STOP
-backup=validate_before_swap
-version=monotonic_only
-
-Missing invariant = documentation bug.
-
----
-
-# DNB RULES
-
-DNB = DO_NOT_BREAK
-
-Contains:
-
-* fragile systems
-* regression-prone flows
-* historical landmines
-
-Examples:
-
-DNB:
-
-* import_restore_flow
-* backup_compat_v9_v10
-* shared_tag_model
-
-Missing DNB = documentation bug.
-
----
-
-# BUG RULES
-
-BUG contains:
-
-* active bugs
-* known regressions
-* historical failures
-
-Format:
-
-BUG:
-issue=
-cause=
-workaround=
-
-Unknown cause allowed.
-
-Invented cause forbidden.
-
----
-
-# UNKNOWN RULE
-
-Never fabricate.
-
-Allowed:
-
-UNKNOWN
-TODO
-OPEN QUESTION
-
-Forbidden:
-
-educated guesses presented as facts.
-
----
-
-# ROAD RULES
-
-ROAD:
-
-now=
-next=
-later=
-
-Only actionable work.
-
-No dreams.
-No vague aspirations.
-
----
-
-# OPEN RULES
-
-OPEN contains:
-
-* unresolved conflicts
-* missing information
-* stale docs
-* architecture uncertainty
-
----
-
-# DATA RULES
-
-Must include when applicable:
-
-DB=
-Schema=
-Backup=
-Restore=
-Import=
-Export=
-Migration=
-Retention=
-Paths=
-
-Missing storage rules = documentation bug.
-
----
-
-# BUILD RULES
-
-BUILD:
-
-cmd=
-env=
-requirements=
-
-TEST:
-
-unit=
-integration=
-smoke=
-device=
-
-Unknown allowed.
-
-Invented commands forbidden.
-
----
-
-# DOCUMENTATION DEBT
-
-Documentation bug examples:
-
-* missing invariant
-* missing DNB
-* missing roadmap
-* missing storage rule
-* missing test command
-* broken link
-* stale commit reference
-* stale architecture description
-
-Treat as real bugs.
-
----
-
-# HUMAN DOC RULES
-
-Purpose=human understanding.
-
-AI docs optimize execution.
-
-Human docs optimize comprehension.
-
-Required:
-
-overview
-features
-roadmap
-changelog
-troubleshooting
-
-Human docs may explain.
-
-AI docs must compress.
-
----
-
-# BIDIRECTIONAL LINKS
-
-AI doc must link:
-
-metadata
-human docs
-legacy docs
-repo
-
-Human overview must link:
-
-AI doc
-metadata
-legacy docs
-repo
-
-Broken link = documentation bug.
-
----
-
-# UPDATE RULES
-
-Update AI doc when:
-
-* architecture changes
-* DB changes
-* build changes
-* tests change
-* import/export changes
-* backup changes
-* versioning changes
-* release process changes
-
-Update Human docs when:
-
-* UX changes
-* features change
-* workflow changes
-* changelog changes
-* roadmap changes
-
----
-
-# MEGAVAULT SIZE RULE
-
-MegaVault stores lightweight operational documentation only.
-
-Forbidden in MegaVault:
-
-* huge files
-* raw dumps
-* massive logs
-* complete snapshots
-* archives
-* databases
-* reports hundreds of MB large
-
-Every single file in MegaVault must stay at most a few MB.
-
-If analysis generates large output:
-
-1. Store the large artifact outside MegaVault.
-2. Add only a compact MegaVault summary.
-3. Summary must include external path, date, purpose and operational notes.
-
-Before every MegaVault commit or push:
-
-1. List staged files with sizes.
-2. Block the commit if any staged file exceeds a few MB.
-3. Do not use Git LFS for MegaVault unless the user explicitly changes this protocol.
-
----
-
-
-# MEGAVAULT GIT SYNC RULE
-
-If any file under MegaVault/ai or MegaVault/human is modified:
-
-1. Run git status in the MegaVault repository.
-2. Commit the MegaVault changes with a clear descriptive message.
-3. Run git push for the MegaVault repository.
-4. Include the MegaVault commit hash in the final report.
-
-If git push cannot be completed because of network, credentials, conflicts, remote rejection or any other error:
-
-* do not report success silently
-* preserve local changes
-* report the exact failure
-* report whether commit succeeded locally
-* report the manual command needed to finish the sync
-
-MegaVault documentation changes are incomplete until committed and pushed, unless the user explicitly requested local-only changes.
-
----
-
-# VALIDATION CHECKLIST
-
-Every project must have:
-
-metadata
-ai_doc
-human docs
-working links
-
-Every AI doc must contain:
-
-META
-PURPOSE
-STACK
-MAP
-ARCH
-FLOW
-INV
-BUILD
-TEST
-DATA
-DNB
-BUG
-RISK
-ROAD
-LINK
-OPEN
-
-Missing section = failure.
-
----
-
-# SUCCESS CRITERION
-
-A fresh Codex session should understand:
-
-* purpose
-* architecture
-* storage
-* invariants
-* risks
-* build
-* test
-* roadmap
-
-after reading:
-
-1. project.metadata.json
-2. ai/projects/<slug>.md
-
-without repository-wide exploration.
-
-
----
-
-# NEW PROJECT WORKFLOW
-
-Mandatory order:
-
-1. Create project.metadata.json
-2. Create AI doc
-3. Create Human overview
-4. Create Human roadmap
-5. Create Human changelog
-6. Create Human troubleshooting
-7. Create bidirectional links
-8. Commit MegaVault
-9. Push MegaVault
-
-Feature work starts only after documentation baseline exists.
-
----
-
-# UNDOCUMENTED EXISTING PROJECT WORKFLOW
-
-Mandatory order:
-
-1. Inspect repository
-2. Identify entrypoints
-3. Identify architecture
-4. Identify storage
-5. Identify build/test process
-6. Create metadata
-7. Create AI doc
-8. Create Human docs
-9. Mark unknowns as UNKNOWN
-10. Commit MegaVault
-11. Push MegaVault
-
-Feature work starts only after documentation baseline exists.
-
----
-
-# MEGAVAULT CLEAN STATE RULE
-
-MegaVault must never be left in a dirty state between tasks.
-
-Before starting any new task involving MegaVault:
-
-1. Check git status.
-2. Check local commits ahead of origin.
-3. Check pending pushes.
-
-If dirty state exists:
-
-1. Resolve it first.
-2. Push pending MegaVault commits.
-3. Report any failure.
-4. Do not continue normal project work until MegaVault state is clean.
-
-Clean state definition:
-
-git_status=clean
-unpushed_commits=0
-uncommitted_changes=0
-branch_sync=origin
-
-Dirty MegaVault state is a protocol violation.
-
----
-
-# TASK COMPLETION RULE
-
-A task touching MegaVault is not complete until:
-
-1. Documentation updated.
-2. Changes committed.
-3. Changes pushed.
-4. Push verified.
-5. Commit hash reported.
-
-Final report must include:
-
-MEGAVAULT_STATUS=clean
-MEGAVAULT_COMMIT=<hash>
-MEGAVAULT_PUSH=success
-
----
-
-# AI DOC LANGUAGE SPEC
-
+VERSION=6
+STATUS=FINAL_PERMANENT
+MODE=codex_first
 FORMAT=ultracompressed
-STYLE=operational
-PROSE=forbidden
-FILLER=forbidden
+AUDIENCE=codex
+PRIMARY_OUTPUT=operational_knowledge
+HUMAN_READABILITY=secondary
+PROSE=minimal
 NARRATIVE=forbidden
+FILLER=forbidden
 
-Allowed:
+PURPOSE=global_doc_constitution
+GOAL=max_decision_quality,max_safety,max_reuse,min_token_waste,min_redundancy,max_recovery_speed
+SCOPE=all_projects,all_codex_tasks,all_megavault_docs
+AUTHORITY=mandatory
 
-key=value
-lists
-checklists
-paths
-commands
-identifiers
-abbreviations
+# CORE
+P1=ai_vault_authoritative
+P2=human_vault_derived
+P3=legacy_docs_historical
+P4=1_ai_doc_per_project
+P5=max_useful_info_density
+P6=no_duplicate_truths
+P7=no_invented_knowledge
+P8=doc_debt=tech_debt
+P9=code_reality>doc_assumptions
+P10=metadata+ai_doc=>productive_codex
+P11=clean_git_state_required
+P12=docs_update_before_final_report
+P13=reuse_discovery_before_rewrite
+P14=archive_default_delete
+P15=tooling_autonomy_allowed
+P16=project_branch_documented
+P17=large_artifacts_outside_megavault
+P18=unknown_explicit
+P19=human_docs_not_operational_source
+P20=final_report_must_include_sync_state
 
-Rule:
+# SOURCE_PRIORITY
+SRC_ORDER=project.metadata.json>ai_doc>repo_code>human_docs>legacy_docs
+CONFLICT_RESOLUTION=metadata>ai_doc>code>human>legacy
+IF_CONFLICT=report+prefer_higher_priority
+IF_DOC_STALE=update_from_code
+IF_UNKNOWN=mark_UNKNOWN
+INVENT_FACTS=forbidden
 
-1 line = 1 operational fact
+# CODEX_ENTRY
+ENTRY_ORDER=megavault_clean_check>metadata>ai_doc>task_relevant_files>reuse_discovery>implementation
+ENTRY_FORBID=repo_wide_scan_before_ai_doc,human_docs_as_operational_source,legacy_as_primary_source,blind_code_copy
+ENTRY_ALLOW=targeted_source_inspection_after_ai_doc,targeted_legacy_if_needed,targeted_archive_reuse
 
-Example:
+# MEGAVAULT_CLEAN_STATE
+CLEAN_STATE_REQUIRED=before_task+after_task
+PRE_TASK_CHECK=git_status,branch,unpushed_commits,uncommitted_changes,remote_sync
+CLEAN_DEF=git_status_clean+unpushed_commits_0+uncommitted_changes_0+branch_synced_origin
+DIRTY_STATE=protocol_violation
+IF_DIRTY=resolve_first,push_pending,report_failure,block_normal_work_until_clean
+IF_PUSH_FAIL=preserve_changes,report_exact_error,report_local_commit_status,report_manual_sync_cmd
+FINAL_REQ=MEGAVAULT_STATUS=clean,MEGAVAULT_COMMIT=<hash>,MEGAVAULT_PUSH=success
 
-DB=Room
-Schema=v12
-Backup=validate_before_swap
+# MEGAVAULT_GIT_SYNC
+ON_ANY_MEGAVAULT_CHANGE=git_status>stage>size_check>commit>push>verify>report_hash
+DOC_CHANGE_COMPLETE_ONLY_IF=committed+pushed+verified
+LOCAL_ONLY_ALLOWED=only_if_user_explicit
+COMMIT_MSG=clear_descriptive
+PUSH_REQUIRED=yes
+HASH_REQUIRED=yes
+SILENT_PUSH_FAILURE=forbidden
 
-Not:
+# SIZE_POLICY
+MEGAVAULT_CONTENT=lightweight_operational_docs_only
+MAX_FILE_SIZE=few_MB
+FORBID_IN_MEGAVAULT=huge_files,raw_dumps,massive_logs,complete_snapshots,archives,databases,large_reports,binary_blobs
+IF_LARGE_OUTPUT=store_outside_megavault+compact_summary
+SUMMARY_REQ=external_path,date,purpose,operational_notes
+PRE_COMMIT_SIZE_CHECK=list_staged_files_with_sizes
+OVERSIZE_BLOCKS_COMMIT=yes
+GIT_LFS=forbidden_unless_user_explicit
 
-"The application uses Room and stores user data locally."
+# DOC_ARCHITECTURE
+AI_DOCS=dev/ai/*
+HUMAN_DOCS=dev/human/*
+AI_PURPOSE=execution
+HUMAN_PURPOSE=comprehension
+AI_SOURCE=authoritative
+HUMAN_SOURCE=derived
+HUMAN_AS_OPERATIONAL_SOURCE=forbidden
+LEGACY_SOURCE=historical_only
+CONFLICT=ai_wins_over_human
 
+# PROJECT_REQUIRED_FILES
+PROJECT_REQ=project.metadata.json,ai_doc,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
+MISSING_PROJECT_REQ=doc_bug
+PROJECT_METADATA_REQ=slug,name,repo,branch,project_type,status,ai_doc,human_overview,created_at,updated_at
+METADATA_BRANCH_REQUIRED=yes
+METADATA_MISSING_BRANCH=metadata_bug
 
+# AI_DOC_FORMAT
+AI_DOC_ONE_FILE=yes
+AI_DOC_REQ=META,PURPOSE,STACK,MAP,ARCH,FLOW,INV,BUILD,TEST,DATA,DNB,BUG,RISK,ROAD,LINK,OPEN
+AI_DOC_OPT=DECISIONS,RELEASE,PERF,SECURITY,INTEGRATIONS,REUSE,OPS,SEC,OBSERVABILITY
+MISS_AI_SECTION=doc_bug
+AI_DOC_EXTENSION=.md
+AI_DOC_FORMAT=ultracompressed_operational
 
----
+# AI_DOC_LANGUAGE
+LANG=key_value,lists,checklists,paths,commands,ids,abbreviations
+LINE_RULE=1_line=1_operational_fact
+LINE_MUST_ANSWER=what|where|how|why|risk|invariant|command|dependency|status
+IF_LINE_ANSWERS_NONE=delete
+PROSE=avoid
+INTRO=forbidden
+TUTORIAL=forbidden
+MARKETING=forbidden
+FILLER=forbidden
+REPEATED_TRUTH=forbidden
+COMPRESSION_GOAL=max_useful_info_per_token
+COMPRESSION_FORBID=removing_operational_knowledge
 
-# GIT BRANCH DOCUMENTATION RULE
+# AI_DOC_EXAMPLES
+BAD="The application uses Room to store user data."
+GOOD=DB=Room
+BETTER=DB=Room;Schema=v10;Backup=validate_before_swap
+BAD_INVENTORY=src/,test/,build/,assets/
+GOOD_MAP=entry=MainActivity.kt;import=ImportManager.kt;timeline=TimelineViewModel.kt
 
-Every project metadata and AI doc must document the operational Git branch.
+# MAP_RULE
+MAP_REQ=entry,ui,core,db,tests,scripts,avoid
+MAP_FORBID=full_repo_inventory
+MAP_SCOPE=development_critical_locations_only
 
-Required:
+# ARCH_FLOW_RULE
+ARCH=components,responsibilities,boundaries
+FLOW=data_flow,event_flow,critical_workflows
+ARCH_NOT=folder_tree
+FLOW_REQ=critical_user_paths,critical_data_paths,critical_failure_paths
 
-GIT:
-repo=<repository>
-branch=<primary_operational_branch>
+# INVARIANT_RULE
+INV=highest_value_section
+INV_TYPES=arch,data,ux,backup,migration,version,i18n,security,perf,ops
+MISS_INV=doc_bug
+INV_FORMAT=<type>=<must_never_break>
+EXAMPLE=data=Tags_shared(Session,Event)
+EXAMPLE=backup=validate_before_swap
+EXAMPLE=version=monotonic_only
 
-If multiple active branches exist:
+# DNB_RULE
+DNB=do_not_break
+DNB_CONTAINS=fragile_systems,regression_prone_flows,historical_landmines
+MISS_DNB=doc_bug
+DNB_FORMAT=item=risk|why|test
 
-branch_main=<branch>
-branch_release=<branch>
-branch_hotfix=<branch>
+# BUG_RULE
+BUG_CONTAINS=active_bugs,known_regressions,historical_failures
+BUG_FORMAT=issue,cause,workaround,status
+CAUSE_UNKNOWN_ALLOWED=yes
+INVENTED_CAUSE=forbidden
 
-Codex must:
+# RISK_RULE
+RISK_CONTAINS=data_loss,security,perf,ux,ops,build,release
+RISK_FORMAT=risk,trigger,mitigation,test
+MISS_CRITICAL_RISK=doc_bug
 
-1. Read documented branch before work.
-2. Verify current branch matches documentation.
-3. Update documentation if workflow changes.
-4. Report branch mismatches.
+# ROAD_RULE
+ROAD=now,next,later
+ROAD_ALLOWED=actionable_work_only
+ROAD_FORBID=dreams,vague_aspirations
 
-Missing operational branch documentation = documentation bug.
+# OPEN_RULE
+OPEN=unresolved_conflicts,missing_info,stale_docs,arch_uncertainty,decision_needed
+OPEN_CLOSE_WHEN_RESOLVED=yes
 
----
+# DATA_RULE
+DATA_REQ_WHEN_APPLICABLE=DB,Schema,Backup,Restore,Import,Export,Migration,Retention,Paths
+STORAGE_RULE_MISSING=doc_bug
+DATA_LOSS_RISK_MUST_DOC=yes
 
-# PROJECT METADATA REQUIREMENT
+# BUILD_TEST_RULE
+BUILD_REQ=cmd,env,requirements
+TEST_REQ=unit,integration,smoke,device
+UNKNOWN_ALLOWED=yes
+INVENTED_COMMAND=forbidden
+TEST_OUTPUT_SUMMARY_REQUIRED=yes
 
-project.metadata.json must include:
+# HUMAN_DOC_RULE
+HUMAN_REQ=overview,features,roadmap,changelog,troubleshooting
+HUMAN_STYLE=explain_for_user
+HUMAN_DERIVED_FROM=ai_doc+code_reality
+HUMAN_MAY_EXPLAIN=yes
+HUMAN_MUST_NOT_OVERRIDE_AI=yes
 
-repo
-branch
-project_type
-status
-ai_doc
-human_overview
+# LINK_RULE
+AI_LINK_REQ=metadata,human_docs,legacy_docs,repo
+HUMAN_LINK_REQ=ai_doc,metadata,legacy_docs,repo
+BROKEN_LINK=doc_bug
+BIDIRECTIONAL_LINKS_REQUIRED=yes
 
-Missing branch field = metadata bug.
+# UPDATE_RULE
+UPDATE_AI_WHEN=arch,db,build,tests,import_export,backup,versioning,release,ops,security,integrations,branch,critical_dependencies
+UPDATE_HUMAN_WHEN=ux,features,workflow,changelog,roadmap,troubleshooting
+END_OF_TASK_DOC_CHECK=mandatory
+IF_DOCS_NEED_UPDATE=update_before_final_report
+DOC_SKIP_ALLOWED=only_if_no_relevant_change
+DOC_SKIP_REPORT=state_no_doc_change_needed
 
+# NEW_PROJECT_WORKFLOW
+NEW_PROJECT_ORDER=clean_check>create_metadata>create_ai_doc>create_human_overview>create_human_roadmap>create_human_changelog>create_human_troubleshooting>create_links>reuse_discovery>commit>push
+FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
+NEW_PROJECT_MUST_SEARCH_ARCHIVE=yes
+NEW_PROJECT_MUST_SEARCH_SIMILAR_ACTIVE=yes
 
----
+# UNDOCUMENTED_EXISTING_PROJECT_WORKFLOW
+UNDOC_ORDER=clean_check>inspect_repo_targeted>identify_entrypoints>identify_arch>identify_storage>identify_build_test>identify_branch>create_metadata>create_ai_doc>create_human_docs>mark_unknowns>commit>push
+FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
+REPO_WIDE_SCAN_ALLOWED=only_if_targeted_inspection_insufficient
+UNKNOWN_NOT_GUESS=yes
 
-# PROJECT DELETION RULE
+# BRANCH_RULE
+BRANCH_DOC_REQUIRED=yes
+AI_DOC_GIT_REQ=repo,branch
+IF_MULTI_BRANCH=branch_main,branch_release,branch_hotfix
+BEFORE_WORK=read_branch_doc+verify_current_branch
+BRANCH_MISMATCH=report+ask_or_fix_if_obvious
+BRANCH_WORKFLOW_CHANGE=update_docs
+MISS_BRANCH_DOC=doc_bug
 
-Default action = archive.
+# PROJECT_DELETE_RULE
+DELETE_DEFAULT=archive
+DELETE_REQUEST_INTERPRETATION=archive_unless_explicit_purge
+ARCHIVE_ACTIONS=remove_active_code_if_requested,move_ai_docs_to_archive,move_human_docs_to_archive,set_STATUS_archived,update_indexes,commit,push
+ARCHIVE_STATUS=archived
+ARCHIVE_PREFERRED=yes
+PURGE=exceptional
+PURGE_REQUIRES=explicit_request+final_confirmation
+PURGE_ACTIONS=delete_code,delete_repo,delete_ai_docs,delete_human_docs,remove_index_refs,commit,push
+PURGE_WITHOUT_CONFIRMATION=forbidden
 
-Project deletion requests must be interpreted as archive unless the user explicitly requests permanent destruction.
+# ARCHIVE_DISCOVERY_RULE
+ARCHIVE_INDEX_REQ=ai/archive/ARCHIVE_INDEX.md,human/archive/ARCHIVE_INDEX.md
+ARCHIVE_ENTRY_REQ=slug,old_repo,status,archived_at,reason,keywords,domain,stack,former_ai_doc,former_human_docs,reuse_notes
+BEFORE_NEW_PROJECT_READ=active_project_index,archive_index
+ARCHIVE_SEARCH_BY=keywords,domain,stack,feature,dependency
+REPORT_ARCHIVE_MATCHES=yes
+REUSE_ARCHIVE_KNOWLEDGE_WHEN_RELEVANT=yes
+MISSING_ARCHIVE_INDEX=doc_bug
 
-ARCHIVE:
+# REUSE_DISCOVERY_RULE
+REUSE=encouraged
+REWRITE=last_resort
+REUSE_SEARCH_ORDER=active_index>archive_index>similar_ai_docs>relevant_source
+REUSE_SCOPE=architecture_patterns,scripts,build_setup,data_models,tests,ui_patterns,automation_logic,error_handling,ops_patterns
+REUSE_RULES=reuse>rewrite,targeted_search>global_exploration,adapt>blind_copy,document_reuse,report_source_project
+REUSE_FORBID=blind_copy,unbounded_exploration,repo_wide_scan_without_need
+REUSE_CHECK_REQUIRED_BEFORE=major_feature,new_project,refactor,tooling,automation
+MISS_REUSE_CHECK=process_bug
+EXTERNAL_CODE_REUSE=verify_license_or_ownership
 
-1. Remove active code/repository if requested.
-2. Move AI docs to archive.
-3. Move Human docs to archive.
-4. Mark metadata:
+# TOOLING_AUTONOMY_RULE
+TOOLING_AUTONOMY=yes
+CODEX_MAY=install,update,upgrade,configure,repair
+TOOLING_ALLOWED=packages,SDKs,CLIs,build_tools,compilers,language_runtimes,linters,formatters,test_frameworks,device_drivers,IDE_plugins,project_dependencies
+TOOLING_CONDITIONS=prefer_project_local,prefer_existing_package_manager,avoid_duplicates,document_significant_installs,document_critical_deps,update_build_setup_docs,verify_success
+IF_TOOL_OUTDATED=update+retest
+IF_MULTIPLE_APPROACHES=choose_min_maintenance
+MISSING_TOOLING_NOT_STOP_REASON=yes
+UNNECESSARY_DUPLICATE_TOOLING=tech_debt
 
-STATUS=archived
+# TOOL_DISCOVERY_RULE
+BEFORE_INSTALL=check_existing_tool,check_project_docs,check_megavault_docs,check_archive
+IF_EQUIVALENT_MAINTAINED_TOOL_EXISTS=reuse
+REUSE>REINSTALL
 
-5. Update MegaVault indexes.
+# SYSTEM_IMPROVEMENT_RULE
+SYSTEM_IMPROVEMENT_ALLOWED=yes_unless_user_forbids
+ALLOW_WHEN=increases_task_success_probability
+SYSTEM_IMPROVEMENT_EXAMPLES=install_missing_SDKs,repair_toolchains,update_obsolete_build_tools,fix_permissions,repair_venvs,install_android_tooling,install_python_packages,install_linux_packages
+DOC_SYSTEM_CHANGES_WHEN=affect_future_project_work
 
-PURGE:
+# SECURITY_SAFETY_RULE
+SECRET_HANDLING=never_commit_secrets
+SECRET_IF_FOUND=report_redacted+do_not_expose
+CREDENTIALS=do_not_print
+DESTRUCTIVE_ACTIONS=require_explicit_user_intent
+DATA_DELETION=backup_or_confirm_unless_user_explicit
+PERMISSIONS_CHANGE=document_if_persistent
+SERVICE_CHANGE=document_if_persistent
 
-Only when explicitly requested.
+# SERVICE_OPS_RULE
+SERVICE_DOC_WHEN=created,modified,enabled,disabled,removed
+SERVICE_DOC_REQ=name,scope,unit_path,enable_state,start_cmd,stop_cmd,status_cmd,logs_cmd,purpose,risk
+SYSTEMD_USER_VS_SYSTEM=must_specify
+24_7_SERVICE_REQ=restart_policy,boot_behavior,health_check,logs,failure_mode
 
-Before purge:
+# DB_RULE
+DB_PATHS_MUST_DOC=yes
+SQLITE_DB_DEFAULT=/home/ubuntu/sync_root/db/when_applicable
+DB_MIGRATION_DOC_REQUIRED=yes
+DB_BACKUP_BEFORE_RISKY_CHANGE=yes
+DB_SCHEMA_CHANGE_UPDATE_AI=yes
 
-1. Report assets to be destroyed.
-2. Require confirmation.
+# VERSIONING_RULE
+VERSIONING_DOC_REQUIRED=yes
+MONOTONIC_VERSION_WHEN_PROJECT_RULE_EXISTS=yes
+PATCH_VERSION_MATCH_FILE_APP_DOCS=yes
+VERSION_SKIP=forbidden
+VERSION_LOCATION_DOC=yes
 
-After confirmation:
+# TEST_FINAL_REPORT_RULE
+FINAL_REPORT_REQ=prompt_id_if_available,files_changed,tests_run,test_result,docs_updated,megavault_status,commit_hash,push_status,known_risks,next_steps_if_any
+FINAL_REPORT_FORBID=silent_failures,claim_success_without_test,claim_push_without_push
+IF_PARTIAL=state_partial+reason+remaining_work
 
-1. Delete code.
-2. Delete repository.
-3. Delete AI docs.
-4. Delete Human docs.
-5. Remove index references.
+# VALIDATION
+VALIDATE_PROJECT=metadata_exists,ai_doc_exists,human_docs_exist,links_work,branch_doc_exists,clean_git_state
+VALIDATE_AI_DOC=required_sections_present,inv_present,dnb_present,data_rules_present,build_test_present,links_present
+VALIDATE_MEGAVAULT=small_files,no_dirty_state,pushed
+FAIL_ON_MISSING_REQUIRED=yes
 
-Archive is preferred.
-Purge is exceptional.
-
----
-
-# ARCHIVE DISCOVERY RULE
-
-MegaVault must maintain archive indexes.
-
-Required files:
-
-ai/archive/ARCHIVE_INDEX.md
-human/archive/ARCHIVE_INDEX.md
-
-Each archived project entry must include:
-
-slug=
-old_repo=
-status=archived
-archived_at=
-reason=
-keywords=
-domain=
-stack=
-former_ai_doc=
-former_human_docs=
-reuse_notes=
-
-Before creating a new project:
-
-1. Read active project index.
-2. Read archive index.
-3. Search archive keywords/domain/stack.
-4. Report possible reusable archived projects.
-5. Reuse knowledge when relevant.
-
-Missing archive index = documentation bug.
+# SUCCESS_CRITERION
+SUCCESS=codex_can_modify_project_after_reading_metadata+ai_doc_without_repo_wide_exploration
+SUCCESS_REQUIRES=purpose,architecture,storage,invariants,risks,build,test,roadmap,branch,reuse_candidates,ops_notes
