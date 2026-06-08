@@ -4,8 +4,8 @@ slug=supercontacts
 path=/home/daniele/codex-workspace/SuperContacts
 remote=https://github.com/gernalix/SuperContacts.git
 branch=codex/prompt-729604-capsule-audit
-verified_commit=fd8ec31
-verified_at=2026-06-08T17:18:10+02:00
+verified_commit=56b0bed
+verified_at=2026-06-08T18:21:11+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
 purpose=Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-d
