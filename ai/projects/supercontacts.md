@@ -4,8 +4,8 @@ slug=supercontacts
 path=/home/daniele/codex-workspace/SuperContacts
 remote=https://github.com/gernalix/SuperContacts.git
 branch=codex/prompt-729604-capsule-audit
-verified_commit=3daebbd
-verified_at=2026-06-06T23:50:55+02:00
+verified_commit=fd8ec31
+verified_at=2026-06-08T17:18:10+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
 purpose=Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-d
@@ -30,6 +30,7 @@ entry=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:SuperCo
 data=app/src/main/java/com/supercontacts/app/data/backup/BackupModels.kt:BackupState
 data=app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:BackupPreferencesStore,readFolderUri,writeFolderUri,clearFolderUri,readAutoExportEnabled,writeAutoExportEnabled
 data=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:PreparedImport,SuperContactsBackupManager,notifyDatabaseChanged,setBackupFolder,setAutoExportEnabled,exportNow
+data=app/src/main/java/com/supercontacts/app/data/repository/ContactPhotoResolver.kt:canonical_photos_dir,duplicate_photos_merge,legacy_backup_file_resolution
 data=app/src/main/java/com/supercontacts/app/data/local/BackupMetadataEntity.kt:BackupMetadataEntity
 data=app/src/main/java/com/supercontacts/app/data/local/ContactEntity.kt:ContactEntity
 data=app/src/main/java/com/supercontacts/app/data/local/ContactEventEntity.kt:ContactEventEntity
@@ -217,6 +218,7 @@ saved_searches=stored_in_sqlite_deeplink_host_search_filters_query_and_tags; v25
 home_sort=v25_any_criterion_or_ASC_DESC_change_requests_contacts_list_top_scroll; direction_indicator_single_toggle_only
 search_results=v25_name_match_highlighted_in_title_no_duplicate_Name_row_when_same_as_card_title
 backup=whole_sqlite_db_exported_to_saf_photos_only_allowed_external_data
+photo_storage=v29_single_canonical_photos_dir; photos_(N)_detected_transferred_to_photos_then_duplicate_dirs_deleted_only_after_safe_transfer; collisions_preserve_duplicate_dir_to_avoid_photo_loss; Home+Detail_share_ContactPhotoStore_resolver_path
 messaging_links=v27_local_only_generation_from_saved_phone_numbers; no_scraping_no_upload_no_registration_check; statuses=link_generated,unverified,manually_confirmed,manually_rejected,last_scan_at; trigger=ContactsRepository_create_update_phone_incremental; ui_unverified_only_cards; confirmed_quick_action_icon_only; rejected_hidden; manager_dialog_nonpersistent
 address_2=v28_simple_contact_field_type_address_2; complements_Address_like_nickname_style_free_text; stored_in_contact_fields; included_in_form_detail_search_history_backup_export_import_via_db_snapshot; not_geocoded_not_duplicate_address_matching
 history_timestamp=v28_dialog_uses_full_width_adaptive_dialog_compact_DatePicker_and_UTC_date_markers_for_Material3_selectedDateMillis
@@ -233,6 +235,7 @@ CHANGELOG:
 2026-06-02_prompt_620622=v26; messaging_links_auto_generated_for_international_phone_numbers; schema_v12_contact_messaging_links; platforms=whatsapp_telegram_signal_best_effort; no_registration_certification; manual_confirm_reject_preserved_on_identical_scan; ContactMessagingCapsule_owner; repository_incremental_trigger
 2026-06-02_prompt_messaging_links_v27_ux=v27; messaging_links_section_visible_only_for_unverified_decisions; manually_confirmed_moves_to_detail_quick_action_icon; manually_rejected_hidden; manage_messaging_links_dialog_nonpersistent; scanner_db_deeplinks_unchanged
 2026-06-06_prompt_739516=v28; schema_v13; address_2_simple_complement_field; whatsapp_telegram_signal_quick_actions_moved_from_top_bar_to_phone_row_with_recognizable_vector_icons; email_mailto_clickable_without_visibility_false_negative; history_timestamp_dialog_adaptive_and_UTC_date_marker_fixed; Android_Back_matches_internal_Back_on_internal_screens; contact_stats_removed_added_by; nationality_asset_expanded_to_all_249_ISO_alpha2_codes
+2026-06-08_prompt_284619=v29; ContactPhotoResolver canonicalizes photos storage; duplicate photos_(1..N) dirs are merged into photos and removed only after safe transfer; Home+Detail keep shared ContactPhotoStore bitmap path; backup import accepts numbered legacy super_contacts_backup_(N).sqlite candidates and consolidates duplicate photo dirs; tests added for resolver, architecture, Pixel photo device, backup import
 
 VERIFICATION:
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:compileDebugKotlin
