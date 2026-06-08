@@ -9,6 +9,7 @@
 - 2026-06-02: `#384729` ha consegnato v25 Home UX: ricerche salvate fuori dalla lista Home principale, dialog dedicato con apply/copy/delete confermato, scroll top su ogni cambio sort/direzione, titolo ricerca evidenziato senza riga Name duplicata e indicatore ASC/DESC singolo.
 - 2026-06-02: `#620622` ha consegnato v26 link messaggistica: generazione locale WhatsApp/Telegram/Signal da numeri internazionali salvati, trigger incrementale su aggiunta/modifica/rimozione telefono, stato `link_generated`/`unverified` e conferme/rifiuti manuali preservati. La funzione non certifica la presenza reale del numero sulle piattaforme.
 - 2026-06-02: follow-up UX v27: la sezione Messaging Links compare solo per link ancora `unverified`; i link `manually_confirmed` diventano icone rapide nel dettaglio contatto, i `manually_rejected` spariscono dalla scheda, e la gestione stati resta in dialog non permanente.
+- 2026-06-08: `#739284` ha consegnato v29 SAF root contract: la root scelta dall'utente deve contenere solo `photos/` e `super_contacts_backup.sqlite`. Le cartelle `photos (N)` vengono migrate in `photos`, i conflitti foto sono rinominati stabilmente senza perdita dati, l'export sovrascrive il backup canonico e non genera piu file temporanei o backup numerati nella root.
 
 ## Evidenza audit
 - File codice/config/test/script analizzati: 96 / 96.
