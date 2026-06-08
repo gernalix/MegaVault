@@ -18,6 +18,20 @@ Mappa globale dei servizi e timer infrastrutturali verificati sul host Mint il 2
 - Attivi: `mint-cloud-backup-dashboard`, `mint-cloud-backup-monitor`, `remote-recovery-tmux`, `surface-no-suspend`, `transfer-usb-io-watchdog`.
 - Timer system attivi: `disk-usage-monitor`, `dpkg-db-backup`, `mint-cloud-backup`, `mint-cloud-backup-kuma-push`, `mintupdate-automation-autoremove`, `mintupdate-automation-upgrade`.
 
+## Ownership rifinita
+
+- `terminal-logger`: repo locale `/home/daniele/terminal-logger`.
+- `disk-usage-monitor`: repo locale `/home/daniele/disk_usage_monitor`.
+- `mint-xfce-layout-guard`: owner `surface-recovery-hardening`.
+- `x11vnc-real-display`: artefatti runtime in `/home/daniele/remote_real_display_482`.
+- `ActivityWatch`: install locale/tool third-party; nessun repo MegaVault verificato.
+
+## Criticality
+
+- Critical: backup home/cloud, freeze forensics, mint update tracker, transfer USB/I/O guard e throttle.
+- Important: dashboard, terminal logger, WindowTabNotes, ADB Wi-Fi, disk usage monitor, parcel tracker e guard XFCE.
+- Optional/obsolete: watcher o timer disabilitati/legacy come `codex-usage-monitor` e `rsync-uptime-kuma-push`.
+
 ## Vincoli
 
 - I servizi desktop/autostart e i servizi di pacchetti generici non sono elencati come infrastruttura di progetto salvo relazione diretta.

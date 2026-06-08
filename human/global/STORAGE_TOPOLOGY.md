@@ -14,6 +14,14 @@ Topologia storage del Surface verificata con `lsblk` e `HOST_PROFILE`. Il file A
 
 Root, sorgente storica e destinazione backup passano dal SABRENT HB-BUP7 alimentato. Questo rende il singolo hub un punto critico per freeze, backup e transfer I/O.
 
+Vista sintetica:
+
+- Surface: host locale, root su T7 USB.
+- T7 root: critico, qualsiasi stall USB puo' impattare tutto il sistema.
+- 4TB BitLocker source: sorgente storica transfer, da trattare read-only.
+- 6TB backup destination: destinazione backup e transfer, critica.
+- SABRENT hub: punto condiviso e critico per root, sorgente e destinazione.
+
 ## Percorsi critici
 
 - Backup home: `/media/daniele/Seagate6TB2/home-backups`.

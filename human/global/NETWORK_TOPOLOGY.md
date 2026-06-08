@@ -21,6 +21,13 @@ Topologia di rete verificata dal vivo il 2026-06-08 e integrata con `HOST_PROFIL
 - Kuma: `http://150.230.148.128:3001`.
 - SSH live: `UNKNOWN`, timeout durante questa discovery.
 
+Vista sintetica:
+
+- Surface: workstation locale, LAN `192.168.1.97`, Tailscale `100.68.141.10`.
+- Oracle VM: Kuma e backup remoti.
+- Kuma: alerting/storico/visualizzazione, non remediation.
+- Pixel 8a e TCL 6102H: target ADB Wi-Fi, da verificare live prima dell'uso.
+
 ## Vincoli
 
 - Kuma e' storico, alerting e visualizzazione: un DOWN e' un segnale, non una prova conclusiva.

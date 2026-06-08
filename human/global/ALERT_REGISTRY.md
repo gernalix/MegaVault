@@ -19,6 +19,14 @@ Monitor attivi documentati:
 
 Monitor obsoleti disabilitati: `mint_heartbeat`, `rsync-transfer`, `codex-token-watcher`.
 
+## Classificazione operativa
+
+- Critical: backup cloud, backup home, freeze gaps e transfer USB/I/O watchdog.
+- Warning: software audit, PSI memory/I/O, guardian, disk usage, retention e amici_fb.
+- Info: parcel tracker e monitor obsoleti disabilitati.
+- Azione: backup/freeze/storage richiedono investigazione Codex o intervento umano; notifiche spedizione sono principalmente informative.
+- False positive risk: alto per monitor obsoleti disabilitati, medio per job timer e push sotto carico, basso per forensics alive e software audit quando il DB e' leggibile.
+
 ## Telegram
 
 Helper condiviso: `/home/daniele/codex-workspace/scripts/amici_fb/telegram_notify.py`.

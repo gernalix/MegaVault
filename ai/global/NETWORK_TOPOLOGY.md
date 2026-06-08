@@ -35,6 +35,13 @@ kuma_db=/opt/uptime-kuma/data/kuma.db
 ssh_key=/home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key
 live_ssh_status=UNKNOWN_timeout_2026-06-08
 
+SYNTHETIC_VIEW:
+node=Surface;role=local_workstation;lan=192.168.1.97;tailscale=100.68.141.10
+node=Oracle_VM;role=Kuma+backup;addr=150.230.148.128;kuma=http://150.230.148.128:3001
+node=Kuma;role=alert_history_visualization;remediation=no
+node=Pixel_8a;role=ADB_Wi-Fi;addr=192.168.1.37;current=verify_live_before_use
+node=TCL_6102H;role=ADB_Wi-Fi;addr=192.168.1.200;current=verify_live_before_use
+
 ANDROID_NETWORK:
 device=Pixel_8a;ip=192.168.1.37;role=ADB_Wi-Fi;current=not_connected_at_2026-06-07_from_HOST_PROFILE
 device=TCL_6102H;ip=192.168.1.200;role=ADB_Wi-Fi;current=adb_empty_at_2026-06-07_from_HOST_PROFILE

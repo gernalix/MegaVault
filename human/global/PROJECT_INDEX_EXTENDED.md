@@ -15,9 +15,12 @@ Mappa relazionale tra progetti, servizi, DB, dashboard, monitor e alert. La list
 - `oracle-uptime-kuma`: runtime Uptime Kuma remoto, DB `kuma.db`, dashboard Oracle.
 - `parcel-tracker`: `parcel-tracker.service`, `parcel-tracker.timer`, `parcel_tracker.sqlite3`, Kuma e Telegram.
 - `surface-recovery-hardening`: watchdog/throttle/recovery services, monitor rsync-transfer disabilitato, alert Telegram watchdog.
+- `terminal-logger`: servizi/timer user del logger, DB `terminal_logger.sqlite`, repo `/home/daniele/terminal-logger`.
 - `windowtabnotes`: `windowtabnotes.service`, `windowtabnotes.sqlite3`.
 - `backup_docs`: home backup timers e due monitor Kuma.
+- `disk-usage-monitor`: service/timer system, DB `/home/daniele/sync_root/db/disk_usage_monitor.sqlite`, Kuma/Telegram e tab dashboard.
+- `x11vnc-real-display`: service user per display fisico, runtime in `/home/daniele/remote_real_display_482`.
 
 ## Senza relazione runtime verificata
 
-I progetti Android app-only (`SuperContacts`, `MultiTimeTracker`, `Soldi`) non hanno servizi host verificati in questa discovery. Alcuni workspace Oracle o report-only restano `UNKNOWN` perche' SSH verso la VM e' andato in timeout.
+I progetti Android app-only (`SuperContacts`, `MultiTimeTracker`, `Soldi`) non hanno servizi host verificati in questa discovery. ActivityWatch resta tool locale third-party senza repo MegaVault verificato. Alcuni workspace Oracle o report-only restano `UNKNOWN` perche' SSH verso la VM e' andato in timeout.

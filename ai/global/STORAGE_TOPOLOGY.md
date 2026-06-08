@@ -34,6 +34,13 @@ port1=Samsung_PSSD_T7_Shield_root_Linux
 port2=Seagate_ST4000LM024_4TB_BitLocker_source
 port3=Seagate_ST6000DM003_6TB_backup_destination
 
+SYNTHETIC_VIEW:
+node=Surface;role=host;storage=root_on_T7_USB
+node=T7_root;device=/dev/sda;criticality=critical;risk=host_freeze_if_USB_hub_or_disk_stalls
+node=4TB_BitLocker_source;device=/dev/sdb2;criticality=important;mode=readonly_required
+node=6TB_backup_destination;device=/dev/sdc1;criticality=critical;mount=/media/daniele/Seagate6TB2
+node=SABRENT_HB-BUP7;criticality=critical;role=shared_USB_path_for_root_source_backup
+
 PROJECT_STORAGE_RELATIONS:
 project=mint-cloud-backup;source=/;destination=Backblaze_B2_restic;state=/var/lib/mint-cloud-backup;cache=/var/cache/mint-cloud-backup/restic
 project=backup_docs;source=/home/daniele;destination=/media/daniele/Seagate6TB2/home-backups;service=home-incremental-backup.service
