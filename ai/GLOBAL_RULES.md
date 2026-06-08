@@ -17,6 +17,13 @@
 - HOST_PROFILE_AI: [global/HOST_PROFILE.md](global/HOST_PROFILE.md)
 - HOST_PROFILE_HUMAN: [../human/global/HOST_PROFILE.md](../human/global/HOST_PROFILE.md)
 - HOST_PROFILE_REQUIRED_FOR: performance, monitoring, automation, service, system tuning, Android tooling, backup, storage, Linux Mint, freeze investigations.
+- SERVICE_REGISTRY_AI: [global/SERVICE_REGISTRY.md](global/SERVICE_REGISTRY.md)
+- DATA_REGISTRY_AI: [global/DATA_REGISTRY.md](global/DATA_REGISTRY.md)
+- NETWORK_TOPOLOGY_AI: [global/NETWORK_TOPOLOGY.md](global/NETWORK_TOPOLOGY.md)
+- STORAGE_TOPOLOGY_AI: [global/STORAGE_TOPOLOGY.md](global/STORAGE_TOPOLOGY.md)
+- ALERT_REGISTRY_AI: [global/ALERT_REGISTRY.md](global/ALERT_REGISTRY.md)
+- SOFTWARE_INVENTORY_AI: [global/SOFTWARE_INVENTORY.md](global/SOFTWARE_INVENTORY.md)
+- PROJECT_INDEX_EXTENDED_AI: [global/PROJECT_INDEX_EXTENDED.md](global/PROJECT_INDEX_EXTENDED.md)
 
 ## Write Policy
 - Do not delete legacy docs casually.
@@ -28,4 +35,4 @@
 ## Next-Prompt Rule
 For every future Codex prompt inside an indexed repo: `ai/MEGAVAULT_PROTOCOL.md` -> `ai/global/HOST_PROFILE.md` -> `dev/project.metadata.json` -> `ai_doc` -> task files -> legacy only if the AI doc lacks required history.
 
-LAST_UPDATED: 2026-06-07T19:10:00+02:00 by #847261
+LAST_UPDATED: 2026-06-08T06:40:00+02:00 by #845317
