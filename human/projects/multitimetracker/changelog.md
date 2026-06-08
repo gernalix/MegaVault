@@ -9,6 +9,15 @@
 - 2026-06-01: `#539824` capsulizzazione: aggiunti SessionOwner owner API, QUICK_EVENTS/CHAINS/CSV ImportExport owner mutation, snapshot ALERTS boundary e guardrail estesi; commit app `15c1d2246bf641bd21b69d53f7a5a526b900f545`.
 - 2026-06-01: `#728419` capsulizzazione: eliminato il bridge AUDIT_LOG da MainViewModel; `AuditLogCapsuleViewModel` possiede filtri, refresh eventi, clear, undo e state audit log; commit app `d7f347e155e32757a23a968391fbcd5b15fe4060`.
 - 2026-06-01: `#462918` stabilizzazione post-capsulizzazione: audit ha trovato SINCE_WHEN/LifePeriod ancora root-owned; aggiunta `SinceWhenCapsuleViewModel` con boundary/test e validazione Pixel clone; commit app `7186e9a22041582bf903e6545d4b722bf61bea37`.
+- 2026-06-08: `#394817` patch v526 performance Eventi: refresh DB Eventi spostato fuori dallo startup e griglia Eventi resa lazy/keyed per evitare layout di intere sezioni durante lo scroll.
+
+## v526 prompt #394817
+- Causa trovata: la tab Events usava `LazyColumn`, ma ogni sezione conteneva una `FlowRow` che componeva e misurava tutte le card della sezione; con molte card la laziness era solo per sezione, non per item.
+- Causa startup trovata: `MainViewModel.initialize` lanciava sempre `quickEventsCapsule.refreshFromDb` subito dopo l'avvio, aggiornando lo stato globale anche quando l'utente restava su Now.
+- Correzione: Events usa `LazyVerticalGrid` a 2 colonne con header full-span e chiavi stabili per sezioni, template, macro e recent entries; le mappe campi/template/macro sono preparate con `remember`.
+- Correzione: il refresh SQLite screen-bounded degli Events parte in IO quando si apre la schermata Eventi, con trace clone `quick_events_screen_snapshot`.
+- Misure Pixel clone: baseline cold 376/252/220 ms, warm 61/39/37 ms; post-fix cold 457/222/221 ms, warm 43/65/46 ms. Il primo post cold includeva reinstall recente; i run 2-3 restano ~221 ms.
+- Test Pixel clone: v526 installato come `com.example.multitimetracker.devicetest`; tap evento, menu tre puntini, edit button e edit recent entry verificati via UI. `connectedAndroidTest` su Pixel 8a: 53 test, 3 skipped, 0 failed.
 
 ## v525 prompt #483921
 - Sidebar: la voce Impostazioni resta nel drawer e il drawer ora scorre, quindi la voce rimane raggiungibile anche su viewport bassi.

@@ -36,3 +36,10 @@
 - app/src/main/AndroidManifest.xml:17:android:fullBackupContent="@xml/backup_rules"
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:39:import com.example.multitimetracker.export.BackupFolderStore
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:71:// v67: Defensive hardening for session-only schema (some DBs may miss tables despite user_version).
+
+## Performance Events v526
+- Sintomo: scroll Eventi janky con molte chip/card raggruppate.
+- Causa: `LazyColumn` non bastava perche ogni sezione renderizzava una `FlowRow` completa; sezioni grandi componevano molte card insieme.
+- Fix: `QuickEventsScreen` usa `LazyVerticalGrid` con item key stabili e header full-span; stato menu/edit resta locale all'item.
+- Startup: il refresh DB Eventi non parte piu in `MainViewModel.initialize`; parte async quando si apre Events.
+- Verifica: usare clone `com.example.multitimetracker.devicetest`; controllare logcat tag `MTT_STARTUP` per `quick_events_screen_snapshot` solo dopo apertura Events.
