@@ -53,3 +53,10 @@ Storage/I/O:
 - Dalla versione 1.2.0 i sample registrano root device, swap backing device, filesystem, info `/sys/block` e `lsblk` compatto.
 - Se root o swap sembrano stare su Samsung Portable T7 USB, il report lo indica esplicitamente.
 - I futuri freeze avranno delta read/write per processo e major page faults; i freeze precedenti restano leggibili ma spesso solo con I/O cumulativo.
+
+Adaptive capture:
+
+- Dalla versione 1.3.0 il servizio resta leggero in modalità normale.
+- Se PSI memory o PSI I/O arriva a 90, oppure se viene rilevato un freeze gap, apre una finestra di cattura di massimo 120 secondi.
+- In quella finestra campiona più spesso e forza delta read/write, major faults, stato T7 e keyword kernel storage/USB.
+- Finita la finestra torna automaticamente alla modalità normale.

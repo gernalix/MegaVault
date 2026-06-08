@@ -10,5 +10,6 @@
 - Evidence bundle esteso: `kernel-storage-keywords.txt` e `io-storage-snapshot.json`.
 - Human report con freeze 24h, PSI, processi dominanti e cause euristiche.
 - `io-report` con freeze reali 24h, top processi I/O, root/swap su T7, errori kernel storage/USB e probabilità browser/swap/T7/filesystem/kernel/altro.
+- Adaptive capture: modalità normale invariata; freeze-capture automatica per PSI memory/io >=90 o freeze gap; durata massima 120s; campionamento 1s solo nella finestra.
 - Guardian separato, whitelist persistente, nessuna azione automatica.
 - Push Kuma per storico/grafici/alerting.
