@@ -26,10 +26,14 @@ Root repository: `WindowTabNotes/`.
 - Test: `PYTHONPATH=system python3 -m unittest tests/test_context_persistence.py`
 - Script/install Chrome: `system/scripts/install.sh --extension-id <chrome_extension_id>`
 - Script/install Firefox: `system/scripts/install-firefox.sh` poi caricare `browser-extension-firefox/manifest.json` da `about:debugging#/runtime/this-firefox`
+- Firefox Developer Edition persistente: `/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes` con profilo dedicato `/home/daniele/.config/windowtabnotes/firefox-developer-profile`
+- Install/verifica Developer Edition: `system/scripts/install-firefox-developer-edition.sh`
+- Test E2E persistente: `WTN_FIREFOX_BINARY=/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes WTN_FIREFOX_PROFILE=/home/daniele/.config/windowtabnotes/firefox-developer-profile WTN_FIREFOX_ADDON_TEMPORARY=0 WTN_FIREFOX_TEST_SECONDS=120 system/scripts/test-firefox-extension.sh`
 
 ## Chrome vs Firefox
 - Chrome/Chromium: manifest in `browser-extension/`, background MV3 `service_worker`, native host con `allowed_origins` e ID unpacked Chrome.
 - Firefox: manifest in `browser-extension-firefox/`, codice comune linkato da `browser-extension/`, background `scripts`, ID Gecko `windowtabnotes@local`, native host in `~/.mozilla/native-messaging-hosts/com.windowtabnotes.host.json` con `allowed_extensions`.
+- Firefox Developer Edition: l'estensione `windowtabnotes@local` e installata permanentemente nel profilo dedicato come `app-profile`, con `xpinstall.signatures.required=false`; Firefox standard resta separato.
 - Verifica Chrome: `system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json`
 - Verifica Firefox: `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json`
 
