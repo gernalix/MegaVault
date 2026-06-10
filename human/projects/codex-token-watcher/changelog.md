@@ -9,3 +9,4 @@
 ## Evidenza audit
 - Runtime autorevole verificato: `/home/daniele/codex-workspace/codex-token-watcher`.
 - Blocco attuale: Cloudflare `Just a moment...` impedisce lettura live quote locale finche' il profilo Chrome dedicato non viene verificato.
+- 2026-06-10 `#482913`: riparato monitor Kuma rosso. Cause verificate: backend browser systemd spingeva `down` per Cloudflare `Just a moment...`; monitor Kuma id `10` aveva intervallo `60s` incompatibile con timer orario; systemd usava `/usr/bin/codex` `0.128.0` invece di `/home/daniele/.npm-global/bin/codex` `0.139.0`; push CLI duplicava query `status/msg/ping`. Stato finale: service CLI-only, Kuma interval `4200s`, heartbeat remoto `status=1`.

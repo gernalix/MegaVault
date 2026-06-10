@@ -29,3 +29,10 @@
 - Non stampare env file o token Telegram/Kuma.
 - Env file deve restare mode `600`.
 - Non tentare bypass Cloudflare, stealth scraping o automazioni della challenge.
+
+## Stato 2026-06-10
+- Service normale: `codex_cli_status_watcher.py once`, non `codex_usage_monitor.py once`.
+- Env richiesto: `CODEX_CLI_BIN=/home/daniele/.npm-global/bin/codex`; `/usr/bin/codex` e' obsoleto e fallisce la config corrente.
+- Kuma monitor: id `10`, nome `codex-token-watcher`, tipo `push`, intervallo `4200s`, retry `300s`.
+- Ultimo stato verificato: SQLite `cli_status_observations` id `4` `status=ok`, Codex `0.139.0`, WebSocket/provider `ok`; Kuma heartbeat remoto `status=1`.
+- Se torna rosso: controllare prima `journalctl --user -u codex-usage-monitor.service -n 40 --no-pager`, poi `sqlite3 ~/.local/share/codex-usage-monitor/codex_usage.sqlite3 'select id,ts_utc,status,codex_bin,codex_version,error from cli_status_observations order by id desc limit 5;'`.

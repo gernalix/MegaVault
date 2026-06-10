@@ -2,95 +2,80 @@ META:
 name=codex-token-watcher
 slug=codex-token-watcher
 path=/home/daniele/codex-workspace/codex-token-watcher
-vm_path=/home/ubuntu/codex-workspace/codex-usage-monitor
 vm_host=ubuntu@150.230.148.128
+vm_role=Uptime_Kuma_endpoint_only
 remote=none
 branch=codex/prompt-384921
 verified_commit=UNKNOWN
-verified_at=2026-06-05T12:36:18+02:00
-protocol=MEGAVAULT_PROTOCOL.md:v3
+verified_at=2026-06-10T19:13:35+02:00
+protocol=MEGAVAULT_PROTOCOL.md:v8
 PURPOSE:
-purpose=Monitor Codex CLI health/status and local Codex session quota cache from Oracle VM without browser automation; persist small redacted logs and SQLite observations; keep Chrome/Playwright only as legacy fallback disabled by default.
+purpose=Monitor Codex CLI health/status and local Codex session quota cache from Linux Mint; persist redacted logs and SQLite observations; push health to Oracle VM Kuma; keep Chrome/Playwright only as legacy manual fallback.
 STACK:
 lang=Python3 stdlib
-source=Codex_CLI
+source=Codex_CLI+local_session_token_count_cache
 db=SQLite
-platform=Oracle_VM_user_systemd
-tools=codex-cli,npm,nodejs,systemd_user_timer
+platform=Linux_Mint_user_systemd
+tools=codex-cli,npm,nodejs,systemd_user_timer,Uptime_Kuma_push
 MAP:
-entry=/home/ubuntu/codex-workspace/codex-usage-monitor/codex_cli_status_watcher.py
-commands=once,status,deep-once,deep-status,human-status,human-status --json
-legacy_browser=/home/ubuntu/codex-workspace/codex-usage-monitor/codex_usage_monitor.py
-local_stage=/home/daniele/codex-workspace/codex-token-watcher
-db=/home/ubuntu/.local/share/codex-usage-monitor/codex_usage.sqlite3
+entry=/home/daniele/codex-workspace/codex-token-watcher/codex_cli_status_watcher.py
+legacy_browser=/home/daniele/codex-workspace/codex-token-watcher/codex_usage_monitor.py
+commands=once,status,deep-once,deep-status,deep-debug-limits,human-status,human-status --json
+db=/home/daniele/.local/share/codex-usage-monitor/codex_usage.sqlite3
 table=cli_status_observations
 deep_table=cli_status_deep_observations
-raw_logs=/home/ubuntu/.local/state/codex-usage-monitor/cli-status-logs
-systemd=/home/ubuntu/.config/systemd/user/codex-usage-monitor.service
-timer=/home/ubuntu/.config/systemd/user/codex-usage-monitor.timer
-env=/home/ubuntu/.config/codex-usage-monitor/codex-usage-monitor.env
+raw_logs=/home/daniele/.local/state/codex-usage-monitor/cli-status-logs
+systemd=/home/daniele/.config/systemd/user/codex-usage-monitor.service
+timer=/home/daniele/.config/systemd/user/codex-usage-monitor.timer
+env=/home/daniele/.config/codex-usage-monitor/codex-usage-monitor.env
+kuma_monitor=Oracle_VM_Uptime_Kuma monitor_id=10 name=codex-token-watcher type=push interval=4200 retry_interval=300
 ARCH:
-arch=Oracle VM authoritative runtime. Normal path is CLI-only: codex doctor --json + codex login status -> redacted raw log -> SQLite cli_status_observations -> optional Kuma push.
-deep=Quota/cache path is local session JSONL only: read newest ~/.codex/sessions/**/*.jsonl event_msg payload type=token_count -> rate_limits/token_usage -> raw selected log -> SQLite cli_status_deep_observations source=cli_status_deep.
-legacy=Chrome/Playwright code remains for manual fallback only; systemd normal path does not call browser, Chrome, Playwright, Cloudflare, or web login.
-FLOW:
-flow=systemd_user_timer_hourly->codex_cli_status_watcher.py once->codex --version->codex login status->codex doctor --json->parse auth/runtime fields->save raw redacted JSON log->insert SQLite row source=cli_status->Kuma if env URL configured.
-deep_flow=manual ./codex_cli_status_watcher.py deep-once->scan ~/.codex/sessions/**/*.jsonl->latest token_count rate_limits->insert source=cli_status_deep.
-human_flow=./codex_cli_status_watcher.py human-status->latest valid cli_status_deep_observations row->human reset text+severity; --json emits same fields for future Kuma/Telegram.
+normal=CLI-only systemd timer; no browser, no Cloudflare, no ChatGPT web scraping in service path.
+flow=timer_hourly->codex_cli_status_watcher.py once->CODEX_CLI_BIN codex --version/login status/doctor --json->redacted raw log->SQLite cli_status_observations->Kuma push.
+deep=manual deep-once reads newest ~/.codex/sessions/**/*.jsonl event_msg payload type=token_count -> cli_status_deep_observations.
+legacy=codex_usage_monitor.py still exists for manual dashboard/Chrome fallback; not used by service because Cloudflare challenge can block it and data becomes non-authoritative.
 INV:
-source=All new rows use source=cli_status.
-deep_source=All deep rows use source=cli_status_deep.
+source=All CLI service rows use source=cli_status.
+deep_source=All quota-cache rows use source=cli_status_deep.
 states=ok,unavailable,parse_error
-systemd=oneshot exits 0 after persisting measurement; monitor truth is SQLite status field, not systemd success alone.
+systemd=oneshot exits 0 after persisting measurement; monitor truth is SQLite status+Kuma heartbeat, not systemd success alone.
 security=Do not read/copy/commit ~/.codex/auth.json; do not store tokens/cookies/API keys; redact stdout/stderr; raw logs capped and retained max 30 timestamped logs plus latest.
-deep_security=Deep collector reads rollout JSONL only, extracts selected rate_limits/token_usage/path/line; no auth file, Authorization header, token, cookie, or API key read.
-data=Historical SQLite data is preserved; new table is additive.
-runtime=VM path is authoritative; Mint local repo is staging/versioning.
-browser=Do not open browser for normal run.
-package=Codex CLI fixed 2026-06-05 by NodeSource nodejs 22.22.3 and npm @openai/codex 0.137.0; stale /usr/local/bin/codex removed; active codex=/usr/bin/codex.
+runtime=Linux Mint local path is authoritative; VM is Kuma only.
+package=Systemd must use CODEX_CLI_BIN=/home/daniele/.npm-global/bin/codex; /usr/bin/codex is stale 0.128.0 and fails current config.
 BUILD:
-cmd=python3 -m py_compile codex_cli_status_watcher.py codex_usage_monitor.py
-deploy=scp script+systemd+docs to VM; install -m 755 script; install -m 644 units; systemctl --user daemon-reload
+cmd=python3 -m py_compile *.py
+deploy=install -m 644 systemd units to ~/.config/systemd/user; systemctl --user daemon-reload; enable --now codex-usage-monitor.timer
 TEST:
-cmd=which codex; file /usr/bin/codex; readlink -f /usr/bin/codex; npm root -g; npm list -g --depth=0; rg installed package; strings native binary; scan ~/.codex paths; sqlite schema; scan session token_count; ./codex_cli_status_watcher.py deep-once; sqlite3 latest deep row; systemctl --user status service/timer
-result=2026-06-05 service code=0/SUCCESS; timer active(waiting), next=2026-06-05T11:00:00Z; latest DB row id=5 status=ok source=cli_status codex_version=0.137.0 auth_mode=chatgpt stored_chatgpt_tokens=1 model=gpt-5.4 websocket_status=ok quota_fields_available=0.
-deep_result=2026-06-05 deep row id=1 status=ok source=cli_status_deep event=/home/ubuntu/.codex/sessions/2026/06/05/rollout-2026-06-05T10-28-35-019e9753-da1e-7283-8b73-90d7c10e921f.jsonl:17 limit_id=codex plan_type=prolite primary_used_percent=10 primary_window_minutes=300 primary_resets_at=1780670242 secondary_used_percent=8 secondary_window_minutes=10080 secondary_resets_at=1781144642 quota_fields_available=1.
-human_result=2026-06-05 human-status output: Status ok; Plan prolite; Limit codex; Primary OK 10.0% window 300m reset tra 3h 13m; Secondary OK 8.0% window 10080m reset tra 5g 14h; JSON mode contains no secrets.
+cmd=python3 -m py_compile *.py; ./codex_cli_status_watcher.py human-status; ./codex_cli_status_watcher.py human-status --json; ./codex_cli_status_watcher.py once; ./codex_cli_status_watcher.py deep-once; systemctl --user start/status service; sqlite3 latest rows; remote Kuma SQLite latest heartbeat.
+result=2026-06-10 systemd service code=0/SUCCESS; cli row id=6 status=ok source=cli_status codex_bin=/home/daniele/.npm-global/bin/codex codex_version=0.139.0 auth_mode=chatgpt stored_chatgpt_tokens=1 model=gpt-5.5 websocket_status=ok provider_reachability_status=ok quota_fields_available=0; Kuma heartbeat monitor_id=10 status=1 msg="codex cli status ok; version=0.139.0".
+deep_result=2026-06-10 deep row id=2 status=ok source=cli_status_deep event=/home/daniele/.codex/sessions/2026/06/10/rollout-2026-06-10T19-14-44-019eb287-7eb0-7a51-bb3e-86bab8260b19.jsonl:92 limit_id=codex plan_type=prolite primary_used_percent=23 primary_remaining_percent=77 secondary_used_percent=54 secondary_remaining_percent=46 quota_fields_available=1.
 DATA:
-db=/home/ubuntu/.local/share/codex-usage-monitor/codex_usage.sqlite3
-table=cli_status_observations columns=id,ts_utc,source,status,codex_bin,codex_version,login_status,auth_mode,auth_configured,stored_chatgpt_tokens,stored_api_key,overall_status,model,model_provider,websocket_status,websocket_summary,provider_reachability_status,provider_reachability_summary,quota_fields_available,quota_fields_json,raw_log_path,error,created_at
-deep_table=cli_status_deep_observations columns=id,ts_utc,source,status,event_timestamp,event_path,event_line,limit_id,limit_name,plan_type,primary_used_percent,primary_window_minutes,primary_resets_at,secondary_used_percent,secondary_window_minutes,secondary_resets_at,credits_json,individual_limit_json,rate_limit_reached_type,token_usage_json,quota_fields_available,quota_fields_json,raw_log_path,error,created_at
-logs=/home/ubuntu/.local/state/codex-usage-monitor/cli-status-logs/YYYYMMDDTHHMMSSZ-cli-status.json; latest-cli-status.json
-deep_logs=/home/ubuntu/.local/state/codex-usage-monitor/cli-status-logs/YYYYMMDDTHHMMSSZ-cli-status-deep.json; latest-cli-status-deep.json
+db=/home/daniele/.local/share/codex-usage-monitor/codex_usage.sqlite3
+logs=/home/daniele/.local/state/codex-usage-monitor/cli-status-logs/YYYYMMDDTHHMMSSZ-cli-status.json; latest-cli-status.json
+deep_logs=/home/daniele/.local/state/codex-usage-monitor/cli-status-logs/YYYYMMDDTHHMMSSZ-cli-status-deep.json; latest-cli-status-deep.json
 human_status=read-only; no new DB rows; reads latest valid cli_status_deep_observations row.
-log_size=observed about 15-16KB each on 2026-06-05; retention=30 timestamped logs
-backup=No historical DB deletion performed.
 DNB:
 dnb=Do not create duplicate project/repo/service names.
-dnb=Do not use Chrome/Playwright/Cloudflare/login web in normal backend.
+dnb=Do not use Chrome/Playwright/Cloudflare/login web in normal service backend.
 dnb=Do not commit DB/logs/env/auth files.
-dnb=Do not store secrets from ~/.codex/auth.json or env files.
+dnb=Do not print Kuma push tokens or Telegram/OpenAI secrets.
 dnb=Do not treat codex status or codex /status as automation-safe; they require TTY and open interactive UI.
 BUG:
-issue=2026-06-05 pre-migration CLI existed at /usr/local/bin/codex but failed with Node v12 SyntaxError top-level await. Fixed by installing NodeSource nodejs 22.22.3 and @openai/codex 0.137.0 under /usr; removed stale /usr/local/bin/codex.
-issue=2026-06-05 codex status and codex /status over non-TTY return Error: stdin is not a terminal; with TTY they open interactive UI and produce no parsable status before timeout.
-issue=2026-06-05 installed JS package has wrapper only; native code is stripped ELF at /usr/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex. Strings show internal fields tokenBudget, usageLimit, resetsAt, planType, but no full readable quota endpoint/path.
+issue=2026-06-10 Kuma red causes: legacy browser service pushed down from Cloudflare `Just a moment...`; Kuma interval was 60s while timer was hourly; systemd resolved stale /usr/bin/codex 0.128.0; CLI push URL appended duplicate status/msg/ping query params and Kuma kept old status. Fixed by CLI-only unit, CODEX_CLI_BIN, query replacement, and Kuma interval 4200s.
+issue=codex status and codex /status over non-TTY return stdin/TTY errors or open interactive UI; not valid for timers.
 RISK:
-risk=Codex CLI 0.137.0 exposes auth/runtime health but not quota/token-budget fields via non-interactive command; watcher once records quota_fields_available=0.
-risk=Deep quota values are cache-derived from session token_count events and can be stale if no Codex session has run recently.
-risk=human-status stale warning threshold defaults to 60 minutes via CODEX_HUMAN_STATUS_STALE_MINUTES.
-risk=doctor --json can take 20-90s or timeout on Codex internal SQLite checks; row status records unavailable while systemd success only means measurement persisted.
-risk=Kuma URL not configured on VM as of 2026-06-05; Telegram helper /home/ubuntu/telegram_notify.py missing.
+risk=Codex CLI exposes auth/runtime health but not quota/token-budget fields via non-interactive command; watcher once records quota_fields_available=0.
+risk=Deep quota values are cache-derived from session token_count events and can be stale if no Codex session has run recently; stale warning threshold defaults to 60m.
+risk=Kuma monitor interval must remain longer than timer cadence; current monitor id=10 interval=4200 retry_interval=300.
 ROAD:
-now=CLI-only watcher deployed on VM; deep local session-cache quota collector available manually; browser backend disabled in service/timer.
+now=CLI-only watcher deployed locally; deep local session-cache quota collector available manually; browser backend disabled in service/timer.
 next=If future Codex CLI exposes non-interactive quota endpoint/command, prefer it over session-cache freshness.
-later=Optional Telegram integration only after helper/env exists on VM; keep secrets outside repo.
+later=Optional Telegram integration only after helper/env exists and secrets remain outside repo.
 LINK:
 meta=../../../codex-token-watcher/dev/project.metadata.json
 human=../../human/projects/codex-token-watcher/overview.md
 legacy=../../../codex-token-watcher/dev/legacy
 repo=../../../codex-token-watcher
 OPEN:
-open=Kuma not configured: no CODEX_USAGE_KUMA_PUSH_URL in /home/ubuntu/.config/codex-usage-monitor/codex-usage-monitor.env on 2026-06-05.
-open=Telegram not configured: /home/ubuntu/telegram_notify.py missing on 2026-06-05.
-open=No non-interactive Codex quota command found in CLI 0.137.0; deep collector reads local session event cache, not a live quota refresh endpoint.
+open=Telegram delivery not retested in 2026-06-10 repair; normal CLI service path does not require Telegram.
+open=No non-interactive Codex quota command found in CLI 0.139.0; deep collector reads local session event cache, not a live quota refresh endpoint.
