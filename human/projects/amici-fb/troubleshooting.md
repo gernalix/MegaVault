@@ -1,5 +1,15 @@
 # amici_fb Troubleshooting
 
+## 2026-06-10: timer parte ma servizio fallisce subito
+- Sintomo: `amici_fb.timer` attivo, `amici_fb.service` falliva con `BrowserType.launch: Executable doesn't exist`.
+- Causa: cache browser Playwright non allineata alla venv; Playwright 1.60.0 cercava `chromium_headless_shell-1223`, ma nel cache era presente solo una build vecchia.
+- Non causa: `EnvironmentFile`; l'unità attiva `amici_fb.service` carica `.env` e la configurazione Telegram era presente.
+- Fix applicato: `.venv/bin/python -m playwright install chromium`.
+- Convenzione finale: usare solo `amici_fb.service` e `amici_fb.timer`; i file repo obsoleti `amici-fb.*` sono stati rimossi.
+- Verifica: `.venv/bin/python -u -X faulthandler amici_fb_task_runner.py --headless`; `systemctl --user start amici_fb.service`; journal con `Snapshot salvato`, `Diff salvato`, `telegram_notify.sent`, `status=0/SUCCESS`.
+- Nota Kuma: un timeout `curl_rc=28` sul push Uptime Kuma e' non fatale se il job ha salvato snapshot/diff ed e' uscito con `status=0/SUCCESS`; verificare separatamente lo stato del monitor.
+- Comando umano solo se inevitabile per sessione Facebook scaduta: eseguire il login secondo la procedura del progetto senza cancellare `fb_storage_state.json` o dati storici.
+
 ## Problemi e sintomi rilevati nel codice
 - _shared/telegram_notify.py:38:raise RuntimeError(
 - _shared/telegram_notify.py:72:except Exception:

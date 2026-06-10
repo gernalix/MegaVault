@@ -9,10 +9,16 @@ Linux Mint user-level Facebook automation that opens Facebook with a browser pro
 - Stack rilevato: Python, Shell, Playwright, UNKNOWN
 
 ## Orientamento rapido
-- Entrypoint: `UNKNOWN`
-- Core/data: `_shared/__init__.py,_shared/telegram_notify.py,amici-fb.service,fb_storage_state.json`
+- Entrypoint: `amici_fb_task_runner.py --headless`
+- Core/data: `_shared/__init__.py,_shared/telegram_notify.py,amici_fb.service,amici_fb.timer,fb_storage_state.json`
 - Test: `UNKNOWN`
 - Script/build: `install_ubuntu_autorun.sh`
+
+## Automazione systemd
+- Unità canoniche: `amici_fb.service` e `amici_fb.timer`
+- Timer: user systemd, `OnCalendar=09:00`, `Persistent=true`
+- Ambiente: `amici_fb.service` carica `/home/daniele/codex-workspace/scripts/amici_fb/.env`
+- Obsoleto: non ricreare `amici-fb.service` o `amici-fb.timer`
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/amici-fb.md)
