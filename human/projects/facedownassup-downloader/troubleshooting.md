@@ -28,3 +28,22 @@ FDA_ABORT_ON_UNAVAILABLE=1 ./fda_downloader.sh --no-partials refresh-test 'https
 ```
 
 Do not paste raw `logs/run-*.log` content into reports; it can contain signed URLs.
+
+## Browser-Real Check
+
+Use this when you need to know whether Chrome itself can play the gallery and whether Chrome receives the same HLS `404` statuses as `yt-dlp`:
+
+```bash
+cd ~/codex-workspace/facedownassup-downloader
+./fda_downloader.sh browser-check 'https://members.facedownassup.com/gallery.php?id=173'
+```
+
+The command does not launch Chrome with remote debugging unless explicitly allowed:
+
+```bash
+FDA_BROWSER_CHECK_LAUNCH=1 ./fda_downloader.sh browser-check 'https://members.facedownassup.com/gallery.php?id=173'
+```
+
+Output report: `state/browser-check-*.txt`.
+
+If the report says `comparison=MATCH_404_SERVER_PLAYLIST_OR_CONTENT` and `FINAL_REPORT=NOT_PLAYABLE`, Chrome and `yt-dlp` both saw `404` on HLS media. Treat that as a content or playlist problem on the server side and do not force or bypass protections.

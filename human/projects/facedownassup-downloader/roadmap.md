@@ -1,5 +1,5 @@
 # facedownassup-downloader Roadmap
 
-- Now: keep the Bash wrapper minimal, local, and safe.
-- Next: add a redacted fragment-range summarizer if repeated HLS 404 diagnostics need faster review.
+- Now: use `browser-check` for Chrome-real HLS status proof when `refresh-test` shows fragment 404.
+- Next: keep redacted report parsing focused on `.m3u8` and HLS segments only.
 - Later: UNKNOWN.
