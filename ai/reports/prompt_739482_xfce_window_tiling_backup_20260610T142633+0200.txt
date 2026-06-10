@@ -1,0 +1,381 @@
+PROMPT=739482
+created_at=2026-06-10T14:26:33+02:00
+host=daniele-Surface-Pro
+
+[env]
+XDG_CURRENT_DESKTOP=XFCE
+DESKTOP_SESSION=xfce
+XDG_SESSION_TYPE=x11
+GDMSESSION=xfce
+DISPLAY=:0.0
+WAYLAND_DISPLAY=
+
+[versions]
+	This is xfwm4 version 4.18.0 (revision 7e7473c5b) for Xfce 4.18
+	Released under the terms of the GNU General Public License.
+	Compiled against GTK+-3.24.41, using GTK+-3.24.41.
+
+	Build configuration and supported features:
+	- Startup notification support:                 Yes
+	- XSync support:                                Yes
+	- Render support:                               Yes
+	- Xrandr support:                               Yes
+	- Xpresent support:                             Yes
+	- X Input 2 support:                            No
+	- Embedded compositor:                          Yes
+	- Epoxy support:                                Yes
+xfce4-session 4.18.3 (Xfce 4.18)
+
+Copyright (c) 2003-2023
+	The Xfce development team. All rights reserved.
+
+Please report bugs to <https://gitlab.xfce.org/xfce/xfce4-session>.
+xfconf-query 4.18.1
+
+Copyright (c) 2008-2023
+	The Xfce development team. All rights reserved.
+
+Please report bugs to <https://gitlab.xfce.org/xfce/xfconf>.
+Distributor ID:	Linuxmint
+Description:	Linux Mint 22.3
+Release:	22.3
+Codename:	zena
+
+[wm_processes]
+   5948 xfce4-session   xfce4-session
+   7003 at-spi2-registr /usr/libexec/at-spi2-registryd --use-gnome-session
+   7066 xfwm4           xfwm4 --display :0.0 --sm-client-id 236e79901-f3da-4774-8821-845e7ede6193
+3666082 bash            /bin/bash -c ts=$(date +%Y%m%dT%H%M%S%z) out=/home/daniele/codex-workspace/MegaVault/ai/reports/prompt_739482_xfce_window_tiling_backup_${ts}.txt {   printf 'PROMPT=739482\n'   printf 'created_at=%s\n' "$(date --iso-8601=seconds)"   printf 'host=%s\n' "$(hostname)"   printf '\n[env]\n'   printf 'XDG_CURRENT_DESKTOP=%s\nDESKTOP_SESSION=%s\nXDG_SESSION_TYPE=%s\nGDMSESSION=%s\nDISPLAY=%s\nWAYLAND_DISPLAY=%s\n' "$XDG_CURRENT_DESKTOP" "$DESKTOP_SESSION" "$XDG_SESSION_TYPE" "$GDMSESSION" "$DISPLAY" "$WAYLAND_DISPLAY"   printf '\n[versions]\n'   xfwm4 --version 2>&1 || true   xfce4-session --version 2>&1 || true   xfconf-query --version 2>&1 || true   lsb_release -a 2>/dev/null || cat /etc/os-release   printf '\n[wm_processes]\n'   ps -eo pid,comm,args | rg -i 'cinnamon|muffin|gnome-shell|marco|xfwm4|metacity|compiz|kwin|mate-panel|xfce4-session|gnome-session|cinnamon-session' || true   printf '\n[xfwm4_all]\n'   xfconf-query -c xfwm4 -lv 2>&1 || true   printf '\n[keyboard_shortcuts_all]\n'   xfconf-query -c xfce4-keyboard-shortcuts -lv 2>&1 || true   printf '\n[panel_relevant]\n'   xfconf-query -c xfce4-panel -lv 2>&1 | rg -i 'workspace|switcher|pager|wrap|edge|corner|hot' || true   printf '\n[pointers_relevant]\n'   xfconf-query -c pointers -lv 2>&1 | rg -i 'edge|workspace|wrap' || true } > "$out" printf '%s\n' "$out"
+3666171 rg              rg -i cinnamon|muffin|gnome-shell|marco|xfwm4|metacity|compiz|kwin|mate-panel|xfce4-session|gnome-session|cinnamon-session
+
+[xfwm4_all]
+/general/activate_action                 bring
+/general/borderless_maximize             true
+/general/box_move                        false
+/general/box_resize                      false
+/general/button_layout                   O|SHMC
+/general/button_offset                   0
+/general/button_spacing                  0
+/general/click_to_focus                  true
+/general/cycle_apps_only                 false
+/general/cycle_draw_frame                true
+/general/cycle_hidden                    true
+/general/cycle_minimized                 false
+/general/cycle_minimum                   true
+/general/cycle_preview                   true
+/general/cycle_raise                     false
+/general/cycle_tabwin_mode               0
+/general/cycle_workspaces                false
+/general/double_click_action             maximize
+/general/double_click_distance           5
+/general/double_click_time               250
+/general/easy_click                      Alt
+/general/focus_delay                     250
+/general/focus_hint                      true
+/general/focus_new                       true
+/general/frame_border_top                0
+/general/frame_opacity                   100
+/general/full_width_title                true
+/general/horiz_scroll_opacity            false
+/general/inactive_opacity                100
+/general/margin_bottom                   0
+/general/margin_left                     0
+/general/margin_right                    0
+/general/margin_top                      0
+/general/maximized_offset                0
+/general/mousewheel_rollup               true
+/general/move_opacity                    100
+/general/placement_mode                  center
+/general/placement_ratio                 20
+/general/popup_opacity                   100
+/general/prevent_focus_stealing          false
+/general/raise_delay                     250
+/general/raise_on_click                  true
+/general/raise_on_focus                  false
+/general/raise_with_any_button           true
+/general/repeat_urgent_blink             false
+/general/resize_opacity                  100
+/general/restore_on_move                 true
+/general/scroll_workspaces               true
+/general/shadow_delta_height             0
+/general/shadow_delta_width              0
+/general/shadow_delta_x                  0
+/general/shadow_delta_y                  -3
+/general/shadow_opacity                  50
+/general/show_app_icon                   false
+/general/show_dock_shadow                true
+/general/show_frame_shadow               true
+/general/show_popup_shadow               false
+/general/snap_resist                     false
+/general/snap_to_border                  true
+/general/snap_to_windows                 false
+/general/snap_width                      10
+/general/theme                           Default
+/general/tile_on_move                    true
+/general/title_alignment                 center
+/general/title_font                      Sans Bold 9
+/general/title_horizontal_offset         0
+/general/title_shadow_active             false
+/general/title_shadow_inactive           false
+/general/title_vertical_offset_active    0
+/general/title_vertical_offset_inactive  0
+/general/titleless_maximize              false
+/general/toggle_workspaces               false
+/general/unredirect_overlays             true
+/general/urgent_blink                    false
+/general/use_compositing                 true
+/general/vblank_mode                     auto
+/general/workspace_count                 4
+/general/workspace_names                 <<UNSUPPORTED>>
+/general/wrap_cycle                      true
+/general/wrap_layout                     true
+/general/wrap_resistance                 10
+/general/wrap_windows                    false
+/general/wrap_workspaces                 false
+/general/zoom_desktop                    true
+/general/zoom_pointer                    true
+
+[keyboard_shortcuts_all]
+/commands/custom/<Alt><Super>s             orca
+/commands/custom/<Alt>F1                   xfce4-popup-applicationsmenu
+/commands/custom/<Alt>F2                   xfce4-appfinder --collapsed
+/commands/custom/<Alt>F2/startup-notify    true
+/commands/custom/<Alt>F3                   xfce4-appfinder
+/commands/custom/<Alt>F3/startup-notify    true
+/commands/custom/<Alt>Print                xfce4-screenshooter -w
+/commands/custom/<Primary><Alt>Delete      xflock4
+/commands/custom/<Primary><Alt>Escape      xkill
+/commands/custom/<Primary><Alt>f           thunar
+/commands/custom/<Primary><Alt>k           /home/daniele/bin/kill-heavy-process
+/commands/custom/<Primary><Alt>l           xflock4
+/commands/custom/<Primary><Alt>m           bash -lc 'cd ~/codex-workspace/WindowTabNotes && system/bin/windowtabnotes dashboard'
+/commands/custom/<Primary><Alt>n           bash -lc 'cd ~/codex-workspace/WindowTabNotes && system/bin/windowtabnotes note-active-window'
+/commands/custom/<Primary><Alt>p           bash -lc 'cd ~/codex-workspace/WindowTabNotes && system/bin/windowtabnotes search-launcher'
+/commands/custom/<Primary><Alt>t           x-terminal-emulator
+/commands/custom/<Primary><Shift>Escape    xfce4-taskmanager
+/commands/custom/<Primary>Escape           xfdesktop --menu
+/commands/custom/<Shift>Print              xfce4-screenshooter -r
+/commands/custom/<Super>e                  thunar
+/commands/custom/<Super>p                  xfce4-display-settings --minimal
+/commands/custom/<Super>r                  xfce4-appfinder -c
+/commands/custom/<Super>r/startup-notify   true
+/commands/custom/HomePage                  exo-open --launch WebBrowser
+/commands/custom/Print                     xfce4-screenshooter
+/commands/custom/Super_L                   xfce4-popup-whiskermenu
+/commands/custom/XF86Display               xfce4-display-settings --minimal
+/commands/custom/XF86Mail                  exo-open --launch MailReader
+/commands/custom/XF86WWW                   exo-open --launch WebBrowser
+/commands/custom/override                  true
+/commands/default/<Alt><Super>s            orca
+/commands/default/<Alt>F1                  xfce4-popup-applicationsmenu
+/commands/default/<Alt>F2                  xfce4-appfinder --collapsed
+/commands/default/<Alt>F2/startup-notify   true
+/commands/default/<Alt>F3                  xfce4-appfinder
+/commands/default/<Alt>F3/startup-notify   true
+/commands/default/<Alt>Print               xfce4-screenshooter -w
+/commands/default/<Primary><Alt>Delete     xflock4
+/commands/default/<Primary><Alt>Escape     xkill
+/commands/default/<Primary><Alt>f          thunar
+/commands/default/<Primary><Alt>l          xflock4
+/commands/default/<Primary><Alt>t          x-terminal-emulator
+/commands/default/<Primary><Shift>Escape   xfce4-taskmanager
+/commands/default/<Primary>Escape          xfdesktop --menu
+/commands/default/<Shift>Print             xfce4-screenshooter -r
+/commands/default/<Super>e                 thunar
+/commands/default/<Super>p                 xfce4-display-settings --minimal
+/commands/default/<Super>r                 xfce4-appfinder -c
+/commands/default/<Super>r/startup-notify  true
+/commands/default/HomePage                 exo-open --launch WebBrowser
+/commands/default/Print                    xfce4-screenshooter
+/commands/default/Super_L                  xfce4-popup-whiskermenu
+/commands/default/XF86Display              xfce4-display-settings --minimal
+/commands/default/XF86Mail                 exo-open --launch MailReader
+/commands/default/XF86WWW                  exo-open --launch WebBrowser
+/providers                                 <<UNSUPPORTED>>
+/xfwm4/custom/<Alt><Control>End            move_window_next_workspace_key
+/xfwm4/custom/<Alt><Control>Home           move_window_prev_workspace_key
+/xfwm4/custom/<Alt><Control>KP_1           move_window_workspace_1_key
+/xfwm4/custom/<Alt><Control>KP_2           move_window_workspace_2_key
+/xfwm4/custom/<Alt><Control>KP_3           move_window_workspace_3_key
+/xfwm4/custom/<Alt><Control>KP_4           move_window_workspace_4_key
+/xfwm4/custom/<Alt><Control>KP_5           move_window_workspace_5_key
+/xfwm4/custom/<Alt><Control>KP_6           move_window_workspace_6_key
+/xfwm4/custom/<Alt><Control>KP_7           move_window_workspace_7_key
+/xfwm4/custom/<Alt><Control>KP_8           move_window_workspace_8_key
+/xfwm4/custom/<Alt><Control>KP_9           move_window_workspace_9_key
+/xfwm4/custom/<Alt><Shift>Tab              cycle_reverse_windows_key
+/xfwm4/custom/<Alt>Delete                  del_workspace_key
+/xfwm4/custom/<Alt>F10                     maximize_window_key
+/xfwm4/custom/<Alt>F11                     fullscreen_key
+/xfwm4/custom/<Alt>F12                     above_key
+/xfwm4/custom/<Alt>F4                      close_window_key
+/xfwm4/custom/<Alt>F6                      stick_window_key
+/xfwm4/custom/<Alt>F7                      move_window_key
+/xfwm4/custom/<Alt>F8                      resize_window_key
+/xfwm4/custom/<Alt>F9                      hide_window_key
+/xfwm4/custom/<Alt>Insert                  add_workspace_key
+/xfwm4/custom/<Alt>Tab                     cycle_windows_key
+/xfwm4/custom/<Alt>space                   popup_menu_key
+/xfwm4/custom/<Control><Alt>Down           down_workspace_key
+/xfwm4/custom/<Control><Alt>Left           left_workspace_key
+/xfwm4/custom/<Control><Alt>Right          right_workspace_key
+/xfwm4/custom/<Control><Alt>Up             up_workspace_key
+/xfwm4/custom/<Control><Alt>d              show_desktop_key
+/xfwm4/custom/<Control><Shift><Alt>Left    move_window_left_key
+/xfwm4/custom/<Control><Shift><Alt>Right   move_window_right_key
+/xfwm4/custom/<Control><Shift><Alt>Up      move_window_up_key
+/xfwm4/custom/<Control>F1                  workspace_1_key
+/xfwm4/custom/<Control>F10                 workspace_10_key
+/xfwm4/custom/<Control>F11                 workspace_11_key
+/xfwm4/custom/<Control>F12                 workspace_12_key
+/xfwm4/custom/<Control>F2                  workspace_2_key
+/xfwm4/custom/<Control>F3                  workspace_3_key
+/xfwm4/custom/<Control>F4                  workspace_4_key
+/xfwm4/custom/<Control>F5                  workspace_5_key
+/xfwm4/custom/<Control>F6                  workspace_6_key
+/xfwm4/custom/<Control>F7                  workspace_7_key
+/xfwm4/custom/<Control>F8                  workspace_8_key
+/xfwm4/custom/<Control>F9                  workspace_9_key
+/xfwm4/custom/<Primary><Alt>Down           down_workspace_key
+/xfwm4/custom/<Primary><Alt>End            move_window_next_workspace_key
+/xfwm4/custom/<Primary><Alt>Home           move_window_prev_workspace_key
+/xfwm4/custom/<Primary><Alt>KP_1           move_window_workspace_1_key
+/xfwm4/custom/<Primary><Alt>KP_2           move_window_workspace_2_key
+/xfwm4/custom/<Primary><Alt>KP_3           move_window_workspace_3_key
+/xfwm4/custom/<Primary><Alt>KP_4           move_window_workspace_4_key
+/xfwm4/custom/<Primary><Alt>KP_5           move_window_workspace_5_key
+/xfwm4/custom/<Primary><Alt>KP_6           move_window_workspace_6_key
+/xfwm4/custom/<Primary><Alt>KP_7           move_window_workspace_7_key
+/xfwm4/custom/<Primary><Alt>KP_8           move_window_workspace_8_key
+/xfwm4/custom/<Primary><Alt>KP_9           move_window_workspace_9_key
+/xfwm4/custom/<Primary><Alt>Left           left_workspace_key
+/xfwm4/custom/<Primary><Alt>Right          right_workspace_key
+/xfwm4/custom/<Primary><Alt>Up             up_workspace_key
+/xfwm4/custom/<Primary><Alt>d              show_desktop_key
+/xfwm4/custom/<Primary><Shift><Alt>Left    move_window_left_key
+/xfwm4/custom/<Primary><Shift><Alt>Right   move_window_right_key
+/xfwm4/custom/<Primary><Shift><Alt>Up      move_window_up_key
+/xfwm4/custom/<Primary>F1                  workspace_1_key
+/xfwm4/custom/<Primary>F10                 workspace_10_key
+/xfwm4/custom/<Primary>F11                 workspace_11_key
+/xfwm4/custom/<Primary>F12                 workspace_12_key
+/xfwm4/custom/<Primary>F2                  workspace_2_key
+/xfwm4/custom/<Primary>F3                  workspace_3_key
+/xfwm4/custom/<Primary>F4                  workspace_4_key
+/xfwm4/custom/<Primary>F5                  workspace_5_key
+/xfwm4/custom/<Primary>F6                  workspace_6_key
+/xfwm4/custom/<Primary>F7                  workspace_7_key
+/xfwm4/custom/<Primary>F8                  workspace_8_key
+/xfwm4/custom/<Primary>F9                  workspace_9_key
+/xfwm4/custom/<Shift><Alt>Page_Down        lower_window_key
+/xfwm4/custom/<Shift><Alt>Page_Up          raise_window_key
+/xfwm4/custom/<Super>KP_Down               tile_down_key
+/xfwm4/custom/<Super>KP_End                tile_down_left_key
+/xfwm4/custom/<Super>KP_Home               tile_up_left_key
+/xfwm4/custom/<Super>KP_Left               tile_left_key
+/xfwm4/custom/<Super>KP_Next               tile_down_right_key
+/xfwm4/custom/<Super>KP_Page_Up            tile_up_right_key
+/xfwm4/custom/<Super>KP_Right              tile_right_key
+/xfwm4/custom/<Super>KP_Up                 tile_up_key
+/xfwm4/custom/<Super>Tab                   switch_window_key
+/xfwm4/custom/Down                         down_key
+/xfwm4/custom/Escape                       cancel_key
+/xfwm4/custom/Left                         left_key
+/xfwm4/custom/Right                        right_key
+/xfwm4/custom/Up                           up_key
+/xfwm4/custom/override                     true
+/xfwm4/default/<Alt><Control>End           move_window_next_workspace_key
+/xfwm4/default/<Alt><Control>Home          move_window_prev_workspace_key
+/xfwm4/default/<Alt><Control>KP_1          move_window_workspace_1_key
+/xfwm4/default/<Alt><Control>KP_2          move_window_workspace_2_key
+/xfwm4/default/<Alt><Control>KP_3          move_window_workspace_3_key
+/xfwm4/default/<Alt><Control>KP_4          move_window_workspace_4_key
+/xfwm4/default/<Alt><Control>KP_5          move_window_workspace_5_key
+/xfwm4/default/<Alt><Control>KP_6          move_window_workspace_6_key
+/xfwm4/default/<Alt><Control>KP_7          move_window_workspace_7_key
+/xfwm4/default/<Alt><Control>KP_8          move_window_workspace_8_key
+/xfwm4/default/<Alt><Control>KP_9          move_window_workspace_9_key
+/xfwm4/default/<Alt><Shift>Tab             cycle_reverse_windows_key
+/xfwm4/default/<Alt>Delete                 del_workspace_key
+/xfwm4/default/<Alt>F10                    maximize_window_key
+/xfwm4/default/<Alt>F11                    fullscreen_key
+/xfwm4/default/<Alt>F12                    above_key
+/xfwm4/default/<Alt>F4                     close_window_key
+/xfwm4/default/<Alt>F6                     stick_window_key
+/xfwm4/default/<Alt>F7                     move_window_key
+/xfwm4/default/<Alt>F8                     resize_window_key
+/xfwm4/default/<Alt>F9                     hide_window_key
+/xfwm4/default/<Alt>Insert                 add_workspace_key
+/xfwm4/default/<Alt>Tab                    cycle_windows_key
+/xfwm4/default/<Alt>space                  popup_menu_key
+/xfwm4/default/<Control><Alt>Down          down_workspace_key
+/xfwm4/default/<Control><Alt>Left          left_workspace_key
+/xfwm4/default/<Control><Alt>Right         right_workspace_key
+/xfwm4/default/<Control><Alt>Up            up_workspace_key
+/xfwm4/default/<Control><Alt>d             show_desktop_key
+/xfwm4/default/<Control><Shift><Alt>Left   move_window_left_key
+/xfwm4/default/<Control><Shift><Alt>Right  move_window_right_key
+/xfwm4/default/<Control><Shift><Alt>Up     move_window_up_key
+/xfwm4/default/<Control>F1                 workspace_1_key
+/xfwm4/default/<Control>F10                workspace_10_key
+/xfwm4/default/<Control>F11                workspace_11_key
+/xfwm4/default/<Control>F12                workspace_12_key
+/xfwm4/default/<Control>F2                 workspace_2_key
+/xfwm4/default/<Control>F3                 workspace_3_key
+/xfwm4/default/<Control>F4                 workspace_4_key
+/xfwm4/default/<Control>F5                 workspace_5_key
+/xfwm4/default/<Control>F6                 workspace_6_key
+/xfwm4/default/<Control>F7                 workspace_7_key
+/xfwm4/default/<Control>F8                 workspace_8_key
+/xfwm4/default/<Control>F9                 workspace_9_key
+/xfwm4/default/<Primary><Alt>Down          down_workspace_key
+/xfwm4/default/<Primary><Alt>End           move_window_next_workspace_key
+/xfwm4/default/<Primary><Alt>Home          move_window_prev_workspace_key
+/xfwm4/default/<Primary><Alt>KP_1          move_window_workspace_1_key
+/xfwm4/default/<Primary><Alt>KP_2          move_window_workspace_2_key
+/xfwm4/default/<Primary><Alt>KP_3          move_window_workspace_3_key
+/xfwm4/default/<Primary><Alt>KP_4          move_window_workspace_4_key
+/xfwm4/default/<Primary><Alt>KP_5          move_window_workspace_5_key
+/xfwm4/default/<Primary><Alt>KP_6          move_window_workspace_6_key
+/xfwm4/default/<Primary><Alt>KP_7          move_window_workspace_7_key
+/xfwm4/default/<Primary><Alt>KP_8          move_window_workspace_8_key
+/xfwm4/default/<Primary><Alt>KP_9          move_window_workspace_9_key
+/xfwm4/default/<Primary><Alt>Left          left_workspace_key
+/xfwm4/default/<Primary><Alt>Right         right_workspace_key
+/xfwm4/default/<Primary><Alt>Up            up_workspace_key
+/xfwm4/default/<Primary><Alt>d             show_desktop_key
+/xfwm4/default/<Primary><Shift><Alt>Left   move_window_left_key
+/xfwm4/default/<Primary><Shift><Alt>Right  move_window_right_key
+/xfwm4/default/<Primary><Shift><Alt>Up     move_window_up_key
+/xfwm4/default/<Primary>F1                 workspace_1_key
+/xfwm4/default/<Primary>F10                workspace_10_key
+/xfwm4/default/<Primary>F11                workspace_11_key
+/xfwm4/default/<Primary>F12                workspace_12_key
+/xfwm4/default/<Primary>F2                 workspace_2_key
+/xfwm4/default/<Primary>F3                 workspace_3_key
+/xfwm4/default/<Primary>F4                 workspace_4_key
+/xfwm4/default/<Primary>F5                 workspace_5_key
+/xfwm4/default/<Primary>F6                 workspace_6_key
+/xfwm4/default/<Primary>F7                 workspace_7_key
+/xfwm4/default/<Primary>F8                 workspace_8_key
+/xfwm4/default/<Primary>F9                 workspace_9_key
+/xfwm4/default/<Shift><Alt>Page_Down       lower_window_key
+/xfwm4/default/<Shift><Alt>Page_Up         raise_window_key
+/xfwm4/default/<Super>KP_Down              tile_down_key
+/xfwm4/default/<Super>KP_End               tile_down_left_key
+/xfwm4/default/<Super>KP_Home              tile_up_left_key
+/xfwm4/default/<Super>KP_Left              tile_left_key
+/xfwm4/default/<Super>KP_Next              tile_down_right_key
+/xfwm4/default/<Super>KP_Page_Up           tile_up_right_key
+/xfwm4/default/<Super>KP_Right             tile_right_key
+/xfwm4/default/<Super>KP_Up                tile_up_key
+/xfwm4/default/<Super>Tab                  switch_window_key
+/xfwm4/default/Down                        down_key
+/xfwm4/default/Escape                      cancel_key
+/xfwm4/default/Left                        left_key
+/xfwm4/default/Right                       right_key
+/xfwm4/default/Up                          up_key
+
+[panel_relevant]
+
+[pointers_relevant]
