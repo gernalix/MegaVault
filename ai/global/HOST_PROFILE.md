@@ -92,7 +92,7 @@ oracle_constraints=backup_DB_before_direct_Kuma_sqlite,do_not_commit_tokens,remo
 SERVICES:
 user_active=adb-wifi-autoconnect,mint-freeze-forensics,mint-update-tracker,system-service-dashboard,transfer-vecchio-disco-adaptive-throttle,windowtabnotes,aw-server,aw-watcher-afk,aw-watcher-window,aw-watcher-media-player
 user_timers=amici_fb,android-sdk-auto-update,home-backup-kuma-push,home-backup-retention-kuma-push,home-incremental-backup,mint-manual-updates,mint-resource-guardian,mint-update-tracker,mint-xfce-layout-guard,parcel-tracker
-system_services=mint-cloud-backup-monitor,mint-cloud-backup-dashboard,transfer-usb-io-watchdog,disk-usage-monitor,local-zram-swap
+system_services=mint-cloud-backup-monitor,mint-cloud-backup-dashboard,transfer-usb-io-watchdog,disk-usage-monitor,local-zram-swap,logind-power-intent-watch
 system_timers=mint-cloud-backup,mint-cloud-backup-kuma-push,disk-usage-monitor,dpkg-db-backup,mintupdate-automation-autoremove,mintupdate-automation-upgrade
 service_constraints=distinguish_user_vs_system,verify_systemd_plus_state_files,avoid_parallel_units,do_not_revive_removed_antifreeze_units,document_persistent_service_changes
 
@@ -126,6 +126,12 @@ active_push_after_482917=cloud_backup id=3,mint-home-backup id=4,amici_fb id=5,d
 disabled_obsolete=mint_heartbeat id=1,rsync-transfer id=2,codex-token-watcher id=10
 local_dashboard=system-service-dashboard.service;localhost Linux Mint read-only dashboard
 monitor_constraints=Kuma_DOWN_is_signal_not_truth,local_state_files_authoritative_for_job_semantics,do_not_silence_real_failures
+
+LOGIND_POWER_INTENT:
+service=logind-power-intent-watch.service system enabled;unit=/etc/systemd/system/logind-power-intent-watch.service;script=/home/daniele/.local/bin/logind-power-intent-watch
+purpose=attribute_future_org.freedesktop.login1.Manager_Reboot/PowerOff/Halt/Suspend/Hibernate_requests;source=dbus-monitor_system_bus+busctl_status_sender
+log=/var/log/logind-power-intent-watch/events.jsonl;fields=timestamp,sender,member,pid,uid,comm,cmdline,unit,user_unit,cgroup,session,audit_session
+constraints=observes_only_no_blocking,no_reboot,no_private_window_titles,no_periodic_spam;verify=systemctl status logind-power-intent-watch.service && sudo tail -n 5 /var/log/logind-power-intent-watch/events.jsonl
 
 DEPLOYMENT_CONSTRAINTS:
 mint=prefer_existing_user/systemd_units,document_runtime_changes,avoid_focus_stealing_UI,keep_scripts_local_paths_stable
