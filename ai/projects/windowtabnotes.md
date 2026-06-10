@@ -4,10 +4,10 @@ slug=windowtabnotes
 path=/home/daniele/codex-workspace/WindowTabNotes
 remote=git@github.com:gernalix/WindowTabNotes.git
 branch=codex/prompt-581472
-verified_commit=d42ab1b
-verified_at=2026-06-10T23:10:29+02:00
-megavault_branch=codex/prompt-927384-android-studio-download-guard
-protocol=MEGAVAULT_PROTOCOL.md:v2
+verified_commit=19979db
+verified_at=2026-06-10T23:43:52+02:00
+megavault_branch=codex/prompt-731845-kuma-operational-runbook
+protocol=MEGAVAULT_PROTOCOL.md:v8
 
 PURPOSE:
 purpose=Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context.
@@ -27,14 +27,14 @@ db=system/windowtabnotes/db.py
 native=system/bin/windowtabnotes-native-host,system/windowtabnotes/native_host.py,system/windowtabnotes/api.py
 chrome=browser-extension/manifest.json,browser-extension/service_worker.js,browser-extension/content_script.js,browser-extension/popup.js
 firefox=browser-extension-firefox/manifest.json + copied shared assets from browser-extension/; installer keeps Firefox copy synced because symlink packaging fails
-firefox_status=system/bin/windowtabnotes firefox-status --json -> active/explicit profile, loaded add-on, temp or persistent WebDriver runtime, real Gecko id, native manifests, native ping with sqlite-lock retry, standard-Firefox permanent-install limit
+firefox_status=system/bin/windowtabnotes firefox-status --json and firefox-proof --json -> active PID/profile lock, expected profile mismatch, extensions.json registration, persistent app-profile vs temporary/runtime false positive, real Gecko id, native manifests, native ping, standard-Firefox permanent-install limit
 ui=system/windowtabnotes/gtk_ui.py,browser-extension/dashboard.html,browser-extension/dashboard.js
 search=system/windowtabnotes/rofi.py
 shortcuts=system/windowtabnotes/shortcuts.py
 systemd=system/systemd/windowtabnotes.service.in,~/.config/systemd/user/windowtabnotes.service
 install=system/scripts/install.sh
 install_firefox=system/scripts/install-firefox.sh syncs self-contained browser-extension-firefox assets from browser-extension before native manifest/status checks
-install_firefox_dev=system/scripts/install-firefox-developer-edition.sh installs/verifies user-local Firefox Developer Edition and dedicated WindowTabNotes profile for persistent unsigned add-on use
+install_firefox_dev=system/scripts/install-firefox-developer-edition.sh installs/verifies user-local Firefox Developer Edition and uses the real dev-edition-default profile for persistent unsigned add-on use
 test_firefox=system/scripts/test-firefox-extension.sh -> Selenium real Firefox E2E using temporary add-on by default or persistent Developer Edition add-on with WTN_FIREFOX_ADDON_TEMPORARY=0; verifies three unique tabs, service worker SAVE_NOTE_TEXT through Native Messaging, native metrics delta, DB text/context probe, service restart, browser reopen, and overlay visibility probe
 tests=tests/test_context_persistence.py
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated,__pycache__
@@ -70,7 +70,8 @@ service=human_status=systemctl --user status windowtabnotes.service --no-pager; 
 chrome=Native Messaging host name com.windowtabnotes.host; installed manifests under Chrome/Chromium NativeMessagingHosts
 firefox=Native Messaging host name com.windowtabnotes.host; add-on id windowtabnotes@local; manifest under ~/.mozilla/native-messaging-hosts/
 firefox=profile_current=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release; standard Firefox 151 cannot permanently install unsigned local add-on; temp load is required unless signed/dev-edition path is used
-firefox_dev=browser=/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes; install_dir=/home/daniele/.local/opt/firefox-developer-edition; version=Mozilla Firefox 152.0b10; profile=/home/daniele/.config/windowtabnotes/firefox-developer-profile; persistent_addon=/home/daniele/.config/windowtabnotes/firefox-developer-profile/extensions/windowtabnotes@local.xpi; xpinstall.signatures.required=false
+firefox_dev=browser=/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes; install_dir=/home/daniele/.local/opt/firefox-developer-edition; version=Mozilla Firefox 152.0b10; real_profile=/home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default; persistent_addon=/home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default/extensions/windowtabnotes@local.xpi; xpinstall.signatures.required=false; launcher uses -no-remote -profile real_profile
+firefox_dev=about_addons_proof=/tmp/windowtabnotes-firefox-addons-proof.png shows WindowTabNotes visible and enabled in real Firefox Developer Edition; unsigned warning expected
 firefox=browser-extension-firefox must be self-contained; symlinks make web-ext/Firefox packaging report missing background/content/icon files
 firefox=Prompt #594271 fixed runtime path: standard Firefox profile still cannot permanently load unsigned add-on, but Selenium temporary install verifies add-on id windowtabnotes@local, native messaging, DB contexts, and visible overlays end-to-end
 ux=do not break overlay/search behavior while changing persistence/service code
@@ -93,9 +94,10 @@ prompt_739284=daemon-reload+enable --now; is-enabled=enabled; is-active=active; 
 native_chrome=system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json
 native_firefox=system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json
 firefox_status=system/bin/windowtabnotes firefox-status --json
+firefox_proof=WTN_FIREFOX_BINARY=/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes WTN_FIREFOX_PROFILE=/home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default system/bin/windowtabnotes firefox-proof --json
 firefox_lint=npx --yes web-ext@10.3.0 lint --source-dir browser-extension-firefox --self-hosted
 firefox_smoke=WTN_FIREFOX_TEST_SECONDS=75 system/scripts/test-firefox-extension.sh; expected ok true, addon_id=windowtabnotes@local, firefox_status.ok=true for temp profile, native metrics total_messages+UPSERT_TAB increase, three DB note ids, three saved note texts, service_restart.ok=true, first+second session overlay context count=3
-firefox_dev_persistent=WTN_FIREFOX_BINARY=/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes WTN_FIREFOX_PROFILE=/home/daniele/.config/windowtabnotes/firefox-developer-profile WTN_FIREFOX_ADDON_TEMPORARY=0 WTN_FIREFOX_TEST_SECONDS=120 system/scripts/test-firefox-extension.sh; expected ok true, addon temporary false, third session addon_install.attempted false, app-profile extension active, first/second/third overlay context count=3, three saved note texts
+firefox_dev_persistent=WTN_FIREFOX_BINARY=/home/daniele/.local/opt/firefox-developer-edition/firefox WTN_FIREFOX_PROFILE=/home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default WTN_FIREFOX_ADDON_TEMPORARY=0 WTN_FIREFOX_TEST_SECONDS=120 system/scripts/test-firefox-extension.sh; expected ok true, addon temporary false, third session addon_install.attempted false, app-profile extension active, first/second/third overlay context count=3, three saved note texts
 
 DATA:
 DB=SQLite
@@ -148,6 +150,10 @@ limit=Real `/home/daniele/.config/mozilla/firefox/50b1zmic.default-release` on s
 issue=Prompt #739516 required real persistent Firefox install equivalent to Chrome.
 fix=Installed user-local Firefox Developer Edition at `/home/daniele/.local/opt/firefox-developer-edition`, wrapper `/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes`, dedicated profile `/home/daniele/.config/windowtabnotes/firefox-developer-profile`, and persistent unsigned `windowtabnotes@local` with `xpinstall.signatures.required=false`; `firefox-status` now accepts explicit WTN_FIREFOX_BINARY/WTN_FIREFOX_PROFILE and checks actual `.parentlock` holders instead of file existence.
 test=2026-06-10T23:04:06+02:00 `WTN_FIREFOX_BINARY=/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes WTN_FIREFOX_PROFILE=/home/daniele/.config/windowtabnotes/firefox-developer-profile WTN_FIREFOX_ADDON_TEMPORARY=0 WTN_FIREFOX_TEST_SECONDS=120 system/scripts/test-firefox-extension.sh` ok true; Developer Edition 152.0b10; add-on location app-profile; temporarily_installed null; third session did not call install_addon; DB backup `/home/daniele/.cache/windowtabnotes/db-backups/20260610-230406`; report `/home/daniele/.cache/windowtabnotes/firefox-e2e/firefox-dev-persistent-e2e-final-20260610.json`; three tabs example.com/example.net/example.org, three notes/texts, service_restart ok, first/second/third overlay context count=3.
+issue=Prompt #184902 found the previous persistent Firefox report was not verified against the visible Developer Edition `about:addons`.
+cause=The XPI was installed in `/home/daniele/.config/windowtabnotes/firefox-developer-profile`, while the real Firefox Developer Edition window used `/home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default`; `firefox-status` could also prefer the wrong locked Firefox profile when standard Firefox and Developer Edition were both running.
+fix=Installed `windowtabnotes@local` persistently into the real dev-edition-default profile, rewrote the launcher to use `-no-remote -profile /home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default`, and added `firefox-proof`/status fields for active PID, profile lock PIDs, profile mismatch, extensions.json registration, install_kind, visible_in_about_addons_expected, and temporary false positives.
+test=2026-06-10T23:37:38+02:00 `WTN_FIREFOX_BINARY=/home/daniele/.local/opt/firefox-developer-edition/firefox WTN_FIREFOX_PROFILE=/home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default WTN_FIREFOX_ADDON_TEMPORARY=0 WTN_FIREFOX_TEST_SECONDS=120 system/scripts/test-firefox-extension.sh` ok true; third session addon_install.attempted false; first/second/third overlay context count=3; three notes persisted after service restart; Chrome native-debug ok; visual proof `/tmp/windowtabnotes-firefox-addons-proof.png` shows WindowTabNotes enabled in real Developer Edition about:addons.
 
 RISK:
 risk=SQLite lock contention from daemon + many Chrome native-host invocations.
@@ -156,10 +162,10 @@ risk=xdotool/xprop can timeout or fail under X11/session transitions.
 risk=Killing native-host or Chrome processes can interrupt active browser bridge; avoid unless user approves.
 risk=Deleting orphan browser notes would destroy user data; do not clean automatically.
 risk=`journalctl -n 80` can include older Jun 01 crash traces; current status command uses recent error scan and reports last_service_error empty after Jun 07 restart/kill tests.
-risk=Firefox standard release blocks permanent unsigned local extensions; real default-release can show stale UUID/tmpExtDir without loaded add-on. Persistent local success currently belongs to the dedicated Firefox Developer Edition profile only; do not claim standard Firefox permanent support unless a signed package is installed there.
+risk=Firefox standard release blocks permanent unsigned local extensions; real default-release can show stale UUID/tmpExtDir without loaded add-on. Persistent local success currently belongs to Firefox Developer Edition real profile `/home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default`; do not claim standard Firefox permanent support unless a signed package is installed there.
 
 ROAD:
-now=v23 Firefox tab overlays pass temporary-add-on E2E and persistent Firefox Developer Edition E2E; daemon polls less aggressively; status/native diagnostics tolerate transient DB locks
+now=v23 Firefox tab overlays pass temporary-add-on E2E and persistent Firefox Developer Edition E2E on the real dev-edition-default profile; daemon polls less aggressively; status/native diagnostics tolerate transient DB locks
 next=reduce Native Messaging GET_FOCUS_REQUEST process churn if Chrome/Firefox bridge remains noisy
 later=explicit backup/export/restore commands
 
