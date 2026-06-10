@@ -1,6 +1,6 @@
 # MegaVault Projects
 
-Updated: 2026-06-05T13:11:18+02:00
+Updated: 2026-06-10T16:03:59+02:00
 
 | Project | What it is | Human overview | AI doc | metadata |
 |---|---|---|---|---|
@@ -13,6 +13,7 @@ Updated: 2026-06-05T13:11:18+02:00
 | codex-token-watcher | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/codex-token-watcher/overview.md) | [AI](../ai/projects/codex-token-watcher.md) | [metadata](../../codex-token-watcher/dev/project.metadata.json) |
 | codex-wrapper | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/codex-wrapper/overview.md) | [AI](../ai/projects/codex-wrapper.md) | [metadata](../../codex-wrapper/dev/project.metadata.json) |
 | facebook-video-archiver | Start here for Codex/operator work on `facebook-video-archiver`. | [overview](projects/facebook-video-archiver/overview.md) | [AI](../ai/projects/facebook-video-archiver.md) | [metadata](../../facebook-video-archiver/dev/project.metadata.json) |
+| facedownassup-downloader | Local authorized downloader for facedownassup.com member gallery pages using the operator's existing Chrome login via yt-dlp cookies and non-evasive browser headers. | [overview](projects/facedownassup-downloader/overview.md) | [AI](../ai/projects/facedownassup-downloader.md) | [metadata](../../facedownassup-downloader/dev/project.metadata.json) |
 | installa-app | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/installa-app/overview.md) | [AI](../ai/projects/installa-app.md) | [metadata](../../installa-app/dev/project.metadata.json) |
 | linux-mint-service-dashboard | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE. | [overview](projects/linux-mint-service-dashboard/overview.md) | [AI](../ai/projects/linux-mint-service-dashboard.md) | [metadata](../../linux-mint-service-dashboard/dev/project.metadata.json) |
 | megavault-project-exporter | Fast cached exporter for bundling one MegaVault-registered project together with the MegaVault documentation archive. | [overview](projects/megavault-project-exporter/overview.md) | [AI](../ai/projects/megavault-project-exporter.md) | [metadata](../../megavault-project-exporter/dev/project.metadata.json) |

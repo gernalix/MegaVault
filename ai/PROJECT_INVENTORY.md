@@ -1,6 +1,6 @@
 # PROJECT_INVENTORY
 
-Generated: 2026-06-05T13:11:18+02:00
+Generated: 2026-06-10T16:03:59+02:00
 
 | name | slug | path | remote | branch | git_status_count | docs_found | docs_archived | docs_skipped | dev |
 |---|---|---|---|---|---:|---:|---:|---:|---|
@@ -14,6 +14,7 @@ Generated: 2026-06-05T13:11:18+02:00
 | codex-token-watcher | codex-token-watcher | `/home/daniele/codex-workspace/codex-token-watcher` | `none` | `codex/prompt-384921` | 0 | 0 | 0 | 0 | True |
 | codex-wrapper | codex-wrapper | `/home/daniele/codex-workspace/codex-wrapper` | `none` | `codex/prompt-582746` | 0 | 0 | 0 | 0 | True |
 | facebook-video-archiver | facebook-video-archiver | `/home/daniele/codex-workspace/facebook-video-archiver` | `none` | `work/v4-deep-discovery` | 16 | 8 | 8 | 0 | True |
+| facedownassup-downloader | facedownassup-downloader | `/home/daniele/codex-workspace/facedownassup-downloader` | `git@github.com:gernalix/facedownassup-downloader.git` | `main` | 0 | 5 | 0 | 0 | True |
 | installa-app | installa-app | `/home/daniele/codex-workspace/installa-app` | `none` | `codex/prompt-582746` | 0 | 0 | 0 | 0 | True |
 | linux-mint-service-dashboard | linux-mint-service-dashboard | `/home/daniele/codex-workspace/linux-mint-service-dashboard` | `none` | `prompt-816-local-dashboard` | 21 | 12 | 12 | 0 | True |
 | megavault-project-exporter | megavault-project-exporter | `/home/daniele/codex-workspace/megavault-project-exporter` | `none` | `master` | 0 | 3 | 0 | 0 | True |
