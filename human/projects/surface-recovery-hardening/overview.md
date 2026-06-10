@@ -12,7 +12,7 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 - Destinazione dati: `/media/daniele/Seagate6TB2/vecchio disco`.
 
 ## Servizi
-- `rsync-transfer.service`: transient, avviato con `systemd-run --user`, non persistente per evitare duplicati.
+- `rsync-transfer.service`: user static/manuale, non enabled; avvia `/home/daniele/.local/bin/rsync-transfer-runner`, che fa preflight e poi esegue lo script reale di copia.
 - `transfer-usb-io-watchdog.service`: system-wide, enabled, monitora eventi USB/I/O storage del transfer e mette in pausa rsync solo su eventi critici rilevanti.
 - `rsync-uptime-kuma-push.service`: user, disabilitato in `#482917` perche non risultava un transfer live sicuro da monitorare; riabilitarlo solo insieme a un nuovo `rsync-transfer` verificato.
 - `transfer-vecchio-disco-adaptive-throttle.service`: user, enabled, mantiene profilo I/O conservativo.
@@ -21,12 +21,14 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 ## Comando manuale
 - Comando globale: `rsync-transfer-start`
 - Script: `/home/daniele/.local/bin/rsync-transfer-start`
-- Servizio controllato: `transfer-vecchio-disco-adaptive-throttle.service`
-- Unit file: `/home/daniele/.config/systemd/user/transfer-vecchio-disco-adaptive-throttle.service`
-- ExecStart: `/home/daniele/transfer_vecchio_disco_adaptive_throttle.sh`
-- Preflight: verifica servizio, stato sintetico, sorgente `/dev/mapper/source_bitlocker` read-only su `/media/daniele/Seagate Expansion Drive`, destinazione `/dev/sdc1` ext4 rw con UUID `75e5363d-6736-4a7e-84be-5242f4735a27`.
-- Test 2026-06-10: `bash -n /home/daniele/.local/bin/rsync-transfer-start` ok; esecuzione reale fermata in sicurezza per sorgente non montata. Nessun riavvio PC, nessuna cancellazione, nessun enable automatico.
-- Log: `journalctl --user -u transfer-vecchio-disco-adaptive-throttle.service -f` e `tail -F /home/daniele/transfer_vecchio_disco_adaptive_throttle.log`
+- Servizio controllato: `rsync-transfer.service` se presente; fallback diagnostico solo verso `transfer-vecchio-disco-adaptive-throttle.service` se l'alias non esiste.
+- Unit file transfer: `/home/daniele/.config/systemd/user/rsync-transfer.service`
+- ExecStart transfer: `/home/daniele/.local/bin/rsync-transfer-runner`
+- Script reale copia: `/home/daniele/transfer_vecchio_disco_phase2_limited.sh`
+- Unit throttle: `/home/daniele/.config/systemd/user/transfer-vecchio-disco-adaptive-throttle.service`, ExecStart `/home/daniele/transfer_vecchio_disco_adaptive_throttle.sh`
+- Preflight: verifica servizio, stato sintetico, sorgente `/dev/mapper/source_bitlocker` read-only su `/media/daniele/Seagate Expansion Drive`, destinazione `/dev/sdc1` ext4 rw con UUID `75e5363d-6736-4a7e-84be-5242f4735a27`, nessun rsync duplicato, lock non detenuto, nessun errore storage recente.
+- Test 2026-06-10: `bash -n` sui due script ok; `systemctl --user start rsync-transfer.service` fallisce chiaramente per sorgente non montata; nessun rsync avviato; nessun enable automatico.
+- Log: `journalctl --user -u rsync-transfer.service -f` e `tail -F /home/daniele/transfer_vecchio_disco_phase2.log /home/daniele/transfer_vecchio_disco_phase2_warnings_errors.log`
 
 ## Kuma #482917
 - Monitor Kuma `rsync-transfer` disattivato come obsoleto/no live runner.

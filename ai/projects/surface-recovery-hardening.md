@@ -24,26 +24,27 @@ scripts=scripts/transfer_vecchio_disco_phase2_limited.sh,scripts/transfer_vecchi
 build=UNKNOWN
 avoid=secrets,tokens,cookies,generated reports,untracked .codexmeta backups
 ARCH:
-transfer=transient user unit rsync-transfer.service -> sudo -> phase2_limited -> rsync --append-verify
+transfer=rsync-transfer.service static manual user unit -> /home/daniele/.local/bin/rsync-transfer-runner -> /home/daniele/transfer_vecchio_disco_phase2_limited.sh -> sudo -> rsync --append-verify
+historical=rsync-transfer.service was transient systemd-run unit; 2026-06-10 replaced with static manual wrapper to match dashboard/systemctl diagnostics; no enable
 support_system=transfer-usb-io-watchdog.service(enabled):kernel USB/I/O monitor; pauses target rsync on transfer-storage critical events
 support_user=rsync-uptime-kuma-push.service(disabled 2026-06-06 #482917): old Kuma heartbeat for exact target rsync cmdline; no live rsync-transfer runner/source verified during Kuma cleanup
 support_user=transfer-vecchio-disco-adaptive-throttle.service(enabled):renice/ionice/bw profile control
-manual_cmd=rsync-transfer-start:/home/daniele/.local/bin/rsync-transfer-start starts transfer-vecchio-disco-adaptive-throttle.service only after unit+mount preflight
+manual_cmd=rsync-transfer-start:/home/daniele/.local/bin/rsync-transfer-start starts rsync-transfer.service when present; fallback transfer-vecchio-disco-adaptive-throttle.service only if alias absent
 anti_freeze_removed=2026-06-07 prompt_847261 removed screen-watchdog/freeze-reboot-monitor legacy artifacts; transfer-usb-io-watchdog.service intentionally remains enabled as rsync safety guard, not generic anti-freeze
 mount_dest=media-daniele-Seagate6TB2.automount(enabled)+.mount(disabled,triggered)
 mount_source=cryptsetup open --type bitlk --readonly /dev/sdb2 source_bitlocker; mount ro at /media/daniele/Seagate Expansion Drive
 FLOW:
 preflight=read metadata+AI doc; verify no active target rsync; verify SOURCE mapper ro; verify DEST uuid rw; scan recent kernel USB/I/O
-start=systemd-run --user --unit=rsync-transfer /usr/bin/env BW_LIMIT=5120 RSYNC_IO_TIMEOUT=900 /home/daniele/transfer_vecchio_disco_phase2_limited.sh
+start=systemctl --user start rsync-transfer.service; unit preflight rejects missing source, wrong dest UUID, read-only dest, active duplicate rsync, held lock, recent storage kernel errors
 rsync=source:/media/daniele/Seagate Expansion Drive/ -> dest:/media/daniele/Seagate6TB2/vecchio disco/
 resume=append-verify; verify mapping+ext4 clean+no recent transfer-storage error; SIGCONT paused target pids; launcher rerun exits 0 via lock
 monitor=journalctl + transfer logs + Kuma dry-run health + pgrep exact cmdline
-ops_cmd=rsync-transfer-start verifies service exists; prints before/after systemctl show; validates source /dev/mapper/source_bitlocker ro and dest /dev/sdc1 ext4 rw UUID 75e5363d-6736-4a7e-84be-5242f4735a27; then systemctl --user start transfer-vecchio-disco-adaptive-throttle.service
+ops_cmd=rsync-transfer-start verifies rsync-transfer.service/static or fallback throttle; prints before/after systemctl show; validates source /dev/mapper/source_bitlocker ro and dest /dev/sdc1 ext4 rw UUID 75e5363d-6736-4a7e-84be-5242f4735a27; then systemctl --user start selected unit
 INV:
 backup=source BitLocker must be mounted read-only; never write source
 data=destination UUID must be 75e5363d-6736-4a7e-84be-5242f4735a27
 data=findmnt -T can return root or automount wrapper; reject / and select real last mount row
-arch=rsync-transfer.service is transient, not persistent; support watchdog/throttle/Kuma services are persistent
+arch=rsync-transfer.service is static manual wrapper, not enabled; support watchdog/throttle services are persistent; Kuma pusher remains disabled obsolete
 watchdog=usb 1-5 Marvell WLAN disconnect is non-transfer; must not pause rsync
 kuma_482917=Kuma monitor id=2 `rsync-transfer` disabled as obsolete/no active transfer; service reset to inactive/dead disabled; tags=482917-reviewed,push-monitor,obsolete-disabled
 security=do not print BitLocker key or Kuma push URL
@@ -66,7 +67,9 @@ SourceMount=/media/daniele/Seagate Expansion Drive fuseblk ro
 DestDev=/dev/sdc1 ext4 label=Seagate6TB serial=ZCT3KG54
 DestMount=/media/daniele/Seagate6TB2 rw,noatime
 DestDir=/media/daniele/Seagate6TB2/vecchio disco
-UnitThrottle=/home/daniele/.config/systemd/user/transfer-vecchio-disco-adaptive-throttle.service ExecStart=/home/daniele/transfer_vecchio_disco_adaptive_throttle.sh
+UnitTransfer=/home/daniele/.config/systemd/user/rsync-transfer.service ExecStart=/home/daniele/.local/bin/rsync-transfer-runner UnitFileState=static
+RunnerTransfer=/home/daniele/.local/bin/rsync-transfer-runner preflight+duplicate guard then exec /home/daniele/transfer_vecchio_disco_phase2_limited.sh
+UnitThrottle=/home/daniele/.config/systemd/user/transfer-vecchio-disco-adaptive-throttle.service ExecStart=/home/daniele/transfer_vecchio_disco_adaptive_throttle.sh enabled
 ManualStart=/home/daniele/.local/bin/rsync-transfer-start
 Logs=/home/daniele/transfer_vecchio_disco_phase2.log,/home/daniele/transfer_vecchio_disco_phase2_warnings_errors.log,/home/daniele/rsync_uptime_kuma_push.log,/home/daniele/transfer_usb_io_watchdog.log,/home/daniele/transfer_vecchio_disco_adaptive_throttle.log
 State=/home/daniele/transfer_vecchio_disco_phase2_status.env,/home/daniele/transfer_vecchio_disco_phase2_rsync.pid,/home/daniele/transfer_vecchio_disco_phase2_script.pid,/home/daniele/.rsync_uptime_kuma_push.state
@@ -98,7 +101,7 @@ risk=stale pid/status/log files can survive crash; require live /proc cmdline va
 risk=Kuma push service may restart on network timeout; runtime dry-run health verifies local truth
 risk=disabled rsync-transfer Kuma monitor must not be used as transfer health evidence; verify live transfer process/mounts before re-enabling
 risk=source key exists locally; path may be documented, value must not
-test_2026-06-10=rsync-transfer-start syntax ok; real run stopped before start because source mount /media/daniele/Seagate Expansion Drive absent; service was already active/running pid=1186
+test_2026-06-10=rsync-transfer-start syntax ok; systemctl start rsync-transfer.service fails clearly when source /media/daniele/Seagate Expansion Drive absent; no rsync started; reset-failed after test; throttle service active/running pid=1186
 ROAD:
 now=rsync-transfer Kuma pusher disabled after #482917 cleanup; before any future transfer, verify source/dest/process and re-enable only if the transfer is intentionally active
 next=consider persistent documented helper for source read-only mount only if repeated manual remounts continue
@@ -110,4 +113,4 @@ legacy=../../../surface-recovery-hardening/dev/legacy
 repo=../../../surface-recovery-hardening
 OPEN:
 open=tests absent
-open=rsync-transfer intentionally transient; persistence policy documented but no persistent unit by design
+open=source BitLocker currently not mounted; rsync-transfer.service intentionally static/manual and not enabled
