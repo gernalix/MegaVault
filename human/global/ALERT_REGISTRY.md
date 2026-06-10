@@ -39,7 +39,7 @@ Sorgenti note:
 - `parcel-tracker`: aggiornamenti spedizione.
 - `codex-token-watcher`: notifiche opzionali per quota/errori.
 - `surface-recovery-hardening`: watchdog USB/I/O e vecchi guardiani memoria.
-- `disk-usage-monitor`: delta spazio via Telegram con cooldown, digest OK giornaliero solo se non ci sono delta, e heartbeat Kuma.
+- `disk-usage-monitor`: solo 3 dischi canonici, Telegram pulito su cambio connessione/spazio basso/digest OK, e heartbeat Kuma compatto.
 
 ## Vincoli
 

@@ -4,11 +4,11 @@ slug=disk-usage-monitor
 path=/home/daniele/disk_usage_monitor
 repo=/home/daniele/disk_usage_monitor
 branch=master
-updated=2026-06-11 prompt_748263
+updated=2026-06-11 prompt_836204
 protocol=MEGAVAULT_PROTOCOL.md:v8
 
 PURPOSE:
-purpose=Linux Mint multi-disk usage sampler with SQLite history, delta Telegram alerts, and Oracle Uptime Kuma push heartbeat.
+purpose=Linux Mint canonical 3-disk monitor with SQLite state, clean Telegram alerts, and Oracle Uptime Kuma push heartbeat.
 truth=local SQLite/log decide disk alert semantics; Kuma is heartbeat/state-change alerting only.
 
 STACK:
@@ -28,20 +28,22 @@ docs=/home/daniele/disk_usage_monitor/README.md,/home/daniele/disk_usage_monitor
 avoid=printing_Kuma_push_URL,Telegram_token,Telegram_chat_id,destructive_disk_ops,stopping_backup_or_rsync
 
 ARCH:
-run=timer_5min->oneshot_service->disk_usage_monitor.sh->lsblk/findmnt_R/kernel_journal->filter_relevant_mounts->SQLite->Telegram_delta_if_needed->Kuma_RUNNING_OK_checked_count
+run=timer_5min->oneshot_service->disk_usage_monitor.sh->lsblk/findmnt_R/kernel_journal->canonical_3_disk_match->SQLite->Telegram_change_or_low_space->Kuma_RUNNING_OK_compact
 inventory_cmd=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh inventory
-db_tables=disk_space_samples,disk_events,disk_alerts,run_status,kuma_pushes,notification_state
-identity=uuid > serial+partition > label+model+size
-monitored_2026-06-11=/ on /dev/sda2 PSSD_T7_Shield;/media/daniele/Seagate_Expansion_Drive on /dev/mapper/source_bitlocker readonly;/media/daniele/Seagate6TB2 on /dev/sdc1
-excluded=virtual_fs,autofs_wrapper,/boot/efi_system_auxiliary_partition
+notify_test_cmd=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh notify-test
+db_tables=disk_space_samples,disk_events,disk_alerts,run_status,kuma_pushes,notification_state,monitored_disk_state
+identity=canonical_slug backed_by_uuid_serial_model_mapper
+monitored_2026-06-11=T7_sistema root / /dev/sda2 serial=S6YGNS0Y903440H uuid=a4bf0d13-b036-490e-9a14-aea83baf37a6;Seagate_4TB mapper=/dev/mapper/source_bitlocker serial=WFF0FEX8 uuid=22E02106E020E1B1;Seagate_6TB /dev/sdc1 serial=ZCT3KG54 uuid=75e5363d-6736-4a7e-84be-5242f4735a27
+excluded=virtual_fs,autofs_wrapper,/boot/efi,Windows_Local_Disk,Veracrypt,random_mounts,non_whitelisted_disks
 kuma_semantics=UP means recent heartbeat received; it does not mean Telegram is sent for every OK heartbeat.
-telegram_semantics=delta alert >=500MiB with 6h cooldown per disk/direction; OK digest daily only on no-delta runs.
+telegram_semantics=clean_3_line_message; notify on connection_change or low_space_threshold; daily OK digest optional; no mountpoints/devices/used_GB in normal Telegram.
 
 FLOW:
-success=send_kuma up/RUNNING at start; persist samples/events/alerts; send Telegram delta if threshold+cooldown; send optional OK digest if no alert; send_kuma up/"OK checked=N alerts=M"
+success=send_kuma up/RUNNING at start; persist canonical samples/state/events; send Telegram only if notifiable change or low_space/digest; send_kuma up/"OK T7=N% free SG4=N% free SG6=N% free"
 failure=log run.error; send_kuma down/ERROR; systemd service exits nonzero
 prompt_492817=real cause was no Kuma state change plus script default Telegram threshold 2GiB suppressing 1.1-1.6GiB deltas; fixed in v5 to threshold 500MiB and daily no-delta OK digest.
 prompt_748263=script already sampled multiple disks in DB but UI/Kuma/alerts made it look Seagate-only; fixed in v6 with explicit inventory, findmnt -R, checked-count heartbeat, current-run dashboard, /boot/efi exclusion, and fuller Telegram delta text.
+prompt_836204=v7 restricts monitoring/Telegram to exactly T7 sistema, Seagate 4TB, Seagate 6TB; clean Telegram body and compact Kuma heartbeat; dashboard separates canonical summary from technical/excluded mounts.
 
 INV:
 ops=do not treat Kuma green as Telegram delivery proof.
@@ -53,12 +55,13 @@ version=every touched project file increments vN.
 TEST:
 syntax=bash -n /home/daniele/disk_usage_monitor/disk_usage_monitor.sh
 dashboard_syntax=bash -n /home/daniele/disk_usage_monitor/disk_usage_dashboard.sh
-inventory=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh inventory shows /, Seagate6TB2, Seagate Expansion Drive monitored; virtual/autofs/boot_efi excluded
+inventory=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh inventory shows only T7 sistema, Seagate 4TB, Seagate 6TB in MONITORED; virtual/autofs/boot_efi excluded
 systemd=sudo systemctl start disk-usage-monitor.service; systemctl status disk-usage-monitor.service disk-usage-monitor.timer --no-pager
-local_db=2026-06-11 run_status version=v6 sample_count=3 alert_count=0 event_count=0; latest samples include /, Seagate Expansion Drive readonly, Seagate6TB2
-kuma=remote readonly monitor id 6 latest heartbeat status=1 msg="OK checked=3 alerts=0"; duplicate_named_monitors=1
+local_db=2026-06-11 run_status version=v7 sample_count=3 alert_count=0 event_count=0; monitored_disk_state rows=3
+kuma=remote readonly monitor id 6 latest heartbeat status=1 msg="OK T7=84% free SG4=8% free SG6=53% free"; duplicate_named_monitors=1; notification_id=1
 telegram=2026-06-11 log shows telegram.sent title=Disk usage delta after v5 run
 telegram_748263=2026-06-11 OK digest sent once, next run suppressed by 86400s cooldown; delta cooldown preserved
+telegram_836204=2026-06-11 notify-test sent clean body: Disk monitor + exactly T7 sistema/Seagate 4TB/Seagate 6TB lines.
 
 DATA:
 DB=/home/daniele/sync_root/db/disk_usage_monitor.sqlite
@@ -71,13 +74,12 @@ dnb=do not enable DELTA_KUMA_EVENT_PUSH unless event-level Kuma noise is wanted.
 dnb=do not rely on systemctl oneshot inactive/dead as failure; require exit status and DB/log/Kuma heartbeat.
 
 RISK:
-risk=large active backup/transfer can create repeated deltas; mitigation=Telegram cooldown and no per-heartbeat notifications.
+risk=Seagate 4TB is below default low-space threshold; mitigation=per-disk low_space cooldown and no per-heartbeat notifications.
 risk=Kuma only notifies state changes; mitigation=local Telegram delta and daily no-delta digest.
 
 ROAD:
-now=v5 live; Telegram delta and Kuma heartbeat verified for prompt_492817.
-now=v6 live; multi-disk inventory/dashboard/Kuma checked-count verified for prompt_748263.
-next=observe whether Seagate6TB2 deltas are expected backup activity or need separate backup diagnosis.
+now=v7 live; canonical 3-disk whitelist, clean Telegram, compact Kuma heartbeat verified for prompt_836204.
+next=observe Seagate 4TB low-space notifications; adjust threshold only if user requests.
 
 LINK:
 oracle_kuma=oracle-uptime-kuma.md
