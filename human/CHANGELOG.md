@@ -1,5 +1,6 @@
 # MegaVault Changelog
 
+- 2026-06-10: `#428691` Oracle Uptime Kuma: confermato progetto canonico esistente e aggiunte procedure docs-only per backup, monitor push, disattivazione obsoleti, noise reduction, verifica push e registri globali.
 - 2026-06-07_prompt_731845=git_completeness_protocol;remote=origin_required;final=push+sync+clean;scope=MegaVault+project_repos.
 - 2026-06-07: `#847261` creato profilo host globale AI/Human e reso obbligatorio nel protocollo dopo `MEGAVAULT_PROTOCOL.md`.
 - 2026-06-07: `#847261` Mint freeze forensics: removed legacy anti-freeze/watchdog artifacts, created `mint-freeze-forensics`, documented Oracle VM Kuma, and added `Mint Freeze Analysis` push monitors.

@@ -40,3 +40,14 @@ Regola:
 
 - Kuma è solo scatola nera, cronologia, alerting e visualizzazione.
 - Nessun reboot/restart/kill deve partire da Kuma.
+- Nessuna modifica distruttiva ai monitor o al DB senza backup recente.
+- Gli URL push `/api/push/<token>` non vanno stampati nei report e non vanno committati.
+
+## Come vengono gestiti i monitor
+
+- I monitor push sono usati da servizi locali Mint o Oracle per inviare un heartbeat a Kuma.
+- Ogni servizio conserva il token push fuori da Git, di solito in un file env locale.
+- Il pusher deve essere leggero, con timeout curl breve, e non deve far fallire il servizio principale solo perché Kuma non risponde.
+- Se un monitor diventa rumoroso, prima si verifica se segnala un guasto reale; poi si corregge il pusher o si allargano intervallo/timeout/retry.
+- I monitor obsoleti si disattivano o si marcano come obsoleti, conservando storico e dati.
+- Ogni nuovo monitor o cambio importante va registrato nei registri globali AI `SERVICE_REGISTRY.md` e `ALERT_REGISTRY.md`.
