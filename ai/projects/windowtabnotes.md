@@ -4,8 +4,8 @@ slug=windowtabnotes
 path=/home/daniele/codex-workspace/WindowTabNotes
 remote=git@github.com:gernalix/WindowTabNotes.git
 branch=codex/prompt-581472
-verified_commit=4dfce59
-verified_at=2026-06-07T09:02:18+02:00
+verified_commit=2b5375c
+verified_at=2026-06-10T17:03:22+02:00
 megavault_branch=codex/prompt-927384-android-studio-download-guard
 protocol=MEGAVAULT_PROTOCOL.md:v2
 
@@ -27,20 +27,20 @@ db=system/windowtabnotes/db.py
 native=system/bin/windowtabnotes-native-host,system/windowtabnotes/native_host.py,system/windowtabnotes/api.py
 chrome=browser-extension/manifest.json,browser-extension/service_worker.js,browser-extension/content_script.js,browser-extension/popup.js
 firefox=browser-extension-firefox/manifest.json + copied shared assets from browser-extension/; installer keeps Firefox copy synced because symlink packaging fails
-firefox_status=system/bin/windowtabnotes firefox-status --json -> active profile, loaded add-on, real Gecko id, native manifests, native ping, permanent-install limit
+firefox_status=system/bin/windowtabnotes firefox-status --json -> active profile, loaded add-on, temp WebDriver/web-ext runtime, real Gecko id, native manifests, native ping with sqlite-lock retry, permanent-install limit
 ui=system/windowtabnotes/gtk_ui.py,browser-extension/dashboard.html,browser-extension/dashboard.js
 search=system/windowtabnotes/rofi.py
 shortcuts=system/windowtabnotes/shortcuts.py
 systemd=system/systemd/windowtabnotes.service.in,~/.config/systemd/user/windowtabnotes.service
 install=system/scripts/install.sh
 install_firefox=system/scripts/install-firefox.sh syncs self-contained browser-extension-firefox assets from browser-extension before native manifest/status checks
-test_firefox=system/scripts/test-firefox-extension.sh -> web-ext real Firefox smoke using /usr/bin/firefox and native metrics delta
+test_firefox=system/scripts/test-firefox-extension.sh -> Selenium real Firefox smoke using temporary add-on install, three tabs, native metrics delta, DB note/context probe, and overlay visibility probe
 tests=tests/test_context_persistence.py
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated,__pycache__
 
 ARCH:
 cli=argparse commands version/init-db/daemon/status/check/native-debug/search/overlay/shortcuts
-daemon=active window watcher: xprop -spy _NET_ACTIVE_WINDOW + fallback poll + Chrome active-tab metadata
+daemon=active window watcher: xprop -spy _NET_ACTIVE_WINDOW + conservative fallback poll + browser active-tab metadata
 windows=wmctrl lists normal windows; xprop/xdotool read active id,title,class,pid,geometry
 overlay=GTK note process launched per note; overlay_runtime tracks visible note in DB metadata and cleans stale overlay windows
 db=single local SQLite DB; note rows keep relational context_id plus v5 denormalized context snapshot
@@ -50,7 +50,7 @@ search=rofi/global search reads DB search index and queues Chrome focus requests
 
 FLOW:
 normal_window=daemon active_window -> upsert_window_context -> ensure/create note -> notes.context_* snapshot -> GTK overlay
-chrome_tab=Chrome service_worker snapshotTab -> native UPSERT_TAB/SYNC_OPEN_TABS -> upsert_browser_tab -> note_for_browser_tab -> notes.context_url/title/tab/window snapshot -> GTK overlay when requested
+browser_tab=Chrome/Firefox service_worker snapshotTab -> native UPSERT_TAB/SYNC_OPEN_TABS -> upsert_browser_tab -> note_for_browser_tab -> notes.context_url/title/tab/window snapshot -> GTK overlay when requested
 chrome_focus=search queues chrome_focus_request metadata -> service_worker GET_FOCUS_REQUEST poll -> chrome.tabs/window focus or close
 save_text=content/GTK -> native SAVE_NOTE_TEXT or local UI -> db.update_note_text -> refresh context snapshot -> notes.updated_at
 service=~/.config/systemd/user/windowtabnotes.service -> system/bin/windowtabnotes daemon -> Restart=always
@@ -62,7 +62,7 @@ data=DB path default ~/.local/share/windowtabnotes/windowtabnotes.sqlite3; overr
 data=notes table owns text, created_at, updated_at, context_type, context_id, geometry, visibility, context_app, context_title, context_window_id, context_workspace, context_url, context_browser_tab_id, context_browser_window_id, context_key
 data=window_contexts owns window_id,app_class,title,workspace,pid,wm_name,last_seen_at
 data=browser_tabs owns browser_tab_id,browser_window_id,url,title,fav_icon_url,active,incognito,index,profile_key,normalized_url,note_key,last_seen_at
-data=browser note identity prefers normalized_url+profile note_key; falls back to Chrome window/tab ids
+data=browser note identity prefers normalized_url+profile note_key; Chrome keeps raw positive browser tab/window ids; Firefox sends scoped negative ids with profile_key=firefox:default to avoid collisions with Chrome/old rows
 service=user unit must stay enabled and active; linger currently yes on host
 service=daemon must log and skip transient sqlite locked/xdotool timeout rather than exiting
 service=human_status=systemctl --user status windowtabnotes.service --no-pager; logs=journalctl --user -u windowtabnotes.service -n 80 --no-pager; restart=systemctl --user restart windowtabnotes.service
@@ -70,6 +70,7 @@ chrome=Native Messaging host name com.windowtabnotes.host; installed manifests u
 firefox=Native Messaging host name com.windowtabnotes.host; add-on id windowtabnotes@local; manifest under ~/.mozilla/native-messaging-hosts/
 firefox=profile_current=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release; standard Firefox 151 cannot permanently install unsigned local add-on; temp load is required unless signed/dev-edition path is used
 firefox=browser-extension-firefox must be self-contained; symlinks make web-ext/Firefox packaging report missing background/content/icon files
+firefox=Prompt #594271 fixed runtime path: standard Firefox profile still cannot permanently load unsigned add-on, but Selenium temporary install verifies add-on id windowtabnotes@local, native messaging, DB contexts, and visible overlays end-to-end
 ux=do not break overlay/search behavior while changing persistence/service code
 version=monotonic integer in system/windowtabnotes/version.py,browser-extension/manifest.json,browser-extension-firefox/manifest.json
 
@@ -78,7 +79,7 @@ cmd=none
 run=system/bin/windowtabnotes <command>
 install_chrome=system/scripts/install.sh --extension-id <chrome_extension_id>
 install_firefox=system/scripts/install-firefox.sh [windowtabnotes@local]
-deps=python3,python3-gi,GTK3,sqlite3,rofi,wmctrl,xdotool,xprop,jq optional
+deps=python3,python3-gi,GTK3,sqlite3,rofi,wmctrl,xdotool,xprop,jq optional,pipx optional for Selenium Firefox E2E
 
 TEST:
 compile=python3 -m compileall -q system/windowtabnotes tests
@@ -90,7 +91,7 @@ native_chrome=system/bin/windowtabnotes native-debug --extension-id <chrome_exte
 native_firefox=system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json
 firefox_status=system/bin/windowtabnotes firefox-status --json
 firefox_lint=npx --yes web-ext@10.3.0 lint --source-dir browser-extension-firefox --self-hosted
-firefox_smoke=system/scripts/test-firefox-extension.sh; expected ok true and native metrics total_messages+UPSERT_TAB increase
+firefox_smoke=system/scripts/test-firefox-extension.sh; expected ok true, addon_id=windowtabnotes@local, firefox_status.ok=true for temp profile, native metrics total_messages+UPSERT_TAB increase, three DB note ids, three distinct overlay context keys
 
 DATA:
 DB=SQLite
@@ -131,6 +132,10 @@ issue=Prompt #618739 Firefox current profile did not work.
 cause=active profile had stale `windowtabnotes@local` UUID/toolbar/tmpExtDir prefs but no loaded add-on in extensions.json; Firefox source dir was symlink-based and web-ext lint showed missing service_worker/content/icons.
 fix=browser-extension-firefox self-contained; installer resyncs assets, writes both Firefox native manifest locations, and `firefox-status` exposes active profile/add-on/native truth.
 test=web-ext real Firefox smoke loaded temp add-on and increased native metrics total_messages/UPSERT_TAB/SYNC_OPEN_TABS/GET_FOCUS_REQUEST.
+issue=Prompt #594271 Firefox tabs reached native host but overlays did not follow Firefox tabs.
+cause=daemon only treated Chrome windows as browser-tab overlay contexts; Firefox temp runs also reused small raw tab ids against DB UNIQUE(browser_tab_id), so Firefox rows could overwrite old/Chrome contexts and inherit hidden notes.
+fix=v23 active_watch treats Firefox as browser window, exposes active_browser_tab debug, Firefox service_worker sends scoped negative tab/window ids with profile_key=firefox:default, firefox-status detects temporary WebDriver/web-ext runtimes, native ping retries transient SQLite locks, Selenium E2E test installs temporary add-on and verifies three tab overlays.
+test=2026-06-10T17:03:22+02:00 `system/scripts/test-firefox-extension.sh` ok true; URLs example.com/mozilla.org/example.org; addon_id windowtabnotes@local; firefox_status ok true; native total_messages 59209->59232 and UPSERT_TAB 19709->19720; distinct_note_ids=3; distinct_overlay_contexts=3.
 
 RISK:
 risk=SQLite lock contention from daemon + many Chrome native-host invocations.
@@ -139,11 +144,11 @@ risk=xdotool/xprop can timeout or fail under X11/session transitions.
 risk=Killing native-host or Chrome processes can interrupt active browser bridge; avoid unless user approves.
 risk=Deleting orphan browser notes would destroy user data; do not clean automatically.
 risk=`journalctl -n 80` can include older Jun 01 crash traces; current status command uses recent error scan and reports last_service_error empty after Jun 07 restart/kill tests.
-risk=Firefox standard release blocks permanent unsigned local extensions; do not claim profile current is fixed until `firefox-status` shows extension installed+active.
+risk=Firefox standard release blocks permanent unsigned local extensions; real default-release can show stale UUID/tmpExtDir without loaded add-on. End-to-end verification uses temporary Selenium/WebDriver install unless a signed/dev-edition path is provided.
 
 ROAD:
-now=v22 service hardening/context snapshot/status command; daemon auto-creates active context note when missing
-next=reduce Native Messaging GET_FOCUS_REQUEST process churn if Chrome bridge remains noisy
+now=v23 Firefox tab overlays pass temporary-add-on E2E; daemon polls less aggressively; status/native diagnostics tolerate transient DB locks
+next=reduce Native Messaging GET_FOCUS_REQUEST process churn if Chrome/Firefox bridge remains noisy
 later=explicit backup/export/restore commands
 
 LINK:

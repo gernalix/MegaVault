@@ -7,6 +7,8 @@
 - Verifica Firefox: `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json`.
 - Stato Firefox reale: `system/bin/windowtabnotes firefox-status --json`.
 - Smoke Firefox reale: `system/scripts/test-firefox-extension.sh`.
+- Lo smoke Firefox usa Selenium/WebDriver con add-on temporaneo: installa `windowtabnotes@local`, apre tre tab reali, passa tra le tab e controlla native metrics, DB e overlay. Il test non richiede install permanente nel profilo Firefox release.
+- Se `pipx` e disponibile, lo smoke usa `pipx run --spec selenium` e puo scaricare Selenium/driver alla prima esecuzione; altrimenti serve un Python con Selenium funzionante.
 - Stato globale: `system/bin/windowtabnotes-status --json` oppure `system/bin/windowtabnotes check --json`.
 
 ## Servizio systemd --user
@@ -26,6 +28,8 @@
 - Firefox: il manifest native deve esistere in `~/.mozilla/native-messaging-hosts/com.windowtabnotes.host.json` e contenere `allowed_extensions: ["windowtabnotes@local"]`.
 - Firefox attuale su Mint usa profili sotto `~/.config/mozilla/firefox/`; `firefox-status --json` deve mostrare il profilo attivo e se `windowtabnotes@local` e caricato in `extensions.json`.
 - Se `firefox-status` mostra `extension_uuid_exists_but_addon_not_loaded` o `temporary_addon_path_seen_but_not_loaded`, il profilo conserva stato di un temporaneo precedente ma l'add-on non e caricato: ricaricare il manifest temporaneo da `browser-extension-firefox/manifest.json`.
+- Durante i test automatici e normale vedere `location: webdriver-temporary-runtime` o `web-ext-temporary-runtime`: indica che l'add-on unsigned e stato caricato temporaneamente per verifica reale.
+- Le tab Firefox usano `profileKey` `firefox:default` e id interni negativi nei report DB. E intenzionale: evita collisioni con Chrome e con vecchie righe che usavano id tab positivi piccoli.
 - `browser-extension-firefox/` deve essere self-contained. I symlink verso `browser-extension/` fanno fallire `web-ext lint`/packaging con file background/content/icon mancanti.
 - Se il popup dice host non pronto, rieseguire il comando `native-debug ... --fix`, ricaricare l'estensione nel browser e riprovare su una pagina `http`, `https` o `file`.
 - Firefox Snap/Flatpak puo non vedere il manifest o il binario host del filesystem host; usare Firefox non confinato o verificare i permessi del portale native messaging.
