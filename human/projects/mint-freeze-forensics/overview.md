@@ -1,6 +1,6 @@
 # mint-freeze-forensics
 
-Prompt `#847261`.
+Prompt `#847261`; ultimo intervento `#746182`.
 
 Soluzione nuova: forensics, early warning e telemetria storica. Non riavvia, non restarta servizi, non killa processi e non modifica tuning del sistema operativo.
 
@@ -27,6 +27,7 @@ mint-freeze-forensics recent
 mint-freeze-forensics weekly-report
 mint-freeze-forensics dashboard-json
 mint-freeze-forensics io-report
+mint-freeze-forensics freeze-root-cause
 mint-freeze-forensics historical-validation
 mint-freeze-forensics guardian --once
 systemctl --user status mint-freeze-forensics.service --no-pager
@@ -38,6 +39,7 @@ Novità operative:
 - `weekly-report`: aggregato 7 giorni con durata media, freeze più lungo, processo/pattern ricorrente e medie PSI.
 - `dashboard-json`: sorgente stabile letta dalla Linux Mint Service Dashboard, senza duplicare logica.
 - `io-report`: report specifico per freeze con PSI I/O alta, swap/root su Samsung T7 e processi che leggono/scrivono troppo.
+- `freeze-root-cause`: report forense sui freeze recenti con timeline, PSI/RAM/swap pre-freeze, processi coinvolti e classificazione automatica.
 - `UNEXPECTED_INTERRUPTION`: registrato quando il boot cambia e l’ultimo heartbeat è oltre soglia.
 - simulazioni `simulate-gap` e `simulate-interruption`: marcate `simulation=true`, visibili in timeline ma escluse dai conteggi reali.
 
@@ -46,6 +48,9 @@ Kuma:
 - Status page: `http://150.230.148.128:3001/status/mint-freeze-analysis`
 - Monitor: `Freeze Gaps`, `PSI Memory`, `PSI IO`, `Guardian Alerts`, `Forensics Alive`.
 - Messaggi push includono `freeze_count_24h`, `freeze_count_7d`, `guardian_alert_count_24h`, `guardian_alert_count_7d`.
+- Dalla versione 1.4.0 `Freeze Gaps` e `Guardian Alerts` restano verdi se l'heartbeat arriva: i conteggi non-zero sono telemetria, non stato down.
+- Il falso rosso del prompt `#746182` era causato dall'invio di `status=down` quando esistevano freeze/guardian alert, più un intervallo locale 60s uguale all'intervallo Kuma.
+- Il push locale predefinito è ora 30s.
 - Solo telemetria/alerting; nessuna remediation.
 
 Storage/I/O:
@@ -60,3 +65,8 @@ Adaptive capture:
 - Se PSI memory o PSI I/O arriva a 90, oppure se viene rilevato un freeze gap, apre una finestra di cattura di massimo 120 secondi.
 - In quella finestra campiona più spesso e forza delta read/write, major faults, stato T7 e keyword kernel storage/USB.
 - Finita la finestra torna automaticamente alla modalità normale.
+
+Telemetria freeze avanzata:
+
+- Dalla versione 1.4.0 i sample registrano campi memoria estesi, PSI memory/I/O/CPU, delta swap/page fault/reclaim da `/proc/vmstat` e dettagli mirati su Firefox/Codex.
+- Quando i segnali pre-freeze superano soglia, salva snapshot JSON sotto `~/.local/state/mint-freeze-forensics/pre-freeze-capture/`.
