@@ -8,6 +8,7 @@ Mappa relazionale tra progetti, servizi, DB, dashboard, monitor e alert. La list
 - `amici-fb`: `amici_fb.service`, `amici_fb.timer`, `amici_fb.sqlite3`, monitor Kuma `amici_fb`.
 - `codex-html-live`: `codex-html-live.service`.
 - `codex-token-watcher`: `codex-usage-monitor.service`, `codex-usage-monitor.timer`, `codex_usage.sqlite3`; monitor Kuma obsoleto disabilitato.
+- `git-change-ledger`: nessun servizio abilitato; template timer disabilitato; DB `/home/daniele/sync_root/db/git_change_ledger.sqlite3`.
 - `linux-mint-service-dashboard`: `system-service-dashboard.service`, dashboard `127.0.0.1:8788`.
 - `mint-cloud-backup`: servizi backup, monitor, dashboard e push Kuma; dashboard `127.0.0.1:8765`; monitor `cloud_backup`.
 - `mint-freeze-forensics`: sampler e guardian, stato JSONL, tab dashboard locale, monitor Kuma freeze `13-17`.

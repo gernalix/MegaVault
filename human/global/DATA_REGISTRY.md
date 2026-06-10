@@ -12,6 +12,7 @@ Registro leggibile dei database e degli stati locali rilevanti. Il file AI autor
 - `parcel_tracker.sqlite3`: `/home/daniele/codex-workspace/parcel-tracker/parcel_tracker.sqlite3`, owner `parcel-tracker`.
 - `peewee-sqlite.v2.db`: `~/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db`, owner `activitywatch`.
 - `disk_usage_monitor.sqlite`: `/home/daniele/sync_root/db/disk_usage_monitor.sqlite`, owner `disk-usage-monitor`.
+- `git_change_ledger.sqlite3`: `/home/daniele/sync_root/db/git_change_ledger.sqlite3`, owner `git-change-ledger`, rebuildable by rerunning `git-change-ledger scan`.
 - `kuma.db`: `/opt/uptime-kuma/data/kuma.db` sulla VM Oracle, verificato live in sola lettura il 2026-06-10 con WAL/SHM presenti e integrity `ok`.
 
 ## Stato non SQLite
@@ -29,5 +30,5 @@ I DB di profili browser, cookie, login e cache di strumenti sono stati riconosci
 
 - High impact: `windowtabnotes.sqlite3`, `kuma.db`, snapshot home e destinazione transfer.
 - Medium impact: `software_audit.db`, `terminal_logger.sqlite`, `amici_fb.sqlite3`, ActivityWatch, disk monitor e stati backup/freeze.
-- Low impact: `codex_usage.sqlite3`, `parcel_tracker.sqlite3`, storici Android update.
+- Low impact: `codex_usage.sqlite3`, `parcel_tracker.sqlite3`, `git_change_ledger.sqlite3`, storici Android update.
 - Secrets: non verificati nei DB live; `terminal_logger.sqlite`, note utente, ActivityWatch, Kuma e dati home/transfer restano `UNKNOWN` o sensibili per contenuto possibile.

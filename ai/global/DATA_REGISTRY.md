@@ -3,7 +3,7 @@ VERSION=1
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=filesystem_live_2026-06-08+sqlite_readonly_tables+project_ai_docs+kuma_sqlite_readonly_2026-06-10
+SOURCE=filesystem_live_2026-06-08+sqlite_readonly_tables+project_ai_docs+kuma_sqlite_readonly_2026-06-10+git_change_ledger_2026-06-10
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/DATA_REGISTRY.md
@@ -23,6 +23,7 @@ db=amici_fb.sqlite3;owner=amici-fb;type=sqlite;path=/home/daniele/codex-workspac
 db=parcel_tracker.sqlite3;owner=parcel-tracker;type=sqlite;path=/home/daniele/codex-workspace/parcel-tracker/parcel_tracker.sqlite3;tables=checks,state
 db=peewee-sqlite.v2.db;owner=activitywatch;type=sqlite;path=/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db;tables=bucketmodel,eventmodel
 db=disk_usage_monitor.sqlite;owner=disk-usage-monitor;type=sqlite;path=/home/daniele/sync_root/db/disk_usage_monitor.sqlite;tables=disk_space_samples,disk_events,disk_alerts,run_status,kuma_pushes
+db=git_change_ledger.sqlite3;owner=git-change-ledger;type=sqlite;path=/home/daniele/sync_root/db/git_change_ledger.sqlite3;size=151552;wal=yes;tables=changed_files,recent_commits,repo_scans,repos,scan_runs,schema_meta
 db=android_updates_history.sqlite;owner=mint-extra-updater;type=sqlite;path=/home/daniele/.local/state/mint-extra-updater/android-sdk-history/android_updates_history.sqlite;tables=android_update_history
 db=android_updates_history.sqlite;owner=mint-manual-updates;type=sqlite;path=/home/daniele/.local/state/mint-manual-updates/android-sdk-history/android_updates_history.sqlite;tables=android_update_history
 db=kuma.db;owner=oracle-uptime-kuma;type=sqlite;path=/opt/uptime-kuma/data/kuma.db;host=ubuntu@150.230.148.128;size=8806400;wal=yes;wal_path=/opt/uptime-kuma/data/kuma.db-wal;shm_path=/opt/uptime-kuma/data/kuma.db-shm;integrity=ok_2026-06-10;tables=api_key,docker_host,domain_expiry,heartbeat,maintenance,monitor,monitor_group,monitor_notification,monitor_tag,notification,setting,status_page,tag,user,stat_daily,stat_hourly,stat_minutely;live_read=verified_2026-06-10
@@ -42,6 +43,7 @@ data=amici_fb.sqlite3;owner_project=amici-fb;backup=UNKNOWN;rebuildable=partial;
 data=parcel_tracker.sqlite3;owner_project=parcel-tracker;backup=UNKNOWN;rebuildable=partial;loss_impact=low;contains_secrets=no;restore_source=carrier_status_rescan_partial
 data=peewee-sqlite.v2.db;owner_project=activitywatch;backup=UNKNOWN;rebuildable=no;loss_impact=medium;contains_secrets=UNKNOWN_activity_history;restore_source=none_verified
 data=disk_usage_monitor.sqlite;owner_project=disk-usage-monitor;backup=UNKNOWN;rebuildable=partial;loss_impact=medium;contains_secrets=no;restore_source=future_disk_samples_only
+data=git_change_ledger.sqlite3;owner_project=git-change-ledger;backup=UNKNOWN;rebuildable=yes;loss_impact=low;contains_secrets=no_file_contents_but_paths_may_be_sensitive;restore_source=rerun_git_change_ledger_scan
 data=android_updates_history.sqlite;owner_project=mint-extra-updater;backup=UNKNOWN;rebuildable=partial;loss_impact=low;contains_secrets=no;restore_source=legacy_update_logs_partial
 data=android_updates_history.sqlite;owner_project=mint-manual-updates;backup=UNKNOWN;rebuildable=partial;loss_impact=low;contains_secrets=no;restore_source=legacy_update_logs_partial
 data=kuma.db;owner_project=oracle-uptime-kuma;backup=yes;rebuildable=partial;loss_impact=high;contains_secrets=UNKNOWN_push_tokens_possible;restore_source=/opt/uptime-kuma/backups
@@ -63,6 +65,7 @@ project=windowtabnotes;db=windowtabnotes.sqlite3;service=windowtabnotes.service;
 project=amici-fb;db=amici_fb.sqlite3;service=amici_fb.service;timer=amici_fb.timer;monitor=amici_fb
 project=parcel-tracker;db=parcel_tracker.sqlite3;service=parcel-tracker.service;timer=parcel-tracker.timer;monitor=parcel-tracker
 project=disk-usage-monitor;db=disk_usage_monitor.sqlite;service=disk-usage-monitor.service;timer=disk-usage-monitor.timer;monitor=disk-usage-monitor
+project=git-change-ledger;db=git_change_ledger.sqlite3;service=none_enabled;timer=template_only_disabled;monitor=none
 project=oracle-uptime-kuma;db=kuma.db;service=uptime-kuma_container;dashboard=http://150.230.148.128:3001
 project=mint-freeze-forensics;db=none;state=jsonl;service=mint-freeze-forensics.service;monitor=freeze_monitors_13_17
 project=mint-cloud-backup;db=none;state=json;service=mint-cloud-backup-monitor.service;dashboard=http://127.0.0.1:8765;monitor=cloud_backup_id_3

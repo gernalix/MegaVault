@@ -1,6 +1,6 @@
 # PROJECT_INDEX
 
-Updated: 2026-06-10T16:03:59+02:00
+Updated: 2026-06-10T19:33:41+02:00
 
 | name | slug | purpose | AI doc | Human overview | metadata | repo |
 |---|---|---|---|---|---|---|
@@ -15,6 +15,7 @@ Updated: 2026-06-10T16:03:59+02:00
 | codex-wrapper | codex-wrapper | UNKNOWN: source docs do not state a clear purpose. | [AI](projects/codex-wrapper.md) | [Human](../human/projects/codex-wrapper/overview.md) | [metadata](../../codex-wrapper/dev/project.metadata.json) | [repo](../../codex-wrapper) |
 | facebook-video-archiver | facebook-video-archiver | Start here for Codex/operator work on `facebook-video-archiver`. | [AI](projects/facebook-video-archiver.md) | [Human](../human/projects/facebook-video-archiver/overview.md) | [metadata](../../facebook-video-archiver/dev/project.metadata.json) | [repo](../../facebook-video-archiver) |
 | facedownassup-downloader | facedownassup-downloader | Local authorized downloader for facedownassup.com member gallery pages using the operator's existing Chrome login via yt-dlp cookies and non-evasive browser headers. | [AI](projects/facedownassup-downloader.md) | [Human](../human/projects/facedownassup-downloader/overview.md) | [metadata](../../facedownassup-downloader/dev/project.metadata.json) | [repo](../../facedownassup-downloader) |
+| git-change-ledger | git-change-ledger | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs or automatic fetches. | [AI](projects/git-change-ledger.md) | [Human](../human/projects/git-change-ledger/overview.md) | [metadata](../../git-change-ledger/dev/project.metadata.json) | [repo](../../git-change-ledger) |
 | installa-app | installa-app | UNKNOWN: source docs do not state a clear purpose. | [AI](projects/installa-app.md) | [Human](../human/projects/installa-app/overview.md) | [metadata](../../installa-app/dev/project.metadata.json) | [repo](../../installa-app) |
 | linux-mint-service-dashboard | linux-mint-service-dashboard | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE. | [AI](projects/linux-mint-service-dashboard.md) | [Human](../human/projects/linux-mint-service-dashboard/overview.md) | [metadata](../../linux-mint-service-dashboard/dev/project.metadata.json) | [repo](../../linux-mint-service-dashboard) |
 | megavault-project-exporter | megavault-project-exporter | Fast cached exporter for bundling one MegaVault-registered project together with the MegaVault documentation archive. | [AI](projects/megavault-project-exporter.md) | [Human](../human/projects/megavault-project-exporter/overview.md) | [metadata](../../megavault-project-exporter/dev/project.metadata.json) | [repo](../../megavault-project-exporter) |
