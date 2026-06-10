@@ -76,7 +76,7 @@ service=windowtabnotes.service;scope=user;state=active/running;enabled=enabled;r
 service=x11vnc-real-display.service;scope=user;state=active/running;enabled=enabled;repo=x11vnc-real-display;purpose=physical_XFCE_display_mirror
 
 SYSTEM_SERVICES:
-service=disk-usage-monitor.service;scope=system;state=inactive/dead;enabled=static;repo=disk-usage-monitor;purpose=disk_usage_monitor
+service=disk-usage-monitor.service;scope=system;state=inactive/dead;enabled=static;repo=disk-usage-monitor;purpose=disk_usage_monitor_SQLite_Telegram_delta_Kuma_push
 service=dpkg-db-backup.service;scope=system;state=inactive/dead;enabled=static;repo=OS;purpose=dpkg_database_backup
 service=mint-cloud-backup.service;scope=system;state=inactive/dead;enabled=static;repo=mint-cloud-backup;purpose=restic_Backblaze_root_backup
 service=mint-cloud-backup-dashboard.service;scope=system;state=active/running;enabled=enabled;repo=mint-cloud-backup;purpose=backup_dashboard
@@ -105,7 +105,7 @@ timer=terminal-logger-codex-snapshot.timer;scope=user;state=active/waiting;enabl
 timer=terminal-logger-maintenance.timer;scope=user;state=active/waiting;enabled=enabled;unit=terminal-logger-maintenance.service;schedule=daily;randomized=20m
 
 SYSTEM_TIMERS:
-timer=disk-usage-monitor.timer;scope=system;state=active/waiting;enabled=enabled;unit=disk-usage-monitor.service;schedule=OnUnitActiveSec=5min
+timer=disk-usage-monitor.timer;scope=system;state=active/waiting;enabled=enabled;unit=disk-usage-monitor.service;schedule=OnUnitActiveSec=5min;Kuma_monitor_id=6
 timer=dpkg-db-backup.timer;scope=system;state=active/waiting;enabled=enabled;unit=dpkg-db-backup.service;schedule=daily
 timer=mint-cloud-backup.timer;scope=system;state=active/waiting;enabled=enabled;unit=mint-cloud-backup.service;schedule=daily;randomized=30m
 timer=mint-cloud-backup-kuma-push.timer;scope=system;state=active/waiting;enabled=enabled;unit=mint-cloud-backup-kuma-push.service;schedule=OnUnitActiveSec=2min

@@ -1,5 +1,6 @@
 # MegaVault Changelog
 
+- 2026-06-11: `#492817` chiarita e corretta la catena `disk-usage-monitor` -> Kuma -> Telegram. Kuma resta heartbeat/state-change; il monitor locale ora invia delta >= 500 MiB e digest OK giornaliero non rumoroso.
 - 2026-06-10: `#731845` Oracle Uptime Kuma: audit live read-only e runbook operativo completo per runtime, monitor, notifiche, SQLite, backup, restore, pusher e anti-drift; nessuna modifica runtime.
 - 2026-06-10: `#428691` Oracle Uptime Kuma: confermato progetto canonico esistente e aggiunte procedure docs-only per backup, monitor push, disattivazione obsoleti, noise reduction, verifica push e registri globali.
 - 2026-06-07_prompt_731845=git_completeness_protocol;remote=origin_required;final=push+sync+clean;scope=MegaVault+project_repos.
