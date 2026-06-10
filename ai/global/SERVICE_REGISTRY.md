@@ -3,7 +3,7 @@ VERSION=1
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-06-08+HOST_PROFILE+project_ai_docs
+SOURCE=systemctl_live_2026-06-08+HOST_PROFILE+project_ai_docs+kuma_oracle_ssh_2026-06-10
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -11,7 +11,12 @@ HUMAN=../../human/global/SERVICE_REGISTRY.md
 SCOPE:
 scope=custom_project_infra_units
 exclude=desktop_autostart,package_default_services,third_party_background_units_unless_project_relevant
-unknown=remote_Oracle_systemd_live_state
+unknown=remote_Oracle_non_Kuma_systemd_live_state
+
+ORACLE_RUNTIME:
+service=docker.service;host=ubuntu@150.230.148.128;state=active/running;enabled=enabled;purpose=Oracle_VM_Docker_runtime_for_Uptime_Kuma;verified=2026-06-10
+compose_service=uptime-kuma;container=uptime-kuma;host=ubuntu@150.230.148.128;state=running/healthy;image=louislam/uptime-kuma:2.3.2;compose=/opt/uptime-kuma/docker-compose.yml;port=3001;purpose=Uptime_Kuma_dashboard_alerting
+absent_service=uptime-kuma.service;host=ubuntu@150.230.148.128;state=not_present;use=docker.service+docker_compose
 
 OWNER_RESOLUTION:
 owner=terminal-logger;owner_project=terminal-logger;repo=/home/daniele/terminal-logger;source=repo+README+unit_ExecStart
@@ -166,6 +171,6 @@ timer=mintupdate-automation-autoremove.timer;owner_project=OS;runtime_scope=syst
 timer=mintupdate-automation-upgrade.timer;owner_project=OS;runtime_scope=system;managed_by=systemd;criticality=important;failure_impact=automatic_upgrade_schedule_lost;safe_to_disable=ask
 
 OPEN:
-open=Oracle_VM_systemd_units_not_live_verified_ssh_timeout_2026-06-08
+open=Oracle_VM_non_Kuma_systemd_units_not_live_verified_2026-06-10
 open=third_party_desktop_autostart_units_excluded_from_project_registry
 open=ActivityWatch_repo_not_found_local_install_only

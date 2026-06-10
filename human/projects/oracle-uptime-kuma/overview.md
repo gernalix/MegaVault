@@ -1,53 +1,49 @@
 # Oracle Uptime Kuma
 
-Runtime Kuma della VM Oracle, non servizio locale Mint.
+Kuma vive sulla VM Oracle `ubuntu@150.230.148.128`, hostname `instance-20260201-1126`, ed e' raggiungibile su `http://150.230.148.128:3001`.
 
-Percorsi e stato verificati:
+Runtime verificato il 2026-06-10:
 
-- host: `ubuntu@150.230.148.128`
-- container: `uptime-kuma`
-- image: `louislam/uptime-kuma:2.3.2`
-- DB: `/opt/uptime-kuma/data/kuma.db`
-- compose: `/opt/uptime-kuma/docker-compose.yml`
-- backup prompt `#847261`: `/opt/uptime-kuma/backups/kuma-pre-847261-freeze-analysis.db`
+- systemd reale: `docker.service`, attivo e abilitato.
+- compose service: `uptime-kuma`.
+- container: `uptime-kuma`, image `louislam/uptime-kuma:2.3.2`, stato `running/healthy`.
+- compose: `/opt/uptime-kuma/docker-compose.yml`.
+- dati: `/opt/uptime-kuma/data`.
+- DB: `/opt/uptime-kuma/data/kuma.db`, con WAL/SHM presenti.
+- backup: `/opt/uptime-kuma/backups`.
+- log: `/opt/uptime-kuma/data/error.log` e Docker JSON log.
+- non esiste un `uptime-kuma.service` dedicato: si opera via Docker Compose/container.
 
-Gruppo creato:
+Stato operativo:
 
-- `Mint Freeze Analysis`, id `12`
+- DB `PRAGMA integrity_check`: `ok`.
+- Root VM: 93% usata al controllo 2026-06-10; prima di backup/restore o crescita log va ricontrollato lo spazio.
+- Telegram: notifica `id=1`, nome `Notifica Telegram (1)`, attiva/default. I valori token/chat id non vanno stampati.
 
-Status page:
+Monitor principali:
 
-- `Mint Freeze Analysis`, slug `mint-freeze-analysis`
-- URL: `http://150.230.148.128:3001/status/mint-freeze-analysis`
-- Monitor associati: 13-17
-- Refresh: 60s
+| ID | Nome | Stato | Ruolo |
+|---:|---|---|---|
+| 3 | cloud backup | attivo | backup cloud Mint |
+| 4 | mint-home-backup | attivo | backup home |
+| 5 | amici_fb | attivo | snapshot amici Facebook |
+| 6 | disk-usage-monitor | attivo | spazio disco |
+| 7 | parcel-tracker | attivo | tracking spedizione |
+| 9 | mint-home-backup-retention | attivo | retention/report backup |
+| 11 | software audit mint | attivo | audit software Mint |
+| 12 | Mint Freeze Analysis | attivo | gruppo status page |
+| 13-17 | Freeze/PSI/Guardian/Alive | attivi | freeze analysis |
 
-Monitor prompt `#847261`:
+Monitor disattivati/obsoleti:
 
-| ID | Nome | Tipo | Frequenza | Timeout | Retries |
-|---:|---|---|---:|---:|---:|
-| 13 | Freeze Gaps | push | 60s | 45s | 1 |
-| 14 | PSI Memory | push | 60s | 45s | 1 |
-| 15 | PSI IO | push | 60s | 45s | 1 |
-| 16 | Guardian Alerts | push | 60s | 45s | 1 |
-| 17 | Forensics Alive | push | 60s | 45s | 2 |
+- `1 mint heartbeat`: heartbeat generico sostituito da monitor specifici.
+- `2 rsync-transfer`: disattivato per assenza di runner transfer live verificato.
+- `10 codex-token-watcher`: disattivato/obsoleto per runtime legacy non affidabile.
 
-Telegram:
+Regole:
 
-- notification id `1` associata ai monitor 13-17.
-
-Regola:
-
-- Kuma è solo scatola nera, cronologia, alerting e visualizzazione.
-- Nessun reboot/restart/kill deve partire da Kuma.
-- Nessuna modifica distruttiva ai monitor o al DB senza backup recente.
-- Gli URL push `/api/push/<token>` non vanno stampati nei report e non vanno committati.
-
-## Come vengono gestiti i monitor
-
-- I monitor push sono usati da servizi locali Mint o Oracle per inviare un heartbeat a Kuma.
-- Ogni servizio conserva il token push fuori da Git, di solito in un file env locale.
-- Il pusher deve essere leggero, con timeout curl breve, e non deve far fallire il servizio principale solo perché Kuma non risponde.
-- Se un monitor diventa rumoroso, prima si verifica se segnala un guasto reale; poi si corregge il pusher o si allargano intervallo/timeout/retry.
-- I monitor obsoleti si disattivano o si marcano come obsoleti, conservando storico e dati.
-- Ogni nuovo monitor o cambio importante va registrato nei registri globali AI `SERVICE_REGISTRY.md` e `ALERT_REGISTRY.md`.
+- Kuma e' storico, alerting e visualizzazione; non deve avviare reboot, restart, kill o remediation.
+- Un rosso Kuma e' un segnale, non una prova: prima si verifica lo stato locale del servizio monitorato.
+- Nessuna modifica distruttiva a monitor o DB senza backup recente.
+- I monitor obsoleti si disattivano, non si cancellano, per conservare storico e motivazione.
+- Ogni cambio monitor va riflesso nei registri AI globali e in un report.

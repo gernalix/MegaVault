@@ -4,7 +4,7 @@ Registro globale dei monitor Kuma e delle sorgenti Telegram. Il file AI autorevo
 
 ## Kuma
 
-Kuma vive sulla VM Oracle ed e' usato per storico, alerting e visualizzazione. La notifica Telegram documentata e' `id=1`. La verifica live del DB remoto non e' riuscita in questo prompt per timeout SSH.
+Kuma vive sulla VM Oracle ed e' usato per storico, alerting e visualizzazione. La notifica Telegram documentata e' `id=1`. Il DB remoto e' stato verificato in sola lettura il 2026-06-10: `/opt/uptime-kuma/data/kuma.db`, integrity `ok`.
 
 Monitor attivi documentati:
 
@@ -18,6 +18,8 @@ Monitor attivi documentati:
 - Freeze analysis id `13-17`: freeze gaps, PSI memory, PSI IO, guardian alerts, forensics alive.
 
 Monitor obsoleti disabilitati: `mint_heartbeat`, `rsync-transfer`, `codex-token-watcher`.
+
+Gruppo/status page: `Mint Freeze Analysis` id `12`, slug `mint-freeze-analysis`, contiene monitor `13-17`.
 
 ## Classificazione operativa
 

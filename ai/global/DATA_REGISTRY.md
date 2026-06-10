@@ -3,7 +3,7 @@ VERSION=1
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=filesystem_live_2026-06-08+sqlite_readonly_tables+project_ai_docs
+SOURCE=filesystem_live_2026-06-08+sqlite_readonly_tables+project_ai_docs+kuma_sqlite_readonly_2026-06-10
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/DATA_REGISTRY.md
@@ -12,7 +12,7 @@ RULES:
 rule=do_not_modify_databases_for_docs_tasks
 rule=read_sqlite_readonly_when_possible
 rule=secrets_and_browser_cookies_are_sensitive
-unknown=remote_Oracle_DB_live_state_except_documented_paths
+unknown=backup_status_for_non_Kuma_local_SQLite_DBs
 
 SQLITE_PROJECT_DBS:
 db=software_audit.db;owner=mint-update-tracker;type=sqlite;path=/home/ubuntu/sync_root/db/software_audit.db;size=64323584;wal=yes;tables=current_inventory,events,file_state,health_checks,meta,runs,snapshot_diffs,software_snapshot_items,software_snapshots
@@ -25,7 +25,7 @@ db=peewee-sqlite.v2.db;owner=activitywatch;type=sqlite;path=/home/daniele/.local
 db=disk_usage_monitor.sqlite;owner=disk-usage-monitor;type=sqlite;path=/home/daniele/sync_root/db/disk_usage_monitor.sqlite;tables=disk_space_samples,disk_events,disk_alerts,run_status,kuma_pushes
 db=android_updates_history.sqlite;owner=mint-extra-updater;type=sqlite;path=/home/daniele/.local/state/mint-extra-updater/android-sdk-history/android_updates_history.sqlite;tables=android_update_history
 db=android_updates_history.sqlite;owner=mint-manual-updates;type=sqlite;path=/home/daniele/.local/state/mint-manual-updates/android-sdk-history/android_updates_history.sqlite;tables=android_update_history
-db=kuma.db;owner=oracle-uptime-kuma;type=sqlite;path=/opt/uptime-kuma/data/kuma.db;host=ubuntu@150.230.148.128;tables=documented_monitor,monitor_notification,notification;live_read=UNKNOWN_ssh_timeout
+db=kuma.db;owner=oracle-uptime-kuma;type=sqlite;path=/opt/uptime-kuma/data/kuma.db;host=ubuntu@150.230.148.128;size=8806400;wal=yes;wal_path=/opt/uptime-kuma/data/kuma.db-wal;shm_path=/opt/uptime-kuma/data/kuma.db-shm;integrity=ok_2026-06-10;tables=api_key,docker_host,domain_expiry,heartbeat,maintenance,monitor,monitor_group,monitor_notification,monitor_tag,notification,setting,status_page,tag,user,stat_daily,stat_hourly,stat_minutely;live_read=verified_2026-06-10
 
 NON_SQLITE_STATE:
 state=mint-freeze-forensics;owner=mint-freeze-forensics;type=jsonl;path=/home/daniele/.local/state/mint-freeze-forensics;files=events.jsonl,history.jsonl,freeze-evidence
@@ -68,6 +68,5 @@ project=mint-freeze-forensics;db=none;state=jsonl;service=mint-freeze-forensics.
 project=mint-cloud-backup;db=none;state=json;service=mint-cloud-backup-monitor.service;dashboard=http://127.0.0.1:8765;monitor=cloud_backup_id_3
 
 OPEN:
-open=remote_kuma_db_live_query_timeout_2026-06-08
 open=Android_update_history_tables_not_read_in_this_prompt
 open=backup_status_for_local_SQLite_DBs_not_verified_in_this_prompt

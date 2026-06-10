@@ -12,7 +12,7 @@ Registro leggibile dei database e degli stati locali rilevanti. Il file AI autor
 - `parcel_tracker.sqlite3`: `/home/daniele/codex-workspace/parcel-tracker/parcel_tracker.sqlite3`, owner `parcel-tracker`.
 - `peewee-sqlite.v2.db`: `~/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db`, owner `activitywatch`.
 - `disk_usage_monitor.sqlite`: `/home/daniele/sync_root/db/disk_usage_monitor.sqlite`, owner `disk-usage-monitor`.
-- `kuma.db`: `/opt/uptime-kuma/data/kuma.db` sulla VM Oracle, documentato ma non verificato live in questo prompt.
+- `kuma.db`: `/opt/uptime-kuma/data/kuma.db` sulla VM Oracle, verificato live in sola lettura il 2026-06-10 con WAL/SHM presenti e integrity `ok`.
 
 ## Stato non SQLite
 

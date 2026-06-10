@@ -3,7 +3,7 @@ VERSION=1
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+project_ai_docs+local_scripts_grep_2026-06-08
+SOURCE=HOST_PROFILE+project_ai_docs+local_scripts_grep_2026-06-08+kuma_sqlite_readonly_2026-06-10
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
@@ -20,7 +20,8 @@ kuma=Oracle_VM_Uptime_Kuma
 url=http://150.230.148.128:3001
 notification=Telegram id=1 documented
 db=/opt/uptime-kuma/data/kuma.db
-live_db_query=UNKNOWN_ssh_timeout_2026-06-08
+live_db_query=verified_2026-06-10;integrity=ok;db=/opt/uptime-kuma/data/kuma.db;container=uptime-kuma healthy
+notification_mapping=monitor_ids 1,2,3,4,5,6,7,9,10,11,13,14,15,16,17 -> Telegram id=1;group id=12 no direct notification
 
 KUMA_MONITORS_ACTIVE:
 alert=cloud_backup;monitor_id=3;owner=mint-cloud-backup;owner_project=mint-cloud-backup;source=mint-cloud-backup-kuma-push.service;source_service=mint-cloud-backup-kuma-push.service;severity=critical;actionability=codex_investigate;false_positive_risk=medium
@@ -35,6 +36,9 @@ alert=PSI_Memory;monitor_id=14;owner=mint-freeze-forensics;owner_project=mint-fr
 alert=PSI_IO;monitor_id=15;owner=mint-freeze-forensics;owner_project=mint-freeze-forensics;source=KUMA_PUSH_PSI_IO;source_service=mint-freeze-forensics.service;severity=warning;actionability=codex_investigate;false_positive_risk=medium
 alert=Guardian_Alerts;monitor_id=16;owner=mint-freeze-forensics;owner_project=mint-freeze-forensics;source=KUMA_PUSH_GUARDIAN_ALERTS;source_service=mint-resource-guardian.service;severity=warning;actionability=human_action;false_positive_risk=medium
 alert=Forensics_Alive;monitor_id=17;owner=mint-freeze-forensics;owner_project=mint-freeze-forensics;source=KUMA_PUSH_FORENSICS_ALIVE;source_service=mint-freeze-forensics.service;severity=warning;actionability=codex_investigate;false_positive_risk=low
+
+KUMA_GROUPS:
+group=Mint Freeze Analysis;monitor_id=12;status_page_id=1;status_page_slug=mint-freeze-analysis;children=13,14,15,16,17;owner_project=mint-freeze-forensics;notification=none_direct;latest_2026-06-10=down_due_child
 
 KUMA_MONITORS_DISABLED:
 alert=mint_heartbeat;monitor_id=1;owner_project=UNKNOWN;source_service=UNKNOWN;state=disabled_obsolete;severity=info;actionability=informational;false_positive_risk=high
@@ -61,4 +65,4 @@ project=surface-recovery-hardening;alerts=rsync-transfer_disabled,transfer_usb_i
 project=codex-token-watcher;alerts=codex-token-watcher_disabled,Telegram_optional
 
 OPEN:
-open=Kuma_notification_bindings_not_live_verified_due_ssh_timeout
+open=Telegram_delivery_not_tested_2026-06-10_docs_only

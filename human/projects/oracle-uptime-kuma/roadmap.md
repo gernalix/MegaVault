@@ -1,5 +1,5 @@
 # Roadmap
 
-- Ora: usare `Mint Freeze Analysis` per grafici storici dei freeze.
-- Prossimo: verificare dopo 24-72h se le soglie generano rumore.
-- Dopo: documentare eventuale API auth se serve evitare modifiche DB dirette.
+- Ora: usare il runbook AI come fonte operativa per modifiche Kuma.
+- Prossimo: se richiesto, diagnosticare runtime i warning 2026-06-10 su `Freeze Gaps`, `PSI Memory`, `PSI IO` e gruppo `Mint Freeze Analysis`.
+- Dopo: documentare eventuale API auth/UI workflow per ridurre gli interventi diretti su SQLite.
