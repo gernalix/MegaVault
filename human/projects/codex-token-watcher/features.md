@@ -1,16 +1,17 @@
 # codex-token-watcher Features
 
-Questa pagina deriva dalla verifica runtime locale del 2026-06-02.
+Questa pagina deriva dalla verifica runtime locale aggiornata al 2026-06-10.
 
 ## Mappa funzionale dal codice
-- Poll ogni 5 minuti via systemd user timer.
-- Chrome persistente locale dedicato per `https://chatgpt.com/codex/cloud/settings/analytics#usage`.
-- Parser v3 per blocchi `Saldo`, `Limite di utilizzo di 5 ore`, `Limite di utilizzo settimanale`, reset 5h e reset weekly.
-- Storico in SQLite/CSV con migrazioni idempotenti.
-- Stato atomico `last_weekly_percent.json`.
-- Telegram solo quando `weekly_percent` cambia rispetto all'ultimo valore salvato; baseline iniziale silenziosa salvo env esplicito.
-- Diagnostica HTML, screenshot e raw text su parsing/login/challenge failure.
-- Push Uptime Kuma remoto `up` su ciclo leggibile e `down` su parsing fallito.
+- Poll orario via systemd user timer.
+- Percorso normale CLI-only: `codex_cli_status_watcher.py once`.
+- Health Codex da `codex --version`, `codex login status`, `codex doctor --json`.
+- Quote da cache locale `~/.codex/sessions/**/*.jsonl` evento `token_count`, salvata in `cli_status_deep_observations`.
+- `human-status --json` mostra `source`, `updated_at`, `age_seconds`, `stale`.
+- Telegram quota breve: solo percentuali rimaste, variazione sopra soglia, reset locali `Europe/Copenhagen`.
+- `CODEX_QUOTA_TELEGRAM_VERBOSE=1` riabilita formato tecnico/debug.
+- Push Uptime Kuma remoto separato dal risultato Telegram.
+- Backend Chrome/Playwright resta fallback manuale, non service normale.
 
 ## Confini operativi
 - Non committare token, cookie, env o profilo Chromium.
