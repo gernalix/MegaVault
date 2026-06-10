@@ -92,7 +92,7 @@ oracle_constraints=backup_DB_before_direct_Kuma_sqlite,do_not_commit_tokens,remo
 SERVICES:
 user_active=adb-wifi-autoconnect,mint-freeze-forensics,mint-update-tracker,system-service-dashboard,transfer-vecchio-disco-adaptive-throttle,windowtabnotes,aw-watcher-media-player
 user_timers=amici_fb,android-sdk-auto-update,home-backup-kuma-push,home-backup-retention-kuma-push,home-incremental-backup,mint-manual-updates,mint-resource-guardian,mint-update-tracker,mint-xfce-layout-guard,parcel-tracker
-system_services=mint-cloud-backup-monitor,mint-cloud-backup-dashboard,transfer-usb-io-watchdog,disk-usage-monitor
+system_services=mint-cloud-backup-monitor,mint-cloud-backup-dashboard,transfer-usb-io-watchdog,disk-usage-monitor,local-zram-swap
 system_timers=mint-cloud-backup,mint-cloud-backup-kuma-push,disk-usage-monitor,dpkg-db-backup,mintupdate-automation-autoremove,mintupdate-automation-upgrade
 service_constraints=distinguish_user_vs_system,verify_systemd_plus_state_files,avoid_parallel_units,do_not_revive_removed_antifreeze_units,document_persistent_service_changes
 
@@ -101,6 +101,7 @@ project=mint-freeze-forensics
 service=mint-freeze-forensics.service user enabled/running;sampler=5s;no_remediation
 guardian=mint-resource-guardian.timer enabled;noninteractive_alert_under_systemd;no_auto_kill
 legacy_removed=freeze-reboot-monitor,freeze-zram-swap,screen-watchdog,system-watchdog,os-observer-autofix,mint_freeze_diag,freeze_reboot_monitor
+zram_swap_2026-06-10=local-zram-swap.service system enabled active_exited;unit=/etc/systemd/system/local-zram-swap.service;script=/usr/local/sbin/local-zram-swap;size=4GiB;algorithm=zstd_if_available_else_lz4;priority=100;disk_swap_fallback=/swapfile priority=-1;no_daemon,no_watchdog,no_reboot
 kuma_group=Mint Freeze Analysis id=12
 kuma_monitors=Freeze_Gaps id=13,PSI_Memory id=14,PSI_IO id=15,Guardian_Alerts id=16,Forensics_Alive id=17
 known=freeze/gap attribution needs real corpus; heuristic until >=3 real freeze events
