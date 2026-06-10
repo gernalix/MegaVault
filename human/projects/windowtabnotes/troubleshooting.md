@@ -6,8 +6,8 @@
 - Verifica Chrome: `system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json`.
 - Verifica Firefox: `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json`.
 - Stato Firefox reale: `system/bin/windowtabnotes firefox-status --json`.
-- Smoke Firefox reale: `system/scripts/test-firefox-extension.sh`.
-- Lo smoke Firefox usa Selenium/WebDriver con add-on temporaneo: installa `windowtabnotes@local`, apre tre tab reali, passa tra le tab e controlla native metrics, DB e overlay. Il test non richiede install permanente nel profilo Firefox release.
+- Smoke Firefox reale: `WTN_FIREFOX_TEST_SECONDS=75 system/scripts/test-firefox-extension.sh`.
+- Lo smoke Firefox usa Selenium/WebDriver con add-on temporaneo: installa `windowtabnotes@local`, apre tre tab reali con URL univoci, passa tra le tab, controlla native metrics, DB e overlay, salva tre testi tramite service worker Firefox -> Native Messaging -> SQLite, riavvia `windowtabnotes.service`, poi riapre Firefox e verifica persistenza + overlay su tre contesti.
 - Se `pipx` e disponibile, lo smoke usa `pipx run --spec selenium` e puo scaricare Selenium/driver alla prima esecuzione; altrimenti serve un Python con Selenium funzionante.
 - Stato globale: `system/bin/windowtabnotes-status --json` oppure `system/bin/windowtabnotes check --json`.
 
@@ -33,7 +33,11 @@
 - `browser-extension-firefox/` deve essere self-contained. I symlink verso `browser-extension/` fanno fallire `web-ext lint`/packaging con file background/content/icon mancanti.
 - Se il popup dice host non pronto, rieseguire il comando `native-debug ... --fix`, ricaricare l'estensione nel browser e riprovare su una pagina `http`, `https` o `file`.
 - Firefox Snap/Flatpak puo non vedere il manifest o il binario host del filesystem host; usare Firefox non confinato o verificare i permessi del portale native messaging.
-- Firefox standard non installa permanentemente estensioni locali non firmate; per permanenza serve pacchetto firmato oppure Developer/Nightly/ESR con policy/firma gestita.
+- Firefox standard non installa permanentemente estensioni locali non firmate; per permanenza serve pacchetto firmato oppure Developer/Nightly/ESR con `xpinstall.signatures.required=false`. Su Firefox release, `firefox-status --json` puo quindi essere `ok=false` per `extension_not_loaded_in_active_profile` anche se i manifest native sono corretti e l'E2E temporaneo passa.
+- Comandi verificati per separare i casi:
+  - `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json` deve essere `ok=true` per manifest/native host.
+  - `system/bin/windowtabnotes firefox-status --json` su profilo reale release puo restare `ok=false` finche l'add-on unsigned non e caricato temporaneamente.
+  - `WTN_FIREFOX_TEST_SECONDS=75 system/scripts/test-firefox-extension.sh` deve essere `ok=true` per il comportamento end-to-end temporaneo.
 
 ## Problemi e sintomi rilevati nel codice
 - system/windowtabnotes/cli.py:9:from .active_watch import active_note_for_current_context, active_window_watch_debug, sync_open_windows

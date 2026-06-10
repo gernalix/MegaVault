@@ -34,7 +34,7 @@ shortcuts=system/windowtabnotes/shortcuts.py
 systemd=system/systemd/windowtabnotes.service.in,~/.config/systemd/user/windowtabnotes.service
 install=system/scripts/install.sh
 install_firefox=system/scripts/install-firefox.sh syncs self-contained browser-extension-firefox assets from browser-extension before native manifest/status checks
-test_firefox=system/scripts/test-firefox-extension.sh -> Selenium real Firefox smoke using temporary add-on install, three tabs, native metrics delta, DB note/context probe, and overlay visibility probe
+test_firefox=system/scripts/test-firefox-extension.sh -> Selenium real Firefox E2E using temporary add-on install, three unique tabs, service worker SAVE_NOTE_TEXT through Native Messaging, native metrics delta, DB text/context probe, service restart, second Firefox session, and overlay visibility probe
 tests=tests/test_context_persistence.py
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated,__pycache__
 
@@ -91,7 +91,7 @@ native_chrome=system/bin/windowtabnotes native-debug --extension-id <chrome_exte
 native_firefox=system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json
 firefox_status=system/bin/windowtabnotes firefox-status --json
 firefox_lint=npx --yes web-ext@10.3.0 lint --source-dir browser-extension-firefox --self-hosted
-firefox_smoke=system/scripts/test-firefox-extension.sh; expected ok true, addon_id=windowtabnotes@local, firefox_status.ok=true for temp profile, native metrics total_messages+UPSERT_TAB increase, three DB note ids, three distinct overlay context keys
+firefox_smoke=WTN_FIREFOX_TEST_SECONDS=75 system/scripts/test-firefox-extension.sh; expected ok true, addon_id=windowtabnotes@local, firefox_status.ok=true for temp profile, native metrics total_messages+UPSERT_TAB increase, three DB note ids, three saved note texts, service_restart.ok=true, first+second session overlay context count=3
 
 DATA:
 DB=SQLite
@@ -136,6 +136,11 @@ issue=Prompt #594271 Firefox tabs reached native host but overlays did not follo
 cause=daemon only treated Chrome windows as browser-tab overlay contexts; Firefox temp runs also reused small raw tab ids against DB UNIQUE(browser_tab_id), so Firefox rows could overwrite old/Chrome contexts and inherit hidden notes.
 fix=v23 active_watch treats Firefox as browser window, exposes active_browser_tab debug, Firefox service_worker sends scoped negative tab/window ids with profile_key=firefox:default, firefox-status detects temporary WebDriver/web-ext runtimes, native ping retries transient SQLite locks, Selenium E2E test installs temporary add-on and verifies three tab overlays.
 test=2026-06-10T17:03:22+02:00 `system/scripts/test-firefox-extension.sh` ok true; URLs example.com/mozilla.org/example.org; addon_id windowtabnotes@local; firefox_status ok true; native total_messages 59209->59232 and UPSERT_TAB 19709->19720; distinct_note_ids=3; distinct_overlay_contexts=3.
+issue=Prompt #428673 Firefox real-profile equivalence needed stronger proof.
+cause=Real standard Firefox profile had native manifests and stale toolbar/tmpExtDir state but did not load unsigned `windowtabnotes@local`; earlier smoke did not prove text persistence through Firefox service_worker.
+fix=`system/scripts/test-firefox-extension.sh` now uses query-marker URLs to avoid stale domain notes, starts Firefox temporary add-on with `-remote-allow-system-access`, verifies service_worker `SAVE_NOTE_TEXT` via a `moz-extension://...` page, checks DB text after every save, restarts `windowtabnotes.service`, then opens a second Firefox session and verifies persisted notes plus overlay contexts again.
+test=2026-06-10T22:28:34+02:00 `WTN_FIREFOX_TEST_SECONDS=75 system/scripts/test-firefox-extension.sh` ok true; Firefox 151.0.4; addon_id windowtabnotes@local; native total_messages 60541->60606 and UPSERT_TAB 19972->20002; three note ids/texts saved; service_restart MainPID changed 1232202->1242983 active; first and second session distinct overlay context count=3.
+limit=Real `/home/daniele/.config/mozilla/firefox/50b1zmic.default-release` on standard Firefox still cannot permanently load unsigned local extension; `firefox-status --json` reports `extension_not_loaded_in_active_profile`. Use temporary load for tests, Mozilla-signed package, or Developer/Nightly/ESR with `xpinstall.signatures.required=false`.
 
 RISK:
 risk=SQLite lock contention from daemon + many Chrome native-host invocations.
@@ -144,7 +149,7 @@ risk=xdotool/xprop can timeout or fail under X11/session transitions.
 risk=Killing native-host or Chrome processes can interrupt active browser bridge; avoid unless user approves.
 risk=Deleting orphan browser notes would destroy user data; do not clean automatically.
 risk=`journalctl -n 80` can include older Jun 01 crash traces; current status command uses recent error scan and reports last_service_error empty after Jun 07 restart/kill tests.
-risk=Firefox standard release blocks permanent unsigned local extensions; real default-release can show stale UUID/tmpExtDir without loaded add-on. End-to-end verification uses temporary Selenium/WebDriver install unless a signed/dev-edition path is provided.
+risk=Firefox standard release blocks permanent unsigned local extensions; real default-release can show stale UUID/tmpExtDir without loaded add-on. End-to-end verification uses temporary Selenium/WebDriver install unless a signed/dev-edition path is provided; do not report permanent Firefox success from `firefox-status` unless active profile shows loaded add-on.
 
 ROAD:
 now=v23 Firefox tab overlays pass temporary-add-on E2E; daemon polls less aggressively; status/native diagnostics tolerate transient DB locks
