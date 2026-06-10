@@ -9,7 +9,7 @@ Mappa globale dei servizi e timer infrastrutturali verificati sul host Mint il 2
 
 ## Servizi user principali
 
-- Attivi: `adb-wifi-autoconnect`, `aw-watcher-media-player`, `chatgpt-chrome-live-logger`, `codex-html-live`, `mint-freeze-forensics`, `mint-update-tracker`, `system-service-dashboard`, `terminal-logger-codex`, `transfer-vecchio-disco-adaptive-throttle`, `windowtabnotes`, `x11vnc-real-display`.
+- Attivi: `adb-wifi-autoconnect`, `aw-server`, `aw-watcher-afk`, `aw-watcher-window`, `aw-watcher-media-player`, `chatgpt-chrome-live-logger`, `codex-html-live`, `mint-freeze-forensics`, `mint-update-tracker`, `system-service-dashboard`, `terminal-logger-codex`, `transfer-vecchio-disco-adaptive-throttle`, `windowtabnotes`, `x11vnc-real-display`.
 - Timer attivi: `amici_fb`, `android-sdk-auto-update`, `home-backup-kuma-push`, `home-backup-retention-kuma-push`, `home-incremental-backup`, `mint-manual-updates`, `mint-resource-guardian`, `mint-update-tracker`, `mint-xfce-layout-guard`, `parcel-tracker`, `terminal-logger-codex-snapshot`, `terminal-logger-maintenance`.
 - Falliti al momento della discovery: `amici_fb.service`, `android-sdk-auto-update.service`, `terminal-logger-maintenance.service`.
 
@@ -24,7 +24,7 @@ Mappa globale dei servizi e timer infrastrutturali verificati sul host Mint il 2
 - `disk-usage-monitor`: repo locale `/home/daniele/disk_usage_monitor`.
 - `mint-xfce-layout-guard`: owner `surface-recovery-hardening`.
 - `x11vnc-real-display`: artefatti runtime in `/home/daniele/remote_real_display_482`.
-- `ActivityWatch`: install locale/tool third-party; nessun repo MegaVault verificato.
+- `ActivityWatch`: install locale/tool third-party; nessun repo MegaVault verificato. Runtime user systemd: `aw-server.service` su `default.target`; watcher `aw-watcher-afk`, `aw-watcher-window`, `aw-watcher-media-player` su target grafico ActivityWatch avviato al login XFCE.
 
 ## Criticality
 

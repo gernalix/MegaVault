@@ -3,7 +3,7 @@ VERSION=1
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-06-08+HOST_PROFILE+project_ai_docs+kuma_oracle_ssh_2026-06-10
+SOURCE=systemctl_live_2026-06-08+HOST_PROFILE+project_ai_docs+kuma_oracle_ssh_2026-06-10+prompt_391684_activitywatch
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -48,7 +48,10 @@ USER_SERVICES:
 service=adb-wifi-autoconnect.service;scope=user;state=active/running;enabled=enabled;repo=android;purpose=ADB_Wi-Fi_Debug_auto_connect
 service=amici_fb.service;scope=user;state=failed/failed;enabled=static;repo=amici-fb;purpose=Facebook_friends_snapshot_SQLite_Telegram_Kuma
 service=android-sdk-auto-update.service;scope=user;state=failed/failed;enabled=static;repo=mint-manual-updates;purpose=Android_SDK_update_legacy_wrapper
-service=aw-watcher-media-player.service;scope=user;state=active/running;enabled=enabled;repo=activitywatch;purpose=ActivityWatch_media_watcher
+service=aw-server.service;scope=user;state=active/running;enabled=enabled;repo=activitywatch;purpose=ActivityWatch_server_boot_prelogin
+service=aw-watcher-afk.service;scope=user;state=active/running;enabled=enabled;repo=activitywatch;purpose=ActivityWatch_AFK_watcher_X11_session
+service=aw-watcher-media-player.service;scope=user;state=active/running;enabled=enabled;repo=activitywatch;purpose=ActivityWatch_media_watcher_session
+service=aw-watcher-window.service;scope=user;state=active/running;enabled=enabled;repo=activitywatch;purpose=ActivityWatch_window_watcher_X11_session
 service=chatgpt-chrome-live-logger.service;scope=user;state=active/running;enabled=enabled;repo=chatgpt-chrome-debug;purpose=passive_Chrome_ChatGPT_logger
 service=codex-html-live.service;scope=user;state=active/running;enabled=enabled;repo=codex-html-live;purpose=Codex_session_HTML_archive
 service=codex-usage-monitor.service;scope=user;state=inactive/dead;enabled=static;repo=codex-token-watcher;purpose=Codex_usage_monitor_poll
@@ -113,7 +116,10 @@ SERVICE_CLASSIFICATION:
 service=adb-wifi-autoconnect.service;owner_project=android;runtime_scope=user;managed_by=systemd;criticality=important;failure_impact=ADB_wifi_reconnect_lost;safe_to_disable=ask
 service=amici_fb.service;owner_project=amici-fb;runtime_scope=user;managed_by=timer;criticality=important;failure_impact=facebook_snapshot_Telegram_Kuma_lost;safe_to_disable=ask
 service=android-sdk-auto-update.service;owner_project=mint-manual-updates;runtime_scope=user;managed_by=timer;criticality=optional;failure_impact=Android_SDK_auto_update_lost;safe_to_disable=ask
+service=aw-server.service;owner_project=activitywatch;runtime_scope=user;managed_by=systemd;criticality=important;failure_impact=all_ActivityWatch_collection_lost;safe_to_disable=ask
+service=aw-watcher-afk.service;owner_project=activitywatch;runtime_scope=user;managed_by=systemd;criticality=optional;failure_impact=AFK_activity_tracking_lost;safe_to_disable=yes
 service=aw-watcher-media-player.service;owner_project=activitywatch;runtime_scope=user;managed_by=systemd;criticality=optional;failure_impact=media_activity_tracking_lost;safe_to_disable=yes
+service=aw-watcher-window.service;owner_project=activitywatch;runtime_scope=user;managed_by=systemd;criticality=optional;failure_impact=window_activity_tracking_lost;safe_to_disable=yes
 service=chatgpt-chrome-live-logger.service;owner_project=chatgpt-chrome-debug;runtime_scope=user;managed_by=systemd;criticality=important;failure_impact=Chrome_ChatGPT_live_logs_lost;safe_to_disable=ask
 service=codex-html-live.service;owner_project=codex-html-live;runtime_scope=user;managed_by=systemd;criticality=important;failure_impact=Codex_HTML_archive_stale;safe_to_disable=ask
 service=codex-usage-monitor.service;owner_project=codex-token-watcher;runtime_scope=user;managed_by=timer;criticality=obsolete;failure_impact=none_current_monitor_disabled;safe_to_disable=yes
@@ -174,3 +180,4 @@ OPEN:
 open=Oracle_VM_non_Kuma_systemd_units_not_live_verified_2026-06-10
 open=third_party_desktop_autostart_units_excluded_from_project_registry
 open=ActivityWatch_repo_not_found_local_install_only
+open=ActivityWatch_watchers_depend_on_XFCE_X11_login_bridge_not_graphical-session.target

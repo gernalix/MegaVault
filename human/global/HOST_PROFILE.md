@@ -67,7 +67,7 @@ Vincoli Oracle: prima di modifiche SQLite su Kuma serve backup DB; non committar
 
 ## Servizi e monitor
 
-Servizi user attivi rilevanti: `adb-wifi-autoconnect`, `mint-freeze-forensics`, `mint-update-tracker`, `system-service-dashboard`, `transfer-vecchio-disco-adaptive-throttle`, `windowtabnotes`, `aw-watcher-media-player`.
+Servizi user attivi rilevanti: `adb-wifi-autoconnect`, `mint-freeze-forensics`, `mint-update-tracker`, `system-service-dashboard`, `transfer-vecchio-disco-adaptive-throttle`, `windowtabnotes`, `aw-server`, `aw-watcher-afk`, `aw-watcher-window`, `aw-watcher-media-player`.
 
 Timer user rilevanti: `amici_fb`, `android-sdk-auto-update`, `home-backup-kuma-push`, `home-backup-retention-kuma-push`, `home-incremental-backup`, `mint-manual-updates`, `mint-resource-guardian`, `mint-update-tracker`, `mint-xfce-layout-guard`, `parcel-tracker`.
 

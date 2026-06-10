@@ -23,4 +23,4 @@ Mappa relazionale tra progetti, servizi, DB, dashboard, monitor e alert. La list
 
 ## Senza relazione runtime verificata
 
-I progetti Android app-only (`SuperContacts`, `MultiTimeTracker`, `Soldi`) non hanno servizi host verificati in questa discovery. ActivityWatch resta tool locale third-party senza repo MegaVault verificato. Alcuni workspace Oracle o report-only restano `UNKNOWN` perche' SSH verso la VM e' andato in timeout.
+I progetti Android app-only (`SuperContacts`, `MultiTimeTracker`, `Soldi`) non hanno servizi host verificati in questa discovery. ActivityWatch resta tool locale third-party senza repo MegaVault verificato; i servizi live sono `aw-server`, `aw-watcher-afk`, `aw-watcher-window`, `aw-watcher-media-player`. Alcuni workspace Oracle o report-only restano `UNKNOWN` perche' SSH verso la VM e' andato in timeout.

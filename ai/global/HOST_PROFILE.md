@@ -90,7 +90,7 @@ oracle_backup=/etc/oracle_backup/oracle_backup.env,/var/lib/oracle_backup,/var/l
 oracle_constraints=backup_DB_before_direct_Kuma_sqlite,do_not_commit_tokens,remote_quota_critical_2026-06-05 used=22.262GB assumed_limit=22GiB,do_not_no-lock_prune_without_explicit_approval
 
 SERVICES:
-user_active=adb-wifi-autoconnect,mint-freeze-forensics,mint-update-tracker,system-service-dashboard,transfer-vecchio-disco-adaptive-throttle,windowtabnotes,aw-watcher-media-player
+user_active=adb-wifi-autoconnect,mint-freeze-forensics,mint-update-tracker,system-service-dashboard,transfer-vecchio-disco-adaptive-throttle,windowtabnotes,aw-server,aw-watcher-afk,aw-watcher-window,aw-watcher-media-player
 user_timers=amici_fb,android-sdk-auto-update,home-backup-kuma-push,home-backup-retention-kuma-push,home-incremental-backup,mint-manual-updates,mint-resource-guardian,mint-update-tracker,mint-xfce-layout-guard,parcel-tracker
 system_services=mint-cloud-backup-monitor,mint-cloud-backup-dashboard,transfer-usb-io-watchdog,disk-usage-monitor,local-zram-swap
 system_timers=mint-cloud-backup,mint-cloud-backup-kuma-push,disk-usage-monitor,dpkg-db-backup,mintupdate-automation-autoremove,mintupdate-automation-upgrade

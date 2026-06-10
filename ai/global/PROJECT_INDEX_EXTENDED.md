@@ -31,7 +31,7 @@ project=surface-recovery-hardening;repo=/home/daniele/codex-workspace/surface-re
 project=windowtabnotes;repo=/home/daniele/codex-workspace/WindowTabNotes;service=windowtabnotes.service;timer=none;db=windowtabnotes.sqlite3;dashboard=WindowTabNotes_UI;monitor=none;alert=none
 project=backup_docs;repo=/home/daniele/backup_docs;service=home-incremental-backup.service,home-backup-kuma-push.service,home-backup-retention-kuma-push.service;timer=home-incremental-backup.timer,home-backup-kuma-push.timer,home-backup-retention-kuma-push.timer;db=none;dashboard=none;monitor=mint-home-backup_id_4,mint-home-backup-retention_id_9;alert=Kuma
 project=terminal-logger;repo=/home/daniele/terminal-logger;service=terminal-logger-codex.service,terminal-logger-codex-snapshot.service,terminal-logger-maintenance.service;timer=terminal-logger-codex-snapshot.timer,terminal-logger-maintenance.timer;db=terminal_logger.sqlite;dashboard=none;monitor=none;alert=none
-project=activitywatch;repo=UNKNOWN;service=aw-watcher-media-player.service;timer=none;db=peewee-sqlite.v2.db;dashboard=ActivityWatch;monitor=none;alert=none
+project=activitywatch;repo=UNKNOWN;service=aw-server.service,aw-watcher-afk.service,aw-watcher-window.service,aw-watcher-media-player.service;timer=none;db=peewee-sqlite.v2.db;dashboard=ActivityWatch;monitor=none;alert=none
 project=disk-usage-monitor;repo=/home/daniele/disk_usage_monitor;service=disk-usage-monitor.service;timer=disk-usage-monitor.timer;db=disk_usage_monitor.sqlite;dashboard=system-service-dashboard;monitor=disk-usage-monitor_id_6;alert=Kuma,Telegram
 project=x11vnc-real-display;repo=/home/daniele/remote_real_display_482;service=x11vnc-real-display.service;timer=none;db=none;dashboard=none;monitor=none;alert=none
 
@@ -71,3 +71,4 @@ project=remote-opt-oracle-backup;runtime_relation=Oracle_remote;live_state=UNKNO
 OPEN:
 open=remote_Oracle_project_services_not_live_verified_due_ssh_timeout
 open=activitywatch_repo_UNKNOWN_local_tool_install_only
+open=activitywatch_watchers_use_XFCE_autostart_bridge_because_graphical-session.target_inactive
