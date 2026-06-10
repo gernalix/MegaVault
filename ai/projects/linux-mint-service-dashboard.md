@@ -36,7 +36,7 @@ flow=app/server.py:10:from http import HTTPStatus
 flow=launchers/linux-mint-service-dashboard.desktop:9:StartupNotify=false
 flow=systemd/system-service-dashboard.service:9:ExecStart=/usr/bin/python3 /home/daniele/codex-workspace/linux-mint-service-dashboard/app/server.py --host 127.0.0.1 --port 8788
 flow_freeze=collect_all->collect_freeze_forensics->mint-freeze-forensics dashboard-json->renderFreezePanel
-flow_rsync=collect_rsync_transfer->unit_show(rsync-transfer.service user)->mount_info filters root/autofs wrappers->stale throughput hidden when no live rsync
+flow_transfer=collect_rsync_transfer->unit_show(transfer-vecchio-disco-adaptive-throttle.service user)->mount_info filters root/autofs wrappers->stale throughput hidden when no live rsync
 INV:
 arch=app/server.py:DashboardHandler,parse_args,main; app/collectors.py:CommandResult,now_local,iso_now,display_now,version; app/static/app.js:escapeHtml,statusClass,scalar,renderOverview,statCard; tests/playwright-smoke.js:URL,VIEWPORTS,brows...
 data=app/server.py:80:self.send_json({"status": "ok", "version": version(), "refresh_display": display_now(), "read_only": True}); dev/project.metadata.json:9:"metadata_version": 1,
@@ -77,7 +77,7 @@ issue=app/collectors.py:44:r"error|failed|fail|warning|warn|critical|blocked|sta
 issue=tests/test_dashboard.py:104:last_error: Exception | None = None
 issue=tests/test_dashboard.py:112:last_error = exc
 issue=tests/test_dashboard.py:114:raise AssertionError(f"server did not answer: {last_error}")
-issue=2026-06-10 rsync tab showed service=rsync-transfer.service while unit was absent and reused stale throughput; fix=created static manual unit and filtered mount_info root/autofs plus stale throughput
+issue=2026-06-10 transfer tab showed logical rsync-transfer as if it were systemd unit and reused stale throughput; fix=card id/name changed to transfer-vecchio-disco-adaptive-throttle, systemd_unit field added, SERVICE STATUS separated from METRICS STATUS
 RISK:
 risk=app/server.py:58:"trace": redact_text(traceback.format_exc(limit=3)),
 risk=app/collectors.py:24:SECRET_PATTERNS = [
@@ -86,8 +86,8 @@ risk=app/collectors.py:44:r"error|failed|fail|warning|warn|critical|blocked|stal
 risk=app/collectors.py:45:r"storage|lock|TRUE_PRE_EMERGENCY|PRE_EMERGENCY|abort|skipped",
 risk=app/collectors.py:77:for pattern in SECRET_PATTERNS:
 ops=dashboard service system-service-dashboard.service user ExecStart=/usr/bin/python3 /home/daniele/codex-workspace/linux-mint-service-dashboard/app/server.py --host 127.0.0.1 --port 8788
-ops_rsync=dashboard rsync tab service field now resolves loaded/static rsync-transfer.service; unit=/home/daniele/.config/systemd/user/rsync-transfer.service; runner=/home/daniele/.local/bin/rsync-transfer-runner; manual_start=/home/daniele/.local/bin/rsync-transfer-start
-test_2026-06-10=python3 -m unittest tests/test_dashboard.py OK; API rsync service loaded/static inactive/dead, source mounted false root/autofs ignored, destination /dev/sdc1 ext4, throughput stale
+ops_transfer=dashboard transfer tab id/name=transfer-vecchio-disco-adaptive-throttle; systemd_unit=transfer-vecchio-disco-adaptive-throttle.service; manual_start=/home/daniele/.local/bin/rsync-transfer-start; manual_status=/home/daniele/.local/bin/rsync-transfer-status
+test_2026-06-10=python3 -m unittest tests/test_dashboard.py OK; API transfer card warning with SERVICE STATUS active/running, METRICS STATUS stale/no live rsync, source mounted false root/autofs ignored, destination /dev/sdc1 ext4, throughput stale
 ROAD:
 now=Freeze / Rallentamenti tab integrated with mint-freeze-forensics
 next=review wording after >=3 real freeze events
