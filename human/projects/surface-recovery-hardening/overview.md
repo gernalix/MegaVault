@@ -18,6 +18,16 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 - `transfer-vecchio-disco-adaptive-throttle.service`: user, enabled, mantiene profilo I/O conservativo.
 - `media-daniele-Seagate6TB2.automount`: system-wide, enabled, monta la destinazione per UUID.
 
+## Comando manuale
+- Comando globale: `rsync-transfer-start`
+- Script: `/home/daniele/.local/bin/rsync-transfer-start`
+- Servizio controllato: `transfer-vecchio-disco-adaptive-throttle.service`
+- Unit file: `/home/daniele/.config/systemd/user/transfer-vecchio-disco-adaptive-throttle.service`
+- ExecStart: `/home/daniele/transfer_vecchio_disco_adaptive_throttle.sh`
+- Preflight: verifica servizio, stato sintetico, sorgente `/dev/mapper/source_bitlocker` read-only su `/media/daniele/Seagate Expansion Drive`, destinazione `/dev/sdc1` ext4 rw con UUID `75e5363d-6736-4a7e-84be-5242f4735a27`.
+- Test 2026-06-10: `bash -n /home/daniele/.local/bin/rsync-transfer-start` ok; esecuzione reale fermata in sicurezza per sorgente non montata. Nessun riavvio PC, nessuna cancellazione, nessun enable automatico.
+- Log: `journalctl --user -u transfer-vecchio-disco-adaptive-throttle.service -f` e `tail -F /home/daniele/transfer_vecchio_disco_adaptive_throttle.log`
+
 ## Kuma #482917
 - Monitor Kuma `rsync-transfer` disattivato come obsoleto/no live runner.
 - Non usare il rosso storico di Kuma come evidenza di transfer fallito; verificare sempre processi, mount e log live prima di riattivare il pusher.
