@@ -4,9 +4,9 @@ slug=multitimetracker
 path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
 branch=codex/v488-release-safe-ui-lockdown
-verified_commit=7186e9a22041582bf903e6545d4b722bf61bea37
-verified_at=2026-06-08T08:35:00+02:00
-protocol=MEGAVAULT_PROTOCOL.md:v2
+verified_commit=2548034f6c4fc7e4950f45600b41101faae7d764
+verified_at=2026-06-12T15:50:23+02:00
+protocol=MEGAVAULT_PROTOCOL.md:v8
 PURPOSE:
 purpose=local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model
 STACK:
@@ -45,6 +45,9 @@ capsules=owned: SINCE_WHEN owns LifePeriod create/update/delete, duplicate-submi
 capsules=percent: before_prompt_539824=72; after_prompt_539824=92; after_prompt_728419=100_for_documented_features; after_prompt_462918=100_strict_including_SINCE_WHEN; remaining_feature_bridges=none; MainViewModel remains composition shell/infrastructure adapter only
 quick_events=v525: removed redundant note/defaultNote fields from QuickEventTemplate, QuickEventEntry, QuickEventMacro and active Quick Events UI/import/export paths; text details now belong in custom fields
 quick_events=v526 prompt #394817: startup no longer refreshes QuickEvents DB; Events screen refreshes screen snapshot async on open; UI changed from LazyColumn+per-section FlowRow to keyed LazyVerticalGrid full-span sections
+performance=v527 prompt #817463: MainActivity.onCreate is thin; schema guard, integrity gate, snapshot load, and vault auto-restore run off UI path; startup schema guard cached by DB version and invalidated on import/restore/vault switch/fresh clear
+events_perf=v527: collapsed recent entries do not sort while hidden; macro actions are grouped/sorted once; custom macro dialog reuses sorted actions
+since_when_perf=v527: LifePeriodsScreen builds visibleTagsById once per visible tag state instead of per card
 backup=v525: SqliteVault creates stable primary/temp/emergency database files with exact names even when DocumentFile providers add MIME extensions
 audit_log=v525 prompt #728419: AUDIT_LOG bridge removed from MainViewModel; filters, event refresh, clear and undo moved to AuditLogCapsuleViewModel with source/JVM boundary tests and Pixel clone validation
 since_when=v525 prompt #462918: post-capsulization audit found LifePeriod CRUD still root-owned; moved to SinceWhenCapsuleViewModel, extended CapsuleBoundaryOwnershipTest and added SinceWhenCapsuleViewModelTest
@@ -75,6 +78,14 @@ device=Pixel 8a 192.168.1.37:44861; clone_only appId=com.example.multitimetracke
 device_result_v526=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; first attempt blocked by duplicate ADB alias then rerun after adb disconnect mDNS alias
 device_cmd=./gradlew :app:connectedAndroidTest -Pmtt.testBuildType=deviceTest -x lintVitalDeviceTest -x lintVitalAnalyzeDeviceTest -x generateDeviceTestLintVitalReportModel --console=plain --no-daemon
 device_result=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; prompt #462918 also installed/launched clone appId=com.example.multitimetracker.devicetest and verified pid
+device_policy_v527=TCL only for automatic testing/benchmark/stress/debug; Pixel only attempted for final APK install
+test_v527=compileDebugKotlin PASS; assembleDebug/deviceTest PASS; check_hardcoded_ui_strings PASS; testDebugUnitTest PASS; lintDebug PASS; assembleDebugAndroidTest PASS
+tcl_v527=TCL 192.168.1.200:45699; debug APK v527 installed; clear-data cold start produced NO_DB_FILE; no app AndroidRuntime/FATAL/ANR/lmkd in final logs
+tcl_limit_v527=TCL remained mCurrentFocus=NotificationShade and mDreamingLockscreen=true; visual UI scrolling/tap/tab benchmark blocked; benchmark:connectedDeviceTestAndroidTest started 4 tests on TCL then no progress under keyguard
+pixel_final_v527=BLOCKED; Pixel 8a 192.168.1.37 refused all known ADB ports and mDNS listed no services after TCL-only testing
+perf_v527_baseline=v526 real DB: onCreate avg 79.25ms, ensure_session_tables avg 50.73ms, integrity_gate avg 139.74ms, load_persisted_snapshot avg 654.04ms, cold WaitTime avg 3034.8ms locked TCL, warm avg 30.2ms
+perf_v527_after=v527 real DB locked TCL: onCreate avg 30.83ms final, steady ensure avg 2.30ms, warm WaitTime avg 19.6ms, cold WaitTime still ~3029ms because keyguard; no reliable visual screen-load timings while locked
+mem_v527=v526 real DB startup/warm PSS 50142/63167KB; v527 final locked real DB PSS 33224KB; synthetic locked PSS 42612KB; debug bg/fg no-data PSS 92425KB
 DATA:
 db=app/src/main/java/com/example/multitimetracker/capsules/system/ImportExportCapsule.kt:33:fun importDatabaseFromUri(context: Context, uri: Uri, scope: CoroutineScope); app/src/main/AndroidManifest.xml:9:<!-- Haptic feedback for alerts and...
 paths=app/src/main/AndroidManifest.xml:15:android:allowBackup="false"; app/src/main/AndroidManifest.xml:17:android:fullBackupContent="@xml/backup_rules"
@@ -107,10 +118,13 @@ risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// other
 risk=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
 risk=capsules: MainViewModel is now composition shell/infrastructure bridge; feature business ownership is inside capsules, with AUDIT_LOG and SINCE_WHEN guarded by source/JVM tests plus Pixel clone gate
 risk=events_perf: many buttons must stay lazy-keyed; avoid FlowRow inside lazy item for large sections; avoid startup QuickEvents DB refresh unless app initial tab requires it
+risk=v527_snapshot_load_cost: integrity/snapshot load still expensive but no longer blocks onCreate/main startup path; future work needs data-safe generation/cache design
+risk=v527_tcl_keyguard: TCL visual stress testing requires manual unlock or test harness that can dismiss keyguard; do not use Pixel for intermediate performance debugging when TCL policy is active
 ROAD:
 now=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:98:// Persist permission for future sessions.
 next=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:110:// Roll back the saved URI to avoid future "Export fallito" loops.
 next=capsules: no feature bridge is currently documented; optional future work is shrinking MainViewModel infrastructure hooks only after preserving composition-root stability
+next=v527_followup: repeat visual UI scroll/tap/tab benchmarks on unlocked TCL; investigate incremental snapshot/readiness state only if data-safety contract remains intact
 later=app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
 LINK:
 meta=../../../projects/MultiTimeTracker/dev/project.metadata.json

@@ -49,4 +49,4 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - app/src/main/AndroidManifest.xml:15:android:allowBackup="false"
 - app/src/main/AndroidManifest.xml:17:android:fullBackupContent="@xml/backup_rules"
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:39:import com.example.multitimetracker.export.BackupFolderStore
-- app/src/main/java/com/example/multitimetracker/MainActivity.kt:71:// v67: Defensive hardening for session-only schema (some DBs may miss tables despite user_version).
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt: `onCreate` resta leggero; lo schema ensure v527 gira in IO tramite `ensureStartupSchemasForLaunch`.

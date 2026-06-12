@@ -10,6 +10,16 @@
 - 2026-06-01: `#728419` capsulizzazione: eliminato il bridge AUDIT_LOG da MainViewModel; `AuditLogCapsuleViewModel` possiede filtri, refresh eventi, clear, undo e state audit log; commit app `d7f347e155e32757a23a968391fbcd5b15fe4060`.
 - 2026-06-01: `#462918` stabilizzazione post-capsulizzazione: audit ha trovato SINCE_WHEN/LifePeriod ancora root-owned; aggiunta `SinceWhenCapsuleViewModel` con boundary/test e validazione Pixel clone; commit app `7186e9a22041582bf903e6545d4b722bf61bea37`.
 - 2026-06-08: `#394817` patch v526 performance Eventi: refresh DB Eventi spostato fuori dallo startup e griglia Eventi resa lazy/keyed per evitare layout di intere sezioni durante lo scroll.
+- 2026-06-12: `#817463` patch v527 performance/stability: startup schema/init spostati fuori da `onCreate`, guard schema cache invalidata su import/restore/switch DB, ridotte allocazioni Events/Since When, test runtime TCL con limite keyguard; commit app `2548034f6c4fc7e4950f45600b41101faae7d764`.
+
+## v527 prompt #817463
+- Causa trovata: `MainActivity.onCreate` faceva ancora hardening schema SQLite e la prima inizializzazione ViewModel caricava integrity/snapshot sul percorso UI startup.
+- Correzione: `onCreate` resta sottile; `ensureStartupSchemas`, `vm.initialize` e auto-restore vault girano su `Dispatchers.IO`; i callback UI tornano esplicitamente sul Main.
+- Correzione: `SnapshotSqlite` usa guard cache per DB version e la invalida su import, restore, switch vault e fresh clear.
+- Correzione UI: Events non ordina recent entries se il log e' collassato, raggruppa/sort macro actions una volta; Since When riusa `visibleTagsById` invece di ricrearlo per card.
+- Misure TCL locked real DB: v526 `main_activity_on_create` 79.25 ms e `ensure_session_tables` 50.73 ms medi; v527 `main_activity_on_create` ~30.8 ms finale e schema ensure steady ~2.3 ms. Il cold `am start -W` resta ~3.0 s per lockscreen/NotificationShade, quindi non e' una misura UI utile.
+- Stabilita: nessun `AndroidRuntime`, `FATAL EXCEPTION`, ANR o lmkd dell'app nei log finali TCL; fresh clear-data su debug non crea `databases/multitimer.db`.
+- Limite: TCL rimasto in `mCurrentFocus=NotificationShade` e `mDreamingLockscreen=true`; benchmark visuale scroll/tap/tab bloccato. Pixel non usato per test; install finale Pixel bloccata da ADB connection refused/offline.
 
 ## v526 prompt #394817
 - Causa trovata: la tab Events usava `LazyColumn`, ma ogni sezione conteneva una `FlowRow` che componeva e misurava tutte le card della sezione; con molte card la laziness era solo per sezione, non per item.

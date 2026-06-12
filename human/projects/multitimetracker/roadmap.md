@@ -15,6 +15,9 @@
 - app/src/main/java/com/example/multitimetracker/persistence/IntegrityStatsSqlite.kt:169:while (c.moveToNext()) {
 
 ## Debito/rischi da considerare
+- Performance `#817463`: integrity/snapshot load resta costo reale ma non blocca piu `onCreate`; ottimizzazioni future devono preservare rollback/import/restore e non introdurre cache fragile.
+- Testing TCL `#817463`: ripetere benchmark visuali scroll/tap/tab su TCL sbloccato; non usare Pixel per debugging intermedio quando la policy richiede TCL-only.
+- Background closure `#817463`: non sono emersi crash/ANR app; causa probabile e' terminazione processo/sistema sotto pressione o stato lockscreen. Tenere memoria/lavoro background bassi e continuare a monitorare log lmkd/ActivityManager.
 - Capsulizzazione `#539824`: session CRUD/stop policy, QUICK_EVENTS, CHAINS, snapshot ALERTS reconciliation e CSV ImportExport sono dietro capsule owner/API esplicite.
 - Capsulizzazione `#728419`: AUDIT_LOG filters/event refresh/clear/undo sono in `AuditLogCapsuleViewModel` con API esplicita verso session/tag owner e guardrail in `CapsuleBoundaryOwnershipTest`.
 - Capsulizzazione `#462918`: SINCE_WHEN/LifePeriod CRUD e duplicate-submit guard sono in `SinceWhenCapsuleViewModel`; il gap trovato nell'audit post-refactor e' chiuso.

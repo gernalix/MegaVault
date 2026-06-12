@@ -1,5 +1,16 @@
 # MultiTimeTracker Architecture Audit
 
+## Prompt #817463
+- Scope: audit performance/stabilita completo con policy test automatici solo su TCL.
+- Code commit: `2548034f6c4fc7e4950f45600b41101faae7d764` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Found: `MainActivity.onCreate` eseguiva ancora hardening schema SQLite; `MainViewModel.initialize` caricava integrity/snapshot sul percorso startup UI.
+- Fixed: onCreate resta sottile; schema ensure, integrity gate, snapshot load e vault auto-restore girano su `Dispatchers.IO`.
+- Fixed: `SnapshotSqlite.ensureStartupSchemas` usa cache per DB version e invalidazione su import/restore/vault switch/fresh clear.
+- Fixed: Events evita sort recent entries quando collassato e sort macro actions ripetuto; Since When evita map tag per card.
+- Evidence TCL: real DB v526 onCreate medio 79.25 ms, ensure schema medio 50.73 ms; v527 finale onCreate medio circa 30.8 ms, ensure schema steady circa 2.3 ms.
+- Stability: log finali TCL senza `AndroidRuntime`, `FATAL EXCEPTION`, ANR o lmkd app; fresh clear-data non crea DB/dati.
+- Limit: TCL resta in keyguard/NotificationShade, quindi visual stress scroll/tap/tab e Macrobenchmark UIAutomator sono bloccati finche il device non e' sbloccato.
+
 ## Prompt #847261
 - Scope: capsule boundary audit and partial decomposition of legacy MainViewModel bridges.
 - Code commit: `6ddeebb` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.

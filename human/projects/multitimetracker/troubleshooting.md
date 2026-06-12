@@ -43,3 +43,11 @@
 - Fix: `QuickEventsScreen` usa `LazyVerticalGrid` con item key stabili e header full-span; stato menu/edit resta locale all'item.
 - Startup: il refresh DB Eventi non parte piu in `MainViewModel.initialize`; parte async quando si apre Events.
 - Verifica: usare clone `com.example.multitimetracker.devicetest`; controllare logcat tag `MTT_STARTUP` per `quick_events_screen_snapshot` solo dopo apertura Events.
+
+## Performance/stabilita v527
+- Sintomo: startup e ritorno app percepiti lenti, rischio ANR/kill in background su device basso.
+- Causa verificata: lavoro SQLite/schema e inizializzazione snapshot/integrity sul percorso iniziale; Eventi/Since When avevano allocazioni ripetute nel rendering.
+- Fix: `MainActivity.onCreate` resta leggero; schema/init girano su IO; cache schema invalidata su import/restore/switch DB/fresh clear.
+- Misura utile: usare logcat `MTT_STARTUP`; su TCL bloccato il cold `am start -W` resta ~3 s per keyguard e non misura la UI reale.
+- Chiusure in background: in v527 non sono emersi `AndroidRuntime`, `FATAL EXCEPTION`, ANR o lmkd dell'app; distinguere sempre crash reale da `ActivityManager` force-stop/test e low-memory/system pressure.
+- TCL: se `dumpsys window` mostra `mCurrentFocus=NotificationShade` e `mDreamingLockscreen=true`, scroll/tap/tab benchmark e Macrobenchmark UIAutomator sono bloccati fino a unlock.
