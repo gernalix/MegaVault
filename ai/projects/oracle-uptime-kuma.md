@@ -4,11 +4,11 @@ slug=oracle-uptime-kuma
 path=/opt/uptime-kuma on ubuntu@150.230.148.128
 repo=runtime
 branch=runtime
-prompt=847261,428691,731845,458217
+prompt=847261,428691,731845,458217,672184
 created=2026-06-07
-updated=2026-06-12 prompt_458217
+updated=2026-06-12 prompt_672184
 protocol=MEGAVAULT_PROTOCOL.md:v8
-verify_source=ssh_runtime_2026-06-12T19:25Z
+verify_source=ssh_runtime_2026-06-12T20:07Z
 
 PURPOSE:
 purpose=Uptime Kuma instance on Oracle VM for Mint/Oracle black-box history, alerting, and visualization.
@@ -30,7 +30,7 @@ compose_service=uptime-kuma
 container=uptime-kuma
 image=louislam/uptime-kuma:2.3.2
 restart_policy=unless-stopped
-container_state=running;docker_image_healthcheck_disabled_2026-06-12_due_preexisting_docker_exec_runc_failure;app_http_ok
+container_state=running;docker_image_healthcheck_disabled_2026-06-12_due_preexisting_docker_exec_runc_failure;app_http_ok;docker_exec_fixed_2026-06-12_prompt_672184
 port=127.0.0.1:3002->[container]:3001;public 3001 handled by Nginx push-only proxy
 systemd_unit_absent=uptime-kuma.service not present; manage with docker compose/container, not systemctl uptime-kuma.
 server_timezone_setting=Africa/Bangui
@@ -60,7 +60,9 @@ shm_size_2026-06-10=32768
 backup_files=uptime-kuma-data-20260508T113626Z.tar.gz,uptime-kuma-data-20260510T232040Z.tar.gz,uptime-kuma-data-20260510T233041Z.tar.gz,kuma-pre-482917-20260606T181225Z.db,kuma-pre-847261-freeze-analysis.db
 disk_2026-06-10=/dev/sda1 45G used=42G avail=3.2G use=93%;treat_as_capacity_risk_before_large_backup_or_log_growth
 disk_2026-06-12_after_oracle_backup_cleanup=/dev/sda1 45G used=37G avail=8.3G use=82%
+disk_2026-06-12_prompt_672184_after_journald_fix=/run tmpfs 96M used=26M avail=71M use=27%;root later rose to 94%/3.1G free because automatic oracle-backup.service fallback started, not because of Kuma fix
 backup_458217=/opt/uptime-kuma/backups/prompt-458217-20260612T191449Z contains kuma.db,docker-compose.yml,nginx-etc.tgz,iptables-rules.v4,iptables-save.before,SHA256SUMS
+runtime_fix_672184=/etc/systemd/journald.conf.d/90-runtime-run-limit.conf sets RuntimeMaxUse=32M RuntimeKeepFree=32M RuntimeMaxFileSize=8M;rollback backup=/home/ubuntu/maintenance-672184/before/journald-20260612T195948Z
 security_hardening_458217=public http://150.230.148.128:3001/ and /dashboard return 403 from Nginx; public /api/push/* remains for existing pushers; admin UI available only via SSH tunnel to 127.0.0.1:3002
 recent_error_log=SQLITE_CONSTRAINT duplicate stat_minutely/stat_daily rows for monitor_ids 6,16,17 observed 2026-06-10;do_not_fix_without_separate_runtime_task
 container_env_safe=UPTIME_KUMA_IS_CONTAINER=1;UPTIME_KUMA_ENABLE_EMBEDDED_MARIADB=1;NODE_VERSION=22.22.2;no tokens observed in safe env listing
@@ -204,7 +206,7 @@ BUG:
 issue=direct DB edit can require container restart for UI/runtime refresh;workaround=restart uptime-kuma container after backup+write if query says changed but UI stale.
 issue=stat_minutely/stat_daily SQLITE_CONSTRAINT lines in error.log on 2026-06-10;status=observed_not_fixed;risk=log noise/stat aggregation issue.
 issue=freeze monitor group was down/pending during 2026-06-10 audit despite service running;status=documented;next=diagnose mint-freeze-forensics pusher cadence only in runtime task.
-issue=docker exec and image healthcheck fail with OCI runtime exec failed runc exit status 255 before and after Docker restart/recreate on 2026-06-12;status=host Docker/runc anomaly not fixed in Kuma hardening;mitigation=disabled broken image healthcheck and verify Kuma via HTTP/DB/push.
+issue=docker exec and image healthcheck failed with OCI runtime exec failed runc exit status 255 before and after Docker restart/recreate on 2026-06-12;cause=/run tmpfs full because volatile journald used ~95M of 96M;prior log also showed runc write /tmp/runc-process... no space left on device during disk pressure;status=fixed prompt_672184 by limiting/vacuuming runtime journal;verify=docker exec uptime-kuma true/id/pwd rc=0 and ctr tasks exec rc=0.
 
 RISK:
 risk=Oracle root disk 93% used can affect Docker healthchecks/log writes;mitigation=check df before backup/restore and do not grow logs blindly.
@@ -212,6 +214,8 @@ risk=public push endpoint remains HTTP for compatibility with existing push URL 
 risk=push token leak via shell history/log/docs;mitigation=redact outputs and use env files mode 600.
 risk=direct SQLite writes across Kuma upgrade schema drift;mitigation=PRAGMA table_info before write.
 risk=Kuma false red from pusher cadence/local mount boot timing;mitigation=verify service-local state before alert retune.
+risk=/run tmpfs exhaustion breaks docker/containerd/runc exec even when / and /tmp have free space;mitigation=RuntimeMaxUse=32M RuntimeKeepFree=32M and check df -hT /run before Docker runtime debugging.
+risk=oracle-backup.service local fallback can raise / to 94% while OCI remote remains StorageLimitExceeded;mitigation=do not interrupt active backup casually, but treat root free space as separate active Oracle backup risk.
 
 OPERATIONAL_MEMORY:
 decision=Kuma is observability only; no remediation actions originate from Kuma.
@@ -219,6 +223,7 @@ decision=Telegram notification id 1 is shared default channel for all current no
 decision=Obsolete monitors stay disabled with history retained, not deleted.
 decision=Service-specific pushers replaced generic mint heartbeat.
 decision=Mint Freeze Analysis group id 12/status page slug mint-freeze-analysis owns monitors 13-17.
+decision=Do not diagnose docker exec failures only with df /; check /run, /tmp, /var/lib/docker and journald runtime usage.
 deprecated=mint heartbeat id1;reason=generic noisy heartbeat replaced by service-specific monitors.
 deprecated=rsync-transfer id2;reason=no verified live transfer runner when disabled; do not reactivate until transfer source/dest/process are verified.
 deprecated=codex-token-watcher id10;reason=legacy/Cloudflare/login state not reliable; current VM Codex watcher docs say Kuma not configured.
@@ -240,10 +245,11 @@ report_482917=../reports/prompt_482917_kuma_noise_reduction.md
 report_428691=../reports/prompt_428691_kuma_docs_normalization.md
 report_731845=../reports/prompt_731845_kuma_operational_audit.md
 report_458217=../reports/prompt_458217_kuma_hardening.md
+report_672184=../reports/prompt_672184_kuma_oci_exec_fix.md
 registries=../global/SERVICE_REGISTRY.md,../global/ALERT_REGISTRY.md,../global/DATA_REGISTRY.md
 
 OPEN:
 open=Kuma UI/API auth workflow still undocumented; DB/UI paths are verified.
 open=Telegram delivery test not executed in prompt_731845 to avoid runtime notification.
 open=No HTTP monitors currently exist; HTTP runbook is schema-derived and must be smoke-tested when first used.
-open=Docker/runc exec failure remains a host-level issue if future maintenance needs docker exec; use HTTP/DB checks for Kuma until Docker runtime is repaired.
+open=Docker/runc exec failure fixed in prompt_672184; keep image healthcheck disabled until a separate low-risk task decides whether to re-enable it.

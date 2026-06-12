@@ -43,6 +43,17 @@ Per un monitor rosso:
 - Per freeze analysis, leggere `mint-freeze-forensics` prima di cambiare soglie Kuma.
 - Non stampare mai URL `/api/push/<token>`, token Telegram o chat id.
 
+Errore `OCI runtime exec failed`:
+
+```bash
+df -hT /run /tmp / /var/lib/docker
+sudo du -xh -d 2 /run | sort -h | tail -n 30
+sudo journalctl -u docker -u containerd -b --no-pager | grep -Ei 'OCI|runc|no space|copy stream'
+sudo docker exec uptime-kuma true
+```
+
+Caso risolto `#672184`: `/run` era pieno al 100% per journal runtime in `/run/log/journal`, anche se `/` e `/tmp` erano utilizzabili. Il fix e' il limite journald in `/etc/systemd/journald.conf.d/90-runtime-run-limit.conf`; rollback in `/home/ubuntu/maintenance-672184/before/journald-20260612T195948Z`. Non fare prune Docker o modifiche Kuma se `nsenter` funziona e fallisce solo il percorso runc/containerd.
+
 Verifica hardening pubblico:
 
 ```bash
