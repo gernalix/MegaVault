@@ -4,12 +4,12 @@ MultiTimeTracker is a local-first Android time tracker. The main data lives in t
 
 ## Stato e codice
 - Repository: `/home/daniele/codex-workspace/projects/MultiTimeTracker`
-- Branch/commit verificati: `codex/v488-release-safe-ui-lockdown` / `2548034f6c4fc7e4950f45600b41101faae7d764` (`#817463`, v527)
+- Branch/commit verificati: `codex/v488-release-safe-ui-lockdown` / `5b7e76a2de28d9974235d5f8fcc2623c64251fca` (`#294816`, v527 docs validation; APK/code v527 validato da `2548034f6c4fc7e4950f45600b41101faae7d764`)
 - File codice/config/test/script analizzati: 224 su 224
 - Stack rilevato: Kotlin, Python, Shell, Gradle, Jetpack Compose, Android
 - Validazione `#462918`: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug`; Pixel 8a clone `com.example.multitimetracker.devicetest` v525 con 53 instrumentation test, 3 skipped, 0 failed; clone install/launch ADB verificato con PID.
-- Validazione `#817463`: `compileDebugKotlin`, `assembleDebug`, `assembleDeviceTest`, `check_hardcoded_ui_strings`, `testDebugUnitTest`, `lintDebug`, `assembleDebugAndroidTest` verdi; TCL debug v527 installato; Pixel install finale bloccata da ADB offline/connection refused.
-- Performance `#817463`: onCreate real DB ridotto da ~79 ms a ~31 ms; schema ensure steady da ~51 ms a ~2.3 ms; cold `am start -W` non affidabile su TCL per keyguard/NotificationShade.
+- Validazione `#817463/#294816`: `compileDebugKotlin`, `assembleDebug`, `assembleDeviceTest`, `check_hardcoded_ui_strings`, `testDebugUnitTest`, `lintDebug`, `assembleDebugAndroidTest` verdi; TCL debug v527 installato e test UI reale completato; Pixel debug v527 installato con smoke minimo.
+- Performance `#817463/#294816`: onCreate real DB ridotto da ~79 ms a ~31 ms; schema ensure steady da ~51 ms a ~2.3 ms; su TCL sbloccato clone cold `am start -W` medio 669 ms e warm medio 10.2 ms.
 - Capsulizzazione `#462918`: 100 percento strict stimato per ownership feature auditata; NOW, TAGS, TIMELINE, QUICK_EVENTS, CHAINS, ALERTS, IMPORT_EXPORT, AUDIT_LOG e SINCE_WHEN hanno owner capsule espliciti, MainViewModel resta shell/composition root.
 
 ## Orientamento rapido

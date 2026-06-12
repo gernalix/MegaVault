@@ -7,9 +7,9 @@
 - Fixed: onCreate resta sottile; schema ensure, integrity gate, snapshot load e vault auto-restore girano su `Dispatchers.IO`.
 - Fixed: `SnapshotSqlite.ensureStartupSchemas` usa cache per DB version e invalidazione su import/restore/vault switch/fresh clear.
 - Fixed: Events evita sort recent entries quando collassato e sort macro actions ripetuto; Since When evita map tag per card.
-- Evidence TCL: real DB v526 onCreate medio 79.25 ms, ensure schema medio 50.73 ms; v527 finale onCreate medio circa 30.8 ms, ensure schema steady circa 2.3 ms.
-- Stability: log finali TCL senza `AndroidRuntime`, `FATAL EXCEPTION`, ANR o lmkd app; fresh clear-data non crea DB/dati.
-- Limit: TCL resta in keyguard/NotificationShade, quindi visual stress scroll/tap/tab e Macrobenchmark UIAutomator sono bloccati finche il device non e' sbloccato.
+- Evidence TCL: real DB v526 onCreate medio 79.25 ms, ensure schema medio 50.73 ms; v527 finale onCreate medio circa 30.8 ms, ensure schema steady circa 2.3 ms; `#294816` TCL sbloccato clone cold medio 669 ms e warm medio 10.2 ms.
+- Stability: log finali TCL senza `AndroidRuntime`, `FATAL EXCEPTION`, ANR, lmkd o `am_proc_died` app; clear-data/reinstall non crea dati utente (`sessions=0`, `session_tags=0`, `snapshot=0`).
+- UI validation: `#294816` completa su TCL sbloccato; tap sessione, long press edit, Active tags, Eventi, Timeline, Since When, Settings, scroll rapido e background/foreground PASS. Pixel solo install/smoke finale v527 PASS.
 
 ## Prompt #847261
 - Scope: capsule boundary audit and partial decomposition of legacy MainViewModel bridges.

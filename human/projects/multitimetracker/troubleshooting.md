@@ -48,6 +48,6 @@
 - Sintomo: startup e ritorno app percepiti lenti, rischio ANR/kill in background su device basso.
 - Causa verificata: lavoro SQLite/schema e inizializzazione snapshot/integrity sul percorso iniziale; Eventi/Since When avevano allocazioni ripetute nel rendering.
 - Fix: `MainActivity.onCreate` resta leggero; schema/init girano su IO; cache schema invalidata su import/restore/switch DB/fresh clear.
-- Misura utile: usare logcat `MTT_STARTUP`; su TCL bloccato il cold `am start -W` resta ~3 s per keyguard e non misura la UI reale.
+- Misura utile: usare logcat `MTT_STARTUP`; in `#294816` su TCL sbloccato il clone ha cold WaitTime medio 669 ms e warm medio 10.2 ms.
 - Chiusure in background: in v527 non sono emersi `AndroidRuntime`, `FATAL EXCEPTION`, ANR o lmkd dell'app; distinguere sempre crash reale da `ActivityManager` force-stop/test e low-memory/system pressure.
-- TCL: se `dumpsys window` mostra `mCurrentFocus=NotificationShade` e `mDreamingLockscreen=true`, scroll/tap/tab benchmark e Macrobenchmark UIAutomator sono bloccati fino a unlock.
+- TCL: se `dumpsys window` mostra `mCurrentFocus=NotificationShade` e `mDreamingLockscreen=true`, scroll/tap/tab benchmark e Macrobenchmark UIAutomator non misurano la UI reale; in `#294816` il device era sbloccato/testabile.

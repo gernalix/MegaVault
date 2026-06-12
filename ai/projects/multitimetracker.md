@@ -4,8 +4,8 @@ slug=multitimetracker
 path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
 branch=codex/v488-release-safe-ui-lockdown
-verified_commit=2548034f6c4fc7e4950f45600b41101faae7d764
-verified_at=2026-06-12T15:50:23+02:00
+verified_commit=5b7e76a2de28d9974235d5f8fcc2623c64251fca
+verified_at=2026-06-12T18:17:32+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v8
 PURPOSE:
 purpose=local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model
@@ -78,14 +78,17 @@ device=Pixel 8a 192.168.1.37:44861; clone_only appId=com.example.multitimetracke
 device_result_v526=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; first attempt blocked by duplicate ADB alias then rerun after adb disconnect mDNS alias
 device_cmd=./gradlew :app:connectedAndroidTest -Pmtt.testBuildType=deviceTest -x lintVitalDeviceTest -x lintVitalAnalyzeDeviceTest -x generateDeviceTestLintVitalReportModel --console=plain --no-daemon
 device_result=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; prompt #462918 also installed/launched clone appId=com.example.multitimetracker.devicetest and verified pid
-device_policy_v527=TCL only for automatic testing/benchmark/stress/debug; Pixel only attempted for final APK install
+device_policy_v527=TCL only for automatic testing/benchmark/stress/debug; Pixel only for final APK install/smoke
 test_v527=compileDebugKotlin PASS; assembleDebug/deviceTest PASS; check_hardcoded_ui_strings PASS; testDebugUnitTest PASS; lintDebug PASS; assembleDebugAndroidTest PASS
 tcl_v527=TCL 192.168.1.200:45699; debug APK v527 installed; clear-data cold start produced NO_DB_FILE; no app AndroidRuntime/FATAL/ANR/lmkd in final logs
-tcl_limit_v527=TCL remained mCurrentFocus=NotificationShade and mDreamingLockscreen=true; visual UI scrolling/tap/tab benchmark blocked; benchmark:connectedDeviceTestAndroidTest started 4 tests on TCL then no progress under keyguard
-pixel_final_v527=BLOCKED; Pixel 8a 192.168.1.37 refused all known ADB ports and mDNS listed no services after TCL-only testing
+tcl_validation_294816=TCL 192.168.1.200:45699 unlocked/testable; synthetic clone cold WaitTime avg 669.0ms min 629 max 763; warm avg 10.2ms min 8 max 13; main_activity_on_create avg 17.96ms; ensure_session_tables avg 3.39ms; tap/long-press/Active tags/Events/Timeline/Since When/Settings PASS
+tcl_bgfg_294816=10 home/foreground cycles avg WaitTime 143.3ms min 17 max 447; startup PSS 69412KB/RSS 147735KB; post bgfg PSS 96351KB/RSS 184085KB; final TCL logcat has no app AndroidRuntime/FATAL EXCEPTION/ANR/lmkd/am_proc_died
+tcl_clear_data_294816=main debug v527 installed on TCL, pm clear, cold start WaitTime 4917ms, sessions=0 session_tags=0 snapshot=0; no user data spawned
+pixel_final_v527=PASS; Pixel 8a 192.168.1.37:36265 installed debug APK v527; versionCode/versionName 527; clean launch WaitTime 1101ms; no immediate app crash/ANR/lmkd signal
+repo_docs_294816=project docs committed/pushed at 5b7e76a2de28d9974235d5f8fcc2623c64251fca; validated APK/code remains 2548034f6c4fc7e4950f45600b41101faae7d764
 perf_v527_baseline=v526 real DB: onCreate avg 79.25ms, ensure_session_tables avg 50.73ms, integrity_gate avg 139.74ms, load_persisted_snapshot avg 654.04ms, cold WaitTime avg 3034.8ms locked TCL, warm avg 30.2ms
-perf_v527_after=v527 real DB locked TCL: onCreate avg 30.83ms final, steady ensure avg 2.30ms, warm WaitTime avg 19.6ms, cold WaitTime still ~3029ms because keyguard; no reliable visual screen-load timings while locked
-mem_v527=v526 real DB startup/warm PSS 50142/63167KB; v527 final locked real DB PSS 33224KB; synthetic locked PSS 42612KB; debug bg/fg no-data PSS 92425KB
+perf_v527_after=v527 real DB final: onCreate avg 30.83ms in audit; steady ensure avg 2.30ms; unlocked #294816 clone cold WaitTime avg 669.0ms and warm avg 10.2ms; real main clear-data cold WaitTime 4917ms while first-run setup creates empty DB/schema only
+mem_v527=v526 real DB startup/warm PSS 50142/63167KB; v527 audit final real DB PSS 33224KB; #294816 synthetic startup PSS 69412KB; after prolonged bg/fg PSS 96351KB
 DATA:
 db=app/src/main/java/com/example/multitimetracker/capsules/system/ImportExportCapsule.kt:33:fun importDatabaseFromUri(context: Context, uri: Uri, scope: CoroutineScope); app/src/main/AndroidManifest.xml:9:<!-- Haptic feedback for alerts and...
 paths=app/src/main/AndroidManifest.xml:15:android:allowBackup="false"; app/src/main/AndroidManifest.xml:17:android:fullBackupContent="@xml/backup_rules"
@@ -119,12 +122,12 @@ risk=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:6
 risk=capsules: MainViewModel is now composition shell/infrastructure bridge; feature business ownership is inside capsules, with AUDIT_LOG and SINCE_WHEN guarded by source/JVM tests plus Pixel clone gate
 risk=events_perf: many buttons must stay lazy-keyed; avoid FlowRow inside lazy item for large sections; avoid startup QuickEvents DB refresh unless app initial tab requires it
 risk=v527_snapshot_load_cost: integrity/snapshot load still expensive but no longer blocks onCreate/main startup path; future work needs data-safe generation/cache design
-risk=v527_tcl_keyguard: TCL visual stress testing requires manual unlock or test harness that can dismiss keyguard; do not use Pixel for intermediate performance debugging when TCL policy is active
+risk=v527_real_device_stability: #294816 unlocked TCL UI validation and Pixel final install/smoke passed; continue monitoring ActivityManager/lmkd because low-memory system pressure can still kill processes independently from app crashes
 ROAD:
 now=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:98:// Persist permission for future sessions.
 next=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:110:// Roll back the saved URI to avoid future "Export fallito" loops.
 next=capsules: no feature bridge is currently documented; optional future work is shrinking MainViewModel infrastructure hooks only after preserving composition-root stability
-next=v527_followup: repeat visual UI scroll/tap/tab benchmarks on unlocked TCL; investigate incremental snapshot/readiness state only if data-safety contract remains intact
+next=v527_followup: no immediate code refactor; monitor real-device stability and investigate incremental snapshot/readiness state only if data-safety contract remains intact
 later=app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
 LINK:
 meta=../../../projects/MultiTimeTracker/dev/project.metadata.json
