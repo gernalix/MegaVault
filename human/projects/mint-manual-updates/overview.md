@@ -1,12 +1,13 @@
 # mint-manual-updates Overview
 
-Servizio user systemd v7 con un solo updater ufficiale per Linux Mint: sistema, venv Python locali, tool di sviluppo, Android Studio e Android SDK.
+Servizio user systemd v8 con un solo updater ufficiale per Linux Mint: sistema, venv Python locali, tool di sviluppo, Android Studio e Android SDK.
 
 ## Stato e codice
 
 - Repository: `/home/daniele/codex-workspace/mint-manual-updates`
 - Branch/commit verificati: `master` / `pending prompt #618472`
 - Comando ufficiale unico: `bin/mint-manual-updates --run`
+- Guardrail v8: `rsync` attivo e consentito/non bloccante; load/RAM/swap/PSI, freeze emergency, apt/dpkg e batteria critica restano bloccanti.
 - Script duplicato rimosso: `removed duplicate script`
 - Unit duplicate rimosse: `removed duplicate service`, `removed duplicate timer`
 

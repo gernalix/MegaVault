@@ -2,6 +2,7 @@
 
 ## Eventi MegaVault
 
+- 2026-06-13: `#738294` porta lo script a `v8`; `rsync` attivo e `allowed/non-blocking`, `heavy_processes` non-rsync diventa warning di default, restano bloccanti load/RAM/swap/PSI/freeze/apt/batteria critica.
 - 2026-06-06: `#618472` ha consolidato definitivamente il duplicato dentro `bin/mint-manual-updates --run`, rimosso script/unit duplicate e aggiornato docs AI/Human.
 - 2026-06-06: `#927384` ha aggiunto guardia Android Studio anti-download inutile: niente tarball 1+ GB se release/build installata e gia corrente o build remota non determinabile.
 - 2026-06-06: `#482917` ha portato `bin/mint-manual-updates` a `v5`, aggiungendo venv Python locali; superseded da `#618472`, che rende i venv parte del run normale.

@@ -4,7 +4,7 @@ slug=mint-manual-updates
 path=/home/daniele/codex-workspace/mint-manual-updates
 remote=none
 branch=master
-verified_at=2026-06-06T00:00:00+02:00
+verified_at=2026-06-13T00:00:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
 prompt=927384
 PURPOSE:
@@ -32,7 +32,7 @@ FLOW:
 run=bin/mint-manual-updates --run
 dry_run=bin/mint-manual-updates --dry-run for validation/report only
 systemd=ExecStart=/home/daniele/codex-workspace/mint-manual-updates/bin/mint-manual-updates --run
-guardrails=load,RAM,swap,PSI,heavy_processes,freeze,apt_dpkg,battery before updates
+guardrails=blocking load,RAM,swap,PSI,freeze,apt_dpkg,battery before updates; rsync allowed/non-blocking; non-rsync heavy hints warning by default
 venv_flow=discover /home/daniele/codex-workspace patterns */venv/bin/python,*/.venv/bin/python,*/env/bin/python; prune .git,node_modules,build,dist,.gradle,.cache,__pycache__; --run reports outdated then upgrades pip/setuptools/wheel and outdated packages inside each venv; continue on failure
 android_flow=find SDK root from ANDROID_SDK_ROOT,ANDROID_HOME,~/Android/Sdk,/opt/android-sdk,~/android-sdk -> find sdkmanager -> sdkmanager --list -> history -> licenses -> sdkmanager --update
 android_studio_flow=find local tar install -> read product-info build/release -> fetch https://developer.android.com/studio metadata page only -> parse Linux URL/SHA/release/build-if-present -> skip if installed release/build current -> skip safe if remote build unknown -> log URL/dest/size before needed download -> sha256sum verify -> extract -> compare product-info buildNumber -> backup old install -> replace install
@@ -49,6 +49,7 @@ gem_cargo_scope=report-only unless project objective explicitly changes
 android_studio_update_scope=local tar install, not flatpak/snap/apt package
 android_studio_download_guard=never download 1GB+ archive just to confirm same version; >500MB allowed only after metadata proves update needed
 BUILD:
+version=v8
 cmd=bash -n bin/mint-manual-updates
 install=bin/mint-manual-updates --install
 TEST:
@@ -83,8 +84,9 @@ RISK:
 risk=sdkmanager --update can update platform-tools/cmdline-tools/build-tools/platforms and may run long; timeouts configurable via ANDROID_SDK_AUTO_UPDATE_* env
 risk=Android Studio archive is large; precheck metadata and skip unknown/current remote build before download; preserve backup before replacing local tar install
 risk=venv package upgrades can break projects; guardrails, per-venv logs, and failure continuation required
+risk=active rsync is allowed; updater service stays gentle through Nice/I/O/CPU/IO weights while critical pressure guardrails still stop the run
 ROAD:
-now=prompt927384 Android Studio large-download guard added
+now=prompt738294 rsync no longer blocks guarded run; v8
 next=keep single-command invariant and docs current when updater scope changes
 later=only add gem/cargo mutation if project objective explicitly expands
 LINK:

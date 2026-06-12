@@ -12,6 +12,7 @@
 - Upgrade venv può rompere dipendenze progetto-specifiche; mantenere log per venv e continuazione su fallimento.
 - Android SDK/Studio possono essere lenti e pesanti; mantenere timeout, storico e backup.
 - Android Studio archive e grande; mantenere precheck metadata e skip sicuro prima di ogni download.
+- `rsync` e consentito durante il run; se emergono freeze reali, regolare soglie PSI/load invece di rimettere `rsync` tra i blocker.
 
 ## Prossimo vincolo
 
