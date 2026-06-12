@@ -59,7 +59,8 @@ Vincoli Android: pairing manuale di default, UI automatica disabilitata, mDNS/Av
 
 - VM Oracle: `ubuntu@150.230.148.128`, istanza `instance-20260201-1126`.
 - Chiave SSH documentata: `/home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key`.
-- Kuma: `http://150.230.148.128:3001`, container `uptime-kuma`, immagine `louislam/uptime-kuma:2.3.2`.
+- Kuma admin: tunnel SSH verso VM `127.0.0.1:3002`, poi browser locale `http://127.0.0.1:3001`; container `uptime-kuma`, immagine `louislam/uptime-kuma:2.3.2`.
+- Kuma pubblico: `http://150.230.148.128:3001` solo per `/api/push/...`; root/dashboard pubbliche bloccate con `403`.
 - DB Kuma: `/opt/uptime-kuma/data/kuma.db`.
 - Ruolo Kuma: storico, alerting e visualizzazione; non remediation.
 

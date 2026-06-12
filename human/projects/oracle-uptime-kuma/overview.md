@@ -1,23 +1,35 @@
 # Oracle Uptime Kuma
 
-Kuma vive sulla VM Oracle `ubuntu@150.230.148.128`, hostname `instance-20260201-1126`, ed e' raggiungibile su `http://150.230.148.128:3001`.
+Kuma vive sulla VM Oracle `ubuntu@150.230.148.128`, hostname `instance-20260201-1126`.
 
-Runtime verificato il 2026-06-10:
+Dal 2026-06-12 l'interfaccia amministrativa non e' piu pubblica su HTTP. Per aprirla:
+
+```bash
+ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key \
+  -L 3001:127.0.0.1:3002 ubuntu@150.230.148.128
+```
+
+Poi usare `http://127.0.0.1:3001` nel browser locale. La porta pubblica `150.230.148.128:3001` resta attiva solo come proxy Nginx per i push esistenti `/api/push/...`; `/` e `/dashboard` rispondono `403`.
+
+Runtime verificato il 2026-06-12:
 
 - systemd reale: `docker.service`, attivo e abilitato.
 - compose service: `uptime-kuma`.
-- container: `uptime-kuma`, image `louislam/uptime-kuma:2.3.2`, stato `running/healthy`.
+- container: `uptime-kuma`, image `louislam/uptime-kuma:2.3.2`, stato `running`.
+- bind Kuma: `127.0.0.1:3002 -> container:3001`.
+- proxy pubblico: Nginx su `:3001`, solo `/api/push/`.
 - compose: `/opt/uptime-kuma/docker-compose.yml`.
 - dati: `/opt/uptime-kuma/data`.
 - DB: `/opt/uptime-kuma/data/kuma.db`, con WAL/SHM presenti.
 - backup: `/opt/uptime-kuma/backups`.
 - log: `/opt/uptime-kuma/data/error.log` e Docker JSON log.
 - non esiste un `uptime-kuma.service` dedicato: si opera via Docker Compose/container.
+- il healthcheck Docker dell'immagine e' disabilitato perche' `docker exec` fallisce con errore Docker/runc preesistente; verificare Kuma con HTTP locale, DB e push.
 
 Stato operativo:
 
 - DB `PRAGMA integrity_check`: `ok`.
-- Root VM: 93% usata al controllo 2026-06-10; prima di backup/restore o crescita log va ricontrollato lo spazio.
+- Root VM: 82% usata al controllo 2026-06-12; prima di backup/restore o crescita log va ricontrollato lo spazio.
 - Telegram: notifica `id=1`, nome `Notifica Telegram (1)`, attiva/default. I valori token/chat id non vanno stampati.
 
 Monitor principali:
@@ -45,5 +57,6 @@ Regole:
 - Kuma e' storico, alerting e visualizzazione; non deve avviare reboot, restart, kill o remediation.
 - Un rosso Kuma e' un segnale, non una prova: prima si verifica lo stato locale del servizio monitorato.
 - Nessuna modifica distruttiva a monitor o DB senza backup recente.
+- Nessun login/admin su `http://150.230.148.128:3001`: usare sempre tunnel SSH.
 - I monitor obsoleti si disattivano, non si cancellano, per conservare storico e motivazione.
 - Ogni cambio monitor va riflesso nei registri AI globali e in un report.

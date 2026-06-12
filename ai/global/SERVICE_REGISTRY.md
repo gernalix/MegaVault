@@ -3,7 +3,7 @@ VERSION=1
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-06-08+HOST_PROFILE+project_ai_docs+kuma_oracle_ssh_2026-06-10+prompt_391684_activitywatch
+SOURCE=systemctl_live_2026-06-08+HOST_PROFILE+project_ai_docs+kuma_oracle_ssh_2026-06-10+prompt_391684_activitywatch+prompt_458217_kuma_hardening
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -14,8 +14,8 @@ exclude=desktop_autostart,package_default_services,third_party_background_units_
 unknown=remote_Oracle_non_Kuma_systemd_live_state
 
 ORACLE_RUNTIME:
-service=docker.service;host=ubuntu@150.230.148.128;state=active/running;enabled=enabled;purpose=Oracle_VM_Docker_runtime_for_Uptime_Kuma;verified=2026-06-10
-compose_service=uptime-kuma;container=uptime-kuma;host=ubuntu@150.230.148.128;state=running/healthy;image=louislam/uptime-kuma:2.3.2;compose=/opt/uptime-kuma/docker-compose.yml;port=3001;purpose=Uptime_Kuma_dashboard_alerting
+service=docker.service;host=ubuntu@150.230.148.128;state=active/running;enabled=enabled;purpose=Oracle_VM_Docker_runtime_for_Uptime_Kuma;verified=2026-06-12
+compose_service=uptime-kuma;container=uptime-kuma;host=ubuntu@150.230.148.128;state=running;image=louislam/uptime-kuma:2.3.2;compose=/opt/uptime-kuma/docker-compose.yml;port=127.0.0.1:3002;public_proxy=nginx_3001_push_only;purpose=Uptime_Kuma_dashboard_alerting;admin_access=ssh_tunnel_only
 absent_service=uptime-kuma.service;host=ubuntu@150.230.148.128;state=not_present;use=docker.service+docker_compose
 
 OWNER_RESOLUTION:

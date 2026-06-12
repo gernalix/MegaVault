@@ -5015,7 +5015,7 @@
         "parcel_tracker.py:1:#!/usr/bin/env python3",
         "parcel_tracker.py:10:import sqlite3",
         "parcel_tracker.py:22:STATE_DB = BASE_DIR / \"parcel_tracker.sqlite3\"",
-        "parcel_tracker.py:27:KUMA_PUSH_URL = \"http://150.230.148.128:3001/api/push/M1O23ekcPKlx5oZ2dPVSviYhJ0q3TwXX?status=up&msg=OK&ping=\"",
+        "parcel_tracker.py:27:KUMA_PUSH_URL = \"http://150.230.148.128:3001/api/push/<redacted>?status=up&msg=OK&ping=\"",
         "parcel_tracker.py:55:def db() -> sqlite3.Connection:",
         "parcel_tracker.py:56:conn = sqlite3.connect(STATE_DB)",
         "parcel_tracker.py:84:def get_state(conn: sqlite3.Connection, key: str) -> str | None:",

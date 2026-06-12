@@ -6,8 +6,18 @@ Connessione:
 ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key ubuntu@150.230.148.128
 cd /opt/uptime-kuma
 sudo docker ps --filter name=uptime-kuma
+curl -sS -I --max-time 10 http://127.0.0.1:3002/dashboard
 sudo sqlite3 -readonly /opt/uptime-kuma/data/kuma.db 'PRAGMA integrity_check;'
 ```
+
+Accesso amministrativo:
+
+```bash
+ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key \
+  -L 3001:127.0.0.1:3002 ubuntu@150.230.148.128
+```
+
+Aprire `http://127.0.0.1:3001`. Non usare `http://150.230.148.128:3001` per login/admin: la root e la dashboard pubbliche devono rispondere `403`.
 
 Inventario sicuro:
 
@@ -32,6 +42,15 @@ Per un monitor rosso:
 - Per i backup, leggere lo stato locale del backup: Kuma non e' la verita' finale.
 - Per freeze analysis, leggere `mint-freeze-forensics` prima di cambiare soglie Kuma.
 - Non stampare mai URL `/api/push/<token>`, token Telegram o chat id.
+
+Verifica hardening pubblico:
+
+```bash
+curl -i --max-time 10 http://150.230.148.128:3001/
+curl -i --max-time 10 http://150.230.148.128:3001/dashboard
+```
+
+Entrambe devono restituire `403 Forbidden` da Nginx. Un URL `/api/push/...` valido deve invece restituire HTTP 200 dal proxy.
 
 Per ridurre rumore:
 

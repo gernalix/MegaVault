@@ -81,11 +81,12 @@ VM_ORACLE:
 host=ubuntu@150.230.148.128
 instance=instance-20260201-1126
 ssh_key=/home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key
-kuma_url=http://150.230.148.128:3001
+kuma_admin=ssh_tunnel http://127.0.0.1:3001 -> VM 127.0.0.1:3002
+kuma_public_push=http://150.230.148.128:3001/api/push/<token>
 kuma_container=uptime-kuma
 kuma_image=louislam/uptime-kuma:2.3.2
 kuma_db=/opt/uptime-kuma/data/kuma.db
-kuma_role=black_box_history_alerting_visualization;not_remediation
+kuma_role=black_box_history_alerting_visualization;not_remediation;admin_not_public_since_2026-06-12
 oracle_backup=/etc/oracle_backup/oracle_backup.env,/var/lib/oracle_backup,/var/log/oracle_backup
 oracle_constraints=backup_DB_before_direct_Kuma_sqlite,do_not_commit_tokens,remote_quota_critical_2026-06-05 used=22.262GB assumed_limit=22GiB,do_not_no-lock_prune_without_explicit_approval
 

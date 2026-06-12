@@ -3,7 +3,7 @@ VERSION=1
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=ip_live_2026-06-08+HOST_PROFILE+dashboard_status
+SOURCE=ip_live_2026-06-08+HOST_PROFILE+dashboard_status+prompt_458217_kuma_hardening
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/NETWORK_TOPOLOGY.md
@@ -29,7 +29,8 @@ REMOTE_NODES:
 node=oracle_vm
 host=ubuntu@150.230.148.128
 roles=uptime_kuma,oracle_backup,remote_monitoring
-kuma_url=http://150.230.148.128:3001
+kuma_admin=ssh_tunnel http://127.0.0.1:3001 -> VM 127.0.0.1:3002
+kuma_public_push=http://150.230.148.128:3001/api/push/<token>
 kuma_container=uptime-kuma
 kuma_db=/opt/uptime-kuma/data/kuma.db
 ssh_key=/home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key
@@ -37,7 +38,7 @@ live_ssh_status=UNKNOWN_timeout_2026-06-08
 
 SYNTHETIC_VIEW:
 node=Surface;role=local_workstation;lan=192.168.1.97;tailscale=100.68.141.10
-node=Oracle_VM;role=Kuma+backup;addr=150.230.148.128;kuma=http://150.230.148.128:3001
+node=Oracle_VM;role=Kuma+backup;addr=150.230.148.128;kuma_admin=ssh_tunnel_to_127.0.0.1:3002;kuma_public=push_only_proxy_3001
 node=Kuma;role=alert_history_visualization;remediation=no
 node=Pixel_8a;role=ADB_Wi-Fi;addr=192.168.1.37;current=verify_live_before_use
 node=TCL_6102H;role=ADB_Wi-Fi;addr=192.168.1.200;current=verify_live_before_use
@@ -48,7 +49,7 @@ device=TCL_6102H;ip=192.168.1.200;role=ADB_Wi-Fi;current=adb_empty_at_2026-06-07
 constraint=verify_with_adb_devices_l_not_mdns_only
 
 KUMA_PUSH_PATHS:
-path=local_Mint_service->HTTP_push->oracle_vm:3001
+path=local_Mint_service->HTTP_push->oracle_vm:3001/api/push via Nginx push-only proxy
 monitor=cloud_backup;id=3;source=mint-cloud-backup-kuma-push.service
 monitor=mint-home-backup;id=4;source=home-backup-kuma-push.service
 monitor=amici_fb;id=5;source=amici_fb.service

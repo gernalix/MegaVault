@@ -45,7 +45,7 @@ Novità operative:
 
 Kuma:
 
-- Status page: `http://150.230.148.128:3001/status/mint-freeze-analysis`
+- Status page: non piu pubblica dal prompt `#458217`; usare il tunnel admin Kuma e poi `http://127.0.0.1:3001/status/mint-freeze-analysis`.
 - Monitor: `Freeze Gaps`, `PSI Memory`, `PSI IO`, `Guardian Alerts`, `Forensics Alive`.
 - Messaggi push includono `freeze_count_24h`, `freeze_count_7d`, `guardian_alert_count_24h`, `guardian_alert_count_7d`.
 - Dalla versione 1.4.0 `Freeze Gaps` e `Guardian Alerts` restano verdi se l'heartbeat arriva: i conteggi non-zero sono telemetria, non stato down.

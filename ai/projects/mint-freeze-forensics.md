@@ -119,4 +119,4 @@ open=Kuma screenshots/browser not used; all config via Oracle VM DB+push
 tool_interval=MFF_TOOL_SAMPLE_INTERVAL_SECONDS default 60
 proc_io_interval=MFF_PROC_IO_INTERVAL_SECONDS default 5
 kuma_push_interval=MFF_KUMA_PUSH_INTERVAL_SECONDS default 30
-status_page=http://150.230.148.128:3001/status/mint-freeze-analysis
+status_page=not_public_since_prompt_458217;use Kuma admin tunnel then http://127.0.0.1:3001/status/mint-freeze-analysis

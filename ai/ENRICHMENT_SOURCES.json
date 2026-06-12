@@ -3773,7 +3773,7 @@
           "dev/legacy/dev/CHANGELOG.md: - Push Uptime Kuma a ogni controllo riuscito.",
           "dev/legacy/dev/OPERATIONS.md: Non contiene token Telegram hardcoded.",
           "dev/legacy/dev/OPERATIONS.md: A ogni controllo riuscito invia push all'URL fornito nel prompt.",
-          "parcel_tracker.py: KUMA_PUSH_URL = \"http://150.230.148.128:3001/api/push/M1O23ekcPKlx5oZ2dPVSviYhJ0q3TwXX?status=up&msg=OK&ping=\"",
+          "parcel_tracker.py: KUMA_PUSH_URL = \"http://150.230.148.128:3001/api/push/<redacted>?status=up&msg=OK&ping=\"",
           "parcel_tracker.py: key TEXT PRIMARY KEY,",
           "parcel_tracker.py: id INTEGER PRIMARY KEY AUTOINCREMENT,",
           "parcel_tracker.py: conn.commit()",

@@ -1,5 +1,6 @@
 # MegaVault Changelog
 
+- 2026-06-12: `#458217` Oracle Uptime Kuma: admin UI rimossa dall'HTTP pubblico; accesso via tunnel SSH a `127.0.0.1:3002`; Nginx conserva solo `/api/push/` su `150.230.148.128:3001` per compatibilita' con i push esistenti; backup e rollback documentati.
 - 2026-06-11: `#836204` disk-usage-monitor: limitato ai 3 dischi canonici (`T7 sistema`, `Seagate 4TB`, `Seagate 6TB`), Telegram pulito a 3 righe, heartbeat Kuma compatto `OK T7=N% free SG4=N% free SG6=N% free`.
 - 2026-06-11: `#748263` disk-usage-monitor: reso esplicito il monitoraggio multi-disco (`/` T7, Seagate 4TB readonly, Seagate6TB2), aggiunto inventory, heartbeat Kuma `checked=N alerts=M` e dashboard solo sul run corrente.
 - 2026-06-11: `#492817` chiarita e corretta la catena `disk-usage-monitor` -> Kuma -> Telegram. Kuma resta heartbeat/state-change; il monitor locale ora invia delta >= 500 MiB e digest OK giornaliero non rumoroso.

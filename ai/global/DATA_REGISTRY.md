@@ -66,7 +66,7 @@ project=amici-fb;db=amici_fb.sqlite3;service=amici_fb.service;timer=amici_fb.tim
 project=parcel-tracker;db=parcel_tracker.sqlite3;service=parcel-tracker.service;timer=parcel-tracker.timer;monitor=parcel-tracker
 project=disk-usage-monitor;db=disk_usage_monitor.sqlite;service=disk-usage-monitor.service;timer=disk-usage-monitor.timer;monitor=disk-usage-monitor
 project=git-change-ledger;db=git_change_ledger.sqlite3;service=none_enabled;timer=template_only_disabled;monitor=none
-project=oracle-uptime-kuma;db=kuma.db;service=uptime-kuma_container;dashboard=http://150.230.148.128:3001
+project=oracle-uptime-kuma;db=kuma.db;service=uptime-kuma_container;admin=ssh_tunnel http://127.0.0.1:3001 -> VM 127.0.0.1:3002;public_push_proxy=http://150.230.148.128:3001/api/push/<token>;dashboard_public=403
 project=mint-freeze-forensics;db=none;state=jsonl;service=mint-freeze-forensics.service;monitor=freeze_monitors_13_17
 project=mint-cloud-backup;db=none;state=json;service=mint-cloud-backup-monitor.service;dashboard=http://127.0.0.1:8765;monitor=cloud_backup_id_3
 

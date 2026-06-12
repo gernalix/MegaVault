@@ -3,7 +3,7 @@ VERSION=1
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+project_ai_docs+local_scripts_grep_2026-06-08+kuma_sqlite_readonly_2026-06-10
+SOURCE=HOST_PROFILE+project_ai_docs+local_scripts_grep_2026-06-08+kuma_sqlite_readonly_2026-06-10+prompt_458217_kuma_hardening
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
@@ -17,10 +17,11 @@ unknown=live_delivery_status_for_each_Telegram_source
 
 KUMA:
 kuma=Oracle_VM_Uptime_Kuma
-url=http://150.230.148.128:3001
+admin_url=http://127.0.0.1:3001 after SSH tunnel -L 3001:127.0.0.1:3002
+public_push_proxy=http://150.230.148.128:3001/api/push/<token>;dashboard_root_public_403
 notification=Telegram id=1 documented
 db=/opt/uptime-kuma/data/kuma.db
-live_db_query=verified_2026-06-10;integrity=ok;db=/opt/uptime-kuma/data/kuma.db;container=uptime-kuma healthy
+live_db_query=verified_2026-06-12;integrity=ok;db=/opt/uptime-kuma/data/kuma.db;container=uptime-kuma running;app_http_ok;docker_image_healthcheck_disabled_due_preexisting_runc_exec_failure
 notification_mapping=monitor_ids 1,2,3,4,5,6,7,9,10,11,13,14,15,16,17 -> Telegram id=1;group id=12 no direct notification
 
 KUMA_MONITORS_ACTIVE:

@@ -4,11 +4,11 @@ slug=oracle-uptime-kuma
 path=/opt/uptime-kuma on ubuntu@150.230.148.128
 repo=runtime
 branch=runtime
-prompt=847261,428691,731845
+prompt=847261,428691,731845,458217
 created=2026-06-07
-updated=2026-06-10 prompt_731845
+updated=2026-06-12 prompt_458217
 protocol=MEGAVAULT_PROTOCOL.md:v8
-verify_source=ssh_readonly_2026-06-10T14:03+02
+verify_source=ssh_runtime_2026-06-12T19:25Z
 
 PURPOSE:
 purpose=Uptime Kuma instance on Oracle VM for Mint/Oracle black-box history, alerting, and visualization.
@@ -20,17 +20,18 @@ STACK:
 ssh=ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key ubuntu@150.230.148.128
 host=ubuntu@150.230.148.128
 hostname=instance-20260201-1126
-url=http://150.230.148.128:3001
+admin_access=SSH tunnel only; local browser URL http://127.0.0.1:3001 after tunnel
+admin_tunnel_cmd=ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key -L 3001:127.0.0.1:3002 ubuntu@150.230.148.128
+public_push_endpoint=http://150.230.148.128:3001/api/push/<token>;Nginx push-only proxy;do not publish full URL
 docker_systemd=docker.service active/running since 2026-06-01T12:42:10Z
 compose_bin=/usr/bin/docker compose version v5.1.4
 compose_file=/opt/uptime-kuma/docker-compose.yml
 compose_service=uptime-kuma
 container=uptime-kuma
-container_id_prefix=15c942e18d85
 image=louislam/uptime-kuma:2.3.2
 restart_policy=unless-stopped
-container_state=running;healthy;started=2026-06-07T05:30:34Z
-port=0.0.0.0:3001->[container]:3001;[::]:3001->[container]:3001
+container_state=running;docker_image_healthcheck_disabled_2026-06-12_due_preexisting_docker_exec_runc_failure;app_http_ok
+port=127.0.0.1:3002->[container]:3001;public 3001 handled by Nginx push-only proxy
 systemd_unit_absent=uptime-kuma.service not present; manage with docker compose/container, not systemctl uptime-kuma.
 server_timezone_setting=Africa/Bangui
 
@@ -45,17 +46,22 @@ backup_dir=/opt/uptime-kuma/backups
 app_error_log=/opt/uptime-kuma/data/error.log
 docker_json_log=/var/lib/docker/containers/15c942e18d85828376f88ed186df1ca3922f9f7a8cb78d8468129e7c066005d9/15c942e18d85828376f88ed186df1ca3922f9f7a8cb78d8468129e7c066005d9-json.log
 runtime_logs=docker logs uptime-kuma;app_error_log
+nginx_push_proxy=/etc/nginx/sites-available/uptime-kuma-push-only.conf -> /etc/nginx/sites-enabled/uptime-kuma-push-only.conf;allows only ^/api/push/ to 127.0.0.1:3002;all other paths 403
 scripts=none inside MegaVault; local pushers live in monitored project repos/scripts.
 avoid=printing push tokens,printing Telegram token/chat id,browser-only invisible edits,automatic remediation
 
 RUNTIME_INVENTORY:
-compose_yaml=service uptime-kuma;image louislam/uptime-kuma:2.3.2;container_name uptime-kuma;port 3001:3001;volume /opt/uptime-kuma/data:/app/data;restart unless-stopped;logging json-file max-size=10m max-file=3
+compose_yaml=service uptime-kuma;image louislam/uptime-kuma:2.3.2;container_name uptime-kuma;port 127.0.0.1:3002:3001;volume /opt/uptime-kuma/data:/app/data;healthcheck disabled because docker exec/runc fails on host;restart unless-stopped;logging json-file max-size=10m max-file=3
 db_integrity_2026-06-10=ok
+db_integrity_2026-06-12=ok
 db_size_2026-06-10=8806400
 wal_size_2026-06-10=5677392
 shm_size_2026-06-10=32768
 backup_files=uptime-kuma-data-20260508T113626Z.tar.gz,uptime-kuma-data-20260510T232040Z.tar.gz,uptime-kuma-data-20260510T233041Z.tar.gz,kuma-pre-482917-20260606T181225Z.db,kuma-pre-847261-freeze-analysis.db
 disk_2026-06-10=/dev/sda1 45G used=42G avail=3.2G use=93%;treat_as_capacity_risk_before_large_backup_or_log_growth
+disk_2026-06-12_after_oracle_backup_cleanup=/dev/sda1 45G used=37G avail=8.3G use=82%
+backup_458217=/opt/uptime-kuma/backups/prompt-458217-20260612T191449Z contains kuma.db,docker-compose.yml,nginx-etc.tgz,iptables-rules.v4,iptables-save.before,SHA256SUMS
+security_hardening_458217=public http://150.230.148.128:3001/ and /dashboard return 403 from Nginx; public /api/push/* remains for existing pushers; admin UI available only via SSH tunnel to 127.0.0.1:3002
 recent_error_log=SQLITE_CONSTRAINT duplicate stat_minutely/stat_daily rows for monitor_ids 6,16,17 observed 2026-06-10;do_not_fix_without_separate_runtime_task
 container_env_safe=UPTIME_KUMA_IS_CONTAINER=1;UPTIME_KUMA_ENABLE_EMBEDDED_MARIADB=1;NODE_VERSION=22.22.2;no tokens observed in safe env listing
 
@@ -80,6 +86,7 @@ monitor=16;name=Guardian Alerts;type=push;active=1;class=canonical_freeze;owner_
 monitor=17;name=Forensics Alive;type=push;active=1;class=canonical_freeze_alive;owner_project=mint-freeze-forensics;source_service=mint-freeze-forensics.service;env=/home/daniele/.config/mint-freeze-forensics/kuma.env key=KUMA_PUSH_FORENSICS_ALIVE;parent=12;interval=60;timeout=45;retry=60;maxretries=2;tags=mint-freeze-analysis;notification=1;latest=up 2026-06-10T12:01:46
 http_monitors_live=none as of 2026-06-10
 heartbeat_monitor_term=Kuma push monitors are heartbeat-style monitors in this deployment; no separate non-push heartbeat type exists in live DB.
+live_drift_2026-06-12=readonly query found active push count 14, disabled push count 1, group count 1; rsync-transfer id2 and codex-token-watcher id10 were active in DB despite older docs saying disabled; not modified in prompt_458217.
 
 NOTIFICATION_INVENTORY:
 notification=1;name=Notifica Telegram (1);type=telegram;active=1;default=1;has_chat_id=yes;has_bot_token=yes;values_not_printed
@@ -100,7 +107,7 @@ tags=1:482917-reviewed,2:push-monitor,3:obsolete-disabled,4:mint-freeze-analysis
 user=1 active username=saldrenafil
 
 FLOW:
-push_flow=local service/timer -> local pusher reads env -> GET http://150.230.148.128:3001/api/push/<token>?status=...&msg=... -> Kuma heartbeat row -> optional Telegram id 1
+push_flow=local service/timer -> local pusher reads env -> GET http://150.230.148.128:3001/api/push/<token>?status=...&msg=... -> Nginx push-only proxy on VM:3001 -> Kuma localhost:3002 -> heartbeat row -> optional Telegram id 1
 config_flow=backup DB -> mutate via UI/API/SQLite -> restart container only when direct DB edit requires runtime reload -> verify monitor table+heartbeat+UI/status page
 noise_flow=classify from heartbeat/local state -> repair pusher or widen timing -> preserve real failures -> document in ALERT_REGISTRY/report
 registry_flow=any monitor/service/env/timing change -> update ai/global/SERVICE_REGISTRY.md + ai/global/ALERT_REGISTRY.md + this doc + human changelog
@@ -108,7 +115,7 @@ registry_flow=any monitor/service/env/timing change -> update ai/global/SERVICE_
 INV:
 arch=Kuma external to Mint; local services only push.
 data=DB path /opt/uptime-kuma/data/kuma.db; WAL/SHM present; backup before any write.
-ux=UI available at http://150.230.148.128:3001 but docs must record every manual setting change.
+ux=UI/admin not public; start SSH tunnel and open http://127.0.0.1:3001; docs must record every manual setting change.
 backup=/opt/uptime-kuma/backups
 security=never print push_token,full /api/push URL,Telegram token,Telegram chat id,notification config JSON raw.
 ops=no destructive monitor/DB change without current DB backup.
@@ -120,7 +127,9 @@ env=Oracle VM Docker Compose
 requirements=ssh key /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key;sudo on VM;sqlite3 on VM
 
 TEST:
-runtime=ssh VM 'sudo docker ps --filter name=uptime-kuma; sudo docker inspect uptime-kuma --format "{{.State.Status}} {{.State.Health.Status}}"'
+runtime=ssh VM 'sudo docker ps --filter name=uptime-kuma; curl -sS -I --max-time 10 http://127.0.0.1:3002/dashboard'
+security=public curl -i http://150.230.148.128:3001/ and /dashboard must return 403; /api/push/<invalid> should reach Kuma and return JSON 404; valid redacted push URL should return HTTP 200 ok=true
+tunnel=ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key -L 3001:127.0.0.1:3002 ubuntu@150.230.148.128 then open http://127.0.0.1:3001
 db=sudo sqlite3 -readonly /opt/uptime-kuma/data/kuma.db 'PRAGMA integrity_check;'
 monitor_inventory=sudo sqlite3 -readonly -header -column /opt/uptime-kuma/data/kuma.db 'select id,name,type,active,parent,"interval",timeout,retry_interval,maxretries from monitor order by id;'
 push=run source pusher or curl redacted URL; expect HTTP 200 and new heartbeat row timestamp for that monitor
@@ -135,13 +144,14 @@ SchemaTables=api_key,docker_host,domain_expiry,group,heartbeat,incident,maintena
 BackupDir=/opt/uptime-kuma/backups
 BackupCmd=sudo mkdir -p /opt/uptime-kuma/backups && sudo cp -a /opt/uptime-kuma/data/kuma.db /opt/uptime-kuma/backups/kuma-pre-<prompt>-$(date -u +%Y%m%dT%H%M%SZ).db
 BackupVerify=sudo ls -lh /opt/uptime-kuma/backups/kuma-pre-<prompt>-*.db && sudo sqlite3 -readonly <backup_path> 'PRAGMA integrity_check;'
-RestoreCmd=stop container -> copy bad DB aside -> cp backup to /opt/uptime-kuma/data/kuma.db -> chown root:root if needed -> docker compose up -d -> integrity+monitor query+UI check
+RestoreCmd=stop container -> copy bad DB aside -> cp backup to /opt/uptime-kuma/data/kuma.db -> chown root:root if needed -> docker compose up -d -> integrity+monitor query+curl localhost:3002/dashboard+tunnel check
+Rollback458217=restore /opt/uptime-kuma/backups/prompt-458217-20260612T191449Z/docker-compose.yml to /opt/uptime-kuma/docker-compose.yml; restore nginx from nginx-etc.tgz or remove uptime-kuma-push-only symlink; restore /etc/iptables/rules.v4 from backup and netfilter-persistent reload; docker compose up -d; systemctl reload nginx; verify old public binding only if explicitly rolling back security hardening
 SQLiteSafeInspect=PRAGMA integrity_check; .tables; PRAGMA table_info(monitor); PRAGMA table_info(notification); select monitor inventory without push_token/url secrets
 SQLiteForbidden=delete from monitor/heartbeat/notification; update push_token without backup; select push_token/config raw in logs; vacuum/prune large DB during quota pressure without explicit task
 HistoricalSQLFound=prompt_482917 reports remote SQLite query after restart but not exact SQL; human troubleshooting used select id,name,type,active,parent from monitor order by id; prompt_731845 exact readonly queries documented here.
 
 RUNBOOK:
-preflight=git clean MegaVault; read this doc + SERVICE_REGISTRY + ALERT_REGISTRY; SSH to VM; confirm docker.service active, container healthy, DB integrity ok, root disk has headroom; create DB backup before writes.
+preflight=git clean MegaVault; read this doc + SERVICE_REGISTRY + ALERT_REGISTRY; SSH to VM; confirm docker.service active, container running, app HTTP localhost:3002 OK, DB integrity ok, root disk has headroom; create DB backup before writes.
 add_push_monitor=1 choose stable name lower/kebab matching service; 2 verify no same-name row; 3 backup DB; 4 generate 32-char token outside shell history; 5 insert monitor type push user_id=1 interval/timeout/retry/maxretries; 6 insert monitor_notification monitor_id,new notification_id=1; 7 add tag push-monitor and optional 482917-reviewed; 8 store full URL only in service env; 9 run pusher; 10 verify heartbeat timestamp; 11 update registries/docs/report.
 add_http_monitor=1 backup DB; 2 prefer UI because URL may contain credentials; 3 if SQL, insert type=http with url,method GET,accepted_statuscodes_json='["200-299"]',user_id=1,interval/timeout/retry/maxretries; 4 bind notification only if alerting desired; 5 run readonly monitor query; 6 verify first heartbeat; 7 document endpoint without secrets.
 add_heartbeat_monitor=use add_push_monitor; in this deployment heartbeat means Kuma push monitor.
@@ -156,11 +166,11 @@ verify_monitor=readonly query monitor config, latest heartbeat, source systemd u
 verify_notification=check monitor_notification binding to id 1, notification active/default/type telegram, then use Kuma UI notification test or safe manual alert; do not read/print bot token/chat id.
 reduce_noise=do not disable real failures; fix pusher idempotence/flock/nonfatal curl first; widen interval/timeout/retry only after measuring cadence; split roles if one pusher reports unrelated jobs; preserve Telegram for critical alerts.
 recover_broken_monitor=check active flag, latest heartbeat, source unit/timer, env file presence/perms, script exists, local state truth; only then retune or replace token; for disabled obsolete monitors do not revive without owner_project docs.
-restore_from_backup=stop container with docker compose down; copy current data dir metadata and DB aside; restore selected DB; docker compose up -d; wait healthy; integrity_check; monitor count; verify critical pushers.
+restore_from_backup=stop container with docker compose down; copy current data dir metadata and DB aside; restore selected DB; docker compose up -d; wait HTTP localhost:3002 OK; integrity_check; monitor count; verify critical pushers.
 
 SQLITE_OPERATIONS:
 pre_write=ssh VM; sudo sqlite3 -readonly DB 'PRAGMA integrity_check;'; BackupCmd; BackupVerify; inspect .schema for touched table.
-post_write=sudo docker compose -f /opt/uptime-kuma/docker-compose.yml restart uptime-kuma if DB edit not visible; verify docker healthy; readonly query changed rows; run pusher/heartbeat.
+post_write=sudo docker compose -f /opt/uptime-kuma/docker-compose.yml restart uptime-kuma if DB edit not visible; verify app HTTP localhost:3002 OK and public dashboard 403; readonly query changed rows; run pusher/heartbeat.
 safe_query_monitor=select id,name,type,active,parent,"interval",timeout,retry_interval,maxretries,upside_down from monitor order by id;
 safe_query_notifications=select id,name,active,is_default,json_extract(config,'$.type') as notification_type,json_extract(config,'$.telegramChatID') is not null as has_chat_id,json_extract(config,'$.telegramBotToken') is not null as has_bot_token from notification order by id;
 safe_query_bindings=select monitor_id,notification_id from monitor_notification order by monitor_id,notification_id;
@@ -194,9 +204,11 @@ BUG:
 issue=direct DB edit can require container restart for UI/runtime refresh;workaround=restart uptime-kuma container after backup+write if query says changed but UI stale.
 issue=stat_minutely/stat_daily SQLITE_CONSTRAINT lines in error.log on 2026-06-10;status=observed_not_fixed;risk=log noise/stat aggregation issue.
 issue=freeze monitor group was down/pending during 2026-06-10 audit despite service running;status=documented;next=diagnose mint-freeze-forensics pusher cadence only in runtime task.
+issue=docker exec and image healthcheck fail with OCI runtime exec failed runc exit status 255 before and after Docker restart/recreate on 2026-06-12;status=host Docker/runc anomaly not fixed in Kuma hardening;mitigation=disabled broken image healthcheck and verify Kuma via HTTP/DB/push.
 
 RISK:
 risk=Oracle root disk 93% used can affect Docker healthchecks/log writes;mitigation=check df before backup/restore and do not grow logs blindly.
+risk=public push endpoint remains HTTP for compatibility with existing push URL estate;mitigation=admin/login is no longer public; rotate/migrate push URLs to HTTPS only after VCN/domain/TLS path exists.
 risk=push token leak via shell history/log/docs;mitigation=redact outputs and use env files mode 600.
 risk=direct SQLite writes across Kuma upgrade schema drift;mitigation=PRAGMA table_info before write.
 risk=Kuma false red from pusher cadence/local mount boot timing;mitigation=verify service-local state before alert retune.
@@ -216,9 +228,9 @@ historical_error=curl rc 7/28 killed pusher under set -e; wrap push as nonfatal 
 historical_error=DB_BUSY and intentional ABORTED_SAFE were once treated as hard DOWN; map documented wait/guard states to warning/up only with persisted reason.
 
 ROAD:
-now=docs operational; runtime unchanged.
+now=runtime hardened: admin UI no longer publicly exposed; push-only compatibility proxy public on port 3001.
 next=separate runtime task should diagnose 2026-06-10 Freeze Gaps/PSI pending/down if user asks.
-later=replace direct DB edits with authenticated Kuma API only after API auth is verified and documented.
+later=if Oracle VCN/domain access is available, replace HTTP push compatibility endpoint with HTTPS reverse proxy and rotate push URLs/tokens.
 
 LINK:
 meta=../../../projects/vm_oracle/oracle-uptime-kuma/dev/project.metadata.json
@@ -227,9 +239,11 @@ runtime=ssh ubuntu@150.230.148.128 /opt/uptime-kuma
 report_482917=../reports/prompt_482917_kuma_noise_reduction.md
 report_428691=../reports/prompt_428691_kuma_docs_normalization.md
 report_731845=../reports/prompt_731845_kuma_operational_audit.md
+report_458217=../reports/prompt_458217_kuma_hardening.md
 registries=../global/SERVICE_REGISTRY.md,../global/ALERT_REGISTRY.md,../global/DATA_REGISTRY.md
 
 OPEN:
 open=Kuma UI/API auth workflow still undocumented; DB/UI paths are verified.
 open=Telegram delivery test not executed in prompt_731845 to avoid runtime notification.
 open=No HTTP monitors currently exist; HTTP runbook is schema-derived and must be smoke-tested when first used.
+open=Docker/runc exec failure remains a host-level issue if future maintenance needs docker exec; use HTTP/DB checks for Kuma until Docker runtime is repaired.

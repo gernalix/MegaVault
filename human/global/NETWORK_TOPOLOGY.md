@@ -18,7 +18,8 @@ Topologia di rete verificata dal vivo il 2026-06-08 e integrata con `HOST_PROFIL
 
 - Oracle VM: `ubuntu@150.230.148.128`.
 - Ruoli documentati: Uptime Kuma, backup Oracle e monitor remoti.
-- Kuma: `http://150.230.148.128:3001`.
+- Kuma admin: solo tunnel SSH verso `127.0.0.1:3002`, poi browser locale `http://127.0.0.1:3001`.
+- Kuma pubblico: `http://150.230.148.128:3001` e' solo proxy `/api/push/...`; root/dashboard pubbliche devono rispondere `403`.
 - SSH live: `UNKNOWN`, timeout durante questa discovery.
 
 Vista sintetica:
