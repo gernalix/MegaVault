@@ -1,12 +1,13 @@
 # PROJECT_INVENTORY
 
-Generated: 2026-06-10T19:33:41+02:00
+Generated: 2026-06-13T04:35:00+02:00
 
 | name | slug | path | remote | branch | git_status_count | docs_found | docs_archived | docs_skipped | dev |
 |---|---|---|---|---|---:|---:|---:|---:|---|
 | SuperContacts | supercontacts | `/home/daniele/codex-workspace/SuperContacts` | `https://github.com/gernalix/SuperContacts.git` | `codex/prompt-xxx` | 8 | 4 | 3 | 0 | True |
 | WindowTabNotes | windowtabnotes | `/home/daniele/codex-workspace/WindowTabNotes` | `git@github.com:gernalix/WindowTabNotes.git` | `codex/prompt-581472` | 7 | 13 | 13 | 0 | True |
 | android | android | `/home/daniele/codex-workspace/projects/android` | `none` | `home-git-worktree` | 0 | 3 | 0 | 0 | True |
+| Android App Template | android-app-template | `/home/daniele/codex-workspace/android-app-template` | `git@github.com:gernalix/android-app-template.git` | `main` | 0 | 5 | 0 | 0 | True |
 | android-sdk-auto-update | android-sdk-auto-update | `/home/daniele/codex-workspace/android-sdk-auto-update` | `none` | `master` | 7 | 5 | 5 | 0 | True |
 | aw-converter | aw-converter | `/home/daniele/codex-workspace/aw-converter` | `none` | `master` | 0 | 0 | 0 | 0 | True |
 | chatgpt-chrome-debug | chatgpt-chrome-debug | `/home/daniele/codex-workspace/chatgpt-chrome-debug` | `none` | `master` | 7 | 7 | 7 | 0 | True |
@@ -30,5 +31,7 @@ Generated: 2026-06-10T19:33:41+02:00
 | oracle-backup-service | oracle-backup-service | `/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service` | `https://github.com/gernalix/oracle-backup-service.git` | `fix/degraded-healthcheck-state` | 15 | 4 | 4 | 0 | True |
 | remote_opt_oracle_backup | remote-opt-oracle-backup | `/home/daniele/codex-workspace/projects/vm_oracle/remote_opt_oracle_backup` | `none` | `main` | 10 | 1 | 1 | 0 | True |
 | remote-codex-phone | remote-codex-phone | `/home/daniele/codex-workspace/remote-codex-phone` | `none` | `master` | 7 | 3 | 3 | 0 | True |
+| Soldi | soldi | `/home/daniele/AndroidStudioProjects/Soldi` | `git@github.com:gernalix/Soldi.git` | `main` | 0 | 5 | 0 | 0 | True |
+| Sostanze | sostanze | `/home/daniele/AndroidStudioProjects/Sostanze` | `git@github.com:gernalix/Sostanze.git` | `main` | 0 | 5 | 0 | 0 | True |
 | amici_fb | amici-fb | `/home/daniele/codex-workspace/scripts/amici_fb` | `https://github.com/gernalix/amici_fb.git` | `master` | 8 | 7 | 6 | 0 | True |
 | surface-recovery-hardening | surface-recovery-hardening | `/home/daniele/codex-workspace/surface-recovery-hardening` | `git@github.com:gernalix/surface-recovery-hardening.git` | `main` | 10 | 21 | 21 | 0 | True |

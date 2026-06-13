@@ -1,10 +1,15 @@
 # Soldi Changelog
 
+## 2026-06-13
+
+- Audited the previous `Soldi` folder as an Android Studio starter app with no domain logic.
+- Preserved the original folder in `_backups`.
+- Regenerated `Soldi` from the reusable Android template.
+- Set package/applicationId to `com.gernalix.soldi`.
+- Verified `./gradlew assembleDebug` and physical debug APK.
+- Added local project metadata and updated MegaVault docs.
+
 ## 2026-06-05
 
-- Inizializzato il progetto Android `Soldi`.
-- Verificata build debug con `./gradlew assembleDebug`: riuscita.
-- Generato APK debug: `app/build/outputs/apk/debug/app-debug.apk`.
-- Preparato `.gitignore` per Android/Gradle/Kotlin.
-- Inizializzato repository Git locale del progetto.
-- Creata documentazione MegaVault iniziale per AI e human vault.
+- Initialized the original Android Studio starter project.
+- Verified debug build and local Git repository.

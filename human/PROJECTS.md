@@ -1,11 +1,12 @@
 # MegaVault Projects
 
-Updated: 2026-06-10T19:50:00+02:00
+Updated: 2026-06-13T04:35:00+02:00
 
 | Project | What it is | Human overview | AI doc | metadata |
 |---|---|---|---|---|
 | SuperContacts | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-device validation. | [overview](projects/supercontacts/overview.md) | [AI](../ai/projects/supercontacts.md) | [metadata](../../SuperContacts/dev/project.metadata.json) |
 | WindowTabNotes | Root repository: `WindowTabNotes/`. | [overview](projects/windowtabnotes/overview.md) | [AI](../ai/projects/windowtabnotes.md) | [metadata](../../WindowTabNotes/dev/project.metadata.json) |
+| Android App Template | Reusable terminal-only Android Studio starter template with generator for namespace/applicationId/package/app name rewrites. | [overview](projects/android-app-template/overview.md) | [AI](../ai/projects/android-app-template.md) | [metadata](../../android-app-template/dev/project.metadata.json) |
 | android-sdk-auto-update | Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu. | [overview](projects/android-sdk-auto-update/overview.md) | [AI](../ai/projects/android-sdk-auto-update.md) | [metadata](../../android-sdk-auto-update/dev/project.metadata.json) |
 | aw-converter | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/aw-converter/overview.md) | [AI](../ai/projects/aw-converter.md) | [metadata](../../aw-converter/dev/project.metadata.json) |
 | chatgpt-chrome-debug | ChatGPT Chrome Redirect Debug Toolkit | [overview](projects/chatgpt-chrome-debug/overview.md) | [AI](../ai/projects/chatgpt-chrome-debug.md) | [metadata](../../chatgpt-chrome-debug/dev/project.metadata.json) |
@@ -29,5 +30,7 @@ Updated: 2026-06-10T19:50:00+02:00
 | oracle-backup-service | Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, and the current SQLite snapshot directory, then records a success marker only after at least on | [overview](projects/oracle-backup-service/overview.md) | [AI](../ai/projects/oracle-backup-service.md) | [metadata](../../projects/vm_oracle/oracle-backup-service/dev/project.metadata.json) |
 | remote_opt_oracle_backup | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remote runtime before edits. | [overview](projects/remote-opt-oracle-backup/overview.md) | [AI](../ai/projects/remote-opt-oracle-backup.md) | [metadata](../../projects/vm_oracle/remote_opt_oracle_backup/dev/project.metadata.json) |
 | remote-codex-phone | Prompt #438 setup for controlling Codex from an Android phone through: | [overview](projects/remote-codex-phone/overview.md) | [AI](../ai/projects/remote-codex-phone.md) | [metadata](../../remote-codex-phone/dev/project.metadata.json) |
+| Soldi | Clean Android starter app generated from `android-app-template`; package `com.gernalix.soldi`; no finance features implemented yet. | [overview](projects/soldi/overview.md) | [AI](../ai/projects/soldi.md) | [metadata](../../../AndroidStudioProjects/Soldi/dev/project.metadata.json) |
+| Sostanze | Clean Android starter app generated from `android-app-template`; package `com.gernalix.sostanze`; domain and persistence TBD. | [overview](projects/sostanze/overview.md) | [AI](../ai/projects/sostanze.md) | [metadata](../../../AndroidStudioProjects/Sostanze/dev/project.metadata.json) |
 | amici_fb | Linux Mint user-level Facebook automation that opens Facebook with a browser profile, processes friends/URLs, and records local state in SQLite; treat credentials and browser session data as sensitive. | [overview](projects/amici-fb/overview.md) | [AI](../ai/projects/amici-fb.md) | [metadata](../../scripts/amici_fb/dev/project.metadata.json) |
 | surface-recovery-hardening | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. | [overview](projects/surface-recovery-hardening/overview.md) | [AI](../ai/projects/surface-recovery-hardening.md) | [metadata](../../surface-recovery-hardening/dev/project.metadata.json) |

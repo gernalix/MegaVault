@@ -1,18 +1,13 @@
 # Soldi
 
-Soldi e' una app Android personale per gestire finanze, spese e transazioni.
+Soldi is a clean Android starter app generated from the local Android app template.
 
-## Stato iniziale
+- Project path: `/home/daniele/AndroidStudioProjects/Soldi`
+- Package/applicationId: `com.gernalix.soldi`
+- Current UI: Android Studio Compose starter screen (`Hello Android`)
+- Build command: `./gradlew assembleDebug`
+- Verified debug APK: `app/build/outputs/apk/debug/app-debug.apk`
+- Template: `/home/daniele/codex-workspace/android-app-template`
+- Original 2026-06-05 source preserved under `/home/daniele/AndroidStudioProjects/_backups/`
 
-- Progetto Android creato con Android Studio.
-- Percorso progetto: `/home/daniele/AndroidStudioProjects/Soldi`.
-- Build debug verificata con `./gradlew assembleDebug`: riuscita.
-- APK debug generato in `app/build/outputs/apk/debug/app-debug.apk`.
-- Git inizializzato come repository locale dentro la root del progetto Soldi.
-
-## Prossimi passi consigliati
-
-- Definire MVP: elenco transazioni, categorie, saldo, filtri base.
-- Scegliere persistenza dati, probabilmente Room/SQLite.
-- Aggiungere test mirati per modello dati e logica di calcolo.
-- Definire package id definitivo e convenzioni UI prima di sviluppare feature.
+No finance features or persistence are implemented yet.
