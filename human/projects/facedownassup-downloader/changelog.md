@@ -1,5 +1,15 @@
 # facedownassup-downloader Changelog
 
+## 2026-06-13
+
+- Updated `fda_downloader.sh` to version `0.4.0` for prompt `#672941`.
+- Changed the default `yt-dlp` cookie source to Firefox with `--cookies-from-browser firefox`.
+- Added `FDA_COOKIE_BROWSER=firefox/chrome`, `FDA_FIREFOX_PROFILE`, Firefox profile detection, and doctor reporting for cookie browser/profile plus a private cookie-read probe.
+- Kept reports redacted: no cookie values, tokens, or complete signed media URLs.
+- Removed the diagnostic/partial `html5mediaembed gallery-1` archive entry so gallery `id=173` can be retried with fresh Firefox cookies.
+- Verified Firefox profile `/home/daniele/.config/mozilla/firefox/50b1zmic.default-release`: cookie read worked, fresh manifest found `264` fragments, and strict download still failed at HLS fragment `72` with `404`; current partial was deleted with `--no-partials`.
+- Ran Firefox `browser-check`; report `state/browser-check-20260613-130553.txt` documents `firefox_network=unavailable` and `ytdlp_fragment_errors=404/72,72`.
+
 ## 2026-06-10
 
 - Updated `fda_downloader.sh` to version `0.3.0` for prompt `#615902`.

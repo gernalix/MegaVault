@@ -2,11 +2,29 @@
 
 ## 403 Forbidden
 
-Use the wrapper so `yt-dlp` sends the same-origin `Referer`, `Origin`, and Chrome-like `User-Agent` headers:
+Use the wrapper so `yt-dlp` sends the same-origin `Referer`, `Origin`, and browser-like `User-Agent` headers:
 
 ```bash
 cd ~/codex-workspace/facedownassup-downloader
 ./fda_downloader.sh refresh-test 'https://members.facedownassup.com/gallery.php?id=173'
+```
+
+The default cookie source is now Firefox:
+
+```bash
+./fda_downloader.sh doctor
+FDA_FIREFOX_PROFILE="$HOME/.mozilla/firefox/<profile>" ./fda_downloader.sh doctor
+FDA_COOKIE_BROWSER=chrome ./fda_downloader.sh doctor
+```
+
+The doctor reports browser/profile selection and a private cookie-read probe without printing cookies, tokens, or signed URLs.
+
+2026-06-13 verified Firefox source:
+
+```text
+cookie_browser=firefox
+firefox_profile=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release
+cookie_read_probe=OK
 ```
 
 ## HLS Fragment 404
@@ -14,6 +32,8 @@ cd ~/codex-workspace/facedownassup-downloader
 The current diagnostic found an accessible m3u8 manifest, then repeated `404 Not Found` on later HLS fragments. That is consistent with signed or temporary segment URLs, or a playlist that references unavailable segments.
 
 The v0.2.0 strict refresh test regenerated a fresh manifest immediately before download. It found `264` fragments and failed at missing fragment `72`, then deleted the incomplete output because `--no-partials` was enabled.
+
+The v0.4.0 Firefox strict refresh test on 2026-06-13 reproduced the same external HLS failure with fresh Firefox cookies: `264` fragments, missing range `72`, incomplete output deleted with `--no-partials`.
 
 Keep per-request delay disabled for expiring HLS URLs:
 
@@ -31,7 +51,7 @@ Do not paste raw `logs/run-*.log` content into reports; it can contain signed UR
 
 ## Browser-Real Check
 
-Use this when you need to know whether Chrome itself can play the gallery and whether Chrome receives the same HLS `404` statuses as `yt-dlp`:
+Use this when you need a redacted browser-cookie `yt-dlp` comparison for the gallery:
 
 ```bash
 cd ~/codex-workspace/facedownassup-downloader
@@ -45,5 +65,9 @@ FDA_BROWSER_CHECK_LAUNCH=1 ./fda_downloader.sh browser-check 'https://members.fa
 ```
 
 Output report: `state/browser-check-*.txt`.
+
+With Firefox cookies, browser-check does not automate real Firefox Network capture; it documents that limitation in the report. Use the existing logged-in Firefox window for manual playback confirmation, or set `FDA_COOKIE_BROWSER=chrome` when an explicit Chrome DevTools diagnostic is required.
+
+2026-06-13 Firefox browser-check report: `state/browser-check-20260613-130553.txt`; `firefox_network=unavailable`, `ytdlp_http_statuses=404,404`, `ytdlp_fragment_errors=404/72,72`, `FINAL_REPORT=UNKNOWN`.
 
 If the report says `comparison=MATCH_404_SERVER_PLAYLIST_OR_CONTENT` and `FINAL_REPORT=NOT_PLAYABLE`, Chrome and `yt-dlp` both saw `404` on HLS media. Treat that as a content or playlist problem on the server side and do not force or bypass protections.
