@@ -1,5 +1,6 @@
 # MegaVault Changelog
 
+- 2026-06-13: `#739284` home-incremental-backup follow-up: verificato run attivo/non bloccato, installato `sysstat` per `iostat`/`pidstat`, alzato `HOME_BACKUP_BWLIMIT_KB` live `512` -> `1024` KiB/s solo per prossimi run; backup corrente lasciato a `--bwlimit=512`.
 - 2026-06-13: `#483920` diagnosi I/O dischi esterni: causa principale `home-incremental-backup.service` con `rsync` verso Seagate6TB2; transfer BitLocker presente ma stale/fermato, non sorgente I/O nel campione.
 - 2026-06-13: `#918472` oracle-backup-service: cleanup sicuro del fallback locale restic gia' oltre quota; `emergency_repo` 14G/82 snapshot -> 3.9G/11 snapshot, `/` 98% -> 75%, nessun repo remoto toccato, healthcheck finale WARNING/`REMOTE_DEGRADED`.
 - 2026-06-12: `#458217` Oracle Uptime Kuma: admin UI rimossa dall'HTTP pubblico; accesso via tunnel SSH a `127.0.0.1:3002`; Nginx conserva solo `/api/push/` su `150.230.148.128:3001` per compatibilita' con i push esistenti; backup e rollback documentati.

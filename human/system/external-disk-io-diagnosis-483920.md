@@ -36,7 +36,23 @@ sudo iotop -oP -d 1
 
 ## Azione sicura consigliata
 
-Nessun fix e stato applicato. La scelta piu sicura e lasciare finire il backup: durante la diagnosi il log `rsync` mostrava avanzamento vicino alla fine e velocita coerente con il limite di `512 KiB/s`.
+Follow-up `#739284`: il backup era ancora attivo e stava avanzando, non bloccato. Dopo ulteriore log tail, l'avanzamento reale non era vicino alla fine: `rsync` aveva scoperto piu file e mostrava circa `64%`, circa `512 KiB/s`, ETA intorno a `1h10`.
+
+Il limite futuro e stato alzato in modo prudente da `512` a `1024 KiB/s` in:
+
+```bash
+/home/daniele/.config/home-backup/home-backup.env
+```
+
+Backup del file precedente:
+
+```bash
+/home/daniele/.config/home-backup/home-backup.env.bak-20260613-073520
+```
+
+La modifica non tocca il backup gia in corso: il processo `rsync` attivo resta con `--bwlimit=512`. Il nuovo valore vale dal prossimo avvio di `home-incremental-backup.service`.
+
+Motivo del valore conservativo: il sistema aveva ancora carico alto, PSI I/O alto e altri processi con I/O sul disco root USB; `1024 KiB/s` raddoppia il limite senza saltare a valori aggressivi.
 
 Se serve fermare subito l'attivita disco, farlo solo consapevolmente con:
 
@@ -45,4 +61,3 @@ systemctl --user stop home-incremental-backup.service
 ```
 
 Questo interrompe il backup e lascia uno snapshot incompleto da rivedere nei log/stato prima di considerarlo pulito.
-
