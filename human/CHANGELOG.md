@@ -1,5 +1,6 @@
 # MegaVault Changelog
 
+- 2026-06-13: `#628451` home-incremental-backup baseline post-run: servizio terminato in `failed/timeout` dopo circa 7h, snapshot incompleto `13G` lasciato intatto; baseline senza backup ancora critica con PSI I/O/memoria molto alte, zram piena a meta' campione e T7/root saturo a burst. `HOME_BACKUP_BWLIMIT_KB` lasciato a `1024`; `2048-5120` non raccomandati.
 - 2026-06-13: `#914672` home-incremental-backup bwlimit safety check: run ancora attivo a `--bwlimit=512`, config futura rimasta `HOME_BACKUP_BWLIMIT_KB=1024`; non alzato a `2048-5120` per PSI I/O/CPU alti, zram >2GiB, T7/root USB occupato e hub SABRENT condiviso con Seagate6TB2.
 - 2026-06-13: `#739284` home-incremental-backup follow-up: verificato run attivo/non bloccato, installato `sysstat` per `iostat`/`pidstat`, alzato `HOME_BACKUP_BWLIMIT_KB` live `512` -> `1024` KiB/s solo per prossimi run; backup corrente lasciato a `--bwlimit=512`.
 - 2026-06-13: `#483920` diagnosi I/O dischi esterni: causa principale `home-incremental-backup.service` con `rsync` verso Seagate6TB2; transfer BitLocker presente ma stale/fermato, non sorgente I/O nel campione.
