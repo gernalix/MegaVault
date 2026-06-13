@@ -1,5 +1,6 @@
 # MegaVault Changelog
 
+- 2026-06-13: `#729184` disk-usage-monitor: aggiunta notifica Telegram aggregata per delta spazio usato >=1 GiB binario, con baseline separata `delta_notification_state` e test asciutti `delta-test-plus/minus`.
 - 2026-06-13: `#384729` disk-usage-monitor: chiarito che il monitor e' timer 24/7 + service oneshot, aggiunti `status`/`dry-run`, rinforzate unit systemd e logging per disco.
 - 2026-06-13: `#628451` home-incremental-backup baseline post-run: servizio terminato in `failed/timeout` dopo circa 7h, snapshot incompleto `13G` lasciato intatto; baseline senza backup ancora critica con PSI I/O/memoria molto alte, zram piena a meta' campione e T7/root saturo a burst. `HOME_BACKUP_BWLIMIT_KB` lasciato a `1024`; `2048-5120` non raccomandati.
 - 2026-06-13: `#914672` home-incremental-backup bwlimit safety check: run ancora attivo a `--bwlimit=512`, config futura rimasta `HOME_BACKUP_BWLIMIT_KB=1024`; non alzato a `2048-5120` per PSI I/O/CPU alti, zram >2GiB, T7/root USB occupato e hub SABRENT condiviso con Seagate6TB2.

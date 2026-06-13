@@ -22,7 +22,7 @@ db=windowtabnotes.sqlite3;owner=windowtabnotes;type=sqlite;path=/home/daniele/.l
 db=amici_fb.sqlite3;owner=amici-fb;type=sqlite;path=/home/daniele/codex-workspace/scripts/amici_fb/amici_fb.sqlite3;tables=diff_events,eccezioni,friend_requests,friends,snapshot_friends,snapshots
 db=parcel_tracker.sqlite3;owner=parcel-tracker;type=sqlite;path=/home/daniele/codex-workspace/parcel-tracker/parcel_tracker.sqlite3;tables=checks,state
 db=peewee-sqlite.v2.db;owner=activitywatch;type=sqlite;path=/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db;tables=bucketmodel,eventmodel
-db=disk_usage_monitor.sqlite;owner=disk-usage-monitor;type=sqlite;path=/home/daniele/sync_root/db/disk_usage_monitor.sqlite;tables=disk_space_samples,disk_events,disk_alerts,run_status,kuma_pushes,notification_state,monitored_disk_state
+db=disk_usage_monitor.sqlite;owner=disk-usage-monitor;type=sqlite;path=/home/daniele/sync_root/db/disk_usage_monitor.sqlite;tables=disk_space_samples,disk_events,disk_alerts,run_status,kuma_pushes,notification_state,monitored_disk_state,delta_notification_state
 db=git_change_ledger.sqlite3;owner=git-change-ledger;type=sqlite;path=/home/daniele/sync_root/db/git_change_ledger.sqlite3;size=151552;wal=yes;tables=changed_files,recent_commits,repo_scans,repos,scan_runs,schema_meta
 db=android_updates_history.sqlite;owner=mint-extra-updater;type=sqlite;path=/home/daniele/.local/state/mint-extra-updater/android-sdk-history/android_updates_history.sqlite;tables=android_update_history
 db=android_updates_history.sqlite;owner=mint-manual-updates;type=sqlite;path=/home/daniele/.local/state/mint-manual-updates/android-sdk-history/android_updates_history.sqlite;tables=android_update_history

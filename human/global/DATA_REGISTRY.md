@@ -11,7 +11,7 @@ Registro leggibile dei database e degli stati locali rilevanti. Il file AI autor
 - `amici_fb.sqlite3`: `/home/daniele/codex-workspace/scripts/amici_fb/amici_fb.sqlite3`, owner `amici-fb`.
 - `parcel_tracker.sqlite3`: `/home/daniele/codex-workspace/parcel-tracker/parcel_tracker.sqlite3`, owner `parcel-tracker`.
 - `peewee-sqlite.v2.db`: `~/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db`, owner `activitywatch`.
-- `disk_usage_monitor.sqlite`: `/home/daniele/sync_root/db/disk_usage_monitor.sqlite`, owner `disk-usage-monitor`.
+- `disk_usage_monitor.sqlite`: `/home/daniele/sync_root/db/disk_usage_monitor.sqlite`, owner `disk-usage-monitor`, include `delta_notification_state` per il riferimento notifiche delta.
 - `git_change_ledger.sqlite3`: `/home/daniele/sync_root/db/git_change_ledger.sqlite3`, owner `git-change-ledger`, rebuildable by rerunning `git-change-ledger scan`.
 - `kuma.db`: `/opt/uptime-kuma/data/kuma.db` sulla VM Oracle, verificato live in sola lettura il 2026-06-10 con WAL/SHM presenti e integrity `ok`.
 
