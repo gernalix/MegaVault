@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL.md
-VERSION=8
+VERSION=9
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -226,6 +226,13 @@ NEW_PROJECT_ORDER=clean_check>create_metadata>create_ai_doc>create_human_overvie
 NEW_PROJECT_FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
 NEW_PROJECT_MUST_SEARCH_ARCHIVE=yes
 NEW_PROJECT_MUST_SEARCH_SIMILAR_ACTIVE=yes
+
+# ANDROID_TEMPLATE_NEW_APP_RULE
+ANDROID_TEMPLATE_INIT_REQ=copy_template>rename_package>rename_app>verify_gradle>verify_manifest>verify_strings>verify_namespace>create_full_docs>build_debug>commit>push
+ANDROID_DOCS_MUST_DESCRIBE=implemented_features,current_ui,package_name,app_name,storage_model,build_commands,test_device_strategy,known_limitations,next_steps
+EMPTY_DOCS_FORBIDDEN=yes
+PLACEHOLDER_DOCS_FORBIDDEN=yes
+DOCS_COMPLETE_BEFORE_FIRST_BUILD_SUCCESS_REPORT=yes
 
 # UNDOCUMENTED_EXISTING_PROJECT_WORKFLOW
 UNDOC_ORDER=clean_check>inspect_repo_targeted>identify_entrypoints>identify_arch>identify_storage>identify_build_test>identify_branch>create_metadata>create_ai_doc>create_human_docs>mark_unknowns>commit>push
