@@ -2,6 +2,7 @@
 
 ## 2026-06-13
 
+- Prompt `#518407`: checked existing JDownloader at `/home/daniele/Downloads/JDownloader.jar`; no install performed. JDownloader accepted the gallery URL via clipboard monitor but did not produce a downloadable item, had no Firefox JDownloader extension in the authenticated profile, and logged `Firefox settings folder not found`. Decision: JDownloader is not viable as configured and does not change the external HLS fragment `72` 404 conclusion.
 - Updated `fda_downloader.sh` to version `0.4.0` for prompt `#672941`.
 - Changed the default `yt-dlp` cookie source to Firefox with `--cookies-from-browser firefox`.
 - Added `FDA_COOKIE_BROWSER=firefox/chrome`, `FDA_FIREFOX_PROFILE`, Firefox profile detection, and doctor reporting for cookie browser/profile plus a private cookie-read probe.

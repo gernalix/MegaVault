@@ -4,15 +4,15 @@ slug=facedownassup-downloader
 path=/home/daniele/codex-workspace/facedownassup-downloader
 remote=git@github.com:gernalix/facedownassup-downloader.git
 branch=main
-prompt=672941
-verified_at=2026-06-13T13:08:41+02:00
+prompt=518407
+verified_at=2026-06-13T13:24:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:VERSION=8
 PURPOSE:
 purpose=Local authorized downloader for facedownassup.com member gallery pages using existing legitimate Firefox login via yt-dlp cookies by default.
 scope=personal_access_only,no_DRM_bypass,no_paywall_bypass,no_credential_attack,no_exploit,no_aggressive_rate
 STACK:
 lang=Bash,Python_inline_parser
-tools=yt-dlp,Firefox cookies via --cookies-from-browser firefox,optional Chrome DevTools diagnostics,ffmpeg/ffprobe,gh,git
+tools=yt-dlp,Firefox cookies via --cookies-from-browser firefox,optional Chrome DevTools diagnostics,JDownloader existing jar,ffmpeg/ffprobe,gh,git
 platform=Linux Mint/XFCE host
 MAP:
 entry=fda_downloader.sh
@@ -26,6 +26,7 @@ script=fda_downloader.sh modes:doctor,refresh-test,browser-check,test,download,l
 download=yt-dlp --cookies-from-browser firefox by default; FDA_COOKIE_BROWSER=chrome supported; FDA_FIREFOX_PROFILE overrides detected Firefox profile; Referer/Origin/User-Agent + no-cache + archive + local verbose logs
 refresh=refresh-test checks browser playback status when possible, extracts fresh page/manifest immediately before download, reports segments, validates complete files with ffprobe, and handles partials
 browser_check=Firefox default runs redacted yt-dlp probe and documents that real Firefox Network capture is not automated; Chrome path remains explicit DevTools diagnostic launched only with FDA_BROWSER_CHECK_LAUNCH=1
+jdownloader_check=existing /home/daniele/Downloads/JDownloader.jar process tested via clipboard/ClickAndLoad-style local port; no install performed; no cookie export performed
 crawl=bounded same-origin gallery discovery from authorized HTML dumps; signed media URLs not persisted in reports
 FLOW:
 refresh-test=browser_playback_check->fresh_preflight_write_pages_private->fresh_gallery_download->segment_report->ffprobe_or_partial_classification
@@ -52,6 +53,7 @@ syntax=bash -n fda_downloader.sh PASS 2026-06-13 after v0.4.0
 doctor=./fda_downloader.sh doctor PASS 2026-06-13; cookie_browser=firefox; firefox_profile=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release; cookie_read_probe=OK; no cookie values printed
 real_download_672941=FDA_REFRESH_ATTEMPTS=1 FDA_SLEEP_REQUESTS=0 FDA_ABORT_ON_UNAVAILABLE=1 ./fda_downloader.sh --no-partials refresh-test URL; cookie_source=firefox; total_fragments=264; missing_count=1; missing_ranges=72; partial_deleted=yes; result=failed_external_HLS_404
 browser_check_672941=FDA_BROWSER_CHECK_YTDLP_MODE=fragments ./fda_downloader.sh browser-check URL; report=state/browser-check-20260613-130553.txt; firefox_network=unavailable_by_design; ytdlp_http_statuses=404,404; ytdlp_fragment_errors=404/72,72; FINAL_REPORT=UNKNOWN
+jdownloader_518407=JDownloader already running from /home/daniele/Downloads/JDownloader.jar pidfile=/home/daniele/Downloads/JDownloader.pid; Firefox profile checked=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release; no JDownloader Firefox extension found; JDownloader log says Firefox settings folder not found; gallery URL accepted as clipboard job length 52 at 2026-06-13T13:20:28; no download/linkgrabber item produced; download list stayed empty; local HTTP API/CNL probes timed out or returned empty reply
 browser_check_metadata=FDA_BROWSER_CHECK_SECONDS=1 FDA_BROWSER_CHECK_YTDLP_MODE=metadata ./fda_downloader.sh browser-check URL PASS; DevTools unavailable by design; chrome_verdict=UNKNOWN; ytdlp_rc=0; FINAL_REPORT=UNKNOWN; report=state/browser-check-20260610-164245.txt
 diagnostic=yt-dlp with Chrome cookies+Referer+Origin+UA removed initial 403 and produced local MP4 diagnostic outside repo
 script_test=started extraction/download; stopped by timeout after repeated HLS fragment 404; partial removed
@@ -78,6 +80,10 @@ issue=Prompt 672941 Firefox cookie source did not solve gallery id=173 completio
 cause=Firefox cookie read and manifest extraction succeeded, but fragment 72 returned 404 from HLS media host after fresh manifest
 workaround=manual Firefox playback verification if needed; do not force or bypass protections
 status=external_HLS_404
+issue=Prompt 518407 JDownloader could not verify a successful authenticated download for gallery id=173
+cause=JDownloader was installed/running but not integrated with the authenticated Firefox profile; clipboard URL was crawled/accepted but yielded no downloadable item, and no download reached the HLS fragment stage
+workaround=manual JDownloader browser-extension/login setup would be required for a stronger JDownloader-specific test; do not export cookies or bypass protections
+status=not_viable_as_configured
 issue=browser-check may return UNKNOWN for Firefox real-session playback because Firefox Network capture is not automated by this wrapper
 cause=do_not_remote_control_or_clone_logged_in_Firefox_profile_without_an_explicit_supported_protocol
 workaround=use existing Firefox session for manual playback verification or switch to FDA_COOKIE_BROWSER=chrome for explicit Chrome DevTools diagnostics; keep reports redacted
@@ -88,7 +94,7 @@ risk=incomplete_MP4; trigger=HLS fragment 404 skip; mitigation=segment_report+ff
 risk=account/session misuse; trigger=wrong URL/account; mitigation=same-origin default+authorized-only docs
 ROAD:
 now=use refresh-test for HLS 404/scaduti and keep raw signed URL material local-only
-next=use browser-check for real Chrome Network proof before deciding whether HLS 404 is external/server-side
+next=only manual real-browser playback can add evidence; JDownloader as currently configured does not change the external-HLS-404 conclusion
 later=UNKNOWN
 LINK:
 meta=../../../facedownassup-downloader/dev/project.metadata.json

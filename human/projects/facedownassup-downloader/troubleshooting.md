@@ -71,3 +71,26 @@ With Firefox cookies, browser-check does not automate real Firefox Network captu
 2026-06-13 Firefox browser-check report: `state/browser-check-20260613-130553.txt`; `firefox_network=unavailable`, `ytdlp_http_statuses=404,404`, `ytdlp_fragment_errors=404/72,72`, `FINAL_REPORT=UNKNOWN`.
 
 If the report says `comparison=MATCH_404_SERVER_PLAYLIST_OR_CONTENT` and `FINAL_REPORT=NOT_PLAYABLE`, Chrome and `yt-dlp` both saw `404` on HLS media. Treat that as a content or playlist problem on the server side and do not force or bypass protections.
+
+## JDownloader Check
+
+Prompt `#518407` checked the already running JDownloader instance at `/home/daniele/Downloads/JDownloader.jar`; no installation was performed.
+
+Method used:
+
+```text
+JDownloader source=/home/daniele/Downloads/JDownloader.jar
+Firefox profile=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release
+input=gallery URL via JDownloader clipboard monitor
+```
+
+Findings:
+
+- JDownloader was open and running from `~/Downloads`.
+- The Firefox profile contains Video DownloadHelper, but no JDownloader Firefox extension was found.
+- JDownloader logged `Firefox settings folder not found`, so it was not automatically using the authenticated Firefox profile.
+- The gallery URL was accepted as a clipboard crawler job at `2026-06-13T13:20:28` with URL-length evidence only; no cookies, tokens, or signed URLs were printed.
+- JDownloader did not create a downloadable LinkGrabber item or a download-list entry for the gallery URL.
+- Local HTTP/API probes on the JDownloader ports did not provide a usable control/query API for this run.
+
+Decision: JDownloader, as currently installed/configured, cannot verify a successful authenticated download for gallery `id=173`. It also does not contradict the prior evidence: authenticated yt-dlp reaches the manifest but HLS fragment `72` returns `404`, so the remaining failure is still most likely broken/unavailable site or CDN content rather than a local downloader choice.
