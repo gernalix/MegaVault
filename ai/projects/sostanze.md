@@ -14,13 +14,13 @@ human_roadmap=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/ro
 human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/changelog.md
 human_troubleshooting=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/troubleshooting.md
 template_source=/home/daniele/codex-workspace/android-app-template
-last_prompt=739284
+last_prompt=294816
 
 PURPOSE:
 domain=farmaci,integratori,scorte,prescrizioni,interazioni,assunzioni
 stage=MVP implemented from existing Android project
-implemented_features=Home Events-style intake grid,Room persistence,stock coverage,prescription refill dates,interaction blocks,undo last intake,notification scheduling hooks,TCL smoke
-non_features=no CSV/SQLite export UI yet,no full interaction-specific-target editor,no medical advice defaults
+implemented_features=Home Events-style intake grid,Room persistence,stock coverage,prescription refill dates,interaction blocks,undo last intake,notification scheduling hooks,ImportExport SAF live SQLite,TCL smoke
+non_features=no CSV export UI yet,no full interaction-specific-target editor,no medical advice defaults
 
 STACK:
 platform=Android
@@ -51,12 +51,13 @@ metadata=dev/project.metadata.json
 tests=app/src/test/java/com/gernalix/sostanze/domain/SostanzeEngineTest.kt,app/src/androidTest/java/com/gernalix/sostanze/ExampleInstrumentedTest.kt
 
 ARCH:
-current=single Activity Compose app with ViewModel+Repository+Room+pure domain engine
+current=single Activity Compose app with ViewModel+capsule APIs+Room+pure domain engine
 state=SostanzeViewModel combines Room flows with minute ticker into SostanzeUiState
 ui=Home/Scorte/Prescrizioni/Interazioni tabs; Home reuses MultiTimeTracker Events compact button-grid workflow
 domain=SostanzeEngine owns scheduling,stock,refill,interaction,countdown,notification-plan math
 boundary=no medical hardcoding; app applies user-entered rules only
 reuse_source=/home/daniele/codex-workspace/projects/MultiTimeTracker Events/QuickEvents
+import_export=ImportExport capsule owns SAF tree URI,SQLite validation,live overwrite,import replacement; repository must not know SAF/URI/SostanzeDataPorter
 
 FLOW:
 launch=Launcher -> MainActivity -> SostanzeTheme -> SostanzeApp
@@ -86,29 +87,34 @@ ignore=.gitignore excludes build outputs,.gradle,.kotlin,local.properties,APK ar
 
 BUILD:
 cmd=cd /home/daniele/AndroidStudioProjects/Sostanze && ./gradlew --no-daemon --console=plain testDebugUnitTest assembleDebug
-result=PASS 2026-06-13 prompt 739284
-apk=/home/daniele/AndroidStudioProjects/Sostanze/app/build/outputs/apk/debug/app-debug.apk
-apk_sha256=02c1da224b0ca2916212206e5efd82fbbcf2c0db8b5d51e03751bdd65de58067
+result=PASS 2026-06-13 prompt 294816
+version=4
+apk=/home/daniele/AndroidStudioProjects/Sostanze/output/4.apk
+apk_sha256=e596fc4dc85ccf55abfea5e923bf9689d9652c2b280d1aed4a231400925c6f66
 warning=stripDebugDebugSymbols cannot strip libandroidx.graphics.path.so; packaged as-is
 env=ANDROID_HOME=/home/daniele/Android/Sdk
 
 TEST:
-unit=./gradlew --no-daemon --console=plain testDebugUnitTest PASS; SostanzeEngineTest 8 tests 0 failures
-unit_cases=1/die,3/die,next_interval,stock_decrement,adjustment_plus_minus,days_covered,refill_months,psyllium_block,ALL_PRESENT_AND_FUTURE future target,countdown,interaction_notification_plan
+unit=./gradlew --no-daemon --console=plain testDebugUnitTest PASS; SostanzeEngineTest+CapsuleArchitectureTest 12 tests 0 failures
+unit_cases=1/die,3/die,next_interval,stock_decrement,adjustment_plus_minus,days_covered,refill_months,psyllium_block,ALL_PRESENT_AND_FUTURE future target,countdown,interaction_notification_plan,UTC_Z_export_dates,capsule_guardrail
 compile=:app:compileDebugKotlin PASS
 smoke=assembleDebug PASS 2026-06-13
-tcl_device=192.168.1.200:45699 model 6102H; install PASS; am start PASS; UI dump shows Sostanze Home/Da prendere oggi/Pregabalin/Psyllium/Vitamina D/PRN; no targeted FATAL EXCEPTION
+tcl_device=192.168.1.200:45699 model 6102H; install PASS; am start PASS; UI dump shows Sostanze v4 and Export active: sostanze.db
+live_saf=/sdcard/Download/SostanzeSafLive persisted tree URI verified; folder final content only sostanze.db hash 38ab726e size 143360
+overwrite_evidence=baseline e3dcadd2 -> macro 2eb35ee6 -> undo 891591c7 -> intake 4b87702a -> stock 4411523b; mtime changed and folder stayed single-file
+import_valid=autoexport import restored state to intake_events=2 stock_adjustments=10 Pregabalin.stock_current=30.0 integrity_check=ok hash 8f68760d
+import_invalid=bad SQLite rejected with missing-schema UI error; SAF hash stayed 8f68760d
 pixel=not used per operator instruction
 instrumented=starter ExampleInstrumentedTest still present; not run in prompt 739284
 
 DATA:
 storage=Room SQLite app DB
 db_name=sostanze.db
-tables=substances,intake_events,stock_adjustments,prescriptions,interaction_rules,interaction_targets,notification_state,settings
+tables=substances,intake_events,stock_adjustments,prescriptions,interaction_rules,interaction_targets,notification_state,settings,macros,macro_items
 foreign_keys=yes on intake_events,stock_adjustments,prescriptions,interaction_rules,interaction_targets
 backup=Android allowBackup true; explicit app export not implemented
-export=architecture prepared for SQLite/CSV; UI/actions not implemented
-migration=version 1; Room schema export currently disabled; enable before v2
+export=SAF live SQLite fixed filename sostanze.db implemented; CSV still future
+migration=Room schema version 3; schema export currently disabled
 
 DNB:
 item=do not commit local.properties/build outputs/APKs|why=machine-specific/generated|test=git status --ignored
@@ -128,9 +134,9 @@ risk=Room schema export disabled|trigger=future migrations|mitigation=enable sch
 risk=remote is private GitHub repo|trigger=cloning from unauthenticated host|mitigation=use authenticated SSH/GitHub access|test=git ls-remote origin refs/heads/main
 
 ROAD:
-now=commit/push prompt 739284 MVP
-next=full CRUD for prescriptions/interactions,specific interaction target UI,SQLite/CSV export actions,notification delivery smoke
-later=onboarding/import/restore,Room migrations,accessibility/localization polish
+now=prompt 294816 ImportExport live SAF validated
+next=full CRUD for prescriptions/interactions,specific interaction target UI,CSV export action,notification delivery smoke
+later=onboarding,Room schema export/migrations,accessibility/localization polish
 
 LINK:
 repo=/home/daniele/AndroidStudioProjects/Sostanze
@@ -143,7 +149,7 @@ human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/
 human_troubleshooting=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/troubleshooting.md
 
 OPEN:
-export_ui=not implemented
+export_ui=implemented via DocumentsUI picker
 notification_alarm_delivery=not fully device-wait tested
 specific_interaction_target_editor=not implemented
 remote_origin=git@github.com:gernalix/Sostanze.git
