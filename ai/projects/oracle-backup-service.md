@@ -4,8 +4,8 @@ slug=oracle-backup-service
 path=/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service
 remote=https://github.com/gernalix/oracle-backup-service.git
 branch=fix/degraded-healthcheck-state
-verified_commit=1a4db9d
-verified_at=2026-06-13T00:04Z
+verified_commit=552cbbe
+verified_at=2026-06-13T00:47Z
 protocol=MEGAVAULT_PROTOCOL.md:v2
 PURPOSE:
 purpose=Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, and the current SQLite snapshot directory, then reco
@@ -93,6 +93,9 @@ ops=2026-06-13 prompt 486219 fix: `/opt/oracle_backup/backup.sh` enforces local 
 ops=2026-06-13 prompt 486219 live verification: quota-only live preflight rc=1, `local_fallback_quota_status=BLOCKED`, `last_backup_status=BACKUP_BLOCKED_FALLBACK_QUOTA`, detail=`local fallback repo 13.95 GiB >= hard quota 5.00 GiB`; no restic fallback write started.
 ops=2026-06-13 prompt 486219 cleanup report: no deletion/prune performed; inventory at `/home/ubuntu/maintenance-486219/reports/fallback_inventory_20260613T000454Z.txt`; emergency_repo restic has 82 snapshots and 13.337GiB raw-data.
 ops=2026-06-13 prompt 486219 tests: shellcheck/bash -n/python py_compile passed; isolated 1M quota test blocked rc=1 before write; isolated 5G-under-threshold test rc=0; healthcheck dry-run CRITICAL for `BACKUP_BLOCKED_FALLBACK_QUOTA`; monitor dry-run rc=1; `docker exec uptime-kuma true` OK; `/run` 27%.
+ops=2026-06-13 prompt 918472 cleanup: local-only restic cleanup reduced `/var/lib/oracle_backup/emergency_repo` from 82 snapshots / 14G physical / 13.337GiB raw-data to 11 snapshots / 3.9G physical / 3.805GiB raw-data; `/` moved from 98% with 1.2G free to 75% with 12G free.
+ops=2026-06-13 prompt 918472 commands: only `/var/lib/oracle_backup/emergency_repo` was targeted with `restic -r /var/lib/oracle_backup/emergency_repo forget ...` and `restic -r /var/lib/oracle_backup/emergency_repo prune`; no remote repo was touched and Kuma/Docker were not modified.
+ops=2026-06-13 prompt 918472 final state: `local_fallback_quota_status=OK`, quota detail `repo 3.81 GiB < soft 4.00 GiB, hard 5.00 GiB`; `restic check` passed; healthcheck/monitor are WARNING/REMOTE_DEGRADED because OCI remains `StorageLimitExceeded`; `docker exec uptime-kuma true` OK; timer active and service not failed.
 ROAD:
 now=UNKNOWN
 next=UNKNOWN
@@ -110,4 +113,4 @@ open=2026-06-05 alert posture: backup monitor and healthcheck are rate-limited/d
 open=2026-06-10 prompt 492837: root filesystem still tight after fix (`/` 91%, 4.1GiB free) and healthcheck root_usage/root_free remain ALERT; remote OCI quota still StorageLimitExceeded/CRITICAL. Backup freshness is restored by local fallback, but quota/disk capacity remain operational risks.
 open=2026-06-12 prompt 914721: root recovered to 82%, 8.3G free after offloading/removing retained SQLite snapshot; OCI remote remains CRITICAL and fallback repo remains the only currently successful backup target, so long-term quota/remediation is still open.
 open=2026-06-12 prompt 672184: during unrelated Kuma docker-exec verification, automatic oracle-backup.service started at 20:01:20Z, skipped OCI remote due StorageLimitExceeded cooldown, and wrote to /var/lib/oracle_backup/emergency_repo; / rose to 94%, 3.1G free while service remained activating. Treat as continuing capacity risk; do not interrupt/delete fallback casually.
-open=2026-06-13 prompt 486219: emergency_repo already exceeds the new 5G hard quota, so new local fallback backups are intentionally blocked until OCI capacity is restored or an explicit documented offload/prune plan is approved. Do not delete local/remote backup data ad hoc.
+open=2026-06-13 prompt 918472: local fallback repo is now below the 5G hard quota, but OCI remote remains `StorageLimitExceeded`; the system is degraded but controlled. Future local fallback growth is still bounded by `LOCAL_FALLBACK_MAX_GB=5` plus pre-write reserve and root free checks.

@@ -10,9 +10,9 @@ Restic-based backup service for the Oracle VM. It snapshots SQLite databases wit
 
 ## Stato operativo 2026-06-13
 - OCI remoto resta `StorageLimitExceeded`.
-- Il fallback locale ha quota hard default 5G e attualmente e' gia' sopra quota: `emergency_repo` 13.95 GiB.
-- Nuovi fallback locali vengono bloccati prima della scrittura con `BACKUP_BLOCKED_FALLBACK_QUOTA`; `/` non viene piu' riempita dal fallback automatico.
-- Cleanup report non distruttivo: `/home/ubuntu/maintenance-486219/reports/fallback_inventory_20260613T000454Z.txt`.
+- Il fallback locale ha quota hard default 5G. Dopo il cleanup `#918472`, `emergency_repo` e' sotto quota: 3.9G fisici, 11 snapshot locali, 3.805GiB raw-data.
+- Nuovi fallback locali restano consentiti solo se il preflight quota passa; altrimenti vengono bloccati prima della scrittura con `BACKUP_BLOCKED_FALLBACK_QUOTA`.
+- Report cleanup locale: `/home/ubuntu/maintenance-918472/`; inventario precedente non distruttivo: `/home/ubuntu/maintenance-486219/reports/fallback_inventory_20260613T000454Z.txt`.
 
 ## Orientamento rapido
 - Entrypoint: `UNKNOWN`
