@@ -1,377 +1,112 @@
-# MEGAVAULT_PROTOCOL.md
-VERSION=9
+VERSION=11
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
 AUDIENCE=codex
-PRIMARY_OUTPUT=operational_knowledge
-HUMAN_READABILITY=secondary
-PROSE=avoid
-NARRATIVE=forbidden
-FILLER=forbidden
-
 PURPOSE=global_doc_constitution
-GOAL=max_decision_quality,max_safety,max_reuse,min_token_waste,min_redundancy,max_recovery_speed
-SCOPE=all_projects,all_codex_tasks,all_megavault_docs
+SCOPE=all_projects,all_tasks,all_docs
 AUTHORITY=mandatory
 
 # CORE
-P1=ai_vault_authoritative
-P2=human_vault_derived
-P3=legacy_docs_historical
+P1=ai_authoritative
+P2=human_derived
+P3=legacy_historical
 P4=1_ai_doc_per_project
-P5=max_useful_info_density
-P6=no_duplicate_truths
+P5=max_info_density
+P6=no_duplicate_truth
 P7=no_invented_knowledge
 P8=doc_debt=tech_debt
-P9=code_reality>doc_assumptions
-P10=metadata+ai_doc=>productive_codex
-P11=clean_git_state_required
-P12=docs_update_before_final_report
-P13=reuse_discovery_before_rewrite
-P14=archive_default_delete
-P15=tooling_autonomy_allowed
-P16=project_branch_documented
-P17=large_artifacts_outside_megavault
+P9=code>docs
+P10=metadata+ai_doc=>productive
+P11=clean_git_required
+P12=docs_before_final
+P13=reuse_before_rewrite
+P14=archive_default
+P15=tooling_autonomy
+P16=branch_documented
+P17=large_artifacts_outside_vault
 P18=unknown_explicit
-P19=human_docs_not_operational_source
-P20=final_report_must_include_sync_state
-P21=host_profile_mandatory_for_system_level_work
-P22=all_task_repos_remote_clean_pushed_required
+P19=human_not_operational
+P20=sync_state_required
+P21=host_profile_required
+P22=remote_clean_pushed_required
 
-# HOST_PROFILE_RULE
+# HOST_PROFILE
 HOST_PROFILE=mandatory
 HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
 READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>ai_doc
-READ_ORDER_1=MEGAVAULT_PROTOCOL
-READ_ORDER_2=HOST_PROFILE
-READ_ORDER_3=project.metadata.json
-READ_ORDER_4=ai_doc
-HOST_PROFILE_REQUIRED_FOR=performance_work,monitoring_work,automation_work,service_work,system_tuning,Android_tooling,backup_work,storage_work,Linux_Mint_work,freeze_investigations
-HOST_PROFILE_AUTHORITY=hardware_constraints
-HOST_PROFILE_IGNORE_SYSTEM_WORK=process_bug
-HOST_PROFILE_UNKNOWN_RULE=mark_UNKNOWN_do_not_invent
+HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux
+UNKNOWN_RULE=mark_UNKNOWN
+
+# ANDROID
+ANDROID_PROTOCOL=ai/global/ANDROID_PROTOCOL.md
+ANDROID_AUTHORITY=mandatory
+ANDROID_REQUIRED_FOR=android_projects,android_builds,android_releases,android_tooling
+ANDROID_READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>ANDROID_PROTOCOL>metadata>ai_doc
 
 # SOURCE_PRIORITY
-SRC_ORDER=HOST_PROFILE_for_hardware_constraints>project.metadata.json>ai_doc>repo_code>human_docs>legacy_docs
-CONFLICT_RESOLUTION=HOST_PROFILE_for_hardware_constraints>metadata>ai_doc>code>human>legacy
-IF_CONFLICT=report+prefer_higher_priority
-IF_DOC_STALE=update_from_code
-IF_UNKNOWN=mark_UNKNOWN
+SRC_ORDER=HOST_PROFILE>metadata>ai_doc>code>human>legacy
+IF_CONFLICT=prefer_higher_priority
+IF_STALE=update_from_code
 INVENT_FACTS=forbidden
 
-# CODEX_ENTRY
-ENTRY_ORDER=megavault_clean_check>MEGAVAULT_PROTOCOL>HOST_PROFILE>metadata>ai_doc>task_relevant_files>reuse_discovery>implementation
-ENTRY_FORBID=repo_wide_scan_before_ai_doc,human_docs_as_operational_source,legacy_as_primary_source,blind_code_copy
-ENTRY_ALLOW=targeted_source_inspection_after_ai_doc,targeted_legacy_if_needed,targeted_archive_reuse
+# ENTRY
+ENTRY_ORDER=clean_check>protocol>host_profile>metadata>ai_doc>targeted_inspection>reuse>implementation
+ENTRY_FORBID=repo_wide_scan,human_as_source,blind_copy
 
-# MEGAVAULT_CLEAN_STATE
-CLEAN_STATE_REQUIRED=before_task+after_task
-PRE_TASK_CHECK=git_status,branch,unpushed_commits,uncommitted_changes,remote_sync
-CLEAN_DEF=porcelain_empty+untracked_0+staged_0+modified_0+unpushed_commits_0+origin_configured+branch_synced_origin
-DIRTY_STATE=protocol_violation
-IF_DIRTY=resolve_first,push_pending,report_failure,block_normal_work_until_clean
-IF_PUSH_FAIL=success_forbidden+preserve_changes+report_exact_error+report_local_hash+report_sync_state+report_manual_sync_cmd
-FINAL_REQ=MEGAVAULT_STATUS=clean,MEGAVAULT_COMMIT=<hash>,MEGAVAULT_PUSH=success
-
-# GIT_REMOTE_RULE
-GIT_REMOTE=mandatory_for_every_project
-REMOTE_NAME=origin
-REMOTE_REQUIRED_FOR=project_repo,megavault_repo,task_touched_repo
-IF_NO_REMOTE=create_remote>configure_origin>push_current_branch>set_upstream>verify_sync
-IF_HAS_REMOTE=verify_remote>push_local_commits>verify_sync
-SYNC_VERIFY=git_status_porcelain_empty+rev_list_left_right_0_0+ls_remote_head_matches_HEAD
-FINAL_DIRTY_FORBID=untracked_files,staged_files,modified_files,local_unpushed_commits,unpushed_project,unpushed_megavault,missing_remote
-END_PROMPT_BLOCK_IF=dirty_worktree,missing_remote,no_upstream,local_ahead,remote_ahead_unresolved,push_failed,sync_unverified
-GIT_SUCCESS_REQUIRES=all_task_repos_clean+all_task_repos_origin_configured+all_task_repos_pushed+megavault_clean+megavault_origin_configured+megavault_pushed
-IF_SYNC_ERROR=success_forbidden+report_real_error+report_local_hash+report_sync_state
-
-# MEGAVAULT_GIT_SYNC
-ON_ANY_MEGAVAULT_CHANGE=git_status>stage>size_check>commit>push>verify>report_hash
-DOC_CHANGE_COMPLETE_ONLY_IF=committed+pushed+verified
-COMMIT_MSG=clear_descriptive
+# GIT
+CLEAN_REQUIRED=before+after
+REMOTE_REQUIRED=yes
+SYNC_REQUIRED=yes
 PUSH_REQUIRED=yes
-HASH_REQUIRED=yes
-SILENT_PUSH_FAILURE=forbidden
+DIRTY_STATE=protocol_violation
 
-# SIZE_POLICY
-MEGAVAULT_CONTENT=lightweight_operational_docs_only
-MAX_FILE_SIZE=few_MB
-FORBID_IN_MEGAVAULT=huge_files,raw_dumps,massive_logs,complete_snapshots,archives,databases,large_reports,binary_blobs
-IF_LARGE_OUTPUT=store_outside_megavault+compact_summary
-SUMMARY_REQ=external_path,date,purpose,operational_notes
-PRE_COMMIT_SIZE_CHECK=list_staged_files_with_sizes
-OVERSIZE_BLOCKS_COMMIT=yes
-GIT_LFS=forbidden_unless_user_explicit
-
-# DOC_ARCHITECTURE
+# DOCS
 AI_DOCS=dev/ai/*
 HUMAN_DOCS=dev/human/*
-AI_PURPOSE=execution
-HUMAN_PURPOSE=comprehension
 AI_SOURCE=authoritative
 HUMAN_SOURCE=derived
-HUMAN_AS_OPERATIONAL_SOURCE=forbidden
-LEGACY_SOURCE=historical_only
-CONFLICT=ai_wins_over_human
+PROJECT_REQ=metadata,ai_doc,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
 
-# PROJECT_REQUIRED_FILES
-PROJECT_REQ=project.metadata.json,ai_doc,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
-MISSING_PROJECT_REQ=doc_bug
-PROJECT_METADATA_REQ=slug,name,repo,branch,project_type,status,ai_doc,human_overview,created_at,updated_at
-METADATA_BRANCH_REQUIRED=yes
-METADATA_MISSING_BRANCH=metadata_bug
-
-# AI_DOC_FORMAT
-AI_DOC=one_file
+# AI_DOC
 AI_DOC_REQ=META,PURPOSE,STACK,MAP,ARCH,FLOW,INV,BUILD,TEST,DATA,DNB,BUG,RISK,ROAD,LINK,OPEN
-AI_DOC_OPT=DECISIONS,RELEASE,PERF,SECURITY,INTEGRATIONS,REUSE,OPS,SEC,OBSERVABILITY
-MISS_AI_SECTION=doc_bug
-AI_DOC_EXTENSION=.md
+LANG=key_value
+LINE_RULE=1_line=1_fact
 
-# AI_DOC_LANGUAGE
-LANG=key_value,lists,checklists,paths,commands,ids,abbreviations
-LINE_RULE=1_line=1_operational_fact
-LINE_MUST_ANSWER=what|where|how|why|risk|invariant|command|dependency|status
-IF_LINE_ANSWERS_NONE=delete
-INTRO=forbidden
-TUTORIAL=forbidden
-MARKETING=forbidden
-REPEATED_TRUTH=forbidden
-COMPRESSION_GOAL=max_useful_info_per_token
-COMPRESSION_FORBID=removing_operational_knowledge
+# UPDATE
+UPDATE_AI_WHEN=arch,db,build,test,import_export,backup,versioning,release,ops,security
+UPDATE_HUMAN_WHEN=ux,workflow,roadmap,changelog
+DOC_CHECK_REQUIRED=yes
 
-# AI_DOC_EXAMPLES
-EXAMPLE_BAD=generic_prose,full_repo_inventory
-EXAMPLE_GOOD=DB=Room;Schema=v10;Backup=validate_before_swap;MAP=entry:MainActivity.kt,import:ImportManager.kt,timeline:TimelineViewModel.kt
-
-# MAP_RULE
-MAP_REQ=entry,ui,core,db,tests,scripts,avoid
-MAP_FORBID=full_repo_inventory
-MAP_SCOPE=development_critical_locations_only
-
-# ARCH_FLOW_RULE
-ARCH=components,responsibilities,boundaries
-FLOW=data_flow,event_flow,critical_workflows
-ARCH_NOT=folder_tree
-FLOW_REQ=critical_user_paths,critical_data_paths,critical_failure_paths
-
-# INVARIANT_RULE
-INV=highest_value_section
-INV_TYPES=arch,data,ux,backup,migration,version,i18n,security,perf,ops
-MISS_INV=doc_bug
-INV_FORMAT=<type>=<must_never_break>
-INV_EXAMPLE=data:Tags_shared(Session,Event),backup:validate_before_swap,version:monotonic_only
-
-# DNB_RULE
-DNB=do_not_break
-DNB_CONTAINS=fragile_systems,regression_prone_flows,historical_landmines
-MISS_DNB=doc_bug
-DNB_FORMAT=item=risk|why|test
-
-# BUG_RULE
-BUG_CONTAINS=active_bugs,known_regressions,historical_failures
-BUG_FORMAT=issue,cause,workaround,status
-CAUSE_UNKNOWN_ALLOWED=yes
-INVENTED_CAUSE=forbidden
-
-# RISK_RULE
-RISK_CONTAINS=data_loss,security,perf,ux,ops,build,release
-RISK_FORMAT=risk,trigger,mitigation,test
-MISS_CRITICAL_RISK=doc_bug
-
-# ROAD_RULE
-ROAD=now,next,later
-ROAD_ALLOWED=actionable_work_only
-ROAD_FORBID=dreams,vague_aspirations
-
-# OPEN_RULE
-OPEN=unresolved_conflicts,missing_info,stale_docs,arch_uncertainty,decision_needed
-OPEN_CLOSE_WHEN_RESOLVED=yes
-
-# DATA_RULE
-DATA_REQ_WHEN_APPLICABLE=DB,Schema,Backup,Restore,Import,Export,Migration,Retention,Paths
-STORAGE_RULE_MISSING=doc_bug
-DATA_LOSS_RISK_MUST_DOC=yes
-
-# BUILD_TEST_RULE
-BUILD_REQ=cmd,env,requirements
-TEST_REQ=unit,integration,smoke,device
-UNKNOWN_ALLOWED=yes
-INVENTED_COMMAND=forbidden
-TEST_OUTPUT_SUMMARY_REQUIRED=yes
-
-# HUMAN_DOC_RULE
-HUMAN_REQ=overview,features,roadmap,changelog,troubleshooting
-HUMAN_STYLE=user_readable
-HUMAN_DERIVED_FROM=ai_doc+code_reality
-HUMAN_MUST_NOT_OVERRIDE_AI=yes
-
-# LINK_RULE
-AI_LINK_REQ=metadata,human_docs,legacy_docs,repo
-HUMAN_LINK_REQ=ai_doc,metadata,legacy_docs,repo
-BROKEN_LINK=doc_bug
-BIDIRECTIONAL_LINKS_REQUIRED=yes
-
-# UPDATE_RULE
-UPDATE_AI_WHEN=arch,db,build,tests,import_export,backup,versioning,release,ops,security,integrations,branch,critical_dependencies
-UPDATE_HUMAN_WHEN=ux,features,workflow,changelog,roadmap,troubleshooting
-END_OF_TASK_DOC_CHECK=mandatory
-IF_DOCS_NEED_UPDATE=update_before_final_report
-DOC_SKIP_ALLOWED=only_if_no_relevant_change
-DOC_SKIP_REPORT=state_no_doc_change_needed
-
-# NEW_PROJECT_WORKFLOW
-NEW_PROJECT_ORDER=clean_check>create_metadata>create_ai_doc>create_human_overview>create_human_roadmap>create_human_changelog>create_human_troubleshooting>create_links>reuse_discovery>commit>push
-NEW_PROJECT_FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
-NEW_PROJECT_MUST_SEARCH_ARCHIVE=yes
-NEW_PROJECT_MUST_SEARCH_SIMILAR_ACTIVE=yes
-
-# ANDROID_TEMPLATE_NEW_APP_RULE
-ANDROID_TEMPLATE_INIT_REQ=copy_template>rename_package>rename_app>verify_gradle>verify_manifest>verify_strings>verify_namespace>create_full_docs>build_debug>commit>push
-ANDROID_DOCS_MUST_DESCRIBE=implemented_features,current_ui,package_name,app_name,storage_model,build_commands,test_device_strategy,known_limitations,next_steps
-EMPTY_DOCS_FORBIDDEN=yes
-PLACEHOLDER_DOCS_FORBIDDEN=yes
-DOCS_COMPLETE_BEFORE_FIRST_BUILD_SUCCESS_REPORT=yes
-
-# UNDOCUMENTED_EXISTING_PROJECT_WORKFLOW
-UNDOC_ORDER=clean_check>inspect_repo_targeted>identify_entrypoints>identify_arch>identify_storage>identify_build_test>identify_branch>create_metadata>create_ai_doc>create_human_docs>mark_unknowns>commit>push
-UNDOC_FEATURE_WORK_BEFORE_DOC_BASELINE=forbidden
-REPO_WIDE_SCAN_ALLOWED=only_if_targeted_inspection_insufficient
-UNKNOWN_NOT_GUESS=yes
-
-# BRANCH_RULE
-BRANCH_DOC_REQUIRED=yes
-AI_DOC_GIT_REQ=repo,branch
-IF_MULTI_BRANCH=branch_main,branch_release,branch_hotfix
-BEFORE_WORK=read_branch_doc+verify_current_branch
-BRANCH_MISMATCH=report+ask_or_fix_if_obvious
-BRANCH_WORKFLOW_CHANGE=update_docs
-MISS_BRANCH_DOC=doc_bug
-
-# PROJECT_DELETE_RULE
-DELETE_DEFAULT=archive
-DELETE_REQUEST_INTERPRETATION=archive_unless_explicit_purge
-ARCHIVE_ACTIONS=remove_active_code_if_requested,move_ai_docs_to_archive,move_human_docs_to_archive,set_STATUS_archived,update_indexes,commit,push
-ARCHIVE_STATUS=archived
-ARCHIVE_PREFERRED=yes
-PURGE=exceptional
-PURGE_REQUIRES=explicit_request+final_confirmation
-PURGE_ACTIONS=delete_code,delete_repo,delete_ai_docs,delete_human_docs,remove_index_refs,commit,push
-PURGE_WITHOUT_CONFIRMATION=forbidden
-
-# ARCHIVE_DISCOVERY_RULE
-ARCHIVE_INDEX_REQ=ai/archive/ARCHIVE_INDEX.md,human/archive/ARCHIVE_INDEX.md
-ARCHIVE_ENTRY_REQ=slug,old_repo,status,archived_at,reason,keywords,domain,stack,former_ai_doc,former_human_docs,reuse_notes
-BEFORE_NEW_PROJECT_READ=active_project_index,archive_index
-ARCHIVE_SEARCH_BY=keywords,domain,stack,feature,dependency
-REPORT_ARCHIVE_MATCHES=yes
-REUSE_ARCHIVE_KNOWLEDGE_WHEN_RELEVANT=yes
-MISSING_ARCHIVE_INDEX=doc_bug
-
-# REUSE_DISCOVERY_RULE
-REUSE=encouraged
+# REUSE
+REUSE=preferred
 REWRITE=last_resort
-REUSE_SEARCH_ORDER=active_index>archive_index>similar_ai_docs>relevant_source
-REUSE_SCOPE=architecture_patterns,scripts,build_setup,data_models,tests,ui_patterns,automation_logic,error_handling,ops_patterns
-REUSE_RULES=reuse>rewrite,targeted_search>global_exploration,adapt>blind_copy,document_reuse,report_source_project
-REUSE_FORBID=blind_copy,unbounded_exploration,repo_wide_scan_without_need
-REUSE_CHECK_REQUIRED_BEFORE=major_feature,new_project,refactor,tooling,automation
-MISS_REUSE_CHECK=process_bug
-EXTERNAL_CODE_REUSE=verify_license_or_ownership
 
-# TOOLING_AUTONOMY_RULE
+# TOOLING
 TOOLING_AUTONOMY=yes
-CODEX_MAY=install,update,upgrade,configure,repair
-TOOLING_ALLOWED=packages,SDKs,CLIs,build_tools,compilers,language_runtimes,linters,formatters,test_frameworks,device_drivers,IDE_plugins,project_dependencies
-TOOLING_CONDITIONS=prefer_project_local,prefer_existing_package_manager,avoid_duplicates,document_significant_installs,document_critical_deps,update_build_setup_docs,verify_success
-IF_TOOL_OUTDATED=update+retest
-IF_MULTIPLE_APPROACHES=choose_min_maintenance
-MISSING_TOOLING_NOT_STOP_REASON=yes
-UNNECESSARY_DUPLICATE_TOOLING=tech_debt
-
-DEFAULT_BEHAVIOR=fix_environment_then_complete_task
-
-
-# DEPENDENCY_AUTONOMY_RULE
 DEPENDENCY_AUTONOMY=yes
-GOAL_COMPLETION_PRIORITY=high
-CODEX_MAY_INSTALL_ANYTHING_NECESSARY=yes
-INSTALL_SCOPE=system_packages,user_packages,python_packages,node_packages,rust_crates,go_tools,android_sdk_components,browsers,playwright_browsers,webdrivers,adb_components,docker_images,vm_tools,debug_tools,test_tools
-INSTALL_PERMISSION=implicit_for_task_completion
-USER_CONFIRMATION_REQUIRED=no_for_non_destructive_installs
-MISSING_DEPENDENCY=auto_detect>auto_install>verify>continue
-BROKEN_DEPENDENCY=repair_or_replace
-UNSUPPORTED_VERSION=upgrade_or_downgrade_as_needed
-IF_TOOLCHAIN_BROKEN=repair_before_feature_work
-IF_TESTING_REQUIRES_EXTRA_TOOLS=install_and_use
-IF_AUTOMATION_REQUIRES_EXTRA_TOOLS=install_and_use
-IF_MONITORING_REQUIRES_EXTRA_TOOLS=install_and_use
-IF_BROWSER_TESTING_REQUIRED=install_required_browser_components
-IF_ANDROID_TESTING_REQUIRED=install_required_sdk_components
-IF_BUILD_BLOCKED_BY_DEPENDENCY=dependency_fix_has_priority
-DEPENDENCY_DISCOVERY=automatic
-DEPENDENCY_RESOLUTION=automatic
-INSTALL_LOG=required_for_significant_changes
-CRITICAL_INSTALL_DOC=required
-REMOVE_OBSOLETE_DEPENDENCIES=allowed_if_safe
-DEPENDENCY_TECH_DEBT=must_reduce_when_practical
-TASK_NOT_BLOCKED_BY_MISSING_TOOLING=yes
-SUCCESS_REQUIRES=working_environment_not_minimal_environment
+MISSING_DEPENDENCY=auto_install
+BROKEN_DEPENDENCY=repair
 
-# TOOL_DISCOVERY_RULE
-BEFORE_INSTALL=check_existing_tool,check_project_docs,check_megavault_docs,check_archive
-IF_EQUIVALENT_MAINTAINED_TOOL_EXISTS=reuse
-REUSE>REINSTALL
+# SECURITY
+SECRET_COMMIT=forbidden
+DESTRUCTIVE_ACTION=require_explicit_user_intent
 
-# SYSTEM_IMPROVEMENT_RULE
-SYSTEM_IMPROVEMENT_ALLOWED=yes_unless_user_forbids
-ALLOW_WHEN=increases_task_success_probability
-SYSTEM_IMPROVEMENT_EXAMPLES=install_missing_SDKs,repair_toolchains,update_obsolete_build_tools,fix_permissions,repair_venvs,install_android_tooling,install_python_packages,install_linux_packages
-DOC_SYSTEM_CHANGES_WHEN=affect_future_project_work
+# DB
+SQLITE_DEFAULT=/home/ubuntu/sync_root/db/
+DB_DOC_REQUIRED=yes
 
-# SECURITY_SAFETY_RULE
-SECRET_HANDLING=never_commit_secrets
-SECRET_IF_FOUND=report_redacted+do_not_expose
-CREDENTIALS=do_not_print
-DESTRUCTIVE_ACTIONS=require_explicit_user_intent
-DATA_DELETION=backup_or_confirm_unless_user_explicit
-PERMISSIONS_CHANGE=document_if_persistent
-SERVICE_CHANGE=document_if_persistent
-
-# SERVICE_OPS_RULE
-SERVICE_DOC_WHEN=created,modified,enabled,disabled,removed
-SERVICE_DOC_REQ=name,scope,unit_path,enable_state,start_cmd,stop_cmd,status_cmd,logs_cmd,purpose,risk
-SYSTEMD_USER_VS_SYSTEM=must_specify
-24_7_SERVICE_REQ=restart_policy,boot_behavior,health_check,logs,failure_mode
-
-# DB_RULE
-DB_PATHS_MUST_DOC=yes
-SQLITE_DB_DEFAULT=/home/ubuntu/sync_root/db/when_applicable
-DB_MIGRATION_DOC_REQUIRED=yes
-DB_BACKUP_BEFORE_RISKY_CHANGE=yes
-DB_SCHEMA_CHANGE_UPDATE_AI=yes
-
-# VERSIONING_RULE
+# VERSIONING
 VERSIONING_DOC_REQUIRED=yes
-MONOTONIC_VERSION_WHEN_PROJECT_RULE_EXISTS=yes
-PATCH_VERSION_MATCH_FILE_APP_DOCS=yes
 VERSION_SKIP=forbidden
-VERSION_LOCATION_DOC=yes
+ANDROID_VERSIONING_SEE=ai/global/ANDROID_PROTOCOL.md
 
-# TEST_FINAL_REPORT_RULE
-FINAL_REPORT_REQ=prompt_id_if_available,files_changed,tests_run,test_result,docs_updated,repo_status,megavault_status,commit_hash,push_status,sync_state,known_risks,next_steps_if_any
-FINAL_REPORT_FORBID=silent_failures,claim_success_without_test,claim_push_without_push,claim_clean_without_porcelain_empty,claim_sync_without_remote_verify
-IF_PARTIAL=state_partial+reason+remaining_work
+# FINAL_REPORT
+FINAL_REPORT_REQ=files_changed,tests,test_result,docs,repo_status,commit,push,sync_state
+FINAL_REPORT_FORBID=silent_failure,false_success
 
 # VALIDATION
-VALIDATE_PROJECT=metadata_exists,ai_doc_exists,human_docs_exist,links_work,branch_doc_exists,clean_git_state
-VALIDATE_AI_DOC=required_sections_present,inv_present,dnb_present,data_rules_present,build_test_present,links_present
-VALIDATE_GIT=origin_configured,porcelain_empty,rev_list_left_right_0_0,remote_head_matches_local_head
-VALIDATE_MEGAVAULT=small_files,no_dirty_state,origin_configured,pushed,remote_verified
-FAIL_ON_MISSING_REQUIRED=yes
+VALIDATE=metadata,ai_doc,human_docs,links,git_clean,remote_sync
 
-# SUCCESS_CRITERION
-SUCCESS_FORBID=stopped_due_to_missing_dependency_when_auto_install_possible
-SUCCESS=codex_can_modify_project_after_reading_metadata+ai_doc_without_repo_wide_exploration
-SUCCESS_REQUIRES=purpose,architecture,storage,invariants,risks,build,test,roadmap,branch,reuse_candidates,ops_notes
+# SUCCESS
+SUCCESS=modify_project_from_metadata+ai_doc_without_repo_wide_scan

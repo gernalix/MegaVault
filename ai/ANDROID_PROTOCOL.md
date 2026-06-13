@@ -1,0 +1,97 @@
+VERSION=1
+STATUS=FINAL_PERMANENT
+FORMAT=ultracompressed
+AUDIENCE=codex
+PURPOSE=android_constitution
+AUTHORITY=mandatory
+
+# CORE
+READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>ANDROID_PROTOCOL>metadata>ai_doc
+HOST_PROFILE_REQUIRED=yes
+ANDROID_WORK_REQUIRES_THIS_DOC=yes
+
+# PROJECT
+ANDROID_PROJECT_REQ=metadata,ai_doc,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
+ANDROID_DOCS_REQ=features,ui,package,app,storage,build,test_strategy,limits,next
+EMPTY_DOCS=forbidden
+
+# NEW_APP
+NEW_APP_ORDER=template_copy>rename_package>rename_app>verify_gradle>verify_manifest>verify_strings>docs>build_debug>commit>push
+NEW_APP_FROM_TEMPLATE_ONLY=yes
+ARCHIVE_SEARCH_REQUIRED=yes
+
+# PACKAGE
+PACKAGE_UNIQUE_REQUIRED=yes
+APPLICATION_ID_MATCH_PACKAGE=yes
+PACKAGE_RENAME_REQ=namespace,applicationId,manifest,imports,tests
+
+# TOOLING
+ANDROID_TOOLING_AUTONOMY=yes
+SDK_INSTALL_ALLOWED=yes
+ADB_INSTALL_ALLOWED=yes
+BUILD_BLOCKED=auto_repair
+
+# BUILD
+DEFAULT_BUILD=./gradlew assembleDebug
+BUILD_SUCCESS=exit0+apk_exists
+CONFIGURATION_CACHE_PRESERVE=yes
+
+# TEST
+TEST_REQ=unit,integration,smoke,device
+SMOKE_REQ=install+launch+no_crash
+ADB_VERIFY_INSTALL=yes
+
+# RELEASE
+APK_RENAMING_REQUIRED=yes
+APK_PATH_REPORT_REQUIRED=yes
+APK_SIGNING_REPORT_REQUIRED=yes
+
+# VERSIONING
+ANDROID_VERSION_SOURCE=single_text_file
+ANDROID_VERSION_FILE=version.txt
+SINGLE_SOURCE_OF_TRUTH=version.txt
+
+VERSION_FORMAT=integer_only
+VERSION_SEQUENCE=1,2,3,4,...
+VERSION_MONOTONIC_REQUIRED=yes
+VERSION_INCREMENT_EVERY_PATCH=yes
+VERSION_SKIP=forbidden
+VERSION_REUSE=forbidden
+
+VERSIONCODE_DERIVED_FROM_VERSION_FILE=yes
+VERSIONNAME_DERIVED_FROM_VERSION_FILE=yes
+MULTIPLE_VERSION_SOURCES=forbidden
+HARDCODED_VERSION_STRINGS=forbidden
+
+GRADLE_CONFIGURATION_CACHE_PRESERVE=yes
+VERSION_FILE_READ_RUNTIME_PREFERRED=yes
+AVOID_BUILD_SCRIPT_VERSION_EDITS=yes
+
+HOME_VERSION_MANDATORY=yes
+HOME_VERSION_LABEL_FORMAT=v<version>
+UI_SHOW_VERSION_HOME=yes
+UI_VERSION_POSITION=small_footer
+
+APK_RENAME_REQUIRED=yes
+APK_NAME=<version>.apk
+APK_EXAMPLES=1.apk,2.apk,3.apk
+APK_OUTPUT_EXAMPLE=27.apk
+APK_NAME_APP_NAME_FORBIDDEN=yes
+
+VERSION_DOC_UPDATE_REQUIRED=yes
+VERSION_MATCH_UI_APK_DOCS=yes
+PATCH_COMPLETE_ONLY_IF_VERSION_INCREMENTED=yes
+
+INV_VERSION=app_version_must_match(version.txt,home_screen,apk_name)
+
+# I18N
+HARDCODED_UI_TEXT=forbidden
+STRINGS_XML_REQUIRED=yes
+
+# DATA
+STORAGE_DOC_REQUIRED=yes
+DB_DOC_REQUIRED_WHEN_PRESENT=yes
+
+# FINAL_REPORT
+FINAL_REPORT_REQ=version_old_new,version_file,apk_name,apk_path,tests,docs,commit,push,sync_state
+SUCCESS_REQ=version_incremented+home_version_visible+apk_renamed+build_passed+pushed
