@@ -1,6 +1,6 @@
 # PROJECT_INDEX
 
-Updated: 2026-06-13T05:05:00+02:00
+Updated: 2026-06-13T06:05:00+02:00
 
 | name | slug | purpose | AI doc | Human overview | metadata | repo |
 |---|---|---|---|---|---|---|
@@ -34,6 +34,6 @@ Updated: 2026-06-13T05:05:00+02:00
 | remote_opt_oracle_backup | remote-opt-oracle-backup | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remote runtime before edits. | [AI](projects/remote-opt-oracle-backup.md) | [Human](../human/projects/remote-opt-oracle-backup/overview.md) | [metadata](../../projects/vm_oracle/remote_opt_oracle_backup/dev/project.metadata.json) | [repo](../../projects/vm_oracle/remote_opt_oracle_backup) |
 | remote-codex-phone | remote-codex-phone | Prompt #438 setup for controlling Codex from an Android phone through: | [AI](projects/remote-codex-phone.md) | [Human](../human/projects/remote-codex-phone/overview.md) | [metadata](../../remote-codex-phone/dev/project.metadata.json) | [repo](../../remote-codex-phone) |
 | Soldi | soldi | Clean Android starter app generated from `android-app-template`; package `com.gernalix.soldi`; no finance features implemented yet. | [AI](projects/soldi.md) | [Human](../human/projects/soldi/overview.md) | [metadata](../../../AndroidStudioProjects/Soldi/dev/project.metadata.json) | [repo](../../../AndroidStudioProjects/Soldi) |
-| Sostanze | sostanze | Clean Android starter app generated from `android-app-template`; package `com.gernalix.sostanze`; domain and persistence TBD. | [AI](projects/sostanze.md) | [Human](../human/projects/sostanze/overview.md) | [metadata](../../../AndroidStudioProjects/Sostanze/dev/project.metadata.json) | [repo](../../../AndroidStudioProjects/Sostanze) |
+| Sostanze | sostanze | Local-first Android app for medications, supplements, stock, prescriptions, interactions, and intake tracking; Room SQLite; Home reuses MultiTimeTracker Events-style action grid. | [AI](projects/sostanze.md) | [Human](../human/projects/sostanze/overview.md) | [metadata](../../../AndroidStudioProjects/Sostanze/dev/project.metadata.json) | [repo](../../../AndroidStudioProjects/Sostanze) |
 | amici_fb | amici-fb | Linux Mint user-level Facebook automation that opens Facebook with a browser profile, processes friends/URLs, and records local state in SQLite; treat credentials and browser session data as sensitive. | [AI](projects/amici-fb.md) | [Human](../human/projects/amici-fb/overview.md) | [metadata](../../scripts/amici_fb/dev/project.metadata.json) | [repo](../../scripts/amici_fb) |
 | surface-recovery-hardening | surface-recovery-hardening | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. | [AI](projects/surface-recovery-hardening.md) | [Human](../human/projects/surface-recovery-hardening/overview.md) | [metadata](../../surface-recovery-hardening/dev/project.metadata.json) | [repo](../../surface-recovery-hardening) |

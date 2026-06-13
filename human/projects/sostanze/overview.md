@@ -1,12 +1,14 @@
 # Sostanze
 
-Sostanze is a clean Android starter app generated from the local Android app template.
+Sostanze is now a local-first Android app for medications, supplements, stock, prescriptions, interactions, and intake tracking.
 
 - Project path: `/home/daniele/AndroidStudioProjects/Sostanze`
 - Package/applicationId: `com.gernalix.sostanze`
-- Current UI: Android Studio Compose starter screen (`Hello Android`)
-- Build command: `./gradlew assembleDebug`
+- Current UI: Compose Material3 app with Home, Scorte, Prescrizioni, and Interazioni tabs.
+- Build command: `./gradlew --no-daemon --console=plain testDebugUnitTest assembleDebug`
 - Verified debug APK: `app/build/outputs/apk/debug/app-debug.apk`
-- Template: `/home/daniele/codex-workspace/android-app-template`
+- Database: Room SQLite `sostanze.db`
 
-The app domain, data model, and persistence are not defined yet.
+The Home screen follows the MultiTimeTracker Events pattern: compact action buttons, search, grouped sections, overflow actions, and a collapsible taken-today area.
+
+The app applies only user-entered interaction rules. It does not contain medical advice.
