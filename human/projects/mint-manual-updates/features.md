@@ -13,7 +13,7 @@
 - Tool sviluppo: `yt-dlp`, `pipx upgrade-all`, `rustup update`, `npm update -g`.
 - Report-only: Ruby gems e Cargo installed crates.
 - Android: Android Studio controlla metadata e versione installata prima di scaricare archivi grandi; Android SDK via `sdkmanager --list`, licenze, `sdkmanager --update`, storico CSV/SQLite.
-- Guardrail v8: `rsync` attivo viene riportato come `rsync detected: allowed/non-blocking`; gli altri indizi `heavy_processes` sono warning non bloccanti di default.
+- Guardrail v9: `rsync` attivo viene riportato come `rsync detected: allowed/non-blocking`; load alto e PSI CPU alta sono `warning/non-blocking`; gli indizi `heavy_processes` non-rsync sono warning non bloccanti di default.
 
 ## Confini operativi
 

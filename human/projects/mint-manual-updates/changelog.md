@@ -2,6 +2,7 @@
 
 ## Eventi MegaVault
 
+- 2026-06-13: `#492816` porta lo script a `v9`; default balanced consente rsync, load alto e PSI CPU alta come warning/non-blocking, mantenendo blocker critici per memoria/swap/PSI memoria/PSI I/O estrema/root disk/freeze/apt/batteria.
 - 2026-06-13: `#738294` porta lo script a `v8`; `rsync` attivo e `allowed/non-blocking`, `heavy_processes` non-rsync diventa warning di default, restano bloccanti load/RAM/swap/PSI/freeze/apt/batteria critica.
 - 2026-06-06: `#618472` ha consolidato definitivamente il duplicato dentro `bin/mint-manual-updates --run`, rimosso script/unit duplicate e aggiornato docs AI/Human.
 - 2026-06-06: `#927384` ha aggiunto guardia Android Studio anti-download inutile: niente tarball 1+ GB se release/build installata e gia corrente o build remota non determinabile.

@@ -2,8 +2,9 @@
 
 ## Sintomi
 
-- `status=skipped_guardrail`: il run e stato bloccato da load/RAM/swap/PSI/freeze/apt/batteria critica. `rsync` da solo non blocca piu il run.
+- `status=skipped_guardrail`: il run e stato bloccato da memoria/swap/PSI memoria/PSI I/O estrema/root disk/freeze/apt/batteria critica. `rsync`, load alto e PSI CPU alta da soli non bloccano il run nel default balanced.
 - `rsync detected: allowed/non-blocking`: trasferimento `rsync` rilevato e consentito; lo script resta gentile tramite priorita systemd basse.
+- `load high: warning/non-blocking` o `psi_cpu high: warning/non-blocking`: pressione CPU moderata accettata nel default balanced.
 - Un venv fallisce: controllare il file dedicato in `~/.local/state/mint-manual-updates/venv-logs/`; gli altri venv continuano.
 - Android SDK fallisce: controllare `~/.local/state/mint-manual-updates/android-sdk-history/available-updates-*.txt` e `last-report.txt`.
 - Android Studio segnala `remote build unknown`: download automatico saltato per evitare archivio 1+ GB inutile; seguire il comando manuale nel report solo se serve.
@@ -26,3 +27,4 @@ systemctl --user status mint-manual-updates.timer --no-pager
 - Non aggiungere service/timer paralleli.
 - Non rimuovere AVD, SDK root, system-images o file Gradle/Kotlin di progetto.
 - Non scaricare archivi Android Studio grandi solo per verificare che la build installata sia identica.
+- Usare `MINT_MANUAL_UPDATES_STRICT_GUARDRAILS=1` solo se si vuole tornare al blocco su load/PSI CPU.
