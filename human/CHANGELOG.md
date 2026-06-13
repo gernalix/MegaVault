@@ -1,5 +1,6 @@
 # MegaVault Changelog
 
+- 2026-06-13: `#914672` home-incremental-backup bwlimit safety check: run ancora attivo a `--bwlimit=512`, config futura rimasta `HOME_BACKUP_BWLIMIT_KB=1024`; non alzato a `2048-5120` per PSI I/O/CPU alti, zram >2GiB, T7/root USB occupato e hub SABRENT condiviso con Seagate6TB2.
 - 2026-06-13: `#739284` home-incremental-backup follow-up: verificato run attivo/non bloccato, installato `sysstat` per `iostat`/`pidstat`, alzato `HOME_BACKUP_BWLIMIT_KB` live `512` -> `1024` KiB/s solo per prossimi run; backup corrente lasciato a `--bwlimit=512`.
 - 2026-06-13: `#483920` diagnosi I/O dischi esterni: causa principale `home-incremental-backup.service` con `rsync` verso Seagate6TB2; transfer BitLocker presente ma stale/fermato, non sorgente I/O nel campione.
 - 2026-06-13: `#918472` oracle-backup-service: cleanup sicuro del fallback locale restic gia' oltre quota; `emergency_repo` 14G/82 snapshot -> 3.9G/11 snapshot, `/` 98% -> 75%, nessun repo remoto toccato, healthcheck finale WARNING/`REMOTE_DEGRADED`.
