@@ -15,6 +15,9 @@
 - app/src/main/java/com/example/multitimetracker/persistence/IntegrityStatsSqlite.kt:169:while (c.moveToNext()) {
 
 ## Debito/rischi da considerare
+- Integrita dati `#739284`: mantenere il guard current->candidate su ogni futuro import/restore/vault switch; non aggiungere import automatici silenziosi da snapshot storiche.
+- Export SAF `#739284`: eventuali future snapshot storiche devono restare max 10, validate prima della promozione, e non devono poter sovrascrivere DB piu nuovi senza log esplicito.
+- Recovery `#739284`: migliorare UI/report forense per mostrare all'utente il motivo specifico del blocco critico, non solo il messaggio generico di import non leggibile.
 - Performance `#817463`: integrity/snapshot load resta costo reale ma non blocca piu `onCreate`; ottimizzazioni future devono preservare rollback/import/restore e non introdurre cache fragile.
 - Testing TCL `#294816`: benchmark visuali scroll/tap/tab su TCL sbloccato completati; mantenere Pixel fuori da debug/stress quando la policy richiede TCL-only.
 - Background closure `#817463/#294816`: non sono emersi crash/ANR app; causa probabile residua e' terminazione processo/sistema sotto pressione. Tenere memoria/lavoro background bassi e continuare a monitorare log lmkd/ActivityManager.

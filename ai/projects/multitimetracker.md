@@ -4,8 +4,8 @@ slug=multitimetracker
 path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
 branch=codex/v488-release-safe-ui-lockdown
-verified_commit=5b7e76a2de28d9974235d5f8fcc2623c64251fca
-verified_at=2026-06-12T18:17:32+02:00
+verified_commit=8061d232e4afbf0e80e2cebbbf76233f7fa2fa18
+verified_at=2026-06-13T17:45:00+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v8
 PURPOSE:
 purpose=local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model
@@ -49,6 +49,7 @@ performance=v527 prompt #817463: MainActivity.onCreate is thin; schema guard, in
 events_perf=v527: collapsed recent entries do not sort while hidden; macro actions are grouped/sorted once; custom macro dialog reuses sorted actions
 since_when_perf=v527: LifePeriodsScreen builds visibleTagsById once per visible tag state instead of per card
 backup=v525: SqliteVault creates stable primary/temp/emergency database files with exact names even when DocumentFile providers add MIME extensions
+backup=v528 prompt #739284: root cause was valid DB import rollback on runtime activation-signature after counts matched; import no longer rolls back a validated DB for runtime activation mismatch, export validates tmp/promoted SAF DB with integrity/schema/critical counts, internal restore compares current->candidate before promotion, settings mirror is preserved into old candidates, and ForensicLog records export/import/recovery failures
 audit_log=v525 prompt #728419: AUDIT_LOG bridge removed from MainViewModel; filters, event refresh, clear and undo moved to AuditLogCapsuleViewModel with source/JVM boundary tests and Pixel clone validation
 since_when=v525 prompt #462918: post-capsulization audit found LifePeriod CRUD still root-owned; moved to SinceWhenCapsuleViewModel, extended CapsuleBoundaryOwnershipTest and added SinceWhenCapsuleViewModelTest
 FLOW:
@@ -63,6 +64,7 @@ arch=app/src/main/java/com/example/multitimetracker/MainActivity.kt:FirstRunWork
 data=app/src/main/java/com/example/multitimetracker/MainActivity.kt:71:// v67: Defensive hardening for session-only schema (some DBs may miss tables despite user_version).; app/src/main/java/com/example/multitimetracker/MainActivity.kt:72:val...
 ux=app/src/main/AndroidManifest.xml:6:<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />; app/src/main/AndroidManifest.xml:12:<uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 backup=app/src/main/AndroidManifest.xml:15:android:allowBackup="false"; app/src/main/AndroidManifest.xml:17:android:fullBackupContent="@xml/backup_rules"
+data_loss=No persistent entity may disappear silently. Every SAF SQLite export must be lossless, atomic, verified, and traceable. Critical drops N>0->0 for tasks,sessions,tags,tagParents,lifePeriods,quick events,chains,settings are blocked/logged before promotion or snapshot overwrite.
 migration=app/src/main/java/com/example/multitimetracker/MainActivity.kt:71:// v67: Defensive hardening for session-only schema (some DBs may miss tables despite user_version).; app/src/main/java/com/example/multitimetracker/MainActivity.kt:72:val...
 version=app/src/main/java/com/example/multitimetracker/MainActivity.kt:71:// v67: Defensive hardening for session-only schema (some DBs may miss tables despite user_version).; app/src/main/java/com/example/multitimetracker/MainViewModelSnapshotC...
 i18n=app/src/main/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleUi.kt:131:text = stringResource(R.string.placeholder_dash),
@@ -80,6 +82,7 @@ device_cmd=./gradlew :app:connectedAndroidTest -Pmtt.testBuildType=deviceTest -x
 device_result=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; prompt #462918 also installed/launched clone appId=com.example.multitimetracker.devicetest and verified pid
 device_policy_v527=TCL only for automatic testing/benchmark/stress/debug; Pixel only for final APK install/smoke
 test_v527=compileDebugKotlin PASS; assembleDebug/deviceTest PASS; check_hardcoded_ui_strings PASS; testDebugUnitTest PASS; lintDebug PASS; assembleDebugAndroidTest PASS
+test_v528_prompt_739284=PASS compileDebugKotlin+compileDebugAndroidTestKotlin; PASS testDebugUnitTest; PASS targeted TCL deviceTest MainViewModelRecoveryTest+PersistenceImportExportTest+ImportExportCapsuleViewModelTest 26 tests, 1 fixture skip, 0 failed; PASS assembleDebug. Full connectedAndroidTest attempted first but TCL went offline after 12/51 and timed-session notification tests timed out, so final persistence verdict uses targeted deviceTest.
 tcl_v527=TCL 192.168.1.200:45699; debug APK v527 installed; clear-data cold start produced NO_DB_FILE; no app AndroidRuntime/FATAL/ANR/lmkd in final logs
 tcl_validation_294816=TCL 192.168.1.200:45699 unlocked/testable; synthetic clone cold WaitTime avg 669.0ms min 629 max 763; warm avg 10.2ms min 8 max 13; main_activity_on_create avg 17.96ms; ensure_session_tables avg 3.39ms; tap/long-press/Active tags/Events/Timeline/Since When/Settings PASS
 tcl_bgfg_294816=10 home/foreground cycles avg WaitTime 143.3ms min 17 max 447; startup PSS 69412KB/RSS 147735KB; post bgfg PSS 96351KB/RSS 184085KB; final TCL logcat has no app AndroidRuntime/FATAL EXCEPTION/ANR/lmkd/am_proc_died
@@ -112,6 +115,7 @@ issue=app/src/main/java/com/example/multitimetracker/MainActivity.kt:254:is Firs
 issue=app/src/main/java/com/example/multitimetracker/MainActivity.kt:298:R.string.first_run_restore_failed_keep_current_body_fmt
 issue=app/src/main/java/com/example/multitimetracker/MainActivity.kt:300:R.string.first_run_restore_failed_empty_body_fmt
 issue=app/src/main/java/com/example/multitimetracker/MainActivity.kt:325:FirstRunFallbackReason.RESTORE_FAILED -> context.getString(
+issue=v528_prompt_739284: import audit showed IMPORT_VERIFY_MISMATCH_ROLLBACK after a valid DB with lifePeriods=7 and tagParents=6 matched expected/actual counts; rollback to preimport empty state caused persisted loss and later SAF export overwrote stable DB/bak with empty lifePeriods/tagParents.
 RISK:
 risk=app/src/main/AndroidManifest.xml:53:android:showWhenLocked="true"
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:66:StartupPerfTrace.section("main_activity_on_create") {

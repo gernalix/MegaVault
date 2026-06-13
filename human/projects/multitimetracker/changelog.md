@@ -12,6 +12,15 @@
 - 2026-06-08: `#394817` patch v526 performance Eventi: refresh DB Eventi spostato fuori dallo startup e griglia Eventi resa lazy/keyed per evitare layout di intere sezioni durante lo scroll.
 - 2026-06-12: `#817463` patch v527 performance/stability: startup schema/init spostati fuori da `onCreate`, guard schema cache invalidata su import/restore/switch DB, ridotte allocazioni Events/Since When, test runtime TCL con limite keyguard; commit app `2548034f6c4fc7e4950f45600b41101faae7d764`.
 - 2026-06-12: `#294816` validazione v527 completata senza patch codice: TCL sbloccato UI/startup/bg-fg/clear-data PASS; Pixel debug v527 install/smoke PASS; docs app commit `5b7e76a2de28d9974235d5f8fcc2623c64251fca`.
+- 2026-06-13: `#739284` incidente P0 integrita dati v528: root cause rollback automatico di un DB importato valido dopo `activation-signature`; aggiunti CriticalDataGuard, ForensicLog, export SAF verificato, promozione interna current->candidate, retention/cleanup tmp/bak, test mirati TCL PASS.
+
+## v528 prompt #739284
+- Causa reale: l'import DB aveva conteggi coerenti (`lifePeriods=7`, `tagParents=6`) ma l'attivazione runtime ha restituito `activation-signature`; la capsule ha trattato quel mismatch runtime come corruzione e ha fatto rollback automatico al pre-import vuoto.
+- Effetto: Since When e Parent Tag sono stati persi nel DB corrente ispezionato, non solo nascosti dalla UI; l'autoexport successivo ha copiato lo stato vuoto anche su SAF `multitimer.db` e `multitimer.db.bak`.
+- Fix: un DB importato che passa integrity/schema/conteggi non viene piu rollbackato per mismatch runtime; l'evento viene registrato e l'attivazione puo completarsi al riavvio.
+- Fix: `SnapshotStore`, import/restore interno e export SAF bloccano drop critici N>0->0 per entita persistenti; `multitimer.db.tmp` viene validato prima della promozione.
+- Fix: il mirror settings viene preservato nei candidati storici che non lo contengono, evitando drop falso senza perdere preferenze.
+- Verifica: `compileDebugKotlin`, `compileDebugAndroidTestKotlin`, `testDebugUnitTest`, targeted TCL deviceTest import/export/recovery 26 test con 1 skip fixture e 0 failure, `assembleDebug` PASS. La suite completa TCL e' stata tentata ma il device e' andato offline dopo 12/51 e i test notification timed-session sono andati in timeout.
 
 ## v527 prompt #817463
 - Causa trovata: `MainActivity.onCreate` faceva ancora hardening schema SQLite e la prima inizializzazione ViewModel caricava integrity/snapshot sul percorso UI startup.

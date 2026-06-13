@@ -1,5 +1,17 @@
 # MultiTimeTracker Architecture Audit
 
+## Prompt #739284
+- Scope: incidente P0 integrita dati Since When/Parent Tag, export/backup SAF e accumulo tmp/bak.
+- Code commit: `8061d232e4afbf0e80e2cebbbf76233f7fa2fa18` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Found: nessun Room/DAO/migration/fallbackToDestructiveMigration; la persistenza autorevole e' SQLite custom `SnapshotStore`/`SnapshotSqlite`.
+- Found: un DB importato valido ha passato integrity e conteggi con `lifePeriods=7` e `tagParents=6`, poi `activation-signature` runtime ha causato rollback automatico al backup pre-import vuoto.
+- Found: `SqliteVault.exportToUserFolderIfConfigured` ingoiava eccezioni; export/tmp/promozione non verificavano conteggi critici prima di sostituire lo stable SAF DB.
+- Fixed: `CriticalDataGuard` confronta conteggi critici da snapshot/DB/file e blocca drop N>0->0 prima di snapshot overwrite, import/restore promotion e export promotion.
+- Fixed: `ForensicLog` scrive JSONL interno e best-effort SAF per export/import/recovery/critical drop con timestamp UTC, file sorgente/destinazione, conteggi e stacktrace.
+- Fixed: import DB validato non viene piu rollbackato per fallimento runtime activation; il DB resta, il report indica attivazione runtime rinviata.
+- Fixed: restore interno confronta current->candidate prima del move, preserva settings mirror nei backup storici e lascia il DB corrente se il candidato causerebbe perdita.
+- Validation: `testDebugUnitTest` PASS; targeted `connectedDeviceTestAndroidTest` TCL su recovery/import/export PASS 26 test, 1 skip fixture, 0 failure; `assembleDebug` PASS.
+
 ## Prompt #817463
 - Scope: audit performance/stabilita completo con policy test automatici solo su TCL.
 - Code commit: `2548034f6c4fc7e4950f45600b41101faae7d764` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.

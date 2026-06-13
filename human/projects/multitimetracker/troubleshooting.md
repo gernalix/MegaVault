@@ -1,5 +1,14 @@
 # MultiTimeTracker Troubleshooting
 
+## Incidente dati/export v528
+- Sintomo: tab Since When vuota, Parent Tag persi, export fermo o apparentemente vecchio, molti `.tmp`/`.bak`.
+- Causa verificata nel prompt `#739284`: rollback automatico dopo import DB valido; il mismatch era runtime (`activation-signature`), non corruzione del DB.
+- Controllo rapido DB interno: leggere `databases/multitimer.db`, tabella `snapshot`, JSON path `lifePeriods` e `tagParents`; usare anche `integrity_stats` per i conteggi.
+- Controllo SAF: verificare `multitimer.db`, `multitimer.db.bak`, eventuali `multitimer.db.tmp`; nessun tmp deve essere considerato valido senza integrity/schema/conteggi.
+- Nuovo log: `files/forensic_events.jsonl` nel sandbox app e best-effort `logs/forensic_events.jsonl` nel folder SAF.
+- Invariante: nessuna entita persistente puo sparire silenziosamente; ogni export SQLite SAF deve essere lossless, atomico, verificato e tracciabile.
+- Se una tabella critica passa da N>0 a 0, il file candidato va trattato come incidente, non promosso; preservare l'ultimo DB/snapshot valido.
+
 ## Problemi e sintomi rilevati nel codice
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:67:// v138 Capsule Audit Engine: emit known capsule boundary leaks in Logcat (debug only)
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:254:is FirstRunSetupState.RestoreFailed -> context.getString(R.string.first_run_restore_failed_title)

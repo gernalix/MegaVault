@@ -11,6 +11,7 @@ MultiTimeTracker is a local-first Android time tracker. The main data lives in t
 - Validazione `#817463/#294816`: `compileDebugKotlin`, `assembleDebug`, `assembleDeviceTest`, `check_hardcoded_ui_strings`, `testDebugUnitTest`, `lintDebug`, `assembleDebugAndroidTest` verdi; TCL debug v527 installato e test UI reale completato; Pixel debug v527 installato con smoke minimo.
 - Performance `#817463/#294816`: onCreate real DB ridotto da ~79 ms a ~31 ms; schema ensure steady da ~51 ms a ~2.3 ms; su TCL sbloccato clone cold `am start -W` medio 669 ms e warm medio 10.2 ms.
 - Capsulizzazione `#462918`: 100 percento strict stimato per ownership feature auditata; NOW, TAGS, TIMELINE, QUICK_EVENTS, CHAINS, ALERTS, IMPORT_EXPORT, AUDIT_LOG e SINCE_WHEN hanno owner capsule espliciti, MainViewModel resta shell/composition root.
+- Integrita dati `#739284`: v528 blocca sparizioni silenziose di entita persistenti e valida ogni export/import SQLite con integrity, schema e conteggi critici prima della promozione.
 
 ## Orientamento rapido
 - Entrypoint: `app/src/main/AndroidManifest.xml,app/src/main/java/com/example/multitimetracker/MainActivity.kt,benchmark/src/main/AndroidManifest.xml`
