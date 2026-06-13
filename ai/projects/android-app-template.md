@@ -15,10 +15,12 @@ human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/android-a
 human_troubleshooting=/home/daniele/codex-workspace/MegaVault/human/projects/android-app-template/troubleshooting.md
 
 PURPOSE:
-goal=reusable clean Android Studio starter template generated from verified Soldi source
-source=/home/daniele/AndroidStudioProjects/_backups/Soldi-original-dir-20260613-040309
+goal=official reusable clean Android Studio starter template for new apps
+origin=snapshot_once_from_verified_clean_Soldi_2026-06-13
+source_historical=/home/daniele/AndroidStudioProjects/_backups/Soldi-original-dir-20260613-040309
+source_policy=Soldi_is_real_app_not_live_template;never_resync_future_Soldi_changes_into_template
 implemented=template project plus create_android_app_from_template generator
-generated_apps=Soldi,Sostanze
+generated_apps=Soldi,Sostanze,Luoghi
 
 STACK:
 platform=Android
@@ -42,7 +44,7 @@ build=app/build.gradle.kts,settings.gradle.kts,gradle/libs.versions.toml
 metadata=dev/project.metadata.json
 
 ARCH:
-template=compilable Android project with neutral package/app name
+template=independent frozen compilable Android project with neutral package/app name
 generator=terminal-only Bash+rsync+Perl rewrite; no Android Studio required
 copy_excludes=.git,.gradle,.kotlin,build,app/build,local.properties,README.md,dev
 
@@ -55,6 +57,9 @@ INV:
 build_config_preserved=Gradle wrapper,AGP,Kotlin,Compose,libs.versions.toml,Android Studio stable config
 clean_template=no source app package com.danielegalati.soldi remains
 destination_rule=generator refuses existing non-empty destination
+soldi_guardrail=generator refuses /home/daniele/AndroidStudioProjects/Soldi; Soldi is a real app
+source_rule=new apps must be generated from android-app-template,never from Soldi
+freeze_rule=future Soldi changes do not flow back into template unless explicit template migration requested
 terminal_only=do not require Android Studio for generation/build
 
 BUILD:
@@ -67,7 +72,7 @@ env=ANDROID_HOME=/home/daniele/Android/Sdk
 
 TEST:
 template_smoke=./gradlew assembleDebug PASS 2026-06-13
-generator_smoke=generated Soldi and Sostanze; both assembleDebug PASS 2026-06-13
+generator_smoke=generated Soldi,Sostanze,Luoghi; assembleDebug PASS 2026-06-13
 unit=starter ExampleUnitTest only
 instrumented=starter ExampleInstrumentedTest not run on device
 
@@ -80,6 +85,8 @@ DNB:
 item=do not add app-domain behavior to template|why=must remain reusable starter|test=MainActivity shows starter Greeting only
 item=do not commit local.properties/build outputs|why=machine-specific/generated|test=git status --ignored
 item=do not hand-edit generated apps for template bugs only|why=template drift|test=fix generator/template then regenerate
+item=do not use Soldi as source for new apps|why=Soldi is now a real app|test=generator source path is android-app-template
+item=do not regenerate or overwrite Soldi|why=Soldi is an app, not template target|test=generator refuses Soldi destination
 
 BUG:
 known=none after template and generated app debug builds
@@ -87,6 +94,7 @@ known=none after template and generated app debug builds
 RISK:
 risk=package rewrite misses a text file|trigger=new file extension added|mitigation=extend generator find filter|test=rg old package in generated app
 risk=destination overwrite|trigger=operator points to non-empty dir|mitigation=generator refuses non-empty destination|test=run with existing dir
+risk=template absorbs app-specific Soldi changes|trigger=manual sync from Soldi|mitigation=forbid live Soldi-as-template relationship|test=docs+README guardrail
 risk=Android SDK env missing|trigger=no ANDROID_HOME/ANDROID_SDK_ROOT/local.properties|mitigation=set SDK env or create local.properties locally|test=./gradlew assembleDebug
 
 ROAD:
@@ -95,8 +103,9 @@ next=add generator self-test if template changes
 later=optionally parameterize minSdk/package theme conventions
 
 REUSE:
-source=Soldi 2026-06-05 Android Studio starter app verified as no domain logic
+source=Soldi 2026-06-05 Android Studio starter app verified as no domain logic; one-time extraction only
 reason=preserve Android Studio generated build/tooling stack exactly
+guardrail=Soldi is no longer a reusable source after extraction
 
 LINK:
 repo=/home/daniele/codex-workspace/android-app-template

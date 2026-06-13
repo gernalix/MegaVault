@@ -1,12 +1,12 @@
 # MegaVault Projects
 
-Updated: 2026-06-13T04:35:00+02:00
+Updated: 2026-06-13T05:05:00+02:00
 
 | Project | What it is | Human overview | AI doc | metadata |
 |---|---|---|---|---|
 | SuperContacts | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-device validation. | [overview](projects/supercontacts/overview.md) | [AI](../ai/projects/supercontacts.md) | [metadata](../../SuperContacts/dev/project.metadata.json) |
 | WindowTabNotes | Root repository: `WindowTabNotes/`. | [overview](projects/windowtabnotes/overview.md) | [AI](../ai/projects/windowtabnotes.md) | [metadata](../../WindowTabNotes/dev/project.metadata.json) |
-| Android App Template | Reusable terminal-only Android Studio starter template with generator for namespace/applicationId/package/app name rewrites. | [overview](projects/android-app-template/overview.md) | [AI](../ai/projects/android-app-template.md) | [metadata](../../android-app-template/dev/project.metadata.json) |
+| Android App Template | Official frozen Android Studio starter template; extracted once from clean Soldi, but Soldi is now a real app and not a generation source. | [overview](projects/android-app-template/overview.md) | [AI](../ai/projects/android-app-template.md) | [metadata](../../android-app-template/dev/project.metadata.json) |
 | android-sdk-auto-update | Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu. | [overview](projects/android-sdk-auto-update/overview.md) | [AI](../ai/projects/android-sdk-auto-update.md) | [metadata](../../android-sdk-auto-update/dev/project.metadata.json) |
 | aw-converter | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/aw-converter/overview.md) | [AI](../ai/projects/aw-converter.md) | [metadata](../../aw-converter/dev/project.metadata.json) |
 | chatgpt-chrome-debug | ChatGPT Chrome Redirect Debug Toolkit | [overview](projects/chatgpt-chrome-debug/overview.md) | [AI](../ai/projects/chatgpt-chrome-debug.md) | [metadata](../../chatgpt-chrome-debug/dev/project.metadata.json) |
@@ -18,6 +18,7 @@ Updated: 2026-06-13T04:35:00+02:00
 | git-change-ledger | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs or automatic fetches. | [overview](projects/git-change-ledger/overview.md) | [AI](../ai/projects/git-change-ledger.md) | [metadata](../../git-change-ledger/dev/project.metadata.json) |
 | installa-app | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/installa-app/overview.md) | [AI](../ai/projects/installa-app.md) | [metadata](../../installa-app/dev/project.metadata.json) |
 | linux-mint-service-dashboard | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE. | [overview](projects/linux-mint-service-dashboard/overview.md) | [AI](../ai/projects/linux-mint-service-dashboard.md) | [metadata](../../linux-mint-service-dashboard/dev/project.metadata.json) |
+| Luoghi | Clean Android starter app generated from `android-app-template`; package `com.gernalix.luoghi`; domain and persistence TBD. | [overview](projects/luoghi/overview.md) | [AI](../ai/projects/luoghi.md) | [metadata](../../../AndroidStudioProjects/Luoghi/dev/project.metadata.json) |
 | megavault-project-exporter | Fast cached exporter for bundling one MegaVault-registered project together with the MegaVault documentation archive. | [overview](projects/megavault-project-exporter/overview.md) | [AI](../ai/projects/megavault-project-exporter.md) | [metadata](../../megavault-project-exporter/dev/project.metadata.json) |
 | mint-manual-updates | Servizio user systemd v4 per controllare e applicare aggiornamenti prudenti su Linux Mint 22.3 / Ubuntu noble. | [overview](projects/mint-manual-updates/overview.md) | [AI](../ai/projects/mint-manual-updates.md) | [metadata](../../mint-manual-updates/dev/project.metadata.json) |
 | mint-freeze-forensics | Linux Mint freeze forensics, gap detection, human-only guardian, and Kuma telemetry without automatic remediation. | [overview](projects/mint-freeze-forensics/overview.md) | [AI](../ai/projects/mint-freeze-forensics.md) | [metadata](../../mint-freeze-forensics/dev/project.metadata.json) |

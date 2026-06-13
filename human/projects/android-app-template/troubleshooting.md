@@ -4,6 +4,8 @@
 
 The generator refuses existing non-empty destinations. Move or back up the target first.
 
+The generator also refuses `/home/daniele/AndroidStudioProjects/Soldi`; `Soldi` is a real app and must not be regenerated while creating new apps.
+
 ## Validation
 
 After generation, run:

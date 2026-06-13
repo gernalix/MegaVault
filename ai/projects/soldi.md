@@ -16,12 +16,14 @@ human_troubleshooting=/home/daniele/codex-workspace/MegaVault/human/projects/sol
 template_source=/home/daniele/codex-workspace/android-app-template
 backup_original=/home/daniele/AndroidStudioProjects/_backups/Soldi-original-dir-20260613-040309
 backup_verified_copy=/home/daniele/AndroidStudioProjects/_backups/Soldi-pre-template-20260613-040309
+relationship=Soldi_is_real_app;historical_template_source_once_only;not_live_template
 
 PURPOSE:
 domain=personal finance,expenses,transactions
-stage=clean Android Studio starter generated from reusable local template
+stage=real app at clean Android starter stage; may be developed normally
 implemented_features=Android launcher activity,Compose Hello Android screen,debug build
 non_features=no finance model,no persistence,no business logic
+template_note=template was extracted once from original clean Soldi; future Soldi work must not feed template automatically
 
 STACK:
 platform=Android
@@ -48,17 +50,19 @@ ARCH:
 current=single Activity Compose starter
 state=no domain architecture selected
 boundary=do not add finance behavior unless explicitly requested
+template_boundary=do not use Soldi as generator source; use /home/daniele/codex-workspace/android-app-template
 
 FLOW:
 launch=Launcher -> MainActivity -> SoldiTheme -> Scaffold -> Greeting("Android")
 build=Gradle wrapper -> Android plugin -> debug APK
-generation=android-app-template generator rewrote package,namespace,applicationId,app_name,theme,root project name
+generation=initial reset from android-app-template completed 2026-06-13; future new apps must not use Soldi as source
 
 INV:
 git=repo initialized at /home/daniele/AndroidStudioProjects/Soldi on branch main
 identity=namespace/applicationId/package/test assertion must stay com.gernalix.soldi
 app_name=res string must stay Soldi until product rename requested
-template=do not edit generated app to repair template bugs; fix template then regenerate if possible
+template=Soldi is not a template; do not copy future Soldi changes into android-app-template unless explicit migration requested
+new_apps=generate from android-app-template only,never from Soldi
 ignore=.gitignore excludes build outputs,.gradle,.kotlin,local.properties,APK artifacts,IDE transient files
 
 BUILD:
@@ -83,7 +87,8 @@ migration=none
 
 DNB:
 item=do not commit local.properties/build outputs/APKs|why=machine-specific/generated|test=git status --ignored
-item=do not overwrite original 2026-06-05 source without backup|why=used as golden template source|test=backup dirs exist under AndroidStudioProjects/_backups
+item=do not regenerate/overwrite Soldi for app creation|why=Soldi is real app|test=template generator refuses Soldi destination
+item=do not use Soldi as template source|why=template is independent frozen snapshot|test=new app source path is android-app-template
 item=do not change package casually|why=application identity|test=rg com.gernalix.soldi app dev
 
 BUG:
@@ -91,7 +96,7 @@ known=none after generated debug build
 
 RISK:
 risk=app is still starter UI|trigger=assuming finance features exist|mitigation=mark non_features|test=read MainActivity.kt
-risk=template drift|trigger=manual fixes in only one generated app|mitigation=fix android-app-template first|test=compare generator/template docs
+risk=template confusion|trigger=using Soldi to generate new apps|mitigation=document Soldi real-app boundary|test=README+AI docs contain guardrail
 risk=remote is private GitHub repo|trigger=cloning from unauthenticated host|mitigation=use authenticated SSH/GitHub access|test=git ls-remote origin refs/heads/main
 
 ROAD:

@@ -24,4 +24,6 @@ Do not commit `local.properties`, `.gradle/`, `.kotlin/`, `build/`, `app/build/`
 
 ## Template Drift
 
-If the starter base needs repair, update `/home/daniele/codex-workspace/android-app-template` first, then regenerate or port the fix deliberately.
+`Soldi` is not a template. Do not use it as a source for new apps.
+
+If the starter base needs repair, update `/home/daniele/codex-workspace/android-app-template` first. Do not copy future `Soldi` app work back into the template unless a deliberate template migration is requested.

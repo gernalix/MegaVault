@@ -2,6 +2,7 @@
 
 ## 2026-06-13
 
+- Clarified `Soldi`/template guardrail: `Soldi` is a real app, not a live template or future generation source.
 - Audited the previous `Soldi` folder as an Android Studio starter app with no domain logic.
 - Preserved the original folder in `_backups`.
 - Regenerated `Soldi` from the reusable Android template.

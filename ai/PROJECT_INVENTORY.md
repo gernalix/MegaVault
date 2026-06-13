@@ -1,6 +1,6 @@
 # PROJECT_INVENTORY
 
-Generated: 2026-06-13T04:35:00+02:00
+Generated: 2026-06-13T05:05:00+02:00
 
 | name | slug | path | remote | branch | git_status_count | docs_found | docs_archived | docs_skipped | dev |
 |---|---|---|---|---|---:|---:|---:|---:|---|
@@ -19,6 +19,7 @@ Generated: 2026-06-13T04:35:00+02:00
 | git-change-ledger | git-change-ledger | `/home/daniele/codex-workspace/git-change-ledger` | `git@github.com:gernalix/git-change-ledger.git` | `main` | 0 | 6 | 0 | 0 | True |
 | installa-app | installa-app | `/home/daniele/codex-workspace/installa-app` | `none` | `codex/prompt-582746` | 0 | 0 | 0 | 0 | True |
 | linux-mint-service-dashboard | linux-mint-service-dashboard | `/home/daniele/codex-workspace/linux-mint-service-dashboard` | `none` | `prompt-816-local-dashboard` | 21 | 12 | 12 | 0 | True |
+| Luoghi | luoghi | `/home/daniele/AndroidStudioProjects/Luoghi` | `git@github.com:gernalix/Luoghi.git` | `main` | 0 | 5 | 0 | 0 | True |
 | megavault-project-exporter | megavault-project-exporter | `/home/daniele/codex-workspace/megavault-project-exporter` | `none` | `master` | 0 | 3 | 0 | 0 | True |
 | mint-cloud-backup | mint-cloud-backup | `/home/daniele/codex-projects/mint-cloud-backup` | `none` | `master` | 0 | 5 | 0 | 0 | True |
 | mint-manual-updates | mint-manual-updates | `/home/daniele/codex-workspace/mint-manual-updates` | `none` | `master` | 0 | 4 | 4 | 0 | True |
