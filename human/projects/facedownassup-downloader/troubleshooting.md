@@ -35,6 +35,14 @@ The v0.2.0 strict refresh test regenerated a fresh manifest immediately before d
 
 The v0.4.0 Firefox strict refresh test on 2026-06-13 reproduced the same external HLS failure with fresh Firefox cookies: `264` fragments, missing range `72`, incomplete output deleted with `--no-partials`.
 
+Prompt `#194672` repeated the test after a real Firefox refresh where Video DownloadHelper could work. Before retry, the downloader state for `gallery-1` was cleaned: archive entry, partials, old private m3u8/page dumps, and yt-dlp cache. Firefox was opened on the gallery URL, then the wrapper was run with the real profile:
+
+```bash
+FDA_FIREFOX_PROFILE=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release FDA_REFRESH_ATTEMPTS=1 FDA_SLEEP_REQUESTS=0 FDA_ABORT_ON_UNAVAILABLE=1 ./fda_downloader.sh --no-partials refresh-test 'https://members.facedownassup.com/gallery.php?id=173'
+```
+
+Result: yt-dlp still extracted a fresh `264` fragment manifest and failed at fragment `72` with `404`; the partial was deleted and no final file was created. Since Video DownloadHelper can work after the browser refresh, fragment `72` should no longer be treated as definitive proof of permanently broken CDN content. The narrower diagnosis is that Firefox/VDH can use a refreshed browser media path, while the page-based yt-dlp wrapper still receives a stale or non-downloadable HLS reference.
+
 Keep per-request delay disabled for expiring HLS URLs:
 
 ```bash
@@ -93,4 +101,4 @@ Findings:
 - JDownloader did not create a downloadable LinkGrabber item or a download-list entry for the gallery URL.
 - Local HTTP/API probes on the JDownloader ports did not provide a usable control/query API for this run.
 
-Decision: JDownloader, as currently installed/configured, cannot verify a successful authenticated download for gallery `id=173`. It also does not contradict the prior evidence: authenticated yt-dlp reaches the manifest but HLS fragment `72` returns `404`, so the remaining failure is still most likely broken/unavailable site or CDN content rather than a local downloader choice.
+Decision: JDownloader, as currently installed/configured, cannot verify a successful authenticated download for gallery `id=173`. It also does not contradict the yt-dlp evidence: authenticated yt-dlp reaches the manifest but HLS fragment `72` returns `404`. After prompt `#194672`, do not treat that as final CDN-broken proof because Firefox/Video DownloadHelper can work after refresh; treat it as a mismatch between the browser-refreshed media path and the wrapper's page-based yt-dlp extraction.

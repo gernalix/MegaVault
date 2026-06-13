@@ -2,6 +2,7 @@
 
 ## 2026-06-13
 
+- Prompt `#194672`: cleaned gallery-specific downloader state and retried after opening the gallery in the authenticated Firefox profile. Video DownloadHelper reportedly works after browser refresh, but the wrapper still extracted a fresh `264` fragment manifest and failed at HLS fragment `72`; partial deleted with `--no-partials`, no final file. Diagnosis narrowed: browser refresh can fix the browser/VDH path, but the page-based yt-dlp wrapper still receives a stale or non-downloadable HLS reference.
 - Prompt `#518407`: checked existing JDownloader at `/home/daniele/Downloads/JDownloader.jar`; no install performed. JDownloader accepted the gallery URL via clipboard monitor but did not produce a downloadable item, had no Firefox JDownloader extension in the authenticated profile, and logged `Firefox settings folder not found`. Decision: JDownloader is not viable as configured and does not change the external HLS fragment `72` 404 conclusion.
 - Updated `fda_downloader.sh` to version `0.4.0` for prompt `#672941`.
 - Changed the default `yt-dlp` cookie source to Firefox with `--cookies-from-browser firefox`.
