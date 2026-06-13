@@ -105,7 +105,7 @@ timer=terminal-logger-codex-snapshot.timer;scope=user;state=active/waiting;enabl
 timer=terminal-logger-maintenance.timer;scope=user;state=active/waiting;enabled=enabled;unit=terminal-logger-maintenance.service;schedule=daily;randomized=20m
 
 SYSTEM_TIMERS:
-timer=disk-usage-monitor.timer;scope=system;state=active/waiting;enabled=enabled;unit=disk-usage-monitor.service;schedule=OnUnitActiveSec=5min;Kuma_monitor_id=6
+timer=disk-usage-monitor.timer;scope=system;state=active/waiting;enabled=enabled;unit=disk-usage-monitor.service;schedule=OnBootSec=2min+OnUnitActiveSec=5min+Persistent=true+AccuracySec=30s;Kuma_monitor_id=6
 timer=dpkg-db-backup.timer;scope=system;state=active/waiting;enabled=enabled;unit=dpkg-db-backup.service;schedule=daily
 timer=mint-cloud-backup.timer;scope=system;state=active/waiting;enabled=enabled;unit=mint-cloud-backup.service;schedule=daily;randomized=30m
 timer=mint-cloud-backup-kuma-push.timer;scope=system;state=active/waiting;enabled=enabled;unit=mint-cloud-backup-kuma-push.service;schedule=OnUnitActiveSec=2min
@@ -142,7 +142,7 @@ service=terminal-logger-maintenance.service;owner_project=terminal-logger;runtim
 service=transfer-vecchio-disco-adaptive-throttle.service;owner_project=surface-recovery-hardening;runtime_scope=user;managed_by=systemd;criticality=critical;failure_impact=USB_transfer_throttle_guard_lost;safe_to_disable=no
 service=windowtabnotes.service;owner_project=windowtabnotes;runtime_scope=user;managed_by=systemd;criticality=important;failure_impact=WindowTabNotes_daemon_unavailable;safe_to_disable=ask
 service=x11vnc-real-display.service;owner_project=x11vnc-real-display;runtime_scope=user;managed_by=systemd;criticality=important;failure_impact=physical_display_remote_access_lost;safe_to_disable=ask
-service=disk-usage-monitor.service;owner_project=disk-usage-monitor;runtime_scope=system;managed_by=timer;criticality=important;failure_impact=disk_delta_alerts_Kuma_lost;safe_to_disable=ask
+service=disk-usage-monitor.service;owner_project=disk-usage-monitor;runtime_scope=system;managed_by=timer;criticality=important;failure_impact=disk_delta_alerts_Kuma_lost;safe_to_disable=ask;type=oneshot;healthy_idle_state=inactive_dead_after_success;resilience=Restart_on_failure+TimeoutStartSec_3min+StartLimitIntervalSec_0
 service=dpkg-db-backup.service;owner_project=OS;runtime_scope=system;managed_by=timer;criticality=important;failure_impact=dpkg_db_backup_lost;safe_to_disable=ask
 service=mint-cloud-backup.service;owner_project=mint-cloud-backup;runtime_scope=system;managed_by=timer;criticality=critical;failure_impact=cloud_root_backup_lost;safe_to_disable=no
 service=mint-cloud-backup-dashboard.service;owner_project=mint-cloud-backup;runtime_scope=system;managed_by=systemd;criticality=important;failure_impact=backup_dashboard_lost;safe_to_disable=ask

@@ -4,7 +4,7 @@ slug=disk-usage-monitor
 path=/home/daniele/disk_usage_monitor
 repo=/home/daniele/disk_usage_monitor
 branch=master
-updated=2026-06-11 prompt_836204
+updated=2026-06-13 prompt_384729
 protocol=MEGAVAULT_PROTOCOL.md:v8
 
 PURPOSE:
@@ -13,7 +13,7 @@ truth=local SQLite/log decide disk alert semantics; Kuma is heartbeat/state-chan
 
 STACK:
 lang=Bash,Python_inline,SQLite
-systemd=system service+timer
+systemd=system oneshot service+timer;timer_is_24x7_component;service_inactive_dead_between_runs_is_normal
 kuma=Oracle_VM_Uptime_Kuma monitor_id=6 name=disk-usage-monitor type=push active=1 interval=420 timeout=60 retry=300 maxretries=2 notification=Telegram_id_1
 telegram=helper /home/daniele/codex-workspace/scripts/amici_fb/telegram_notify.py plus /home/daniele/.config/environment.d/telegram.conf
 
@@ -29,7 +29,10 @@ avoid=printing_Kuma_push_URL,Telegram_token,Telegram_chat_id,destructive_disk_op
 
 ARCH:
 run=timer_5min->oneshot_service->disk_usage_monitor.sh->lsblk/findmnt_R/kernel_journal->canonical_3_disk_match->SQLite->Telegram_change_or_low_space->Kuma_RUNNING_OK_compact
+systemd_resilience=timer enabled;OnBootSec=2min;OnUnitActiveSec=5min;Persistent=true;AccuracySec=30s;service Restart=on-failure;RestartSec=30s;TimeoutStartSec=3min;StartLimitIntervalSec=0;After=local-fs.target+network-online.target
 inventory_cmd=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh inventory
+dry_run_cmd=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh dry-run
+status_cmd=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh status
 notify_test_cmd=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh notify-test
 db_tables=disk_space_samples,disk_events,disk_alerts,run_status,kuma_pushes,notification_state,monitored_disk_state
 identity=canonical_slug backed_by_uuid_serial_model_mapper
@@ -44,6 +47,7 @@ failure=log run.error; send_kuma down/ERROR; systemd service exits nonzero
 prompt_492817=real cause was no Kuma state change plus script default Telegram threshold 2GiB suppressing 1.1-1.6GiB deltas; fixed in v5 to threshold 500MiB and daily no-delta OK digest.
 prompt_748263=script already sampled multiple disks in DB but UI/Kuma/alerts made it look Seagate-only; fixed in v6 with explicit inventory, findmnt -R, checked-count heartbeat, current-run dashboard, /boot/efi exclusion, and fuller Telegram delta text.
 prompt_836204=v7 restricts monitoring/Telegram to exactly T7 sistema, Seagate 4TB, Seagate 6TB; clean Telegram body and compact Kuma heartbeat; dashboard separates canonical summary from technical/excluded mounts.
+prompt_384729=real state was active timer+successful oneshot; apparent not-active cause was interpreting service inactive/dead as failure; v8 adds status/dry-run/logged disk_state and stronger systemd retry/boot semantics.
 
 INV:
 ops=do not treat Kuma green as Telegram delivery proof.
@@ -56,6 +60,8 @@ TEST:
 syntax=bash -n /home/daniele/disk_usage_monitor/disk_usage_monitor.sh
 dashboard_syntax=bash -n /home/daniele/disk_usage_monitor/disk_usage_dashboard.sh
 inventory=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh inventory shows only T7 sistema, Seagate 4TB, Seagate 6TB in MONITORED; virtual/autofs/boot_efi excluded
+status=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh status shows systemd timer/service plus DB run_status, monitored_disk_state, recent Kuma pushes
+dry_run=/home/daniele/disk_usage_monitor/disk_usage_monitor.sh dry-run reads live mount state without DB/Telegram/Kuma writes
 systemd=sudo systemctl start disk-usage-monitor.service; systemctl status disk-usage-monitor.service disk-usage-monitor.timer --no-pager
 local_db=2026-06-11 run_status version=v7 sample_count=3 alert_count=0 event_count=0; monitored_disk_state rows=3
 kuma=remote readonly monitor id 6 latest heartbeat status=1 msg="OK T7=84% free SG4=8% free SG6=53% free"; duplicate_named_monitors=1; notification_id=1
@@ -78,7 +84,7 @@ risk=Seagate 4TB is below default low-space threshold; mitigation=per-disk low_s
 risk=Kuma only notifies state changes; mitigation=local Telegram delta and daily no-delta digest.
 
 ROAD:
-now=v7 live; canonical 3-disk whitelist, clean Telegram, compact Kuma heartbeat verified for prompt_836204.
+now=v8 live; canonical 3-disk whitelist, clean Telegram, compact Kuma heartbeat, status/dry-run, and resilient timer+oneshot semantics verified for prompt_384729.
 next=observe Seagate 4TB low-space notifications; adjust threshold only if user requests.
 
 LINK:
