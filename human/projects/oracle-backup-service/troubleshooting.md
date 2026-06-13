@@ -36,6 +36,24 @@
 - Fallback locale valido: `/var/lib/oracle_backup/emergency_repo`, 27 snapshot, circa 9.572 GiB raw-data. Non cancellare finche' il remoto e' degradato.
 - Pulizia `/` applicata senza toccare backup/DB: `apt-get clean`, `journalctl --vacuum-size=300M`, compressione `/var/log/syslog.1` in `/var/log/syslog.1.gz`; spazio passato da 6.6G liberi/86% a 7.5G liberi/84%.
 
+## Stato 2026-06-13
+- `/` e' 98% usato con circa 1.2G liberi.
+- `/var/lib/oracle_backup/emergency_repo` e' 13.95 GiB, oltre la nuova quota hard 5G.
+- Preflight live: `sudo FORCE_ORACLE_BACKUP=1 ORACLE_BACKUP_QUOTA_CHECK_ONLY=1 /opt/oracle_backup/backup.sh` ritorna rc=1 e scrive `local_fallback_quota_status=BLOCKED`.
+- Stato backup: `last_backup_status=BACKUP_BLOCKED_FALLBACK_QUOTA`.
+- Healthcheck dry-run: `backup_state` CRITICAL per quota fallback; monitor dry-run rc=1.
+- Docker/Kuma non impattato: `sudo docker exec uptime-kuma true` passa, `/run` resta 27%.
+
+Comandi utili:
+
+```bash
+sudo cat /var/lib/oracle_backup/local_fallback_quota_status
+sudo cat /var/lib/oracle_backup/local_fallback_quota_last_error
+sudo python3 -m json.tool /var/lib/oracle_backup/local_fallback_quota_state.json
+sudo ORACLE_BACKUP_HEALTHCHECK_DRY_RUN=1 /usr/local/bin/oracle-backup-healthcheck.sh
+sudo BACKUP_MONITOR_DRY_RUN=1 /opt/oracle_backup/check_backup_health.py
+```
+
 ## Safety prima di correggere
 - scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
 - Non cancellare `/var/lib/oracle_backup/emergency_repo`, `/var/lib/oracle_backup/sqlite_snapshots`, DB SQLite, WAL/SHM o repo restic per liberare spazio senza snapshot/verifica e policy documentata.

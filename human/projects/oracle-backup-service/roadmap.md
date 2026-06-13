@@ -18,3 +18,8 @@
 - scripts/backup.sh:68:exec 9>"$RESTIC_RUN_LOCK"
 - scripts/backup.sh:69:if ! flock -n 9; then
 - scripts/backup.sh:85:rm -rf -- "$snap_run_dir"
+
+## Prossimo intervento operativo
+- Ripristinare capacita' OCI o approvare un piano esplicito di offload/prune del fallback locale.
+- Non cancellare `/var/lib/oracle_backup/emergency_repo` alla cieca: usare prima `/home/ubuntu/maintenance-486219/reports/fallback_inventory_20260613T000454Z.txt`.
+- Finche' `emergency_repo` resta sopra 5G, `BACKUP_BLOCKED_FALLBACK_QUOTA` e' lo stato corretto.

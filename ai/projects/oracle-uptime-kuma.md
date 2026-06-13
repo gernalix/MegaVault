@@ -216,6 +216,7 @@ risk=direct SQLite writes across Kuma upgrade schema drift;mitigation=PRAGMA tab
 risk=Kuma false red from pusher cadence/local mount boot timing;mitigation=verify service-local state before alert retune.
 risk=/run tmpfs exhaustion breaks docker/containerd/runc exec even when / and /tmp have free space;mitigation=RuntimeMaxUse=32M RuntimeKeepFree=32M and check df -hT /run before Docker runtime debugging.
 risk=oracle-backup.service local fallback can raise / to 94% while OCI remote remains StorageLimitExceeded;mitigation=do not interrupt active backup casually, but treat root free space as separate active Oracle backup risk.
+risk=oracle-backup prompt_486219 now blocks new `/var/lib/oracle_backup/emergency_repo` writes above LOCAL_FALLBACK_MAX_GB=5;current emergency_repo already over quota means backup monitor can be CRITICAL while Docker/Kuma remains healthy;do not change Kuma hardening/admin/tunnel for this condition.
 
 OPERATIONAL_MEMORY:
 decision=Kuma is observability only; no remediation actions originate from Kuma.
@@ -253,3 +254,4 @@ open=Kuma UI/API auth workflow still undocumented; DB/UI paths are verified.
 open=Telegram delivery test not executed in prompt_731845 to avoid runtime notification.
 open=No HTTP monitors currently exist; HTTP runbook is schema-derived and must be smoke-tested when first used.
 open=Docker/runc exec failure fixed in prompt_672184; keep image healthcheck disabled until a separate low-risk task decides whether to re-enable it.
+open=2026-06-13 prompt_486219: Docker/Kuma unaffected by oracle-backup quota fix; `docker exec uptime-kuma true` OK, `/run` 27%, root still 98% due backup data pressure.

@@ -4,9 +4,15 @@ Restic-based backup service for the Oracle VM. It snapshots SQLite databases wit
 
 ## Stato e codice
 - Repository: `/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service`
-- Branch/commit verificati: `fix/degraded-healthcheck-state` / `058c59b`
+- Branch/commit verificati: `fix/degraded-healthcheck-state` / `1a4db9d`
 - File codice/config/test/script analizzati: 19 su 19
 - Stack rilevato: Python, Shell, UNKNOWN, UNKNOWN
+
+## Stato operativo 2026-06-13
+- OCI remoto resta `StorageLimitExceeded`.
+- Il fallback locale ha quota hard default 5G e attualmente e' gia' sopra quota: `emergency_repo` 13.95 GiB.
+- Nuovi fallback locali vengono bloccati prima della scrittura con `BACKUP_BLOCKED_FALLBACK_QUOTA`; `/` non viene piu' riempita dal fallback automatico.
+- Cleanup report non distruttivo: `/home/ubuntu/maintenance-486219/reports/fallback_inventory_20260613T000454Z.txt`.
 
 ## Orientamento rapido
 - Entrypoint: `UNKNOWN`
