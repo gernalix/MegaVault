@@ -20,6 +20,6 @@
 - scripts/backup.sh:85:rm -rf -- "$snap_run_dir"
 
 ## Prossimo intervento operativo
-- Ripristinare capacita' OCI o approvare un piano esplicito di offload/prune del fallback locale.
+- Ripristinare capacita' OCI o approvare un piano esplicito per reset/offload del repo remoto corrotto.
 - Non cancellare `/var/lib/oracle_backup/emergency_repo` alla cieca: usare prima `/home/ubuntu/maintenance-486219/reports/fallback_inventory_20260613T000454Z.txt`.
-- Finche' `emergency_repo` resta sopra 5G, `BACKUP_BLOCKED_FALLBACK_QUOTA` e' lo stato corretto.
+- Soglia corrente fallback: 7G hard, 5.6G soft. Se un run completo futuro supera questa soglia, rivalutare dimensione DB/retention prima di alzare ancora la quota.

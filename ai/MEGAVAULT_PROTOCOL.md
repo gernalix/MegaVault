@@ -30,6 +30,7 @@ P19=human_not_operational
 P20=sync_state_required
 P21=host_profile_required
 P22=remote_clean_pushed_required
+P23=incident_registry_required
 
 # HOST_PROFILE
 HOST_PROFILE=mandatory
@@ -74,7 +75,7 @@ LANG=key_value
 LINE_RULE=1_line=1_fact
 
 # UPDATE
-UPDATE_AI_WHEN=arch,db,build,test,import_export,backup,versioning,release,ops,security
+UPDATE_AI_WHEN=arch,db,build,test,import_export,backup,versioning,release,ops,security,incident_registry
 UPDATE_HUMAN_WHEN=ux,workflow,roadmap,changelog
 DOC_CHECK_REQUIRED=yes
 
@@ -95,6 +96,18 @@ DESTRUCTIVE_ACTION=require_explicit_user_intent
 # DB
 SQLITE_DEFAULT=/home/ubuntu/sync_root/db/
 DB_DOC_REQUIRED=yes
+
+# INCIDENT_REGISTRY
+INCIDENT_REGISTRY=mandatory_all_projects
+INCIDENT_AI=dev/ai/INCIDENT_REGISTRY.md
+INCIDENT_HUMAN=dev/human/INCIDENT_REGISTRY.md
+INCIDENT_SQLITE_DEFAULT=/home/ubuntu/sync_root/db/incident_registry.sqlite
+INCIDENT_SCHEMA=incidents+incident_events
+INCIDENT_ID_RULE=root_cause_stable_slug
+INCIDENT_FORBID=symptom_spam_ids
+INCIDENT_UPDATE=automatic_healthcheck_monitor_fix
+INCIDENT_BOOTSTRAP=required_new_project
+INCIDENT_SIGNIFICANT_BUG=must_register
 
 # VERSIONING
 VERSIONING_DOC_REQUIRED=yes
