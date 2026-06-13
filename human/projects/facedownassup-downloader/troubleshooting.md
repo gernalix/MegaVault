@@ -1,5 +1,38 @@
 # facedownassup-downloader Troubleshooting
 
+## Global `porndownloader`
+
+Prompt `#826194` added a global command:
+
+```bash
+~/.local/bin/porndownloader
+```
+
+It is a symlink to the repo script:
+
+```text
+/home/daniele/codex-workspace/facedownassup-downloader/porndownloader
+```
+
+Default behavior:
+
+- Uses Firefox profile `/home/daniele/.config/mozilla/firefox/50b1zmic.default-release`
+- Defaults to 720p, preferring `hls-HLS720p`
+- Saves completed files to `~/Videos/porndownloader/`
+- Uses `~/.local/state/porndownloader/` for logs, archive, run scratch data, and `download_history.sqlite`
+- Names completed files as `YYYY-MM-DD - <title>.mp4`, falling back to `YYYY-MM-DD - FaceDownAssUp - gallery-<id>.mp4` for generic facedownassup gallery titles
+- Deduplicates only by source URL, not by title
+
+Useful commands:
+
+```bash
+porndownloader --formats 'https://members.facedownassup.com/gallery.php?id=173'
+porndownloader --quality 720 'https://members.facedownassup.com/gallery.php?id=173'
+porndownloader --list
+```
+
+Verification result for gallery `id=173`: `--formats` succeeded and showed `hls-HLS720p`. The 720p download passed the previously failing fragment `72`, then failed at fragment `175` with `404`; no final file was created and no SQLite history row was inserted.
+
 ## 403 Forbidden
 
 Use the wrapper so `yt-dlp` sends the same-origin `Referer`, `Origin`, and browser-like `User-Agent` headers:

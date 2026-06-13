@@ -4,26 +4,28 @@ slug=facedownassup-downloader
 path=/home/daniele/codex-workspace/facedownassup-downloader
 remote=git@github.com:gernalix/facedownassup-downloader.git
 branch=main
-prompt=194672
-verified_at=2026-06-13T14:03:55+02:00
+prompt=826194
+verified_at=2026-06-13T14:27:09+02:00
 protocol=MEGAVAULT_PROTOCOL.md:VERSION=8
 PURPOSE:
 purpose=Local authorized downloader for facedownassup.com member gallery pages using existing legitimate Firefox login via yt-dlp cookies by default.
 scope=personal_access_only,no_DRM_bypass,no_paywall_bypass,no_credential_attack,no_exploit,no_aggressive_rate
 STACK:
 lang=Bash,Python_inline_parser
-tools=yt-dlp,Firefox cookies via --cookies-from-browser firefox,optional Chrome DevTools diagnostics,JDownloader existing jar,ffmpeg/ffprobe,gh,git
+tools=yt-dlp,Firefox cookies via --cookies-from-browser firefox,porndownloader global wrapper,optional Chrome DevTools diagnostics,JDownloader existing jar,ffmpeg/ffprobe,sqlite3,gh,git
 platform=Linux Mint/XFCE host
 MAP:
-entry=fda_downloader.sh
+entry=fda_downloader.sh,porndownloader
 config=env:FDA_*,FDA_COOKIE_BROWSER,FDA_FIREFOX_PROFILE,VERSION,dev/project.metadata.json
 docs=README.md,MegaVault/human/projects/facedownassup-downloader/*
 state=state/download-archive.txt,state/segments-*.txt,logs/run-*.log,private/crawl-*
-output=downloads/<extractor>/<id> - <title>.<ext>
+output=downloads/<extractor>/<id> - <title>.<ext>; porndownloader output=~/Videos/porndownloader/YYYY-MM-DD - <title>.mp4
 avoid=downloads,logs,state,private,cookies,*.dump,*.part,*.ytdl
 ARCH:
 script=fda_downloader.sh modes:doctor,refresh-test,browser-check,test,download,list,crawl
+script=porndownloader global command modes:download_multi_url,formats,dry_run,list_history
 download=yt-dlp --cookies-from-browser firefox by default; FDA_COOKIE_BROWSER=chrome supported; FDA_FIREFOX_PROFILE overrides detected Firefox profile; Referer/Origin/User-Agent + no-cache + archive + local verbose logs
+porndownloader=uses firefox:/home/daniele/.config/mozilla/firefox/50b1zmic.default-release, default quality 720 preferring hls-HLS720p, output ~/Videos/porndownloader, state ~/.local/state/porndownloader, SQLite history, source-URL dedupe, no partials by default
 refresh=refresh-test checks browser playback status when possible, extracts fresh page/manifest immediately before download, reports segments, validates complete files with ffprobe, and handles partials
 browser_check=Firefox default runs redacted yt-dlp probe and documents that real Firefox Network capture is not automated; Chrome path remains explicit DevTools diagnostic launched only with FDA_BROWSER_CHECK_LAUNCH=1
 jdownloader_check=existing /home/daniele/Downloads/JDownloader.jar process tested via clipboard/ClickAndLoad-style local port; no install performed; no cookie export performed
@@ -44,6 +46,7 @@ ops=do_not_commit downloads/logs/state/private/cookies/dumps
 version=VERSION and fda_downloader.sh SCRIPT_VERSION must move together
 cookie_source=default Firefox; overrides FDA_COOKIE_BROWSER=firefox/chrome and FDA_FIREFOX_PROFILE
 partials=complete_only_when_missing_count=0_and_ffprobe_passes; incomplete_outputs_move_to_downloads/_partials_or_delete_with_--no-partials
+porndownloader_history=~/.local/state/porndownloader/download_history.sqlite; dedupe by source_url only; same title different URL remains distinct
 BUILD:
 cmd=bash -n fda_downloader.sh
 deps=yt-dlp,python3,Firefox_profile,optional_Chrome_profile,ffmpeg
@@ -55,6 +58,7 @@ real_download_672941=FDA_REFRESH_ATTEMPTS=1 FDA_SLEEP_REQUESTS=0 FDA_ABORT_ON_UN
 browser_check_672941=FDA_BROWSER_CHECK_YTDLP_MODE=fragments ./fda_downloader.sh browser-check URL; report=state/browser-check-20260613-130553.txt; firefox_network=unavailable_by_design; ytdlp_http_statuses=404,404; ytdlp_fragment_errors=404/72,72; FINAL_REPORT=UNKNOWN
 jdownloader_518407=JDownloader already running from /home/daniele/Downloads/JDownloader.jar pidfile=/home/daniele/Downloads/JDownloader.pid; Firefox profile checked=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release; no JDownloader Firefox extension found; JDownloader log says Firefox settings folder not found; gallery URL accepted as clipboard job length 52 at 2026-06-13T13:20:28; no download/linkgrabber item produced; download list stayed empty; local HTTP API/CNL probes timed out or returned empty reply
 fresh_retry_194672=cleaned gallery-1 archive entry, partials, private stale m3u8/page dumps, and yt-dlp cache; opened gallery in Firefox profile /home/daniele/.config/mozilla/firefox/50b1zmic.default-release; command=FDA_FIREFOX_PROFILE=/home/daniele/.config/mozilla/firefox/50b1zmic.default-release FDA_REFRESH_ATTEMPTS=1 FDA_SLEEP_REQUESTS=0 FDA_ABORT_ON_UNAVAILABLE=1 ./fda_downloader.sh --no-partials refresh-test URL; result=failed_ytdlp_hls_72_after_browser_refresh; total_fragments=264; missing_count=1; missing_ranges=72; partial_deleted=yes; final_file=none
+porndownloader_826194=installed symlink ~/.local/bin/porndownloader -> repo/porndownloader; bash -n PASS; --formats URL PASS with hls-HLS480p,hls-HLS720p,hls-HLS1080p; --quality 720 URL failed at HLS fragment 175 with 404 after passing old fragment 72; partial_deleted=yes; final_file=none; history_rows=0
 browser_check_metadata=FDA_BROWSER_CHECK_SECONDS=1 FDA_BROWSER_CHECK_YTDLP_MODE=metadata ./fda_downloader.sh browser-check URL PASS; DevTools unavailable by design; chrome_verdict=UNKNOWN; ytdlp_rc=0; FINAL_REPORT=UNKNOWN; report=state/browser-check-20260610-164245.txt
 diagnostic=yt-dlp with Chrome cookies+Referer+Origin+UA removed initial 403 and produced local MP4 diagnostic outside repo
 script_test=started extraction/download; stopped by timeout after repeated HLS fragment 404; partial removed
@@ -89,6 +93,10 @@ issue=Prompt 194672 browser refresh changed browser/VDH behavior but did not mak
 cause=Video DownloadHelper reportedly works after Firefox refresh, but the wrapper still extracts a fresh 264-fragment manifest whose fragment 72 returns 404
 workaround=do not call fragment 72 a definitive CDN-broken proof when Firefox/VDH works; treat this as a wrapper/yt-dlp page-manifest mismatch or stale HLS reference unless a real browser network export is explicitly provided
 status=browser_refresh_not_reproduced_by_ytdlp
+issue=Prompt 826194 porndownloader default 720 did not complete gallery id=173
+cause=hls-HLS720p was available and passed fragment 72, then fragment 175 returned 404
+workaround=global wrapper is usable for accessible URLs, but this gallery still needs browser/VDH path or real browser network evidence for why CLI HLS differs
+status=download_failed_fragment_175
 issue=browser-check may return UNKNOWN for Firefox real-session playback because Firefox Network capture is not automated by this wrapper
 cause=do_not_remote_control_or_clone_logged_in_Firefox_profile_without_an_explicit_supported_protocol
 workaround=use existing Firefox session for manual playback verification or switch to FDA_COOKIE_BROWSER=chrome for explicit Chrome DevTools diagnostics; keep reports redacted
