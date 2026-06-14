@@ -1,5 +1,17 @@
 # MultiTimeTracker Architecture Audit
 
+## Prompt #418762
+- Scope: P0 v528 app bloccata da `Save failed` / `Critical persistent data loss blocked: tasks: 1 -> 0`, piu verifica Parent Tag autoexport SAF.
+- Code commit: `90da4c72d0f224f74741ff28fd97d12a69a34169` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Found: il punto di throw era `CriticalDataGuard.requireNoCriticalDrop`; la call chain reale era UI capsule write -> `MainViewModel.persist` -> `MainViewModelSnapshotCoordinator.persistCurrentSnapshotOrThrow` -> `SnapshotStore.save` -> `CriticalDataGuard` -> restore last persisted snapshot/dialog.
+- Found: `tasks` e' campo legacy/compat derivato dalle sessioni in esecuzione; in uno snapshot runtime valido puo passare a 0 senza perdita persistente se le tabelle/sessioni autorevoli restano integre.
+- Found: il primario SAF `multitimer.db` poteva restare 0 byte mentre `multitimer.db.bak` conteneva il DB completo; quindi il test corretto per Parent Tag deve verificare il file SAF primario, non solo stato interno.
+- Fixed: runtime snapshot save e integrity gate usano `includeLegacyTasks=false`; import/replace DB completi mantengono `includeLegacyTasks=true` e bloccano veri `tasks` N>0->0.
+- Fixed: `ForensicLog` registra before/after counts e dettagli fase/includeLegacyTasks per i drop critici.
+- Fixed: export SAF stabile scrive tmp validato, `.bak` validata e primario validato tramite copia esplicita; non dipende piu da `DocumentFile.renameTo` per la promozione.
+- Fixed: export manuale e' spostato su `Dispatchers.IO` con guard anti doppio tap per evitare ANR durante copia/hash/ZIP.
+- Validation: build/unit/hardcoded-string gate PASS; targeted TCL deviceTest del vault stabile PASS; Pixel main v529 installato, UI create session/event/Since When/Parent Tag, manual export SAF, restart persistence e logcat finale PASS.
+
 ## Prompt #739284
 - Scope: incidente P0 integrita dati Since When/Parent Tag, export/backup SAF e accumulo tmp/bak.
 - Code commit: `8061d232e4afbf0e80e2cebbbf76233f7fa2fa18` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.

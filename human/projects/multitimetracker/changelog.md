@@ -13,6 +13,17 @@
 - 2026-06-12: `#817463` patch v527 performance/stability: startup schema/init spostati fuori da `onCreate`, guard schema cache invalidata su import/restore/switch DB, ridotte allocazioni Events/Since When, test runtime TCL con limite keyguard; commit app `2548034f6c4fc7e4950f45600b41101faae7d764`.
 - 2026-06-12: `#294816` validazione v527 completata senza patch codice: TCL sbloccato UI/startup/bg-fg/clear-data PASS; Pixel debug v527 install/smoke PASS; docs app commit `5b7e76a2de28d9974235d5f8fcc2623c64251fca`.
 - 2026-06-13: `#739284` incidente P0 integrita dati v528: root cause rollback automatico di un DB importato valido dopo `activation-signature`; aggiunti CriticalDataGuard, ForensicLog, export SAF verificato, promozione interna current->candidate, retention/cleanup tmp/bak, test mirati TCL PASS.
+- 2026-06-14: `#418762` P0 v529: corretto falso positivo `tasks: 1 -> 0` nei salvataggi runtime senza indebolire import/replace completi; corretto export SAF primario 0 byte e manual export spostato su IO; commit app `90da4c72d0f224f74741ff28fd97d12a69a34169`.
+
+## v529 prompt #418762
+- Causa reale 1: `CriticalDataGuard` confrontava lo snapshot corrente completo con un nuovo snapshot runtime valido in cui il campo legacy `tasks` puo diventare vuoto perche derivato dalle sessioni in esecuzione, non fonte autorevole.
+- Causa reale 2: il primario SAF `multitimer.db` poteva restare a 0 byte dopo promozione `DocumentFile.renameTo`; la `.bak` conteneva il DB completo, quindi i Parent Tag erano salvati internamente ma non garantiti nel primario SAF.
+- Fix: `SnapshotStore` e `DataIntegrityGate` escludono solo `tasks` legacy dai confronti runtime; import/replace DB completi continuano a bloccare `tasks` N>0->0.
+- Fix: export SAF scrive e valida tmp, poi `.bak`, poi copia primaria validata; nessun successo export viene registrato se il primario non e' SQLite valido.
+- Fix: export manuale gira su `Dispatchers.IO` con guard anti doppio tap, evitando ANR UI durante hash/copia ZIP/DB.
+- Verifica: Pixel main v529 ha creato sessione, evento, Since When, Parent Tag; export SAF manuale produce `multitimer.db` e `.bak` pieni, SHA identico, `quick_check=ok`, snapshot contiene `Pixel529_since_when`, `Pixel529child`, `Pixel529parent`; restart persistence PASS; nessun `Save failed` finale.
+- Verifica TCL: targeted deviceTest `PersistenceImportExportTest#sqliteVaultExportUsesSingleStableBackupAndOneEmergencyCopy` PASS riproducendo primario 0 byte prima dell'export.
+- Nuova regola test: patch su persistenza/database/export/import/recovery/backup/integrity/guard deve includere creazione reale UI o device-equivalent delle entita critiche, export SAF e restart persistence; test DAO/repository/export isolati non bastano.
 
 ## v528 prompt #739284
 - Causa reale: l'import DB aveva conteggi coerenti (`lifePeriods=7`, `tagParents=6`) ma l'attivazione runtime ha restituito `activation-signature`; la capsule ha trattato quel mismatch runtime come corruzione e ha fatto rollback automatico al pre-import vuoto.

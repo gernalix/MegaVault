@@ -1,5 +1,12 @@
 # MultiTimeTracker Troubleshooting
 
+## Save failed `tasks: 1 -> 0` v529
+- Sintomo: ogni creazione o salvataggio mostra `Save failed` e `Critical persistent data loss blocked: tasks: 1 -> 0`.
+- Causa verificata nel prompt `#418762`: il campo `tasks` e' legacy/compat e puo essere vuoto in uno snapshot runtime valido; non va usato come drop critico nei salvataggi runtime.
+- Regola corretta: salvataggi runtime confrontano solo campi autorevoli/runtime-completi; import/replace DB completi continuano a bloccare anche `tasks` N>0->0.
+- SAF: se i Parent Tag risultano salvati internamente ma non nel file esterno, controllare il primario `multitimer.db`, non solo `.bak`; in v529 il primario viene copiato e validato esplicitamente.
+- Verifica rapida: `sqlite3 multitimer.db 'pragma quick_check'`, poi cercare nel JSON snapshot Since When/Parent Tag e controllare che `multitimer.db` non sia 0 byte.
+
 ## Incidente dati/export v528
 - Sintomo: tab Since When vuota, Parent Tag persi, export fermo o apparentemente vecchio, molti `.tmp`/`.bak`.
 - Causa verificata nel prompt `#739284`: rollback automatico dopo import DB valido; il mismatch era runtime (`activation-signature`), non corruzione del DB.

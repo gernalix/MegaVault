@@ -15,6 +15,9 @@
 - app/src/main/java/com/example/multitimetracker/persistence/IntegrityStatsSqlite.kt:169:while (c.moveToNext()) {
 
 ## Debito/rischi da considerare
+- Integrita dati `#418762`: distinguere sempre snapshot runtime/candidati temporanei/DB completi. I salvataggi runtime non devono usare `tasks` legacy come fonte autorevole; import/replace completi devono continuare a bloccare veri drop critici.
+- Export SAF `#418762`: non usare `DocumentFile.renameTo` come unica promozione del primario stabile. Ogni export deve validare tmp, `.bak` e primario finale prima di dichiarare successo.
+- Test persistence gate `#418762`: ogni patch che tocca persistenza, DB, export, import, recovery, backup, integrity check o guardie dati richiede creazione reale UI o device-equivalent di sessione/task, evento, Since When, Parent Tag, modifica entita, export SAF e restart persistence.
 - Integrita dati `#739284`: mantenere il guard current->candidate su ogni futuro import/restore/vault switch; non aggiungere import automatici silenziosi da snapshot storiche.
 - Export SAF `#739284`: eventuali future snapshot storiche devono restare max 10, validate prima della promozione, e non devono poter sovrascrivere DB piu nuovi senza log esplicito.
 - Recovery `#739284`: migliorare UI/report forense per mostrare all'utente il motivo specifico del blocco critico, non solo il messaggio generico di import non leggibile.
