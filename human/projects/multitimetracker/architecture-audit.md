@@ -1,5 +1,15 @@
 # MultiTimeTracker Architecture Audit
 
+## Prompt #947381
+- Scope: hardening definitivo autoexport/import SQLite SAF, copertura totale write path, sync status UI e coda anti-storm.
+- Found: la pipeline export aveva gia' tmp/bak/primario stabile, ma non aveva una coda single-flight globale per autoexport; una mutazione arrivata durante export poteva essere coperta da una richiesta successiva saltata dal throttle legacy.
+- Fixed: `PersistentMutationTracker` serializza gli autoexport, coalesca richieste ravvicinate con debounce 1200 ms, segna pending durante export e forza i follow-up finche' l'ultimo export riuscito copre l'ultima mutazione DB.
+- Fixed: `SyncStatusStore` registra mutazioni DB ed export in UTC/Z e non retriggera autoexport quando aggiorna metadati sync.
+- Fixed: `SqliteVault` richiede checkpoint WAL e `integrity_check` prima di modificare SAF, valida tmp/bak/primario finale e usa restore automatico da `.bak` quando il primario non e' valido.
+- Fixed: `MultiDbVaults` usa la stessa pipeline stabile tmp -> bak -> primario validato; percorsi alternativi non promuovono database senza `integrity_check`.
+- Guard: write path persistenti in SnapshotSqlite/SnapshotStore, SessionRepository, QuickEventRepository, AuditLogSqlite, UiPrefsStore e import/restore/clear DB marcano la mutazione e accodano autoexport; metadati sync esclusi per evitare loop.
+- Validation: `compileDebugKotlin`, `compileDebugAndroidTestKotlin`, `testDebugUnitTest`, hardcoded-string gate e `assembleDebug` PASS. TCL connectedDeviceTestAndroidTest mirato PASS 7/7 su `6102H - 12`; install/launch finale APK v531 PASS su TCL e Pixel 8a senza crash/ANR immediato.
+
 ## Prompt #418762
 - Scope: P0 v528 app bloccata da `Save failed` / `Critical persistent data loss blocked: tasks: 1 -> 0`, piu verifica Parent Tag autoexport SAF.
 - Code commit: `90da4c72d0f224f74741ff28fd97d12a69a34169` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.

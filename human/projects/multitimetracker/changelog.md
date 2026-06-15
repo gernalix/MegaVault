@@ -16,6 +16,19 @@
 - 2026-06-14: `#418762` P0 v529: corretto falso positivo `tasks: 1 -> 0` nei salvataggi runtime senza indebolire import/replace completi; corretto export SAF primario 0 byte e manual export spostato su IO; commit app `90da4c72d0f224f74741ff28fd97d12a69a34169`.
 - 2026-06-14: `#742913` v530: aggiunto audit testabile di parita DB interno <-> SAF su 17 tabelle utente, viste UTC/Z `export_*_utc_z`, fixture con archivi/soft-delete/settings/capsule state e import dopo clear interno; primo gate live TCL bloccato per ADB vuoto.
 - 2026-06-15: `#518204` v530: sbloccato TCL via ADB `192.168.1.200:33771`; installazione pulita deviceTest, test Gradle connected mirato e run manuale `am instrument` PASS; DB SAF reale estratto e ispezionato, 17 tabelle SAF == 17 interne post-import, nessuna differenza schema/righe, import dopo clear PASS.
+- 2026-06-15: `#947381` v531: hardening export/import SQLite SAF con checkpoint WAL obbligatorio, integrity_check sorgente/tmp/bak/finale, restore automatico primario->`.bak`, stato sync UI, copertura autoexport dei write path persistenti e coda single-flight anti-storm con debounce 1200 ms.
+
+## v531 prompt #947381
+- Export SQLite SAF: un solo percorso stabile `DB interno -> tmp -> bak -> primario`; ogni fase richiede checkpoint coerente o abort, `integrity_check` PASS e preservazione dell'ultimo export valido in caso di errore.
+- Restore: i candidati sono solo `multitimer.db` e `multitimer.db.bak`, in quest'ordine; `multitimer.db.tmp` non e' mai sorgente restore.
+- Vault SAF: da cartella pulita l'app mantiene solo `multitimer.db`, `multitimer.db.bak` e `multitimer.db.tmp` temporaneo; non introduce cancellazione aggressiva di file legacy.
+- Autoexport: `PersistentMutationTracker` marca ogni modifica persistente e usa una coda single-flight. Debounce scelto: 1200 ms. Richieste ravvicinate sono coalesced; modifiche durante export impostano pending e producono un export successivo finche' `last_successful_export_at >= last_database_mutation_at`.
+- Loop prevention: aggiornamenti di `last_export_attempt_at`, `last_successful_export_at`, `last_export_status`, errore/file/integrity non chiamano il mutation tracker e quindi non generano autoexport.
+- UI: indicatore sempre visibile in top bar con ✅ sincronizzato, ⟳ export in corso, ❌ modifiche non esportate, ⚠ ultimo export fallito. Il dialog mostra date locali, stato, errore, file SAF e ultimo integrity_check; le date persistite restano UTC/Z.
+- Invariant permanente: "Nessun percorso dell'app può esportare, importare, ripristinare o copiare database SQLite senza checkpoint coerente, integrity_check riuscito e fallback .bak verificato."
+- Invariant permanente: "Nessuna modifica persistente può bypassare l'infrastruttura di autoexport."
+- Verifica TCL: gruppo `PersistenceImportExportTest` mirato PASS 7/7 su `6102H - 12`: stable export, checkpoint failure abort, restore da .bak con tmp ignorato, stati sync, coalescing, follow-up export durante export e parita SAF/import.
+- Verifica finale: APK debug v531 installato e avviato su TCL `192.168.1.200:33771` e Pixel 8a `192.168.1.37:34033`; versione installata 531, nessun crash/ANR immediato nel campione logcat.
 
 ## v530 prompt #742913
 - Risultato codice: il DB SAF resta una copia validata del DB interno; nessuna entita utente risulta esportata in formato parziale separato.

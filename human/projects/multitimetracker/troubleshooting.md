@@ -1,5 +1,12 @@
 # MultiTimeTracker Troubleshooting
 
+## Sync status / autoexport v531
+- Indicatore top bar: ✅ significa che `last_successful_export_at` copre `last_database_mutation_at` con tolleranza massima 3 secondi; ⟳ indica export in corso; ❌ indica modifiche persistenti non ancora esportate; ⚠ indica ultimo export fallito.
+- Debounce autoexport: 1200 ms dopo una mutazione persistente. Durante il debounce e' normale vedere ❌ finche' l'export non parte o termina.
+- Anti-loop: se l'indicatore resta su ⟳ o l'export count cresce senza nuove mutazioni utente, controllare che solo `PersistentMutationTracker.record` aggiorni `last_database_mutation_at`; i metadati sync non devono chiamarlo.
+- Restore: per diagnosi usare solo `multitimer.db` e `multitimer.db.bak`; ignorare sempre `multitimer.db.tmp` come candidato.
+- Query minima file SAF: `sqlite3 multitimer.db 'pragma integrity_check'`; ripetere su `.bak` se il primario fallisce.
+
 ## Audit parita DB interno/SAF v530
 - Controllo minimo: non basta verificare che `multitimer.db` esista; confrontare schema e righe delle 17 tabelle utente interne contro il file SAF.
 - Query utili: `sqlite3 multitimer.db '.tables'`, `sqlite3 multitimer.db 'pragma quick_check'`, `sqlite3 multitimer.db \"select name,type from sqlite_master where type in ('table','view') order by type,name\"`.

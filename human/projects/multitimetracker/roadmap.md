@@ -15,6 +15,9 @@
 - app/src/main/java/com/example/multitimetracker/persistence/IntegrityStatsSqlite.kt:169:while (c.moveToNext()) {
 
 ## Debito/rischi da considerare
+- Autoexport anti-storm `#947381`: mantenere `PersistentMutationTracker` come unico trigger per autoexport. Debounce documentato 1200 ms; gli aggiornamenti sync metadata non devono mai chiamare `record` o generare un nuovo export.
+- SQLite SAF `#947381`: nessun percorso dell'app puo esportare, importare, ripristinare o copiare database SQLite senza checkpoint coerente, `integrity_check` riuscito e fallback `.bak` verificato.
+- Copertura write path `#947381`: nessuna modifica persistente puo bypassare l'infrastruttura di autoexport; ogni nuovo repository/DAO/setting persistente deve aggiornare `last_database_mutation_at` e accodare autoexport, esclusi solo i metadati sync stessi.
 - Parita SAF `#742913/#518204`: il test automatico v530 copre 17 tabelle e import dopo clear interno; il run live TCL e l'ispezione del DB reale sono PASS. Per futuri cambi schema/persistenza, non considerare chiuso un incidente dati senza prova device su `connectedDeviceTestAndroidTest` o ispezione DB reale equivalente.
 - Timestamp export `#742913`: mantenere le viste `export_*_utc_z` allineate a ogni nuova tabella/colonna timestamp; le colonne runtime epoch ms UTC restano necessarie per compatibilita import.
 - Integrita dati `#418762`: distinguere sempre snapshot runtime/candidati temporanei/DB completi. I salvataggi runtime non devono usare `tasks` legacy come fonte autorevole; import/replace completi devono continuare a bloccare veri drop critici.

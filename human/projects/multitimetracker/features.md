@@ -15,6 +15,8 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - `app/src/test/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleViewModelTest.kt`: JVM guard for AUDIT_LOG category mapping, filters, undo flag and time-machine projection.
 - `app/src/test/java/com/example/multitimetracker/capsules/sincewhen/SinceWhenCapsuleViewModelTest.kt`: JVM guard for SINCE_WHEN LifePeriod mutation, write guard and tag filtering.
 - `app/src/main/java/com/example/multitimetracker/persistence/SqliteVault.kt`: stable vault export con nomi esatti per database primario, temporaneo ed emergency copy; v528 valida tmp/promoted DB con integrity/schema/conteggi critici e non promuove candidati con perdita N>0->0.
+- `app/src/main/java/com/example/multitimetracker/persistence/PersistentMutationTracker.kt`: coda autoexport single-flight con debounce 1200 ms, coalescing richieste ravvicinate e follow-up export per mutazioni arrivate durante export.
+- `app/src/main/java/com/example/multitimetracker/persistence/SyncStatusStore.kt`: stato sync persistito in UTC/Z (`last_database_mutation_at`, `last_successful_export_at`, `last_export_attempt_at`, status, errore, file SAF, integrity_check) per indicatore UI ✅/⟳/❌/⚠.
 - `app/src/main/java/com/example/multitimetracker/persistence/CriticalDataGuard.kt`: guardia conteggi critici per tasks, sessions, tags, tagParents, lifePeriods, quick events, chains e settings.
 - `app/src/main/java/com/example/multitimetracker/persistence/ForensicLog.kt`: log persistente JSONL per export/import/recovery/critical drop con timestamp UTC, file coinvolti, conteggi e stacktrace.
 - `app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt`: BackupFolderInspection, FolderChosenEmpty, ExistingDataFound, RestoreSucceeded, RestoreFailed, FallbackToContinuation, FirstRunContinuationMode, BackupFolderInspectionKind
@@ -60,3 +62,8 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - Location/luoghi: nessuna entita location/geofence geografica e' presente nel modello attivo; `TimeFenceRule` e' temporale/tag-driven, non location-driven.
 - Timestamp: le colonne autorevoli restano epoch ms UTC per compatibilita runtime/import; il DB esportato contiene viste `export_*_utc_z` per ispezione UTC/Z di snapshot, history, audit, settings, integrity, sessions e Quick Events.
 - Test aggiunto: `PersistenceImportExportTest#sqliteVaultExportCoversAllInternalUserTablesAndImportsBackIdentically` crea fixture con sessioni, eventi, Since When, tag, parent tag, archivi/soft-delete, settings e capsule state; esporta SAF; confronta schema+righe di tutte le tabelle; cancella DB interno; importa dal SAF; ricontrolla snapshot, settings e tabelle.
+
+## Autoexport/restore SQLite SAF v531 (`#947381`)
+- Export obbligatorio: checkpoint WAL riuscito o abort; `integrity_check` del DB sorgente prima di toccare SAF; copia temporanea `multitimer.db.tmp`; validazione tmp; aggiornamento e validazione `multitimer.db.bak`; promozione primaria; `integrity_check` finale.
+- Restore automatico: prova `multitimer.db`, poi `multitimer.db.bak`; ogni candidato deve esistere, aprirsi come SQLite e passare `integrity_check`; `multitimer.db.tmp` e' solo file temporaneo e viene ignorato.
+- UI sync: top bar sempre visibile; ✅ solo se l'ultimo export riuscito copre l'ultima mutazione DB con tolleranza massima 3 secondi, ❌ per modifiche ancora non esportate, ⚠ per ultimo export fallito, ⟳ durante export.
