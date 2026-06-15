@@ -1,5 +1,13 @@
 # MultiTimeTracker Troubleshooting
 
+## Audit parita DB interno/SAF v530
+- Controllo minimo: non basta verificare che `multitimer.db` esista; confrontare schema e righe delle 17 tabelle utente interne contro il file SAF.
+- Query utili: `sqlite3 multitimer.db '.tables'`, `sqlite3 multitimer.db 'pragma quick_check'`, `sqlite3 multitimer.db \"select name,type from sqlite_master where type in ('table','view') order by type,name\"`.
+- Tabelle attese: `snapshot`, `snapshot_history`, `snapshot_payloads`, `audit_events`, `ui_prefs_mirror`, `integrity_stats`, `sessions`, `session_tags`, `quick_event_templates`, `quick_event_template_tags`, `quick_event_entries`, `quick_event_entry_tags`, `quick_event_template_fields`, `quick_event_entry_field_values`, `quick_event_macros`, `quick_event_macro_tags`, `quick_event_macro_actions`.
+- Timestamp: per ispezione usare le viste `export_*_utc_z`; i campi runtime restano epoch ms UTC e la UI continua a renderizzare in timezone locale.
+- Test automatico: `./gradlew :app:connectedDeviceTestAndroidTest -Pmtt.testBuildType=deviceTest -Pandroid.testInstrumentationRunnerArguments.class=com.example.multitimetracker.persistence.PersistenceImportExportTest#sqliteVaultExportCoversAllInternalUserTablesAndImportsBackIdentically --console=plain --no-daemon`.
+- Nota TCL `#518204`: il gate live e' PASS quando il device appare online via mDNS/TCP, per esempio `192.168.1.200:33771`; se `:5555` rifiuta ma `adb mdns services` mostra `_adb-tls-connect`, collegarsi alla porta mDNS e rieseguire il test mirato prima di dichiarare PASS.
+
 ## Save failed `tasks: 1 -> 0` v529
 - Sintomo: ogni creazione o salvataggio mostra `Save failed` e `Critical persistent data loss blocked: tasks: 1 -> 0`.
 - Causa verificata nel prompt `#418762`: il campo `tasks` e' legacy/compat e puo essere vuoto in uno snapshot runtime valido; non va usato come drop critico nei salvataggi runtime.

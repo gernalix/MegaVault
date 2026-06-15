@@ -14,6 +14,16 @@
 - 2026-06-12: `#294816` validazione v527 completata senza patch codice: TCL sbloccato UI/startup/bg-fg/clear-data PASS; Pixel debug v527 install/smoke PASS; docs app commit `5b7e76a2de28d9974235d5f8fcc2623c64251fca`.
 - 2026-06-13: `#739284` incidente P0 integrita dati v528: root cause rollback automatico di un DB importato valido dopo `activation-signature`; aggiunti CriticalDataGuard, ForensicLog, export SAF verificato, promozione interna current->candidate, retention/cleanup tmp/bak, test mirati TCL PASS.
 - 2026-06-14: `#418762` P0 v529: corretto falso positivo `tasks: 1 -> 0` nei salvataggi runtime senza indebolire import/replace completi; corretto export SAF primario 0 byte e manual export spostato su IO; commit app `90da4c72d0f224f74741ff28fd97d12a69a34169`.
+- 2026-06-14: `#742913` v530: aggiunto audit testabile di parita DB interno <-> SAF su 17 tabelle utente, viste UTC/Z `export_*_utc_z`, fixture con archivi/soft-delete/settings/capsule state e import dopo clear interno; primo gate live TCL bloccato per ADB vuoto.
+- 2026-06-15: `#518204` v530: sbloccato TCL via ADB `192.168.1.200:33771`; installazione pulita deviceTest, test Gradle connected mirato e run manuale `am instrument` PASS; DB SAF reale estratto e ispezionato, 17 tabelle SAF == 17 interne post-import, nessuna differenza schema/righe, import dopo clear PASS.
+
+## v530 prompt #742913
+- Risultato codice: il DB SAF resta una copia validata del DB interno; nessuna entita utente risulta esportata in formato parziale separato.
+- Copertura test: `PersistenceImportExportTest#sqliteVaultExportCoversAllInternalUserTablesAndImportsBackIdentically` confronta schema e righe di tutte le tabelle utente interne/SAF, verifica viste UTC/Z, cancella il DB interno, importa dal SAF e ricontrolla snapshot/settings/tabelle.
+- Entita coperte: sessioni, eventi Quick Events, Since When/life periods, tag, parent tag, alert/time-fence, chains, archivi/soft-delete, impostazioni utente, audit/integrity/history/capsule runtime state.
+- Esclusione: location/luoghi non esistono nel modello attivo; `TimeFenceRule` e' temporale/tag-driven.
+- Verifica locale: `compileDebugKotlin`, `testDebugUnitTest`, `compileDeviceTestAndroidTestKotlin`, `assembleDebug` PASS.
+- Verifica TCL #518204: `connectedDeviceTestAndroidTest` mirato PASS su TCL `6102H - 12`; run manuale `am instrument` PASS dopo installazione pulita e `pm clear`; artefatti DB estratti da `/sdcard/Android/data/com.example.multitimetracker.devicetest/files/full-parity-vault-test-artifacts/`; `quick_check` ok, 17 tabelle confrontate, nessuna differenza schema/righe, import dopo clear PASS.
 
 ## v529 prompt #418762
 - Causa reale 1: `CriticalDataGuard` confrontava lo snapshot corrente completo con un nuovo snapshot runtime valido in cui il campo legacy `tasks` puo diventare vuoto perche derivato dalle sessioni in esecuzione, non fonte autorevole.

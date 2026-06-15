@@ -52,3 +52,11 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - app/src/main/AndroidManifest.xml:17:android:fullBackupContent="@xml/backup_rules"
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:39:import com.example.multitimetracker.export.BackupFolderStore
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt: `onCreate` resta leggero; lo schema ensure v527 gira in IO tramite `ensureStartupSchemasForLaunch`.
+
+## Parita DB interno <-> SAF v530 (`#742913`)
+- Il file SAF stabile `multitimer.db` e' una copia SQLite validata del DB interno dopo checkpoint WAL; non e' un export parziale.
+- Tabelle utente analizzate e reimportabili: `snapshot`, `snapshot_history`, `snapshot_payloads`, `audit_events`, `ui_prefs_mirror`, `integrity_stats`, `sessions`, `session_tags`, `quick_event_templates`, `quick_event_template_tags`, `quick_event_entries`, `quick_event_entry_tags`, `quick_event_template_fields`, `quick_event_entry_field_values`, `quick_event_macros`, `quick_event_macro_tags`, `quick_event_macro_actions`.
+- Matrice copertura: sessioni -> `sessions`/`session_tags` e snapshot JSON `closedSessions`/`tagSessions`; eventi -> `quick_event_*` e snapshot JSON Quick Events; Since When/life periods -> snapshot JSON `lifePeriods`; tag -> snapshot JSON `tags` piu join tables; parent tag -> snapshot JSON `tagParents`; impostazioni -> `ui_prefs_mirror`; archivi/soft-delete -> `isArchived`/`isDeleted`/`deletedAtMs` e colonne `is_archived`/`deleted_at_ms`; capsule/state -> snapshot JSON runtime state, `audit_events`, `integrity_stats`, history tables.
+- Location/luoghi: nessuna entita location/geofence geografica e' presente nel modello attivo; `TimeFenceRule` e' temporale/tag-driven, non location-driven.
+- Timestamp: le colonne autorevoli restano epoch ms UTC per compatibilita runtime/import; il DB esportato contiene viste `export_*_utc_z` per ispezione UTC/Z di snapshot, history, audit, settings, integrity, sessions e Quick Events.
+- Test aggiunto: `PersistenceImportExportTest#sqliteVaultExportCoversAllInternalUserTablesAndImportsBackIdentically` crea fixture con sessioni, eventi, Since When, tag, parent tag, archivi/soft-delete, settings e capsule state; esporta SAF; confronta schema+righe di tutte le tabelle; cancella DB interno; importa dal SAF; ricontrolla snapshot, settings e tabelle.

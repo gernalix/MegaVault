@@ -15,6 +15,8 @@
 - app/src/main/java/com/example/multitimetracker/persistence/IntegrityStatsSqlite.kt:169:while (c.moveToNext()) {
 
 ## Debito/rischi da considerare
+- Parita SAF `#742913/#518204`: il test automatico v530 copre 17 tabelle e import dopo clear interno; il run live TCL e l'ispezione del DB reale sono PASS. Per futuri cambi schema/persistenza, non considerare chiuso un incidente dati senza prova device su `connectedDeviceTestAndroidTest` o ispezione DB reale equivalente.
+- Timestamp export `#742913`: mantenere le viste `export_*_utc_z` allineate a ogni nuova tabella/colonna timestamp; le colonne runtime epoch ms UTC restano necessarie per compatibilita import.
 - Integrita dati `#418762`: distinguere sempre snapshot runtime/candidati temporanei/DB completi. I salvataggi runtime non devono usare `tasks` legacy come fonte autorevole; import/replace completi devono continuare a bloccare veri drop critici.
 - Export SAF `#418762`: non usare `DocumentFile.renameTo` come unica promozione del primario stabile. Ogni export deve validare tmp, `.bak` e primario finale prima di dichiarare successo.
 - Test persistence gate `#418762`: ogni patch che tocca persistenza, DB, export, import, recovery, backup, integrity check o guardie dati richiede creazione reale UI o device-equivalent di sessione/task, evento, Since When, Parent Tag, modifica entita, export SAF e restart persistence.
