@@ -1,5 +1,10 @@
 # MultiTimeTracker Troubleshooting
 
+## Timestamp picker Enter v534
+- Se Invio/Enter del tastierino numerico non conferma un dialog timestamp, verificare che il flusso usi `MttDateTimePickerDialog` e non un picker duplicato.
+- Il commit deve passare da `KeyboardActions.onDone` oppure da `Key.Enter`/`Key.NumPadEnter` al validatore comune ora/minuti.
+- Il dialog deve restare aperto quando ora o minuti sono vuoti/fuori range; non aggiungere bypass per chiamante.
+
 ## Sync status / autoexport v531
 - Indicatore top bar: ✅ significa che `last_successful_export_at` copre `last_database_mutation_at` con tolleranza massima 3 secondi; ⟳ indica export in corso; ❌ indica modifiche persistenti non ancora esportate; ⚠ indica ultimo export fallito.
 - Debounce autoexport: 1200 ms dopo una mutazione persistente. Durante il debounce e' normale vedere ❌ finche' l'export non parte o termina.

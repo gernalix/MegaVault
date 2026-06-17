@@ -17,6 +17,13 @@
 - 2026-06-14: `#742913` v530: aggiunto audit testabile di parita DB interno <-> SAF su 17 tabelle utente, viste UTC/Z `export_*_utc_z`, fixture con archivi/soft-delete/settings/capsule state e import dopo clear interno; primo gate live TCL bloccato per ADB vuoto.
 - 2026-06-15: `#518204` v530: sbloccato TCL via ADB `192.168.1.200:33771`; installazione pulita deviceTest, test Gradle connected mirato e run manuale `am instrument` PASS; DB SAF reale estratto e ispezionato, 17 tabelle SAF == 17 interne post-import, nessuna differenza schema/righe, import dopo clear PASS.
 - 2026-06-15: `#947381` v531: hardening export/import SQLite SAF con checkpoint WAL obbligatorio, integrity_check sorgente/tmp/bak/finale, restore automatico primario->`.bak`, stato sync UI, copertura autoexport dei write path persistenti e coda single-flight anti-storm con debounce 1200 ms.
+- 2026-06-17: `#582941` v534: il dialog condiviso di modifica timestamp conferma con Invio/Enter del tastierino numerico Android dai campi ora/minuti quando il valore e' valido.
+
+## v534 prompt #582941
+- Fix: il picker timestamp condiviso usa campi ora/minuti Compose controllati con azione IME `Done` e gestione Enter/NumpadEnter hardware collegata allo stesso commit del pulsante OK/Confirm.
+- Validazione: ore valide `0..23`, minuti validi `0..59`; se un campo e' vuoto o fuori range, Enter non chiude il dialog e il campo resta in errore.
+- Copertura: la modifica e' centrale in `MttDateTimePickerDialog`, quindi vale per edit sessione, eventi Quick Events, Since When e Time Machine senza fork per schermata.
+- Versione: patch version, versionCode, versionName e footer UI passano da `533` a `534`.
 
 ## v531 prompt #947381
 - Export SQLite SAF: un solo percorso stabile `DB interno -> tmp -> bak -> primario`; ogni fase richiede checkpoint coerente o abort, `integrity_check` PASS e preservazione dell'ultimo export valido in caso di errore.
