@@ -1,6 +1,6 @@
 # PROJECT_INVENTORY
 
-Generated: 2026-06-13T05:05:00+02:00
+Generated: 2026-06-18T09:00:00+02:00
 
 | name | slug | path | remote | branch | git_status_count | docs_found | docs_archived | docs_skipped | dev |
 |---|---|---|---|---|---:|---:|---:|---:|---|
@@ -17,6 +17,7 @@ Generated: 2026-06-13T05:05:00+02:00
 | facebook-video-archiver | facebook-video-archiver | `/home/daniele/codex-workspace/facebook-video-archiver` | `none` | `work/v4-deep-discovery` | 16 | 8 | 8 | 0 | True |
 | facedownassup-downloader | facedownassup-downloader | `/home/daniele/codex-workspace/facedownassup-downloader` | `git@github.com:gernalix/facedownassup-downloader.git` | `main` | 0 | 5 | 0 | 0 | True |
 | git-change-ledger | git-change-ledger | `/home/daniele/codex-workspace/git-change-ledger` | `git@github.com:gernalix/git-change-ledger.git` | `main` | 0 | 6 | 0 | 0 | True |
+| grindr-web-exporter | grindr-web-exporter | `/home/daniele/codex-workspace/grindr-web-exporter` | `none` | `master` | 24 | 8 | 0 | 0 | True |
 | installa-app | installa-app | `/home/daniele/codex-workspace/installa-app` | `none` | `codex/prompt-582746` | 0 | 0 | 0 | 0 | True |
 | linux-mint-service-dashboard | linux-mint-service-dashboard | `/home/daniele/codex-workspace/linux-mint-service-dashboard` | `none` | `prompt-816-local-dashboard` | 21 | 12 | 12 | 0 | True |
 | Luoghi | luoghi | `/home/daniele/AndroidStudioProjects/Luoghi` | `git@github.com:gernalix/Luoghi.git` | `main` | 0 | 5 | 0 | 0 | True |
