@@ -3,117 +3,118 @@
 META:
 slug=soldi
 name=Soldi
-status=active
-type=Android app
+type=AndroidApp
+status=active_capsule_v2
 repo=/home/daniele/AndroidStudioProjects/Soldi
 remote=git@github.com:gernalix/Soldi.git
-branch=main
+branch=codex/prompt-739204-soldi-capsule
+package=com.gernalix.soldi
+platform=Android
+lang=Kotlin
+ui=Compose
+db=SQLite(Room)
+minSdk=29
+version=2
+apk=/home/daniele/AndroidStudioProjects/Soldi/app/build/outputs/apk/debug/2.apk
 metadata=/home/daniele/AndroidStudioProjects/Soldi/dev/project.metadata.json
 human_overview=/home/daniele/codex-workspace/MegaVault/human/projects/soldi/overview.md
 human_roadmap=/home/daniele/codex-workspace/MegaVault/human/projects/soldi/roadmap.md
 human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/soldi/changelog.md
 human_troubleshooting=/home/daniele/codex-workspace/MegaVault/human/projects/soldi/troubleshooting.md
-template_source=/home/daniele/codex-workspace/android-app-template
-backup_original=/home/daniele/AndroidStudioProjects/_backups/Soldi-original-dir-20260613-040309
-backup_verified_copy=/home/daniele/AndroidStudioProjects/_backups/Soldi-pre-template-20260613-040309
-relationship=Soldi_is_real_app;historical_template_source_once_only;not_live_template
 
 PURPOSE:
-domain=personal finance,expenses,transactions
-stage=real app at clean Android starter stage; may be developed normally
-implemented_features=Android launcher activity,Compose Hello Android screen,debug build
-non_features=no finance model,no persistence,no business logic
-template_note=template was extracted once from original clean Soldi; future Soldi work must not feed template automatically
+vision=track_money+products+prices+places+wealth;not_classic_accounting;financial_quantified_self
+mode=local_first+offline_first+sqlite_first
+taxonomy=tags_primary;no_category_tree
+flow=receipt_centric+product_centric+transaction_centric
+capsule=single app repo + Room DB + SAF SQLite vault + MegaVault docs
 
 STACK:
-platform=Android
-lang=Kotlin
-ui=Jetpack Compose Material3
-build=Gradle wrapper
-agp=9.2.1
-kotlin=2.2.10
-compose_bom=2026.02.01
-compileSdk=36.1
-minSdk=29
-package=com.gernalix.soldi
+android=AGP_9.2.1,Kotlin_2.2.10,Compose_BOM_2026.02.01,Room_2.8.4,KSP_2.2.10-2.0.2
+versioning=version.txt integer source; app asset soldi-version.txt; versionCode/versionName derived as 2
+i18n=res/values + res/values-it
+build=./gradlew testDebugUnitTest assembleDebug assembleDebugAndroidTest
+adb_tcl=QCGADUVOSSEYFES4 mDNS visible; pairing required before connected tests
 
 MAP:
 entry=app/src/main/java/com/gernalix/soldi/MainActivity.kt
-theme=app/src/main/java/com/gernalix/soldi/ui/theme/
-manifest=app/src/main/AndroidManifest.xml
-strings=app/src/main/res/values/strings.xml
-build=app/build.gradle.kts,settings.gradle.kts,gradle/libs.versions.toml
-metadata=dev/project.metadata.json
-tests=app/src/test/java/com/gernalix/soldi/ExampleUnitTest.kt,app/src/androidTest/java/com/gernalix/soldi/ExampleInstrumentedTest.kt
-
-ARCH:
-current=single Activity Compose starter
-state=no domain architecture selected
-boundary=do not add finance behavior unless explicitly requested
-template_boundary=do not use Soldi as generator source; use /home/daniele/codex-workspace/android-app-template
-
-FLOW:
-launch=Launcher -> MainActivity -> SoldiTheme -> Scaffold -> Greeting("Android")
-build=Gradle wrapper -> Android plugin -> debug APK
-generation=initial reset from android-app-template completed 2026-06-13; future new apps must not use Soldi as source
-
-INV:
-git=repo initialized at /home/daniele/AndroidStudioProjects/Soldi on branch main
-identity=namespace/applicationId/package/test assertion must stay com.gernalix.soldi
-app_name=res string must stay Soldi until product rename requested
-template=Soldi is not a template; do not copy future Soldi changes into android-app-template unless explicit migration requested
-new_apps=generate from android-app-template only,never from Soldi
-ignore=.gitignore excludes build outputs,.gradle,.kotlin,local.properties,APK artifacts,IDE transient files
-
-BUILD:
-cmd=cd /home/daniele/AndroidStudioProjects/Soldi && ./gradlew assembleDebug
-result=PASS 2026-06-13
-apk=/home/daniele/AndroidStudioProjects/Soldi/app/build/outputs/apk/debug/app-debug.apk
-apk_sha256=3e203d071d494c455764d5483f622de3695c5fb269fabd08fd6a24045a9db515
-warning=stripDebugDebugSymbols cannot strip libandroidx.graphics.path.so; packaged as-is
-env=ANDROID_HOME=/home/daniele/Android/Sdk
-
-TEST:
-smoke=./gradlew assembleDebug PASS 2026-06-13
-unit=starter ExampleUnitTest only
-instrumented=starter ExampleInstrumentedTest asserts com.gernalix.soldi; not run on device
-device_strategy=ADB device state may drift; verify with adb devices -l before connected tests
+db=app/src/main/java/com/gernalix/soldi/data/SoldiDatabase.kt
+entities=app/src/main/java/com/gernalix/soldi/data/SoldiEntities.kt
+dao=app/src/main/java/com/gernalix/soldi/data/SoldiDao.kt
+repo=app/src/main/java/com/gernalix/soldi/data/SoldiRepository.kt
+export=app/src/main/java/com/gernalix/soldi/data/SoldiExporter.kt
+domain=app/src/main/java/com/gernalix/soldi/domain/*
+tests=app/src/test/java/com/gernalix/soldi/SoldiCoreTest.kt;app/src/androidTest/java/com/gernalix/soldi/SoldiPersistenceInstrumentedTest.kt
 
 DATA:
-storage=TBD
-db=none
-backup=none_app_data_yet
-migration=none
+truth=internal Room SQLite /data/data/com.gernalix.soldi/databases/soldi.db
+tables=settings,accounts,tags,transaction_tags,chains,places,receipts,products,product_aliases,transactions,receipt_items,transaction_links,life_events,transaction_events,price_memory
+stable_ids=string ids with semantic seeds for defaults and UUID ids for user-created rows
+timestamps=UTC_Z ISO_INSTANT in persisted date/created_at/updated_at fields
+wealth_snapshot=derived_not_stored
+base_currency=settings.base_currency default DKK
+fallback_fx=settings.fallback_fx_EUR;historical_fx_status documents planned historical rates without breaking computability
+archive=tags/chains/places/products keep rows and hide archived from active suggestion queries
+
+EXPORT_IMPORT:
+baseline=adapted from MultiTimeTracker SQLite vault contract
+files=soldi.db,soldi.db.bak,soldi.db.tmp
+autoexport=SAF folder selected by user; every repository mutation triggers throttled SQLite export when configured
+manual_export=button exports current DB to configured SAF vault
+manual_import=OpenDocument imports SQLite candidate after PRAGMA integrity_check and schema validation
+atomicity=tmp copy -> validate -> bak -> promote -> validate; rollback from previous copy on failed promotion
+parity=import/export is SQLite database copy, not reduced JSON/CSV projection
+
+FEATURES:
+transactions=fast entry,title,amount,account,tags,chain,place,notes,balance_before,balance_after,impact_percent,UTC_Z
+accounts=default Cash DKK account; multi-currency-ready account model
+tags=unlimited multi-tag relation and archive preservation
+chains=default Lidl,Netto,Rema1000,Fotex,Bilka,Apotek,other plus aliases
+places=friendly named places with chain/address/lat/lon/radius fields
+receipts=OCR/manual text parser -> confirmation screen -> receipt + grouped bank transaction + receipt items
+products=canonical products,aliases,price_memory from receipt lines
+links=refund,reimbursement,correction,transfer,related supported by free type field and bidirectional one-tap jump
+life_events=table and UI state included in analytics model; transaction_event relation present
+analytics=place spend,chain spend,product best/avg price,receipt reconciliation,wealth current/high/low,map pins list
+search_sort_filter=transactions query+sort; all feature lists shown with archive status and active queries in repository
+month_ui=not forced
+
+INV:
+sqlite_is_truth=yes
+all_data_exportable=yes
+all_data_importable=yes
+no_category_tree=yes
+no_forced_month_sections=yes
+no_cloud_dependency=yes
+no_hidden_data=yes
+receipt_id_stable=yes
+entity_ids_stable=yes
+wealth_reconstructable=yes
+receipt_reconstructable=yes
+bank_comparable=yes
+product_history_preserved=yes
+version_visible_home_footer=yes
+
+TEST:
+unit=PASS ./gradlew testDebugUnitTest; covers export policy, OCR parser, wealth reconstruction, receipt reconstruction, bidirectional link navigation
+build=PASS ./gradlew assembleDebug; APK 2.apk sha256 8055e504cd865de7b2490cb9777ec47bc08d30c199118185b0efc731fd368ef4
+android_test_build=PASS ./gradlew assembleDebugAndroidTest; includes SQLite export/import roundtrip test
+tcl_status=BLOCKED until wireless debugging pairing code is provided; mdns pairing 192.168.1.200:36185 and connect 192.168.1.200:39737 observed 2026-06-18; adb connect failed before pairing
+pixel_status=ignored for final validation per user instruction
 
 DNB:
-item=do not commit local.properties/build outputs/APKs|why=machine-specific/generated|test=git status --ignored
-item=do not regenerate/overwrite Soldi for app creation|why=Soldi is real app|test=template generator refuses Soldi destination
-item=do not use Soldi as template source|why=template is independent frozen snapshot|test=new app source path is android-app-template
-item=do not change package casually|why=application identity|test=rg com.gernalix.soldi app dev
-
-BUG:
-known=none after generated debug build
-
-RISK:
-risk=app is still starter UI|trigger=assuming finance features exist|mitigation=mark non_features|test=read MainActivity.kt
-risk=template confusion|trigger=using Soldi to generate new apps|mitigation=document Soldi real-app boundary|test=README+AI docs contain guardrail
-risk=remote is private GitHub repo|trigger=cloning from unauthenticated host|mitigation=use authenticated SSH/GitHub access|test=git ls-remote origin refs/heads/main
+item=do not use Soldi as Android template source|why=Soldi is real app capsule|source=dev/project.metadata.json
+item=do not add mandatory category tree|why=tags replace categories|test=Room schema has tags not categories
+item=do not add cloud dependency|why=local/offline/sqlite first|test=only SAF user-selected export
+item=do not store wealth snapshots as source truth|why=wealth is reconstructable from accounts/fx|test=WEALTH_SNAPSHOT derived_not_stored
+item=do not bypass SQLite export parity|why=SQLite is truth|test=soldi.db vault copy
 
 ROAD:
-now=define MVP scope and data model
-next=choose persistence,probably Room/SQLite
-later=add finance screens,validation,backup/export if needed
-
-LINK:
-repo=/home/daniele/AndroidStudioProjects/Soldi
-metadata=/home/daniele/AndroidStudioProjects/Soldi/dev/project.metadata.json
-template_ai=/home/daniele/codex-workspace/MegaVault/ai/projects/android-app-template.md
-human_overview=/home/daniele/codex-workspace/MegaVault/human/projects/soldi/overview.md
-human_roadmap=/home/daniele/codex-workspace/MegaVault/human/projects/soldi/roadmap.md
-human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/soldi/changelog.md
-human_troubleshooting=/home/daniele/codex-workspace/MegaVault/human/projects/soldi/troubleshooting.md
+now=pair TCL and run connectedAndroidTest import/export roundtrip on TCL only
+next=expand OCR with chain-specific digital parsers and add historical FX table/migrations
+later=advanced behavior analytics,product photos,impulse/anomaly detection
 
 OPEN:
-architecture=TBD
-persistence=TBD
-remote_origin=git@github.com:gernalix/Soldi.git
+tcl_pairing=needs live wireless debugging pairing code from device
+historical_fx=planned structure documented; current fallback FX active
+gps_autodetect=fields/UI present; runtime GPS permission/autodetect not wired yet

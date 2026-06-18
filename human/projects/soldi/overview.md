@@ -1,15 +1,14 @@
 # Soldi
 
-Soldi is a real Android app at a clean starter stage.
+Soldi is now a local-first Android finance capsule.
 
 - Project path: `/home/daniele/AndroidStudioProjects/Soldi`
 - Package/applicationId: `com.gernalix.soldi`
-- Current UI: Android Studio Compose starter screen (`Hello Android`)
-- Build command: `./gradlew assembleDebug`
-- Verified debug APK: `app/build/outputs/apk/debug/app-debug.apk`
-- Template relationship: `Soldi` was only the one-time historical source used to extract `/home/daniele/codex-workspace/android-app-template`.
-- Guardrail: do not use `Soldi` to generate new apps.
-- Guardrail: do not copy future `Soldi` development back into the template unless explicitly requested as a template migration.
-- Original 2026-06-05 source preserved under `/home/daniele/AndroidStudioProjects/_backups/`
+- Version: `2`
+- Debug APK: `/home/daniele/AndroidStudioProjects/Soldi/app/build/outputs/apk/debug/2.apk`
+- Storage: internal Room SQLite database `soldi.db`
+- Export/import: user-selected SAF folder with stable `soldi.db`, `soldi.db.bak`, and transient `soldi.db.tmp`
+- UI: Compose screens for fast transactions, receipts/OCR confirmation, products, places, tags/chains, links, and analytics
+- Guardrail: `Soldi` is a real app, not a template source for new apps.
 
-No finance features or persistence are implemented yet.
+The app tracks transactions, accounts, tags, chains, places, receipts, products, aliases, receipt items, transaction links, life events, price memory, receipt reconciliation, and wealth analytics. Wealth snapshots are reconstructed from SQLite data instead of stored as a separate source of truth.

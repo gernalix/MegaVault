@@ -1,5 +1,15 @@
 # Soldi Changelog
 
+## 2026-06-18
+
+- Implemented prompt `#739204` as a capped local-first Android finance app.
+- Added Room/SQLite schema for accounts, transactions, tags, chains, places, receipts, products, aliases, receipt items, links, life events, transaction events, settings, and price memory.
+- Added Compose UI for fast entry, searchable/sortable transactions, receipt OCR confirmation, products, places, tags/chains, links, and analytics.
+- Added SQLite vault export/import modeled after the MultiTimeTracker stable-file policy: `soldi.db`, `soldi.db.bak`, `soldi.db.tmp`.
+- Added version source `version.txt`, footer `v2`, and debug APK `2.apk`.
+- Verified local unit tests, debug build, and androidTest APK build.
+- TCL device validation is pending wireless-debugging pairing; Pixel validation is intentionally ignored for this prompt.
+
 ## 2026-06-13
 
 - Clarified `Soldi`/template guardrail: `Soldi` is a real app, not a live template or future generation source.
