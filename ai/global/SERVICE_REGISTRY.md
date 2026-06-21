@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
 VERSION=1
-STATUS=ACTIVE
+STATUS=LEGACY_MINT_SYSTEMD_SNAPSHOT_CURRENT_WINDOWS_UNKNOWN
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-06-08+HOST_PROFILE+project_ai_docs+kuma_oracle_ssh_2026-06-10+prompt_391684_activitywatch+prompt_458217_kuma_hardening
+SOURCE=systemctl_live_2026-06-08+HOST_PROFILE+project_ai_docs+kuma_oracle_ssh_2026-06-10+prompt_391684_activitywatch+prompt_458217_kuma_hardening;current_windows_not_scanned_prompt_483920
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -12,6 +12,19 @@ SCOPE:
 scope=custom_project_infra_units
 exclude=desktop_autostart,package_default_services,third_party_background_units_unless_project_relevant
 unknown=remote_Oracle_non_Kuma_systemd_live_state
+
+CURRENT_WINDOWS_SERVICES:
+host=ThinkPad_P14s_Gen_5_AMD
+os=Windows_11_Pro
+codex_desktop=UNKNOWN
+android_plugin=UNKNOWN
+github_auth=UNKNOWN
+wsl=UNKNOWN
+docker=UNKNOWN
+backup_agents=UNKNOWN
+windows_services=UNKNOWN
+rule=verify_live_before_claiming_service_state
+constraint=do_not_assume_legacy_Mint_systemd_units_run_on_current_Windows_host
 
 ORACLE_RUNTIME:
 service=docker.service;host=ubuntu@150.230.148.128;state=active/running;enabled=enabled;purpose=Oracle_VM_Docker_runtime_for_Uptime_Kuma;verified=2026-06-12
@@ -44,7 +57,7 @@ health=api_status_ok_idle_latest_snapshot_9af6f07f
 repo=mint-cloud-backup
 purpose=cloud_backup_status_dashboard
 
-USER_SERVICES:
+LEGACY_MINT_USER_SERVICES:
 service=adb-wifi-autoconnect.service;scope=user;state=active/running;enabled=enabled;repo=android;purpose=ADB_Wi-Fi_Debug_auto_connect
 service=amici_fb.service;scope=user;state=failed/failed;enabled=static;repo=amici-fb;purpose=Facebook_friends_snapshot_SQLite_Telegram_Kuma
 service=android-sdk-auto-update.service;scope=user;state=failed/failed;enabled=static;repo=mint-manual-updates;purpose=Android_SDK_update_legacy_wrapper
@@ -75,7 +88,7 @@ service=transfer-vecchio-disco-adaptive-throttle.service;scope=user;state=active
 service=windowtabnotes.service;scope=user;state=active/running;enabled=enabled;repo=windowtabnotes;purpose=WindowTabNotes_local_daemon
 service=x11vnc-real-display.service;scope=user;state=active/running;enabled=enabled;repo=x11vnc-real-display;purpose=physical_XFCE_display_mirror
 
-SYSTEM_SERVICES:
+LEGACY_MINT_SYSTEM_SERVICES:
 service=disk-usage-monitor.service;scope=system;state=inactive/dead;enabled=static;repo=disk-usage-monitor;purpose=disk_usage_monitor_SQLite_Telegram_delta_Kuma_push
 service=dpkg-db-backup.service;scope=system;state=inactive/dead;enabled=static;repo=OS;purpose=dpkg_database_backup
 service=mint-cloud-backup.service;scope=system;state=inactive/dead;enabled=static;repo=mint-cloud-backup;purpose=restic_Backblaze_root_backup
@@ -88,7 +101,7 @@ service=remote-recovery-tmux.service;scope=system;state=active/running;enabled=e
 service=surface-no-suspend.service;scope=system;state=active/running;enabled=enabled;repo=surface-recovery-hardening;purpose=block_sleep_during_recovery
 service=transfer-usb-io-watchdog.service;scope=system;state=active/running;enabled=enabled;repo=surface-recovery-hardening;purpose=transfer_USB_IO_safety_watchdog
 
-USER_TIMERS:
+LEGACY_MINT_USER_TIMERS:
 timer=amici_fb.timer;scope=user;state=active/waiting;enabled=enabled;unit=amici_fb.service;schedule=OnCalendar=09:00
 timer=android-sdk-auto-update.timer;scope=user;state=active/waiting;enabled=enabled;unit=android-sdk-auto-update.service;schedule=OnCalendar=*-*-*_06:20:00;randomized=20m
 timer=codex-usage-monitor.timer;scope=user;state=inactive/dead;enabled=enabled;unit=codex-usage-monitor.service;schedule=OnCalendar=hourly
@@ -104,7 +117,7 @@ timer=parcel-tracker.timer;scope=user;state=active/waiting;enabled=enabled;unit=
 timer=terminal-logger-codex-snapshot.timer;scope=user;state=active/waiting;enabled=enabled;unit=terminal-logger-codex-snapshot.service;schedule=OnUnitActiveSec=30s
 timer=terminal-logger-maintenance.timer;scope=user;state=active/waiting;enabled=enabled;unit=terminal-logger-maintenance.service;schedule=daily;randomized=20m
 
-SYSTEM_TIMERS:
+LEGACY_MINT_SYSTEM_TIMERS:
 timer=disk-usage-monitor.timer;scope=system;state=active/waiting;enabled=enabled;unit=disk-usage-monitor.service;schedule=OnBootSec=2min+OnUnitActiveSec=5min+Persistent=true+AccuracySec=30s;Kuma_monitor_id=6
 timer=dpkg-db-backup.timer;scope=system;state=active/waiting;enabled=enabled;unit=dpkg-db-backup.service;schedule=daily
 timer=mint-cloud-backup.timer;scope=system;state=active/waiting;enabled=enabled;unit=mint-cloud-backup.service;schedule=daily;randomized=30m
@@ -112,7 +125,7 @@ timer=mint-cloud-backup-kuma-push.timer;scope=system;state=active/waiting;enable
 timer=mintupdate-automation-autoremove.timer;scope=system;state=active/waiting;enabled=enabled;unit=mintupdate-automation-autoremove.service;schedule=weekly;randomized=60m
 timer=mintupdate-automation-upgrade.timer;scope=system;state=active/waiting;enabled=enabled;unit=mintupdate-automation-upgrade.service;schedule=daily;randomized=60m
 
-SERVICE_CLASSIFICATION:
+LEGACY_MINT_SERVICE_CLASSIFICATION:
 service=adb-wifi-autoconnect.service;owner_project=android;runtime_scope=user;managed_by=systemd;criticality=important;failure_impact=ADB_wifi_reconnect_lost;safe_to_disable=ask
 service=amici_fb.service;owner_project=amici-fb;runtime_scope=user;managed_by=timer;criticality=important;failure_impact=facebook_snapshot_Telegram_Kuma_lost;safe_to_disable=ask
 service=android-sdk-auto-update.service;owner_project=mint-manual-updates;runtime_scope=user;managed_by=timer;criticality=optional;failure_impact=Android_SDK_auto_update_lost;safe_to_disable=ask
@@ -154,7 +167,7 @@ service=remote-recovery-tmux.service;owner_project=surface-recovery-hardening;ru
 service=surface-no-suspend.service;owner_project=surface-recovery-hardening;runtime_scope=system;managed_by=systemd;criticality=important;failure_impact=Surface_may_sleep_during_recovery;safe_to_disable=ask
 service=transfer-usb-io-watchdog.service;owner_project=surface-recovery-hardening;runtime_scope=system;managed_by=systemd;criticality=critical;failure_impact=USB_transfer_storage_error_guard_lost;safe_to_disable=no
 
-TIMER_CLASSIFICATION:
+LEGACY_MINT_TIMER_CLASSIFICATION:
 timer=amici_fb.timer;owner_project=amici-fb;runtime_scope=user;managed_by=systemd;criticality=important;failure_impact=amici_fb_schedule_lost;safe_to_disable=ask
 timer=android-sdk-auto-update.timer;owner_project=mint-manual-updates;runtime_scope=user;managed_by=systemd;criticality=optional;failure_impact=Android_SDK_update_schedule_lost;safe_to_disable=ask
 timer=codex-usage-monitor.timer;owner_project=codex-token-watcher;runtime_scope=user;managed_by=systemd;criticality=obsolete;failure_impact=none_current_monitor_disabled;safe_to_disable=yes
@@ -177,6 +190,7 @@ timer=mintupdate-automation-autoremove.timer;owner_project=OS;runtime_scope=syst
 timer=mintupdate-automation-upgrade.timer;owner_project=OS;runtime_scope=system;managed_by=systemd;criticality=important;failure_impact=automatic_upgrade_schedule_lost;safe_to_disable=ask
 
 OPEN:
+open=current_Windows_service_inventory_UNKNOWN_not_scanned_prompt_483920
 open=Oracle_VM_non_Kuma_systemd_units_not_live_verified_2026-06-10
 open=third_party_desktop_autostart_units_excluded_from_project_registry
 open=ActivityWatch_repo_not_found_local_install_only

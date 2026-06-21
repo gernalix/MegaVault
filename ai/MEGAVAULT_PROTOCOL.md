@@ -38,6 +38,7 @@ HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
 READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>ai_doc
 HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux
 UNKNOWN_RULE=mark_UNKNOWN
+HOST_CHANGE_RULE=distinguish_current_host_and_legacy_host;do_not_delete_legacy_context
 
 # ANDROID
 ANDROID_PROTOCOL=ai/global/ANDROID_PROTOCOL.md

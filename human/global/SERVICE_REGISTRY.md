@@ -1,24 +1,30 @@
 # Service Registry
 
-Mappa globale dei servizi e timer infrastrutturali verificati sul host Mint il 2026-06-08. Il file AI autorevole e' [SERVICE_REGISTRY.md](../../ai/global/SERVICE_REGISTRY.md).
+Mappa globale leggibile derivata da [SERVICE_REGISTRY AI](../../ai/global/SERVICE_REGISTRY.md). La fonte operativa e' il file AI; questo documento non va usato come sorgente per Codex.
 
-## Dashboard locali
+## Host corrente Windows
+
+Il ThinkPad P14s Gen 5 AMD con Windows 11 Pro e' l'host principale corrente. In questo prompt non e' stato fatto un inventario live dei servizi Windows: stato di Codex Desktop, plugin Android, auth GitHub, WSL, Docker, agent backup e servizi Windows sono `UNKNOWN`.
+
+Le unita' `systemd` sotto sono snapshot legacy del vecchio Surface/Linux Mint e non devono essere considerate attive sul ThinkPad.
+
+## Dashboard locali legacy
 
 - `system-service-dashboard.service`: user service attivo su `http://127.0.0.1:8788`, dashboard locale read-only dei servizi.
 - `mint-cloud-backup-dashboard.service`: system service attivo su `http://127.0.0.1:8765`, dashboard del backup cloud Mint.
 
-## Servizi user principali
+## Servizi user legacy principali
 
 - Attivi: `adb-wifi-autoconnect`, `aw-server`, `aw-watcher-afk`, `aw-watcher-window`, `aw-watcher-media-player`, `chatgpt-chrome-live-logger`, `codex-html-live`, `mint-freeze-forensics`, `mint-update-tracker`, `system-service-dashboard`, `terminal-logger-codex`, `transfer-vecchio-disco-adaptive-throttle`, `windowtabnotes`, `x11vnc-real-display`.
 - Timer attivi: `amici_fb`, `android-sdk-auto-update`, `home-backup-kuma-push`, `home-backup-retention-kuma-push`, `home-incremental-backup`, `mint-manual-updates`, `mint-resource-guardian`, `mint-update-tracker`, `mint-xfce-layout-guard`, `parcel-tracker`, `terminal-logger-codex-snapshot`, `terminal-logger-maintenance`.
 - Falliti al momento della discovery: `amici_fb.service`, `android-sdk-auto-update.service`, `terminal-logger-maintenance.service`.
 
-## Servizi system principali
+## Servizi system legacy principali
 
 - Attivi: `mint-cloud-backup-dashboard`, `mint-cloud-backup-monitor`, `remote-recovery-tmux`, `surface-no-suspend`, `transfer-usb-io-watchdog`.
 - Timer system attivi: `disk-usage-monitor`, `dpkg-db-backup`, `mint-cloud-backup`, `mint-cloud-backup-kuma-push`, `mintupdate-automation-autoremove`, `mintupdate-automation-upgrade`.
 
-## Ownership rifinita
+## Ownership legacy rifinita
 
 - `terminal-logger`: repo locale `/home/daniele/terminal-logger`.
 - `disk-usage-monitor`: repo locale `/home/daniele/disk_usage_monitor`.
@@ -26,7 +32,7 @@ Mappa globale dei servizi e timer infrastrutturali verificati sul host Mint il 2
 - `x11vnc-real-display`: artefatti runtime in `/home/daniele/remote_real_display_482`.
 - `ActivityWatch`: install locale/tool third-party; nessun repo MegaVault verificato. Runtime user systemd: `aw-server.service` su `default.target`; watcher `aw-watcher-afk`, `aw-watcher-window`, `aw-watcher-media-player` su target grafico ActivityWatch avviato al login XFCE.
 
-## Criticality
+## Criticality legacy
 
 - Critical: backup home/cloud, freeze forensics, mint update tracker, transfer USB/I/O guard e throttle.
 - Important: dashboard, terminal logger, WindowTabNotes, ADB Wi-Fi, disk usage monitor, parcel tracker e guard XFCE.
@@ -36,3 +42,4 @@ Mappa globale dei servizi e timer infrastrutturali verificati sul host Mint il 2
 
 - I servizi desktop/autostart e i servizi di pacchetti generici non sono elencati come infrastruttura di progetto salvo relazione diretta.
 - Le unita' Oracle VM non sono state verificate live: SSH verso la VM e' andato in timeout.
+- Per il ThinkPad verificare sempre servizi Windows e plugin live prima di dichiarare stato o dipendenze.

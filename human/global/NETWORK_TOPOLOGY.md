@@ -1,8 +1,15 @@
 # Network Topology
 
-Topologia di rete verificata dal vivo il 2026-06-08 e integrata con `HOST_PROFILE`. Il file AI autorevole e' [NETWORK_TOPOLOGY.md](../../ai/global/NETWORK_TOPOLOGY.md).
+Topologia di rete leggibile derivata da [NETWORK_TOPOLOGY AI](../../ai/global/NETWORK_TOPOLOGY.md). La fonte operativa e' il file AI; questo documento non va usato come sorgente per Codex.
 
-## Host locale
+## Host corrente Windows
+
+- Host corrente: ThinkPad P14s Gen 5 AMD.
+- OS: Windows 11 Pro.
+- Hostname, interfaccia principale, IP LAN, gateway, Wi-Fi, Tailscale e IP attuali dei telefoni sono `UNKNOWN`.
+- Non assumere per il ThinkPad l'IP LAN, Tailscale o gli IP ADB storici del Surface.
+
+## Host locale legacy
 
 - Host: `daniele-Surface-Pro`.
 - Interfaccia principale: `wlp1s0`, IP `192.168.1.97/24`, gateway `192.168.1.1`.
@@ -24,7 +31,8 @@ Topologia di rete verificata dal vivo il 2026-06-08 e integrata con `HOST_PROFIL
 
 Vista sintetica:
 
-- Surface: workstation locale, LAN `192.168.1.97`, Tailscale `100.68.141.10`.
+- ThinkPad: workstation principale corrente, LAN e Tailscale `UNKNOWN`.
+- Surface: workstation legacy, LAN `192.168.1.97`, Tailscale `100.68.141.10`.
 - Oracle VM: Kuma e backup remoti.
 - Kuma: alerting/storico/visualizzazione, non remediation.
 - Pixel 8a e TCL 6102H: target ADB Wi-Fi, da verificare live prima dell'uso.
@@ -32,5 +40,5 @@ Vista sintetica:
 ## Vincoli
 
 - Kuma e' storico, alerting e visualizzazione: un DOWN e' un segnale, non una prova conclusiva.
-- Per ADB Wi-Fi usare `adb devices -l`; mDNS/Avahi non basta.
+- Per ADB Wi-Fi usare una verifica live del device/plugin; `adb devices -l` o equivalente del workflow Windows, mDNS/Avahi non basta.
 - Non stampare URL push Kuma o token.
