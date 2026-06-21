@@ -11,6 +11,7 @@
 - 2026-06-02: follow-up UX v27: la sezione Messaging Links compare solo per link ancora `unverified`; i link `manually_confirmed` diventano icone rapide nel dettaglio contatto, i `manually_rejected` spariscono dalla scheda, e la gestione stati resta in dialog non permanente.
 - 2026-06-08: `#739284` ha consegnato v29 SAF root contract: la root scelta dall'utente deve contenere solo `photos/` e `super_contacts_backup.sqlite`. Le cartelle `photos (N)` vengono migrate in `photos`, i conflitti foto sono rinominati stabilmente senza perdita dati, l'export sovrascrive il backup canonico e non genera piu file temporanei o backup numerati nella root.
 - 2026-06-21: `#918406` continua `#742913` e consegna v31: Home con selezione multipla, seleziona/deseleziona tutti, tag e archivio bulk; archiviazione con tag esatto `archivio`; overlay chiamata persistente con X e apertura contatto trovato; schede in lettura senza campi vuoti; header Home piu compatto; eliminazione iniziative con conferma; scroll top su sort e pulsante su quando la lista e scesa.
+- 2026-06-22: `#604827` consegna v33: l'overlay chiamata non e piu un banner interno a SuperContacts ma una finestra di sistema Android (`SYSTEM_ALERT_WINDOW` + `WindowManager TYPE_APPLICATION_OVERLAY`) visibile sopra Dialer/altre app, con X e apertura contatto via deep link. Testato su Pixel 8a con screenshot sopra Dialer; l'utente ha confermato chiamata reale/self-call con overlay visibile.
 
 ## Evidenza audit
 - File codice/config/test/script analizzati: 96 / 96.
