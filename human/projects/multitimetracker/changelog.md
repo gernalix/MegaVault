@@ -9,6 +9,7 @@
 - 2026-06-01: `#539824` capsulizzazione: aggiunti SessionOwner owner API, QUICK_EVENTS/CHAINS/CSV ImportExport owner mutation, snapshot ALERTS boundary e guardrail estesi; commit app `15c1d2246bf641bd21b69d53f7a5a526b900f545`.
 - 2026-06-01: `#728419` capsulizzazione: eliminato il bridge AUDIT_LOG da MainViewModel; `AuditLogCapsuleViewModel` possiede filtri, refresh eventi, clear, undo e state audit log; commit app `d7f347e155e32757a23a968391fbcd5b15fe4060`.
 - 2026-06-01: `#462918` stabilizzazione post-capsulizzazione: audit ha trovato SINCE_WHEN/LifePeriod ancora root-owned; aggiunta `SinceWhenCapsuleViewModel` con boundary/test e validazione Pixel clone; commit app `7186e9a22041582bf903e6545d4b722bf61bea37`.
+- 2026-06-22: `#914506` Play Store closed-testing handoff: release APK/AAB buildabili ma unsigned, signing pipeline pronta con secret esterni, privacy/Data Safety/store listing/assets template creati nel repo app; commit app `89257cd96233ac0a28e65535c5c03f41178eca62`.
 
 ## v525 prompt #483921
 - Sidebar: la voce Impostazioni resta nel drawer e il drawer ora scorre, quindi la voce rimane raggiungibile anche su viewport bassi.
@@ -43,3 +44,9 @@
 ## Evidenza audit
 - File codice/config/test/script analizzati: 224 / 224.
 - Invarianti estratte: 90; data/storage facts: 80; rischi: 70; bug markers: 70.
+
+## prompt #914506
+- Build/test: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug`, `lintDebug`, `assembleRelease`, `bundleRelease` verdi.
+- Release: `app-release-unsigned.apk` e `app-release.aab` prodotti; firma release bloccata da keystore/password mancanti (`NEEDS_SECRET`).
+- Play docs: privacy policy, Data Safety, store listing, assets checklist e release signing handoff creati in `dev/human/play_store`.
+- Stato: Play Store readiness stimata 70 percento; closed testing non ancora ready finche mancano upload key, decisione definitiva su `applicationId`, URL privacy, dati publisher/contact, Data Safety finale e asset Play.

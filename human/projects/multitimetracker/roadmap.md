@@ -15,11 +15,13 @@
 - app/src/main/java/com/example/multitimetracker/persistence/IntegrityStatsSqlite.kt:169:while (c.moveToNext()) {
 
 ## Debito/rischi da considerare
+- Play Store `#914506`: release build e AAB PASS, ma firma release `NEEDS_SECRET`; prima del closed testing servono upload keystore/password, decisione definitiva su `applicationId=com.example.multitimetracker`, URL privacy pubblico, dati publisher/contact, Data Safety finale, target audience/content rating/category e asset Play.
 - Capsulizzazione `#539824`: session CRUD/stop policy, QUICK_EVENTS, CHAINS, snapshot ALERTS reconciliation e CSV ImportExport sono dietro capsule owner/API esplicite.
 - Capsulizzazione `#728419`: AUDIT_LOG filters/event refresh/clear/undo sono in `AuditLogCapsuleViewModel` con API esplicita verso session/tag owner e guardrail in `CapsuleBoundaryOwnershipTest`.
 - Capsulizzazione `#462918`: SINCE_WHEN/LifePeriod CRUD e duplicate-submit guard sono in `SinceWhenCapsuleViewModel`; il gap trovato nell'audit post-refactor e' chiuso.
 - Residuo MainViewModel: hook infrastrutturali comuni per composition root (state update, persistence, context, logging, core access), non business logic di feature documentata.
 - Stato `#462918`: capsulizzazione stimata 100 percento strict per ownership feature auditata dopo test JVM e Pixel clone verdi; future riduzioni devono riguardare solo il peso infrastrutturale della shell.
+- Stato `#914506`: Play Store readiness 70 percento; `dev/human/play_store/*` contiene template completi, ma closed testing resta bloccato da input/secret umani.
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:67:// v138 Capsule Audit Engine: emit known capsule boundary leaks in Logcat (debug only)
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:254:is FirstRunSetupState.RestoreFailed -> context.getString(R.string.first_run_restore_failed_title)
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:296:is FirstRunSetupState.RestoreFailed -> context.getString(

@@ -3,10 +3,11 @@ name=MultiTimeTracker
 slug=multitimetracker
 path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
-branch=codex/v488-release-safe-ui-lockdown
-verified_commit=7186e9a22041582bf903e6545d4b722bf61bea37
-verified_at=2026-06-01T23:04:04+02:00
-protocol=MEGAVAULT_PROTOCOL.md:v2
+local_path=C:/Users/seste/Documents/MTT
+branch=codex/play-store-readiness-roadmap
+verified_commit=89257cd96233ac0a28e65535c5c03f41178eca62
+verified_at=2026-06-22
+protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
 purpose=local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model
 STACK:
@@ -67,9 +68,13 @@ perf=app/src/main/java/com/example/multitimetracker/MainActivity.kt:72:val schem
 BUILD:
 files=app/build.gradle,app/build.gradle.kts,benchmark/build.gradle.kts,build.gradle.kts,gradle.properties
 cmd_hint=gradlew=present
+version=versionCode=489;versionName=489;applicationId=com.example.multitimetracker;namespace=com.example.multitimetracker;minSdk=26;targetSdk=36
+release=assembleRelease,bundleRelease PASS; apk=app/build/outputs/apk/release/app-release-unsigned.apk sha256=C70E1F66AA26C9CF7BB1718F63CD337726C9D453A78EDCC0C13640DFAAB8EFFB; aab=app/build/outputs/bundle/release/app-release.aab sha256=BDB14AD3B858D9A5F2CC4F75AD9A16F059E1C62A2BFE743BE976705BD3D705FA
+signing=NEEDS_SECRET; supports env/user-gradle-properties MTT_RELEASE_STORE_FILE,MTT_RELEASE_STORE_PASSWORD,MTT_RELEASE_KEY_ALIAS,MTT_RELEASE_KEY_PASSWORD; no keystore/secrets committed; docs=dev/human/play_store/release_signing.md
 TEST:
 files=app/src/test/java/com/example/multitimetracker/capsules/CapsuleBoundaryOwnershipTest.kt,app/src/test/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleViewModelTest.kt,app/src/test/java/com/example/multitimetracker/capsules/sincewhen/SinceWhenCapsuleViewModelTest.kt,app/src/androidTest/java/com/example/multitimetracker/ExampleInstrumentedTest.kt,app/src/androidTest/java/com/example/multitimetracker/MainViewModelRecoveryTest.kt,app/src/androidTest/java/com/example/multitimetracker/SessionOnlyE2eTest.kt,app/src/androidTest/java/com/example/multitimetracker/TimedSessionNotificationFlowTest.kt,app/src/androidTest/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModelTest.kt
-cmd=./gradlew :app:compileDebugKotlin --console=plain --no-daemon; ./gradlew :app:testDebugUnitTest --console=plain --no-daemon; ./gradlew :app:assembleDebug --console=plain --no-daemon
+cmd=./gradlew :app:compileDebugKotlin --console=plain --no-daemon; ./gradlew :app:testDebugUnitTest --console=plain --no-daemon; ./gradlew :app:assembleDebug --console=plain --no-daemon; ./gradlew :app:lintDebug --console=plain --no-daemon; ./gradlew :app:assembleRelease --console=plain --no-daemon; ./gradlew :app:bundleRelease --console=plain --no-daemon
+result_prompt_914506=PASS all 6 commands; warning only SDK XML version warning; release artifacts unsigned because upload keystore absent
 device=Pixel 8a 192.168.1.37:42135; clone_only appId=com.example.multitimetracker.devicetest version=525; testAppId=com.example.multitimetracker.devicetest.test
 device_cmd=./gradlew :app:connectedAndroidTest -Pmtt.testBuildType=deviceTest -x lintVitalDeviceTest -x lintVitalAnalyzeDeviceTest -x generateDeviceTestLintVitalReportModel --console=plain --no-daemon
 device_result=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; prompt #462918 also installed/launched clone appId=com.example.multitimetracker.devicetest and verified pid
@@ -82,6 +87,7 @@ import=app/src/main/java/com/example/multitimetracker/capsules/system/ImportExpo
 export=app/src/main/AndroidManifest.xml:31:android:exported="false"; app/src/main/AndroidManifest.xml:40:android:exported="true"
 migration=app/src/main/java/com/example/multitimetracker/MainActivity.kt:71:// v67: Defensive hardening for session-only schema (some DBs may miss tables despite user_version).; app/src/main/java/com/example/multitimetracker/MainActivity.kt:72:val...
 retention=app/src/main/java/com/example/multitimetracker/persistence/SnapshotSqlite.kt:500:db.execSQL("CREATE INDEX IF NOT EXISTS idx_${HISTORY_PAYLOAD_TABLE}_hash ON $HISTORY_PAYLOAD_TABLE(hash);"); app/src/main/java/com/example/multitimetracker/...
+privacy=local_first; storage=SQLite+SharedPreferences local; export_import=SAF user-selected files/folders; cloud=none in reviewed build; network=INTERNET permission absent; analytics/ads/crash/cloud SDK=not found in prompt_914506 static review
 DNB:
 dnb=app/src/main/AndroidManifest.xml:53:android:showWhenLocked="true"
 dnb=app/src/main/java/com/example/multitimetracker/MainActivity.kt:66:StartupPerfTrace.section("main_activity_on_create") {
@@ -90,6 +96,7 @@ dnb=app/src/main/java/com/example/multitimetracker/MainActivity.kt:104:val integ
 dnb=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// otherwise empty/default state could race against the real restore decision.
 dnb=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
 dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
+dnb=release:no committed keystore/secrets; Play first upload locks applicationId; confirm com.example.multitimetracker before closed testing
 BUG:
 issue=app/src/main/java/com/example/multitimetracker/MainActivity.kt:67:// v138 Capsule Audit Engine: emit known capsule boundary leaks in Logcat (debug only)
 issue=app/src/main/java/com/example/multitimetracker/MainActivity.kt:254:is FirstRunSetupState.RestoreFailed -> context.getString(R.string.first_run_restore_failed_title)
@@ -104,15 +111,17 @@ risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:104:val inte
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// otherwise empty/default state could race against the real restore decision.
 risk=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
 risk=capsules: MainViewModel is now composition shell/infrastructure bridge; feature business ownership is inside capsules, with AUDIT_LOG and SINCE_WHEN guarded by source/JVM tests plus Pixel clone gate
+risk=play_store_readiness prompt_914506: 70 percent; blockers=upload keystore,final applicationId decision,privacy URL,publisher/contact,Data Safety final confirmation,target audience/content rating/category,store assets/screenshots
 ROAD:
-now=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:98:// Persist permission for future sessions.
-next=app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt:110:// Roll back the saved URI to avoid future "Export fallito" loops.
-next=capsules: no feature bridge is currently documented; optional future work is shrinking MainViewModel infrastructure hooks only after preserving composition-root stability
+now=closed_testing_blockers: provide upload signing secret; confirm/rename applicationId before first Play upload; publish privacy policy URL; finalize Data Safety/content rating/target audience/category
+next=produce signed AAB from app/build/outputs/bundle/release/app-release.aab using configured release signing; upload to Play internal/closed testing after assets complete
 later=app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
 LINK:
 meta=../../../projects/MultiTimeTracker/dev/project.metadata.json
 human=../../human/projects/multitimetracker/overview.md
 legacy=../../../projects/MultiTimeTracker/dev/legacy
 repo=../../../projects/MultiTimeTracker
+play_docs=C:/Users/seste/Documents/MTT/dev/human/play_store
 OPEN:
 open=capsulization_feature_ownership: 100 percent strict including SINCE_WHEN after prompt #462918; MainViewModel still supplies shared composition/infrastructure APIs to capsules
+open=prompt_914506: p0_release_build=NEEDS_SECRET; privacy_policy/data_safety/store_listing/store_assets=NEEDS_USER_INPUT; closed_testing_ready=false until blockers resolved
