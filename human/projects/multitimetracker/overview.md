@@ -5,7 +5,7 @@ MultiTimeTracker is a local-first Android time tracker. The main data lives in t
 ## Stato e codice
 - Repository: `/home/daniele/codex-workspace/projects/MultiTimeTracker`
 - Repository locale Windows: `C:/Users/seste/Documents/MTT`
-- Branch/commit verificati: `codex/play-store-readiness-roadmap` / `f5938e59148d0412d305f14674cf978cfd7150a9` (`#517284`)
+- Branch/commit verificati: `codex/play-store-readiness-roadmap` / `f5938e537ccc94007dd5ed9da6eb0ec643a44a8d` (`#517284`)
 - File codice/config/test/script analizzati: 224 su 224
 - Stack rilevato: Kotlin, Python, Shell, Gradle, Jetpack Compose, Android
 - Validazione `#462918`: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug`; Pixel 8a clone `com.example.multitimetracker.devicetest` v525 con 53 instrumentation test, 3 skipped, 0 failed; clone install/launch ADB verificato con PID.

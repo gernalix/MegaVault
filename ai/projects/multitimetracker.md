@@ -5,7 +5,7 @@ path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
 local_path=C:/Users/seste/Documents/MTT
 branch=codex/play-store-readiness-roadmap
-verified_commit=f5938e59148d0412d305f14674cf978cfd7150a9
+verified_commit=f5938e537ccc94007dd5ed9da6eb0ec643a44a8d
 verified_at=2026-06-22
 protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
