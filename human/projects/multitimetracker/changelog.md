@@ -13,6 +13,7 @@
 - 2026-06-22: `#517284` chiusura offline Play Store: upload keystore locale ignorato creato, APK/AAB release firmati e verificati, checklist release aggiunta; commit app `f5938e537ccc94007dd5ed9da6eb0ec643a44a8d`.
 - 2026-06-22: `#684219` Play Console package finale: copy-paste pack, closed testing steps e release notes aggiunti; signing/properties/hash ricontrollati; commit app `a8a28e20a4be8fab0439ba28fb7f491b32747c9c`.
 - 2026-06-22: `#947263` incident recovery `wrong_branch_play_store_work_v489_instead_of_v528`: scoperto che il lavoro Play Store #914506/#517284/#684219 era sul branch `codex/play-store-readiness-roadmap` v489, mentre la linea reale piu recente era `origin/codex/v488-release-safe-ui-lockdown` poi promossa a `master` commit `00ecfd85a50ba30b927e759d4ed766040a25081c` con `MTT_VERSION=534`; creati e pushati i backup `backup/master-before-v528-recovery-20260622-093346` e `backup/v489-play-store-work-20260622-093346`.
+- 2026-06-22: `#395842` port Play Store su linea v534: creato branch `codex/v534-play-store-readiness-port`, portati selettivamente docs Play Store/signing/CI/readiness da v489, bump a `MTT_VERSION=535`, APK/AAB firmati e verificati; commit app `44c2b33e53ce98e02f95437bd5bc7eb3f16aa688`.
 
 ## v525 prompt #483921
 - Sidebar: la voce Impostazioni resta nel drawer e il drawer ora scorre, quindi la voce rimane raggiungibile anche su viewport bassi.
@@ -75,3 +76,12 @@
 - Test su master recuperato: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug` PASS; APK debug `versionCode=534`, `versionName=534`, asset patch `534`.
 - Recupero v489: documenti Play Store, workflow, signing wiring, privacy policy, Data Safety, listing, release notes e checklist sono riusabili solo come patch selettive da `backup/v489-play-store-work-20260622-093346`, con baseline aggiornata da 489 a 534.
 - Regola permanente: prima di qualsiasi lavoro release/Play Store/MultiTimeTracker, verificare branch attuale, branch remoto piu recente, versionCode piu alto in tutti i branch, coerenza MegaVault e roadmap attiva; se il branch corrente non contiene la versione piu alta nota, fermarsi e chiedere conferma.
+
+## prompt #395842
+- Base corretta: `origin/master` commit `00ecfd85a50ba30b927e759d4ed766040a25081c`, `MTT_VERSION=534`.
+- Branch porting: `codex/v534-play-store-readiness-port`; commit app finale `44c2b33e53ce98e02f95437bd5bc7eb3f16aa688`; versione finale `535`.
+- Recuperato da v489: `.github/workflows/android.yml`, release signing compatibile con secrets locali, ignore rules per keystore/segreti/build output, `dev/human/play_store/*`, `dev/ai/play_store_readiness.md`, roadmap/changelog readiness, release notes, privacy policy, Data Safety, store listing, closed testing steps, Play Console copy-paste pack, asset checklist.
+- Non recuperato da v489: vecchi `MainActivity`, `MainViewModel`, capsule, DB/SAF/import/export code, vecchi build file completi, `MTT_VERSION=489`, artifact generati, keystore e password. Motivo: avrebbero sovrascritto o degradato la linea v534.
+- Fix minimo consentito: aggiunta traduzione italiana `export_already_running` per chiudere `lintDebug`.
+- Verifica: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug`, `lintDebug`, `assembleRelease`, `bundleRelease` PASS; APK `B9C1FF563FCF517BAE9FA873D887BE236DA8FE7749C8E9A1FF25CBB7ED6CCF33`; AAB `C90054D4853021525EAAA15F46B238B8C78A4C5483F036414AB0FC58F2323E48`; `apksigner` e `jarsigner` PASS.
+- Device: Pixel non usato; TCL/emulator/Test Android Apps non usati per evitare smoke non necessario su dati/device.
