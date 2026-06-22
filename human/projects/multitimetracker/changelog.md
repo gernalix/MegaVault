@@ -10,6 +10,7 @@
 - 2026-06-01: `#728419` capsulizzazione: eliminato il bridge AUDIT_LOG da MainViewModel; `AuditLogCapsuleViewModel` possiede filtri, refresh eventi, clear, undo e state audit log; commit app `d7f347e155e32757a23a968391fbcd5b15fe4060`.
 - 2026-06-01: `#462918` stabilizzazione post-capsulizzazione: audit ha trovato SINCE_WHEN/LifePeriod ancora root-owned; aggiunta `SinceWhenCapsuleViewModel` con boundary/test e validazione Pixel clone; commit app `7186e9a22041582bf903e6545d4b722bf61bea37`.
 - 2026-06-22: `#914506` Play Store closed-testing handoff: release APK/AAB buildabili ma unsigned, signing pipeline pronta con secret esterni, privacy/Data Safety/store listing/assets template creati nel repo app; commit app `89257cd96233ac0a28e65535c5c03f41178eca62`.
+- 2026-06-22: `#517284` chiusura offline Play Store: upload keystore locale ignorato creato, APK/AAB release firmati e verificati, checklist release aggiunta; commit app `f5938e59148d0412d305f14674cf978cfd7150a9`.
 
 ## v525 prompt #483921
 - Sidebar: la voce Impostazioni resta nel drawer e il drawer ora scorre, quindi la voce rimane raggiungibile anche su viewport bassi.
@@ -50,3 +51,9 @@
 - Release: `app-release-unsigned.apk` e `app-release.aab` prodotti; firma release bloccata da keystore/password mancanti (`NEEDS_SECRET`).
 - Play docs: privacy policy, Data Safety, store listing, assets checklist e release signing handoff creati in `dev/human/play_store`.
 - Stato: Play Store readiness stimata 70 percento; closed testing non ancora ready finche mancano upload key, decisione definitiva su `applicationId`, URL privacy, dati publisher/contact, Data Safety finale e asset Play.
+
+## prompt #517284
+- Signing: creato keystore locale ignorato `local_signing/mtt-upload.p12` con alias `mtt-upload`, PKCS12, RSA-4096; password solo in `mtt-release.properties` ignorato.
+- Release: `app-release.apk` firmato e `app-release.aab` firmato prodotti; `apksigner` e `jarsigner` PASS.
+- Handoff: aggiunto `dev/human/play_store/release_checklist.md` e aggiornati readiness/release signing/assets/roadmap.
+- Stato: offline work PASS; restano input Play Console, backup chiave, privacy URL, Data Safety finale e asset.

@@ -5,7 +5,7 @@ path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
 local_path=C:/Users/seste/Documents/MTT
 branch=codex/play-store-readiness-roadmap
-verified_commit=89257cd96233ac0a28e65535c5c03f41178eca62
+verified_commit=f5938e59148d0412d305f14674cf978cfd7150a9
 verified_at=2026-06-22
 protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
@@ -69,12 +69,12 @@ BUILD:
 files=app/build.gradle,app/build.gradle.kts,benchmark/build.gradle.kts,build.gradle.kts,gradle.properties
 cmd_hint=gradlew=present
 version=versionCode=489;versionName=489;applicationId=com.example.multitimetracker;namespace=com.example.multitimetracker;minSdk=26;targetSdk=36
-release=assembleRelease,bundleRelease PASS; apk=app/build/outputs/apk/release/app-release-unsigned.apk sha256=C70E1F66AA26C9CF7BB1718F63CD337726C9D453A78EDCC0C13640DFAAB8EFFB; aab=app/build/outputs/bundle/release/app-release.aab sha256=BDB14AD3B858D9A5F2CC4F75AD9A16F059E1C62A2BFE743BE976705BD3D705FA
-signing=NEEDS_SECRET; supports env/user-gradle-properties MTT_RELEASE_STORE_FILE,MTT_RELEASE_STORE_PASSWORD,MTT_RELEASE_KEY_ALIAS,MTT_RELEASE_KEY_PASSWORD; no keystore/secrets committed; docs=dev/human/play_store/release_signing.md
+release=assembleRelease,bundleRelease PASS; signed_apk=app/build/outputs/apk/release/app-release.apk sha256=9575346BC001C04A19F298CFD915D391893DED66895C6B125CE7DFC0E15B3719; signed_aab=app/build/outputs/bundle/release/app-release.aab sha256=47C3417CCD0852A63D44B01BE0C9355E79E629C06B60EE240CAA338A44AA1518
+signing=PASS_LOCAL; keystore=C:/Users/seste/Documents/MTT/local_signing/mtt-upload.p12 ignored; alias=mtt-upload; store=PKCS12; key=RSA-4096; cert_sha256=be123696307075ad116218a6ed208d9ba96479597c94d366ab6dfbf3c71e7b61; secrets=C:/Users/seste/Documents/MTT/mtt-release.properties ignored; docs=dev/human/play_store/release_signing.md
 TEST:
 files=app/src/test/java/com/example/multitimetracker/capsules/CapsuleBoundaryOwnershipTest.kt,app/src/test/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleViewModelTest.kt,app/src/test/java/com/example/multitimetracker/capsules/sincewhen/SinceWhenCapsuleViewModelTest.kt,app/src/androidTest/java/com/example/multitimetracker/ExampleInstrumentedTest.kt,app/src/androidTest/java/com/example/multitimetracker/MainViewModelRecoveryTest.kt,app/src/androidTest/java/com/example/multitimetracker/SessionOnlyE2eTest.kt,app/src/androidTest/java/com/example/multitimetracker/TimedSessionNotificationFlowTest.kt,app/src/androidTest/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModelTest.kt
 cmd=./gradlew :app:compileDebugKotlin --console=plain --no-daemon; ./gradlew :app:testDebugUnitTest --console=plain --no-daemon; ./gradlew :app:assembleDebug --console=plain --no-daemon; ./gradlew :app:lintDebug --console=plain --no-daemon; ./gradlew :app:assembleRelease --console=plain --no-daemon; ./gradlew :app:bundleRelease --console=plain --no-daemon
-result_prompt_914506=PASS all 6 commands; warning only SDK XML version warning; release artifacts unsigned because upload keystore absent
+result_prompt_517284=PASS all 6 commands plus lintDebug; warning only SDK XML version warning; signed APK/AAB verify with apksigner/jarsigner
 device=Pixel 8a 192.168.1.37:42135; clone_only appId=com.example.multitimetracker.devicetest version=525; testAppId=com.example.multitimetracker.devicetest.test
 device_cmd=./gradlew :app:connectedAndroidTest -Pmtt.testBuildType=deviceTest -x lintVitalDeviceTest -x lintVitalAnalyzeDeviceTest -x generateDeviceTestLintVitalReportModel --console=plain --no-daemon
 device_result=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; prompt #462918 also installed/launched clone appId=com.example.multitimetracker.devicetest and verified pid
@@ -96,7 +96,7 @@ dnb=app/src/main/java/com/example/multitimetracker/MainActivity.kt:104:val integ
 dnb=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// otherwise empty/default state could race against the real restore decision.
 dnb=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
 dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
-dnb=release:no committed keystore/secrets; Play first upload locks applicationId; confirm com.example.multitimetracker before closed testing
+dnb=release:no committed keystore/secrets; backup local upload key before first Play upload; Play first upload locks applicationId; confirm com.example.multitimetracker before closed testing
 BUG:
 issue=app/src/main/java/com/example/multitimetracker/MainActivity.kt:67:// v138 Capsule Audit Engine: emit known capsule boundary leaks in Logcat (debug only)
 issue=app/src/main/java/com/example/multitimetracker/MainActivity.kt:254:is FirstRunSetupState.RestoreFailed -> context.getString(R.string.first_run_restore_failed_title)
@@ -111,10 +111,10 @@ risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:104:val inte
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// otherwise empty/default state could race against the real restore decision.
 risk=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
 risk=capsules: MainViewModel is now composition shell/infrastructure bridge; feature business ownership is inside capsules, with AUDIT_LOG and SINCE_WHEN guarded by source/JVM tests plus Pixel clone gate
-risk=play_store_readiness prompt_914506: 70 percent; blockers=upload keystore,final applicationId decision,privacy URL,publisher/contact,Data Safety final confirmation,target audience/content rating/category,store assets/screenshots
+risk=play_store_readiness prompt_517284: 88 percent; blockers=final applicationId decision,keystore backup,privacy URL,publisher/contact,Data Safety final confirmation,target audience/content rating/category,store assets/screenshots,Play Console acceptance
 ROAD:
-now=closed_testing_blockers: provide upload signing secret; confirm/rename applicationId before first Play upload; publish privacy policy URL; finalize Data Safety/content rating/target audience/category
-next=produce signed AAB from app/build/outputs/bundle/release/app-release.aab using configured release signing; upload to Play internal/closed testing after assets complete
+now=closed_testing_blockers: confirm/rename applicationId before first Play upload; backup local upload key; publish privacy policy URL; finalize Data Safety/content rating/target audience/category; create/upload store assets
+next=upload signed AAB app/build/outputs/bundle/release/app-release.aab to Play internal/closed testing and verify Console accepts signing/package/version/permissions/declarations
 later=app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
 LINK:
 meta=../../../projects/MultiTimeTracker/dev/project.metadata.json
@@ -124,4 +124,4 @@ repo=../../../projects/MultiTimeTracker
 play_docs=C:/Users/seste/Documents/MTT/dev/human/play_store
 OPEN:
 open=capsulization_feature_ownership: 100 percent strict including SINCE_WHEN after prompt #462918; MainViewModel still supplies shared composition/infrastructure APIs to capsules
-open=prompt_914506: p0_release_build=NEEDS_SECRET; privacy_policy/data_safety/store_listing/store_assets=NEEDS_USER_INPUT; closed_testing_ready=false until blockers resolved
+open=prompt_517284: p0_release_build=PASS offline; privacy_policy/data_safety/store_listing/store_assets=NEEDS_USER_INPUT; closed_testing_ready=OFFLINE_READY not PlayConsoleReady until manual Console steps complete
