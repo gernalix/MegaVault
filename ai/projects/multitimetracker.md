@@ -4,10 +4,11 @@ slug=multitimetracker
 path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
 local_path=C:/Users/seste/Documents/MTT
-branch=codex/play-store-readiness-roadmap
-verified_commit=a8a28e20a4be8fab0439ba28fb7f491b32747c9c
+branch=master
+verified_commit=00ecfd85a50ba30b927e759d4ed766040a25081c
 verified_at=2026-06-22
 protocol=MEGAVAULT_PROTOCOL.md:v3
+incident=wrong_branch_play_store_work_v489_instead_of_v528
 PURPOSE:
 purpose=local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model
 STACK:
@@ -68,14 +69,15 @@ perf=app/src/main/java/com/example/multitimetracker/MainActivity.kt:72:val schem
 BUILD:
 files=app/build.gradle,app/build.gradle.kts,benchmark/build.gradle.kts,build.gradle.kts,gradle.properties
 cmd_hint=gradlew=present
-version=versionCode=489;versionName=489;applicationId=com.example.multitimetracker;namespace=com.example.multitimetracker;minSdk=26;targetSdk=36
-release=assembleRelease,bundleRelease PASS; signed_apk=app/build/outputs/apk/release/app-release.apk sha256=8714D7592423F2CA03B405AD0ABF437A09DD13F2B5EA1B8365883EEEBBDEFBBE; signed_aab=app/build/outputs/bundle/release/app-release.aab sha256=7117442C8CFE24E111CEA6EAE9028074CF3F9F590E89638B7470DEBECBA4E6A1
-signing=PASS_LOCAL; keystore=C:/Users/seste/Documents/MTT/local_signing/mtt-upload.p12 ignored; alias=mtt-upload; store=PKCS12; key=RSA-4096; cert_sha256=be123696307075ad116218a6ed208d9ba96479597c94d366ab6dfbf3c71e7b61; secrets=C:/Users/seste/Documents/MTT/mtt-release.properties ignored; docs=dev/human/play_store/release_signing.md
+version=versionCode=534;versionName=534;asset_patch=534;applicationId=com.example.multitimetracker;namespace=com.example.multitimetracker;minSdk=26;targetSdk=36
+release=#947263 not re-run; MTT_UPLOAD_* env missing; v489 signed artifacts/docs were created on wrong branch and must be ported selectively from backup/v489-play-store-work-20260622-093346
+signing=NEEDS_SECRET_OR_PORT; local untracked C:/Users/seste/Documents/MTT/local_signing and mtt-release.properties exist after branch switch but are not committed to recovered master; never commit keystore/secrets
 TEST:
 files=app/src/test/java/com/example/multitimetracker/capsules/CapsuleBoundaryOwnershipTest.kt,app/src/test/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleViewModelTest.kt,app/src/test/java/com/example/multitimetracker/capsules/sincewhen/SinceWhenCapsuleViewModelTest.kt,app/src/androidTest/java/com/example/multitimetracker/ExampleInstrumentedTest.kt,app/src/androidTest/java/com/example/multitimetracker/MainViewModelRecoveryTest.kt,app/src/androidTest/java/com/example/multitimetracker/SessionOnlyE2eTest.kt,app/src/androidTest/java/com/example/multitimetracker/TimedSessionNotificationFlowTest.kt,app/src/androidTest/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModelTest.kt
 cmd=./gradlew :app:compileDebugKotlin --console=plain --no-daemon; ./gradlew :app:testDebugUnitTest --console=plain --no-daemon; ./gradlew :app:assembleDebug --console=plain --no-daemon; ./gradlew :app:lintDebug --console=plain --no-daemon; ./gradlew :app:assembleRelease --console=plain --no-daemon; ./gradlew :app:bundleRelease --console=plain --no-daemon
-result_prompt_684219=PASS compileDebugKotlin,testDebugUnitTest,assembleRelease,bundleRelease; warning only SDK XML version warning; signed APK/AAB verify with apksigner/jarsigner; no INTERNET/network/analytics/ads/crash SDK identifiers found
-device=Pixel 8a 192.168.1.37:42135; clone_only appId=com.example.multitimetracker.devicetest version=525; testAppId=com.example.multitimetracker.devicetest.test
+result_prompt_947263=PASS on recovered master 00ecfd85; commands=compileDebugKotlin,testDebugUnitTest,assembleDebug; debug APK metadata versionCode=534 versionName=534 asset_patch=534; Pixel not used
+result_prompt_684219=INVALID_BASELINE_FOR_MASTER; PASS existed on wrong branch codex/play-store-readiness-roadmap at a8a28e20 with MTT_VERSION=489 and must not be treated as release proof for master 534
+device=POLICY #947263: do not use Pixel; use TCL, Emulator, or Test Android Apps plugin only
 device_cmd=./gradlew :app:connectedAndroidTest -Pmtt.testBuildType=deviceTest -x lintVitalDeviceTest -x lintVitalAnalyzeDeviceTest -x generateDeviceTestLintVitalReportModel --console=plain --no-daemon
 device_result=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; prompt #462918 also installed/launched clone appId=com.example.multitimetracker.devicetest and verified pid
 DATA:
@@ -111,17 +113,18 @@ risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:104:val inte
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// otherwise empty/default state could race against the real restore decision.
 risk=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
 risk=capsules: MainViewModel is now composition shell/infrastructure bridge; feature business ownership is inside capsules, with AUDIT_LOG and SINCE_WHEN guarded by source/JVM tests plus Pixel clone gate
-risk=play_store_readiness prompt_684219: 92 percent; blockers=privacy URL,publisher/contact,Data Safety final Console confirmation,target audience/content rating/category,store assets/screenshots,tester list,Play Console acceptance
+risk=wrong_branch_play_store_work_v489_instead_of_v528: Play Store work #914506/#517284/#684219 was applied to codex/play-store-readiness-roadmap a8a28e20 MTT_VERSION=489 while real latest line was origin/codex/v488-release-safe-ui-lockdown -> master 00ecfd85 MTT_VERSION=534; backup branches pushed backup/master-before-v528-recovery-20260622-093346 and backup/v489-play-store-work-20260622-093346
+risk=play_store_readiness prompt_947263: recovered master has PASS debug compile/unit/assemble, strong P0 import/export/first-run history through v534, but Play Store docs/signing/listing from v489 are not on master and need selective port; readiness about 58 percent until docs/signing/assets are revalidated on v534
 ROAD:
-now=closed_testing_blockers: publish privacy policy URL; finalize Data Safety/content rating/target audience/category; create/upload store assets; create tester list; upload signed AAB to Play closed testing
-next=upload signed AAB app/build/outputs/bundle/release/app-release.aab to Play internal/closed testing and verify Console accepts signing/package/version/permissions/declarations
+now=branch_safety_before_release: always verify current branch, remote latest branch, highest versionCode across all refs, MegaVault branch/commit, active roadmap before Play Store/release work; if current branch lacks highest known version, stop and ask confirmation
+next=port_v489_play_store_docs_selectively_to_master_534: workflow/signing/privacy/Data Safety/listing/assets/checklist/release notes from backup/v489-play-store-work-20260622-093346 after adapting all baselines from 489 to 534
 later=app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
 LINK:
 meta=../../../projects/MultiTimeTracker/dev/project.metadata.json
 human=../../human/projects/multitimetracker/overview.md
 legacy=../../../projects/MultiTimeTracker/dev/legacy
 repo=../../../projects/MultiTimeTracker
-play_docs=C:/Users/seste/Documents/MTT/dev/human/play_store
+play_docs=not_on_master_534; source_to_port=backup/v489-play-store-work-20260622-093346:dev/human/play_store
 OPEN:
 open=capsulization_feature_ownership: 100 percent strict including SINCE_WHEN after prompt #462918; MainViewModel still supplies shared composition/infrastructure APIs to capsules
-open=prompt_684219: p0_release_build=PASS; release_notes=PASS; privacy_policy/data_safety/store_listing/assets/closed_testing_ready=NEEDS_USER_INPUT only for Play Console/owner values/assets
+open=incident_wrong_branch_play_store_work_v489_instead_of_v528: cause=release work started from stale branch; correct_line=master/origin/codex/v488-release-safe-ui-lockdown at 00ecfd85 MTT_VERSION=534; exact_v528_commit=8061d232e4afbf0e80e2cebbbf76233f7fa2fa18; next=port safe docs/build patches only, then rerun release gates

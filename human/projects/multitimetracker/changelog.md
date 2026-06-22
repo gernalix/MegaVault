@@ -12,6 +12,7 @@
 - 2026-06-22: `#914506` Play Store closed-testing handoff: release APK/AAB buildabili ma unsigned, signing pipeline pronta con secret esterni, privacy/Data Safety/store listing/assets template creati nel repo app; commit app `89257cd96233ac0a28e65535c5c03f41178eca62`.
 - 2026-06-22: `#517284` chiusura offline Play Store: upload keystore locale ignorato creato, APK/AAB release firmati e verificati, checklist release aggiunta; commit app `f5938e537ccc94007dd5ed9da6eb0ec643a44a8d`.
 - 2026-06-22: `#684219` Play Console package finale: copy-paste pack, closed testing steps e release notes aggiunti; signing/properties/hash ricontrollati; commit app `a8a28e20a4be8fab0439ba28fb7f491b32747c9c`.
+- 2026-06-22: `#947263` incident recovery `wrong_branch_play_store_work_v489_instead_of_v528`: scoperto che il lavoro Play Store #914506/#517284/#684219 era sul branch `codex/play-store-readiness-roadmap` v489, mentre la linea reale piu recente era `origin/codex/v488-release-safe-ui-lockdown` poi promossa a `master` commit `00ecfd85a50ba30b927e759d4ed766040a25081c` con `MTT_VERSION=534`; creati e pushati i backup `backup/master-before-v528-recovery-20260622-093346` e `backup/v489-play-store-work-20260622-093346`.
 
 ## v525 prompt #483921
 - Sidebar: la voce Impostazioni resta nel drawer e il drawer ora scorre, quindi la voce rimane raggiungibile anche su viewport bassi.
@@ -64,3 +65,13 @@
 - Release: `compileDebugKotlin`, `testDebugUnitTest`, `assembleRelease`, `bundleRelease`, `apksigner` e `jarsigner` PASS.
 - Handoff: aggiunti `closed_testing_steps.md`, `play_console_copy_paste.md`, `release_notes.md`; aggiornati privacy, Data Safety, listing, assets, checklist e AI readiness.
 - Stato: readiness 92 percento; resta solo input proprietario in Play Console e asset grafici.
+
+## prompt #947263
+- Incident: `wrong_branch_play_store_work_v489_instead_of_v528`.
+- Causa: il lavoro release/Play Store e' partito da `codex/play-store-readiness-roadmap` invece di verificare prima tutti i branch remoti e il versionCode piu alto.
+- Branch sbagliato: `codex/play-store-readiness-roadmap` / `a8a28e20a4be8fab0439ba28fb7f491b32747c9c` / `MTT_VERSION=489`.
+- Linea corretta: `origin/codex/v488-release-safe-ui-lockdown` promossa a `master` / `00ecfd85a50ba30b927e759d4ed766040a25081c` / `MTT_VERSION=534`; il commit esatto v528 nella storia e' `8061d232e4afbf0e80e2cebbbf76233f7fa2fa18`.
+- Master: aggiornato con fast-forward, senza force push, dopo backup branch pushati.
+- Test su master recuperato: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug` PASS; APK debug `versionCode=534`, `versionName=534`, asset patch `534`.
+- Recupero v489: documenti Play Store, workflow, signing wiring, privacy policy, Data Safety, listing, release notes e checklist sono riusabili solo come patch selettive da `backup/v489-play-store-work-20260622-093346`, con baseline aggiornata da 489 a 534.
+- Regola permanente: prima di qualsiasi lavoro release/Play Store/MultiTimeTracker, verificare branch attuale, branch remoto piu recente, versionCode piu alto in tutti i branch, coerenza MegaVault e roadmap attiva; se il branch corrente non contiene la versione piu alta nota, fermarsi e chiedere conferma.
