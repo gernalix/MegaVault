@@ -14,6 +14,7 @@
 - 2026-06-22: `#684219` Play Console package finale: copy-paste pack, closed testing steps e release notes aggiunti; signing/properties/hash ricontrollati; commit app `a8a28e20a4be8fab0439ba28fb7f491b32747c9c`.
 - 2026-06-22: `#947263` incident recovery `wrong_branch_play_store_work_v489_instead_of_v528`: scoperto che il lavoro Play Store #914506/#517284/#684219 era sul branch `codex/play-store-readiness-roadmap` v489, mentre la linea reale piu recente era `origin/codex/v488-release-safe-ui-lockdown` poi promossa a `master` commit `00ecfd85a50ba30b927e759d4ed766040a25081c` con `MTT_VERSION=534`; creati e pushati i backup `backup/master-before-v528-recovery-20260622-093346` e `backup/v489-play-store-work-20260622-093346`.
 - 2026-06-22: `#395842` port Play Store su linea v534: creato branch `codex/v534-play-store-readiness-port`, portati selettivamente docs Play Store/signing/CI/readiness da v489, bump a `MTT_VERSION=535`, APK/AAB firmati e verificati; commit app `44c2b33e53ce98e02f95437bd5bc7eb3f16aa688`.
+- 2026-06-22: `#628914` merge v535 Play Store su master: backup `backup/master-before-v535-play-store-merge-20260622-133603` creato/pushato, `master` fast-forwardato a `44c2b33e53ce98e02f95437bd5bc7eb3f16aa688`, validazione release PASS; da ora usare `master` v535 o superiore.
 
 ## v525 prompt #483921
 - Sidebar: la voce Impostazioni resta nel drawer e il drawer ora scorre, quindi la voce rimane raggiungibile anche su viewport bassi.
@@ -85,3 +86,11 @@
 - Fix minimo consentito: aggiunta traduzione italiana `export_already_running` per chiudere `lintDebug`.
 - Verifica: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug`, `lintDebug`, `assembleRelease`, `bundleRelease` PASS; APK `B9C1FF563FCF517BAE9FA873D887BE236DA8FE7749C8E9A1FF25CBB7ED6CCF33`; AAB `C90054D4853021525EAAA15F46B238B8C78A4C5483F036414AB0FC58F2323E48`; `apksigner` e `jarsigner` PASS.
 - Device: Pixel non usato; TCL/emulator/Test Android Apps non usati per evitare smoke non necessario su dati/device.
+
+## prompt #628914
+- Backup pre-merge: `backup/master-before-v535-play-store-merge-20260622-133603`, push PASS.
+- Merge: `master` fast-forwardato da `00ecfd85a50ba30b927e759d4ed766040a25081c` a `44c2b33e53ce98e02f95437bd5bc7eb3f16aa688`; push master PASS.
+- Validazione su master: `compileDebugKotlin`, `testDebugUnitTest`, `assembleDebug`, `lintDebug`, `assembleRelease`, `bundleRelease`, `apksigner`, `jarsigner` PASS.
+- Artifact: APK SHA-256 `06437AE0AD50E748FF12352E5A0C4B1B18F166DAD1E67FA88C9867F4131AFDAB`; AAB SHA-256 `D89D080CB2DFFEB9D88085B1E9714E87D2386B52A4E1E16E6455CC674726C902`.
+- Device/plugin: Test Android Apps valutato; non usato perche il gate richiesto era host-side release/signing. Pixel non usato.
+- Regola corrente: partire da `master` v535 o superiore per ogni lavoro MultiTimeTracker.
