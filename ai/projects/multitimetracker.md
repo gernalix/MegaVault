@@ -5,7 +5,7 @@ path=/home/daniele/codex-workspace/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
 local_path=C:/Users/seste/Documents/MTT
 branch=codex/play-store-readiness-roadmap
-verified_commit=f5938e537ccc94007dd5ed9da6eb0ec643a44a8d
+verified_commit=a8a28e20a4be8fab0439ba28fb7f491b32747c9c
 verified_at=2026-06-22
 protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
@@ -69,12 +69,12 @@ BUILD:
 files=app/build.gradle,app/build.gradle.kts,benchmark/build.gradle.kts,build.gradle.kts,gradle.properties
 cmd_hint=gradlew=present
 version=versionCode=489;versionName=489;applicationId=com.example.multitimetracker;namespace=com.example.multitimetracker;minSdk=26;targetSdk=36
-release=assembleRelease,bundleRelease PASS; signed_apk=app/build/outputs/apk/release/app-release.apk sha256=9575346BC001C04A19F298CFD915D391893DED66895C6B125CE7DFC0E15B3719; signed_aab=app/build/outputs/bundle/release/app-release.aab sha256=47C3417CCD0852A63D44B01BE0C9355E79E629C06B60EE240CAA338A44AA1518
+release=assembleRelease,bundleRelease PASS; signed_apk=app/build/outputs/apk/release/app-release.apk sha256=8714D7592423F2CA03B405AD0ABF437A09DD13F2B5EA1B8365883EEEBBDEFBBE; signed_aab=app/build/outputs/bundle/release/app-release.aab sha256=7117442C8CFE24E111CEA6EAE9028074CF3F9F590E89638B7470DEBECBA4E6A1
 signing=PASS_LOCAL; keystore=C:/Users/seste/Documents/MTT/local_signing/mtt-upload.p12 ignored; alias=mtt-upload; store=PKCS12; key=RSA-4096; cert_sha256=be123696307075ad116218a6ed208d9ba96479597c94d366ab6dfbf3c71e7b61; secrets=C:/Users/seste/Documents/MTT/mtt-release.properties ignored; docs=dev/human/play_store/release_signing.md
 TEST:
 files=app/src/test/java/com/example/multitimetracker/capsules/CapsuleBoundaryOwnershipTest.kt,app/src/test/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleViewModelTest.kt,app/src/test/java/com/example/multitimetracker/capsules/sincewhen/SinceWhenCapsuleViewModelTest.kt,app/src/androidTest/java/com/example/multitimetracker/ExampleInstrumentedTest.kt,app/src/androidTest/java/com/example/multitimetracker/MainViewModelRecoveryTest.kt,app/src/androidTest/java/com/example/multitimetracker/SessionOnlyE2eTest.kt,app/src/androidTest/java/com/example/multitimetracker/TimedSessionNotificationFlowTest.kt,app/src/androidTest/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModelTest.kt
 cmd=./gradlew :app:compileDebugKotlin --console=plain --no-daemon; ./gradlew :app:testDebugUnitTest --console=plain --no-daemon; ./gradlew :app:assembleDebug --console=plain --no-daemon; ./gradlew :app:lintDebug --console=plain --no-daemon; ./gradlew :app:assembleRelease --console=plain --no-daemon; ./gradlew :app:bundleRelease --console=plain --no-daemon
-result_prompt_517284=PASS all 6 commands plus lintDebug; warning only SDK XML version warning; signed APK/AAB verify with apksigner/jarsigner
+result_prompt_684219=PASS compileDebugKotlin,testDebugUnitTest,assembleRelease,bundleRelease; warning only SDK XML version warning; signed APK/AAB verify with apksigner/jarsigner; no INTERNET/network/analytics/ads/crash SDK identifiers found
 device=Pixel 8a 192.168.1.37:42135; clone_only appId=com.example.multitimetracker.devicetest version=525; testAppId=com.example.multitimetracker.devicetest.test
 device_cmd=./gradlew :app:connectedAndroidTest -Pmtt.testBuildType=deviceTest -x lintVitalDeviceTest -x lintVitalAnalyzeDeviceTest -x generateDeviceTestLintVitalReportModel --console=plain --no-daemon
 device_result=BUILD SUCCESSFUL; connectedDeviceTestAndroidTest ran 53 tests on Pixel 8a, 3 skipped, 0 failed; prompt #462918 also installed/launched clone appId=com.example.multitimetracker.devicetest and verified pid
@@ -111,9 +111,9 @@ risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:104:val inte
 risk=app/src/main/java/com/example/multitimetracker/MainActivity.kt:188:// otherwise empty/default state could race against the real restore decision.
 risk=app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt:63:private val canonicalSupportEntries = setOf("vaults", "exports", "logs", "tmp")
 risk=capsules: MainViewModel is now composition shell/infrastructure bridge; feature business ownership is inside capsules, with AUDIT_LOG and SINCE_WHEN guarded by source/JVM tests plus Pixel clone gate
-risk=play_store_readiness prompt_517284: 88 percent; blockers=final applicationId decision,keystore backup,privacy URL,publisher/contact,Data Safety final confirmation,target audience/content rating/category,store assets/screenshots,Play Console acceptance
+risk=play_store_readiness prompt_684219: 92 percent; blockers=privacy URL,publisher/contact,Data Safety final Console confirmation,target audience/content rating/category,store assets/screenshots,tester list,Play Console acceptance
 ROAD:
-now=closed_testing_blockers: confirm/rename applicationId before first Play upload; backup local upload key; publish privacy policy URL; finalize Data Safety/content rating/target audience/category; create/upload store assets
+now=closed_testing_blockers: publish privacy policy URL; finalize Data Safety/content rating/target audience/category; create/upload store assets; create tester list; upload signed AAB to Play closed testing
 next=upload signed AAB app/build/outputs/bundle/release/app-release.aab to Play internal/closed testing and verify Console accepts signing/package/version/permissions/declarations
 later=app/src/main/java/com/example/multitimetracker/persistence/AuditLogSqlite.kt:32:* - It makes future "Time Travel" (replay log into a past snapshot) possible.
 LINK:
@@ -124,4 +124,4 @@ repo=../../../projects/MultiTimeTracker
 play_docs=C:/Users/seste/Documents/MTT/dev/human/play_store
 OPEN:
 open=capsulization_feature_ownership: 100 percent strict including SINCE_WHEN after prompt #462918; MainViewModel still supplies shared composition/infrastructure APIs to capsules
-open=prompt_517284: p0_release_build=PASS offline; privacy_policy/data_safety/store_listing/store_assets=NEEDS_USER_INPUT; closed_testing_ready=OFFLINE_READY not PlayConsoleReady until manual Console steps complete
+open=prompt_684219: p0_release_build=PASS; release_notes=PASS; privacy_policy/data_safety/store_listing/assets/closed_testing_ready=NEEDS_USER_INPUT only for Play Console/owner values/assets

@@ -11,6 +11,7 @@
 - 2026-06-01: `#462918` stabilizzazione post-capsulizzazione: audit ha trovato SINCE_WHEN/LifePeriod ancora root-owned; aggiunta `SinceWhenCapsuleViewModel` con boundary/test e validazione Pixel clone; commit app `7186e9a22041582bf903e6545d4b722bf61bea37`.
 - 2026-06-22: `#914506` Play Store closed-testing handoff: release APK/AAB buildabili ma unsigned, signing pipeline pronta con secret esterni, privacy/Data Safety/store listing/assets template creati nel repo app; commit app `89257cd96233ac0a28e65535c5c03f41178eca62`.
 - 2026-06-22: `#517284` chiusura offline Play Store: upload keystore locale ignorato creato, APK/AAB release firmati e verificati, checklist release aggiunta; commit app `f5938e537ccc94007dd5ed9da6eb0ec643a44a8d`.
+- 2026-06-22: `#684219` Play Console package finale: copy-paste pack, closed testing steps e release notes aggiunti; signing/properties/hash ricontrollati; commit app `a8a28e20a4be8fab0439ba28fb7f491b32747c9c`.
 
 ## v525 prompt #483921
 - Sidebar: la voce Impostazioni resta nel drawer e il drawer ora scorre, quindi la voce rimane raggiungibile anche su viewport bassi.
@@ -57,3 +58,9 @@
 - Release: `app-release.apk` firmato e `app-release.aab` firmato prodotti; `apksigner` e `jarsigner` PASS.
 - Handoff: aggiunto `dev/human/play_store/release_checklist.md` e aggiornati readiness/release signing/assets/roadmap.
 - Stato: offline work PASS; restano input Play Console, backup chiave, privacy URL, Data Safety finale e asset.
+
+## prompt #684219
+- Verifica: `mtt-release.properties` punta a `local_signing/mtt-upload.p12`; keystore, segreti e build outputs sono ignorati.
+- Release: `compileDebugKotlin`, `testDebugUnitTest`, `assembleRelease`, `bundleRelease`, `apksigner` e `jarsigner` PASS.
+- Handoff: aggiunti `closed_testing_steps.md`, `play_console_copy_paste.md`, `release_notes.md`; aggiornati privacy, Data Safety, listing, assets, checklist e AI readiness.
+- Stato: readiness 92 percento; resta solo input proprietario in Play Console e asset grafici.
