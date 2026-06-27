@@ -1,11 +1,12 @@
 # MegaVault Projects
 
-Updated: 2026-06-05T13:11:18+02:00
+Updated: 2026-06-27T11:30:00+02:00
 
 | Project | What it is | Human overview | AI doc | metadata |
 |---|---|---|---|---|
 | SuperContacts | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-device validation. | [overview](projects/supercontacts/overview.md) | [AI](../ai/projects/supercontacts.md) | [metadata](../../SuperContacts/dev/project.metadata.json) |
 | WindowTabNotes | Root repository: `WindowTabNotes/`. | [overview](projects/windowtabnotes/overview.md) | [AI](../ai/projects/windowtabnotes.md) | [metadata](../../WindowTabNotes/dev/project.metadata.json) |
+| Windows Winget Daily Update | Daily Windows package source refresh and upgrade automation via winget. | [overview](projects/windows-winget-daily-update/overview.md) | [AI](../ai/projects/windows-winget-daily-update.md) | metadata absent |
 | android-sdk-auto-update | Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu. | [overview](projects/android-sdk-auto-update/overview.md) | [AI](../ai/projects/android-sdk-auto-update.md) | [metadata](../../android-sdk-auto-update/dev/project.metadata.json) |
 | aw-converter | UNKNOWN: source docs do not state a clear purpose. | [overview](projects/aw-converter/overview.md) | [AI](../ai/projects/aw-converter.md) | [metadata](../../aw-converter/dev/project.metadata.json) |
 | chatgpt-chrome-debug | ChatGPT Chrome Redirect Debug Toolkit | [overview](projects/chatgpt-chrome-debug/overview.md) | [AI](../ai/projects/chatgpt-chrome-debug.md) | [metadata](../../chatgpt-chrome-debug/dev/project.metadata.json) |

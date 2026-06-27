@@ -1,11 +1,12 @@
 # PROJECT_INDEX
 
-Updated: 2026-06-05T13:11:18+02:00
+Updated: 2026-06-27T11:30:00+02:00
 
 | name | slug | purpose | AI doc | Human overview | metadata | repo |
 |---|---|---|---|---|---|---|
 | SuperContacts | supercontacts | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-device validation. | [AI](projects/supercontacts.md) | [Human](../human/projects/supercontacts/overview.md) | [metadata](../../SuperContacts/dev/project.metadata.json) | [repo](../../SuperContacts) |
 | WindowTabNotes | windowtabnotes | Root repository: `WindowTabNotes/`. | [AI](projects/windowtabnotes.md) | [Human](../human/projects/windowtabnotes/overview.md) | [metadata](../../WindowTabNotes/dev/project.metadata.json) | [repo](../../WindowTabNotes) |
+| Windows Winget Daily Update | windows-winget-daily-update | Daily Windows package source refresh and upgrade automation via winget. | [AI](projects/windows-winget-daily-update.md) | [Human](../human/projects/windows-winget-daily-update/overview.md) | metadata absent | [repo](../../windows/maintenance) |
 | android | android | Host-local Android helper project; currently owns the Linux Mint user service for ADB Wi-Fi Debug auto-connect across Pixel and TCL. | [AI](projects/android.md) | [Human](../human/projects/android/overview.md) | [metadata](../../projects/android/dev/project.metadata.json) | [repo](../../projects/android) |
 | android-sdk-auto-update | android-sdk-auto-update | Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu. | [AI](projects/android-sdk-auto-update.md) | [Human](../human/projects/android-sdk-auto-update/overview.md) | [metadata](../../android-sdk-auto-update/dev/project.metadata.json) | [repo](../../android-sdk-auto-update) |
 | aw-converter | aw-converter | UNKNOWN: source docs do not state a clear purpose. | [AI](projects/aw-converter.md) | [Human](../human/projects/aw-converter/overview.md) | [metadata](../../aw-converter/dev/project.metadata.json) | [repo](../../aw-converter) |
