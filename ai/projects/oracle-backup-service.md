@@ -4,9 +4,9 @@ slug=oracle-backup-service
 path=/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service
 remote=https://github.com/gernalix/oracle-backup-service.git
 branch=fix/degraded-healthcheck-state
-verified_commit=058c59b
-verified_at=2026-06-01T13:59:53+02:00
-protocol=MEGAVAULT_PROTOCOL.md:v2
+verified_commit=2026-06-29-live
+verified_at=2026-06-29T13:55:44Z
+protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
 purpose=Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, and the current SQLite snapshot directory, then reco
 STACK:
@@ -35,11 +35,14 @@ flow=data->scripts/backup.sh
 flow=scripts/backup.sh:4:ENV_FILE="/etc/oracle_backup/oracle_backup.env"
 flow=scripts/backup.sh:5:STATE_DIR="/var/lib/oracle_backup"
 flow=scripts/backup.sh:6:LOG_DIR="/var/log/oracle_backup"
+flow=fallback_quota=backup.sh runs LOCAL_FALLBACK retention before refusing BACKUP_BLOCKED_FALLBACK_QUOTA and forces retention again after successful local fallback.
 INV:
 arch=scripts/backup.sh:heartbeat_loop,cleanup_failed_snapshot,cleanup_on_exit,snapshot_one_db,record_remote_failure; scripts/check_backup_health.py:load_env_file,read_text,read_epoch,notify,int_cfg; scripts/prune_local_snapshots.sh:bytes_from...
 data=scripts/oracle-backup-healthcheck.sh:5:LEGACY_STATE_FILE="${ORACLE_BACKUP_HEALTHCHECK_STATE_FILE:-/var/lib/oracle_backup/healthcheck_state.json}"; systemd/oracle-backup-healthcheck.service:2:Description=Oracle backup preventive healthcheck
 ux=scripts/oracle-backup-healthcheck.sh:82:echo "[ERROR] could not acquire healthcheck alert lock: $HEALTHCHECK_ALERT_LOCK_FILE" >&2; scripts/check_backup_health.py:94:["systemctl", "is-active", "--quiet", name],
 backup=scripts/backup.sh:4:ENV_FILE="/etc/oracle_backup/oracle_backup.env"; scripts/backup.sh:5:STATE_DIR="/var/lib/oracle_backup"
+backup=LOCAL_FALLBACK_QUOTA_CHECK_ONLY must bypass MIN_BACKUP_INTERVAL_SECONDS; quota check updates /var/lib/oracle_backup/local_fallback_quota_state.json without starting backup.
+backup=If remote StorageLimitExceeded and fallback quota projected full, run configured restic retention first; block only if quota still fails after retention.
 migration=UNKNOWN
 version=dev/project.metadata.json:9:"metadata_version": 1,
 i18n=UNKNOWN
@@ -60,6 +63,7 @@ import=scripts/check_backup_health.py:9:from pathlib import Path; scripts/oracle
 export=scripts/backup.sh:24:export RESTIC_PASSWORD; scripts/backup.sh:25:if [[ -n "${RCLONE_BWLIMIT:-}" ]]; then export RCLONE_BWLIMIT="$RCLONE_BWLIMIT"; fi
 migration=UNKNOWN
 retention=scripts/prune_local_snapshots.sh:4:STATE_DIR="/var/lib/oracle_backup"; scripts/prune_local_snapshots.sh:5:SNAP_DIR="$STATE_DIR/sqlite_snapshots"
+retention=local_fallback uses LOCAL_FALLBACK_KEEP_LAST=11 default, LOCAL_FALLBACK_RETENTION_GROUP_BY=host,tags default; backup.sh force-runs it pre-write on quota pressure and post-success after fallback.
 DNB:
 dnb=scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
 dnb=scripts/backup.sh:68:exec 9>"$RESTIC_RUN_LOCK"
@@ -71,6 +75,7 @@ dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only task
 BUG:
 issue=scripts/oracle-backup-healthcheck.sh:19:LOCAL_FALLBACK_RETENTION_ERROR_FILE="/var/lib/oracle_backup/local_fallback_retention_last_error"
 issue=scripts/oracle-backup-healthcheck.sh:56:export LOCAL_FALLBACK_RETENTION_STATUS_FILE LOCAL_FALLBACK_RETENTION_ERROR_FILE
+issue=2026-06-29 BACKUP_BLOCKED_FALLBACK_QUOTA root cause: remote OCI StorageLimitExceeded forced local fallback; fallback repo had reclaimable snapshots but backup.sh checked quota before forcing retention and post-success retention skipped due interval. Fix: ensure_local_fallback_quota_available + forced post-success retention + quota-check bypasses min interval.
 RISK:
 risk=scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
 risk=scripts/backup.sh:68:exec 9>"$RESTIC_RUN_LOCK"
@@ -92,3 +97,4 @@ open=tests=UNKNOWN_OR_ABSENT
 open=2026-06-05 prompt 918364: Oracle VM live state checked. /dev/sda1 was 45G total, 39G used, 6.6G free, 86%; after safe cleanup it is 38G used, 7.5G free, 84%. Cleanup applied only to apt cache, archived journald vacuum to 300M, and gzip compression of /var/log/syslog.1. No restic repo, emergency repo, sqlite snapshot, DB, WAL, or current log was deleted.
 open=2026-06-05 remote quota remains critical: REMOTE_QUOTA_PATH=oci:bucket-20260206-0730, used=22.262 GBytes / 23903533548 bytes, critical=21GiB, assumed limit=22GiB. Remote repo rclone:oci:bucket-20260206-0730/oraclevm has 837 snapshots in group host=instance-20260201-1126 tags=oracle-vm,autosnap-5min, oldest 2026-05-02T01:33:03Z, newest 2026-05-05T05:27:01Z. Policy is RESTIC_KEEP_LAST=48 and RESTIC_FORGET_GROUP_BY=host,tags, but standard restic operations cannot create locks because OCI returns StorageLimitExceeded on locks/*. Do not run destructive no-lock prune without explicit operator approval or temporary quota headroom.
 open=2026-06-05 alert posture: backup monitor and healthcheck are rate-limited/deduplicated; check_remote_quota.py only writes /var/lib/oracle_backup/remote_quota_state.json and logs to journald. Fallback local repo /var/lib/oracle_backup/emergency_repo is valid with 27 snapshots and 9.572GiB raw-data; do not delete it while remote is degraded.
+open=2026-06-29 live healthcheck after fix: WARNING only for REMOTE_DEGRADED remote quota full; local_fallback_quota=OK repo 5.25GiB < soft 5.60GiB hard 7.00GiB, last local fallback success 2026-06-29T13:43:27Z.

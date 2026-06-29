@@ -36,6 +36,13 @@
 - Fallback locale valido: `/var/lib/oracle_backup/emergency_repo`, 27 snapshot, circa 9.572 GiB raw-data. Non cancellare finche' il remoto e' degradato.
 - Pulizia `/` applicata senza toccare backup/DB: `apt-get clean`, `journalctl --vacuum-size=300M`, compressione `/var/log/syslog.1` in `/var/log/syslog.1.gz`; spazio passato da 6.6G liberi/86% a 7.5G liberi/84%.
 
+## Stato 2026-06-29
+- Root cause `BACKUP_BLOCKED_FALLBACK_QUOTA`: remoto OCI ancora pieno (`StorageLimitExceeded`), fallback locale usato, retention locale non forzata prima/dopo i write fallback.
+- Fix live: `/opt/oracle_backup/backup.sh` forza la retention restic locale quando la quota fallback bloccherebbe un write e la forza di nuovo dopo un fallback riuscito.
+- Non cancellare file in `/var/lib/oracle_backup/emergency_repo`; usare policy restic configurata (`LOCAL_FALLBACK_KEEP_LAST=11`, `LOCAL_FALLBACK_RETENTION_GROUP_BY=host,tags`).
+- Healthcheck finale: `BACKUP_BLOCKED_FALLBACK_QUOTA` risolto; stato residuo `WARNING REMOTE_DEGRADED` finche' OCI resta pieno.
+- `strano_anello.db`: circa `6.2G` (`6573379584` bytes), quindi un singolo stream fallback puo' consumare gran parte della riserva prewrite.
+
 ## Safety prima di correggere
 - scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
 - Non cancellare `/var/lib/oracle_backup/emergency_repo`, `/var/lib/oracle_backup/sqlite_snapshots`, DB SQLite, WAL/SHM o repo restic per liberare spazio senza snapshot/verifica e policy documentata.
