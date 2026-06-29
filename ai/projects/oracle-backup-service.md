@@ -47,6 +47,9 @@ migration=UNKNOWN
 version=dev/project.metadata.json:9:"metadata_version": 1,
 i18n=UNKNOWN
 security=scripts/backup.sh:24:export RESTIC_PASSWORD; scripts/prune.sh:13:export RESTIC_PASSWORD
+access=vm_host=ubuntu@150.230.148.128; hostname=instance-20260201-1126; ssh_key_primary_windows=C:\Users\seste\Downloads\Telegram Desktop\ssh-key-2026-02-01.key; do_not_store_key_contents.
+access=ssh_cmd=ssh -i "C:\Users\seste\Downloads\Telegram Desktop\ssh-key-2026-02-01.key" -o IdentitiesOnly=yes ubuntu@150.230.148.128
+access=windows_acl_note=OpenSSH may reject primary key if ACL too open; fix/copy with restrictive ACL or use validated maintenance key C:\Users\seste\Documents\windows\maintenance\ssh\oracle-uptime-kuma-reset.key.
 perf=scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"; scripts/backup.sh:16:BACKUP_HEARTBEAT_FILE="$STATE_DIR/backup_heartbeat_epoch"
 BUILD:
 files=UNKNOWN

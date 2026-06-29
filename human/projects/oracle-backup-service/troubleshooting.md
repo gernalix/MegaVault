@@ -43,6 +43,14 @@
 - Healthcheck finale: `BACKUP_BLOCKED_FALLBACK_QUOTA` risolto; stato residuo `WARNING REMOTE_DEGRADED` finche' OCI resta pieno.
 - `strano_anello.db`: circa `6.2G` (`6573379584` bytes), quindi un singolo stream fallback puo' consumare gran parte della riserva prewrite.
 
+## Accesso VM
+- Host: `ubuntu@150.230.148.128`.
+- Hostname atteso: `instance-20260201-1126`.
+- Chiave SSH primaria Windows: `C:\Users\seste\Downloads\Telegram Desktop\ssh-key-2026-02-01.key`.
+- Comando: `ssh -i "C:\Users\seste\Downloads\Telegram Desktop\ssh-key-2026-02-01.key" -o IdentitiesOnly=yes ubuntu@150.230.148.128`.
+- Se Windows OpenSSH rifiuta la chiave per ACL troppo aperte, usare una copia temporanea con permessi stretti o la chiave manutenzione verificata: `C:\Users\seste\Documents\windows\maintenance\ssh\oracle-uptime-kuma-reset.key`.
+- Non copiare mai il contenuto della chiave nei documenti MegaVault.
+
 ## Safety prima di correggere
 - scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
 - Non cancellare `/var/lib/oracle_backup/emergency_repo`, `/var/lib/oracle_backup/sqlite_snapshots`, DB SQLite, WAL/SHM o repo restic per liberare spazio senza snapshot/verifica e policy documentata.
