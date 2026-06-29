@@ -90,7 +90,7 @@ retention=scripts/prune_local_snapshots.sh:4:STATE_DIR="/var/lib/oracle_backup";
 retention=local_fallback uses LOCAL_FALLBACK_KEEP_LAST=11 default, LOCAL_FALLBACK_RETENTION_GROUP_BY=host,tags default; backup.sh force-runs it pre-write on quota pressure and post-success after fallback.
 retention=remote uses RESTIC_KEEP_LAST=48 and RESTIC_FORGET_GROUP_BY=host,tags; blocked while OCI rejects lock writes.
 quota=LOCAL_FALLBACK_MAX_GB=7; LOCAL_FALLBACK_SOFT_PCT=80; LOCAL_FALLBACK_PREWRITE_RESERVE_GB=1; LOCAL_FALLBACK_ROOT_MIN_FREE_GB=1.
-live=2026-06-29 strano_anello.db=6573379584 bytes, wal~11MiB, shm=32KiB.
+live=2026-06-29 strano_anello.db fixed by strano-anello intervention; final db=2351104 bytes, wal=0, shm=32768; pre-fix backup zst=/var/lib/oracle_backup/manual_db_backups/strano_anello.pre-maintenance-20260629T145430Z.db.zst.
 DNB:
 dnb=scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
 dnb=scripts/backup.sh:68:exec 9>"$RESTIC_RUN_LOCK"
@@ -118,13 +118,13 @@ risk=scripts/backup.sh:105:ORACLE_BACKUP_LOCK_HELD=1 /opt/oracle_backup/prune_lo
 risk=scripts/check_backup_health.py:144:active_grace_min = int_cfg(cfg, "BACKUP_ACTIVE_GRACE_MINUTES", max(threshold_min * 3, 60))
 risk=scripts/check_backup_health.py:145:active_grace_seconds = active_grace_min * 60
 risk=remote OCI StorageLimitExceeded blocks restic locks and standard remote prune.
-risk=strano_anello.db about 6.2G means one fallback stream can consume much of 1GiB prewrite reserve if retention does not run after write.
+risk=strano_anello.db historical 6.2G bloat fixed 2026-06-29; current DB small, but backup zst 161MiB exists under /var/lib/oracle_backup/manual_db_backups.
 risk=manual deletion inside restic repo can corrupt backup; only use restic policy commands.
 risk=Windows OpenSSH may reject primary key due permissive ACL; use restrictive copy or verified maintenance key.
 ROAD:
 now=REMOTE_DEGRADED accepted while fallback valid and quota OK; monitor healthcheck for recurrence.
 next=restore remote OCI headroom, then run standard /opt/oracle_backup/prune.sh without --no-lock.
-later=consider right-sizing remote quota/retention based on strano_anello.db growth and backup cadence.
+later=monitor strano_anello.db remains small; no backup quota right-sizing needed if diagnostics retention holds.
 LINK:
 meta=https://github.com/gernalix/oracle-backup-service/blob/fix/degraded-healthcheck-state/dev/project.metadata.json
 human=../../human/projects/oracle-backup-service/overview.md
