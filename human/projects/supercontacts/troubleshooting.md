@@ -1,5 +1,19 @@
 # SuperContacts Troubleshooting
 
+## INSTALL_FAILED_UPDATE_INCOMPATIBLE
+- Sintomo: `adb install -r output/<version>.apk` fallisce perché `com.supercontacts.app` è già installata con un certificato diverso.
+- Non cambiare package name/applicationId per aggirarlo.
+- Se l'install esistente è debug/disposable, fare backup/export se i dati contano, poi disinstallare quel package e installare l'APK release.
+- Se l'install esistente è una release reale, fermarsi e verificare che l'APK sia stato firmato con la keystore permanente SuperContacts.
+- Gli APK ufficiali devono provenire da `assembleRelease`; `assembleDebug` produce `com.supercontacts.app.debug` e usa la debug keystore locale.
+
+## Release signing locale
+- Keystore: `../MegaVault/private/supercontacts/supercontacts-release.jks`.
+- Secret properties: `../MegaVault/private/supercontacts/release-signing.properties`.
+- Env var alternative: `SUPERCONTACTS_RELEASE_STORE_FILE`, `SUPERCONTACTS_RELEASE_STORE_PASSWORD`, `SUPERCONTACTS_RELEASE_KEY_ALIAS`, `SUPERCONTACTS_RELEASE_KEY_PASSWORD`.
+- Artifact finale: `output/<version>.apk` creato da `tools/build-finalize.ps1 build`.
+- Fingerprint attesa: `96:7E:2C:94:D4:76:28:FD:E8:FB:C3:69:30:78:22:11:E1:3F:3C:F9:52:C6:72:C2:4C:6B:2F:21:7B:91:5E:27`.
+
 ## Problemi e sintomi rilevati nel codice
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:180:import kotlinx.coroutines.withTimeoutOrNull
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:348:viewModel.clearError()

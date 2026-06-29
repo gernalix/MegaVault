@@ -15,12 +15,20 @@ Android contacts app backed by Room/SQLite; repo files and tests cover contact C
 - Ultima chiusura UI Home: v25 sposta le ricerche salvate in una voce unica `🔖 Ricerche salvate`, aggiunge dialog dedicato con applica/copia/elimina con conferma, evita duplicazione del nome nei risultati ricerca, mantiene un solo indicatore ASC/DESC e forza scroll top a ogni cambio ordinamento o direzione.
 - Ultima feature messaggistica: v26 genera localmente link WhatsApp/Telegram/Signal dai numeri internazionali salvati, aggiorna i link in modo incrementale quando il telefono cambia, preserva conferme/rifiuti manuali e non certifica la registrazione reale del numero sulle piattaforme.
 - Ultima rifinitura UX: v27 elimina il rumore visivo dei link decisi; solo gli `unverified` restano in card, i confermati sono icone rapide e i rifiutati non occupano spazio nella scheda.
+- Release signing v32: gli APK ufficiali sono build `release` firmate con keystore permanente SuperContacts. La keystore e le password restano locali/ignorate sotto `MegaVault/private/supercontacts`; non distribuire APK debug come release.
 
 ## Orientamento rapido
 - Entrypoint: `app/src/main/AndroidManifest.xml,app/src/main/java/com/supercontacts/app/MainActivity.kt,app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt`
 - Core/data: `app/src/main/assets/countries-v1.csv,app/src/main/java/com/supercontacts/app/data/local/ContactAddressSuggestionRow.kt,app/src/main/java/com/supercontacts/app/data/local/ContactEventWithContactName.kt,app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/1.json,app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json,app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/2.json`
 - Test: `app/src/androidTest/java/com/supercontacts/app/AddressAutocompleteRepositoryTest.kt,app/src/androidTest/java/com/supercontacts/app/AddressLocalSuggestionTest.kt,app/src/androidTest/java/com/supercontacts/app/BackupManagerInstrumentedTest.kt,app/src/androidTest/java/com/supercontacts/app/ContactDuplicateUiTest.kt,app/src/androidTest/java/com/supercontacts/app/ContactFieldDescriptionUiTest.kt`
 - Script/build: `tools/build-finalize.ps1,tools/build-finalize.sh,tools/codex_guardrails.ps1,tools/codex_guardrails.py,app/build.gradle.kts,build.gradle.kts,gradle.properties,settings.gradle.kts`
+
+## Release APK
+- Comando ufficiale: `./gradlew :app:assembleRelease` oppure `tools/build-finalize.ps1 build`.
+- Artifact numerato: `output/<version>.apk`.
+- Secret locali richiesti: `SUPERCONTACTS_RELEASE_STORE_FILE`, `SUPERCONTACTS_RELEASE_STORE_PASSWORD`, `SUPERCONTACTS_RELEASE_KEY_ALIAS`, `SUPERCONTACTS_RELEASE_KEY_PASSWORD`, o `../MegaVault/private/supercontacts/release-signing.properties`.
+- Keystore locale convenzionale: `../MegaVault/private/supercontacts/supercontacts-release.jks`.
+- Fingerprint SHA-256 pubblico: `96:7E:2C:94:D4:76:28:FD:E8:FB:C3:69:30:78:22:11:E1:3F:3C:F9:52:C6:72:C2:4C:6B:2F:21:7B:91:5E:27`.
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/supercontacts.md)
