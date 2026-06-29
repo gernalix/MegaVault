@@ -3,8 +3,8 @@
 Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, and the current SQLite snapshot dir
 
 ## Stato e codice
-- Repository: `/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service`
-- Branch/commit verificati: `fix/degraded-healthcheck-state` / `058c59b`
+- Repository: `https://github.com/gernalix/oracle-backup-service`
+- Branch/commit verificati: `fix/degraded-healthcheck-state` / `18f7e1f`
 - File codice/config/test/script analizzati: 19 su 19
 - Stack rilevato: Python, Shell, UNKNOWN, UNKNOWN
 
@@ -16,6 +16,6 @@ Restic-based backup service for the Oracle VM. It snapshots SQLite databases wit
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/oracle-backup-service.md)
-- Metadata: [dev/project.metadata.json](../../../../projects/vm_oracle/oracle-backup-service/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../projects/vm_oracle/oracle-backup-service/dev/legacy)
-- Repository: [repo path](../../../../projects/vm_oracle/oracle-backup-service)
+- Metadata: [dev/project.metadata.json](https://github.com/gernalix/oracle-backup-service/blob/fix/degraded-healthcheck-state/dev/project.metadata.json)
+- Legacy docs: [dev/legacy](https://github.com/gernalix/oracle-backup-service/tree/fix/degraded-healthcheck-state/dev/legacy)
+- Repository: [repo](https://github.com/gernalix/oracle-backup-service/tree/fix/degraded-healthcheck-state)

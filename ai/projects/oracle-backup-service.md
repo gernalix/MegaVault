@@ -4,11 +4,11 @@ slug=oracle-backup-service
 path=/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service
 remote=https://github.com/gernalix/oracle-backup-service.git
 branch=fix/degraded-healthcheck-state
-verified_commit=2026-06-29-live
+verified_commit=18f7e1f
 verified_at=2026-06-29T13:55:44Z
 protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
-purpose=Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, and the current SQLite snapshot directory, then reco
+purpose=Restic-based Oracle VM backup service. It backs up `/home/ubuntu`, `/etc`, and SQLite DBs; when remote OCI is full it uses `/var/lib/oracle_backup/emergency_repo` with enforced retention and healthcheck state.
 STACK:
 lang=Python,Shell
 fw=UNKNOWN
@@ -126,14 +126,14 @@ now=REMOTE_DEGRADED accepted while fallback valid and quota OK; monitor healthch
 next=restore remote OCI headroom, then run standard /opt/oracle_backup/prune.sh without --no-lock.
 later=consider right-sizing remote quota/retention based on strano_anello.db growth and backup cadence.
 LINK:
-meta=../../../projects/vm_oracle/oracle-backup-service/dev/project.metadata.json
+meta=https://github.com/gernalix/oracle-backup-service/blob/fix/degraded-healthcheck-state/dev/project.metadata.json
 human=../../human/projects/oracle-backup-service/overview.md
-legacy=../../../projects/vm_oracle/oracle-backup-service/dev/legacy
-repo=../../../projects/vm_oracle/oracle-backup-service
+legacy=https://github.com/gernalix/oracle-backup-service/tree/fix/degraded-healthcheck-state/dev/legacy
+repo=https://github.com/gernalix/oracle-backup-service/tree/fix/degraded-healthcheck-state
 OPEN:
 open=tests=UNKNOWN_OR_ABSENT
 open=2026-06-05 prompt 918364: Oracle VM live state checked. /dev/sda1 was 45G total, 39G used, 6.6G free, 86%; after safe cleanup it is 38G used, 7.5G free, 84%. Cleanup applied only to apt cache, archived journald vacuum to 300M, and gzip compression of /var/log/syslog.1. No restic repo, emergency repo, sqlite snapshot, DB, WAL, or current log was deleted.
 open=2026-06-05 remote quota remains critical: REMOTE_QUOTA_PATH=oci:bucket-20260206-0730, used=22.262 GBytes / 23903533548 bytes, critical=21GiB, assumed limit=22GiB. Remote repo rclone:oci:bucket-20260206-0730/oraclevm has 837 snapshots in group host=instance-20260201-1126 tags=oracle-vm,autosnap-5min, oldest 2026-05-02T01:33:03Z, newest 2026-05-05T05:27:01Z. Policy is RESTIC_KEEP_LAST=48 and RESTIC_FORGET_GROUP_BY=host,tags, but standard restic operations cannot create locks because OCI returns StorageLimitExceeded on locks/*. Do not run destructive no-lock prune without explicit operator approval or temporary quota headroom.
 open=2026-06-05 alert posture: backup monitor and healthcheck are rate-limited/deduplicated; check_remote_quota.py only writes /var/lib/oracle_backup/remote_quota_state.json and logs to journald. Fallback local repo /var/lib/oracle_backup/emergency_repo is valid with 27 snapshots and 9.572GiB raw-data; do not delete it while remote is degraded.
 open=2026-06-29 live healthcheck after fix: WARNING only for REMOTE_DEGRADED remote quota full; local_fallback_quota=OK repo 5.25GiB < soft 5.60GiB hard 7.00GiB, last local fallback success 2026-06-29T13:43:27Z.
-open=doc_gap=project.metadata.json absent on origin/main during 2026-06-29 clone; present on origin/fix/degraded-healthcheck-state. Fresh sessions must switch to documented branch before metadata read succeeds.
+open=validation_note=Git-authenticated checks confirm dev/project.metadata.json and dev/legacy exist on origin/fix/degraded-healthcheck-state; unauthenticated GitHub HEAD may return 404 if repository access is private.
