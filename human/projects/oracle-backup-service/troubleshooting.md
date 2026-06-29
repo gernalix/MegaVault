@@ -42,6 +42,9 @@
 - Non cancellare file in `/var/lib/oracle_backup/emergency_repo`; usare policy restic configurata (`LOCAL_FALLBACK_KEEP_LAST=11`, `LOCAL_FALLBACK_RETENTION_GROUP_BY=host,tags`).
 - Healthcheck finale: `BACKUP_BLOCKED_FALLBACK_QUOTA` risolto; stato residuo `WARNING REMOTE_DEGRADED` finche' OCI resta pieno.
 - `strano_anello.db`: circa `6.2G` (`6573379584` bytes), quindi un singolo stream fallback puo' consumare gran parte della riserva prewrite.
+- Refresh quota fallback senza avviare backup: `sudo bash -lc 'ORACLE_BACKUP_QUOTA_CHECK_ONLY=1 /opt/oracle_backup/backup.sh'`.
+- Stato atteso post-fix con remoto pieno: `oracle-backup-healthcheck.service` success, `backup_state=WARNING REMOTE_DEGRADED`, `local_fallback_quota=OK`.
+- Prossimo intervento remoto: ottenere headroom OCI, poi usare prune standard `/opt/oracle_backup/prune.sh`; evitare prune remoto distruttivo `--no-lock` senza approvazione esplicita.
 
 ## Accesso VM
 - Host: `ubuntu@150.230.148.128`.
