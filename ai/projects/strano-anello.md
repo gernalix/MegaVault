@@ -5,6 +5,7 @@ path=/home/ubuntu/bots/strano_anello
 remote=https://github.com/gernalix/strano-anello.git
 branch=main
 metadata=dev/project.metadata.json
+verified_commit=311b1f94427761d36c9466c507811f515f4c61be
 verified_at=2026-06-29T15:37:05Z
 protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
