@@ -1,0 +1,3 @@
+Stopped emulator/qemu PID 21420 emulator on cleanup attempt 1.
+Stopped emulator/qemu PID 17124 qemu-system-x86_64-headless on cleanup attempt 1.
+No emulator/qemu processes from this run remain after attempt 2.

@@ -151,6 +151,30 @@ Usa il comando unico con policy device:
 
 Al momento i target consentiti sono solo emulatore e TCL/6102H. Il Pixel fisico viene disconnesso/ignorato.
 
+Se il Pixel fisico resta collegato via USB o in una forma non disconnettibile, la verifica deve fermarsi in FAIL prima dei connected test.
+
+## Compose test passa su TCL ma fallisce su emulatore
+
+Caso osservato: `WordPulseUiInstrumentedTest.timelineDetailsAndPrefixSearchExposeCapturedWords` falliva su AVD cercando `Total occurrences`.
+
+Causa: il nodo esisteva nell'unmerged semantics tree, ma il test lo cercava nel merged tree. Fix mirato:
+
+```kotlin
+composeRule.onNodeWithText("Total occurrences", useUnmergedTree = true).assertExists()
+```
+
+Conferma: run finale `EmulatorOnly` PASS in `qa\parole_create_20260702_094137`.
+
+## Cleanup emulatore dopo run
+
+La verifica con `-KillStartedEmulator` deve lasciare zero processi:
+
+```powershell
+Get-Process | Where-Object { $_.ProcessName -match 'emulator|qemu' }
+```
+
+Il cleanup ora considera anche processi `qemu-system-*` con `Path` vuoto, purche nati durante la run.
+
 ## lint advisory warning vs errore reale
 
 Apri il log `lintDebug.log` nella cartella QA. Se `lintDebug` e WARN ma `assembleDebug` e `testDebugUnitTest` sono PASS, distinguere advisory SDK/AGP da errori bloccanti. Non disabilitare lint globalmente.

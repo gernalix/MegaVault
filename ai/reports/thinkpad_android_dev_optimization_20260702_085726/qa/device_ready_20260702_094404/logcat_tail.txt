@@ -1,0 +1,439 @@
+--------- beginning of main
+07-02 09:44:15.720   697  2430 D UwbServiceCore: registerAdapterStateCallbacks(): notify adapterState = 1, reason = 3
+07-02 09:44:15.721  1318  1990 I NearbyUWB: (REDACTED) Screen unlocked: %s
+07-02 09:44:15.724  1461  2702 D CellBroadcastContentProvider: database changed: notifying observers...
+07-02 09:44:15.728   462   462 D Zygote  : Forked child process 2704
+--------- beginning of system
+07-02 09:44:15.730   697   735 W ActivityManager: Slow operation: 184ms so far, now at startProcess: returned from zygote!
+07-02 09:44:15.733   697   735 W ActivityManager: Slow operation: 188ms so far, now at startProcess: done updating battery stats
+07-02 09:44:15.734   697   735 W ActivityManager: Slow operation: 189ms so far, now at startProcess: building log message
+07-02 09:44:15.734   697   735 I ActivityManager: Start proc 2704:com.android.carrierdefaultapp/u0a130 for broadcast {com.android.carrierdefaultapp/com.android.carrierdefaultapp.CarrierDefaultBroadcastReceiver}
+07-02 09:44:15.735   697   735 W ActivityManager: Slow operation: 189ms so far, now at startProcess: starting to update pids map
+07-02 09:44:15.735   697   735 W ActivityManager: Slow operation: 189ms so far, now at startProcess: done updating pids map
+07-02 09:44:15.737  2704  2704 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10130
+07-02 09:44:15.738  1129  1129 W AlarmManager: Unrecognized alarm listener com.android.internal.telephony.data.AutoDataSwitchController$$ExternalSyntheticLambda3@f661e9
+07-02 09:44:15.739  2704  2704 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10130/pid_2704
+07-02 09:44:15.750  2704  2704 I Zygote  : Process 2704 created for com.android.carrierdefaultapp
+07-02 09:44:15.750  2704  2704 I rrierdefaultapp: Using generational CollectorTypeCMC GC.
+07-02 09:44:15.751  2704  2704 W rrierdefaultapp: Unexpected CPU variant for x86: x86_64.
+07-02 09:44:15.751  2704  2704 W rrierdefaultapp: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+07-02 09:44:15.754  1318  2410 I NearbyPresence: (REDACTED) %s verified [==] new request %s equals to the old request
+07-02 09:44:15.754  1318  2410 I NearbyPresence: (REDACTED) %s verified [==] new request %s equals to the old request
+07-02 09:44:15.754  1318  2410 I NearbyPresence: (REDACTED) %s verified [==] new request %s equals to the old request
+07-02 09:44:15.755  1318  2410 I NearbyPresence: (REDACTED) %s verified [==] new request %s equals to the old request
+07-02 09:44:15.756  1318  1367 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+07-02 09:44:15.757  1318  1367 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+07-02 09:44:15.758  1318  1367 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+07-02 09:44:15.765   697   799 I Telecom : : isInEmergencyCall: false: TSI.iIEC@AFw
+07-02 09:44:15.767  2704  2704 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+07-02 09:44:15.768  2697  2697 W libbinder.BackendUnifiedServiceManager: Thread Pool max thread count is 0. Cannot cache binder as linkToDeath cannot be implemented. serviceName: SurfaceFlingerAIDL
+07-02 09:44:15.769  2697  2697 W libbinder.BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+07-02 09:44:15.769  2697  2697 W libbinder.ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+07-02 09:44:15.774  1129  1129 I RemoteVvmTaskManager: onServiceConnected: ComponentInfo{com.google.android.dialer/com.android.voicemail.impl.DialerVisualVoicemailService}
+07-02 09:44:15.774   524   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:44:15.775   524   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:44:15.775   524   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:44:15.775   524   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:44:15.784  2178  2493 I DialerDialerVisualVoicemailService: com.android.voicemail.impl.DialerVisualVoicemailService.onCellServiceConnectedBlocking:98 onCellServiceConnected for PhoneAccountHandle ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0} [CONTEXT enable_persistent_logger=true ]
+07-02 09:44:15.785  1947  1962 W chbox:googleapp: Suspending all threads took: 129.731ms
+07-02 09:44:15.786  2178  2493 I DialerSingletonScopedExternalsLogging: com.google.android.dialershared.externals.logging.SingletonScopedExternalsLogging.recordCallMethodInvocation:75 event: VVM_SERVICE_CELL_SERVICE_CONNECTED, function parameters: [[com.android.phone/com.android.services.telephony.TelephonyConnectionService : [PII]49]], return value: <empty>
+07-02 09:44:15.786  2178  2493 I DialerVvmCarrierNameCache: com.android.dialer.voicemail.service.impl.carriermapping.VvmCarrierNameCache.onCellServiceConnected:42 cell connected, invalidating cache for ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0}
+07-02 09:44:15.795  2178  2516 D WM-Processor: gka: processing WorkGenerationalId(workSpecId=c545a187-a781-4b1c-8863-b15478fc8222, generation=0)
+07-02 09:44:15.796  2178  2516 D WM-Processor: gka: processing WorkGenerationalId(workSpecId=d65fa846-aac3-4d11-be9c-977b1993b696, generation=0)
+07-02 09:44:15.797  2178  2516 D WM-Processor: gka: processing WorkGenerationalId(workSpecId=2c189feb-617e-41bc-821a-7f3607d3fa52, generation=0)
+07-02 09:44:15.804  2178  2178 D WM-WorkerWrapper: Starting work for com.google.apps.tiktok.contrib.work.TikTokListenableWorker
+07-02 09:44:15.809  2697  2714 W libc    : Access denied finding property "vendor.mesa.virtgpu.kumquat"
+07-02 09:44:15.822  2178  2178 D WM-WorkerWrapper: Starting work for com.google.apps.tiktok.contrib.work.TikTokListenableWorker
+07-02 09:44:15.823  2178  2178 I DialerVvmDailyWorker: com.android.dialer.voicemail.service.receivers.VvmDailyWorker.startWork:86 startWork
+07-02 09:44:15.827  2178  2516 D WM-WorkConstraintsTrack: NetworkRequestConstraintController register shared callback
+07-02 09:44:15.843   697   715 W system_server: Suspending all threads took: 54.863ms
+07-02 09:44:15.850  2178  2178 D WM-WorkerWrapper: Starting work for com.google.apps.tiktok.contrib.work.TikTokListenableWorker
+07-02 09:44:15.853  2178  2493 I DialerVvmCarrierIdentifierImpl: com.android.dialer.voicemail.service.impl.carriermapping.VvmCarrierIdentifierImpl.getVvmCarrierNameBlocking:123 found carrier name: VVM_CARRIER_TMO_US [CONTEXT enable_persistent_logger=true ]
+07-02 09:44:15.880  1708  1877 W gle.android.gms: Verification of void m32.fww.g(m32.fye) took 503.508ms (59.58 bytecodes/s) (0B arena alloc)
+07-02 09:44:15.901  1708  2390 W ProviderHelper: Unknown dynamite feature providerinstaller.dynamite
+07-02 09:44:15.902  1708  2390 I DynamiteModule: Considering local module com.google.android.gms.providerinstaller.dynamite:1 and remote module com.google.android.gms.providerinstaller.dynamite:0
+07-02 09:44:15.902  1708  2390 I DynamiteModule: Selected local version of com.google.android.gms.providerinstaller.dynamite
+07-02 09:44:15.908  1318  1990 I Multidevice: (REDACTED) [dksm] Multidevice Sync Response: %s
+07-02 09:44:15.908  1318  1990 I Multidevice: [dkzs] presenceClient.sync( [CONTEXT service_id=348 ]
+07-02 09:44:15.908  1318  1990 I Multidevice: (REDACTED) [dkzs]     multideviceEnabled: %s
+07-02 09:44:15.908  1318  1990 I Multidevice: (REDACTED) [dkzs]     deviceName: %s
+07-02 09:44:15.908  1318  1990 I Multidevice: (REDACTED) [dkzs]     accountListForSync: %s
+07-02 09:44:15.908  1318  1990 I Multidevice: [dkzs] ) [CONTEXT service_id=348 ]
+07-02 09:44:15.963  2178  2528 I DialerSingletonScopedExternalsLogging: com.google.android.dialershared.externals.logging.SingletonScopedExternalsLogging.recordCallMethodInvocation:75 event: BROADCAST_RECEIVER, function parameters: [Broadcast to com.android.dialer.voicemail.notification.receivers.MwiNotificationReceiver_Receiver android.telephony.action.SHOW_VOICEMAIL_NOTIFICATION,2026-07-02 09:44:10.593], return value: <empty>
+07-02 09:44:15.963  2178  2509 I DialerSingletonScopedExternalsLogging: com.google.android.dialershared.externals.logging.SingletonScopedExternalsLogging.recordCallMethodInvocation:75 event: BROADCAST_RECEIVER, function parameters: [Broadcast to com.android.dialer.voicemail.notification.receivers.MwiNotificationReceiver_Receiver android.telephony.action.SHOW_VOICEMAIL_NOTIFICATION,2026-07-02 09:44:11.112], return value: <empty>
+07-02 09:44:15.963  2178  2509 I DialerSingletonScopedExternalsLogging: com.google.android.dialershared.externals.logging.SingletonScopedExternalsLogging.recordCallMethodInvocation:75 event: TIKTOK_WORK_MANAGER_ENQUEUE, function parameters: [com.android.dialer.voicemail.notification.receivers.VoicemailNotificationWorker], return value: 452e2755-3ae6-4fba-8b3e-7a059351852f
+07-02 09:44:15.963  2178  2509 I DialerSingletonScopedExternalsLogging: com.google.android.dialershared.externals.logging.SingletonScopedExternalsLogging.recordCallMethodInvocation:75 event: TIKTOK_WORK_EXECUTION_MONITOR_ON_WORK_STARTED, function parameters: [c545a187-a781-4b1c-8863-b15478fc8222,com.android.dialer.voicemail.notification.receivers.VoicemailNotificationWorker], return value: <empty>
+07-02 09:44:15.964  2178  2528 I DialerSingletonScopedExternalsLogging: com.google.android.dialershared.externals.logging.SingletonScopedExternalsLogging.recordCallMethodInvocation:75 event: TIKTOK_WORK_EXECUTION_MONITOR_ON_WORK_STARTED, function parameters: [d65fa846-aac3-4d11-be9c-977b1993b696,com.android.dialer.voicemail.service.receivers.VvmDailyWorker], return value: <empty>
+07-02 09:44:15.964  2178  2528 I DialerSingletonScopedExternalsLogging: com.google.android.dialershared.externals.logging.SingletonScopedExternalsLogging.recordCallMethodInvocation:75 event: TIKTOK_WORK_EXECUTION_MONITOR_ON_WORK_STARTED, function parameters: [2c189feb-617e-41bc-821a-7f3607d3fa52,com.android.dialer.voicemail.service.metrics.VvmNotificationWorker], return value: <empty>
+07-02 09:44:15.965  2178  2509 I DialerVoicemailNotificationWorker: com.android.dialer.voicemail.notification.receivers.VoicemailNotificationWorker$startWork$1.invokeSuspend:33 enter
+07-02 09:44:15.965  2178  2509 I DialerVoicemailNotifierImpl: com.android.dialer.voicemail.notification.impl.VoicemailNotifierImpl.updateNotification:186 enter
+07-02 09:44:15.972  2178  2509 I DialerRecentEmergencyCallIdentifier: com.google.android.dialershared.emergencycallback.RecentEmergencyCallIdentifier.hasRecentEmergencyCall:64 Last emergency call time not available. Not an emergency callback.
+07-02 09:44:15.972  2178  2509 I DialerSingletonScopedExternalsLogging: com.google.android.dialershared.externals.logging.SingletonScopedExternalsLogging.recordCallMethodInvocation:75 event: TIKTOK_WORK_EXECUTION_MONITOR_ON_WORK_FINISHED, function parameters: [2c189feb-617e-41bc-821a-7f3607d3fa52,com.android.dialer.voicemail.service.metrics.VvmNotificationWorker], return value: Success
+07-02 09:44:16.000  1002  1002 D KeyguardWakeDirectlyToGoneInteractor: can not ignore auth and return to gone - because of waking
+07-02 09:44:16.002  1002  1176 W Looper  : Drained
+07-02 09:44:16.008  1002  1198 D StatusBar##isHomeStatusBarAllowed: newValue: true
+07-02 09:44:16.008  1002  1198 D StatusBar##canShowOngoingActivityChips: newValue: true
+07-02 09:44:16.009  1002  1198 D StatusBar##chips: newValue: Chips[allowed=true numChips=0]
+07-02 09:44:16.009  1002  1199 D ResourceTrimmer: Sending TRIM_MEMORY_UI_HIDDEN.
+07-02 09:44:16.025  2447  2507 D RemoteListenableDelegatingWorker: Cleaning up
+07-02 09:44:16.029  1558  1572 W ogle.android.as: Suspending all threads took: 133.546ms
+07-02 09:44:16.049  1318  1990 E WakeLock: GCM_CONN_ALARM ** IS FORCE-RELEASED ON TIMEOUT ** [CONTEXT service_id=259 ]
+07-02 09:44:16.056  1708  1877 W gle.android.gms: Verification of m32.utj m32.qxy.a(m32.qta) took 173.381ms (92.28 bytecodes/s) (0B arena alloc)
+07-02 09:44:16.083   697   799 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:44:16.087   697  1356 D ConnectivityService: requestNetwork for uid/pid:10150/2178 activeRequest: null callbackRequest: 107 [NetworkRequest [ REQUEST id=108, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10150 RequestorUid: 10150 RequestorPkg: com.google.android.dialer UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|NC|BLK
+07-02 09:44:16.088  1708  1708 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.checkin.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:44:16.088  1708  1708 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.checkin.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:44:16.110   697  1090 I Telecom : PhoneAccountRegistrar: getSimCallManager: SimCallManager for subId 1 queried, returning: null: TSI.gDOPA(cgad)@AF0
+07-02 09:44:16.115  2178  2547 I DialerCachedTelecomManager: com.google.android.dialershared.externals.androidapis.telecom.CachedTelecomManager.getPhoneAccount$third_party_java_android_libs_dialer_shared_java_com_google_android_dialershared_externals_androidapis_telecom_dialer_telecom_manager:66 Cache disabled, returning directly from TelecomManager.
+07-02 09:44:16.122   697   697 W Looper  : Slow dispatch took 377ms main app=system_server main=true group=FOREGROUND h=android.app.ActivityThread$H c=android.app.LoadedApk$ServiceDispatcher$RunConnection@d3be60c m=0
+07-02 09:44:16.123  2178  2178 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.dialer
+07-02 09:44:16.123  2178  2178 D WM-RescheduleReceiver: Received intent Intent { act=android.intent.action.BOOT_COMPLETED flg=0x89000010 cmp=com.google.android.dialer/androidx.work.impl.background.systemalarm.RescheduleReceiver (has extras) }
+07-02 09:44:16.126   697  1226 I system_server: IncrementDisableThreadFlip blocked for 40.950ms
+07-02 09:44:16.130   697   897 I system_server: IncrementDisableThreadFlip blocked for 31.092ms
+07-02 09:44:16.131   697   883 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=108, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10150 RequestorUid: 10150 RequestorPkg: com.google.android.dialer UnderlyingNetworks: Null] ]
+07-02 09:44:16.131   697   897 D ConnectivityService: NetReassign [108 : null → 100] [c 0] [a 36] [i 1]
+07-02 09:44:16.131   697   883 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=108, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10150 RequestorUid: 10150 RequestorPkg: com.google.android.dialer UnderlyingNetworks: Null] ]
+07-02 09:44:16.131   697   883 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=108, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10150 RequestorUid: 10150 RequestorPkg: com.google.android.dialer UnderlyingNetworks: Null] ]
+07-02 09:44:16.131   697   883 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=108, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10150 RequestorUid: 10150 RequestorPkg: com.google.android.dialer UnderlyingNetworks: Null] ]
+07-02 09:44:16.146  2447  2507 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=bb75b7d3-b58d-4203-8b52-0eea2f176093, tags={ com.google.apps.tiktok.contrib.work.TikTokListenableWorker,GNP_SDK_JOB,TikTokWorker#com.google.android.libraries.notifications.platform.plugins.tiktokworker.GnpTikTokWorker } ]
+07-02 09:44:16.150  1708  2654 I serviceentitlement: (REDACTED) [ServiceEntitlementIntentOperation] [%s] onCreate
+07-02 09:44:16.151  1708  2655 I constellation: [sim_state_checker] Handling intent Intent { act=android.intent.action.SIM_STATE_CHANGED flg=0x15000010 xflg=0x4 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.GmsIntentOperationService (has extras) }
+07-02 09:44:16.151  1708  2062 I serviceentitlement: (REDACTED) [ServiceEntitlementIntentOperation] [Ts.43-IntentOperation] Action : %s
+07-02 09:44:16.153  1708  2654 I LocationHistory: (REDACTED) [IntentOperation] Handling action %s
+07-02 09:44:16.155  1708  2062 I serviceentitlement: (REDACTED) [ServiceEntitlementIntentOperation] [%s] Action : %s
+07-02 09:44:16.157  1708  2062 I serviceentitlement: (REDACTED) [ServiceEntitlementIntentOperation] [%s] onDestroy
+07-02 09:44:16.158  1708  2660 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] start to register
+07-02 09:44:16.162   697   697 W Looper  : Slow delivery took 390ms main app=system_server main=true group=FOREGROUND h=com.android.server.power.Notifier$NotifierHandler c=null m=7
+07-02 09:44:16.170  1708  2654 I LocationHistory: [IntentOperation] Device settings changed to ENABLED. Scheduling periodic tasks. [CONTEXT service_id=314 ]
+07-02 09:44:16.171  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Periodic Task %s.%s is scheduled to run %s
+07-02 09:44:16.173  2447  2447 D WM-Processor: okm bb75b7d3-b58d-4203-8b52-0eea2f176093 executed; reschedule = false
+07-02 09:44:16.173  2178  2716 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+07-02 09:44:16.174  2178  2716 D WM-WorkConstraintsTrack: Not dispatching constraint state yet: isBlocked=null, capabilitiesInitialized=true
+07-02 09:44:16.174  2178  2716 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onBlockedStatusChanged callback false
+07-02 09:44:16.175  1318  1370 I NearbyUWB: (REDACTED) onGetService: Create client bridge with key %s
+07-02 09:44:16.176  1318  1370 I NearbyUWB: (REDACTED) Analytics is enabled for package %s
+07-02 09:44:16.182  2447  2447 D WM-GreedyScheduler: Stopping tracking for WorkGenerationalId(workSpecId=bb75b7d3-b58d-4203-8b52-0eea2f176093, generation=0)
+07-02 09:44:16.183  2447  2447 D WM-SystemJobService: bb75b7d3-b58d-4203-8b52-0eea2f176093 executed on JobScheduler
+07-02 09:44:16.186  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.186  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Periodic Task %s.%s is scheduled to run %s
+07-02 09:44:16.186  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Periodic Task %s.%s is scheduled to run %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Periodic Task %s.%s is scheduled to run %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.187  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.189  1129  1306 W libbinder.Binder: Binder transaction to android.content.IContentProvider, function: UNKNOWN_FUNCTION_NAME, code: 1, took 4182ms. Data bytes: 332 Reply bytes: 136 Flags: 16
+07-02 09:44:16.191  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Periodic Task %s.%s is scheduled to run %s
+07-02 09:44:16.191  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.192   697   715 I system_server: Background concurrent mark compact GC freed 21MB AllocSpace bytes, 29(1056KB) LOS objects, 40% free, 35MB/59MB, paused 60.839ms,208.723ms total 954.691ms
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: <DWB> Call failed: get_actions
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: java.util.concurrent.TimeoutException: Waited 5000 milliseconds (plus 26 milliseconds, 577100 nanoseconds delay) for opn@ee2f74c[status=PENDING, info=[inputFuture=[opm@ec4a395[status=PENDING, setFuture=[oot@dcf3caa[status=PENDING, info=[inputFuture=[opn@b34d09b[status=PENDING, info=[inputFuture=[opn@fee3c38[status=PENDING, info=[inputFuture=[oqj@a18e411[status=PENDING, info=[futures=[opn@83c7976[status=PENDING, info=[inputFuture=[opn@605db77[status=PENDING, info=[inputFuture=[orj@e66e3e4[status=PENDING, info=[delegate=[osq@196b04d[status=PENDING, setFuture=[opn@f6eb702[status=PENDING, info=[inputFuture=[opm@b72b813[status=PENDING, info=[inputFuture=[orj@5a05a50[status=PENDING, info=[delegate=[osq@aab0449[status=PENDING, setFuture=[opm@f95414e[status=PENDING, info=[function=[propagating=[emz@cc6c26f]]]]]]]]]], function=[propagating=[ecr@b8cb7c]]]]], function=[propagating=[ect@a969c05]]]]]]]]]], function=[propagating=[ece@688245a]]]]], function=[propagating=[fjj@aa7168b]]]]]]]], function=[propagating=[few@c852368]]]]], function=[propagating=[dzs@fe9f381]]]]], exceptionType=[class java.lang.Throwable], fallback=[propagating=[ect@5942c26]]]]]]], function=[propagating=[dzs@ee9067]]]]
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at opk.t(PG:370)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at opc.get(PG:6)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at orb.get(PG:10)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at com.google.android.apps.wellbeing.api.impl.WellbeingSettingsProvider.i(PG:9)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at com.google.android.apps.wellbeing.api.impl.WellbeingSettingsProvider.call(PG:150)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at android.content.ContentProvider.call(ContentProvider.java:2756)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at android.content.ContentProvider$Transport.call(ContentProvider.java:648)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:309)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at android.os.Binder.execTransactInternal(Binder.java:1364)
+07-02 09:44:16.193  2286  2325 W WellbeingSettingsProvid: 	at android.os.Binder.execTransact(Binder.java:1323)
+07-02 09:44:16.193  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.193  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.193  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.194  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.194  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.194  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Periodic Task %s.%s is scheduled to run %s
+07-02 09:44:16.194  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.194  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.194  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.194  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.195  1708  2654 I SemanticLocation: (REDACTED) [Scheduler] Housekeeping Task %s.%s is scheduled to run at cadence %s
+07-02 09:44:16.195   697   716 I libbinder.BpBinder: onLastStrongRef automatically unlinking death recipients for binder (0x7f2bafae12d0) with descriptor: '(not cached)'
+07-02 09:44:16.203  2286  2286 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.apps.wellbeing
+07-02 09:44:16.205  1318  1370 I NearbyUWB: (REDACTED) Client %s with package name %s, 0p Identifier %s, and sdk version %s has connected.
+07-02 09:44:16.207  1708  2660 I serviceentitlement: (REDACTED) [OgiMatcherDataGenerator] Configuration version : %s
+07-02 09:44:16.209  2286  2325 W libbinder.Binder: Binder transaction to android.content.IContentProvider, function: UNKNOWN_FUNCTION_NAME, code: 21, took 9633ms. Data bytes: 1932 Reply bytes: 116 Flags: 18
+07-02 09:44:16.216  2447  2507 D WM-GreedyScheduler: Cancelling work ID bb75b7d3-b58d-4203-8b52-0eea2f176093
+07-02 09:44:16.228  2447  2507 D WM-WorkConstraintsTrack: NetworkRequestConstraintController unregister shared callback
+07-02 09:44:16.229  2704  2704 D CompatChangeReporter: Compat change id reported: 333566037; UID 10130; state: ENABLED
+07-02 09:44:16.232  1318  1935 I ProximityAuth: [SimStateChangedIntentOperation] Handling intent Intent { act=android.intent.action.SIM_STATE_CHANGED flg=0x15000010 xflg=0x4 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+07-02 09:44:16.244   697   726 W Looper  : Slow dispatch took 125ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=null m=68
+07-02 09:44:16.253  2178  2178 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.dialer
+07-02 09:44:16.253  2178  2178 I DialerVoicemailPowerCycleReceiver: com.android.dialer.voicemail.service.receivers.VoicemailPowerCycleReceiver.onReceive:59 onReceive with intent action: android.intent.action.BOOT_COMPLETED
+07-02 09:44:16.255  2178  2178 I DialerVoicemailPowerCycleReceiver: com.android.dialer.voicemail.service.receivers.VoicemailPowerCycleReceiver.onBoot:97 onBoot [CONTEXT enable_persistent_logger=true ]
+07-02 09:44:16.275  2178  2528 I DialerFixedDialingNumberPhoneLookupContributor: com.android.dialer.fixeddialingnumber.impl.phonelookup.FixedDialingNumberPhoneLookupContributor.getFdnListFromUri:245 empty cursor
+07-02 09:44:16.276  1318  2653 I AlarmManager: set [name: SystemMemoryCache type: 2 triggerAtMillis: 315360081716 windowMillis: -1 intervalMillis: 0]
+07-02 09:44:16.277  2178  2528 I DialerRefreshAnnotatedCallLogWorker: com.android.dialer.calllog.refresh.impl.RefreshAnnotatedCallLogWorker.fillAndTime:293 filling VoicemailDataSource
+07-02 09:44:16.277  2178  2528 I DialerRefreshAnnotatedCallLogWorker: com.android.dialer.calllog.refresh.impl.RefreshAnnotatedCallLogWorker.fillAndTime:293 filling SpamCallDataSource
+07-02 09:44:16.278  2178  2528 I DialerSpamCallDataSource: com.android.dialer.spam.calllog.SpamCallDataSource.fill:77 fill
+07-02 09:44:16.278  2178  2528 I DialerSpamCallDataSource: com.android.dialer.spam.calllog.SpamCallDataSource.handleInserts:83 handleInserts
+07-02 09:44:16.279  2178  2528 I DialerRefreshAnnotatedCallLogWorker: com.android.dialer.calllog.refresh.impl.RefreshAnnotatedCallLogWorker.fillAndTime:293 filling CallingNetworksDataSource
+07-02 09:44:16.298  1708  2660 I serviceentitlement: (REDACTED) [OgiMatcherDataGenerator] Matcher data to be registered: %s
+07-02 09:44:16.298  1708  2660 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] Data length [%d] to register
+07-02 09:44:16.299  1708  2660 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] register #1
+07-02 09:44:16.299  1708  2660 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] register credential
+07-02 09:44:16.300  1708  2660 I serviceentitlement: (REDACTED) [OgiMatcherDataGenerator] Number of registered carriers: %d
+07-02 09:44:16.300  1708  2660 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] register #2
+07-02 09:44:16.300  1708  2660 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] register credential
+07-02 09:44:16.300  1708  2660 I serviceentitlement: (REDACTED) [OgiMatcherDataGenerator] Number of registered carriers: %d
+07-02 09:44:16.311  2178  2533 I DialerCachedTelecomManager: com.google.android.dialershared.externals.androidapis.telecom.CachedTelecomManager.getPhoneAccount$third_party_java_android_libs_dialer_shared_java_com_google_android_dialershared_externals_androidapis_telecom_dialer_telecom_manager:66 Cache disabled, returning directly from TelecomManager.
+07-02 09:44:16.312  1708  1877 W gle.android.gms: Verification of java.lang.Object m32.uqz.g(java.lang.Object) took 253.969ms (19.69 bytecodes/s) (0B arena alloc)
+07-02 09:44:16.313  2178  2494 W Settings: Setting airplane_mode_on has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+07-02 09:44:16.318  2704  2704 D nativeloader: Configuring clns-shared-9 for other apk /system/app/CarrierDefaultApp/CarrierDefaultApp.apk. target_sdk_version=37, uses_libraries=, library_path=/system/app/CarrierDefaultApp/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path=/data:/mnt/expand:/data/user/0/com.android.carrierdefaultapp:/system/app/CarrierDefaultApp:/system/lib64:/system_ext/lib64
+07-02 09:44:16.322  1947  2180 D HttpFlagsLoader: Found application exporting HTTP flags: com.google.android.gms
+07-02 09:44:16.322  1947  2180 D HttpFlagsLoader: HTTP flags file path: /data/user_de/0/com.google.android.gms/app_httpflags/flags.binarypb
+07-02 09:44:16.329  2704  2704 V GraphicsEnvironment: Currently set values for:
+07-02 09:44:16.330  2704  2704 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+07-02 09:44:16.330  2704  2704 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+07-02 09:44:16.330  2704  2704 V GraphicsEnvironment: com.android.carrierdefaultapp is not listed in per-application setting
+07-02 09:44:16.330  2704  2704 V GraphicsEnvironment: No special selections for ANGLE, returning default driver choice
+07-02 09:44:16.331  1318  1323 W .gms.persistent: Suspending all threads took: 50.515ms
+07-02 09:44:16.344  2704  2704 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+07-02 09:44:16.357  2178  2494 D WM-WorkConstraintsTrack: NetworkRequestConstraintController send initial capabilities
+07-02 09:44:16.359  2704  2704 D CompatChangeReporter: Compat change id reported: 407952621; UID 10130; state: ENABLED
+07-02 09:44:16.359  2704  2704 D CompatChangeReporter: Compat change id reported: 419020719; UID 10130; state: ENABLED
+07-02 09:44:16.379  2178  2509 I DialerLegacyCountryDetector: com.android.dialer.location.LegacyCountryDetector.getCurrentCountryIso:98 returning Redacted-2-chars
+07-02 09:44:16.388  1708  2135 I Checkin : [CheckinApiChimeraService] onGetService
+07-02 09:44:16.396  2178  2494 D WM-WorkConstraintsTrack: NetworkRequestConstraintController send initial capabilities
+07-02 09:44:16.423  1318  1380 I NearbySharing: There is no account metadata, return default instance.
+07-02 09:44:16.423  1318  1380 I NearbySharing: Uwb feature is off.
+07-02 09:44:16.423  1318  1380 I NearbySharing: Uwb feature is off.
+07-02 09:44:16.423  1318  1380 I NearbySharing: Stopping scanning because Bluetooth is disabled.
+07-02 09:44:16.424  1708  2648 W gle.android.gms: Verification of void m32.wjd.a(byte[], int, int) took 345.508ms (11.58 bytecodes/s) (0B arena alloc)
+07-02 09:44:16.428  1318  2398 I Multidevice: (REDACTED) [dksm] Multidevice Sync Response: %s
+07-02 09:44:16.433   697  2054 W ActivityManager: Slow operation: 68ms so far, now at finishAttachApplicationInner: after mServices.attachApplicationLocked
+07-02 09:44:16.442  1318  1318 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.nearby.connection.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:44:16.442  1318  1318 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.nearby.connection.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:44:16.443  1318  1674 W WakeLock: GCM_CONN_ALARM counter does not exist
+07-02 09:44:16.444   697  2054 W ActivityManager: Slow operation: 80ms so far, now at finishAttachApplicationInner: after dispatching broadcasts
+07-02 09:44:16.447  1318  1328 W WearableService: onGetService: Wear is not available on this device. Calling package: com.google.android.googlequicksearchbox
+07-02 09:44:16.451  2704  2704 D CompatChangeReporter: Compat change id reported: 458413887; UID 10130; state: ENABLED
+07-02 09:44:16.452  2704  2704 D CarrierDefaultBroadcastReceiver: onReceive intent: android.telephony.action.CARRIER_SIGNAL_RESET
+07-02 09:44:16.463  1318  1318 I NearbyMediums: WifiNetwork initialized with useWifiNetworkV2:true (provider non-null)
+07-02 09:44:16.464   697   697 W Looper  : Drained
+07-02 09:44:16.470  1318  1380 I NearbySharing: Stopping Fast Init advertisement because Bluetooth is off.
+07-02 09:44:16.470  1318  1380 I NearbySharing: Stopping advertising because Bluetooth is disabled.
+07-02 09:44:16.472  1708  2366 I Icing   : Using regular flags by method 2
+07-02 09:44:16.472   697   734 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@dc15f736 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+07-02 09:44:16.475  1318  1318 I TetheringManager: registerTetheringEventCallback:com.google.android.gms
+07-02 09:44:16.476  1318  1380 I NearbySharing: There is no account metadata, return default instance.
+07-02 09:44:16.477  1318  1318 D BluetoothAdapter: isLeEnabled(): OFF
+07-02 09:44:16.484  1318  2373 I .gms.persistent: IncrementDisableThreadFlip blocked for 32.617ms
+07-02 09:44:16.484  1318  1618 I .gms.persistent: IncrementDisableThreadFlip blocked for 31.797ms
+07-02 09:44:16.485  1318  1617 I .gms.persistent: IncrementDisableThreadFlip blocked for 20.761ms
+07-02 09:44:16.486   697  2140 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.488   697  2140 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.488   697  2140 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.496  1318  1875 I .gms.persistent: IncrementDisableThreadFlip blocked for 37.953ms
+07-02 09:44:16.515  1947  2180 I HttpFlagsLoader: HTTP flags log line (API): Using live production flag values from Google
+07-02 09:44:16.534   462   462 D Zygote  : Forked child process 2729
+07-02 09:44:16.538   697   735 W ActivityManager: Slow operation: 60ms so far, now at startProcess: returned from zygote!
+07-02 09:44:16.540   697   734 D ActivityManager: sync unfroze 1983 com.google.android.apps.restore for 3
+07-02 09:44:16.560  1318  1720 I GCoreUlr: Unbound from all signal providers.
+07-02 09:44:16.585  1983  2014 V ClearcutMetricXmitter: Transmission is done.
+07-02 09:44:16.585  1983  2242 V ClearcutMetricXmitter: Transmission is done.
+07-02 09:44:16.585  1983  2003 V ClearcutMetricXmitter: Transmission is done.
+07-02 09:44:16.591  1708  1877 W gle.android.gms: Verification of java.lang.Object m32.urf.run() took 275.059ms (18.18 bytecodes/s) (0B arena alloc)
+07-02 09:44:16.604  1708  2295 I GmscoreIpa: (REDACTED) Using %s flags by method %d
+07-02 09:44:16.611   697  2431 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:44:16.613  1318  1380 I NearbySharing: Fast Initiation Scanning has stopped
+07-02 09:44:16.614  1318  1380 I NearbySharing: Stopping FastInitiation scanning because Bluetooth is disabled.
+07-02 09:44:16.621  1983  1983 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.apps.restore
+07-02 09:44:16.623  1947  2180 I HttpEngBuilderWrap: NetworkQualityEstimator is unsupported when HttpEngineNativeProvider is used
+07-02 09:44:16.627   697  1868 I PackageManager: getInstalledPackages: callingUid=10208 flags=0 updatedFlags=786432 userId=0
+07-02 09:44:16.659  2178  2494 D WM-WorkConstraintsTrack: NetworkRequestConstraintController send initial capabilities
+07-02 09:44:16.663   697   735 W ActivityManager: Slow operation: 185ms so far, now at startProcess: done updating battery stats
+07-02 09:44:16.663   697   735 W ActivityManager: Slow operation: 186ms so far, now at startProcess: building log message
+07-02 09:44:16.663   697   735 I ActivityManager: Start proc 2729:com.google.android.deskclock/u0a176 for broadcast {com.google.android.deskclock/com.android.deskclock.AlarmInitReceiver}
+07-02 09:44:16.664   697   735 W ActivityManager: Slow operation: 186ms so far, now at startProcess: starting to update pids map
+07-02 09:44:16.664   697   735 W ActivityManager: Slow operation: 186ms so far, now at startProcess: done updating pids map
+07-02 09:44:16.664  1947  2731 D HttpFlagsLoader: Found application exporting HTTP flags: com.google.android.gms
+07-02 09:44:16.664  1947  2731 D HttpFlagsLoader: HTTP flags file path: /data/user_de/0/com.google.android.gms/app_httpflags/flags.binarypb
+07-02 09:44:16.678  2729  2729 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10176
+07-02 09:44:16.679  2704  2704 D CarrierDefaultBroadcastReceiver: apply carrier action idx: 6
+07-02 09:44:16.679  2704  2704 D CarrierActionUtils: onCancelAllNotifications
+07-02 09:44:16.679  2178  2509 I DialerDataStoreReverseLookupSettings: com.android.dialer.reverselookup.settings.DataStoreReverseLookupSettings.isAapmEnabledByUser:145 Darpa is present
+07-02 09:44:16.682  2729  2729 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10176/pid_2729
+07-02 09:44:16.690  1947  2731 I HttpFlagsLoader: HTTP flags log line (Impl): Using live production flag values from Google
+07-02 09:44:16.692  2729  2729 I Zygote  : Process 2729 created for com.google.android.deskclock
+07-02 09:44:16.693  2729  2729 I droid.deskclock: Using generational CollectorTypeCMC GC.
+07-02 09:44:16.695  2729  2729 W droid.deskclock: Unexpected CPU variant for x86: x86_64.
+07-02 09:44:16.695  2729  2729 W droid.deskclock: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+07-02 09:44:16.715  2729  2729 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+07-02 09:44:16.719  1708  1877 W gle.android.gms: Verification of void m32.uqr.g(java.lang.Object) took 125.719ms (0.00 bytecodes/s) (0B arena alloc)
+07-02 09:44:16.724   697   720 D ConnectivityService: requestNetwork for uid/pid:10161/1947 activeRequest: null callbackRequest: 109 [NetworkRequest [ REQUEST id=110, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10161 RequestorUid: 10161 RequestorPkg: com.google.android.googlequicksearchbox UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|NC|LP
+07-02 09:44:16.726  1318  1380 I NearbySharing: Dismissing HUN as there's no device nearby.
+07-02 09:44:16.729   697   883 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=110, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10161 RequestorUid: 10161 RequestorPkg: com.google.android.googlequicksearchbox UnderlyingNetworks: Null] ]
+07-02 09:44:16.730   697   883 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=110, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10161 RequestorUid: 10161 RequestorPkg: com.google.android.googlequicksearchbox UnderlyingNetworks: Null] ]
+07-02 09:44:16.730   697   883 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=110, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10161 RequestorUid: 10161 RequestorPkg: com.google.android.googlequicksearchbox UnderlyingNetworks: Null] ]
+07-02 09:44:16.739  2704  2704 D CarrierDefaultBroadcastReceiver: apply carrier action idx: 8
+07-02 09:44:16.739  2704  2704 D CarrierActionUtils: onDisableDefaultURLHandler
+07-02 09:44:16.745   697   883 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=110, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10161 RequestorUid: 10161 RequestorPkg: com.google.android.googlequicksearchbox UnderlyingNetworks: Null] ]
+07-02 09:44:16.746   697   897 D ConnectivityService: NetReassign [110 : null → 100] [c 0] [a 1] [i 17]
+07-02 09:44:16.747   697   897 D ConnectivityService: NetReassign [no changes] [c 1] [a 0] [i 1]
+07-02 09:44:16.758  1983  1983 I GoogleRestoreSettingEntryUpdateReceiver: ACTION_BOOT_COMPLETED received, enqueueing setting entry update work.
+07-02 09:44:16.785  1947  2180 I cn_CronetLibraryLoader: Cronet version: 147.0.7727.45, arch: x86_64
+07-02 09:44:16.813  2729  2729 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+07-02 09:44:16.813  2729  2729 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+07-02 09:44:16.838   697  1870 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.844  1318  1318 W NearbyMediums: Failed to retrieve default NfcAdapter, NFC is unsupported.
+07-02 09:44:16.869  1708  1726 W gle.android.gms: Suspending all threads took: 156.978ms
+07-02 09:44:16.870  1318  1318 W SystemServiceRegistry: No service published for: wifiaware
+07-02 09:44:16.874  1318  1318 W SystemServiceRegistry: No service published for: wifiaware
+07-02 09:44:16.878   697   862 W ActivityManager: Unable to start service Intent { act=android.proximity.ProximityProviderService xflg=0x4 cmp=com.google.android.crossdeviceaccessservice/.primary.proximityprovider.service.ProximityProviderService } U=0: not found
+07-02 09:44:16.878   697   862 D IdentityCheckWatchRangingLogger: Couldn't find service for ProximityProviderService
+07-02 09:44:16.883   697   800 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.885  2213  2213 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.apps.wallpaper
+07-02 09:44:16.885  1318  1318 I TetheringManager: registerTetheringEventCallback:com.google.android.gms
+07-02 09:44:16.885  1708  2648 W gle.android.gms: Verification of void m32.wjh.k(int, java.lang.Object, m32.wlo) took 172.249ms (110.31 bytecodes/s) (0B arena alloc)
+07-02 09:44:16.890   697   800 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.890   697   734 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.891   697   734 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.891   697   734 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.892   697   734 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.893   697   734 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.893   697   734 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.898  2729  2729 W droid.deskclock: Failed to find entry 'classes.dex': Entry not found
+07-02 09:44:16.900  2729  2729 D nativeloader: Configuring clns-9 for other apk /data/app/~~_wli3YwbW_tDV2aZj-tARA==/com.google.android.deskclock-MxmTTCvzQojyxcA1GpyOmQ==/base.apk:/data/app/~~_wli3YwbW_tDV2aZj-tARA==/com.google.android.deskclock-MxmTTCvzQojyxcA1GpyOmQ==/split_config.xxhdpi.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~_wli3YwbW_tDV2aZj-tARA==/com.google.android.deskclock-MxmTTCvzQojyxcA1GpyOmQ==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.deskclock
+07-02 09:44:16.903   697   734 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:44:16.918  2213  2213 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.apps.wallpaper
+07-02 09:44:16.924  1318  1318 I TetheringManager: registerTetheringEventCallback caller:com.google.android.gms
+07-02 09:44:16.927   697   897 D ConnectivityService: NetReassign [no changes] [c 0] [a 1] [i 6]
+07-02 09:44:16.928   697  1868 D ConnectivityService: requestNetwork for uid/pid:10208/1318 activeRequest: null callbackRequest: 113 [NetworkRequest [ TRACK_DEFAULT id=114, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10208 RequestorUid: 10208 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ], NetworkRequest [ REQUEST id=115, [ Transports: SATELLITE Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10208 RequestorUid: 10208 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOSING|LOST|UNAVAIL|NC|LP|BLK
+07-02 09:44:16.931  1145  1145 D SearchTargetUtil: queryLength=0 size=0
+07-02 09:44:16.931  1145  2437 D OneSearchSuggestProvider: Initiating graceful shutdown of binder channel.
+07-02 09:44:16.933  1318  1380 I NearbySharing: Broadcasting NearbySharing state change.
+07-02 09:44:16.934  1145  1252 I libbinder.IPCThreadState: oneway function results for code 2 on binder at 0x7f2b8fa8a9e0 will be dropped but finished with status UNKNOWN_TRANSACTION
+07-02 09:44:16.938  1558  2490 I SQLiteConnection: Long db operation: /data/user/0/com.google.android.as/databases/SimpleStorage
+07-02 09:44:16.942  2213  2213 W JobInfo : Job 'com.google.android.apps.wallpaper/.module.WallpaperInitializationJobService#1' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+07-02 09:44:16.943   697  1059 W JobInfo : Job 'com.google.android.apps.wallpaper/.module.WallpaperInitializationJobService#1' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+07-02 09:44:16.946  1318  1380 I NearbySharing: Broadcasting NearbySharing state change.
+07-02 09:44:16.950  1318  1774 I NearbyMediums: WifiNetwork defaultNetworkCallback onAvailable netId:100
+07-02 09:44:16.951   697   897 D ConnectivityService: NetReassign [114 : null → 100] [c 0] [a 0] [i 10]
+07-02 09:44:16.959  1318  2653 I ctxmgr  : (REDACTED) [WorkManager] Long workInfo: %s
+07-02 09:44:16.973  2729  2729 V GraphicsEnvironment: Currently set values for:
+07-02 09:44:16.973  2729  2729 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+07-02 09:44:16.973  2729  2729 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+07-02 09:44:16.973  2729  2729 V GraphicsEnvironment: com.google.android.deskclock is not listed in per-application setting
+07-02 09:44:16.973  2729  2729 V GraphicsEnvironment: No special selections for ANGLE, returning default driver choice
+07-02 09:44:16.975  2729  2729 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+07-02 09:44:16.989   697   897 D ConnectivityService: NetReassign [no changes] [c 0] [a 10] [i 1]
+07-02 09:44:17.026  1145  2437 D OneSearchSuggestProvider: Binder channel was terminated gracefully.
+07-02 09:44:17.030  1318  1318 I NearbyConnections: GestureExchangeRegistrar is not enabled.
+07-02 09:44:17.033  1318  2399 I NearbyMediums: Wifi changed new SSID: "AndroidWifi"
+07-02 09:44:17.034  1318  2399 I NearbyMediums: WifiLanConnectivityInfo is not changed, skip notify.
+07-02 09:44:17.034  1318  2399 I NearbyMediums: [WifiNetworkV2] networkCallback doAvailable netId:100 wifiStatusChangedCallbacks.size:0 freq:2447
+07-02 09:44:17.040   697   883 D WifiConfigStore: Writing to stores completed in 79 ms.
+07-02 09:44:17.046   697   883 D WifiNative: Scan result ready event
+07-02 09:44:17.047   697   895 I Nl80211Proxy: Sending Nl80211 message: GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{20}, nlmsg_type{30()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{16}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{5}, version{1}, reserved{0} }}, attributes{[]} }
+07-02 09:44:17.047   697   895 I Nl80211Proxy: Received NLMSG_DONE for message GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{20}, nlmsg_type{30()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{16}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{5}, version{1}, reserved{0} }}, attributes{[]} }
+07-02 09:44:17.048   697   895 W Nl80211Utils: Malformed NEW_INTERFACE response: missing attributes
+07-02 09:44:17.048   697   895 I Nl80211Proxy: Sending Nl80211 message: GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{28}, nlmsg_type{30()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{17}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{32}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{10000000}, }]} }
+07-02 09:44:17.049   697   895 I Nl80211Proxy: Received NLMSG_DONE for message GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{28}, nlmsg_type{30()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{17}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{32}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{10000000}, }]} }
+07-02 09:44:17.055  1318  1875 I WifiScanner: onFullResults
+07-02 09:44:17.075  1129  1256 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+07-02 09:44:17.076  1129  1256 D SatelliteController: getCarrierRoamingNtnConnectType: Checking connect type from PLMN config for subId: 1
+07-02 09:44:17.076  1129  1256 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:44:17.076  1129  1256 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:44:17.076  1129  1256 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:44:17.083  1129  1256 D SatelliteController: getSatellitePerPlmnConfiguration: invalid subId or not supported via carrier.
+07-02 09:44:17.083  1129  1256 D SatelliteController: getCarrierRoamingNtnConnectType: config: null
+07-02 09:44:17.083  1129  1256 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:44:17.083  1129  1256 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:44:17.083  1129  1256 D SatelliteController: getCarrierRoamingNtnConnectTypeViaConfigUpdater: return null (satelliteConfig is null)
+07-02 09:44:17.084  1129  1256 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+07-02 09:44:17.084  1129  1256 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:44:17.084  1129  1256 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:44:17.084  1129  1256 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:44:17.084  1129  1256 D SatelliteController: getCarrierRoamingNtnConnectType: Checking connect type from PLMN config for subId: 1
+07-02 09:44:17.115  1129  1256 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:44:17.115  1129  1256 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:44:17.115  1129  1256 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:44:17.121   697   697 W Looper  : Slow dispatch took 100ms main app=system_server main=true group=FOREGROUND h=android.app.ActivityThread$H c=android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0@f3b6012 m=0
+07-02 09:44:17.131  1983  2132 W JobInfo : Requested important-while-foreground flag for job12 is ignored and takes no effect
+07-02 09:44:17.139  1129  1256 D SatelliteController: getSatellitePerPlmnConfiguration: invalid subId or not supported via carrier.
+07-02 09:44:17.139  1129  1256 D SatelliteController: getCarrierRoamingNtnConnectType: config: null
+07-02 09:44:17.139  1129  1256 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:44:17.139  1129  1256 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:44:17.139  1129  1256 D SatelliteController: getCarrierRoamingNtnConnectTypeViaConfigUpdater: return null (satelliteConfig is null)
+07-02 09:44:17.139  1129  1256 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+07-02 09:44:17.140  1129  1256 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:44:17.140  1129  1256 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:44:17.140  1129  1256 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:44:17.162   697   897 D ConnectivityService: NetReassign [no changes] [c 0] [a 2] [i 1]
+07-02 09:44:17.166  1318  2399 I NearbyMediums: Wifi changed new SSID: "AndroidWifi"
+07-02 09:44:17.166  1318  2399 I NearbyMediums: WifiLanConnectivityInfo is not changed, skip notify.
+07-02 09:44:17.207   697   883 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-02 09:44:17.233  2213  2213 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.apps.wallpaper
+07-02 09:44:17.239  2213  2213 D ThemeSanitizerReceiver: Already sanitized, skipping theme sanitizer
+07-02 09:44:17.250  1558  1558 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.as
+07-02 09:44:17.347   697   883 E WifiChipAidlImpl: getUsableChannels failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: (REDACTED) Querying wifi usable channels failed with exception
+07-02 09:44:17.369  1318  1380 I NearbyMediums: java.lang.UnsupportedOperationException
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3404)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.os.Parcel.createException(Parcel.java:3376)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.os.Parcel.readException(Parcel.java:3359)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.os.Parcel.readException(Parcel.java:3301)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.net.wifi.IWifiManager$Stub$Proxy.getUsableChannels(IWifiManager.java:6713)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.net.wifi.WifiManager.getUsableChannels(WifiManager.java:12106)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at drfh.z(:com.google.android.gms@262233038@26.22.33 (260800-932714197):21)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at drfh.v(:com.google.android.gms@262233038@26.22.33 (260800-932714197):16)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at drfh.q(:com.google.android.gms@262233038@26.22.33 (260800-932714197):24)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at dryk.run(:com.google.android.gms@262233038@26.22.33 (260800-932714197):9)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at blcd.c(:com.google.android.gms@262233038@26.22.33 (260800-932714197):50)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at blcd.run(:com.google.android.gms@262233038@26.22.33 (260800-932714197):66)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at blhw.run(:com.google.android.gms@262233038@26.22.33 (260800-932714197):8)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at java.lang.Thread.run(Thread.java:1572)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: Caused by: android.os.RemoteException: Remote stack trace:
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at com.android.server.wifi.WifiServiceImpl$$ExternalSyntheticBUOutline5.m(R8$$SyntheticClass:0)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at com.android.server.wifi.WifiServiceImpl.getUsableChannels(WifiServiceImpl.java:8533)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.net.wifi.IWifiManager$Stub.onTransact(IWifiManager.java:3337)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.os.Binder.execTransactInternal(Binder.java:1369)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 	at android.os.Binder.execTransact(Binder.java:1323)
+07-02 09:44:17.369  1318  1380 I NearbyMediums: 
+07-02 09:44:17.369  1318  1380 I NearbyMediums: [DeviceCapabilities] Skip refreshing cached wifi channels because it is not supported (refreshCacheWifiChannelsRightAfterNetworkCallbackInvoked:true isWifiGetUsableChannelsSupported:false)
+07-02 09:44:17.373   697   799 D OomAdjuster: Not killing cached processes
+07-02 09:44:17.382  1708  2390 W ProviderHelper: Unknown dynamite feature providerinstaller.dynamite
+07-02 09:44:17.382  1708  2390 I DynamiteModule: Considering local module com.google.android.gms.providerinstaller.dynamite:1 and remote module com.google.android.gms.providerinstaller.dynamite:0
+07-02 09:44:17.382  1708  2390 I DynamiteModule: Selected local version of com.google.android.gms.providerinstaller.dynamite
+07-02 09:44:17.393   697   720 D ConnectivityService: requestNetwork for uid/pid:1000/697 asUid: 10162 activeRequest: null callbackRequest: 118 [NetworkRequest [ REQUEST id=119, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10162 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|BLK
+07-02 09:44:17.395  1558  1558 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.as
+07-02 09:44:17.398   697   883 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=119, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10162 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:44:17.398   697   897 D ConnectivityService: NetReassign [119 : null → 100] [c 0] [a 1] [i 1]
+07-02 09:44:17.409   697   883 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=119, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10162 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:44:17.409   697   883 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=119, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10162 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:44:17.409   697   883 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=119, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10162 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:44:17.456  2286  2309 W .apps.wellbeing: Suspending all threads took: 39.914ms
+07-02 09:44:17.456  1318  1318 I NearbySharing: ReceiveSurfaceService created with vendorMetadata null
+07-02 09:44:17.457  1318  1318 I NearbySharing: ReceiveSurfaceService started
+07-02 09:44:17.461  1708  1726 W gle.android.gms: Suspending all threads took: 47.060ms
+07-02 09:44:17.467  1553  2623 I MediaProvider: Scanned internal due to REASON_MOUNTED, found 227 items in 4344ms, 0 inserts 7 updates 0 deletes
+07-02 09:44:17.470  1553  2623 V MediaProvider: attachVolume() called for 0000-0000 with state:null
+07-02 09:44:17.471  2401  2401 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.as.oss
+07-02 09:44:17.472  2401  2401 I BootCompletedBroadcastReceiver: Received intent: android.intent.action.BOOT_COMPLETED
+07-02 09:44:17.513   697  2140 W ActivityManager: Slow operation: 104ms so far, now at finishAttachApplicationInner: after mServices.attachApplicationLocked
+07-02 09:44:17.535   697  2140 W ActivityManager: Slow operation: 125ms so far, now at finishAttachApplicationInner: after dispatching broadcasts
+07-02 09:44:17.539  1558  2320 I AiAiNowPlaying: Registering Now Playing population: NOW_PLAYING_USAGE_WEEKLY
+07-02 09:44:17.544  2447  2501 I diyo    : (REDACTED) Failed to find any valid flight records for process id %d
+07-02 09:44:17.550  2163  2496 I Finsky  : [61] setup::PAI: preloads returned with 0 documents, with 0 unavailable documents, with stub apk null
+07-02 09:44:17.550  2163  2496 I Finsky  : [61] setup::PAI: Preloads fetch: account=null, preloads=[0|], preloadRros=[0|], preloadGroups=[], unavailablePreloads=[0|]
+07-02 09:44:17.550  2163  2496 I Finsky  : [61] setup::PAI: Preloads titles: 
+07-02 09:44:17.550  2163  2496 I Finsky  : [61] PAI late SIM : don't store because no PAIs fetched
+07-02 09:44:17.551  2163  2163 I Finsky  : [2] setup::PAI: VpaSelectionActivity will be disabled
+07-02 09:44:17.551  2163  2163 I Finsky  : [2] setup::PAI: Secure Setting of PAI_SELECTION_PAGE_COMPLETE: 1
+07-02 09:44:17.552  2163  2496 I Finsky  : [61] PAI late SIM : PT495271H44M17.552S since SUW, time window is PT168H
+07-02 09:44:17.553  2163  2542 I Finsky  : [63] notifySubscriptionInfoChangedListener success.
+07-02 09:44:17.556  1558  2368 I AiAiFedAss: [AiAi Ekho] *** enabled *** [mode=FEDERATION, population=aiai/ekho]
+07-02 09:44:17.558  2447  2501 I diyo    : (REDACTED) Failed to find any valid flight records for process id %d
+07-02 09:44:17.561   533   533 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''
+07-02 09:44:17.586  1558  2324 I SP.AiAi : Registering spelling_correction.22110320, url: https://www.gstatic.com/nasa/apps/pack_spelling_checker_11032022/22110320/2/en-us/superpacks_manifest.zip, constraints: W:*:I:*, flags: *, requested: 22110320, current: -1
+07-02 09:44:17.594   697   734 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@a2113218 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+07-02 09:44:17.609  2286  2372 W JobInfo : Requested important-while-foreground flag for job102 is ignored and takes no effect
+07-02 09:44:17.613  2447  2501 I diyo    : (REDACTED) Failed to find any valid flight records for process id %d

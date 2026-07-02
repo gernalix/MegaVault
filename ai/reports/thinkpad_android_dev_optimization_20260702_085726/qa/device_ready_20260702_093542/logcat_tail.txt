@@ -1,0 +1,415 @@
+--------- beginning of main
+07-02 09:35:53.139  2397  2397 D nativeloader: Load /data/app/~~LpQUOXT27N3A4XBp3dxAew==/com.google.android.as.oss-Ol5Vh2IMyGtaqseauSOMXg==/split_config.arm64_v8a.apk!/lib/arm64-v8a/libpi_client_session_config_jni.so using class loader ns clns-9 (caller=/data/app/~~LpQUOXT27N3A4XBp3dxAew==/com.google.android.as.oss-Ol5Vh2IMyGtaqseauSOMXg==/base.apk!classes2.dex): ok
+07-02 09:35:53.153  1138  1273 D SatelliteController: getCarrierSatelliteDataSupportedModeFromConfig: using CarrierConfig for subId=1, dataSupportMode=0
+07-02 09:35:53.153  1138  1273 D SatelliteController: getSatelliteDataServicePolicyForPlmn: return data support mode from config: 0
+07-02 09:35:53.153  1138  1273 D SatelliteController: supported satellite data mode reported: 1
+07-02 09:35:53.154  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.154  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.154  1138  1273 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:35:53.154  1138  1273 D SatelliteController: isDeviceEntitledForSubscription: subId=1, satellite attach not supported, returning false
+07-02 09:35:53.154  1138  1273 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+07-02 09:35:53.154  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.154  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.154  1138  1273 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:35:53.155  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.155  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.155  1138  1273 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:35:53.155  1138  1273 D SatelliteController: updateSupportedSatelliteServices using carrier config, PLMN list = [310830]
+07-02 09:35:53.156  1138  1138 D MultiSimSettingController: onCarrierConfigChanged phoneId 0 subId 1
+07-02 09:35:53.157  1138  1273 D SatelliteController: updateSupportedEmergencyAndDisasterPlmns: subId=1, emergencyPlmns=, disasterPlmns=
+07-02 09:35:53.157  1138  1273 D SatelliteController: handleCarrierRoamingNtnAvailableServicesChanged: subId=1
+07-02 09:35:53.157  1138  1273 D SatelliteController: updateLastNotifiedNtnAvailableServicesAndNotify: phoneId= 0
+07-02 09:35:53.157  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.157  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.157  1138  1273 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: <DWB> Call failed: get_actions
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: java.util.concurrent.TimeoutException: Waited 5000 milliseconds (plus 363000 nanoseconds delay) for opn@3ec2076[status=PENDING, info=[inputFuture=[opm@eb1f677[status=PENDING, setFuture=[oot@1e862e4[status=PENDING, info=[inputFuture=[opn@e6bc34d[status=PENDING, info=[inputFuture=[opn@3f1ce02[status=PENDING, info=[inputFuture=[oqj@2458313[status=PENDING, info=[futures=[opn@93ac950[status=PENDING, info=[inputFuture=[opn@b3e4749[status=PENDING, info=[inputFuture=[orj@eb2c84e[status=PENDING, info=[delegate=[osq@57b3d6f[status=PENDING, setFuture=[opn@50b2a7c[status=PENDING, info=[inputFuture=[opm@49b0f05[status=PENDING, info=[inputFuture=[orj@7771b5a[status=PENDING, info=[delegate=[osq@9a8418b[status=PENDING, setFuture=[opm@d1e7268[status=PENDING, info=[function=[propagating=[emz@1429681]]]]]]]]]], function=[propagating=[ecr@bfb9326]]]]], function=[propagating=[ect@6576b67]]]]]]]]]], function=[propagating=[ece@e9c4d14]]]]], function=[propagating=[fjj@98119bd]]]]]]]], function=[propagating=[few@6fdbbb2]]]]], function=[propagating=[dzs@6e55703]]]]], exceptionType=[class java.lang.Throwable], fallback=[propagating=[ect@f7b2680]]]]]]], function=[propagating=[dzs@42a94b9]]]]
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at opk.t(PG:370)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at opc.get(PG:6)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at orb.get(PG:10)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at com.google.android.apps.wellbeing.api.impl.WellbeingSettingsProvider.i(PG:9)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at com.google.android.apps.wellbeing.api.impl.WellbeingSettingsProvider.call(PG:150)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at android.content.ContentProvider.call(ContentProvider.java:2756)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at android.content.ContentProvider$Transport.call(ContentProvider.java:648)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:309)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at android.os.Binder.execTransactInternal(Binder.java:1364)
+07-02 09:35:53.158  2327  2339 W WellbeingSettingsProvid: 	at android.os.Binder.execTransact(Binder.java:1323)
+07-02 09:35:53.158  1138  1138 D MultiSimSettingController: isReadyToReevaluate: subInfoInitialized=true, carrierConfigsLoaded=true, satelliteEnabledOrBeingEnabled=false
+07-02 09:35:53.158  1138  1138 D MultiSimSettingController: updateDefaults
+07-02 09:35:53.159  1138  1138 D MultiSimSettingController: isReadyToReevaluate: subInfoInitialized=true, carrierConfigsLoaded=true, satelliteEnabledOrBeingEnabled=false
+07-02 09:35:53.159  2327  2339 W libbinder.Binder: Binder transaction to android.content.IContentProvider, function: UNKNOWN_FUNCTION_NAME, code: 21, took 8729ms. Data bytes: 1892 Reply bytes: 116 Flags: 18
+07-02 09:35:53.159  1841  2110 I Finsky  : [45] Writing flags config, size 1.
+07-02 09:35:53.159  1841  2110 I Finsky  : [45] Started writing experiment flags into file [8uKij9Tp4PZyjSvh8NyLyFvuCv94NONrKvkkdzEKIoQ].
+07-02 09:35:53.163  1841  2110 I Finsky  : [45] Finished writing experiment flags into file [8uKij9Tp4PZyjSvh8NyLyFvuCv94NONrKvkkdzEKIoQ], numFlags=2434.
+07-02 09:35:53.174  1138  1138 D MultiSimSettingController: updateDefaultValues: change: 6
+07-02 09:35:53.174  1138  1138 D MultiSimSettingController: updateDefaultValues: to only primary sub 1
+07-02 09:35:53.177  1841  2110 I Finsky  : [45] Successfully applied new configurations for package com.google.android.finsky.stable.
+07-02 09:35:53.177  1841  2110 I Finsky  : [45] [EExp] Exporting experiments for package com.google.android.finsky.stable.
+07-02 09:35:53.177  1841  2110 I Finsky  : [45] [EExp] Exporting experiments for namespace com.google.android.finsky.stable.
+07-02 09:35:53.185   691   884 D WifiService: resetting networks because SIM was loaded
+07-02 09:35:53.185   691   884 D WifiService: resetting carrier networks since SIM was changed
+07-02 09:35:53.193   691   889 E Nl80211Native: getChannelsMhzForBand: Wiphy index not recorded for band 8
+07-02 09:35:53.194   691   889 E Nl80211Native: getChannelsMhzForBand: Wiphy index not recorded for band 16
+07-02 09:35:53.194   691   889 D Nl80211Native: Ignoring unsupported scan type 2
+07-02 09:35:53.194   691   889 I Nl80211Proxy: Sending Nl80211 message: GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{352}, nlmsg_type{30()}, nlmsg_flags{5(NLM_F_REQUEST|NLM_F_ACK)}, nlmsg_seq{14}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{33}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{-32723}, nla_value{04000000}, }, StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{10000000}, }, StructNlAttr{ nla_len{308}, nla_type{-32724}, nla_value{080000006C09000008000100710900000800020076090000080003007B09000008000400800900000800050085090000080006008A090000080007008F0900000800080094090000080009009909000008000A009E09000008000B00A309000008000C00A809000008000D00B409000008000E003C14000008000F005014000008001000641400000800110078140000080012008C14000008001300A014000008001400B414000008001500C8140000080016007C150000080017009015000008001800A415000008001900B815000008001A00CC15000008001B00E015000008001C00F415000008001D000816000008001E001C16000008001F0030160000080020004416000008002100711600000800220085160000080023009916000008002400AD16000008002500C1160000}, }, StructNlAttr{ nla_len{8}, nla_type{158}, nla_value{00000000}, }]} }
+07-02 09:35:53.197  1841  2161 I Finsky  : [55] SCH: Scheduling phonesky job Id: 1-1337, CT: 1782966885931, Constraints: [{ L: 34666639, D: 77866639, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+07-02 09:35:53.197  1841  2161 I Finsky  : [55] SCH: Scheduling phonesky job Id: 10-79, CT: 1782966885715, Constraints: [{ L: 0, D: 86400000, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_ANY, B: BATTERY_ANY }]
+07-02 09:35:53.197  1841  2161 I Finsky  : [55] SCH: Scheduling phonesky job Id: 10-168, CT: 1782966885715, Constraints: [{ L: 0, D: 86400000, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_ANY, B: BATTERY_ANY }]
+07-02 09:35:53.198  1841  2161 I Finsky  : [55] SCH: Scheduling phonesky job Id: 24-77777777, CT: 1782966886426, Constraints: [{ L: 1, D: 82800000, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_NONE, B: BATTERY_ANY }]
+07-02 09:35:53.198  1841  2161 I Finsky  : [55] SCH: Scheduling phonesky job Id: 26-1414141414, CT: 1782966886453, Constraints: [{ L: 43085151, D: 43985151, C: CHARGING_NONE, I: IDLE_NONE, N: NET_NONE, B: BATTERY_ANY }]
+07-02 09:35:53.198  1841  2161 I Finsky  : [55] SCH: Scheduling phonesky job Id: 44-1027, CT: 1782966886090, Constraints: [{ L: 0, D: 86400000, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_NONE, B: BATTERY_NOT_LOW }]
+07-02 09:35:53.198  2397  2397 D BSA     : Cache jni_bsa_calls method IDs
+07-02 09:35:53.200  2397  2397 D BSA     : Register BSA methods
+07-02 09:35:53.201   691   884 D WifiService: ACTION_CARRIER_CONFIG_CHANGED, active subId: 1
+07-02 09:35:53.206  2534  2648 I Finsky:background: [49] SCH: Scheduling phonesky job Id: 3-47, CT: 1782976994476, Constraints: [{ L: 7200000, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:35:53.207  2534  2648 I Finsky:background: [49] SCH: Scheduling phonesky job Id: 3-48, CT: 1782976993951, Constraints: [{ L: 56206049, D: 67006049, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:35:53.207  2534  2648 I Finsky:background: [49] SCH: Scheduling phonesky job Id: 3-49, CT: 1782976993951, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:35:53.207  2534  2648 I Finsky:background: [49] SCH: Scheduling phonesky job Id: 3-50, CT: 1782976993951, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_NONE, N: NET_UNMETERED, B: BATTERY_ANY }, { L: 0, D: 0, C: CHARGING_NONE, I: IDLE_NONE, N: NET_NONE, B: BATTERY_ANY }]
+07-02 09:35:53.207  2534  2648 I Finsky:background: [49] SCH: Scheduling phonesky job Id: 3-51, CT: 1782976993951, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:35:53.207  2534  2648 I Finsky:background: [49] SCH: Scheduling phonesky job Id: 40-9998, CT: 1782976991334, Constraints: [{ L: 0, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }, { L: 0, D: 0, C: CHARGING_NONE, I: IDLE_NONE, N: NET_NONE, B: BATTERY_ANY }]
+07-02 09:35:53.207  2534  2648 I Finsky:background: [49] SCH: Scheduling phonesky job Id: 47-15, CT: 1782966888264, Constraints: [{ L: 0, D: 13064290, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_NONE, B: BATTERY_ANY }]
+07-02 09:35:53.209  1841  1848 W android.vending: Suspending all threads took: 8.708ms
+07-02 09:35:53.227  2397  2397 D BSA     : Register NativeOnResponse methods
+07-02 09:35:53.228  2397  2397 D BSA     : Register NativeAttestAndSignCallback methods
+07-02 09:35:53.228  2397  2397 D BSA     : Cache jni_message_interface_wrapper method IDs
+07-02 09:35:53.248  1138  1138 D MultiSimSettingController: isReadyToReevaluate: subInfoInitialized=true, carrierConfigsLoaded=true, satelliteEnabledOrBeingEnabled=false
+07-02 09:35:53.256  1138  1273 E SatelliteController: registerForSatelliteCommunicationAccessStateChanged: SatelliteManager is null
+07-02 09:35:53.256  1138  1273 D SatelliteController: isCarrierRoamingNtnEligible: satellite access is not allowed
+07-02 09:35:53.256  1138  1273 D SatelliteController: evaluateCarrierRoamingNtnEligibilityChange: isCarrierRoamingNtnEligible=false
+07-02 09:35:53.256  1138  1273 D SatelliteController: getSelectedSatelliteSubId: subId=-1
+07-02 09:35:53.256  1138  1273 D SatelliteController: notifyNtnEligibility: phoneId=0 currentNtnEligibility=false
+07-02 09:35:53.256  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.256  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.256  1138  1273 D SatelliteController: isSatelliteEntitlementSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:35:53.256  1138  1273 D SatelliteController: don't support entitlement
+07-02 09:35:53.256  1138  1273 D SatelliteController: updateSatelliteTechPerPlmnForActiveSubscriptions: no carrier config found for KEY_SATELLITE_CONFIGS_PER_PLMN_BUNDLE
+07-02 09:35:53.256  1138  1273 D SatelliteController: configureSatellitePlmnForCarrier
+07-02 09:35:53.257  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.257  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.257  1138  1273 D SatelliteController: getDeviceSatellitePlmnListFromConfigUpdater: return empty list
+07-02 09:35:53.257  1138  1273 D SatelliteController: getCarrierRoamingNtnAllSatellitePlmnSetFromStorage: [302723, 44026, 312190, 73029, 44055, 44025, 313210, 23402, 310210, 310830, 53013, 255707, 50511, 771688, 50559]
+07-02 09:35:53.257  1138  1273 D SatelliteController: getAllPlmnList: [302723, 44026, 312190, 73029, 44055, 44025, 313210, 23402, 310210, 310830, 53013, 255707, 50511, 771688, 50559]
+07-02 09:35:53.257  1138  1273 D SatelliteController: isSatelliteAttachEnabledForCarrierByUser: subId=1 no cache found, loading from persistent storage
+07-02 09:35:53.257  1138  1273 D SatelliteController: isSatelliteAttachEnabledForCarrierByUser: subId=1, enabled=-1
+07-02 09:35:53.284  2455  2572 D WM-SystemJobScheduler: Scheduling work ID 5ce31a1c-ce97-41c8-9167-76b9f3715993Job ID 81
+07-02 09:35:53.326  1570  2647 I AiAiCaptions: initialize(): check availability of mandatory languages models: [en_US].
+07-02 09:35:53.332  1546  2073 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.332  1546  1947 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.333  1546  2073 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.333  1546  1947 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.333  1546  1947 I apfn    : #getOobeStatus: BeforeOobe [CONTEXT ratelimit_period="10 SECONDS" ]
+--------- beginning of system
+07-02 09:35:53.341   691  1878 D SystemServerTiming: getUserSwitchability-0
+07-02 09:35:53.341   691  1878 D SystemServerTiming: TM.isInCall
+07-02 09:35:53.342   691  1878 D SystemServerTiming: hasUserRestriction-DISALLOW_USER_SWITCH
+07-02 09:35:53.342   691  1878 D SystemServerTiming: getInt-ALLOW_USER_SWITCHING_WHEN_SYSTEM_USER_LOCKED
+07-02 09:35:53.342   691  1878 D SystemServerTiming: isUserUnlocked-USER_SYSTEM
+07-02 09:35:53.343  1546  1947 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:35:53.348  1546  1947 I aggn    : (REDACTED) starting updateConfig, reason: %s
+07-02 09:35:53.348  1546  2073 I aggp    : (REDACTED) Updated TngActivationStateResult %s
+07-02 09:35:53.348  1546  2073 I aggp    : (REDACTED) Emit result=%s
+07-02 09:35:53.349  1546  2073 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.355   691   691 W Looper  : Slow dispatch took 109ms main app=system_server main=true group=FOREGROUND h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=android.app.PendingIntent$FinishedDispatcher@e914642 m=0
+07-02 09:35:53.356   691  2685 W ContentProviderHelper: Slow operation: 147ms so far, now at getContentProviderImpl: after updateOomAdj
+07-02 09:35:53.356   691  2685 W ContentProviderHelper: Slow operation: 147ms so far, now at getContentProviderImpl: done!
+07-02 09:35:53.370   691   889 I Nl80211Proxy: Received NLMSG_ERROR with error 0 for message GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{352}, nlmsg_type{30()}, nlmsg_flags{5(NLM_F_REQUEST|NLM_F_ACK)}, nlmsg_seq{14}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{33}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{-32723}, nla_value{04000000}, }, StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{10000000}, }, StructNlAttr{ nla_len{308}, nla_type{-32724}, nla_value{080000006C09000008000100710900000800020076090000080003007B09000008000400800900000800050085090000080006008A090000080007008F0900000800080094090000080009009909000008000A009E09000008000B00A309000008000C00A809000008000D00B409000008000E003C14000008000F005014000008001000641400000800110078140000080012008C14000008001300A014000008001400B414000008001500C8140000080016007C150000080017009015000008001800A415000008001900B815000008001A00CC15000008001B00E015000008001C00F415000008001D000816000008001E001C16000008001F0030160000080020004416000008002100711600000800220085160000080023009916000008002400AD16000008002500C1160000}, }, StructNlAttr{ nla_len{8}, nla_type{158}, nla_value{00000000}, }]} }
+07-02 09:35:53.372  1772  1772 I WakefulBroadcastRcvr: Processing wakeful broadcast: com.google.android.gms.checkin.CHECKIN_START_ACTION
+07-02 09:35:53.372   691   721 W Looper  : Slow dispatch took 179ms android.fg app=system_server main=false group=FOREGROUND h=android.os.Handler c=android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0@304e0bc m=0
+07-02 09:35:53.378  1570  2647 I AiAiCaptions: maybeUpdateComponentsManagerAndRegisterListeners(): registering receivers
+07-02 09:35:53.385  1546  1947 I dqod    : (REDACTED) New message(%s, @%s) received at connection(%s).
+07-02 09:35:53.386  1546  1947 I dqod    : (REDACTED) Setting client id(%s) at connection(%s).
+07-02 09:35:53.387  1138  1273 D SatelliteController: isSatelliteAttachEnabledForCarrierByUser: db value is unset for subId=1
+07-02 09:35:53.387  1138  1273 D SatelliteController: isSatelliteEnabledByDefaultForReason: requesting default enablement status for reason=2
+07-02 09:35:53.387  1138  1273 D SatelliteController: isSatelliteEnabledByDefaultForReason: loaded from resources isSatelliteEnabledByDefault=true for reason=2
+07-02 09:35:53.387  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.387  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.387  1138  1273 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:35:53.387  1546  2073 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.388  1546  2073 I agzn    : #isGeminiDefaultSystemFeatureEnabled: false
+07-02 09:35:53.388  1546  2073 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.393  1546  1947 I dqod    : (REDACTED) Message(%s, @%s) has been successfully processed at connection(%s).
+07-02 09:35:53.394  1546  1947 I aohp    : (REDACTED) DelegationStatus: %s
+07-02 09:35:53.394  1546  1947 I agok    : (REDACTED) Populated bump behaviors: %s
+07-02 09:35:53.395  1546  1947 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:35:53.395  1546  1947 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:35:53.395  1546  1947 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:35:53.399  1570  2647 I AiAiCaptions: TtsLangFetcherImpl::fetch(). Fetching locales en_US
+07-02 09:35:53.404  1288  2394 E CastAuth: [CastAuthModuleInitIntent] Feature is not available, reason = CastAuth feature is disabled on this 1p device.. [CONTEXT service_id=360 ]
+07-02 09:35:53.406   691   691 I Telecom : PhoneAccountRegistrar: getSimCallManager: SimCallManager for subId 1 queried, returning: null: TSI.gSCM(a)@AEM
+07-02 09:35:53.408  1546  2073 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.408  1138  1273 D SatelliteController: getAllowedCarrierPlmnListForModem: subId=1, isSatelliteRestrictedForCarrier=true
+07-02 09:35:53.408  1138  1273 D SatelliteController: getCarrierRoamingNtnConnectType: Checking connect type from PLMN config for subId: 1
+07-02 09:35:53.408  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.409  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.410  1138  1273 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:35:53.414  1288  2474 I Dtdi    : (REDACTED) [DtdiModuleInitIntentOperation] Init runtime state. flags: %x
+07-02 09:35:53.416  2534  2657 I Finsky:background: [56] SCH: Scheduling 7 system job(s)
+07-02 09:35:53.416  2534  2657 I Finsky:background: [56] SCH: Scheduling system job Id: 10384, L: 6441060, D: 85641060, C: false, I: false, N: 2
+07-02 09:35:53.419  1288  1999 I GetConfigSnapshotOp: (REDACTED) Succeeded but not registered: %s
+07-02 09:35:53.424  1288  2562 I AnomalyConfigLogger: Setting GMS Core subscriber PendingIntent to StatsManager. [CONTEXT service_id=231 ]
+07-02 09:35:53.432  1570  2647 I TextToSpeech: Sucessfully bound to com.google.android.tts
+07-02 09:35:53.434  1546  1947 I agri    : #getEarcons
+07-02 09:35:53.437   691  2080 D TextToSpeechManagerPerUserService: Trying to start connection to TTS engine: com.google.android.tts
+07-02 09:35:53.440  1546  1947 I ahpq    : (REDACTED) #isBluetoothOrWiredHeadsetConnected Number of connected audio devices: %s
+07-02 09:35:53.441  1546  1947 I dqif    : (REDACTED) Connection state changed: %s.
+07-02 09:35:53.442  1841  2160 I Finsky  : [54] SCH: Scheduling 4 system job(s)
+07-02 09:35:53.442  1841  2160 I Finsky  : [54] SCH: Scheduling system job Id: 9103, L: 23799128, D: 66999128, C: false, I: false, N: 1
+07-02 09:35:53.444  1288  1360 I Nearby  : (REDACTED) is blocked device type %s, isAuto=%s, isIot=%s, isLatchsky=%s, isChinaWearable=%s, isTv=%s, isWearable=%s (supportWearOs=%s), isChromeOsDevice=%s (supportChromeOs=%s)
+07-02 09:35:53.458  1546  1947 I akpd    : (REDACTED) #isRobinOnlyLocale checkedLocale:%s language:%s list:%s
+07-02 09:35:53.458  1138  1273 D SatelliteController: getSatellitePerPlmnConfiguration: invalid subId or not supported via carrier.
+07-02 09:35:53.458  1138  1273 D SatelliteController: getCarrierRoamingNtnConnectType: config: null
+07-02 09:35:53.458  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.458  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.459  1138  1273 D SatelliteController: getCarrierRoamingNtnConnectTypeViaConfigUpdater: return null (satelliteConfig is null)
+07-02 09:35:53.464  2534  2652 I Finsky:background: [52] IV2: adding timeout to install 21
+07-02 09:35:53.473  2534  2652 I Finsky:background: [52] IV2: restart active install: com.google.android.googlequicksearchbox[iid:21] [isid:YpzOuEZDQ7CBx3TklyIFoQ]
+07-02 09:35:53.474   691  2688 W ContentProviderHelper: Slow operation: 75ms so far, now at getContentProviderImpl: done!
+07-02 09:35:53.477  2534  2648 I Finsky:background: [49] IV2::TM: starting: 1000000023
+07-02 09:35:53.485  1841  2160 I Finsky  : [54] SCH: Scheduling system job Id: 9104, L: 0, D: 75532230, C: false, I: true, N: 1
+07-02 09:35:53.486  2534  2645 I Finsky:background: [48] Device is eligible for platform Cronet and will attempt to use it.
+07-02 09:35:53.487  1138  1273 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+07-02 09:35:53.488   457  1101 W statsd  : AIBinder_linkToDeath is being called with a non-null cookie and no onUnlink callback set. Use AIBinder_DeathRecipient_setOnUnlinked to manage the lifetime of the cookie. This will become an abort.
+07-02 09:35:53.489   999   999 I Choreographer: Skipped 233 frames!  The application may be doing too much work on its main thread.
+07-02 09:35:53.499  1138  1273 D SatelliteController: isSatelliteAttachEnabledForCarrierByUser: subId=1 no cache found, loading from persistent storage
+07-02 09:35:53.499  1138  1273 D SatelliteController: isSatelliteAttachEnabledForCarrierByUser: subId=1, enabled=-1
+07-02 09:35:53.499  1138  1273 D SatelliteController: isSatelliteAttachEnabledForCarrierByUser: db value is unset for subId=1
+07-02 09:35:53.499  1138  1273 D SatelliteController: isSatelliteEnabledByDefaultForReason: requesting default enablement status for reason=2
+07-02 09:35:53.499  1288  2667 I SystemMemoryMap: (REDACTED) [activityrecognition] serialization complete (extras/values=%.2f/%.2fkb)
+07-02 09:35:53.500  1138  1273 D SatelliteController: isSatelliteEnabledByDefaultForReason: found cached value=true for reason=2
+07-02 09:35:53.500  1138  1273 D TelephonyConfigUpdateInstallReceiver: getConfigParser: domain=satellite
+07-02 09:35:53.504  1138  1273 V SatelliteController: satelliteConfigParser is not ready
+07-02 09:35:53.504  1138  1273 D SatelliteController: isSatelliteAttachSupportedViaConfigupdater: return null (satelliteConfig is null)
+07-02 09:35:53.507   691  2097 D OomAdjuster: Not killing cached processes
+07-02 09:35:53.509  1288  2562 I EsimCloudBackupIntentOp: (REDACTED) onHandleIntent: %s 
+07-02 09:35:53.520  1546  1947 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.521  1546  1947 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.524  2534  2648 I Finsky:background: [49] IV2::TM: Starting task: com.google.android.googlequicksearchbox[iid:21] [isid:YpzOuEZDQ7CBx3TklyIFoQ] [tid: 1000000023]
+07-02 09:35:53.533  2327  2491 W FenceManagerImpl: <DWB> Register lost fences - start 6 registration.
+07-02 09:35:53.533  2534  2657 I Finsky:background: [56] SCH: Scheduling system job Id: 10385, L: 55446467, D: 66246467, C: false, I: true, N: 2
+07-02 09:35:53.533  1546  2073 I agfo    : Scheduling setting Phenotype experience experiments id
+07-02 09:35:53.536  1138  1273 D SatelliteController: isEmergencyServiceSupported: plmnList is empty for subId: 1, returning false
+07-02 09:35:53.536  1138  1273 D SatelliteController: getAllowedCarrierPlmnListForModem: plmnList=
+07-02 09:35:53.537  2327  2487 W FenceManagerImpl: <DWB> Register lost fences - start 5 registration.
+07-02 09:35:53.546  1841  2160 I Finsky  : [54] SCH: Scheduling system job Id: 9105, L: 0, D: 71932880, C: false, I: true, N: 0
+07-02 09:35:53.547  1288  1298 I NullBinder: NullBinder for android.net.action.RECOMMEND_NETWORKS triggering remote TransactionTooLargeException due to Service without Chimera impl, calling uid: 1000, calling pid: 0
+07-02 09:35:53.547  1288  1298 W libbinder.Binder: Large reply transaction of 1056768 bytes, interface descriptor , function: UNKNOWN_FUNCTION_NAME, code: 1, flags: 17
+07-02 09:35:53.550  1288  2562 I EsimCloudBackupIntentOp: Cloud eSIM discovery is not enabled. [CONTEXT service_id=333 ]
+07-02 09:35:53.551  1288  2563 I NearbyMediums: ModuleInitializer handles incoming intent android.intent.action.BOOT_COMPLETED
+07-02 09:35:53.552  1288  2562 I NearbyConnections: Runtime state initialization complete. Nearby connections setting is disabled
+07-02 09:35:53.559  2534  2648 I Finsky:background: [49] IV2::TD starting task. com.google.android.googlequicksearchbox[iid:21] [isid:YpzOuEZDQ7CBx3TklyIFoQ] [tid: 1000000023]
+07-02 09:35:53.561  2534  2693 D HttpFlagsLoader: Not loading HTTP flags because they are disabled in the manifest
+07-02 09:35:53.563  1772  2140 W gle.android.gms: Verification of java.util.Set m58.ee.entrySet() took 278.355ms (43.11 bytecodes/s) (0B arena alloc)
+07-02 09:35:53.564   999   999 I KeyguardTransitionRepository: FINISHED transition: TransitionStep(from=OFF, to=GONE, value=1.0, transitionState=FINISHED, ownerName=KeyguardTransitionRepository(boot))
+07-02 09:35:53.564  2534  2652 I Finsky:background: [52] IV2::TD: Fetching metadata start. com.google.android.googlequicksearchbox[iid:21] [isid:YpzOuEZDQ7CBx3TklyIFoQ] [tid: 1000000023]
+07-02 09:35:53.574   999   999 D KeyguardWakeDirectlyToGoneInteractor: can not ignore auth and return to gone - because of waking
+07-02 09:35:53.575   999  1128 D ResourceTrimmer: Sending TRIM_MEMORY_UI_HIDDEN.
+07-02 09:35:53.578  1546  2073 I aggn    : Client successfully connected!
+07-02 09:35:53.582   999  1128 D StatusBar##isHomeStatusBarAllowed: newValue: true
+07-02 09:35:53.582   691  2321 D ConnectivityService: requestNetwork for uid/pid:10156/2534 activeRequest: null callbackRequest: 99 [NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10156 RequestorUid: 10156 RequestorPkg: com.android.vending UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|NC|LP
+07-02 09:35:53.583   999  1131 D StatusBar##canShowOngoingActivityChips: newValue: true
+07-02 09:35:53.583   999  1130 D StatusBar##chips: newValue: Chips[allowed=true numChips=0]
+07-02 09:35:53.585  1288  2474 I Nearby  : (REDACTED) is blocked device type %s, isAuto=%s, isIot=%s, isLatchsky=%s, isChinaWearable=%s, isTv=%s, isWearable=%s (supportWearOs=%s), isChromeOsDevice=%s (supportChromeOs=%s)
+07-02 09:35:53.588   691  2037 I DefaultPermGrantPolicy: Revoking permissions from disabled data services for user:0
+07-02 09:35:53.592  1546  2073 I agcs    : Calling speech biasing context session
+07-02 09:35:53.594  2455  2572 D WM-SystemJobScheduler: Scheduling work ID 448d5013-0faf-48f3-88c9-4300a95d77edJob ID 110
+07-02 09:35:53.602  1546  1871 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.602  1546  1871 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.603  1546  1871 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:35:53.611  1138  1138 D ImsNrSaModeHandler: setNrSaDisablePolicy : normalPolicy = 0, emergencyPolicy = 0, mIsWfcEmergencyOverEpdn = false
+07-02 09:35:53.618  1546  2073 I agcs    : Calling spoken notification onCreate()
+07-02 09:35:53.619  1546  2073 I ahpp    : enableOobeLifecycle flag disabled
+07-02 09:35:53.619  1546  2073 I ahpk    : registerObserver: Add callback of NotificationAnnouncementChecker
+07-02 09:35:53.619  2534  2645 I cn_CronetLibraryLoader: Cronet version: 147.0.7727.45, arch: x86_64
+07-02 09:35:53.621  2534  2645 I Finsky:background: [48] CronetEngine is present. Using Cronet for the networking stack.
+07-02 09:35:53.623  2534  2652 I Finsky:background: [52] IV2::TD: Fetching metadata done. com.google.android.googlequicksearchbox[iid:21] [isid:YpzOuEZDQ7CBx3TklyIFoQ] [tid: 1000000023]
+07-02 09:35:53.626  2534  2699 D DesktopExperienceFlags: Toggle override initialized to: false
+07-02 09:35:53.637   691  2688 I Telecom : CallsManager: updateEmergencyCallNotificationAsync; show=false: CM.UEMCNA@AEQ
+07-02 09:35:53.639   691   979 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:35:53.642   691   691 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@7671282d does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+07-02 09:35:53.644   691   691 W Looper  : Slow dispatch took 182ms main app=system_server main=true group=FOREGROUND h=android.os.Handler c=com.android.internal.infra.ServiceConnector$Impl$$ExternalSyntheticLambda2@37b80d m=0
+07-02 09:35:53.650   691   691 W Looper  : Slow delivery took 201ms main app=system_server main=true group=FOREGROUND h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=null m=7
+07-02 09:35:53.655   999  2620 I HWUI    : Davey! duration=4034ms; Flags=0, FrameTimelineVsyncId=8068, IntendedVsync=76061673858, Vsync=79945007036, InputEventId=0, HandleInputStart=79988715600, AnimationStart=79988759800, PerformTraversalsStart=80062033300, DrawStart=80091334800, FrameDeadline=77695007126, FrameStartTime=79959587900, FrameInterval=16666666, WorkloadTarget=16666666, AnimationTime=79945007036, SyncQueued=80092121900, SyncStart=80092217600, IssueDrawCommandsStart=80092324500, SwapBuffers=80092466100, FrameCompleted=80096242100, DequeueBufferDuration=184600, QueueBufferDuration=2794400, GpuCompleted=80095860800, SwapBuffersCompleted=80096242100, DisplayPresentTime=0, CommandSubmissionCompleted=80092466100, 
+07-02 09:35:53.655   522   562 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:35:53.655   522   562 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:35:53.657  1288  2604 I Nearby  : (REDACTED) is blocked device type %s, isAuto=%s, isIot=%s, isLatchsky=%s, isChinaWearable=%s, isTv=%s, isWearable=%s (supportWearOs=%s), isChromeOsDevice=%s (supportChromeOs=%s)
+07-02 09:35:53.659   691   691 W Looper  : Drained
+07-02 09:35:53.676   691   891 D ConnectivityService: NetReassign [100 : null → 100] [c 1] [a 46] [i 39]
+07-02 09:35:53.682  1546  2073 I dpwq    : (REDACTED) Completed '%s' over %s (status='%s').
+07-02 09:35:53.682  1546  2073 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.683  1546  2073 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.683  1546  2073 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:35:53.683  1546  2073 I agxo    : Robin is not eligible or not opted-in
+07-02 09:35:53.683  1546  2073 I agxo    : (REDACTED) Headphone Integration status: %s
+07-02 09:35:53.684   691   884 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10156 RequestorUid: 10156 RequestorPkg: com.android.vending UnderlyingNetworks: Null] ]
+07-02 09:35:53.684   691   884 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10156 RequestorUid: 10156 RequestorPkg: com.android.vending UnderlyingNetworks: Null] ]
+07-02 09:35:53.685   691   884 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10156 RequestorUid: 10156 RequestorPkg: com.android.vending UnderlyingNetworks: Null] ]
+07-02 09:35:53.685   691   884 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=100, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10156 RequestorUid: 10156 RequestorPkg: com.android.vending UnderlyingNetworks: Null] ]
+07-02 09:35:53.695  1546  2073 I ahcu    : #SpokenNotif Listening for Robin supported headset connection state changes
+07-02 09:35:53.695  1546  2073 I ahcu    : (REDACTED) #SpokenNotif #onStateChange state: %s
+07-02 09:35:53.696  1546  2073 I ahcn    : (REDACTED) #SpokenNotif #FCF updateInternal with changeReason %s [IVR]
+07-02 09:35:53.697  1546  2073 I ahqd    : (REDACTED) #SpokenNotif #isSupportedDeviceConnected: %s
+07-02 09:35:53.698  1546  2073 I ahcg    : (REDACTED) #SpokenNotif #FCF: isSupportedDeviceConnected: %s
+07-02 09:35:53.698  1546  2073 I agsq    : FCF Dnd Checker - isDndNonEnabled
+07-02 09:35:53.700  1546  2073 W agsq    : Notification Policy access not granted.
+07-02 09:35:53.702  1288  2690 I SystemMemoryMap: (REDACTED) [activityrecognition] serialization complete (extras/values=%.2f/%.2fkb)
+07-02 09:35:53.703   458   458 D Zygote  : Forked child process 2709
+07-02 09:35:53.716  1546  2073 I agtx    : (REDACTED) FCF SilentRingerChecker, ringer mode %d
+07-02 09:35:53.717  1546  2073 I agsu    : FCF NotificationReadAccessEnabledChecker - isNotificationReadAccessEnabled
+07-02 09:35:53.720  2709  2709 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10169
+07-02 09:35:53.722   691   731 W ActivityManager: Slow operation: 79ms so far, now at startProcess: returned from zygote!
+07-02 09:35:53.723   691   731 W ActivityManager: Slow operation: 81ms so far, now at startProcess: done updating battery stats
+07-02 09:35:53.723  2709  2709 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10169/pid_2709
+07-02 09:35:53.724   691   731 W ActivityManager: Slow operation: 81ms so far, now at startProcess: building log message
+07-02 09:35:53.724   691   731 I ActivityManager: Start proc 2709:com.google.android.tts/u0a169 for bound-service {com.google.android.tts/com.google.android.apps.speech.tts.googletts.service.GoogleTtsService}
+07-02 09:35:53.724   691   731 W ActivityManager: Slow operation: 81ms so far, now at startProcess: starting to update pids map
+07-02 09:35:53.725   691   731 W ActivityManager: Slow operation: 82ms so far, now at startProcess: done updating pids map
+07-02 09:35:53.743  2519  2519 I adzq    : SslGuard completed installation.
+07-02 09:35:53.751  1841  2160 W JobInfo : Job 'com.android.vending/com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain#9106' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+07-02 09:35:53.751  1841  2160 I Finsky  : [54] SCH: Scheduling system job Id: 9106, L: 32217864, D: 33117864, C: false, I: false, N: 0
+07-02 09:35:53.752  2709  2709 I Zygote  : Process 2709 created for com.google.android.tts
+07-02 09:35:53.753  2709  2709 I gle.android.tts: Using generational CollectorTypeCMC GC.
+07-02 09:35:53.755   691  1259 W JobInfo : Job 'com.android.vending/com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain#9106' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+07-02 09:35:53.756  2709  2709 W gle.android.tts: Unexpected CPU variant for x86: x86_64.
+07-02 09:35:53.756  2709  2709 W gle.android.tts: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+07-02 09:35:53.765   532   555 I adbd    : jdwp connection from 2709
+07-02 09:35:53.773  1546  1947 W (setupdesign) Partner: No partner package found!
+07-02 09:35:53.775  1288  2604 I NearbyDiscovery: (REDACTED) DiscoveryController, showNotification, itemSize=%s
+07-02 09:35:53.776  1288  2604 I NearbyDiscovery: (REDACTED) Show notifications: %d total, no changes since last shown, no-op.
+07-02 09:35:53.785  1546  2073 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.788  1546  2073 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.788  1546  2082 I aohp    : (REDACTED) DelegationStatus: %s
+07-02 09:35:53.788  1546  2082 I agok    : (REDACTED) Populated bump behaviors: %s
+07-02 09:35:53.788  1546  2082 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:35:53.789  1546  2082 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:35:53.789  1546  2082 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:35:53.789  1546  2073 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.790  2534  2657 I Finsky:background: [56] SCH: Scheduling system job Id: 10386, L: 0, D: 85640161, C: true, I: true, N: 2
+07-02 09:35:53.803   522   562 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:35:53.803   522   562 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:35:53.812  1138  1150 W m.android.phone: Suspending all threads took: 117.608ms
+07-02 09:35:53.831   691   891 D ConnectivityService: NetReassign [no changes] [c 9] [a 0] [i 2]
+07-02 09:35:53.839  1546  2073 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.842  2455  2572 D WM-SystemJobScheduler: Scheduling work ID 783b3dc9-be34-4955-8b09-ebe9ed570029Job ID 121
+07-02 09:35:53.856  2709  2709 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+07-02 09:35:53.876  1546  1947 I ahqd    : (REDACTED) #SpokenNotif #isSupportedDeviceConnected: %s
+07-02 09:35:53.877  1546  2073 I amyq    : (REDACTED) #maybeUpdateGeminiOnLockscreenSetting fallback to v0, persist=%s
+07-02 09:35:53.878  1546  1947 I ahcg    : (REDACTED) #SpokenNotif #FCF: isSupportedDeviceConnected: %s
+07-02 09:35:53.878  1772  2140 W gle.android.gms: Verification of m58.qjo m58.qjo.s() took 139.914ms (64.33 bytecodes/s) (0B arena alloc)
+07-02 09:35:53.878  1546  1947 I agsq    : FCF Dnd Checker - isDndNonEnabled
+07-02 09:35:53.880  1546  1947 W agsq    : Notification Policy access not granted.
+07-02 09:35:53.881  1546  1947 I agry    : (REDACTED) #FCF: Notification Announcement enabled: %s
+07-02 09:35:53.881  1546  1947 I agsu    : FCF NotificationReadAccessEnabledChecker - isNotificationReadAccessEnabled
+07-02 09:35:53.892  2534  2657 I Finsky:background: [56] SCH: Scheduling system job Id: 10387, L: 0, D: 85640060, C: true, I: false, N: 2
+07-02 09:35:53.895  1546  1947 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.895  1546  1947 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.896  1546  1947 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.897  1546  1947 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.897  1546  1947 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:35:53.899  1546  1947 I agxo    : Robin is not eligible or not opted-in
+07-02 09:35:53.899  1546  1947 I agxo    : (REDACTED) Headphone Integration status: %s
+07-02 09:35:53.900  1546  1947 I amyq    : (REDACTED) #maybeUpdateGeminiOnLockscreenSetting fallback to v0, persist=%s
+07-02 09:35:53.901  1546  2073 I agtx    : (REDACTED) FCF SilentRingerChecker, ringer mode %d
+07-02 09:35:53.901  1546  1947 I agry    : (REDACTED) #FCF: Notification Announcement enabled: %s
+07-02 09:35:53.902  1546  1947 I dqif    : (REDACTED) Invocations routing has changed
+07-02 09:35:53.902  1546  1947 I dqif    : %s
+07-02 09:35:53.903  1546  2073 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.905  1546  2232 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.906  1546  2232 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.906  1570  2202 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=9629bbb9-a3b8-4640-bbe1-af723eb419f5, tags={ com.google.android.apps.miphone.aiai.chronicle.data.storage.simplestorage.impl.SimpleStorageMaintenanceWorker } ]
+07-02 09:35:53.906  1546  2232 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.906  1546  2232 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.908  1546  2232 I agyg    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:35:53.909   522   562 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:35:53.909   522   562 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:35:53.909  1546  2232 I agyi    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:35:53.909  1546  2232 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.909  1546  2232 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.909  1546  2232 I agys    : (REDACTED) #evaluate: isEnabled[ = %s failure reasons: %s
+07-02 09:35:53.916  1546  2232 I afej    : Not connecting: not eligible for ondevice ASR and fulfillment
+07-02 09:35:53.924  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:53.926  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:53.927  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:53.928  1546  1875 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.928  1546  1875 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.941  1546  1947 I aghx    : #registerBistoDevicesAvailabilityListener
+07-02 09:35:53.942  1546  1947 I agrm    : (REDACTED) #FCF: Assistant primary locale : %s
+07-02 09:35:53.942  1546  1947 I agrm    : (REDACTED) #FCF: Assistant Primary locale check status : %s
+07-02 09:35:53.945  1546  2073 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.945  1546  1947 I agrw    : (REDACTED) #FCF: Gemini on Lockscreen enabled: %s
+07-02 09:35:53.945  1546  2073 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:35:53.945  1546  1947 I agrw    : (REDACTED) #FCF: Gemini on Lockscreen enabled: %s
+07-02 09:35:53.946  1546  2073 I agxo    : Robin is not eligible or not opted-in
+07-02 09:35:53.946  1546  2073 I agxo    : (REDACTED) Headphone Integration status: %s
+07-02 09:35:53.946  1546  2073 I agwv    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:35:53.949  1546  1947 I ahcn    : (REDACTED) #SpokenNotif #FCF evaluate: %s
+07-02 09:35:53.950  1546  1947 I agxj    : Failure Reasons: 
+07-02 09:35:53.950  1546  1947 I agxj    : SPOKEN_NOTIFICATIONS_SUPPORTED_HEADSET_NOT_CONNECTED
+07-02 09:35:53.950  1546  1947 I agxj    : DND_FILTER_STATE_UNRECOGNIZED
+07-02 09:35:53.950  1546  1947 I agxj    : NOTIFICATION_ANNOUNCEMENT_SETTINGS_DISABLED
+07-02 09:35:53.950  1546  1947 I agxj    : NOTIFICATION_READ_ACCESS_DISABLED
+07-02 09:35:53.951  1546  1947 I ahcn    : (REDACTED) NotificationAnnouncementChecker#evaluateInternal completed in %s millis
+07-02 09:35:53.953  1546  1947 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.954  1546  1947 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.954  1546  1947 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.955  1546  1947 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.955  1546  1947 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:53.955  1546  1947 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:53.957  1546  1947 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:35:53.957  1546  1947 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:35:53.958  1546  1947 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:35:53.961   532   532 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''
+07-02 09:35:53.967  1546  2082 I thm     : no assistant invocation found, returning 0.
+07-02 09:35:53.973  1546  1947 I ahpk    : (REDACTED) evaluateNotificationAnnouncementCheckerConditions: %s
+07-02 09:35:53.974  1546  1947 I ahpk    : (REDACTED) evaluateNotificationAnnouncementCheckerConditions: %s
+07-02 09:35:53.975  1546  1947 I ahpk    : SpokenNotifications conditions are not satisfied, not registering observer
+07-02 09:35:53.977  1546  1947 I ahcn    : (REDACTED) #SpokenNotif #FCF evaluate: %s
+07-02 09:35:53.977  1546  1947 I agxj    : Failure Reasons: 
+07-02 09:35:53.977  1546  1947 I agxj    : SPOKEN_NOTIFICATIONS_SUPPORTED_HEADSET_NOT_CONNECTED
+07-02 09:35:53.977  1546  1947 I agxj    : DND_FILTER_STATE_UNRECOGNIZED
+07-02 09:35:53.977  1546  1947 I agxj    : NOTIFICATION_ANNOUNCEMENT_SETTINGS_DISABLED
+07-02 09:35:53.978  1546  1947 I agxj    : NOTIFICATION_READ_ACCESS_DISABLED
+07-02 09:35:53.978  1546  1947 I ahcn    : (REDACTED) NotificationAnnouncementChecker#evaluateInternal completed in %s millis
+07-02 09:35:53.979  1546  1947 I ahpk    : (REDACTED) SpokenNotifications status updated: %s
+07-02 09:35:53.979  1546  1947 I ahpk    : SpokenNotifications conditions are not satisfied, calling #unregisterNotificationListener
+07-02 09:35:53.979  1546  1947 I ahpk    : Unregistering the notification listener
+07-02 09:35:53.979  1546  1947 I dtsy    : #SpokenNotif #unregisterAutoReadNotificationListener()
+07-02 09:35:53.980  1546  1947 I ahqd    : (REDACTED) #SpokenNotif #isSupportedDeviceConnected: %s
+07-02 09:35:53.980  1546  1947 I ahcg    : (REDACTED) #SpokenNotif #FCF: isSupportedDeviceConnected: %s
+07-02 09:35:53.981  1546  1947 I ahcn    : (REDACTED) #FCF NotificationAnnouncementChecker#isHeadsetConnected %s
+07-02 09:35:53.983  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:53.985  1546  1947 W ahpk    : Notification listener unregistration failed
+07-02 09:35:53.985  1546  1947 I agia    : #onBluetoothAudioInputDevicesChanged
+07-02 09:35:53.987  1546  1947 I aggn    : (REDACTED) starting updateConfig, reason: %s
+07-02 09:35:53.988  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:53.988  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:53.989  1546  1947 I agie    : Try refreshing cohort for user
+07-02 09:35:54.012  2519  2686 I DialerGmsFlagCommitter: com.android.dialer.phenotype.GmsFlagCommitter.commit:52 flags committing
+07-02 09:35:54.016  2519  2519 I DialerInternalSemanticEventLogger: com.android.dialer.cui.impl.InternalSemanticEventLogger.handleEvent:141 CUI event: APP_ON_CREATE; uniqueCallId: null
+07-02 09:35:54.017  1546  2082 I thm     : no assistant invocation found, returning max duration.
+07-02 09:35:54.021  2455  2602 I anju    : Refreshing cohort details.
+07-02 09:35:54.022  2455  2602 I anjl    : Returning COHORT_NOT_DETERMINED for signed out user.
+07-02 09:35:54.026  1546  1947 I akpd    : (REDACTED) #isRobinOnlyLocale checkedLocale:%s language:%s list:%s
+07-02 09:35:54.027  1546  1947 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:35:54.027  1546  1947 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:35:54.030  1288  2562 I TrustedTime: Initializing single user components and calling onUserUnlockAfterBoot from BOOT_COMPLETED. [CONTEXT service_id=326 ]
+07-02 09:35:54.034  1546  1947 I agyg    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:35:54.035  1546  1947 I agfj    : (REDACTED) #initialConfig Current Locale set to: %s
+07-02 09:35:54.035  1546  1947 I agfj    : (REDACTED) #initialConfig Assistant is currently enabled: %s
+07-02 09:35:54.035  1546  1947 I agfj    : (REDACTED) #initialConfig InputModality is currently: %s
+07-02 09:35:54.036  1546  1947 I agfj    : (REDACTED) #initialConfig Speed Bump entry points: %s
+07-02 09:35:54.036  1546  1947 I agfj    : (REDACTED) #initialConfig Long Press Power Education entrypoints: %s
+07-02 09:35:54.036  1546  1947 I agfj    : (REDACTED) #initialConfig Robin entrypoints: %s
+07-02 09:35:54.036  1546  1947 I agfj    : (REDACTED) #initialConfig Preferred audio route type: %s
+07-02 09:35:54.037  1546  1947 I agfj    : (REDACTED) #initialConfig Earcons to be added: %s
+07-02 09:35:54.037  1546  1947 I agfj    : (REDACTED) #initialConfig Mic occupied behavior: %s
+07-02 09:35:54.037  1546  1947 I agfj    : (REDACTED) #initialConfig Headphone voice queries and spoken notifications status: %s
+07-02 09:35:54.047  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:54.048  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:54.048  1546  1947 I agil    : #subscribeToHeadsetEventsForEarcons subscribing for headset events
+07-02 09:35:54.050  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:54.050  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:54.050  1546  1947 I aglu    : startRecordingInvocationStateUpdates
+07-02 09:35:54.051  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:54.051  1546  1947 I drbo    : (REDACTED) Initializing managed lifecycle(%s)
+07-02 09:35:54.051  1546  1947 I aqet    : #registerShellAppInstallationReceiver
+07-02 09:35:54.055  1772  2140 W gle.android.gms: Verification of boolean m58.qhx.add(java.lang.Object) took 117.297ms (68.20 bytecodes/s) (0B arena alloc)

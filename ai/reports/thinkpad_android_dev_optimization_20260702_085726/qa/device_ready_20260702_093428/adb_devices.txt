@@ -1,0 +1,4 @@
+List of devices attached
+adb-QCGADUVOSSEYFES4-RnSa0K._adb-tls-connect._tcp device product:6102H_EEA model:6102H device:Cruze_Lite_S transport_id:1
+emulator-5554          device product:sdk_gphone16k_x86_64 model:sdk_gphone16k_x86_64 device:emu64xa16k transport_id:7
+

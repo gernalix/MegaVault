@@ -1,0 +1,16 @@
+Started emulator 'Pixel_8a' PID=32764
+stdout=C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev_optimization_20260702_085726\logs\emulator_Pixel_8a_stdout_20260702_093426.log
+stderr=C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev_optimization_20260702_085726\logs\emulator_Pixel_8a_stderr_20260702_093426.log
+Detected emulator serial: emulator-5554
+status=PASS
+message=Device ready
+serial=emulator-5554
+state=device
+boot_completed=1
+keyguard_before=False
+keyguard_after=False
+pin_required=False
+qa_dir=C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev_optimization_20260702_085726\qa\device_ready_20260702_093428
+model=sdk_gphone16k_x86_64
+sdk=37
+release=17

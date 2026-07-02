@@ -31,6 +31,7 @@ $JsonSummaryPath = Join-Path $QaDir "summary.json"
 $Results = New-Object System.Collections.Generic.List[object]
 $StartedEmulator = $false
 $TargetSerial = $null
+$DevicePolicyBlocked = $false
 
 function Add-Result {
     param(
@@ -128,8 +129,15 @@ function Disconnect-DisallowedDevices {
             & $AdbPath disconnect $row.Serial *> (Join-Path $QaDir ("disconnect_{0}.log" -f ($row.Serial -replace "[^A-Za-z0-9_.-]", "_")))
             Add-Result "disconnect disallowed device" "WARN" "" 0 0 "Disconnected $($row.Serial) due to DevicePolicy=$DevicePolicy"
         } else {
-            Add-Result "disallowed device present" "WARN" "" 0 0 "Device not used by policy but still connected: $($row.Raw)"
+            $script:DevicePolicyBlocked = $true
+            Add-Result "disallowed device present" "FAIL" "" 1 0 "Connected device cannot be disconnected automatically and is forbidden by DevicePolicy=${DevicePolicy}: $($row.Raw)"
         }
+    }
+    Start-Sleep -Seconds 1
+    $remaining = Get-AdbDeviceRows -AdbPath $AdbPath | Where-Object { $_.State -eq "device" -and -not (Test-DeviceAllowed -Row $_) }
+    foreach ($row in $remaining) {
+        $script:DevicePolicyBlocked = $true
+        Add-Result "disallowed device still connected" "FAIL" "" 1 0 "Refusing connected tests while forbidden device is visible: $($row.Raw)"
     }
 }
 
@@ -142,6 +150,42 @@ function Select-AllowedTargetSerial {
     $tcl = $allowed | Where-Object { $_.Raw -match "model:6102H|device:Cruze_Lite_S|product:6102H" } | Select-Object -First 1
     if ($tcl) { return $tcl.Serial }
     return $null
+}
+
+function Stop-NewAndroidEmulatorProcesses {
+    param([datetime]$StartedAt)
+    $sdkEmulatorRoot = if ($env:ANDROID_HOME) { Join-Path $env:ANDROID_HOME "emulator" } else { "" }
+    $cleanupLog = Join-Path $QaDir "kill_emulator_process_fallback.log"
+    foreach ($attempt in 1..8) {
+        $processes = Get-Process -ErrorAction SilentlyContinue |
+            Where-Object {
+                $_.ProcessName -match "^(emulator|qemu-system)" -and
+                $_.StartTime -ge $StartedAt.AddSeconds(-5) -and
+                ($sdkEmulatorRoot -eq "" -or -not $_.Path -or $_.Path.StartsWith($sdkEmulatorRoot, [StringComparison]::OrdinalIgnoreCase))
+            }
+        if (-not $processes) {
+            "No emulator/qemu processes from this run remain after attempt $attempt." | Add-Content -LiteralPath $cleanupLog -Encoding UTF8
+            return
+        }
+        foreach ($process in $processes) {
+            try {
+                Stop-Process -Id $process.Id -Force -ErrorAction Stop
+                "Stopped emulator/qemu PID $($process.Id) $($process.ProcessName) on cleanup attempt $attempt." | Add-Content -LiteralPath $cleanupLog -Encoding UTF8
+            } catch {
+                "WARN failed to stop PID $($process.Id) on cleanup attempt ${attempt}: $($_.Exception.Message)" | Add-Content -LiteralPath $cleanupLog -Encoding UTF8
+            }
+        }
+        Start-Sleep -Seconds 2
+    }
+    $remaining = Get-Process -ErrorAction SilentlyContinue |
+        Where-Object {
+            $_.ProcessName -match "^(emulator|qemu-system)" -and
+            $_.StartTime -ge $StartedAt.AddSeconds(-5) -and
+            ($sdkEmulatorRoot -eq "" -or -not $_.Path -or $_.Path.StartsWith($sdkEmulatorRoot, [StringComparison]::OrdinalIgnoreCase))
+        }
+    foreach ($process in $remaining) {
+        Add-Result "emulator cleanup" "FAIL" $cleanupLog 1 0 "Emulator/qemu process still alive after cleanup: PID $($process.Id) $($process.ProcessName)"
+    }
 }
 
 try {
@@ -200,10 +244,12 @@ try {
             Add-Result "adb discovery" "FAIL" "" 1 0 "adb missing"
         } else {
             Disconnect-DisallowedDevices -AdbPath $adb
-            if (-not $TargetSerial) { $TargetSerial = Select-AllowedTargetSerial -AdbPath $adb }
-            if (-not $TargetSerial) {
+            if ($DevicePolicyBlocked) {
+                Add-Result "device ready" "FAIL" "" 1 0 "Blocked by forbidden connected device under DevicePolicy=$DevicePolicy"
+            } elseif (-not $TargetSerial) { $TargetSerial = Select-AllowedTargetSerial -AdbPath $adb }
+            if (-not $DevicePolicyBlocked -and -not $TargetSerial) {
                 Add-Result "device ready" "FAIL" "" 1 0 "No allowed target device for DevicePolicy=$DevicePolicy"
-            } else {
+            } elseif (-not $DevicePolicyBlocked) {
                 & (Join-Path $PSScriptRoot "wait_android_device_ready.ps1") -Serial $TargetSerial -ReportRoot $ReportRoot -TimeoutSec 240 -NoExit *> (Join-Path $QaDir "device_ready.log")
             $readyExit = $global:WaitAndroidDeviceReadyExitCode
             if ($readyExit -eq 0) {
@@ -266,17 +312,7 @@ try {
                 "Stopped emulator PID $global:StartPixel8aEmulatorProcessId" | Set-Content -LiteralPath (Join-Path $QaDir "kill_emulator_pid.log") -Encoding UTF8
             }
         }
-        $sdkEmulatorRoot = if ($env:ANDROID_HOME) { Join-Path $env:ANDROID_HOME "emulator" } else { "" }
-        Get-Process -ErrorAction SilentlyContinue |
-            Where-Object {
-                $_.ProcessName -match "^(emulator|qemu-system)" -and
-                $_.StartTime -ge $VerificationStartTime.AddSeconds(-5) -and
-                ($sdkEmulatorRoot -eq "" -or ($_.Path -and $_.Path.StartsWith($sdkEmulatorRoot, [StringComparison]::OrdinalIgnoreCase)))
-            } |
-            ForEach-Object {
-                Stop-Process -Id $_.Id -Force
-                "Stopped fallback emulator process PID $($_.Id) $($_.ProcessName)" | Add-Content -LiteralPath (Join-Path $QaDir "kill_emulator_process_fallback.log") -Encoding UTF8
-            }
+        Stop-NewAndroidEmulatorProcesses -StartedAt $VerificationStartTime
     }
 }
 

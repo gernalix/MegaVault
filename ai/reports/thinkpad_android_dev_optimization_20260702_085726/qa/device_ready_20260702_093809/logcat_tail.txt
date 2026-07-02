@@ -1,0 +1,428 @@
+--------- beginning of main
+07-02 09:39:22.380   703   896 E Nl80211Native: getChannelsMhzForBand: Wiphy index not recorded for band 16
+07-02 09:39:22.380   703   896 D Nl80211Native: Ignoring unsupported scan type 2
+07-02 09:39:22.380   703   896 I Nl80211Proxy: Sending Nl80211 message: GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{56}, nlmsg_type{30()}, nlmsg_flags{5(NLM_F_REQUEST|NLM_F_ACK)}, nlmsg_seq{11}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{33}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{-32723}, nla_value{04000000}, }, StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{10000000}, }, StructNlAttr{ nla_len{12}, nla_type{-32724}, nla_value{080000008F090000}, }, StructNlAttr{ nla_len{8}, nla_type{158}, nla_value{00000000}, }]} }
+07-02 09:39:22.391   703  1687 W AppSearchIcing: status-util.h:31: Error: 5, Message: Document (com.google.android.googlequicksearchbox$OmniDynamicInvocationParams/omni, dynamic_invocation) not found.
+07-02 09:39:22.393   703   896 I Nl80211Proxy: Received NLMSG_ERROR with error 0 for message GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{56}, nlmsg_type{30()}, nlmsg_flags{5(NLM_F_REQUEST|NLM_F_ACK)}, nlmsg_seq{11}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{33}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{-32723}, nla_value{04000000}, }, StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{10000000}, }, StructNlAttr{ nla_len{12}, nla_type{-32724}, nla_value{080000008F090000}, }, StructNlAttr{ nla_len{8}, nla_type{158}, nla_value{00000000}, }]} }
+07-02 09:39:22.395   703  1977 W HWUI    : Failed to initialize 101010-2 format, error = EGL_SUCCESS
+--------- beginning of system
+07-02 09:39:22.397   703   732 I ImeTracker: system_server:f89e6d6d: onCancelled at PHASE_SERVER_SHOULD_HIDE
+07-02 09:39:22.399   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.399   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.399   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.399   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.402  1428  1428 I ShortcutsDataManager: AbstractContentDataManager.startImportContentTask():241 startImportContentTask()
+07-02 09:39:22.403  1428  1428 I HandwritingOfflineSuperpacks: HandwritingOfflineSuperpacks.syncInternal():80 no bundled lm for handwriting.
+07-02 09:39:22.410  1428  1428 I Choreographer: Skipped 62 frames!  The application may be doing too much work on its main thread.
+07-02 09:39:22.411   703  1582 D WifiMemoryStoreImpl: Set cluster G785db7221d0b9110 for W785db7221d0b9110: SUCCESS
+07-02 09:39:22.426   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.426   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.426  1641  1641 D nativeloader: Load /system_ext/priv-app/MultiDisplayProvider/lib/x86_64/libemulator_multidisplay_jni.so using class loader ns clns-shared-9 (caller=/system_ext/priv-app/MultiDisplayProvider/MultiDisplayProvider.apk): ok
+07-02 09:39:22.427   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.427   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.427   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.427   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.427   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.427   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.429  1145  1167 D StatsLog: LAUNCHER_READ_OMNI_AVAILABILITY_FROM_APP_SEARCH_FAILED
+07-02 09:39:22.431   703   976 W Looper  : Slow dispatch took 355ms android.perm app=system_server main=false group=FOREGROUND h=android.os.Handler c=com.android.internal.infra.ServiceConnector$Impl$$ExternalSyntheticLambda2@9123b56 m=0
+07-02 09:39:22.436  1428  1428 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2259 
+07-02 09:39:22.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.461   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.461   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.461   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.461   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.461  1641  1641 D MultiDisplayService: Creating display 0
+07-02 09:39:22.461  1641  1641 D MultiDisplayService: Creating display 1
+07-02 09:39:22.461  1641  1641 D MultiDisplayService: Creating display 2
+07-02 09:39:22.461  1641  1641 D MultiDisplayService: Creating display 3
+07-02 09:39:22.461  1641  1641 D MultiDisplayService: Creating display 4
+07-02 09:39:22.461  1641  1641 D MultiDisplayService: Creating display 5
+07-02 09:39:22.461  1641  1641 D MultiDisplayService: Creating display 6
+07-02 09:39:22.462  1641  1641 D MultiDisplayService: Creating display 7
+07-02 09:39:22.462  1641  1641 D MultiDisplayService: Creating display 8
+07-02 09:39:22.462  1641  1641 D MultiDisplayService: Creating display 9
+07-02 09:39:22.462  1641  1641 D MultiDisplayService: Creating display 10
+07-02 09:39:22.470  1641  2070 I android_emulator_multidisplay_JNI: multidisplay pipe connected!!!
+07-02 09:39:22.470  1641  2070 D MultiDisplayService: success open multiDisplay pipe
+07-02 09:39:22.470  1641  2070 D MultiDisplayService: waiting to read pipe
+07-02 09:39:22.480  1428  1629 I ShortcutsDataManager: ShortcutsDataManager.onContentChanged():72 onContentChanged()
+07-02 09:39:22.490   703  1091 V HandoffController: Unregistering task listener
+07-02 09:39:22.490   703  1091 V RemoteTaskListenerHolder: Removing listener.
+07-02 09:39:22.490   703  1091 V RemoteTaskListenerHolder: Listeners is empty, clearing RemoteCallbackList.
+07-02 09:39:22.492  1145  1145 D PerDisplayTaskbarResource: recreateTaskbars displayId=0
+07-02 09:39:22.492  1145  1145 D PerDisplayTaskbarResource: recreateTaskbarForDisplay displayId=0
+07-02 09:39:22.492  1145  1145 D PerDisplayTaskbarResource: recreateTaskbarForDisplay: getting device profile displayId=0
+07-02 09:39:22.495  1306  1306 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.usagereporting.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+07-02 09:39:22.495  1306  1306 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.usagereporting.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+07-02 09:39:22.500   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.500   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.500   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.500   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.501  1641  2070 D MultiDisplayService: have read something from pipe
+07-02 09:39:22.501  1641  2070 D MultiDisplayService: run(): array= [1, 0, 1080, 2400, 420, 0]
+07-02 09:39:22.501  1641  2070 D MultiDisplayService: received 1
+07-02 09:39:22.501  1641  2070 D MultiDisplayService: received 0
+07-02 09:39:22.501  1641  2070 D MultiDisplayService: received 1080
+07-02 09:39:22.501  1641  2070 D MultiDisplayService: received 2400
+07-02 09:39:22.501  1641  2070 D MultiDisplayService: received 420
+07-02 09:39:22.501  1641  2070 D MultiDisplayService: received 0
+07-02 09:39:22.502  1641  2070 E MultiDisplayService: invalid parameters for add/modify display
+07-02 09:39:22.502  1641  2070 D MultiDisplayService: waiting to read pipe
+07-02 09:39:22.502   703   729 I ActivityManager: Broadcast completed: result=0
+07-02 09:39:22.503   703   724 W libbinder.Binder: Binder transaction to android.app.IActivityManager, function: UNKNOWN_FUNCTION_NAME, code: 1598246212, took 13783ms. Data bytes: 424 Reply bytes: 4 Flags: 16
+07-02 09:39:22.504  1595  1595 D nativeloader: Load libtextclassifier3_jni_agsa.so using class loader ns product-clns-9 (caller=/product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk!classes2.dex): dlopen failed: library "libtextclassifier3_jni_agsa.so" not found
+07-02 09:39:22.510  1145  1167 I Surface : Creating surface for consumer unnamed-1145-8 with slotExpansion=1 for 64 slots
+07-02 09:39:22.513  1641  1641 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.android.emulator.multidisplay
+07-02 09:39:22.533  1306  1366 I Wear_Controller: Wearable module requires a companion app to be installed.
+07-02 09:39:22.534  1811  1811 I ContactsDatabaseHelper: updateUseStrictPhoneNumberComparison: US
+07-02 09:39:22.534  1306  1366 I WearableService: Wearable Services not starting. Wear is not available on this device: MISSING_COMPANION_APP
+07-02 09:39:22.539   703   729 I ActivityManager: Broadcast completed: result=0
+07-02 09:39:22.542   703   723 W libbinder.Binder: Binder transaction to android.app.IActivityManager, function: UNKNOWN_FUNCTION_NAME, code: 1598246212, took 8645ms. Data bytes: 424 Reply bytes: 4 Flags: 16
+07-02 09:39:22.548  1379  1395 I PermissionControllerServiceImpl: Updating user sensitive for uid 1000
+07-02 09:39:22.551  1915  1915 I GoogleRestoreDefaultProcessValidator: Validating WorkManager process
+07-02 09:39:22.561   703  1948 W BroadcastQueue: Ignoring finishReceiverLocked; no active broadcast for BroadcastProcessQueue{619ddb7 1003:com.android.systemui/u0a198}
+07-02 09:39:22.570  1003  1003 D KeyguardViewMediator: onSimStateChanged(subId=-1, slotId=0,state=UNKNOWN), keyguardShowing: false
+07-02 09:39:22.582   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.582   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.582   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.582   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.582   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.582   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.582   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.582   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.590   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:39:22.590   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:39:22.591   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:39:22.591   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:39:22.591   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:39:22.591   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:39:22.591   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:39:22.591   703   855 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:39:22.593   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:39:22.593   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:39:22.593   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:39:22.593   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:39:22.593   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:39:22.593   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:39:22.593   703   855 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:39:22.598   703   855 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:39:22.598   703   703 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:39:22.599   703   703 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:39:22.599   703   703 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:39:22.599  1595  1595 I AiAiLocation: Creating location tracker with config: LocationConfig(minUpdateIntervalSeconds=21600, minTravelDistanceMeters=100000)
+07-02 09:39:22.599   703   703 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:39:22.599   703   703 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:39:22.599   703   703 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:39:22.599   703   703 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:39:22.599   703   703 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:39:22.599   703   703 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:39:22.599  1595  1595 I AiAiTextClassifier: Updating text classifier flags in CutoffProvider.
+07-02 09:39:22.615   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.615   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.615   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.615   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.615   703   729 I ActivityManager: Broadcast completed: result=0
+07-02 09:39:22.626  1728  1732 W gle.android.gms: Suspending all threads took: 313.873ms
+07-02 09:39:22.634  1728  2057 I constellation: [sim_state_checker] Handling intent Intent { act=android.intent.action.SIM_STATE_CHANGED flg=0x15000010 xflg=0x4 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.GmsIntentOperationService (has extras) }
+07-02 09:39:22.635   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.635   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.635   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.636   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.636   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.636   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.636   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.636   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.639  1145  1167 E ConsumerBase: [ImageReader-100x100f1u2816m2-1145-4] abandonLocked: ConsumerBase is abandoned!
+07-02 09:39:22.645  1728  2058 I serviceentitlement: (REDACTED) [OgiMatcherDataGenerator] Configuration version : %s
+07-02 09:39:22.649  1145  1167 D b/475447538: Fixed Landscape pref = false all grids = [GridConfig{name='medium', gridTitle='Medium', gridIconId=2131231393, numRows=6, numColumns=4, gridType=1, mIsFixedLandscape=false}]
+07-02 09:39:22.651  1641  1641 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.android.emulator.multidisplay
+07-02 09:39:22.656  1811  2051 D ContactsDatabaseHelper: WAL enabled for contacts2.db: true
+07-02 09:39:22.665   703  1941 W libbinder.Binder: Binder transaction to android.app.IActivityManager, function: UNKNOWN_FUNCTION_NAME, code: 1598246212, took 4025ms. Data bytes: 424 Reply bytes: 4 Flags: 16
+07-02 09:39:22.673   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.674   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.674   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.674   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.674   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.674   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.674   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.674   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.689  1428  1428 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 0, locked = false
+07-02 09:39:22.691  1428  1428 W NotificationCenter: NotificationCenter$NotificationQueue.notifyPendingNotificationsOnExecutor():877 Heavy notify work detected on UI thread: [nky->kzx, nky->kzx, nky->kzx, nky->njq, nky->kzx, nky->huf, nky->kxf, nky->kzx, nky->gva, nky->mju, nky->lcs, nky->psy, nky->pdq, nky->njz, nky->kzx, nky->kzx] takes 253ms
+07-02 09:39:22.696  1428  1428 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1446 onStartInput(EditorInfo{EditorInfo{packageName=com.google.android.apps.nexuslauncher, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+07-02 09:39:22.697  1428  1428 W AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():327 Null input view, cannot update padding!
+07-02 09:39:22.704  1915  2076 I GoogleRestoreDefaultProcessValidator: Processes: NONE, true, com.google.android.apps.restore, com.google.android.apps.restore
+07-02 09:39:22.715  1003  1003 D KeyguardViewMediator: KeyguardViewMediator queue processing message: SYSTEM_READY
+07-02 09:39:22.717   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.717   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.717   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.717   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.717   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.718   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.718   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.718   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.754   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.755   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.755   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.755   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.755   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.755   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.755   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.755   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.756  1145  1167 D IDP     : After initGrid:gridName:medium, dbFile:launcher_4_by_6.db, LauncherPrefs GRID_NAME:medium, LauncherPrefs DB_FILE:launcher_4_by_6.db
+07-02 09:39:22.756  1145  1167 I Surface : Creating surface for consumer unnamed-1145-9 with slotExpansion=1 for 64 slots
+07-02 09:39:22.781  1003  1003 D KeyguardViewMediator: KeyguardViewMediator queue processing message: NOTIFY_STARTED_WAKING_UP
+07-02 09:39:22.796   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.796   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.796   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.796   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.799   987   987 I wpa_supplicant: wlan0: CTRL-EVENT-BEACON-LOSS 
+07-02 09:39:22.800  1428  1428 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+07-02 09:39:22.802  1428  1629 I ContactsDataManager: ContactsDataManager.onContentChanged():153 onContentChanged()
+07-02 09:39:22.803  1428  1629 I EmailDataManager: EmailDataManager.onContentChanged():101 onContentChanged()
+07-02 09:39:22.803  1428  1428 W NotificationCenter: NotificationCenter$NotificationQueue.notifyPendingNotificationsOnExecutor():877 Heavy notify work detected on UI thread: [nky->kzx, nky->kzx, nky->kzx, nky->njq, nky->kzx, nky->huf, nky->kxf, nky->kzx, nky->gva, nky->mju, nky->lcs, nky->psy, nky->pdq, nky->njz, nky->kzx, nky->kzx] takes 105ms
+07-02 09:39:22.812  1428  1629 I DelightKLPDownloader: DelightKLPDownloader.downloadKLPInternal():203 downloading KLP for en_840
+07-02 09:39:22.830  1003  1198 W Looper  : Slow dispatch took 1057ms SysUiBg app=com.android.systemui main=false group=FOREGROUND h=android.os.Handler c=android.telephony.TelephonyCallback$IPhoneStateListenerStub$$ExternalSyntheticLambda58@91d330 m=0
+07-02 09:39:22.830   703   898 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+07-02 09:39:22.831   703   898 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+07-02 09:39:22.831   703   898 D InetDiagMessage: Destroyed live tcp sockets for uids={10198} in 2ms
+07-02 09:39:22.832   703   890 D WifiNative: Scan result ready event
+07-02 09:39:22.832   703   898 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+07-02 09:39:22.833   703   898 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+07-02 09:39:22.833   703   898 D InetDiagMessage: Destroyed live tcp sockets for uids={20198} in 2ms
+07-02 09:39:22.836  1145  1167 E ConsumerBase: [ImageReader-173x173f1u2816m2-1145-5] abandonLocked: ConsumerBase is abandoned!
+07-02 09:39:22.853  1428  1629 I PerLanguageDataDownloader: PerLanguageDataDownloader.downloadDataInternal():168 downloading Data for en
+07-02 09:39:22.853  1428  1428 I InputMethodEntryManager: InputMethodEntryManager$6.onSuccess():3060 Success load additional ImeDefs, entryChanged=true, additionalImeDefsChanged=true, [obp{stringId=password, language=und-Latn-x-password, languageTag=und-Latn-x-password, processedConditions={writing_helper_enable_by_word_revert=false, variant=qwerty, true=true, language=en-US, enable_number_row=true, device=phone, enable_number_row_in_password=true, enable_pk_simulator=false}, className=com.google.android.libraries.inputmethod.ime.password.PasswordIme, label=2132019351, keyEventInterpreter=null, inlineComposing=true, autoCapital=true, announceAutoSelectedCandidate=true, statusIcon=0, indicatorIcon=0, indicatorLabel=null, displayAppCompletions=false, extraValues=obi{}, processors=odh@2856221, unacceptableMetaKeys=4098, languageSpecificSettings=0, asciiCapable=false, alwaysShowSuggestions=false, useAsciiPasswordKeyboard=false, keyboardGroupDef=ocq@d370646, phenotypeFlagId=0, localizationLanguageTag=null, supportsInlineSuggestion=false}, obp{stringId=number, language=und-Latn-x-number, languageTag=und-Latn-x-number, processedConditions={}, className=com.google.android.libraries.inputmethod.ime.DummyIme, label=2132019288, keyEventInterpreter=null, inlineComposing=true, autoCapital=false, announceAutoSelectedCandidate=false, statusIcon=0, indicatorIcon=0, indicatorLabel=null, displayAppCompletions=false, extraValues=obi{}, processors=odh@2856221, unacceptableMetaKeys=4098, languageSpecificSettings=0, asciiCapable=false, alwaysShowSuggestions=false, useAsciiPasswordKeyboard=false, keyboardGroupDef=ocq@47b3007, phenotypeFlagId=0, localizationLanguageTag=null, supportsInlineSuggestion=false}, obp{stringId=number_password, language=und-Latn-x-number-password, languageTag=und-Latn-x-number-password, processedConditions={}, className=com.google.android.libraries.inputmethod.ime.DummyIme, label=2132019289, keyEventInterpreter=null, inlineComposing=true, autoCapital=false, announceAutoSelectedCandidate=false, statusIcon=0, indicatorIcon=0, indicatorLabel=null, displayAppCompletions=false, extraValues=obi{}, processors=odh@2856221, unacceptableMetaKeys=4098, languageSpecificSettings=0, asciiCapable=false, alwaysShowSuggestions=false, useAsciiPasswordKeyboard=false, keyboardGroupDef=ocq@d7fc534, phenotypeFlagId=0, localizationLanguageTag=null, supportsInlineSuggestion=false}, obp{stringId=phone_number, language=und-Latn-x-phone-number, languageTag=und-Latn-x-phone-number, processedConditions={}, className=com.google.android.libraries.inputmethod.ime.DummyIme, label=2132019385, keyEventInterpreter=null, inlineComposing=true, autoCapital=false, announceAutoSelectedCandidate=false, statusIcon=0, indicatorIcon=0, indicatorLabel=null, displayAppCompletions=false, extraValues=obi{}, processors=odh@2856221, unacceptableMetaKeys=4098, languageSpecificSettings=0, asciiCapable=false, alwaysShowSuggestions=false, useAsciiPasswordKeyboard=false, keyboardGroupDef=ocq@7b4ff5d, phenotypeFlagId=0, localizationLanguageTag=null, supportsInlineSuggestion=false}, obp{stringId=date_time, language=und-Latn-x-date-time, languageTag=und-Latn-x-date-time, processedConditions={}, className=com.google.android.libraries.inputmethod.ime.DummyIme, label=2132017753, keyEventInterpreter=null, inlineComposing=true, autoCapital=false, announceAutoSelectedCandidate=false, statusIcon=0, indicatorIcon=0, indicatorLabel=null, displayAppCompletions=false, extraValues=obi{}, processors=odh@2856221, unacceptableMetaKeys=4098, languageSpecificSettings=0, asciiCapable=false, alwaysShowSuggestions=false, useAsciiPasswordKeyboard=false, keyboardGroupDef=ocq@ccd40d2, phenotypeFlagId=0, localizationLanguageTag=null, supportsInlineSuggestion=false}]
+07-02 09:39:22.854  1428  1428 I InputMethodEntryManager: InputMethodEntryManager.onSuccessLoadingAdditionalImeDefs():3136 Additional ImeDefs have been loaded, maybe notify entry change: true
+07-02 09:39:22.857  1428  1629 I ManifestedDataDownloader: ManifestedDataDownloader.download():67 downloading manifest https://www.gstatic.com/android/keyboard/modelpack/proactiveek/embedding_gemma/2025120304/en_manifest.json
+07-02 09:39:22.860  1428  1629 I DelightKLPDownloader: DelightKLPDownloader.getBundledLmVersion():312 bundled KLP for en_840 version = 0
+07-02 09:39:22.865  1428  1629 I ManifestedDataDownloader: ManifestedDataDownloader.download():67 downloading manifest https://www.gstatic.com/android/keyboard/dictionarypack/2026032418/metadata.json-perlang/en-840.json?v=2026052101
+07-02 09:39:22.871  1595  1595 I AiAiEcho: SearchBE[TrackerImpl]: initialized.
+07-02 09:39:22.876   703   738 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@819dad08 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+07-02 09:39:22.882  1428  1428 I ClipboardDataHandler: ClipboardDataHandler.updateScreenshotsContentObserver():324 Disable the feature of handling screenshots in the clipboard.
+07-02 09:39:22.884  1145  1167 I Surface : Creating surface for consumer unnamed-1145-10 with slotExpansion=1 for 64 slots
+07-02 09:39:22.884  1428  1428 W NotificationCenter: NotificationCenter.unregisterListener():480 Listener enw@c565cbf was not registered for notification class ohn
+07-02 09:39:22.886  1428  1650 I NetworkInfoNotification: NetworkInfoNotification$Listener.onReceive():112 onNetworkLost: networkState = NO_CONNECTION, isAirplaneModeOn = false
+07-02 09:39:22.886  1428  1650 W NotificationCenter: NotificationCenter.unregisterListener():480 Listener ngm@5f106d5 was not registered for notification class nga
+07-02 09:39:22.887  1428  1710 I KeyboardGroupDefParser: KeyboardGroupDefParser.parseKeyboardGroupDef():73 parseKeyboardGroupDef() 2132213990 -> 0_resource_name_obfuscated : WaitTime = 2 ms : RunTime = 0 ms
+07-02 09:39:22.889  1428  1428 I HardKeyTracker: HardKeyTracker.registerKeySequence():201 Register key sequence pbd{labelResId=2132020489, callback=fdy@cc83b51, lastModifier=2, keyCodes=[50], actions=[0]}
+07-02 09:39:22.890  1428  1428 I HardKeyTracker: HardKeyTracker.registerKeySequence():201 Register key sequence pbd{labelResId=2132020494, callback=fdy@4fa1fb6, lastModifier=2, keyCodes=[48], actions=[0]}
+07-02 09:39:22.891  1428  1428 I HardKeyTracker: HardKeyTracker.registerKeySequence():201 Register key sequence pbd{labelResId=2132020494, callback=fdy@ed24b7, lastModifier=2, keyCodes=[48], actions=[0]}
+07-02 09:39:22.891  1428  1428 W AccessPointsManager: AccessPointsManager.addAccessPoint():1097 The holder controller #0x7f0b248b is not registered
+07-02 09:39:22.892  1428  1428 I HardKeyTracker: HardKeyTracker.registerKeySequence():201 Register key sequence pbd{labelResId=2132020489, callback=fdy@2b29424, lastModifier=2, keyCodes=[50], actions=[0]}
+07-02 09:39:22.893  1428  2018 I ShortcutsDataManager: AbstractContentDataManager$ImportContentTask.doInBackground():257 doInBackground()
+07-02 09:39:22.893  1428  2018 I PersonalDictionaryDataHandler: PersonalDictionaryDataHandler.beginProcess():114 LanguageTags = [en-US]
+07-02 09:39:22.893   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.893  1428  1428 W AccessPointsManager: AccessPointsManager.addAccessPoint():1097 The holder controller #0x7f0b248b is not registered
+07-02 09:39:22.893   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.893  1428  1428 W NotificationCenter: NotificationCenter$NotificationQueue.notifyPendingNotificationsOnExecutor():877 Heavy notify work detected on UI thread: [evb->omj, nhq->omj, nhq->omj, nhq->omj, nhq->omj, nhq->omj, nhq->omj, nhq->omj, nhq->omj, nhq->omj, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, nky->gsc, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, pcq->omj, nkr->omj, pde->omj, nky->kzx, pcq->omj, nkr->omj, pde->omj, nky->kzx, ohx->ohw, ohx->ohw, ohx->ohw, pcq->omj, nkr->omj, pde->omj, nky->kzx, ohx->ohw, ohx->ohw, ohx->ohw, pcq->omj, nkr->omj, pde->omj, nky->kzx, ohx->ohw, ohx->ohw, ohx->ohw, pcq->omj, nkr->omj, pde->omj, nky->kzx, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, ohx->ohw, pcq->omj, nkr->omj, pde->omj, nky->kzx, ohx->ohw, ohx->ohw, ohx->ohw, kzr->hjx, kzr->hjx, kzr->hjx, kzr->hjx, kzr->hjx, kzr->hjx] takes 39ms
+07-02 09:39:22.893   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.893   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.893   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.893   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.893   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.893   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.897  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension.createKeyboardGroupManagerListenableFuture():121 Create keyboard group manager listenable future in hyx
+07-02 09:39:22.898   703   896 I Nl80211Proxy: Sending Nl80211 message: GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{20}, nlmsg_type{30()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{12}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{5}, version{1}, reserved{0} }}, attributes{[]} }
+07-02 09:39:22.899   703   896 I Nl80211Proxy: Received NLMSG_DONE for message GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{20}, nlmsg_type{30()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{12}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{5}, version{1}, reserved{0} }}, attributes{[]} }
+07-02 09:39:22.899   703   896 W Nl80211Utils: Malformed NEW_INTERFACE response: missing attributes
+07-02 09:39:22.899   703   896 I Nl80211Proxy: Sending Nl80211 message: GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{28}, nlmsg_type{30()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{13}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{32}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{10000000}, }]} }
+07-02 09:39:22.900   703   896 I Nl80211Proxy: Received NLMSG_DONE for message GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{28}, nlmsg_type{30()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{13}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{32}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{10000000}, }]} }
+07-02 09:39:22.900  1428  1710 I KeyboardGroupDefParser: KeyboardGroupDefParser.parseKeyboardGroupDef():73 parseKeyboardGroupDef() 2132213998 -> 0_resource_name_obfuscated : WaitTime = 0 ms : RunTime = 2 ms
+07-02 09:39:22.905  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension.createKeyboardGroupManagerListenableFuture():121 Create keyboard group manager listenable future in fhn
+07-02 09:39:22.916  1428  1428 I EmojifyExtensionImpl: EmojifyExtensionImpl.onCreate():604 Creating Emojify extension fgs@5925208.
+07-02 09:39:22.916  1428  1650 I KeyboardGroupDefParser: KeyboardGroupDefParser.parseKeyboardGroupDef():73 parseKeyboardGroupDef() 2132213997 -> 0_resource_name_obfuscated : WaitTime = 2 ms : RunTime = 8 ms
+07-02 09:39:22.922  1428  1428 I KeyboardContextProvider: KeyboardContextProvider$KeyboardContextCache.createKeyboardContext():173 createKeyboardContext(): en-US, man@e7b8da1(com.android.inputmethod.latin.LatinIME@ba45d67), {1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded port finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} as.2 s.32 fontWeightAdjustment=0}
+07-02 09:39:22.922  1428  1428 I GoogleInputMethodService: GoogleInputMethodService.onCurrentInputMethodEntryChanged():2521 onCurrentInputMethodEntryChanged(): imeDefsChanged=true, entryLanguageVariantChanged=true, keyboardContextChanged=true
+07-02 09:39:22.924  1428  1428 I GoogleInputMethodService: GoogleInputMethodService.clearInputMethodServiceData():1125 clearInputMethodServiceData for entryChange
+07-02 09:39:22.925  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension.maybeDestroyExistingKeyboardGroupManager():536 Destroy existing keyboard group manager in hvy
+07-02 09:39:22.925  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension$3.onSuccess():556 KeyboardGroupManager destroyed in hvy.
+07-02 09:39:22.925  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension.createKeyboardGroupManagerListenableFuture():121 Create keyboard group manager listenable future in hvy
+07-02 09:39:22.926  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension.maybeDestroyExistingKeyboardGroupManager():536 Destroy existing keyboard group manager in fhn
+07-02 09:39:22.926  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension$3.onFailure():564 Failed to load KeyboardGroupManager in fhn.
+07-02 09:39:22.927  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension.createKeyboardGroupManagerListenableFuture():121 Create keyboard group manager listenable future in fhn
+07-02 09:39:22.927   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.927  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension.maybeDestroyExistingKeyboardGroupManager():536 Destroy existing keyboard group manager in hyx
+07-02 09:39:22.927   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.927   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.927  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension$3.onFailure():564 Failed to load KeyboardGroupManager in hyx.
+07-02 09:39:22.927   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:22.927  1428  1428 I AbstractOpenableExtension: AbstractOpenableExtension.createKeyboardGroupManagerListenableFuture():121 Create keyboard group manager listenable future in hyx
+07-02 09:39:22.928   703   890 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-02 09:39:22.931  1428  1428 I AccessPointsListHolderController: AccessPointsListHolderController.removeAccessPoint():586 The access point keyboard_resize is not added
+07-02 09:39:22.931  1728  1728 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.common.BIND_SHARED_PREFS xflg=0x4 pkg=com.google.android.gms }
+07-02 09:39:22.932  1728  1728 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.common.BIND_SHARED_PREFS xflg=0x4 pkg=com.google.android.gms }
+07-02 09:39:22.932  1428  1710 I KeyboardGroupDefParser: KeyboardGroupDefParser.parseKeyboardGroupDef():73 parseKeyboardGroupDef() 2132213994 -> 0_resource_name_obfuscated : WaitTime = 3 ms : RunTime = 4 ms
+07-02 09:39:22.933  1428  1710 I KeyboardGroupDefParser: KeyboardGroupDefParser.parseKeyboardGroupDef():73 parseKeyboardGroupDef() 2132213997 -> 0_resource_name_obfuscated : WaitTime = 5 ms : RunTime = 0 ms
+07-02 09:39:22.933  1428  1710 I KeyboardGroupDefParser: KeyboardGroupDefParser.parseKeyboardGroupDef():73 parseKeyboardGroupDef() 2132213998 -> 0_resource_name_obfuscated : WaitTime = 6 ms : RunTime = 0 ms
+07-02 09:39:22.934  1428  1428 I AccessPointsListHolderController: AccessPointsListHolderController.removeAccessPoint():586 The access point split is not added
+07-02 09:39:22.935  1428  1428 I GoogleInputMethodService: GoogleInputMethodService.initializeInputMethodServiceData():890 initializeInputMethodServiceData for ngl{languageTag=en-US, variant=qwerty, hasLocalizedResources=true, conditionCacheKey=_android_software_xr_api_spatial=false_app_first_start_timestamp=1781876383268_cache_additional_ime_defs_for_condition_change=false_cache_ime_defs_for_condition_change=false_deprecate_long_press_space_for_ime_picker=false_device=phone_device_size=default_enable_more_candidates_view_for_multilingual=false_enable_number_row=false_enable_number_row_in_password=true_enable_pk_simulator=false_enable_pk_simulator_setting=false_enable_preemptive_decode=true_enable_scrub_move=true_enable_secondary_digits=true_enable_secondary_symbols=false_expressions=normal_four_or_more_letter_rows=false_free_cursor=false_free_cursor_spacebar_popup=false_keyboard_font_size_setting=_keyboard_mode=normal_language=en-US_layout_9key_split=false_orientation=portrait_physical_keyboard=qwerty_pk_simulator_vk_ready=false_pref_enable_flick_symbols=false_rtl_layout=false_show_comma_key=true_show_period_key=true_show_secondary_digits=true_show_suggestion_strip=true_show_suggestions=true_split_with_duplicate_keys=true_true=true_variant=qwerty_writing_helper_enable_by_word_revert=false, imeDef.stringId=ime_english_united_states, imeDef.className=com.google.android.apps.inputmethod.libs.latin5.LatinIme, imeDef.languageTag=en-US}
+07-02 09:39:22.936  1428  1428 I Gm3ColorTokenStyleSheetProvider: Gm3ColorTokenStyleSheetProvider.isHigherContrastMode():326 Detected higher contrast mode: 72.432045
+07-02 09:39:22.940  1428  1428 I KeyboardThemeProvider: KeyboardThemeProvider.applyKeyboardTheme():27 Apply keyboard theme: theme,!gsf,!pgsans,!pgsf,!use_system_font,BORDER,DYNAMIC_DARK_BRIGHT_KEY,FLAVOR_DPI=XXHDPI,IS_LIGHT,KEYBOARD_WIDTH_CATEGORY=NORMAL,KEY_BORDER_SHAPE=1,LIGHT_THEME=true,PHYSICAL_DIAGONAL=5.9401784,POPUP,SCREEN_SHORTEST_WIDTH=411,SCREEN_SHORTEST_WIDTH_NO_SCALE=411,SW400DP,XXHDPI,bottom4dp,bright_key_on_dynamic_color_dark_theme=true,enable_popup_on_keypress=true,keyboard_redesign_google_sans=true,non_linear_scale,noshadow,overlay_builtin_dynamic_color_light_base.binarypb:gm3-light-fffaf8fe-ff4e5e8b-4fee5571778e92b08ff4c2d3d15b9d3f,silkpopup
+07-02 09:39:22.940  1428  1428 I InputMethodEntryManager: InputMethodEntryManager.getAdditionalImeDefs():2453 getAdditionalImeDefs() called, flag enabled: false, isUserUnlocked: true
+07-02 09:39:22.940  1428  1428 I InputMethodEntryManager: InputMethodEntryManager.getAdditionalImeDefs():2461 OptimizeAdditionalImeDefLoadingFlag disabled, retrieving additional ImeDefs synchronously for entry: ngl{languageTag=en-US, variant=qwerty, hasLocalizedResources=true, conditionCacheKey=_android_software_xr_api_spatial=false_app_first_start_timestamp=1781876383268_cache_additional_ime_defs_for_condition_change=false_cache_ime_defs_for_condition_change=false_deprecate_long_press_space_for_ime_picker=false_device=phone_device_size=default_enable_more_candidates_view_for_multilingual=false_enable_number_row=false_enable_number_row_in_password=true_enable_pk_simulator=false_enable_pk_simulator_setting=false_enable_preemptive_decode=true_enable_scrub_move=true_enable_secondary_digits=true_enable_secondary_symbols=false_expressions=normal_four_or_more_letter_rows=false_free_cursor=false_free_cursor_spacebar_popup=false_keyboard_font_size_setting=_keyboard_mode=normal_language=en-US_layout_9key_split=false_orientation=portrait_physical_keyboard=qwerty_pk_simulator_vk_ready=false_pref_enable_flick_symbols=false_rtl_layout=false_show_comma_key=true_show_period_key=true_show_secondary_digits=true_show_suggestion_strip=true_show_suggestions=true_split_with_duplicate_keys=true_true=true_variant=qwerty_writing_helper_enable_by_word_revert=false, imeDef.stringId=ime_english_united_states, imeDef.className=com.google.android.apps.inputmethod.libs.latin5.LatinIme, imeDef.languageTag=en-US}
+07-02 09:39:22.945   703   738 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10198, TargetPkg: com.android.systemui
+07-02 09:39:22.951  1428  1428 I InputBundle: InputBundle.prefetchKeyboard():669 prefetchKeyboard: prime
+07-02 09:39:22.953  1428  1428 I KeyboardDefManager: KeyboardDefManager.requestKeyboardDef():181 requestKeyboardDef(): type=prime, info=ocn{defIds=[#0x7f1705fa, #0x7f170891], defIdsCacheKey=[2132215290, 2132215953]}
+07-02 09:39:22.953  1428  1428 I KeyboardDefManager: KeyboardDefManager.requestKeyboardDef():243 requestKeyboardDef(): getOrCreate from cache, info=ocn{defIds=[#0x7f1705fa, #0x7f170891], defIdsCacheKey=[2132215290, 2132215953]}
+07-02 09:39:22.957  1003  1003 W MotionLayout: Warning! Progress is defined for values between 0.0 and 1.0 inclusive
+07-02 09:39:22.958  1137  1137 I Telephony: TelecomAccountRegistry$TelecomAccountTelephonyCallback: TelecomAccountRegistry: onServiceStateChanged: newState=0, mServiceState=3
+07-02 09:39:22.958  1137  1137 I Telephony: TelecomAccountRegistry: onServiceStateChanged: Tearing down and re-setting up accounts.
+07-02 09:39:22.958  1137  1137 I Telephony: PstnIncomingCallNotifier: Unregistering: [0]
+07-02 09:39:22.958  1137  1137 D Telephony: Unregistering: Handler (com.android.internal.telephony.GsmCdmaPhone) {c7b4d2b}
+07-02 09:39:22.959  1137  1137 I PhoneInterfaceManager: unregisterMmTelCapabilityCallback: 1 is inactive, ignoring unregister.
+07-02 09:39:22.960  1137  1137 I PhoneInterfaceManager: unregisterImsRegistrationCallback: 1is inactive, ignoring unregister.
+07-02 09:39:22.960  1003  1086 D ShellSplitScreen: onStartedWakingUp
+07-02 09:39:22.960  1428  1428 I AndroidIME: InputBundleManager.loadActiveInputBundleId():542 loadActiveInputBundleId: und-Latn-x-password, password
+07-02 09:39:22.960  1428  1428 W NotificationCenter: NotificationCenter$NotificationQueue.notifyPendingNotificationsOnExecutor():877 Heavy notify work detected on UI thread: [nfs->nis] takes 39ms
+07-02 09:39:22.962  1137  1137 I Telephony: TelecomAccountRegistry: setupAccounts: Found 1 phones.  Attempting to register.
+07-02 09:39:22.962  1137  1137 I Telephony: TelecomAccountRegistry: setupAccounts: Phone with subscription id 1
+07-02 09:39:22.963  1428  1428 I InputMethodEntryManager: InputMethodEntryManager.notifyCurrentInputMethodEntryNotification():3159 Notify InputMethodEntryManager initialized
+07-02 09:39:22.968  1428  1649 W JobInfo : Requested important-while-foreground flag for job104 is ignored and takes no effect
+07-02 09:39:22.972  1137  1137 V SimultaneousCallingTracker: Device is not simultaneous calling capable
+07-02 09:39:22.972   703  1264 W ApplicationInfo: Large ApplicationInfo parcel: size=17700 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:39:22.983  1003  1003 I Choreographer: Skipped 1158 frames!  The application may be doing too much work on its main thread.
+07-02 09:39:22.995   462   462 D Zygote  : Forked child process 2106
+07-02 09:39:23.000  1728  2058 I serviceentitlement: (REDACTED) [OgiMatcherDataGenerator] Matcher data to be registered: %s
+07-02 09:39:23.001  1728  2058 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] Data length [%d] to register
+07-02 09:39:23.002   703  1946 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+07-02 09:39:23.006  1137  1137 D Telephony: isEmergencyPreferredAccount: subId=1, activeData=1
+07-02 09:39:23.006  1137  1137 D Telephony: isEmergencyPreferredAccount: Device does not require preference.
+07-02 09:39:23.007   703   739 W ActivityManager: Slow operation: 131ms so far, now at startProcess: returned from zygote!
+07-02 09:39:23.029  2106  2106 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10149
+07-02 09:39:23.035  1306  1357 W WearableService: onGetService: Wear is not available on this device. Calling package: com.google.android.gms
+07-02 09:39:23.036  1003  1229 D StatusBar##chips: newValue: Chips[allowed=false numChips=0]
+07-02 09:39:23.036  1306  1357 W GoogleApiManager: Not showing notification since connectionResult is not user-facing: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null, clientMethodKey=null}
+07-02 09:39:23.048   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.049   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.049   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.049   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.050  1595  1595 I AiAi    : AiAi onCreate: process=com.google.android.as, isDebug=false
+07-02 09:39:23.070  1595  1595 I AiAiSpeechRecognition: Scheduling background LanguagePack tasks periodically and onLocaleChange...
+07-02 09:39:23.071  2106  2106 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10149/pid_2106
+07-02 09:39:23.083  1811  2051 I PhoneAccountHandleMigrationUtils_ContactsDatabaseHelper: updatePhoneAccountHandleMigrationPendingStatus false
+07-02 09:39:23.088  1003  1228 D StatusBar##canShowOngoingActivityChips: newValue: false
+07-02 09:39:23.091  1728  2058 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] register #1
+07-02 09:39:23.092  1728  2058 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] register credential
+07-02 09:39:23.092  1728  2058 I serviceentitlement: (REDACTED) [OgiMatcherDataGenerator] Number of registered carriers: %d
+07-02 09:39:23.093  1728  2058 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] register #2
+07-02 09:39:23.093  1728  2058 I serviceentitlement: (REDACTED) [CredManRegistrationManager] [%s] register credential
+07-02 09:39:23.093  1728  2058 I serviceentitlement: (REDACTED) [OgiMatcherDataGenerator] Number of registered carriers: %d
+07-02 09:39:23.096  1125  1132 W com.android.se: Suspending all threads took: 48.174ms
+07-02 09:39:23.099   703   703 W Looper  : Slow dispatch took 161ms main app=system_server main=true group=FOREGROUND h=com.android.server.power.Notifier$NotifierHandler c=com.android.server.power.Notifier$$ExternalSyntheticLambda2@162235f m=0
+07-02 09:39:23.107  1595  1595 I AiAiSpeechRecognition: LocaleChangeListener LanguagePack task scheduled successfully
+07-02 09:39:23.107  1428  1428 I KeyboardDefManager: KeyboardDefManager$1.onSuccess():277 requestKeyboardDef onSuccess(): info=ocn{defIds=[#0x7f1705fa, #0x7f170891], defIdsCacheKey=[2132215290, 2132215953]}
+07-02 09:39:23.116   703   739 W ActivityManager: Slow operation: 240ms so far, now at startProcess: done updating battery stats
+07-02 09:39:23.116   703   739 W ActivityManager: Slow operation: 240ms so far, now at startProcess: building log message
+07-02 09:39:23.116   703   739 I ActivityManager: Start proc 2106:com.google.android.apps.bard/u0a149 for broadcast {com.google.android.apps.bard/com.google.android.apps.bard.widget.RobinToolBarAppWidgetReceiver}
+07-02 09:39:23.116   703   739 W ActivityManager: Slow operation: 240ms so far, now at startProcess: starting to update pids map
+07-02 09:39:23.117   703   739 W ActivityManager: Slow operation: 241ms so far, now at startProcess: done updating pids map
+07-02 09:39:23.120  1428  1649 W JobInfo : Requested important-while-foreground flag for job99 is ignored and takes no effect
+07-02 09:39:23.135   703  1263 W ActivityManager: Slow operation: 152ms so far, now at finishAttachApplicationInner: after mServices.attachApplicationLocked
+07-02 09:39:23.135   703  1263 W ActivityManager: Slow operation: 152ms so far, now at finishAttachApplicationInner: after dispatching broadcasts
+07-02 09:39:23.144   703   723 W PackageInfo: Large parcel: size=182256 pkg=android uid=1000 perm=178240(1104) reqPerm=1920(38) attr=484(9) prevAllowSquashing=false
+07-02 09:39:23.146  1428  1428 I KeyboardInterfacePrivate: IKeyboard.createKeyboard():67 Keyboard created from HiltKeyboardFactory: com.google.android.apps.inputmethod.latin.keyboard.LatinPrimeKeyboard
+07-02 09:39:23.154  1915  1915 I GoogleRestoreSettingEntryUpdateReceiver: ACTION_BOOT_COMPLETED received, enqueueing setting entry update work.
+07-02 09:39:23.178   703  1577 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+07-02 09:39:23.179  1306  1925 I AirplaneHeartbeatServic: Stopping airplane heartbeat service [CONTEXT service_id=6 ]
+07-02 09:39:23.184  1428  1649 W JobInfo : Requested important-while-foreground flag for job100 is ignored and takes no effect
+07-02 09:39:23.188   536   536 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''
+07-02 09:39:23.193   703   703 W Looper  : Slow delivery took 218ms main app=system_server main=true group=FOREGROUND h=android.os.Handler c=android.media.MediaRouter$Static$Client$1@88efbe0 m=0
+07-02 09:39:23.195  1137  1137 I Telephony: isRttCurrentlySupported -- regular acct, hasVoiceAvailability: false
+07-02 09:39:23.195  1137  1137 I Telephony:  isRttSupported: false
+07-02 09:39:23.195  1137  1137 I Telephony:  alwaysAllowWhileRoaming: false
+07-02 09:39:23.195  1137  1137 I Telephony:  isRoaming: false
+07-02 09:39:23.195  1137  1137 I Telephony:  isOnWfc: false
+07-02 09:39:23.198   703  1263 W PackageConfigPersister: App-specific configuration not found for packageName: com.google.android.apps.nexuslauncher and userId: 0
+07-02 09:39:23.204  1306  1371 I WearableLocationShim: paired wearable location unsupported - wearable APIs unavailable [CONTEXT service_id=6 ]
+07-02 09:39:23.213  1542  1542 I eitg    : SslGuard completed installation.
+07-02 09:39:23.214   703  1577 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+07-02 09:39:23.215   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.215   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.215   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.215   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.216   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.216   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.216   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.216   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.256   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.256   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.256   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.256   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.256   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.256   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.257   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.257   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.306   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.307   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.307   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.307   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.315  1003  1230 D StatusBar##isHomeStatusBarAllowed: newValue: false
+07-02 09:39:23.339   703   723 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:39:23.360  1428  2011 I DownloadManager: DownloadManager.completeDownload():434 Download for __PEKB_manifest_pek_blocklist__en scheduled with params nzl[allowMetered=true, requireCharging=false, foreground=false, immediately=true, priority=0]
+07-02 09:39:23.360  1428  2011 I DownloadManager: DownloadManager.startDownload():518 start download of __PEKB_manifest_pek_blocklist__en
+07-02 09:39:23.362  1428  1649 W JobInfo : Requested important-while-foreground flag for job101 is ignored and takes no effect
+07-02 09:39:23.364  1428  2011 I DownloadManager: DownloadManager.completeDownload():434 Download for __KLP_manifest_delight__en-840 scheduled with params nzl[allowMetered=true, requireCharging=false, foreground=false, immediately=true, priority=0]
+07-02 09:39:23.364  1428  2011 I DownloadManager: DownloadManager.startDownload():518 start download of __KLP_manifest_delight__en-840
+07-02 09:39:23.372  1428  2011 I DownloadManager: DownloadManager$4.onSuccess():587 download for __PEKB_manifest_pek_blocklist__en is finished with files # rjf@614ab942
+07-02 09:39:23.374  1428  2011 I DownloadManager: DownloadManager$4.onSuccess():587 download for __KLP_manifest_delight__en-840 is finished with files # rjf@f28afaa2
+07-02 09:39:23.382   703   703 I TransportConnection: BackupTransportService#1: Notifying [TransportManager.registerTransport()] transport = BackupTransportClient
+07-02 09:39:23.383   703   703 W Looper  : Drained
+07-02 09:39:23.384  1595  2028 D nativeloader: Load libtextclassifier3_jni_agsa.so using class loader ns product-clns-9 (caller=/product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk!classes2.dex): dlopen failed: library "libtextclassifier3_jni_agsa.so" not found
+07-02 09:39:23.392  1542  2093 D nativeloader: Load /product/priv-app/Velvet/Velvet.apk!/lib/x86_64/libnative_crash_handler_jni.so using class loader ns product-clns-9 (caller=/product/priv-app/Velvet/Velvet.apk!classes2.dex): ok
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: No service published for: ethernet
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:176)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$169.createService(SystemServiceRegistry.java:2654)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2784)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:2297)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2450)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:991)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1849)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2830)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2804)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:558)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1372)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:2050)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(LoadedApk.java:0)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:1095)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:296)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:397)
+07-02 09:39:23.401  1115  1207 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:139)
+07-02 09:39:23.411  1595  2028 D nativeloader: Load libtextclassifier3_jni_agsa.so using class loader ns product-clns-9 (caller=/product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk!classes2.dex): dlopen failed: library "libtextclassifier3_jni_agsa.so" not found
+07-02 09:39:23.435  1595  2028 D nativeloader: Load libtextclassifier3_jni_agsa.so using class loader ns product-clns-9 (caller=/product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk!classes2.dex): dlopen failed: library "libtextclassifier3_jni_agsa.so" not found
+07-02 09:39:23.440  1811  2051 I ContactLocale: AddressBook Labels [[en_US]]: […, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, Α, Β, Γ, Δ, Ε, Ζ, Η, Θ, Ι, Κ, Λ, Μ, Ν, Ξ, Ο, Π, Ρ, Σ, Τ, Υ, Φ, Χ, Ψ, Ω, …, А, Б, В, Г, Д, Ђ, Е, Є, Ж, З, И, І, Й, Ј, К, Л, Љ, М, Н, Њ, О, П, Р, С, Т, Ћ, У, Ф, Х, Ц, Ч, Џ, Ш, Щ, Ю, Я, …, א, ב, ג, ד, ה, ו, ז, ח, ט, י, כ, ל, מ, נ, ס, ע, פ, צ, ק, ר, ש, ת, …, ا, ب, ت, ث, ج, ح, خ, د, ذ, ر, ز, س, ش, ص, ض, ط, ظ, ع, غ, ف, ق, ك, ل, م, ن, ه, و, ي, …, ก, ข, ฃ, ค, ฅ, ฆ, ง, จ, ฉ, ช, ซ, ฌ, ญ, ฎ, ฏ, ฐ, ฑ, ฒ, ณ, ด, ต, ถ, ท, ธ, น, บ, ป, ผ, ฝ, พ, ฟ, ภ, ม, ย, ร, ฤ, ล, ฦ, ว, ศ, ษ, ส, ห, ฬ, อ, ฮ, …, ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅅ, ㅇ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ, …, あ, か, さ, た, な, は, ま, や, ら, わ, #, …]
+07-02 09:39:23.447   703  1948 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:39:23.449  1428  1718 D nativeloader: Configuring clns-11 for other apk . target_sdk_version=36, uses_libraries=ALL, library_path=/data/app/~~voYszwZirBrds0uG4YMRRw==/com.google.android.gms-OuUFQZwhT2Q7e1iU5MXbGQ==/split_CronetDynamite_installtime.apk!/lib/x86_64:/data/app/~~voYszwZirBrds0uG4YMRRw==/com.google.android.gms-OuUFQZwhT2Q7e1iU5MXbGQ==/split_CronetDynamite_installtime.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand
+07-02 09:39:23.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.460   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.461   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.461   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.461   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.461   703  1263 D ConnectivityService: requestNetwork for uid/pid:1000/703 asUid: 10170 activeRequest: null callbackRequest: 69 [NetworkRequest [ REQUEST id=70, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10170 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|BLK
+07-02 09:39:23.466   703   898 D ConnectivityService: NetReassign [70 : null → 100] [c 1] [a 0] [i 3]
+07-02 09:39:23.468  1428  2110 I cn_HttpFlagsLoader: HTTP flags log line (Impl): Using live production flag values from Google
+07-02 09:39:23.468   703  1263 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+07-02 09:39:23.470   703   890 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=70, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10170 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:39:23.470   703   890 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=70, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10170 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:39:23.470   703   890 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=70, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10170 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:39:23.470  1137  1137 I Telephony: TelecomAccountRegistry$AccountEntry: registerPstnPhoneAccount: Registering account=[[ ] PhoneAccount: ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0} Capabilities: CallProvider MultiUser PlaceEmerg SimSub  Audio Routes: BESW Schemes: tel voicemail  Extras: Bundle[{android.telecom.extra.SUPPORTS_VIDEO_CALLING_FALLBACK=true}] GroupId: *** SC Restrictions: [ ]] with Telecom. subId=1
+07-02 09:39:23.471   703   890 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=70, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10170 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:39:23.473   703  1941 I Telecom : : registerPhoneAccount: account=[[ ] PhoneAccount: ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0} Capabilities: CallProvider MultiUser PlaceEmerg SimSub  Audio Routes: BESW Schemes: tel voicemail  Extras: Bundle[{android.telecom.extra.SUPPORTS_VIDEO_CALLING_FALLBACK=true}] GroupId: *** SC Restrictions: [ ]]: TSI.rPA(cap)@ACE
+07-02 09:39:23.489   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.489   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.490   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.490   528   560 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:39:23.500   703  1941 I Telecom : PhoneAccountRegistrar: Modify account: [ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0}]: TSI.rPA(cap)@ACE
+07-02 09:39:23.504   703  1941 I Telecom : CallsManager: handlePhoneAccountChanged: phoneAccount=[[X] PhoneAccount: ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0} Capabilities: CallProvider MultiUser PlaceEmerg SimSub  Audio Routes: BESW Schemes: tel voicemail  Extras: Bundle[{android.telecom.extra.SUPPORTS_VIDEO_CALLING_FALLBACK=true}] GroupId: *** SC Restrictions: [ ]]: TSI.rPA(cap)@ACE
+07-02 09:39:23.518  1428  2018 I ShortcutsDataManager: AbstractContentDataManager.importRecords():348 importRecords() : Success : Count = 0

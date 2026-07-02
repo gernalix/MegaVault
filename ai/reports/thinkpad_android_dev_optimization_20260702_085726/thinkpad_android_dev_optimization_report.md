@@ -6,7 +6,7 @@ Report root: `C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev
 
 ## Stato finale
 
-**Overall: WARN**
+**Overall iniziale: WARN**
 
 Ambiente Android principale: **PASS**. `adb`, `emulator`, `sdkmanager`, JDK 21, Android SDK, AVD `Pixel_8a`, Gradle wrapper e verifica progetto reale funzionano.
 
@@ -18,6 +18,20 @@ WARN residui:
 - Connected test su `parole create` con policy `EmulatorOrTcl`: TCL passa, AVD Pixel_8a ha 1 test strumentale fallito. Questo e un problema test/app, non toolchain.
 
 Nota device aggiornata: dopo la tua indicazione, i test devono usare solo emulatore o TCL/6102H. Il Pixel 8a fisico e stato disconnesso dalla sessione ADB corrente.
+
+## Follow-up prioritario 2026-07-02
+
+**Overall follow-up: PASS**
+
+Punti richiesti e stato:
+
+- **PASS - Pixel fisico escluso dai test.** Lo script `run_android_project_verification.ps1` ora blocca i connected test se vede un device non ammesso che non riesce a disconnettere. Il Pixel fisico wireless viene disconnesso dalla sessione ADB; un Pixel USB/non disconnettibile diventa FAIL bloccante. Ultima verifica ADB: nessun device fisico visibile durante la run `EmulatorOnly`.
+- **PASS - Causa del test emulatore trovata.** Il failure originale era in `WordPulseUiInstrumentedTest.timelineDetailsAndPrefixSearchExposeCapturedWords`: `Total occurrences` esisteva nell'unmerged semantics tree ma non nel merged tree. Il report XML diceva esplicitamente: "the unmerged tree contains '1' node that matches". Fix mirato in `C:\Users\seste\Documents\parole create\app\src\androidTest\java\com\wordpulse\app\WordPulseUiInstrumentedTest.kt`: `onNodeWithText(..., useUnmergedTree = true)` per `Total occurrences` e `2`.
+- **PASS - Verifica emulatore dopo fix.** Run completa solo emulatore: `qa\parole_create_20260702_094137\summary.txt`, `overall=PASS`, `connectedDebugAndroidTest=PASS`, 11 test su `Pixel_8a(AVD) - 17`, nessun Pixel fisico, nessun TCL.
+- **PASS - Diagnosi diretta del singolo test.** Run diretta via `adb -s emulator-5554 shell am instrument` del solo test: `qa\emulator_direct_diagnosis_20260702_093807\summary.txt`, `instrument_exit=0`.
+- **PASS - Cleanup emulatore rafforzato.** `run_android_project_verification.ps1` ora chiude in loop ogni processo `emulator`/`qemu-system` nato durante la run, includendo i processi con `Path` vuoto. Ultima run: `kill_emulator_process_fallback.log` conferma stop di `emulator` e `qemu-system-x86_64-headless` al primo tentativo e nessun residuo al secondo.
+
+Nota: una run intermedia `qa\parole_create_20260702_093330` ha mostrato `INSTRUMENTATION_FAILED / Process crashed` con 0 test. Non si e riprodotta dopo la verifica diretta e la run completa successiva; la prova conclusiva e `qa\parole_create_20260702_094137`, PASS.
 
 ## Stato prima
 
@@ -109,6 +123,18 @@ Run con device policy `EmulatorOrTcl`:
 - Pixel fisico: non usato
 - summary: `qa\parole_create_20260702_092139\summary.txt`
 
+Run finale solo emulatore dopo fix test/cleanup:
+
+- `assembleDebug`: PASS, 20.11 s
+- `testDebugUnitTest`: PASS, 2.45 s
+- `lintDebug`: PASS, 45.40 s
+- `connectedDebugAndroidTest`: PASS, 94.86 s
+- Device usato: `Pixel_8a(AVD) - 17`
+- Pixel fisico: non visibile/non usato
+- TCL: non usato
+- Cleanup: PASS, nessun `emulator/qemu` residuo
+- summary: `qa\parole_create_20260702_094137\summary.txt`
+
 ## Comando quotidiano consigliato
 
 ```powershell
@@ -127,6 +153,8 @@ Solo emulatore:
 ```powershell
 & "$ReportRoot\scripts\run_android_project_verification.ps1" -ProjectPath "<repo>" -UseEmulator Pixel_8a -RunLint -RunUnitTests -RunConnectedTests -KillStartedEmulator -DevicePolicy EmulatorOnly
 ```
+
+Policy assoluta corrente: non usare Pixel fisico nei test. Target ammessi: `EmulatorOnly`, `TclOnly`, oppure `EmulatorOrTcl`.
 
 ## Checklist prima di far lavorare Codex su un'app Android
 
@@ -169,3 +197,4 @@ Gradle globale: non disponibile via winget su questa macchina. Continuare wrappe
 - Fix log: `logs\fix_android_dev_env_20260702_090510.txt`
 - Verifica finale nuova shell: `logs\final_new_shell_verification.txt`
 - Playbook: `troubleshooting_playbook.md`
+- Evidence follow-up PASS: `qa\parole_create_20260702_094137\summary.txt`

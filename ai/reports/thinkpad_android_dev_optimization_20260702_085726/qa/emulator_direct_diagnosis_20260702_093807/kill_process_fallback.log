@@ -1,0 +1,3 @@
+stop pid=27084 name=emulator
+stop pid=28928 name=emulator
+stop pid=10840 name=qemu-system-x86_64-headless

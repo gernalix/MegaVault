@@ -1,0 +1,10 @@
+## No commits yet on master
+?? .gitignore
+?? README.md
+?? app/
+?? build.gradle.kts
+?? gradle.properties
+?? gradle/
+?? gradlew
+?? gradlew.bat
+?? settings.gradle.kts

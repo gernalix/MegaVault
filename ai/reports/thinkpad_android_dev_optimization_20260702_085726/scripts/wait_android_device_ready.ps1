@@ -136,6 +136,10 @@ $summary = @(
 )
 $summary | Tee-Object -FilePath $SummaryPath
 
+if ($Serial -match "adb-.*_adb-tls-connect\._tcp" -and (($props.model -match "Pixel 8a") -or ($props.model -match "Pixel_8a"))) {
+    "policy_note=physical Pixel detected; do not use this serial for tests unless policy explicitly changes" | Add-Content -LiteralPath $SummaryPath -Encoding UTF8
+}
+
 $code = if ($status -eq "FAIL") { 1 } elseif ($status -eq "WARN") { 2 } else { 0 }
 $global:WaitAndroidDeviceReadyExitCode = $code
 if ($NoExit) { return }
