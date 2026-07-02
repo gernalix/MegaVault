@@ -33,6 +33,8 @@ Punti richiesti e stato:
 
 Nota: una run intermedia `qa\parole_create_20260702_093330` ha mostrato `INSTRUMENTATION_FAILED / Process crashed` con 0 test. Non si e riprodotta dopo la verifica diretta e la run completa successiva; la prova conclusiva e `qa\parole_create_20260702_094137`, PASS.
 
+Stato ADB corrente dopo il follow-up: riconnesso solo TCL/6102H via mDNS (`192.168.1.200:39327`); Pixel fisico non e presente in `adb devices -l`.
+
 ## Stato prima
 
 - PATH Android gia presente nella sessione, ma da rendere persistente/validato.
