@@ -1,0 +1,355 @@
+ReportRoot=C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev_optimization_20260702_085726
+Timestamp=2026-07-02T09:05:10.0908952+02:00
+BACKUP env saved: C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev_optimization_20260702_085726\logs\env_backup_20260702_090510.json
+SET User ANDROID_HOME=C:\Users\seste\AppData\Local\Android\Sdk
+SET User ANDROID_SDK_ROOT=C:\Users\seste\AppData\Local\Android\Sdk
+SET User JAVA_HOME=C:\Program Files\Android\Android Studio\jbr
+OK User PATH already has: %ANDROID_HOME%\platform-tools
+OK User PATH already has: %ANDROID_HOME%\emulator
+OK User PATH already has: %ANDROID_HOME%\cmdline-tools\latest\bin
+OK User PATH already has: %JAVA_HOME%\bin
+RUN winget install Gradle: winget install --id Gradle.Gradle --exact --accept-source-agreements --accept-package-agreements
+No package found matching input criteria.
+EXIT winget install Gradle: -1978335212
+Accepting Android SDK licenses if prompted.
+Loading local repository...                                                     
+[=========                              ] 25% Loading local repository...       
+[=========                              ] 25% Fetch remote repository...        
+[==========                             ] 26% Fetch remote repository...        
+[============                           ] 31% Fetch remote repository...        
+[============                           ] 32% Fetch remote repository...        
+[=============                          ] 33% Fetch remote repository...        
+[=============                          ] 35% Fetch remote repository...        
+[==============                         ] 36% Fetch remote repository...        
+[==============                         ] 37% Fetch remote repository...        
+[===============                        ] 38% Fetch remote repository...        
+[===============                        ] 39% Fetch remote repository...        
+[================                       ] 40% Fetch remote repository...        
+[================                       ] 41% Fetch remote repository...        
+[================                       ] 42% Fetch remote repository...        
+[=================                      ] 44% Fetch remote repository...        
+[=================                      ] 45% Fetch remote repository...        
+[==================                     ] 46% Fetch remote repository...        
+[==================                     ] 47% Fetch remote repository...        
+[===================                    ] 48% Fetch remote repository...        
+[===================                    ] 49% Fetch remote repository...        
+[====================                   ] 50% Fetch remote repository...        
+[====================                   ] 51% Fetch remote repository...        
+[====================                   ] 53% Fetch remote repository...        
+[=====================                  ] 54% Fetch remote repository...        
+[=====================                  ] 55% Fetch remote repository...        
+[======================                 ] 56% Fetch remote repository...        
+[======================                 ] 57% Fetch remote repository...        
+[=======================                ] 58% Fetch remote repository...        
+[=======================                ] 59% Fetch remote repository...        
+[========================               ] 60% Fetch remote repository...        
+[========================               ] 61% Fetch remote repository...        
+[=========================              ] 63% Fetch remote repository...        
+[=========================              ] 64% Fetch remote repository...        
+[=========================              ] 65% Fetch remote repository...        
+[==========================             ] 66% Fetch remote repository...        
+[==========================             ] 67% Fetch remote repository...        
+[===========================            ] 68% Fetch remote repository...        
+[===========================            ] 69% Fetch remote repository...        
+[============================           ] 70% Fetch remote repository...        
+[============================           ] 72% Fetch remote repository...        
+[=============================          ] 73% Fetch remote repository...        
+[=============================          ] 74% Fetch remote repository...        
+[=============================          ] 75% Fetch remote repository...        
+[=============================          ] 75% Computing updates...              
+[=======================================] 100% Computing updates...             
+
+All SDK package licenses accepted.
+
+EXIT sdkmanager --licenses: 0
+OK SDK package installed: platform-tools
+OK SDK package installed: emulator
+RUN sdkmanager install cmdline-tools;latest: C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest\bin\sdkmanager.bat cmdline-tools;latest
+Loading package information...                                                  
+Loading local repository...                                                     
+[                                       ] 3% Loading local repository...        
+[                                       ] 3% Fetch remote repository...         
+[=                                      ] 3% Fetch remote repository...         
+[=                                      ] 4% Fetch remote repository...         
+[=                                      ] 5% Fetch remote repository...         
+[==                                     ] 5% Fetch remote repository...         
+[==                                     ] 6% Fetch remote repository...         
+[==                                     ] 7% Fetch remote repository...         
+[==                                     ] 7% Computing updates...               
+[===                                    ] 8% Computing updates...               
+[===                                    ] 10% Computing updates...              
+[===                                    ] 10% Installing Android SDK Command-lin
+                                                                                
+Warning: Package "Android SDK Command-line Tools (latest)" (cmdline-tools;latest) should be installed in 
+"C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest" but 
+it already exists.
+Installing in "C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest-2" instead.
+[===                                    ] 10% Installing Android SDK Command-lin
+[===                                    ] 10% Downloading commandlinetools-win-1
+[====                                   ] 10% Downloading commandlinetools-win-1
+[====                                   ] 11% Downloading commandlinetools-win-1
+[====                                   ] 12% Downloading commandlinetools-win-1
+[=====                                  ] 13% Downloading commandlinetools-win-1
+[=====                                  ] 14% Downloading commandlinetools-win-1
+[=====                                  ] 15% Downloading commandlinetools-win-1
+[======                                 ] 15% Downloading commandlinetools-win-1
+[======                                 ] 16% Downloading commandlinetools-win-1
+[======                                 ] 17% Downloading commandlinetools-win-1
+[=======                                ] 18% Downloading commandlinetools-win-1
+[=======                                ] 19% Downloading commandlinetools-win-1
+[=======                                ] 20% Downloading commandlinetools-win-1
+[========                               ] 20% Downloading commandlinetools-win-1
+[========                               ] 21% Downloading commandlinetools-win-1
+[========                               ] 22% Downloading commandlinetools-win-1
+[=========                              ] 23% Downloading commandlinetools-win-1
+[=========                              ] 24% Downloading commandlinetools-win-1
+[=========                              ] 25% Downloading commandlinetools-win-1
+[==========                             ] 25% Downloading commandlinetools-win-1
+[==========                             ] 26% Downloading commandlinetools-win-1
+[==========                             ] 27% Downloading commandlinetools-win-1
+[===========                            ] 28% Downloading commandlinetools-win-1
+[===========                            ] 29% Downloading commandlinetools-win-1
+[===========                            ] 30% Downloading commandlinetools-win-1
+[============                           ] 30% Downloading commandlinetools-win-1
+[============                           ] 31% Downloading commandlinetools-win-1
+[============                           ] 32% Downloading commandlinetools-win-1
+[============                           ] 33% Downloading commandlinetools-win-1
+[============                           ] 33% Unzipping...                      
+[============                           ] 33% Unzipping... cmdline-tools/       
+[============                           ] 33% Unzipping... cmdline-tools/bin/   
+[============                           ] 33% Unzipping... cmdline-tools/lib/   
+[============                           ] 33% Unzipping... cmdline-tools/NOTICE.
+[=============                          ] 33% Unzipping... cmdline-tools/NOTICE.
+[=============                          ] 33% Unzipping... cmdline-tools/source.
+[=============                          ] 33% Unzipping... cmdline-tools/bin/apk
+[=============                          ] 33% Unzipping... cmdline-tools/bin/avd
+[=============                          ] 33% Unzipping... cmdline-tools/bin/d8.
+[=============                          ] 33% Unzipping... cmdline-tools/bin/lin
+[=============                          ] 33% Unzipping... cmdline-tools/bin/pro
+[=============                          ] 33% Unzipping... cmdline-tools/bin/r8.
+[=============                          ] 33% Unzipping... cmdline-tools/bin/res
+[=============                          ] 33% Unzipping... cmdline-tools/bin/ret
+[=============                          ] 33% Unzipping... cmdline-tools/bin/scr
+[=============                          ] 33% Unzipping... cmdline-tools/bin/sdk
+[=============                          ] 33% Unzipping... cmdline-tools/lib/ana
+[=============                          ] 33% Unzipping... cmdline-tools/lib/ann
+[=============                          ] 33% Unzipping... cmdline-tools/lib/apk
+[=============                          ] 33% Unzipping... cmdline-tools/lib/bui
+[=============                          ] 33% Unzipping... cmdline-tools/lib/com
+[=============                          ] 33% Unzipping... cmdline-tools/lib/ddm
+[=============                          ] 33% Unzipping... cmdline-tools/lib/dev
+[=============                          ] 33% Unzipping... cmdline-tools/lib/ext
+[=============                          ] 33% Unzipping... cmdline-tools/lib/lay
+[=============                          ] 33% Unzipping... cmdline-tools/lib/lin
+[=============                          ] 33% Unzipping... cmdline-tools/lib/mis
+[=============                          ] 33% Unzipping... cmdline-tools/lib/pro
+[=============                          ] 33% Unzipping... cmdline-tools/lib/rep
+[=============                          ] 33% Unzipping... cmdline-tools/lib/sdk
+[=============                          ] 33% Unzipping... cmdline-tools/lib/zip
+[=============                          ] 33% Unzipping... cmdline-tools/lib/apk
+[=============                          ] 33% Unzipping... cmdline-tools/lib/avd
+[=============                          ] 33% Unzipping... cmdline-tools/lib/d8-
+[=============                          ] 33% Unzipping... cmdline-tools/lib/lin
+[=============                          ] 33% Unzipping... cmdline-tools/lib/pro
+[=============                          ] 33% Unzipping... cmdline-tools/lib/r8-
+[=============                          ] 33% Unzipping... cmdline-tools/lib/r8.
+[=============                          ] 34% Unzipping... cmdline-tools/lib/r8.
+[=============                          ] 35% Unzipping... cmdline-tools/lib/r8.
+[=============                          ] 35% Unzipping... cmdline-tools/lib/REA
+[=============                          ] 35% Unzipping... cmdline-tools/lib/res
+[=============                          ] 35% Unzipping... cmdline-tools/lib/ret
+[=============                          ] 35% Unzipping... cmdline-tools/lib/scr
+[=============                          ] 35% Unzipping... cmdline-tools/lib/sdk
+[=============                          ] 35% Unzipping... cmdline-tools/lib/ana
+[==============                         ] 35% Unzipping... cmdline-tools/lib/ana
+[==============                         ] 36% Unzipping... cmdline-tools/lib/ana
+[==============                         ] 36% Unzipping... cmdline-tools/lib/ann
+[==============                         ] 36% Unzipping... cmdline-tools/lib/apk
+[==============                         ] 36% Unzipping... cmdline-tools/lib/bui
+[==============                         ] 37% Unzipping... cmdline-tools/lib/bui
+[==============                         ] 37% Unzipping... cmdline-tools/lib/com
+[==============                         ] 37% Unzipping... cmdline-tools/lib/ddm
+[==============                         ] 37% Unzipping... cmdline-tools/lib/dev
+[==============                         ] 37% Unzipping... cmdline-tools/lib/ext
+[===============                        ] 38% Unzipping... cmdline-tools/lib/ext
+[===============                        ] 39% Unzipping... cmdline-tools/lib/ext
+[===============                        ] 40% Unzipping... cmdline-tools/lib/ext
+[================                       ] 40% Unzipping... cmdline-tools/lib/ext
+[================                       ] 41% Unzipping... cmdline-tools/lib/ext
+[================                       ] 42% Unzipping... cmdline-tools/lib/ext
+[=================                      ] 43% Unzipping... cmdline-tools/lib/ext
+[=================                      ] 44% Unzipping... cmdline-tools/lib/ext
+[=================                      ] 45% Unzipping... cmdline-tools/lib/ext
+[==================                     ] 45% Unzipping... cmdline-tools/lib/ext
+[==================                     ] 46% Unzipping... cmdline-tools/lib/ext
+[==================                     ] 47% Unzipping... cmdline-tools/lib/ext
+[===================                    ] 48% Unzipping... cmdline-tools/lib/ext
+[===================                    ] 49% Unzipping... cmdline-tools/lib/ext
+[===================                    ] 50% Unzipping... cmdline-tools/lib/ext
+[====================                   ] 50% Unzipping... cmdline-tools/lib/ext
+[====================                   ] 51% Unzipping... cmdline-tools/lib/ext
+[====================                   ] 52% Unzipping... cmdline-tools/lib/ext
+[=====================                  ] 53% Unzipping... cmdline-tools/lib/ext
+[=====================                  ] 53% Unzipping... cmdline-tools/lib/lay
+[=====================                  ] 53% Unzipping... cmdline-tools/lib/lin
+[=====================                  ] 54% Unzipping... cmdline-tools/lib/lin
+[=====================                  ] 54% Unzipping... cmdline-tools/lib/mis
+[=====================                  ] 54% Unzipping... cmdline-tools/lib/pro
+[=====================                  ] 54% Unzipping... cmdline-tools/lib/rep
+[=====================                  ] 55% Unzipping... cmdline-tools/lib/rep
+[=====================                  ] 55% Unzipping... cmdline-tools/lib/sdk
+[=====================                  ] 55% Unzipping... cmdline-tools/lib/zip
+[=======================================] 100% Unzipping... cmdline-tools/lib/zi
+
+
+EXIT sdkmanager install cmdline-tools;latest: 0
+RUN sdkmanager install platforms;android-35: C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest\bin\sdkmanager.bat platforms;android-35
+Warning: Observed package id 'cmdline-tools;latest' in inconsistent location 'C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest-2' (Expected 'C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest')
+Loading package information...                                                  
+Loading local repository...                                                     
+Warning: Observed package id 'cmdline-tools;latest' in inconsistent location 'C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest-2' (Expected 'C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest')
+[                                       ] 3% Loading local repository...        
+[                                       ] 3% Fetch remote repository...         
+[=                                      ] 3% Fetch remote repository...         
+[=                                      ] 4% Fetch remote repository...         
+[=                                      ] 5% Fetch remote repository...         
+[==                                     ] 5% Fetch remote repository...         
+[==                                     ] 6% Fetch remote repository...         
+[==                                     ] 7% Fetch remote repository...         
+[==                                     ] 7% Computing updates...               
+[===                                    ] 8% Computing updates...               
+[===                                    ] 10% Computing updates...              
+[===                                    ] 10% Installing Android SDK Platform 35
+[===                                    ] 10% Downloading platform-35_r02.zip...
+[====                                   ] 10% Downloading platform-35_r02.zip...
+[====                                   ] 11% Downloading platform-35_r02.zip...
+[====                                   ] 12% Downloading platform-35_r02.zip...
+[=====                                  ] 13% Downloading platform-35_r02.zip...
+[=====                                  ] 14% Downloading platform-35_r02.zip...
+[=====                                  ] 15% Downloading platform-35_r02.zip...
+[======                                 ] 15% Downloading platform-35_r02.zip...
+[======                                 ] 16% Downloading platform-35_r02.zip...
+[======                                 ] 17% Downloading platform-35_r02.zip...
+[=======                                ] 18% Downloading platform-35_r02.zip...
+[=======                                ] 19% Downloading platform-35_r02.zip...
+[=======                                ] 20% Downloading platform-35_r02.zip...
+[========                               ] 20% Downloading platform-35_r02.zip...
+[========                               ] 21% Downloading platform-35_r02.zip...
+[========                               ] 22% Downloading platform-35_r02.zip...
+[=========                              ] 23% Downloading platform-35_r02.zip...
+[=========                              ] 24% Downloading platform-35_r02.zip...
+[=========                              ] 25% Downloading platform-35_r02.zip...
+[==========                             ] 25% Downloading platform-35_r02.zip...
+[==========                             ] 26% Downloading platform-35_r02.zip...
+[==========                             ] 27% Downloading platform-35_r02.zip...
+[===========                            ] 28% Downloading platform-35_r02.zip...
+[===========                            ] 29% Downloading platform-35_r02.zip...
+[===========                            ] 30% Downloading platform-35_r02.zip...
+[============                           ] 30% Downloading platform-35_r02.zip...
+[============                           ] 31% Downloading platform-35_r02.zip...
+[============                           ] 32% Downloading platform-35_r02.zip...
+[============                           ] 33% Downloading platform-35_r02.zip...
+[============                           ] 33% Unzipping...                      
+[============                           ] 33% Unzipping... android-35/android-st
+[=============                          ] 33% Unzipping... android-35/android-st
+[=============                          ] 34% Unzipping... android-35/android-st
+[=============                          ] 35% Unzipping... android-35/android-st
+[==============                         ] 35% Unzipping... android-35/android-st
+[==============                         ] 35% Unzipping... android-35/android.ja
+[==============                         ] 36% Unzipping... android-35/android.ja
+[==============                         ] 37% Unzipping... android-35/android.ja
+[===============                        ] 38% Unzipping... android-35/android.ja
+[===============                        ] 39% Unzipping... android-35/android.ja
+[===============                        ] 40% Unzipping... android-35/android.ja
+[================                       ] 40% Unzipping... android-35/android.ja
+[================                       ] 41% Unzipping... android-35/android.ja
+[================                       ] 42% Unzipping... android-35/android.ja
+[=================                      ] 43% Unzipping... android-35/android.ja
+[=================                      ] 44% Unzipping... android-35/android.ja
+[=================                      ] 44% Unzipping... android-35/build.prop
+[=================                      ] 44% Unzipping... android-35/core-for-s
+[=================                      ] 44% Unzipping... android-35/framework.
+[=================                      ] 44% Unzipping... android-35/sdk.proper
+[=================                      ] 44% Unzipping... android-35/source.pro
+[=================                      ] 44% Unzipping... android-35/uiautomato
+[=================                      ] 44% Unzipping... android-35/data/NOTIC
+[=================                      ] 44% Unzipping... android-35/data/activ
+[=================                      ] 44% Unzipping... android-35/data/annot
+[=================                      ] 44% Unzipping... android-35/data/api-v
+[=================                      ] 45% Unzipping... android-35/data/api-v
+[=================                      ] 45% Unzipping... android-35/data/broad
+[=================                      ] 45% Unzipping... android-35/data/categ
+[=================                      ] 45% Unzipping... android-35/data/featu
+[=================                      ] 45% Unzipping... android-35/data/servi
+[=================                      ] 45% Unzipping... android-35/data/widge
+[=================                      ] 45% Unzipping... android-35/data/res/a
+[=================                      ] 45% Unzipping... android-35/data/res/c
+[=================                      ] 45% Unzipping... android-35/data/res/d
+[==================                     ] 45% Unzipping... android-35/data/res/d
+[==================                     ] 46% Unzipping... android-35/data/res/d
+[==================                     ] 47% Unzipping... android-35/data/res/d
+[===================                    ] 48% Unzipping... android-35/data/res/d
+[===================                    ] 49% Unzipping... android-35/data/res/d
+[===================                    ] 50% Unzipping... android-35/data/res/d
+[====================                   ] 50% Unzipping... android-35/data/res/d
+[====================                   ] 50% Unzipping... android-35/data/res/i
+[====================                   ] 50% Unzipping... android-35/data/res/l
+[====================                   ] 50% Unzipping... android-35/data/res/m
+[====================                   ] 50% Unzipping... android-35/data/res/r
+[====================                   ] 50% Unzipping... android-35/data/res/t
+[====================                   ] 50% Unzipping... android-35/data/res/v
+[====================                   ] 51% Unzipping... android-35/data/res/v
+[====================                   ] 52% Unzipping... android-35/data/res/v
+[=====================                  ] 53% Unzipping... android-35/data/res/v
+[=====================                  ] 54% Unzipping... android-35/data/res/v
+[=====================                  ] 54% Unzipping... android-35/data/res/x
+[=====================                  ] 54% Unzipping... android-35/optional/a
+[=====================                  ] 54% Unzipping... android-35/optional/o
+[=====================                  ] 54% Unzipping... android-35/optional/l
+[=====================                  ] 54% Unzipping... android-35/skins/NOTI
+[=====================                  ] 54% Unzipping... android-35/skins/HVGA
+[=====================                  ] 54% Unzipping... android-35/skins/QVGA
+[=====================                  ] 54% Unzipping... android-35/skins/WQVG
+[=====================                  ] 54% Unzipping... android-35/skins/WSVG
+[=====================                  ] 54% Unzipping... android-35/skins/WVGA
+[=====================                  ] 54% Unzipping... android-35/skins/WXGA
+[=====================                  ] 54% Unzipping... android-35/templates/
+[=====================                  ] 55% Unzipping... android-35/templates/
+[=======================================] 100% Unzipping... android-35/templates
+
+
+EXIT sdkmanager install platforms;android-35: 0
+OK SDK package installed: platforms;android-36
+OK SDK package installed: build-tools;36.0.0
+Applying AC-only power tuning: no sleep/hibernate on AC, processor max 100 on AC. DC/battery settings unchanged.
+RUN powercfg AC sleep off: powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_SLEEP STANDBYIDLE 0
+EXIT powercfg AC sleep off: 0
+RUN powercfg AC hibernate off: powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_SLEEP HIBERNATEIDLE 0
+EXIT powercfg AC hibernate off: 0
+RUN powercfg AC processor max 100: powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMAX 100
+EXIT powercfg AC processor max 100: 0
+RUN powercfg activate current: powercfg /SETACTIVE SCHEME_CURRENT
+EXIT powercfg activate current: 0
+SECURITY NOTE: Defender exclusions reduce scanning on local development caches/repos only. Do not add Downloads/Desktop broadly.
+WARN Defender exclusion not applied for C:\Users\seste\.android : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\.gradle : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\AppData\Local\Android\Sdk : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\Documents\android studio : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\Documents\Codex\2026-06-19\test-android-apps-plugin-test-android\work\repos\MultiTimeTracker : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\Documents\Codex\2026-06-19\test-android-apps-plugin-test-android\work\repos\Soldi : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\Documents\Codex\2026-06-19\test-android-apps-plugin-test-android\work\repos\Sostanze : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\Documents\MTT : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\Documents\parole create : You don't have enough permissions to perform the requested operation.
+WARN Defender exclusion not applied for C:\Users\seste\Documents\SuperContacts : You don't have enough permissions to perform the requested operation.
+Session PATH refreshed from Machine + User.
+Final command discovery:
+adb: C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe
+emulator: C:\Users\seste\AppData\Local\Android\Sdk\emulator\emulator.exe
+sdkmanager: C:\Users\seste\AppData\Local\Android\Sdk\cmdline-tools\latest\bin\sdkmanager.bat
+java: C:\Program Files\Android\Android Studio\jbr\bin\java.exe
+javac: C:\Program Files\Android\Android Studio\jbr\bin\javac.exe
+gradle: MISSING
+git: C:\Program Files\Git\cmd\git.exe
+pwsh: C:\Program Files\PowerShell\7\pwsh.exe
+python: C:\Users\seste\AppData\Local\Programs\Python\Python314\python.exe
+winget: C:\Users\seste\AppData\Local\Microsoft\WindowsApps\winget.exe

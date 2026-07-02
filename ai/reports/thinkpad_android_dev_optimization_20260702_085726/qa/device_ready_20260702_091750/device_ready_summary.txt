@@ -1,0 +1,12 @@
+status=PASS
+message=Device ready
+serial=adb-52131JEKB01070-Ne8QqZ._adb-tls-connect._tcp
+state=device
+boot_completed=1
+keyguard_before=False
+keyguard_after=False
+pin_required=True
+qa_dir=C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev_optimization_20260702_085726\qa\device_ready_20260702_091750
+model=Pixel 8a
+sdk=37
+release=17

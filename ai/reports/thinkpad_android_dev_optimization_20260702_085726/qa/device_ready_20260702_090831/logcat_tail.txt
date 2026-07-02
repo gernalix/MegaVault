@@ -1,0 +1,421 @@
+--------- beginning of main
+07-02 09:08:39.172  4325  4325 I AconfigPackage: com.android.icu is mapped to com.android.i18n
+07-02 09:08:39.173  4325  4325 I AconfigPackage: com.android.os.statsd.flags is mapped to com.android.os.statsd
+07-02 09:08:39.173  4325  4325 I AconfigPackage: com.android.adservices.flags is mapped to com.android.adservices
+07-02 09:08:39.174  4325  4325 I AconfigPackage: com.android.sdksandbox.flags is mapped to com.android.adservices
+07-02 09:08:39.174  4325  4325 I AconfigPackage: android.app.sdksandbox.flags is mapped to com.android.adservices
+07-02 09:08:39.175  4325  4325 I AconfigPackage: com.android.devicelock.flags is mapped to com.android.devicelock
+07-02 09:08:39.176  4325  4325 I AconfigPackage: android.telecom.flags is mapped to com.android.telephonycore
+07-02 09:08:39.176  4325  4325 I AconfigPackage: com.android.internal.telecom.flags is mapped to com.android.telephonycore
+07-02 09:08:39.176  4325  4325 I AconfigPackage: com.android.telephony.flags is mapped to com.android.telephonycore
+07-02 09:08:39.176  4325  4325 I AconfigPackage: com.android.crashrecovery.flags is mapped to com.android.crashrecovery
+07-02 09:08:39.177  4325  4325 I AconfigPackage: com.android.compos.flags is mapped to com.android.compos
+07-02 09:08:39.178  4325  4325 I AconfigPackage: com.android.webapp.flags is mapped to com.android.webapp
+07-02 09:08:39.179  4325  4325 I AconfigPackage: com.android.adbd.flags is mapped to com.android.adbd
+07-02 09:08:39.180  4325  4325 I AconfigPackage: com.android.bluetooth.beta.flags is mapped to com.android.bt
+07-02 09:08:39.180  4325  4325 I AconfigPackage: com.android.bluetooth.flags is mapped to com.android.bt
+07-02 09:08:39.181  4325  4325 I AconfigPackage: com.android.tethering.mainline.beta is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: android.net.http is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: com.android.tethering.readonly.flags is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: android.net.vcn is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: com.android.net.flags is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: com.android.tethering.flags is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: com.android.tethering.beta.test is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: com.android.nearby.flags is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: com.android.net.thread.flags is mapped to com.android.tethering
+07-02 09:08:39.181  4325  4325 I AconfigPackage: com.android.net.ct.flags is mapped to com.android.tethering
+07-02 09:08:39.182  4325  4325 I AconfigPackage: com.android.uprobestats.flags is mapped to com.android.uprobestats
+07-02 09:08:39.182  4325  4325 I AconfigPackage: android.uprobestats.mainline.flags is mapped to com.android.uprobestats
+07-02 09:08:39.183  4325  4325 I AconfigPackage: com.google.android.widevine.flags is mapped to com.google.android.widevine
+07-02 09:08:39.184  4325  4325 I AconfigPackage: com.android.npumanager is mapped to com.android.npumanager
+07-02 09:08:39.184  4325  4325 E FeatureFlagsImplExport: android.os.flagging.AconfigStorageReadException: ERROR_PACKAGE_NOT_FOUND: package android.xr cannot be found on the device
+07-02 09:08:39.190  4325  4325 D UiAutomationConnection: Created on user UserHandle{0}
+07-02 09:08:39.190  4325  4325 I UiAutomation: Initialized for user 0 on display 0
+07-02 09:08:39.190  4325  4325 W UiAutomation: Created with deprecatead constructor, assumes DEFAULT_DISPLAY
+--------- beginning of system
+07-02 09:08:39.193  1489  4867 D AccessibilityManagerService: changeCurrentUserForTestAutomationIfNeededLocked(0): ignoring because device doesn't support visible background users
+07-02 09:08:39.194  1489  4867 I UiAutomationManager: Registering UiTestAutomationService (id=com.android.server.accessibility/UiAutomation, flags=0x0) when called by user 0
+07-02 09:08:39.195  1489  4867 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:08:39.210  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:08:39.210  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:08:39.210  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:08:39.210  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:08:39.210  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:08:39.210  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:08:39.210  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:08:39.210  1489  4867 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:08:39.218  1489  1833 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:39.240  1489  4867 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:39.246   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:39.246  1489  4867 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:08:39.247  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:08:39.248  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:08:39.248  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:08:39.248  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:08:39.248  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:08:39.248  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:08:39.248  1489  4867 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:08:39.248  1489  4867 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:08:39.250  1489  4631 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:39.255  1489  4867 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:39.270  1489  4631 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:39.278  1489  2093 D WifiNative: Scan result ready event
+07-02 09:08:39.279  1489  2099 I Nl80211Proxy: Sending Nl80211 message: GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{20}, nlmsg_type{33()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{2432}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{5}, version{1}, reserved{0} }}, attributes{[]} }
+07-02 09:08:39.300  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:08:39.301  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:08:39.301  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:08:39.301  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:08:39.301   974  1044 D CHRE    : @ 160187.379: [LONA:WD] Progress: 20/30
+07-02 09:08:39.302   974  1044 D CHRE    : @ 160187.379: [LONA:AM] WiFi Data not available
+07-02 09:08:39.316  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:08:39.316  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:08:39.316  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:08:39.317  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:08:39.320   974  1044 D CHRE    : @ 160187.395: [LONA:WD] Progress: 30/30
+07-02 09:08:39.320   974  1044 D CHRE    : @ 160187.395: [LONA:NS] Discarding unrequested wifi scan because schedule is disabled.
+07-02 09:08:39.320   974  1044 D CHRE    : @ 160187.395: [LONA:AM] WiFi Data not available
+07-02 09:08:39.330  1489  2099 I Nl80211Proxy: Received NLMSG_DONE for message GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{20}, nlmsg_type{33()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{2432}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{5}, version{1}, reserved{0} }}, attributes{[]} }
+07-02 09:08:39.330  1489  2099 W Nl80211Utils: Malformed NEW_INTERFACE response: missing attributes
+07-02 09:08:39.331  1489  2099 I Nl80211Proxy: Sending Nl80211 message: GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{28}, nlmsg_type{33()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{2433}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{32}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{2F000000}, }]} }
+07-02 09:08:39.332  1489  2099 I Nl80211Proxy: Received NLMSG_DONE for message GenericNetlinkMsg{ nlHeader{StructNlMsgHdr{ nlmsg_len{28}, nlmsg_type{33()}, nlmsg_flags{769(NLM_F_REQUEST|NLM_F_DUMP)}, nlmsg_seq{2433}, nlmsg_pid{0} }}, genNlHeader{StructGenNlMsgHdr{ command{32}, version{1}, reserved{0} }}, attributes{[StructNlAttr{ nla_len{8}, nla_type{3}, nla_value{2F000000}, }]} }
+07-02 09:08:39.335  1489  2099 W IE_Capabilities: Unknown RSN cipher suite: 6ac0f00
+07-02 09:08:39.338  1489  2099 W IE_Capabilities: Unknown RSN cipher suite: 6ac0f00
+07-02 09:08:39.352  2737  2769 I WifiScanner: onFullResults
+07-02 09:08:39.353   998  1598 D usf_sensor_hal: pressure: Enter Activate. Enable = 0.
+07-02 09:08:39.354  2737  2769 I WifiScanner: onFullResults
+07-02 09:08:39.355  1209  1209 D AOC     : A3:MSG: usf_sensor.cc, 1881: USF: Received stop sampling request for ICP20100 Pressure Sensor (active:1).
+07-02 09:08:39.356  1209  1209 D AOC     : A3:MSG: icp20100_device.cc, 146: USF: ICP20100: Barometer starts sampling: period_ns = 40000000, max_latency_ns = 1000
+07-02 09:08:39.356  2737  2769 I WifiScanner: onFullResults
+07-02 09:08:39.371  1489  2093 D PasspointManager: ANQP entry not found for: 24:e4:ce:1a:d4:76:<WiFi2653tfc>
+07-02 09:08:39.372  1489  2093 D PasspointManager: ANQP entry not found for: 24:e4:ce:1a:d4:77:<WiFi2653tfc>
+07-02 09:08:39.376  1027  4008 I WifiHAL : Creating message to get link statistics; iface = 47
+07-02 09:08:39.379  2737  5402 I ActivityScheduler: nextTriggerTime: 160243320, in 58087ms, detectorType: 0,  alarmWindowMillis: 7500
+07-02 09:08:39.417  1027  1027 I WifiHAL : Getting cached scan results, iface handle = 0xb4000074df637e90
+07-02 09:08:39.417  1027  1027 E WifiHAL : Creating message to get cached scan results
+07-02 09:08:39.420  1027  1027 I WifiHAL : In GetCachedScanResultsCommand::handleResponse
+07-02 09:08:39.431  1027  1027 D WifiHAL : Start debug command: mType GET_FEATURE
+07-02 09:08:39.431  1027  1027 I WifiHAL : CreateRequest mType = GET_FEATURE
+07-02 09:08:39.432  1027  1027 D WifiHAL : In DebugCommand::handleResponse, mType:GET_FEATURE
+07-02 09:08:39.432  1027  1027 D WifiHAL : len = 4, expected len = 4
+07-02 09:08:39.434  1489  2093 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-02 09:08:39.459  2737  3850 I FrewleTileCacheManagerV: (REDACTED) Fetched %d AP models from cache
+07-02 09:08:39.462   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:39.474  2737  3850 I FrewleTileCacheManagerV: (REDACTED) Fetched %d AP models from cache
+07-02 09:08:39.485  2737  3850 I FrewleTileCacheManagerV: (REDACTED) Fetched %d AP models from cache
+07-02 09:08:39.492  2737  3850 I FrewleTileCacheManagerV: (REDACTED) Fetched %d AP models from cache
+07-02 09:08:39.498  2737  3850 I FrewleTileCacheManagerV: (REDACTED) Fetched %d AP models from cache
+07-02 09:08:39.560  1027  1027 I WifiHAL : Creating message to get link statistics; iface = 47
+07-02 09:08:39.570   551 10287 E gralloc5: Producer and consumer not identified.
+07-02 09:08:39.581   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:39.585 16678 16859 V _BackgroundService$LocationCallbackWithReportType: Location availability LocationAvailability(locationAvailable=true)
+07-02 09:08:39.592  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.592  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.592  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.592  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.592  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.593  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.593  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.593  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.593  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.593  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.593  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too old
+07-02 09:08:39.593  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too old
+07-02 09:08:39.594  2737  4700 I FusedLocation: (REDACTED) location delivery to %s blocked - too close
+07-02 09:08:39.598   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:39.620 13751 18584 I ConsentManagerApiServic: (REDACTED) ConsentManagerApiService onGetService success %s
+07-02 09:08:39.620  1187  1187 I AIDL    : Gnss::injectLocation: Called
+07-02 09:08:39.623  1187  1187 I AIDL    : GNSSInjectLocation: Called
+07-02 09:08:39.632  1027  1027 I WifiHAL : Getting cached scan results, iface handle = 0xb4000074df637e90
+07-02 09:08:39.634  1027  1027 E WifiHAL : Creating message to get cached scan results
+07-02 09:08:39.637  1187  1187 I AIDL    : GNSSInjectLocation: Exit
+07-02 09:08:39.637  1187  1187 I AIDL    : Gnss::injectLocation: Exit
+07-02 09:08:39.639  1187  1187 I AIDL    : Gnss::injectLocation: Called
+07-02 09:08:39.639  1187  1187 I AIDL    : GNSSInjectLocation: Called
+07-02 09:08:39.639  1187  1187 I AIDL    : GNSSInjectLocation: Exit
+07-02 09:08:39.639  1187  1187 I AIDL    : Gnss::injectLocation: Exit
+07-02 09:08:39.639  1187  1187 I AIDL    : Gnss::injectLocation: Called
+07-02 09:08:39.639  1187  1187 I AIDL    : GNSSInjectLocation: Called
+07-02 09:08:39.639  1187  1187 I AIDL    : GNSSInjectLocation: Exit
+07-02 09:08:39.639  1187  1187 I AIDL    : Gnss::injectLocation: Exit
+07-02 09:08:39.640  1187  1237 I AIDL    : Gnss::injectLocation: Called
+07-02 09:08:39.640  1187  1237 I AIDL    : GNSSInjectLocation: Called
+07-02 09:08:39.640  1187  1237 I AIDL    : GNSSInjectLocation: Exit
+07-02 09:08:39.640  1187  1237 I AIDL    : Gnss::injectLocation: Exit
+07-02 09:08:39.640  1187  1237 I AIDL    : Gnss::injectLocation: Called
+07-02 09:08:39.640  1187  1237 I AIDL    : GNSSInjectLocation: Called
+07-02 09:08:39.640  1187  1237 I AIDL    : GNSSInjectLocation: Exit
+07-02 09:08:39.640  1187  1237 I AIDL    : Gnss::injectLocation: Exit
+07-02 09:08:39.640  1489  1489 D TwilightService: onLocationChanged: provider=fused accuracy=11.419 time=1782976119267
+07-02 09:08:39.641  1027  1027 I WifiHAL : In GetCachedScanResultsCommand::handleResponse
+07-02 09:08:39.646  1489  1574 D ColorDisplayService: onTwilightStateChanged: isNight=false
+07-02 09:08:39.647  1187  1243 D GNSS    : lal_check_memory_size: tid=1243 tName=lal_state_threa memSize=2732(KB) limit=524288(KB) tx=0 rx=0
+07-02 09:08:39.675  1027  1027 D WifiHAL : Start debug command: mType GET_FEATURE
+07-02 09:08:39.675  1027  1027 I WifiHAL : CreateRequest mType = GET_FEATURE
+07-02 09:08:39.675  1027  1027 D WifiHAL : In DebugCommand::handleResponse, mType:GET_FEATURE
+07-02 09:08:39.675  1027  1027 D WifiHAL : len = 4, expected len = 4
+07-02 09:08:39.677  1489  2093 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-02 09:08:39.677  1184  1968 D GNSS    : lal_check_memory_size: tid=1968 tName=lal_state_threa memSize=3160(KB) limit=524288(KB) tx=11 rx=11
+07-02 09:08:39.748  2201  2205 I deeptouch: I0000 00:00:1782976119.748366    2205 tf_lite_classifier.cc:415] Event stream classified as kNone
+07-02 09:08:39.848  2212  2388 I Surface : Creating surface for consumer unnamed-2212-4376 with slotExpansion=1 for 64 slots
+07-02 09:08:39.849  1489  4258 D WindowManager: setClientSurface Surface(name=VRI-ScreenDecorOverlay#119)/@0x3973197 for cbbbe89 ScreenDecorOverlay
+07-02 09:08:39.850  2212  2388 I Surface : Creating surface for consumer VRI[ScreenDecorOverlay]#3934(BLAST Consumer)3934 with slotExpansion=1 for 64 slots
+07-02 09:08:39.884   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:39.943  2737  4038 I TFLite-in-PlayServices: Created interpreter.
+07-02 09:08:39.981   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:40.031  2737  4038 I TFLite-in-PlayServices: Created interpreter.
+07-02 09:08:40.066  2737  4038 I SemanticLocation: (REDACTED) [Inferrer] %s%s
+07-02 09:08:40.106  1205  1205 W TracingMuxer: type=1400 audit(0.0:30108): avc:  denied  { write } for  name="traced_producer" dev="tmpfs" ino=1345 scontext=u:r:gxp_logging:s0 tcontext=u:object_r:traced_producer_socket:s0 tclass=sock_file permissive=0
+07-02 09:08:40.163   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:40.192  2737  4038 W SemanticLocation: [AddAdditionalPlaceDetailsUtil] Failed to fetch place info for fprint from place index. [CONTEXT service_id=173 ]
+07-02 09:08:40.200  2737  4038 W SemanticLocation: [AddAdditionalPlaceDetailsUtil] Failed to fetch place info for fprint from place index. [CONTEXT service_id=173 ]
+07-02 09:08:40.322   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:40.788   970 23986 I bthal.activity: bt_power: AclDataStat: 09:08:39:786 - 09:08:40:788, conn_handle: 65, duration: 1002, acl_data_count: 1, acl_tx_data_count: 1, acl_rx_data_count: 0, total_acl_data_count: 35261
+07-02 09:08:40.858  4325  4325 W uiautomator: type=1400 audit(0.0:30109): avc:  denied  { read } for  name="u:object_r:qemu_sf_lcd_density_prop:s0" dev="tmpfs" ino=352 scontext=u:r:shell:s0 tcontext=u:object_r:qemu_sf_lcd_density_prop:s0 tclass=file permissive=0 bug=b/449890606
+07-02 09:08:40.861  4325  4325 W libc    : Access denied finding property "qemu.sf.lcd_density"
+07-02 09:08:40.862  4325  4325 W libc    : Access denied finding property "qemu.sf.lcd_density"
+07-02 09:08:40.858  4325  4325 W uiautomator: type=1400 audit(0.0:30110): avc:  denied  { read } for  name="u:object_r:qemu_sf_lcd_density_prop:s0" dev="tmpfs" ino=352 scontext=u:r:shell:s0 tcontext=u:object_r:qemu_sf_lcd_density_prop:s0 tclass=file permissive=0 bug=b/449890606
+07-02 09:08:41.028  4325  4325 W AccessibilityNodeInfoDumper: Fetch time: 162ms
+07-02 09:08:41.034  1489  4631 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:08:41.050  1489  4631 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:08:41.050  1489  4631 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:08:41.050  1489  4631 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:08:41.051  1489  4631 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:08:41.051  1489  4631 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:08:41.051  1489  4631 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:08:41.051  1489  4631 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:08:41.051  1489  4631 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:08:41.051  1489  4631 D AccessibilityManagerService: restoreCurrentUserForTestAutomationIfNeededLocked(): ignoring because device doesn't support visible background users
+07-02 09:08:41.060  4325  4334 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:08:41.060  4325  4325 D AndroidRuntime: Shutting down VM
+07-02 09:08:41.060  4325  4335 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:08:41.061  4325  4338 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:08:41.061  4325  4343 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:08:41.063  1489  1489 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:08:41.064  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:08:41.064  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:08:41.064  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:08:41.064  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:08:41.064  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:08:41.064  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:08:41.064  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:08:41.064  1489  1489 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:08:41.066  1489  4631 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:41.071  1489  1833 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:08:41.074  9052  7684 I MediaSyncManager_9052_7684: SettingsContentObserver onChange onSync true
+07-02 09:08:41.074  1489  1833 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:08:41.074  1489  1833 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:08:41.074  1489  1833 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:08:41.075  1489  1833 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:08:41.075  1489  1833 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:08:41.075  1489  1833 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:08:41.075  1489  1833 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:08:41.075  1489  1833 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:08:41.090  1489  4631 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:41.092  1027  4008 I WifiHAL : Creating message to get link statistics; iface = 47
+07-02 09:08:41.096  1489  1489 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:08:41.101  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:08:41.101  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:08:41.101  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:08:41.101  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:08:41.101  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:08:41.101  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:08:41.101  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:08:41.101  1489  1489 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:08:41.102  1489  4631 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:41.115  1489  1489 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:08:41.116  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:08:41.116  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:08:41.117  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:08:41.117  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:08:41.117  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:08:41.117  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:08:41.117  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:08:41.117  1489  1489 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:08:41.118  1489  2636 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:41.126  1489  1489 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:08:41.127  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:08:41.127  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:08:41.127  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:08:41.127  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:08:41.127  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:08:41.128  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:08:41.128  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:08:41.128  1489  1489 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:08:41.129  1489  4258 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:08:41.130  1027  1027 I WifiHAL : Getting cached scan results, iface handle = 0xb4000074df637e90
+07-02 09:08:41.130  1027  1027 E WifiHAL : Creating message to get cached scan results
+07-02 09:08:41.133  1027  1027 I WifiHAL : In GetCachedScanResultsCommand::handleResponse
+07-02 09:08:41.145  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:08:41.147  4896  4896 V A11yInputMethod: restartInput(): editor=android.view.inputmethod.EditorInfo@2771040
+07-02 09:08:41.148  4896  4896 V A11yInputMethod: CALL: onStartInput
+07-02 09:08:41.160  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:08:41.167  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:08:41.168   970  1802 I bthal.flowcontrol: HciEventPreProcess: HCI Event 0xe Opcode 0xfd59 Length 22 unhandled by ControllerActivityWatcher
+07-02 09:08:41.175  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:08:41.376  2895  2895 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:08:41.383  4164  5506 I AiAiEcho: SmartspaceNotificationPredictor no parser can handle this notification or notification is invalid
+07-02 09:08:41.388  9052  9191 I NotifySyncService_9052_9191: MSG_NOTIFY_POSTED 
+07-02 09:08:41.388  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:9 key:0|com.burockgames.timeclocker|9|null|10425 PackageName:com.burockgames.timeclocker IsOngoing:true PostTime:1782976121131 currentDeviceModel.connected: true
+07-02 09:08:41.388  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:9 , appName : StayFree
+07-02 09:08:41.388  9052  9191 I NotifySyncService_9052_9191:  isOngoing = true isIncomingCall = false
+07-02 09:08:41.388  9052  9155 I NotifyLogUtils_9052_9155: isIgnoringBatteryOptimizations false
+07-02 09:08:41.417  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:08:41.419  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:08:41.446  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:08:41.481  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:08:41.490  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:08:41.504  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:08:41.750  1489  4631 W ParceledListSlice: Element #26 is 20908 bytes.
+07-02 09:08:41.751  1489  4631 W ParceledListSlice: Element #27 is 21268 bytes.
+07-02 09:08:41.756  1489  4631 W ParceledListSlice: Element #36 is 42368 bytes.
+07-02 09:08:41.757  1489  4631 W ParceledListSlice: Element #37 is 38972 bytes.
+07-02 09:08:41.759  1489  4258 W ParceledListSlice: Element #38 is 38188 bytes.
+07-02 09:08:41.763  1489  4258 W ParceledListSlice: Element #58 is 154812 bytes.
+07-02 09:08:41.763  1489  4258 W ParceledListSlice: Overly large reply size: 172836
+07-02 09:08:42.099  2895  2895 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:08:42.104  1235  1235 I adbd    : adbd service requested 'shell,v2,raw:dumpsys window'
+07-02 09:08:42.106  4164  5506 I AiAiEcho: SmartspaceNotificationPredictor no parser can handle this notification or notification is invalid
+07-02 09:08:42.109  9052  9191 I NotifySyncService_9052_9191: MSG_NOTIFY_POSTED 
+07-02 09:08:42.109  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:9 key:0|com.burockgames.timeclocker|9|null|10425 PackageName:com.burockgames.timeclocker IsOngoing:true PostTime:1782976121846 currentDeviceModel.connected: true
+07-02 09:08:42.109  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:9 , appName : StayFree
+07-02 09:08:42.110  9052  9191 I NotifySyncService_9052_9191:  isOngoing = true isIncomingCall = false
+07-02 09:08:42.112  9052  9155 I NotifyLogUtils_9052_9155: isIgnoringBatteryOptimizations false
+07-02 09:08:42.125  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:08:42.129  2212  2212 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:08:42.212  1489  4631 I ImeTracker: system_server:e123cc55: onRequestShow at ORIGIN_SERVER reason CONTROLS_CHANGED fromUser false displayId 0
+07-02 09:08:42.364  1235  1235 I adbd    : adbd service requested 'exec:screencap '-p''
+07-02 09:08:42.433   551 10287 E gralloc5: Producer and consumer not identified.
+07-02 09:08:42.443  9052  9131 I TimeTracker_9052_9131: trackProcessAlive() called duration 51, miill 1782976122443, start 1782973013461
+07-02 09:08:42.467   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:42.477  1489  1833 W ParceledListSlice: Element #27 is 20908 bytes.
+07-02 09:08:42.477  1489  1833 W ParceledListSlice: Element #28 is 21268 bytes.
+07-02 09:08:42.482  1489  1833 W ParceledListSlice: Element #37 is 42368 bytes.
+07-02 09:08:42.483  1489  1833 W ParceledListSlice: Element #38 is 38972 bytes.
+07-02 09:08:42.486  2201  2205 I deeptouch: I0000 00:00:1782976122.486521    2205 tf_lite_classifier.cc:415] Event stream classified as kNone
+07-02 09:08:42.486  1489  4631 W ParceledListSlice: Element #39 is 38188 bytes.
+07-02 09:08:42.492 20219 20219 D InsetsController: hide(ime())
+07-02 09:08:42.492  1489  4631 W ParceledListSlice: Element #58 is 154812 bytes.
+07-02 09:08:42.492  1489  4631 W ParceledListSlice: Overly large reply size: 167696
+07-02 09:08:42.492 20219 20219 I ImeTracker: com.openai.chatgpt:e35c505: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false userId 0 displayId 0
+07-02 09:08:42.492 20219 20219 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@91a3ce0
+07-02 09:08:42.492 20219 20219 D InsetsController: Setting requestedVisibleTypes to 503 (was 511)
+07-02 09:08:42.493  1489  1833 D CoreBackPreview: Window{47682e u0 com.openai.chatgpt/com.openai.chatgpt.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@e1fae6f, mPriority=-1, mIsAnimationCallback=false, mOverrideBehavior=0}
+07-02 09:08:42.493 20219 20219 D VRI[MainActivity]: WindowInsets changed: ime:null 
+07-02 09:08:42.494  1489  2636 I ImeTracker: system_server:8f84e583: onRequestShow at ORIGIN_SERVER reason IME_REQUESTED_CHANGED_LISTENER fromUser false displayId 0
+07-02 09:08:42.497  2212  2232 D WindowManagerShell: PipDesktopState: isPipInDesktopMode isAnyDeskActive=false isDisplayDesktopFirst=false
+07-02 09:08:42.510  1451  1799 I twoshay.TouchContextService: Got new packet! ContextPacket{orientation: PORTRAIT, audioMode: NORMAL, adaptiveTouchSensitivity: OFF, screenProtectorMode: OFF, imeState: ImeState{displayId: 0, visible: false, top: 0, left: 0, bottom: 0, right: 0}, audioDeviceInfo: TYPE_BUILTIN_EARPIECE}
+07-02 09:08:42.525  4896  4896 V A11yInputMethod: restartInput(): editor=android.view.inputmethod.EditorInfo@5259b79
+07-02 09:08:42.526  4896  4896 V A11yInputMethod: CALL: onStartInput
+07-02 09:08:42.528  1489  2066 I ImeTracker: com.openai.chatgpt:e1176a21: onRequestShow at ORIGIN_SERVER reason ATTACH_NEW_INPUT fromUser false userId 0 displayId 0
+07-02 09:08:42.531  1489  2066 W InputChannel-JNI: Channel already disposed.
+07-02 09:08:42.531  1489  1574 I ImeTracker: system_server:8f84e583: onCancelled at PHASE_SERVER_ALREADY_VISIBLE
+07-02 09:08:42.543  1489  1575 I ImeTracker: system_server:3dddcd75: onRequestShow at ORIGIN_SERVER reason CONTROLS_CHANGED fromUser false displayId 0
+07-02 09:08:42.549 20219 20219 I ImeTracker: system_server:3dddcd75: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+07-02 09:08:42.598  4353  4353 W libbinder.BackendUnifiedServiceManager: Thread Pool max thread count is 0. Cannot cache binder as linkToDeath cannot be implemented. serviceName: SurfaceFlingerAIDL
+07-02 09:08:42.598  4353  4353 W libbinder.BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+07-02 09:08:42.598  4353  4353 W libbinder.ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+07-02 09:08:42.629  2737  4342 I NearbyMediums: No BLE Fast/GATT advertisements found in the latest cycle.
+07-02 09:08:42.629  2737  4342 I NearbyMediums: Current Tracked Scanning Clients are : {NearbyConnections.EnvironmentMonitor, NearbySharing, NearbyConnections.TxAdvertisement}
+07-02 09:08:42.680  1027  4008 I WifiHAL : Creating message to get link statistics; iface = 47
+07-02 09:08:42.714  1027  1027 I WifiHAL : Getting cached scan results, iface handle = 0xb4000074df637e90
+07-02 09:08:42.714  1027  1027 E WifiHAL : Creating message to get cached scan results
+07-02 09:08:42.717  1027  1027 I WifiHAL : In GetCachedScanResultsCommand::handleResponse
+07-02 09:08:42.739  1027  1027 D WifiHAL : Start debug command: mType GET_FEATURE
+07-02 09:08:42.739  1027  1027 I WifiHAL : CreateRequest mType = GET_FEATURE
+07-02 09:08:42.739  1027  1027 D WifiHAL : In DebugCommand::handleResponse, mType:GET_FEATURE
+07-02 09:08:42.739  1027  1027 D WifiHAL : len = 4, expected len = 4
+07-02 09:08:42.741  1489  2093 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-02 09:08:42.741  1489  2134 I AdbWifiNetworkMonitor: Wi-Fi network available
+07-02 09:08:42.742  1489  2134 I AdbWifiNetworkMonitor: Received the same Wi-Fi SSID. Ignoring.
+07-02 09:08:42.744   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:42.755  2787  2820 D IwlanDataService: onCapabilitiesChanged: 131 [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=25026Kbps LinkDnBandwidth>=45810Kbps TransportInfo: <SSID: "Alaska_5G", BSSID: 18:31:bf:e4:10:14, MAC: 62:e0:ab:8b:4b:6f, IP: /192.168.1.37, Security type: 2, Supplicant state: COMPLETED, Wi-Fi standard: 11ac, RSSI: -57, Link speed: 650Mbps, Tx Link speed: 650Mbps, Max Supported Tx Link speed: 866Mbps, Calculated Tx : 305Mbps, Rx Link speed: 526Mbps, Max Supported Rx Link speed: 866Mbps, Calculated Rx : 660Mbps, Frequency: 5220MHz, Net ID: 8, Metered hint: false, score: 100, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none>"Alaska_5G"wpa2-pskMLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -57 OwnerUid: 1000 AdminUids: [1000] SSID: "Alaska_5G" UnderlyingNetworks: Null]
+07-02 09:08:42.755  2787  2820 D IwlanDataService: Network 131 connected using transport WIFI
+07-02 09:08:42.756  2787  3092 D IwlanNetworkService: onCapabilitiesChanged: 131
+07-02 09:08:42.757  2988  3191 D IwlanNetworkStatusTracker: onCapabilitiesChanged: 131
+07-02 09:08:42.757  2988  3191 D IwlanNetworkStatusTracker: OnCapability : Wifi Available already true and validation status unchanged
+07-02 09:08:42.757  2988  3191 E IwlanNetworkStatusTracker: Could not get Wifi SSID
+07-02 09:08:42.760  3341  3595 I WifiSignalInfo: onCapabilitiesChanged: rssi:-57
+07-02 09:08:42.761  2737  6543 I NullBinder: NullBinder for android.net.action.RECOMMEND_NETWORKS triggering remote TransactionTooLargeException due to Service without Chimera impl, calling uid: 1000, calling pid: 0
+07-02 09:08:42.761  2737  6543 W libbinder.Binder: Large reply transaction of 1056768 bytes, interface descriptor , function: UNKNOWN_FUNCTION_NAME, code: 1, flags: 17
+07-02 09:08:42.761  2425  3757 D SHANNON_RCS: 5003 [0][PROX][TELE] onCapabilitiesChanged, Network: 131, NetworkCapabilities: [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=25026Kbps LinkDnBandwidth>=45810Kbps TransportInfo: <SSID: <unknown ssid>, BSSID: 02:00:00:00:00:00, MAC: 02:00:00:00:00:00, IP: /192.168.1.37, Security type: 2, Supplicant state: COMPLETED, Wi-Fi standard: 11ac, RSSI: -57, Link speed: 650Mbps, Tx Link speed: 650Mbps, Max Supported Tx Link speed: 866Mbps, Calculated Tx : 305Mbps, Rx Link speed: 526Mbps, Max Supported Rx Link speed: 866Mbps, Calculated Rx : 660Mbps, Frequency: 5220MHz, Net ID: -1, Metered hint: false, score: 100, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: -1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none><none>MLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -57 UnderlyingNetworks: Null] (DefaultNetworkCallback%onCapabilitiesChanged:76)
+07-02 09:08:42.761  3341  3502 D DeviceStateHelper: Wifi freq: 5220
+07-02 09:08:42.763  3341  3525 D ImsPreconditionCheck: {subId=4} handleMessage: { when=-2ms what=16 target=eja async=false heapIndex=-1 }
+07-02 09:08:42.763  3341  3525 D ImsPreconditionCheck: {subId=4} onWifiCapabilitiesChanged: wifiNetworkValidated: true
+07-02 09:08:42.770  2463  3639 W SHANNON_IMS: 4467 [CONN] NetworkSpecifier and TransportInfo are not valid (DefaultNetworkCallback%updateSubscriptionId:121)
+07-02 09:08:42.770  2463  3639 I SHANNON_IMS: 4468 [CONN] network:131 WIFI connected, subId: -1 [SLID:0] (DefaultNetworkCallback%onCapabilitiesChanged:76)
+07-02 09:08:42.770  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:08:42.771  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:08:42.771   974  1044 D CHRE    : @ 160190.850: Parsed nanoapp message from host: app ID 0x476f6f676c00100b endpoint 0x6 msgType 112 payload size 14
+07-02 09:08:42.772  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:08:42.772  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:08:42.772  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:08:42.772  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:08:42.772   974  1044 I CHRE    : @ 160190.851: [NanoMinion] received MSG Type 0x70, Version 1, 10 bytes
+07-02 09:08:42.772   974  1044 I CHRE    : @ 160190.851: [AR] context-signal: has_bt=0, bt=0, has_wifi=1, wifi=1
+07-02 09:08:42.778  4180  4780 I BugleRcsEngine: Connected state: [1], networkType: [WIFI] [CONTEXT thread_id=61 ]
+07-02 09:08:42.778  4180  4957 I BugleRcsEngine: handleMessage processing message:[NOTIFY_UPTIME_IGNORE_STATE_CHANGED] with [non-null]:RcsEngineImpl reference [CONTEXT log_prefix="RcsEngineImpl[DUAL_REG]:[e6d48b4d-16d8]>Handler" thread_id=66 ]
+07-02 09:08:42.779  4180  4957 I BugleRcsEngine: Cannot use CS.apk as it's battery optimized [CONTEXT thread_id=66 ]
+07-02 09:08:42.784  1489  4866 D ActivityManager: sync unfroze 14439 com.google.android.apps.messaging for 7
+07-02 09:08:42.788 14439 22569 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+07-02 09:08:42.790  1489  1584 D ActivityManager: sync unfroze 14424 com.google.android.apps.privacy.wildlife for 3
+07-02 09:08:42.797  1489  2104 D ConnectivityService: NetReassign [no changes] [c 0] [a 4] [i 4]
+07-02 09:08:42.797 14424 14424 I Wildlife_WildlifeVpnReceiver: ACTION_WIFI_STATE_CHANGED
+07-02 09:08:42.797 14424 14424 I Wildlife_WildlifeCobaltEventLoggerImpl: SysUI wifi state changed event logged
+07-02 09:08:42.797 14424 14424 I Wildlife_WildlifeVpnManagerImpl: restoreSettingsFromBackupIfNecessary() false, true, false
+07-02 09:08:42.797 14424 14424 I Wildlife_OpenWifiNudgeManagerImpl: wifiStateChangedFuture
+07-02 09:08:42.800  9962  9962 D ImeBackCallbackSender: Unregister OnBackInvokedCallback at app window (packageName=com.openai.chatgpt)
+07-02 09:08:42.800  9962  9962 I ImeTracker: com.openai.chatgpt:e35c505: onHidden
+07-02 09:08:42.800 14424  3840 I Wildlife_OpenWifiNudgeManagerImpl: handleWifiStateChanged(): consumer is not active
+07-02 09:08:42.801  1489  2636 D ImeInsetsSourceProvider: showImePostLayout aborted, serverVisible: true, frozen: false, mWin is: non-null, isDrawn: true, mGivenInsetsPending: false, imeLayeringTarget: Window{47682e u0 com.openai.chatgpt/com.openai.chatgpt.MainActivity}, controlTarget: Window{47682e u0 com.openai.chatgpt/com.openai.chatgpt.MainActivity}
+07-02 09:08:42.801  1489  2636 D ImeInsetsSourceProvider: controlTarget == DisplayContent.imeControlTarget: true, hasPendingControls: false, leash is: non-null
+07-02 09:08:42.801  1489  2636 I ImeTracker: com.openai.chatgpt:e1176a21: onFailed at PHASE_SERVER_ABORT_SHOW_IME_POST_LAYOUT
+07-02 09:08:42.802  1489  1571 D HintManagerService: Sent cleanup message for uid 10318
+07-02 09:08:42.805 13751 13751 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.cobalt.api.CobaltLoggerApiService.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 09:08:42.812  9962  9962 D FullKeyboardServiceDelegate: onTrimMemory called with level: 20
+07-02 09:08:42.813  2737  4231 I NearbyMediums: Wifi changed new SSID: "Alaska_5G"
+07-02 09:08:42.813  2737  4231 I NearbyMediums: WifiLanConnectivityInfo is not changed, skip notify.
+07-02 09:08:42.824 13751 13751 D BoundBrokerSvc: onRebind: Intent { act=com.google.android.gms.cobalt.api.CobaltLoggerApiService.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 09:08:42.828 20219 20219 D InsetsController: hide(ime())
+07-02 09:08:42.829 20219 20219 I ImeTracker: com.openai.chatgpt:cd4bcf8d: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false userId 0 displayId 0
+07-02 09:08:42.829 20219 20219 I ImeTracker: com.openai.chatgpt:cd4bcf8d: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+07-02 09:08:42.830   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:42.830  4896  4896 V A11yInputMethod: restartInput(): editor=android.view.inputmethod.EditorInfo@ef840be
+07-02 09:08:42.831  4896  4896 V A11yInputMethod: CALL: doFinishInput
+07-02 09:08:42.831  4896  4896 V A11yInputMethod: CALL: onFinishInput
+07-02 09:08:42.831  1489  2066 W InputChannel-JNI: Channel already disposed.
+07-02 09:08:42.832  2737  2737 I NearbyDiscovery: (REDACTED) DiscoveryService onStartCommand action: %s
+07-02 09:08:42.833  2737  6076 I NearbyDiscovery: FastPairApiHandler: trigger firmware update check [CONTEXT service_id=265 ]
+07-02 09:08:42.836  2737  4038 I NearbyDiscovery: (REDACTED) FastPairApiHandler: Send result, package=(%s), requestType=(%s), status=(%s)
+07-02 09:08:42.838 13751  1605 I CobaltLoggerImpl: (REDACTED) Logging Cobalt occurrence for metric %d-%d-%d, with count %d and event vector %s, for caller: %s
+07-02 09:08:42.838 13751  1605 I CobaltLoggerImpl: (REDACTED) Loaded Cobalt registry contains metric: %d-%d-%d
+07-02 09:08:42.873  9962  9962 W c0      : onStartInput event aborted
+07-02 09:08:42.873  9962  9962 W c0      : fc0.z: could not obtain extracted text
+07-02 09:08:42.873  9962  9962 W c0      : 	at fc0.w0.H(SourceFile:329)
+07-02 09:08:42.873  9962  9962 W c0      : 	at m70.y.g(SourceFile:285)
+07-02 09:08:42.873  9962  9962 W c0      : 	at m70.f3.g(SourceFile:4)
+07-02 09:08:42.873  9962  9962 W c0      : 	at com.touchtype.KeyboardService.onStartInput(SourceFile:11)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3403)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:833)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:850)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:200)
+07-02 09:08:42.873  9962  9962 W c0      : 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.os.Handler.dispatchMessageImpl(Handler.java:142)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.os.Handler.dispatchMessage(Handler.java:125)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.os.Looper.loopOnce(Looper.java:296)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.os.Looper.loop(Looper.java:397)
+07-02 09:08:42.873  9962  9962 W c0      : 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+07-02 09:08:42.873  9962  9962 W c0      : 	at java.lang.reflect.Method.invoke(Native Method)
+07-02 09:08:42.873  9962  9962 W c0      : 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+07-02 09:08:42.873  9962  9962 W c0      : 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+07-02 09:08:42.887   662  2453 E powerhal-libperfmgr: Error: shouldn't report duration during pause state.
+07-02 09:08:42.903   662  2453 E powerhal-libperfmgr: Error: shouldn't report duration during pause state.
+07-02 09:08:42.912   662  2453 E powerhal-libperfmgr: Error: shouldn't report duration during pause state.
+07-02 09:08:42.913  1489  1575 I ImeTracker: system_server:ab1c7c7f: onRequestShow at ORIGIN_SERVER reason CONTROLS_CHANGED fromUser false displayId 0
+07-02 09:08:42.930   662  2453 E powerhal-libperfmgr: Error: shouldn't report duration during pause state.
+07-02 09:08:42.933 20219 20219 I ImeTracker: system_server:ab1c7c7f: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+07-02 09:08:42.946   662  2453 E powerhal-libperfmgr: Error: shouldn't report duration during pause state.
+07-02 09:08:42.963   662  2453 E powerhal-libperfmgr: Error: shouldn't report duration during pause state.
+07-02 09:08:43.013   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,1503,6)
+07-02 09:08:43.058   662  2453 E powerhal-libperfmgr: Error: shouldn't report duration during pause state.
+07-02 09:08:43.140   970 23986 I bthal.activity: bt_power: AclDataStat: 09:08:42:134 - 09:08:43:140, conn_handle: 65, duration: 1006, acl_data_count: 1, acl_tx_data_count: 0, acl_rx_data_count: 1, total_acl_data_count: 35262
+07-02 09:08:43.152  1235  1235 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''

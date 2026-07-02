@@ -1,0 +1,417 @@
+--------- beginning of system
+07-02 09:23:00.457  1453  1453 I ActivityThread: ApplicationInfo updating for com.google.android.googlequicksearchbox, new timestamp: 35086
+07-02 09:23:00.457  1453  1453 I ActivityThread: assets removed: [/data/resource-cache/com.android.systemui-neutral-06zv.frro, /data/resource-cache/com.android.systemui-accent-H03A.frro, /data/resource-cache/com.android.systemui-dynamic-8zLf.frro]
+07-02 09:23:00.457  1453  1453 I ActivityThread: assets added: []
+--------- beginning of main
+07-02 09:23:00.458   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.458   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.459   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.459   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.459   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.459   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.490  1553  1553 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.android.emulator.multidisplay
+07-02 09:23:00.509   684   707 I ActivityManager: Broadcast completed: result=0
+07-02 09:23:00.511   684  1068 W libbinder.Binder: Binder transaction to android.app.IActivityManager, function: UNKNOWN_FUNCTION_NAME, code: 1598246212, took 2863ms. Data bytes: 424 Reply bytes: 4 Flags: 16
+07-02 09:23:00.518   684  1654 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:00.519   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.519   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.519   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.519   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.519   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.519   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.525  1056  1166 D IpClient/wlan0: interfaceLinkStateChanged: ifindex 16 up
+07-02 09:23:00.528   532   532 I adbd    : adbd service requested 'exec:screencap '-p''
+07-02 09:23:00.531  1084  1084 V SimultaneousCallingTracker: Received EVENT 101
+07-02 09:23:00.531  1084  1084 D SimultaneousCallingTracker: Ignoring updatePhoneMapAndSimultaneousCallSupportMap since device is not DSDA capable.
+07-02 09:23:00.531  1084  1084 I CallNotifier: onMessageWaitingIndicatorChanged(): subId=1, visible=N
+07-02 09:23:00.539  1084  1084 I CallNotifier: updatePhoneStateListeners: update CF/MWI for subId=1
+07-02 09:23:00.539  1084  1084 I NotificationMgr: updateCfi: subId= 1, visible=N
+07-02 09:23:00.539  1454  1581 I SyncWorkManager: Scheduling periodic picker album data resets
+07-02 09:23:00.551  1056  1166 D IpClient/wlan0: interfaceLinkStateChanged: ifindex 16 up
+07-02 09:23:00.554  1454  1467 W FuseDaemon: Suspending all threads took: 7.848ms
+07-02 09:23:00.575   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.575   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.576   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.576   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.576   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.576   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.609  1084  1084 I NotificationMgr: updateMwi(): subId:1 isRefresh:false state:N->N (changed:N)
+07-02 09:23:00.626  2062  2062 D CompatChangeReporter: Compat change id reported: 333566037; UID 10156; state: ENABLED
+07-02 09:23:00.636   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.636   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.637   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.637   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.637   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.637   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.665  1084  1084 I NotificationMgr: maybeSendVoicemailNotificationUsingDefaultDialer: count: 0->0 (changed=false), voicemailNumberChanged=false
+07-02 09:23:00.666  1084  1084 I NotificationMgr: maybeSendVoicemailNotificationUsingDefaultDialer: send via Dialer:com.google.android.dialer, user:UserHandle{0}
+07-02 09:23:00.668  2062  2062 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/org.apache.http.legacy.jar
+07-02 09:23:00.671  2062  2062 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+07-02 09:23:00.671  2062  2062 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+07-02 09:23:00.684   684   684 I PowerManagerService.WLLog: Changing the tag database size from 32 to  64
+07-02 09:23:00.685   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.685   684   684 W Looper  : Slow dispatch took 112ms main app=system_server main=true group=FOREGROUND h=com.android.server.power.Notifier$NotifierHandler c=com.android.server.power.Notifier$$ExternalSyntheticLambda2@a92217f m=0
+07-02 09:23:00.685   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.685   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.685   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.685   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.685   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.685   684   708 W Looper  : Slow dispatch took 233ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=null m=68
+07-02 09:23:00.736  1588  1588 D DesktopExperienceFlags: Toggle override initialized to: false
+07-02 09:23:00.739  1494  1494 D nativeloader: Load /product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk!/lib/x86_64/libaiai_native.so using class loader ns product-clns-9 (caller=/product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk!classes2.dex): ok
+07-02 09:23:00.741   684  1136 W libbinder.Binder: Binder transaction to android.app.job.IJobScheduler, function: UNKNOWN_FUNCTION_NAME, code: 1, took 1146ms. Data bytes: 836 Reply bytes: 8 Flags: 18
+07-02 09:23:00.751   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.751   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.751   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.751   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.751   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.751   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.776  1084  1084 I Telephony: TelecomAccountRegistry$TelecomAccountTelephonyCallback: TelecomAccountRegistry: onServiceStateChanged: newState=0, mServiceState=0
+07-02 09:23:00.777  1084  1084 W Telephony: registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+07-02 09:23:00.781   684   890 I AdbDebuggingManager: Registered service 'name: adb-EMULATOR36X6X11X0-PoeYVn, type: null, subtypes: , hostAddresses: , hostname: Android_K0TL22OX, port: 0, network: null, expirationTime: null, txtRecord: {}'
+07-02 09:23:00.785  1256  1266 W libbinder.Binder: Binder transaction to com.google.android.gms.common.internal.IGmsServiceBroker, function: UNKNOWN_FUNCTION_NAME, code: 46, took 1276ms. Data bytes: 1404 Reply bytes: 4 Flags: 18
+07-02 09:23:00.793  1946  1946 I cvgn    : Initializing GMS Compliance Client Library...
+07-02 09:23:00.796  1946  1946 I cvgn    : Checking for device compliance...
+07-02 09:23:00.796  1946  1946 I cvgn    : Completed library init.
+07-02 09:23:00.797   684  1837 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:00.799   684   860 W LastMileLogger: Failed to stop event tracing: /sys/kernel/debug/tracing/instances/wifi/tracing_on: open failed: ENOENT (No such file or directory)
+07-02 09:23:00.805  1084  1084 I Telephony: isRttCurrentlySupported -- regular acct, hasVoiceAvailability: false
+07-02 09:23:00.805  1084  1084 I Telephony:  isRttSupported: false
+07-02 09:23:00.805  1084  1084 I Telephony:  alwaysAllowWhileRoaming: false
+07-02 09:23:00.805  1084  1084 I Telephony:  isRoaming: false
+07-02 09:23:00.805  1084  1084 I Telephony:  isOnWfc: false
+07-02 09:23:00.811   684   853 I WifiClientModeImpl: WifiConnectivityDiagnosticsCallback onConnectivityReportAvailable
+07-02 09:23:00.811  1256  1256 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.common.telemetry.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 09:23:00.811  1256  1256 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.common.telemetry.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 09:23:00.818   458   458 D Zygote  : Forked child process 2104
+07-02 09:23:00.819   684   717 W ActivityManager: Slow operation: 469ms so far, now at startProcess: returned from zygote!
+07-02 09:23:00.824   684  1235 D WifiMemoryStoreImpl: Set cluster G785db7221d0b9110 for W236fb03693f02907: SUCCESS
+07-02 09:23:00.836  1107  1195 D LoaderTask: sanitizeData finished
+07-02 09:23:00.837  1107  1195 D LoaderTask: bindWorkspace finished
+07-02 09:23:00.841  1107  1107 D ModelCallbacks: startBinding: hotseat layout was vertical: false and is setting to false
+07-02 09:23:00.842  1107  1193 I Surface : Creating surface for consumer unnamed-1107-13 with slotExpansion=1 for 64 slots
+07-02 09:23:00.847   684   717 W ActivityManager: Slow operation: 497ms so far, now at startProcess: done updating battery stats
+07-02 09:23:00.847   684   717 W ActivityManager: Slow operation: 498ms so far, now at startProcess: building log message
+07-02 09:23:00.847   684   717 I ActivityManager: Start proc 2104:com.google.android.apps.restore/u0a151 for bound-service {com.google.android.apps.restore/com.google.android.apps.restore.transport.BackupTransportService}
+07-02 09:23:00.847   684   717 W ActivityManager: Slow operation: 498ms so far, now at startProcess: starting to update pids map
+07-02 09:23:00.848   684   717 W ActivityManager: Slow operation: 498ms so far, now at startProcess: done updating pids map
+07-02 09:23:00.848  1946  1946 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.googlequicksearchbox
+07-02 09:23:00.849   684   708 W Looper  : Slow delivery took 227ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@6d04757 m=0
+07-02 09:23:00.849   684   708 W Looper  : Slow dispatch took 163ms android.ui app=system_server main=false group=TOP_APP h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@6d04757 m=0
+07-02 09:23:00.872  2104  2104 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10151
+07-02 09:23:00.895   684  1654 D WifiMemoryStoreImpl: Set cluster G785db7221d0b9110 for W785db7221d0b9110: SUCCESS
+07-02 09:23:00.897  1453  1453 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.googlequicksearchbox
+07-02 09:23:00.903  2104  2104 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10151/pid_2104
+07-02 09:23:00.912  1453  1453 I GsaVoiceInteractionSrv: onCreate
+07-02 09:23:00.917   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.918   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.918   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.918   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.918   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.918   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.942  1454  1862 I MediaProvider: Scanned internal due to REASON_MOUNTED, found 227 items in 4077ms, 0 inserts 7 updates 0 deletes
+07-02 09:23:00.957  1377  1881 I SP      : Registering emoticon_content_description.2022081613, url: https://www.gstatic.com/android/keyboard/emoticon_content_desc/202208161305/superpacks_manifest.json, constraints: W:*:*:*, flags: bg, requested: 2022081613, current: 2022081613
+07-02 09:23:00.977   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.977   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.977   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.977   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.977   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.977   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:00.992  1454  1862 V MediaProvider: attachVolume() called for external_primary with state:null
+07-02 09:23:01.000   684   708 W Looper  : Drained
+07-02 09:23:01.019   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.019   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.019   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.019   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.019   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.020   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.020   684   890 I AdbWifiNetworkMonitor: Wi-Fi network available
+07-02 09:23:01.020   684   890 I AdbWifiNetworkMonitor: Received the same Wi-Fi SSID. Ignoring.
+07-02 09:23:01.022  1494  1500 W ogle.android.as: Suspending all threads took: 164.404ms
+07-02 09:23:01.033  1494  2007 I AiAiSpeechRecognition: Finished deleting old background tasks.
+07-02 09:23:01.042   684   707 W Looper  : Slow dispatch took 177ms android.fg app=system_server main=false group=FOREGROUND h=android.os.Handler c=com.android.server.am.SameProcessApplicationThread$$ExternalSyntheticLambda1@32bfcca m=0
+07-02 09:23:01.044   684   707 W Looper  : Drained
+07-02 09:23:01.059   684   684 W Looper  : Slow dispatch took 166ms main app=system_server main=true group=FOREGROUND h=android.app.ActivityThread$H c=android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0@22030a5 m=0
+07-02 09:23:01.065  1377  1544 I DelightKLPDownloader: DelightKLPDownloader.getBundledLmVersion():312 bundled KLP for en_840 version = 0
+07-02 09:23:01.067  1107  1193 E ConsumerBase: [ImageReader-46x46f1u2816m2-1107-8] abandonLocked: ConsumerBase is abandoned!
+07-02 09:23:01.073   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.073   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.073   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.073   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.073   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.073   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.073  1107  1107 D Launcher.Workspace: addInScreenFromBind: hotseat inflation with x = 0 and y = 0
+07-02 09:23:01.073  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.views.DoubleShadowBubbleTextView{b0a6989 VFED..C.. ......ID 0,0-0,0 #1}
+07-02 09:23:01.074  1107  1107 D Launcher.Workspace: addInScreenFromBind: hotseat inflation with x = 1 and y = 0
+07-02 09:23:01.074  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.views.DoubleShadowBubbleTextView{88cdd8e VFED..C.. ......ID 0,0-0,0 #2}
+07-02 09:23:01.074  1107  1107 D Launcher.Workspace: addInScreenFromBind: hotseat inflation with x = 2 and y = 0
+07-02 09:23:01.074  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.views.DoubleShadowBubbleTextView{94fc9af VFED..C.. ......ID 0,0-0,0 #3}
+07-02 09:23:01.076  1107  1107 D b/387844520: getOutlineOffsetX: measured width = 0, mNormalizedIconSize = 159, last updated width = 0
+07-02 09:23:01.076  1107  1107 D Launcher.Workspace: addInScreenFromBind: hotseat inflation with x = 3 and y = 0
+07-02 09:23:01.076  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.views.PredictedAppIcon{efd449a VFED..C.. ......ID 0,0-0,0}
+07-02 09:23:01.099  1107  1107 I Launcher: LauncherReady. User: UserHandle{0} TS: 43869
+07-02 09:23:01.102  1107  1107 D b/387844520: calling updateRingPath from onSizeChanged
+07-02 09:23:01.102  1107  1107 D b/387844520: getOutlineOffsetX: measured width = 173, mNormalizedIconSize = 159, last updated width = 173
+07-02 09:23:01.129  1377  1382 W putmethod.latin: Suspending all threads took: 47.581ms
+07-02 09:23:01.129  1256  1256 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.clearcut.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:23:01.130  1256  1256 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.clearcut.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:23:01.131  1107  1193 I LauncherAppWidgetHostView: App widget created with id: 3
+07-02 09:23:01.136  1344  1662 I PermissionControllerServiceImpl: Updating user sensitive for uid 1000
+07-02 09:23:01.159   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.159   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.159   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.159   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.159   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.159   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.185   684   684 W Looper  : Slow delivery took 262ms main app=system_server main=true group=FOREGROUND h=android.app.ActivityThread$H c=android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0@8a753b8 m=0
+07-02 09:23:01.187  2098  2098 W libbinder.BackendUnifiedServiceManager: Thread Pool max thread count is 0. Cannot cache binder as linkToDeath cannot be implemented. serviceName: SurfaceFlingerAIDL
+07-02 09:23:01.191   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.191   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.191   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.194  2098  2098 W libbinder.BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+07-02 09:23:01.194   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.194   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.194   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.194  2098  2098 W libbinder.ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+07-02 09:23:01.242   684   684 W Looper  : Drained
+07-02 09:23:01.245  1107  1193 D SsCardRecyclerViewAdapter: Updating Smartspace targets to targets for Lockscreen
+07-02 09:23:01.250   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.250   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.250   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.250   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.250   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.250   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.252  1107  1195 D LoaderTask: Sending first screen broadcast with shouldAttachArchivingExtras=false
+07-02 09:23:01.252  1107  1195 D FirstScreenBroadcastModel: Sending First Screen Broadcast for installer=com.android.vending, total packages=1
+07-02 09:23:01.252  1107  1195 D FirstScreenBroadcastModel: com.android.vending:Pending Workspace item:com.google.android.youtube
+07-02 09:23:01.269  1453  1453 I GsaVoiceInteractionSrv: onReady
+07-02 09:23:01.273  1453  1453 I dods    : (REDACTED) Registered VIS lifecycle listeners: %s.
+07-02 09:23:01.290  1494  1852 I AiAiWallpaperEffectsGen: load models from mdd and update ItpCache, isForegroundPath = false
+07-02 09:23:01.291  1494  1852 I AiAiWallpaperEffectsGen: Flag off, skip loading mdd models
+07-02 09:23:01.292  1453  1453 I ffkm    : (REDACTED) Scoped context discovery schemas: %s.
+07-02 09:23:01.292  1453  1453 I dods    : (REDACTED) #onReady(%s)
+07-02 09:23:01.294   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.294   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.295  1107  1193 D SsCardRecyclerViewAdapter: Updating Smartspace targets to targets for Lockscreen
+07-02 09:23:01.295   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.295   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.296  1107  1193 W BcSmartspaceView: Current card is not present in the Adapter; cannot log.
+07-02 09:23:01.298  1256  2115 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+07-02 09:23:01.298  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.widget.LauncherAppWidgetHostView{b796cd1 VFE...... R.....I. 0,0-0,0 #4}
+07-02 09:23:01.299  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.views.DoubleShadowBubbleTextView{c813336 VFED..C.. ......ID 0,0-0,0 #5}
+07-02 09:23:01.299  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.views.DoubleShadowBubbleTextView{2617237 VFED..C.. ......ID 0,0-0,0 #6}
+07-02 09:23:01.299  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.views.DoubleShadowBubbleTextView{1d493a4 VFED..C.. ......ID 0,0-0,0 #7}
+07-02 09:23:01.299  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.android.launcher3.views.DoubleShadowBubbleTextView{157050d VFED..C.. ......ID 0,0-0,0 #8}
+07-02 09:23:01.299  1107  1107 D CellLayout: Adding view to ShortcutsAndWidgetsContainer: com.google.android.apps.nexuslauncher.qsb.SmartspaceViewContainer{aa54cc2 V.E...... ......I. 0,0-0,0 #7f0a0343 app:id/search_container_workspace}
+07-02 09:23:01.302   684   777 W PackageInfo: Large parcel: size=182064 pkg=android uid=1000 perm=178240(1104) reqPerm=1920(38) attr=484(9) prevAllowSquashing=false
+07-02 09:23:01.304  1084  1084 I ImsExternalCallTracker: handleVideoCapabilitiesChanged : isVideoCapable = false
+07-02 09:23:01.304  1084  1084 D ImsExternalCallTracker: refreshCallPullState
+07-02 09:23:01.304  1084  1084 I Telephony: handleVideoCapabilitesChanged. Video capability - false
+07-02 09:23:01.304  1107  1107 D SmartspaceInteractor: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=null, mSmartspaceActionId='null', mEventType=6}
+07-02 09:23:01.309  1107  1107 D PreBootLoaderDialog: PreBootLoaderDialog visible for 14746ms,  dismiss post boot loader dialog with delay of 0ms
+07-02 09:23:01.311  1107  1107 D ShortcutAndWidgetContainer: appWidgetScale - [x,y]: [1.0,1.0]
+07-02 09:23:01.311  1107  1107 D NavigableAppWidgetHostView: updateScale - [fitScale,bounceScale]: [1.0,1.0]
+07-02 09:23:01.315   684  1539 I PackageManager: getInstalledPackages: callingUid=1000 flags=134217856 updatedFlags=135004288 userId=0
+07-02 09:23:01.318   684  1837 W ContentProviderHelper: Slow operation: 65ms so far, now at getContentProviderImpl: before set stopped state
+07-02 09:23:01.319   684  1837 W ContentProviderHelper: Slow operation: 66ms so far, now at getContentProviderImpl: after set stopped state
+07-02 09:23:01.319   684  1837 W ContentProviderHelper: Slow operation: 67ms so far, now at getContentProviderImpl: looking for process record
+07-02 09:23:01.320   684  1837 W ContentProviderHelper: Slow operation: 67ms so far, now at getContentProviderImpl: before start process
+07-02 09:23:01.320   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.320   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.321   684  1837 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@cd7c0b6a does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+07-02 09:23:01.323   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.323   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.323   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.323   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.324  1453  1453 I dods    : (REDACTED) Running action(%s) over listeners(%s).
+07-02 09:23:01.368   684  1837 W ContentProviderHelper: Slow operation: 116ms so far, now at getContentProviderImpl: after start process
+07-02 09:23:01.369   684  1837 W ContentProviderHelper: Slow operation: 116ms so far, now at getContentProviderImpl: updating data structures
+07-02 09:23:01.369   684  1837 W ContentProviderHelper: Slow operation: 116ms so far, now at getContentProviderImpl: done!
+07-02 09:23:01.372  2098  2116 W libc    : Access denied finding property "vendor.mesa.virtgpu.kumquat"
+07-02 09:23:01.373   684   717 W ActivityManager: Slow operation: 53ms so far, now at startProcess: asking zygote to start proc
+07-02 09:23:01.384   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.384   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.384   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.384   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.384   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.384   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.390  1107  1107 D SmartspaceInteractor: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=SmartspaceTarget{mSmartspaceTargetId='date_card_794317_92634', mHeaderAction=null, mBaseAction=null, mCreationTimeMillis=0, mExpiryTimeMillis=0, mScore=0.0, mActionChips=[], mIconGrid=[], mFeatureType=1, mSensitive=false, mShouldShowExpanded=false, mSourceNotificationKey='null', mComponentName=ComponentInfo{com.google.android.apps.nexuslauncher/a9.x}, mUserHandle=UserHandle{0}, mAssociatedSmartspaceTargetId='null', mSliceUri=null, mWidget=null, mTemplateData=BaseTemplateData{mTemplateType=1, mPrimaryItem=null, mSubtitleItem=null, mSubtitleSupplementalItem=null, mSupplementalLineItem=null, mSupplementalAlarmItem=null, mLayoutWeight=0}, mRemoteViews=null}, mSmartspaceActionId='null', mEventType=8}
+07-02 09:23:01.401  1107  1107 D ShortcutAndWidgetContainer: appWidgetScale - [x,y]: [1.0,1.0]
+07-02 09:23:01.401  1107  1107 D NavigableAppWidgetHostView: updateScale - [fitScale,bounceScale]: [1.0,1.0]
+07-02 09:23:01.401  1107  1107 D SsBaseTemplateCard: Date view text is empty
+07-02 09:23:01.402  1107  1107 D SsBaseTemplateCard: Passed-in item info is null
+07-02 09:23:01.402  1107  1107 D SsBaseTemplateCard: Passed-in item info is null
+07-02 09:23:01.402  1107  1107 D SsBaseTemplateCard: Passed-in item info is null
+07-02 09:23:01.402  1107  1107 D SsBaseTemplateCard: Passed-in item info is null
+07-02 09:23:01.402  1107  1107 I SsBaseTemplateCard: Secondary card pane is null
+07-02 09:23:01.408  1107  1195 D LoaderTask: step 1 loading workspace complete
+07-02 09:23:01.413   684   715 I AppBindingService: [Supervision app] feature disabled
+07-02 09:23:01.425  2104  2104 I Zygote  : Process 2104 created for com.google.android.apps.restore
+07-02 09:23:01.426  2104  2104 I id.apps.restore: Using generational CollectorTypeCMC GC.
+07-02 09:23:01.427  2104  2104 W id.apps.restore: Unexpected CPU variant for x86: x86_64.
+07-02 09:23:01.427  2104  2104 W id.apps.restore: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+07-02 09:23:01.429  1107  1107 D SmartspaceInteractor: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=SmartspaceTarget{mSmartspaceTargetId='date_card_794317_92634', mHeaderAction=null, mBaseAction=null, mCreationTimeMillis=0, mExpiryTimeMillis=0, mScore=0.0, mActionChips=[], mIconGrid=[], mFeatureType=1, mSensitive=false, mShouldShowExpanded=false, mSourceNotificationKey='null', mComponentName=ComponentInfo{com.google.android.apps.nexuslauncher/a9.x}, mUserHandle=UserHandle{0}, mAssociatedSmartspaceTargetId='null', mSliceUri=null, mWidget=null, mTemplateData=BaseTemplateData{mTemplateType=1, mPrimaryItem=null, mSubtitleItem=null, mSubtitleSupplementalItem=null, mSupplementalLineItem=null, mSupplementalAlarmItem=null, mLayoutWeight=0}, mRemoteViews=null}, mSmartspaceActionId='null', mEventType=3}
+07-02 09:23:01.429  1107  1107 D SmartspaceInteractor: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=SmartspaceTarget{mSmartspaceTargetId='date_card_794317_92634', mHeaderAction=null, mBaseAction=null, mCreationTimeMillis=0, mExpiryTimeMillis=0, mScore=0.0, mActionChips=[], mIconGrid=[], mFeatureType=1, mSensitive=false, mShouldShowExpanded=false, mSourceNotificationKey='null', mComponentName=ComponentInfo{com.google.android.apps.nexuslauncher/a9.x}, mUserHandle=UserHandle{0}, mAssociatedSmartspaceTargetId='null', mSliceUri=null, mWidget=null, mTemplateData=BaseTemplateData{mTemplateType=1, mPrimaryItem=null, mSubtitleItem=null, mSubtitleSupplementalItem=null, mSupplementalLineItem=null, mSupplementalAlarmItem=null, mLayoutWeight=0}, mRemoteViews=null}, mSmartspaceActionId='null', mEventType=2}
+07-02 09:23:01.433   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.433   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.433   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.433   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.433   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.433   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.436  1946  1946 I byzc    : SearchWidgetProvider#onEnabled
+07-02 09:23:01.468  1256  1771 W Settings: Setting airplane_mode_on has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+07-02 09:23:01.480   684   698 I PackageManager: getInstalledPackages: callingUid=10148 flags=0 updatedFlags=786432 userId=0
+07-02 09:23:01.485   684  1993 D ConnectivityService: requestNetwork for uid/pid:10208/1256 activeRequest: null callbackRequest: 78 [NetworkRequest [ TRACK_DEFAULT id=79, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10208 RequestorUid: 10208 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ], NetworkRequest [ REQUEST id=80, [ Transports: SATELLITE Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10208 RequestorUid: 10208 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|NC
+07-02 09:23:01.488   684   865 D ConnectivityService: NetReassign [79 : null → 100] [c 0] [a 1] [i 0]
+07-02 09:23:01.527   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.527   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.527   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.527   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.527   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.527   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.540  2104  2104 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+07-02 09:23:01.544  1256  1256 I MagicTether: [TetherService] onBind [CONTEXT service_id=276 ]
+07-02 09:23:01.564   458   458 D Zygote  : Forked child process 2138
+07-02 09:23:01.566   684   717 W ActivityManager: Slow operation: 246ms so far, now at startProcess: returned from zygote!
+07-02 09:23:01.569   684   717 W ActivityManager: Slow operation: 248ms so far, now at startProcess: done updating battery stats
+07-02 09:23:01.569   684   717 W ActivityManager: Slow operation: 248ms so far, now at startProcess: building log message
+07-02 09:23:01.569   684   717 I ActivityManager: Start proc 2138:com.google.android.apps.wallpaper/u0a201 for content provider {com.google.android.apps.wallpaper/com.google.android.apps.wallpaper.provider.RecentWallpapersProvider}
+07-02 09:23:01.569   684   717 W ActivityManager: Slow operation: 248ms so far, now at startProcess: starting to update pids map
+07-02 09:23:01.569   684   717 W ActivityManager: Slow operation: 248ms so far, now at startProcess: done updating pids map
+07-02 09:23:01.584  2138  2138 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10201
+07-02 09:23:01.587  1256  1492 W libbinder.Binder: Binder transaction to android.content.IContentProvider, function: UNKNOWN_FUNCTION_NAME, code: 1, took 1698ms. Data bytes: 364 Reply bytes: 80 Flags: 18
+07-02 09:23:01.587  2138  2138 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10201/pid_2138
+07-02 09:23:01.591  1256  1771 W SystemServiceRegistry: No service published for: wifirtt
+07-02 09:23:01.658   684   698 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:01.658   684   698 W ParceledListSlice: Element #28 is 18676 bytes.
+07-02 09:23:01.658   684   698 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:01.658   684   698 W ParceledListSlice: Element #29 is 18856 bytes.
+07-02 09:23:01.673  1084  1084 I ImsExternalCallTracker: handleVideoCapabilitiesChanged : isVideoCapable = false
+07-02 09:23:01.673  1084  1084 D ImsExternalCallTracker: refreshCallPullState
+07-02 09:23:01.673  1084  1084 I Telephony: handleVideoCapabilitesChanged. Video capability - false
+07-02 09:23:01.684   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.684   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.684   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.684   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.684   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.684   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.706  1084  1228 D SatelliteController: handleCmdUpdateNtnSignalStrengthReporting: ignore request, satellite is disabled
+07-02 09:23:01.712  1453  1945 D nativeloader: Load /product/priv-app/Velvet/Velvet.apk!/lib/x86_64/libmappedcountercacheversionjni.so using class loader ns product-clns-9 (caller=/product/priv-app/Velvet/Velvet.apk!classes2.dex): ok
+07-02 09:23:01.726   684  1993 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:01.727   684  1993 W ParceledListSlice: Element #30 is 19068 bytes.
+07-02 09:23:01.727   684  1993 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:01.727   684  1993 W ParceledListSlice: Element #31 is 18580 bytes.
+07-02 09:23:01.745   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.745   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.745   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.745   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.745   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.745   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.748  1107  1107 E CannedAnimCoordinator: Trying to play two animations together, o7.t@a5e457a and null
+07-02 09:23:01.749  1107  1107 D LauncherStateManager: StateManager.cancelAnimation: animation ongoing: false, partial trace:
+07-02 09:23:01.749  1107  1107 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.setCurrentAnimation(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:59)
+07-02 09:23:01.749  1107  1107 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.setCurrentAnimation(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:89)
+07-02 09:23:01.749  1107  1107 D LauncherStateManager: 	at com.android.launcher3.util.CannedAnimationCoordinator.setAnimation(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:145)
+07-02 09:23:01.757  1107  1107 D PerDisplayTaskbarResource: updateTaskbarsVisibility displayId=0
+07-02 09:23:01.784   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.784   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.784   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.784   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.784   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.784   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.798  2138  2138 I Zygote  : Process 2138 created for com.google.android.apps.wallpaper
+07-02 09:23:01.806  2138  2138 I .apps.wallpaper: Using generational CollectorTypeCMC GC.
+07-02 09:23:01.807  2138  2138 W .apps.wallpaper: Unexpected CPU variant for x86: x86_64.
+07-02 09:23:01.807  2138  2138 W .apps.wallpaper: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+07-02 09:23:01.813   684   894 D AppWidgetServiceImpl: Trying to notify widget providers changed
+07-02 09:23:01.813   684   894 D AppWidgetServiceImpl: Trying to notify widget providers changed
+07-02 09:23:01.814  1946  2124 I bzex    : (REDACTED) Updating %s info to %s
+07-02 09:23:01.819  1454  1467 W FuseDaemon: Suspending all threads took: 289.040ms
+07-02 09:23:01.821  1084  1084 I ImsExternalCallTracker: handleVideoCapabilitiesChanged : isVideoCapable = false
+07-02 09:23:01.821  1084  1084 D ImsExternalCallTracker: refreshCallPullState
+07-02 09:23:01.821  1084  1084 I Telephony: handleVideoCapabilitesChanged. Video capability - false
+07-02 09:23:01.823  1946  1946 I ffkm    : (REDACTED) Scoped context discovery schemas: %s.
+07-02 09:23:01.825  1946  1946 I faxi    : (REDACTED) Created gRPC endpoint for service %s
+07-02 09:23:01.833   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.833   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.833   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.833   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.833   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.833   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.838  1494  1500 W ogle.android.as: Suspending all threads took: 153.707ms
+07-02 09:23:01.853   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.853   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.853   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.853   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.853   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.853   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.887   684  1235 D WindowManager: setClientSurface Surface(name=VRI-Taskbar#75)/@0x2d0ca89 for a8a3091 Taskbar
+07-02 09:23:01.892  1107  1107 I Surface : Creating surface for consumer unnamed-1107-14 with slotExpansion=1 for 64 slots
+07-02 09:23:01.892  1107  1107 I Surface : Creating surface for consumer VRI[Taskbar]#5(BLAST Consumer)5 with slotExpansion=1 for 64 slots
+07-02 09:23:01.900   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.900   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.901   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.901   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.901   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.901   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.928  1256  1256 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.gmscompliance.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentBoundBrokerService }
+07-02 09:23:01.929  1256  1256 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.gmscompliance.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentBoundBrokerService }
+07-02 09:23:01.949   684   819 I ImeTracker: com.google.android.apps.nexuslauncher:a816ef8e: onRequestHide at ORIGIN_SERVER reason HIDE_SAME_WINDOW_FOCUSED_WITHOUT_EDITOR fromUser false userId 0 displayId 0
+07-02 09:23:01.951   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.951   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.951   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.951   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.951   684   819 W InputChannel-JNI: Channel already disposed.
+07-02 09:23:01.951   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.951   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:01.996  1084  1084 D Telephony: isEmergencyPreferredAccount: subId=1, activeData=1
+07-02 09:23:01.996  1084  1084 D Telephony: isEmergencyPreferredAccount: Device does not require preference.
+07-02 09:23:01.996  1084  1084 W Telephony: registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+07-02 09:23:01.997   684  1778 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:01.997   684  1778 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:01.998   684  1778 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:01.998   684  1778 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:02.003  1256  1256 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.usagereporting.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:23:02.003  1256  1256 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.usagereporting.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:23:02.011  1107  1107 I ImeTracker: com.google.android.apps.nexuslauncher:a816ef8e: onFailed at PHASE_CLIENT_VIEW_HANDLER_AVAILABLE
+07-02 09:23:02.011  1107  1107 D VRI[NexusLauncherActivity]: WindowInsets changed: navigationBars:[0,0,0,63] mandatorySystemGestures:[0,153,0,84] 
+07-02 09:23:02.031   684  1654 D ConnectivityService: requestNetwork for uid/pid:10208/1256 activeRequest: null callbackRequest: 81 [NetworkRequest [ LISTEN_FOR_BEST id=81, [ Transports: CELLULAR|WIFI|BLUETOOTH|ETHERNET|SATELLITE Capabilities: INTERNET&TRUSTED&NOT_VPN&NOT_VCN_MANAGED Uid: 10208 RequestorUid: 10208 RequestorPkg: com.google.android.gms MatchNonThreadLocalNetworks UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOSING|LOST|UNAVAIL|NC|LP|BLK
+07-02 09:23:02.039  2104  2104 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+07-02 09:23:02.039  2104  2104 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+07-02 09:23:02.034   684   865 D ConnectivityService: NetReassign [81 : null → 100] [c 1] [a 0] [i 1]
+07-02 09:23:02.047  1084  1084 I Telephony: isRttCurrentlySupported -- regular acct, hasVoiceAvailability: false
+07-02 09:23:02.047  1084  1084 I Telephony:  isRttSupported: false
+07-02 09:23:02.047  1084  1084 I Telephony:  alwaysAllowWhileRoaming: false
+07-02 09:23:02.047  1084  1084 I Telephony:  isRoaming: false
+07-02 09:23:02.047  1084  1084 I Telephony:  isOnWfc: false
+07-02 09:23:02.063  1946  1946 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.googlequicksearchbox
+07-02 09:23:02.067  1946  1946 I byzc    : SearchWidgetProvider#onUpdate
+07-02 09:23:02.075  1946  2099 I bzeb    : onUpdate
+07-02 09:23:02.086   532   532 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''
+07-02 09:23:02.087  1946  1946 I byzc    : SearchWidgetProvider#onAppWidgetOptionsChanged
+07-02 09:23:02.092   684   698 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:02.092   684   698 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:02.092   684   698 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:02.093  1256  2117 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+07-02 09:23:02.096  1946  2124 I bzeb    : onAppWidgetOptionsChanged
+07-02 09:23:02.097   684  1719 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:02.097   684  1719 W ParceledListSlice: Element #6 is 18580 bytes.
+07-02 09:23:02.109   684  1654 D OomAdjuster: Not killing cached processes
+07-02 09:23:02.115  1946  1946 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.googlequicksearchbox
+07-02 09:23:02.117  2138  2138 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+07-02 09:23:02.119  1084  1084 I Telephony: TelecomAccountRegistry$AccountEntry: registerPstnPhoneAccount: Registering account=[[ ] PhoneAccount: ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0} Capabilities: CallProvider MultiUser PlaceEmerg SimSub  Audio Routes: BESW Schemes: tel voicemail  Extras: Bundle[{android.telecom.extra.SUPPORTS_VIDEO_CALLING_FALLBACK=true}] GroupId: *** SC Restrictions: [ ]] with Telecom. subId=1
+07-02 09:23:02.119  1256  2115 I Nearby  : (REDACTED) is blocked device type %s, isAuto=%s, isIot=%s, isLatchsky=%s, isChinaWearable=%s, isTv=%s, isWearable=%s (supportWearOs=%s), isChromeOsDevice=%s (supportChromeOs=%s)
+07-02 09:23:02.125   684  1136 I Telecom : : registerPhoneAccount: account=[[ ] PhoneAccount: ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0} Capabilities: CallProvider MultiUser PlaceEmerg SimSub  Audio Routes: BESW Schemes: tel voicemail  Extras: Bundle[{android.telecom.extra.SUPPORTS_VIDEO_CALLING_FALLBACK=true}] GroupId: *** SC Restrictions: [ ]]: TSI.rPA(cap)@ADM
+07-02 09:23:02.130   684  1136 I Telecom : PhoneAccountRegistrar: Modify account: [ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0}]: TSI.rPA(cap)@ADM
+07-02 09:23:02.131   684  1136 I Telecom : CallsManager: handlePhoneAccountChanged: phoneAccount=[[X] PhoneAccount: ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 1, UserHandle{0} Capabilities: CallProvider MultiUser PlaceEmerg SimSub  Audio Routes: BESW Schemes: tel voicemail  Extras: Bundle[{android.telecom.extra.SUPPORTS_VIDEO_CALLING_FALLBACK=true}] GroupId: *** SC Restrictions: [ ]]: TSI.rPA(cap)@ADM
+07-02 09:23:02.145   684  1136 I Telecom : PhoneAccountRegistrar: getSimCallManager: SimCallManager for subId 1 queried, returning: null: TSI.rPA(cap)@ADM
+07-02 09:23:02.145   684  1136 I Telecom : PhoneAccountRegistrar: Notifying telephony of voice service override change for 1 SIMs, hasService = false: TSI.rPA(cap)@ADM
+07-02 09:23:02.150  1946  1946 I GnpSdk  : (REDACTED) Intent received for action [%s] package [%s].
+07-02 09:23:02.150  1946  1946 I GnpSdk  : Phenotype initialized.
+07-02 09:23:02.151  1946  1946 I GnpSdk  : (REDACTED) Validation OK for action [%s].
+07-02 09:23:02.152   684   777 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:02.152   684   777 W ParceledListSlice: Element #28 is 18676 bytes.
+07-02 09:23:02.152   684   777 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:02.152   684   777 W ParceledListSlice: Element #29 is 18856 bytes.
+07-02 09:23:02.160  1377  1910 I SpeechPackManager: SpeechPackManager$4.onSuccess():505 updatePackSetCacheAsync() : Updated the PackSet cache
+07-02 09:23:02.162  1377  1377 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2259 

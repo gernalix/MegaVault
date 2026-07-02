@@ -1,0 +1,44 @@
+Timestamp=2026-07-02T09:26:30.4950804+02:00
+ANDROID_HOME=C:\Users\seste\AppData\Local\Android\Sdk
+ANDROID_SDK_ROOT=C:\Users\seste\AppData\Local\Android\Sdk
+JAVA_HOME=C:\Program Files\Android\Android Studio\jbr
+--- adb --version
+Android Debug Bridge version 1.0.41
+Version 37.0.0-14910828
+Installed as C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe
+Running on Windows 10.0.26200
+--- emulator -version
+Android emulator version 36.6.11.0 (build_id 15507667) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+INFO         | Android emulator version 36.6.11.0 (build_id 15507667) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+--- sdkmanager --version
+21.0
+
+--- java -version
+[31;1mopenjdk version "21.0.10" 2026-01-20[0m
+[31;1mOpenJDK Runtime Environment (build 21.0.10+-14961533-b1163.108)[0m
+[31;1mOpenJDK 64-Bit Server VM (build 21.0.10+-14961533-b1163.108, mixed mode)[0m
+--- javac -version
+javac 21.0.10
+--- git --version
+git version 2.54.0.windows.1
+--- gradle --version
+gradle: not installed globally (wrapper-first)
+--- emulator -list-avds
+Pixel_8a
+--- adb devices -l
+List of devices attached
+adb-QCGADUVOSSEYFES4-RnSa0K._adb-tls-connect._tcp device product:6102H_EEA model:6102H device:Cruze_Lite_S transport_id:1
+

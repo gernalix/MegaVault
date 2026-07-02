@@ -1,0 +1,13 @@
+{
+  "Serial": "adb-QCGADUVOSSEYFES4-RnSa0K._adb-tls-connect._tcp",
+  "State": "device",
+  "Details": "product:6102H_EEA model:6102H device:Cruze_Lite_S transport_id:1",
+  "Model": "6102H",
+  "Manufacturer": "TCL",
+  "Android": "12",
+  "Sdk": "31",
+  "BootCompleted": "1",
+  "Battery": "status: 3; level: 94",
+  "Keyguard": "not_detected",
+  "TransportId": "1"
+}

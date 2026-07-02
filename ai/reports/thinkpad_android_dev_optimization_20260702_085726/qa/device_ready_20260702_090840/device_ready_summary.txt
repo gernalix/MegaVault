@@ -1,0 +1,12 @@
+status=WARN
+message=manual unlock required
+serial=adb-QCGADUVOSSEYFES4-RnSa0K._adb-tls-connect._tcp
+state=device
+boot_completed=1
+keyguard_before=True
+keyguard_after=True
+pin_required=True
+qa_dir=C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev_optimization_20260702_085726\qa\device_ready_20260702_090840
+model=6102H
+sdk=31
+release=12

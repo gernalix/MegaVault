@@ -1,0 +1,4 @@
+List of devices attached
+adb-52131JEKB01070-Ne8QqZ._adb-tls-connect._tcp device product:akita model:Pixel_8a device:akita transport_id:2
+adb-QCGADUVOSSEYFES4-RnSa0K._adb-tls-connect._tcp device product:6102H_EEA model:6102H device:Cruze_Lite_S transport_id:1
+

@@ -1,0 +1,413 @@
+--------- beginning of main
+07-02 09:17:48.564   689  1180 I LocationManagerService: network provider loaded extra attribution tags: [activity_recognition_provider, awareness_provider, current_semantic_location, fused_location_provider, geofencer_provider, gnss_location_provider, network_location_calibration, network_location_provider, wearable_flp_shim]
+07-02 09:17:48.567  1102  1102 D Telephony: isEmergencyPreferredAccount: subId=1, activeData=1
+07-02 09:17:48.567  1102  1102 D Telephony: isEmergencyPreferredAccount: Device does not require preference.
+07-02 09:17:48.567  1102  1102 W Telephony: registerMmTelCapabilityCallback: registration failed, no ImsService available. Exception: code: 1
+--------- beginning of system
+07-02 09:17:48.578   459   479 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'INTERFACE' not found
+07-02 09:17:48.578   459   479 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'STATE' not found
+07-02 09:17:48.578   459   479 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'TIME_NS' not found
+07-02 09:17:48.578   459   479 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'UID' not found
+07-02 09:17:48.579   689   712 D LocationManagerService: allowedPackages=null
+07-02 09:17:48.586  1506  2064 W JobInfo : Requested important-while-foreground flag for job55 is ignored and takes no effect
+07-02 09:17:48.586  1102  1216 I SatelliteAppTracker: onPackageModified : android
+07-02 09:17:48.598   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.598   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.598   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.598   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.598   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.648  1113  1183 D LoaderTask: loadWorkspace finished
+07-02 09:17:48.648  1113  1183 W LoaderTask: LoaderTask cancelled
+07-02 09:17:48.649  1113  1183 I GridSizeMigrationDBController: Migration is not needed. destDeviceState: DeviceGridState{mGridSizeString='4,6', mNumHotseat=4, mDeviceType=0, mDbFile=launcher_4_by_6.db, mGridType=1}, srcDeviceState: DeviceGridState{mGridSizeString='4,6', mNumHotseat=4, mDeviceType=0, mDbFile=launcher_4_by_6.db, mGridType=1}
+07-02 09:17:48.649  1113  1183 D ModelDbController: isGridMigrationNecessary: no grid migration needed
+07-02 09:17:48.652  1102  1203 V MessagingReadRestrictionAllowlistMonitor: onBroadcastReceived: No AppOp changes for package: android
+07-02 09:17:48.653   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.653   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.654   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.654   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.654   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.658  1361  1377 W putmethod.latin: Suspending all threads took: 79.411ms
+07-02 09:17:48.669  1102  1102 I Telephony: isRttCurrentlySupported -- regular acct, hasVoiceAvailability: false
+07-02 09:17:48.669  1102  1102 I Telephony:  isRttSupported: false
+07-02 09:17:48.669  1102  1102 I Telephony:  alwaysAllowWhileRoaming: false
+07-02 09:17:48.669  1102  1102 I Telephony:  isRoaming: false
+07-02 09:17:48.669  1102  1102 I Telephony:  isOnWfc: false
+07-02 09:17:48.672   976   976 D ThemeOverlayController: Writing boot animation colors 1: ffb8c6ee
+07-02 09:17:48.680  1113  1113 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@4bb8126
+07-02 09:17:48.681  1113  1113 D WindowOnBackDispatcher: setTopOnBackInvokedCallback (unwrapped): com.android.launcher3.uioverrides.QuickstepLauncher$2@680eb14
+07-02 09:17:48.688   976   976 D ThemeOverlayController: Writing boot animation colors 2: ff8693b9
+07-02 09:17:48.689   689  1419 D CoreBackPreview: Window{499313 u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@db7faac, mPriority=-1, mIsAnimationCallback=false, mOverrideBehavior=0}
+07-02 09:17:48.689   689  1419 D CoreBackPreview: Window{499313 u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@2be5375, mPriority=0, mIsAnimationCallback=true, mOverrideBehavior=0}
+07-02 09:17:48.691   976   976 D ThemeOverlayController: Writing boot animation colors 3: ffefdbff
+07-02 09:17:48.705  1113  1113 I OseWidgetView: setAppWidget providerInfo=AppWidgetProviderInfo(UserHandle{0}/ComponentInfo{com.google.android.googlequicksearchbox/com.google.android.googlequicksearchbox.SearchWidgetProvider})
+07-02 09:17:48.706   976   976 D ThemeOverlayController: Writing boot animation colors 4: fffaf8ff
+07-02 09:17:48.706   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.707   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.707   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.707   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.707   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.754   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.754   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.754  1699  1699 W ProviderHelper: Unknown dynamite feature providerinstaller.dynamite
+07-02 09:17:48.754  1699  1699 I DynamiteModule: Considering local module com.google.android.gms.providerinstaller.dynamite:1 and remote module com.google.android.gms.providerinstaller.dynamite:0
+07-02 09:17:48.754  1699  1699 I DynamiteModule: Selected local version of com.google.android.gms.providerinstaller.dynamite
+07-02 09:17:48.769   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.769   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.770   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.770   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.770   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.773  1113  1183 I GridSizeMigrationDBController: Migration is not needed. destDeviceState: DeviceGridState{mGridSizeString='4,6', mNumHotseat=4, mDeviceType=0, mDbFile=launcher_4_by_6.db, mGridType=1}, srcDeviceState: DeviceGridState{mGridSizeString='4,6', mNumHotseat=4, mDeviceType=0, mDbFile=launcher_4_by_6.db, mGridType=1}
+07-02 09:17:48.773  1113  1183 D LoaderTask: loadWorkspace: loading default favorites if necessary
+07-02 09:17:48.774   689   869 D ConnectivityService: Switching to new default network for: uid/pid:1000/689 activeRequest: 1 callbackRequest: 1 [NetworkRequest [ REQUEST id=1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: NONE using NetworkAgentInfo{network{100}  handle{432902426637}  ni{WIFI CONNECTED extra: } created=2026-07-02T07:17:43.114Z Score(Policies : TRANSPORT_PRIMARY&IS_UNMETERED ; KeepConnected : 0)  created 40564  lp{{InterfaceName: wlan0 LinkAddresses: [ fe80::d36a:9e3c:7f55:e0a8/64,fec0::9697:f401:f910:7fb5/64,fec0::8848:c337:ce51:2e24/64,10.0.2.16/24 ] DnsAddresses: [ /10.0.2.3 ] Domains: null MTU: 0 ServerAddress: /10.0.2.2 TcpBufferSizes: 524288,1048576,2097152,262144,524288,1048576 Routes: [ fe80::/64 -> :: wlan0 mtu 0,::/0 -> fe80::2 wlan0 mtu 0,fec0::/64 -> :: wlan0 mtu 0,10.0.2.0/24 -> 0.0.0.0 wlan0 mtu 0,0.0.0.0/0 -> 10.0.2.2 wlan0 mtu 0 ]}}  nc{[ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=12000Kbps LinkDnBandwidth>=30000Kbps Specifier: <WifiNetworkAgentSpecifier [WifiConfiguration=, SSID="AndroidWifi", BSSID=00:13:10:85:fe:01, band=1, mMatchLocalOnlySpecifiers=false]> TransportInfo: <SSID: "AndroidWifi", BSSID: 00:13:10:85:fe:01, MAC: 02:15:b2:00:00:00, IP: /10.0.2.16, Security type: 0, Supplicant state: COMPLETED, Wi-Fi standard: legacy, RSSI: -50, Link speed: 1Mbps, Tx Link speed: 1Mbps, Max Supported Tx Link speed: 11Mbps, Calculated Tx : 0Mbps, Rx Link speed: -1Mbps, Max Supported Rx Link speed: 11Mbps, Calculated Rx : 0Mbps, Frequency: 2447MHz, Net ID: 0, Metered hint: false, score: 100, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none>"AndroidWifi"openMLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -50 OwnerUid: 10193 AdminUids: [10193] SSID: "AndroidWifi" UnderlyingNetworks: Null]}  factorySerialNumber=6}
+07-02 09:17:48.775  1113  1183 D LoaderTask: loadWorkspace: Packages with active install/update sessions: [com.google.android.googlequicksearchbox]
+07-02 09:17:48.782  1481  1844 D nativeloader: Load /product/priv-app/Velvet/Velvet.apk!/lib/x86_64/libmappedcountercacheversionjni.so using class loader ns product-clns-9 (caller=/product/priv-app/Velvet/Velvet.apk!classes2.dex): ok
+07-02 09:17:48.813  1102  1216 D SatelliteAppTracker: packageName: android, value: null
+07-02 09:17:48.824  1113  1113 I OseWidgetView: updateAppWidget view=null
+07-02 09:17:48.829  1113  1113 D VRI[NexusLauncherActivity]: WindowInsets changed: 1080x2400 statusBars:[0,121,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,153,0,84] 
+07-02 09:17:48.830  1113  1113 D OverviewActionsView: updateActionButtonsVisibility() called: showSingleTaskActions = [true], showGroupActions = [false]
+07-02 09:17:48.831  1113  1113 D LauncherStateManager: StateManager.cancelAnimation: animation ongoing: false, partial trace:
+07-02 09:17:48.831  1113  1113 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.reapplyState(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:39)
+07-02 09:17:48.831  1113  1113 D LauncherStateManager: 	at com.android.launcher3.LauncherRootView.updateInsets(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:55)
+07-02 09:17:48.831  1113  1113 D LauncherStateManager: 	at com.android.launcher3.LauncherRootView.onApplyWindowInsets(go/retraceme 9bf9d747b28c192bd799fb0161a08498ac2b938f666e7966c0095b4da2c9b843:17)
+07-02 09:17:48.831  1113  1113 D AllAppsTransitionController: shouldProtectHeader: false skipScrim: false state: Normal stateManager.getState(): Normal
+07-02 09:17:48.832  1113  1113 D KeyboardInsetsHandler: setState, toState:Normal StateManager(mLastStableState:Normal, mCurrentStableState:Normal, mState:Normal, mRestState:null, isInTransition:false)
+07-02 09:17:48.832  1113  1113 D KeyboardInsetsHandler: removePendingImeController: pendingImeController=null
+07-02 09:17:48.832  1113  1113 D KeyboardStateManager: hideKeyboard
+07-02 09:17:48.832  1113  1113 D KeyboardStateManager: isImeShown: false
+07-02 09:17:48.837   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.838   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.838   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.838   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.838   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.838   689  1785 D WindowManager: setClientSurface Surface(name=VRI-com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity#101)/@0x927ffb0 for 499313 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity
+07-02 09:17:48.887   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.887   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.887   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.887   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.887   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.931   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.931   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.931   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.931   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.931   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.945  1113  1113 I Surface : Creating surface for consumer unnamed-1113-12 with slotExpansion=1 for 64 slots
+07-02 09:17:48.959  1113  1113 I Surface : Creating surface for consumer VRI[NexusLauncherActivity]#4(BLAST Consumer)4 with slotExpansion=1 for 64 slots
+07-02 09:17:48.961   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.961   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.961   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.961   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.962   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.965   689   712 I ServiceWatcher: [GeocoderProxy] connected to {com.google.android.gms/com.google.android.gms.location.geocode.GeocodeService}
+07-02 09:17:48.966   689   712 W Looper  : Slow delivery took 207ms android.fg app=system_server main=false group=FOREGROUND h=android.os.Handler c=android.app.LoadedApk$ServiceDispatcher$RunConnection@d2b9eba m=0
+07-02 09:17:48.966   689   712 W Looper  : Drained
+07-02 09:17:48.979   689   712 I ServiceWatcher: [TrustManagerService] chose new implementation 10208/com.google.android.gms/.chimera.PersistentInternalBoundBrokerService@-2147483648
+07-02 09:17:48.980   689   712 I ServiceWatcher: [HardwareActivityRecognitionProxy] chose new implementation 10208/com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService@1
+07-02 09:17:48.985  1113  1113 D VRI[NexusLauncherActivity]: WindowInsets changed: navigationBars:null mandatorySystemGestures:[0,153,0,0] 
+07-02 09:17:48.989   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.989   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.989   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.990   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:48.990   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.017  1113  1113 D BaseDepthController: setSurface:
+07-02 09:17:49.017  1113  1113 D BaseDepthController: 	mWaitingOnSurfaceValidity: false
+07-02 09:17:49.017  1113  1113 D BaseDepthController: 	mBaseSurface: Surface(name=VRI-com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity#101)/@0x72bbe6e
+07-02 09:17:49.017  1113  1113 V BaseDepthController: Applying blur: 0 to Surface(name=VRI-com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity#101)/@0x72bbe6e applyImmediately: false
+07-02 09:17:49.017  1113  1113 D BaseDepthController: shouldBlurWorkspace: false targetState: Normal currentStableState: Normal mCurrentBlur: 0 mLauncher.getDepthBlurTargets(): [com.android.launcher3.Workspace{8b9c90f V.ED..... ......ID 0,0-1080,2400 #7f0a0486 app:id/workspace}, com.android.launcher3.Hotseat{2f75d9c V.ED..... ......ID 0,1905-1080,2400 #7f0a01f6 app:id/hotseat}]
+07-02 09:17:49.019  1259  1259 D BoundBrokerSvc: onUnbind: Intent { act=com.android.trust.provider.SignificantPlaceProvider.BIND xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+07-02 09:17:49.032  1259  1259 D BoundBrokerSvc: onBind: Intent { act=com.android.trust.provider.SignificantPlaceProvider.BIND xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+07-02 09:17:49.070   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.070   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.070   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.070   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.070   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.083   689   869 W BestClock: java.time.DateTimeException: No network time available
+07-02 09:17:49.100   689   689 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:17:49.102   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.102   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.104   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.104   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.104   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.104   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.104   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.153   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.153   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.154   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.154   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.154   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.164  2091  2091 I berberis: Initialized Berberis ((null)), version 16.0.0
+07-02 09:17:49.171   976   976 D ShadeStateTraceLogger: New configuration change from Shade window. smallestScreenWidthDp: 411, densityDpi: 420
+07-02 09:17:49.187   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.187   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.191  1506  2064 W JobInfo : Requested important-while-foreground flag for job56 is ignored and takes no effect
+07-02 09:17:49.197   689   689 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:17:49.198  1259  1259 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.android.trust.provider.SignificantPlaceProvider.BIND xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+07-02 09:17:49.203  1699  1699 D nativeloader: Load /data/app/~~voYszwZirBrds0uG4YMRRw==/com.google.android.gms-OuUFQZwhT2Q7e1iU5MXbGQ==/base.apk!/lib/x86_64/libconscrypt_gmscore_jni.so using class loader ns clns-9 (caller=/data/app/~~voYszwZirBrds0uG4YMRRw==/com.google.android.gms-OuUFQZwhT2Q7e1iU5MXbGQ==/base.apk): ok
+07-02 09:17:49.204   689   689 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:17:49.204   689   689 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:17:49.204   689   689 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:17:49.204   689   689 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:17:49.204   689   689 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:17:49.204   689   689 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:17:49.204   689   689 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:17:49.211   689   689 W Looper  : Slow dispatch took 111ms main app=system_server main=true group=FOREGROUND h=com.android.server.accessibility.AccessibilityManagerService$MainHandler c=com.android.server.accessibility.AccessibilityManagerService$$ExternalSyntheticLambda35@d7e9ded m=0
+07-02 09:17:49.220   689   869 W BestClock: java.time.DateTimeException: No network time available
+07-02 09:17:49.223  1699  1699 V NativeCrypto: Registering com/google/android/gms/org/conscrypt/NativeCrypto's 337 native methods...
+07-02 09:17:49.234   689   869 D ConnectivityService: Switching to new default network for: uid/pid:1000/689 activeRequest: 12 callbackRequest: 12 [NetworkRequest [ TRACK_DEFAULT id=12, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uids: <{10159-10159, 10163-10163, 10171-10171, 10208-10208}> RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ], NetworkRequest [ REQUEST id=13, [ Transports: SATELLITE Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED Uids: <{10159-10159, 10163-10163, 10171-10171, 10208-10208}> UnderlyingNetworks: Null] ]] callback flags: 0 order: 40 isUidTracked: false declaredMethods: NONE using NetworkAgentInfo{network{100}  handle{432902426637}  ni{WIFI CONNECTED extra: } created=2026-07-02T07:17:43.114Z Score(Policies : TRANSPORT_PRIMARY&IS_UNMETERED ; KeepConnected : 0)  created 40564  lp{{InterfaceName: wlan0 LinkAddresses: [ fe80::d36a:9e3c:7f55:e0a8/64,fec0::9697:f401:f910:7fb5/64,fec0::8848:c337:ce51:2e24/64,10.0.2.16/24 ] DnsAddresses: [ /10.0.2.3 ] Domains: null MTU: 0 ServerAddress: /10.0.2.2 TcpBufferSizes: 524288,1048576,2097152,262144,524288,1048576 Routes: [ fe80::/64 -> :: wlan0 mtu 0,::/0 -> fe80::2 wlan0 mtu 0,fec0::/64 -> :: wlan0 mtu 0,10.0.2.0/24 -> 0.0.0.0 wlan0 mtu 0,0.0.0.0/0 -> 10.0.2.2 wlan0 mtu 0 ]}}  nc{[ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=12000Kbps LinkDnBandwidth>=30000Kbps Specifier: <WifiNetworkAgentSpecifier [WifiConfiguration=, SSID="AndroidWifi", BSSID=00:13:10:85:fe:01, band=1, mMatchLocalOnlySpecifiers=false]> TransportInfo: <SSID: "AndroidWifi", BSSID: 00:13:10:85:fe:01, MAC: 02:15:b2:00:00:00, IP: /10.0.2.16, Security type: 0, Supplicant state: COMPLETED, Wi-Fi standard: legacy, RSSI: -50, Link speed: 1Mbps, Tx Link speed: 1Mbps, Max Supported Tx Link speed: 11Mbps, Calculated Tx : 0Mbps, Rx Link speed: -1Mbps, Max Supported Rx Link speed: 11Mbps, Calculated Rx : 0Mbps, Frequency: 2447MHz, Net ID: 0, Metered hint: false, score: 100, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none>"AndroidWifi"openMLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -50 OwnerUid: 10193 AdminUids: [10193] SSID: "AndroidWifi" UnderlyingNetworks: Null]}  factorySerialNumber=6}
+07-02 09:17:49.237   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.238   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.238   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.238   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.238   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.243  1259  1259 I ChimeraSrvcProxy: com.google.android.location.internal.server.HardwareArProviderService returning NullBinder for action com.android.location.service.ActivityRecognitionProvider
+07-02 09:17:49.257   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.257   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.258   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.258   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.258   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.261   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:17:49.261   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:17:49.261   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:17:49.261   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:17:49.261   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:17:49.261   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:17:49.261   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:17:49.262   689   828 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:17:49.262   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:17:49.262   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:17:49.263   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:17:49.263   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:17:49.263   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:17:49.263   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:17:49.263   689   828 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:17:49.271  1506  1506 I AiAiNotificationIntelli: Notification Intelligence initialization.
+07-02 09:17:49.271  1506  1506 I AiAiNotificationIntelli: Notification Intelligence initialization.
+07-02 09:17:49.284  1831  2122 I Finsky  : [41] Process started for new foreground session.
+07-02 09:17:49.284  1113  1113 I NotificationListener: onListenerConnected
+07-02 09:17:49.286  1113  1113 D LauncherAmbientCueVM: Debounced empty action: updating state
+07-02 09:17:49.291   689  1419 W WindowManager: Deferred transition id=9 has been continued before the TaskFragmentTransaction=android.os.Binder@4d9961a is finished
+07-02 09:17:49.291   689  1419 W Transition: #%d: Condition met too late, already in state=4: {task-fragment transaction:TaskFragmentTransaction{token=android.os.Binder@4d9961a changes=[Change{ type=4 },Change{ type=1 }]}}
+07-02 09:17:49.292   689  1772 I WindowManager: finishDrawing of relaunch: Window{499313 u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} 1734ms
+07-02 09:17:49.293   527   560 I libbinder.BpBinder: onLastStrongRef automatically unlinking death recipients for binder (0x7e0ebae412e0) with descriptor: '(not cached)'
+07-02 09:17:49.295   689   869 D ConnectivityService: Switching to new default network for: uid/pid:1000/689 activeRequest: 14 callbackRequest: 14 [NetworkRequest [ TRACK_DEFAULT id=14, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10157 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ], NetworkRequest [ REQUEST id=15, [ Transports: SATELLITE Capabilities: INTERNET&TRUSTED&NOT_VPN&NOT_VCN_MANAGED Uid: 10157 UnderlyingNetworks: Null] ], NetworkRequest [ REQUEST id=16, [ Transports: SATELLITE Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED Uid: 10157 UnderlyingNetworks: Null] ]] callback flags: 0 order: 40 isUidTracked: false declaredMethods: NONE using NetworkAgentInfo{network{100}  handle{432902426637}  ni{WIFI CONNECTED extra: } created=2026-07-02T07:17:43.114Z Score(Policies : TRANSPORT_PRIMARY&IS_UNMETERED ; KeepConnected : 0)  created 40564  lp{{InterfaceName: wlan0 LinkAddresses: [ fe80::d36a:9e3c:7f55:e0a8/64,fec0::9697:f401:f910:7fb5/64,fec0::8848:c337:ce51:2e24/64,10.0.2.16/24 ] DnsAddresses: [ /10.0.2.3 ] Domains: null MTU: 0 ServerAddress: /10.0.2.2 TcpBufferSizes: 524288,1048576,2097152,262144,524288,1048576 Routes: [ fe80::/64 -> :: wlan0 mtu 0,::/0 -> fe80::2 wlan0 mtu 0,fec0::/64 -> :: wlan0 mtu 0,10.0.2.0/24 -> 0.0.0.0 wlan0 mtu 0,0.0.0.0/0 -> 10.0.2.2 wlan0 mtu 0 ]}}  nc{[ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=12000Kbps LinkDnBandwidth>=30000Kbps Specifier: <WifiNetworkAgentSpecifier [WifiConfiguration=, SSID="AndroidWifi", BSSID=00:13:10:85:fe:01, band=1, mMatchLocalOnlySpecifiers=false]> TransportInfo: <SSID: "AndroidWifi", BSSID: 00:13:10:85:fe:01, MAC: 02:15:b2:00:00:00, IP: /10.0.2.16, Security type: 0, Supplicant state: COMPLETED, Wi-Fi standard: legacy, RSSI: -50, Link speed: 1Mbps, Tx Link speed: 1Mbps, Max Supported Tx Link speed: 11Mbps, Calculated Tx : 0Mbps, Rx Link speed: -1Mbps, Max Supported Rx Link speed: 11Mbps, Calculated Rx : 0Mbps, Frequency: 2447MHz, Net ID: 0, Metered hint: false, score: 100, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none>"AndroidWifi"openMLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -50 OwnerUid: 10193 AdminUids: [10193] SSID: "AndroidWifi" UnderlyingNetworks: Null]}  factorySerialNumber=6}
+07-02 09:17:49.305   689   861 W BestClock: java.time.DateTimeException: No network time available
+07-02 09:17:49.307   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.308   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.335  1259  1259 I MagicTether: [TetherService] onBind [CONTEXT service_id=276 ]
+07-02 09:17:49.335  1831  2124 I Finsky  : [43] Finished reading experiment flags from file [0tGUNCGIkbk4o6-fQ335kUYSKwVj4lusnHT-A5Dsy08] numFlags=2434.
+07-02 09:17:49.339   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.339   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.339   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.339   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.339   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.339   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.346   689  1659 W InputChannel-JNI: Channel already disposed.
+07-02 09:17:49.356   689   861 W BestClock: java.time.DateTimeException: No network time available
+07-02 09:17:49.381   689   898 D NetworkTimeUpdateService: New default network 100; checking time.
+07-02 09:17:49.384  1113  1113 D InputMonitorCompat: Input monitor (swipe-up-disp0) created
+07-02 09:17:49.384  1113  1113 D InputMonitorCompat: Input event receiver for monitor (swipe-up-disp0) created
+07-02 09:17:49.386  1113  1113 D InputMonitorCompat: Input event receiver for monitor (minus-one-disp0) disposed
+07-02 09:17:49.386  1113  1113 W InputChannel-JNI: Channel already disposed.
+07-02 09:17:49.386  1113  1113 D InputMonitorCompat: Input monitor (minus-one-disp0) disposed
+07-02 09:17:49.387   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.387   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.388  1113  1113 D ActivityAllAppsContainerView: rebindAdapters: force: false
+07-02 09:17:49.388  1113  1113 D ActivityAllAppsContainerView: rebindAdapters: Not needed.
+07-02 09:17:49.388   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.388   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.388   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.388   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.388  1113  1113 D BaseActivity: Launcher flags updated: [state_started|state_resumed|state_deferred_resumed|state_user_active] +[state_deferred_resumed]
+07-02 09:17:49.389  1113  1113 D StatsLog: LAUNCHER_ONRESUME
+07-02 09:17:49.391  1831  2123 I Finsky  : [42] Finished reading experiment flags from file [Se-xCc4LzNyh3UrKMIU2sUf-PUKz4oQEbpKZDMuaFno] numFlags=2035.
+07-02 09:17:49.391  1113  1113 I Choreographer: Skipped 62 frames!  The application may be doing too much work on its main thread.
+07-02 09:17:49.404   689  1796 V WindowManager: Continue transition id=11 for TaskFragmentTransaction=android.os.Binder@c900a47
+07-02 09:17:49.405  1069  1171 D UpstreamNetworkMonitor: New default Internet network: 100
+07-02 09:17:49.412   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.412   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.413   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.413   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.413   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.413   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.415   689   869 D ConnectivityService: Sending CONNECTED broadcast for type 1 [100 WIFI] isDefaultNetwork=true
+07-02 09:17:49.416   689   869 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1775 android.net.connectivity.com.android.server.ConnectivityService.sendStickyBroadcast:4523 android.net.connectivity.com.android.server.ConnectivityService.sendGeneralBroadcast:4493 android.net.connectivity.com.android.server.ConnectivityService.sendConnectedBroadcast:4466 android.net.connectivity.com.android.server.ConnectivityService.sendLegacyNetworkBroadcast:13792 
+07-02 09:17:49.433   689   828 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:17:49.440   689   861 W BestClock: java.time.DateTimeException: No network time available
+07-02 09:17:49.440   689   861 W BestClock: java.time.DateTimeException: No network time available
+07-02 09:17:49.442   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.442   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.442   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.443   689   869 D ConnectivityService: NetReassign [29 : null → 100, 57 : null → 100, 66 : null → 100, 76 : null → 100, 60 : null → 100, 46 : null → 100, 14 : 52 → 100, 63 : null → 100, 41 : null → 100, 21 : null → 100, 51 : null → 100, 25 : null → 100, 35 : null → 100, 33 : null → 100, 7 : null → 100, 78 : null → 100, 49 : null → 100, 73 : null → 100, 1 : null → 100, 56 : null → 100, 23 : null → 100, 38 : null → 100, 44 : null → 100, 39 : null → 100, 31 : null → 100, 37 : null → 100, 12 : 52 → 100, 27 : null → 100] [c 0] [a 834] [i 2]
+07-02 09:17:49.449  1102  1507 D PhoneInterfaceManager: getAllCellInfo: package=com.google.android.gms, uid=10208
+07-02 09:17:49.450  1361  2057 I SQLiteConnection: Long db operation: /data/user/0/com.google.android.inputmethod.latin/databases/emoji_kitchen_2026043020.db
+07-02 09:17:49.453  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.453  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.453  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: pack_mapping_v1_lstm_20260206[8]
+07-02 09:17:49.453  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.453  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: pack_mapping_v1_lstm_20260206[8]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.454  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: pack_mapping_v1_lstm_20260206[8]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: pack_mapping_v1_lstm_20260206[8]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.455  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.456  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.456  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.456  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.456  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.456  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.456  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.456  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: pack_mapping_v1_lstm_20260206[8]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.457  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: pack_mapping_v1_lstm_20260206[8]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.458  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.458  1361  1549 I EmojiKitchenDataCleanupWorker: EmojiKitchenDataCleanupWorker.enqueueWork():174 Scheduling emoji kitchen data cleanup work.
+07-02 09:17:49.459  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.459  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.459  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.459  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.459  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.459  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.459  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.460  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: pack_mapping_v1_lstm_20260206[8]
+07-02 09:17:49.460  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.460  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.460   689   689 W Looper  : Slow dispatch took 195ms main app=system_server main=true group=FOREGROUND h=com.android.server.accessibility.AccessibilityManagerService$MainHandler c=<recycled PooledLambda@941db82> m=0
+07-02 09:17:49.460  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.461  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.461  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.461  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.461  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.461  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.461  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.461  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: pack_mapping_v1_lstm_20260206[8]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.462  1361  1549 I EmojiKitchenDataMddDownloader: EmojiKitchenDataMddDownloader.initInBackgroundAndAddCallback():241 Successfully initialize emoji kitchen dabatase: true
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_recospec_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: scribe_latin_20250829tfreco_tflite_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: qrnn_en-US_reco_20251103_fst_20251103_recospec_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_conf_tflite_20251103_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_seg_tflite_20251103_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: transformer_latin_tflite_20251103_zip[12]
+07-02 09:17:49.462  1361  1379 W SP      : File ref is being finalized but wasn't closed, file: en_us_20251103_compact_fst_zip[12]
+07-02 09:17:49.466   689   892 I AdbWifiNetworkMonitor: Wi-Fi network available
+07-02 09:17:49.467  1361  1499 W JobInfo : Requested important-while-foreground flag for job74 is ignored and takes no effect
+07-02 09:17:49.471  1259  1720 W libbinder.Binder: Binder transaction to com.google.android.gms.common.internal.IGmsServiceBroker, function: UNKNOWN_FUNCTION_NAME, code: 46, took 1327ms. Data bytes: 716 Reply bytes: 4 Flags: 18
+07-02 09:17:49.472   689   779 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+07-02 09:17:49.476   689  1210 D WifiMemoryStoreImpl: Set cluster G785db7221d0b9110 for W785db7221d0b9110: SUCCESS
+07-02 09:17:49.484  1259  1852 I BluePixel: (REDACTED) Created Null for %s
+07-02 09:17:49.490   976  1198 D BatteryEventService: collect BatteryEvents: null
+07-02 09:17:49.491  1102  1112 W m.android.phone: Suspending all threads took: 22.028ms
+07-02 09:17:49.493  1259  1259 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.clearcut.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:17:49.496   689   892 I AdbWifiNetworkMonitor: Connected to a Wi-Fi network {bssid=00:13:10:85:fe:01, ssid="AndroidWifi"}. Attempting to start adb over Wi-Fi.
+07-02 09:17:49.499  1113  1183 D LoaderTask: No pinned shortcuts found for user UserHandle{0}
+07-02 09:17:49.502  1259  1259 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.clearcut.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:17:49.503   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.503   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.504   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.504   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.504   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.504   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.508   976   976 I BatteryEventService: BatteryEventService bound
+07-02 09:17:49.510  1361  1361 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():2259 
+07-02 09:17:49.510   689   821 W InputChannel-JNI: Channel already disposed.
+07-02 09:17:49.521   689   794 E JobScheduler.Quota: <0>com.google.android.dialer has 0 EJ quota without running anything
+07-02 09:17:49.541   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.541   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.541   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.542   976   976 D GlobalActionsDialogLite: Service changed before actions created
+07-02 09:17:49.542   976   976 D GlobalActionsDialogLite: Service changed before actions created
+07-02 09:17:49.546  1113  1183 D WorkspaceItemProcessor: valid target true, marking restored: com.google.android.dialer, itemType=0, restoreFlag=0
+07-02 09:17:49.553  1361  1361 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 0, locked = false
+07-02 09:17:49.553  1361  1361 W NotificationCenter: NotificationCenter$NotificationQueue.notifyPendingNotificationsOnExecutor():877 Heavy notify work detected on UI thread: [nky->kzx, nky->huf, nky->kzx, nky->kzx, nky->kzx, nky->njq, nky->njz, nky->kzx, nky->kzx, nky->kzx, nky->pdq, nky->kzx, nky->mju, nky->kzx, nky->gva, nky->kxf, nky->lcs, nky->kzx, nky->kzx, nky->psy, nky->gsc, nky->kzx, nky->kzx] takes 43ms
+07-02 09:17:49.556  1361  1361 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1446 onStartInput(EditorInfo{EditorInfo{packageName=com.google.android.apps.nexuslauncher, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+07-02 09:17:49.556  1361  1361 W AndroidIME: LatinIMEBase.updateInputViewCoverNavigation():327 Null input view, cannot update padding!
+07-02 09:17:49.558  1361  1361 I Module  : DeviceLockedStatusModuleProvider$Module.updateDeviceLockedStatus():103 repeatCheckTimes = 1, locked = false
+07-02 09:17:49.560  1113  1183 D WorkspaceItemProcessor: valid target true, marking restored: com.google.android.apps.messaging, itemType=0, restoreFlag=0
+07-02 09:17:49.562   689  1210 W PackageConfigPersister: App-specific configuration not found for packageName: com.google.android.apps.nexuslauncher and userId: 0
+07-02 09:17:49.575   327   339 I keystore2: system/security/keystore2/watchdog/src/lib.rs:371 - Watchdog thread idle -> terminating. Have a great day.
+07-02 09:17:49.603   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.604   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.604   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.604   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.604   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.605   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.609  1699  1763 W libbinder.Binder: Binder transaction to android.content.IContentProvider, function: UNKNOWN_FUNCTION_NAME, code: 1, took 1410ms. Data bytes: 592 Reply bytes: 156 Flags: 18
+07-02 09:17:49.629   689   794 E JobScheduler.Quota: <0>com.google.android.dialer has 0 EJ quota without running anything
+07-02 09:17:49.631   689   794 E JobScheduler.Quota: <0>com.google.android.dialer has 0 EJ quota without running anything
+07-02 09:17:49.647   689   892 W BestClock: java.time.DateTimeException: No network time available
+07-02 09:17:49.648   689   892 W BestClock: java.time.DateTimeException: No network time available
+07-02 09:17:49.666  1361  1499 W JobInfo : Requested important-while-foreground flag for job75 is ignored and takes no effect
+07-02 09:17:49.668   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.668   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.668   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.670   689  1180 E JobScheduler.JobStatus: App com.google.android.inputmethod.latin became active but still in NEVER bucket
+07-02 09:17:49.675   541   541 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''
+07-02 09:17:49.698  1069  1172 D IpClient/wlan0: interfaceLinkStateChanged: ifindex 16 up
+07-02 09:17:49.712   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.712   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.713   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.713   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.713   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.713   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.716  1831  2146 D nativeloader: Load /data/app/~~Gdq1WHTcmqtZ1mdnpz0JpA==/com.android.vending-zv4Bu9h3xC1o7zcEEPFYnA==/split_config.x86_64.apk!/lib/x86_64/libmappedcountercacheversionjni.so using class loader ns clns-9 (caller=/data/app/~~Gdq1WHTcmqtZ1mdnpz0JpA==/com.android.vending-zv4Bu9h3xC1o7zcEEPFYnA==/base.apk): ok
+07-02 09:17:49.718  1506  1506 I ActivityThread: ApplicationInfo updating for com.google.android.as, new timestamp: 38605
+07-02 09:17:49.718  1506  1506 I ActivityThread: assets removed: [/data/resource-cache/com.android.systemui-neutral-GcmN.frro, /data/resource-cache/com.android.systemui-accent-kkK7.frro, /data/resource-cache/com.android.systemui-dynamic-wmDO.frro]
+07-02 09:17:49.718  1506  1506 I ActivityThread: assets added: []
+07-02 09:17:49.723  1506  1506 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.as
+07-02 09:17:49.744   541   567 I adbd    : jdwp connection from 2091
+07-02 09:17:49.756   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.756   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.756   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.756   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.756   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.756   527   571 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:17:49.756  1481  1492 W hbox:interactor: Suspending all threads took: 420.030ms
+07-02 09:17:49.764  1113  1183 D WorkspaceItemProcessor: valid target true, marking restored: com.android.chrome, itemType=0, restoreFlag=0
+07-02 09:17:49.766  1259  1259 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.phenotype.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:17:49.796  1259  1259 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.phenotype.service.START xflg=0x4 pkg=com.google.android.gms }
+07-02 09:17:49.799  1113  1183 D WorkspaceItemProcessor: processWidget: id=4, appWidgetId=3, inflationResult=InflationResult(type=2, reason=null, restoreErrorType=unspecified_widget_inflation_result, isUpdate=false, widgetInfo=AppWidgetProviderInfo(UserHandle{0}/ComponentInfo{com.google.android.apps.bard/com.google.android.apps.bard.widget.RobinToolBarAppWidgetReceiver}))

@@ -1,0 +1,12 @@
+status=WARN
+message=Keyguard may still be visible
+serial=emulator-5554
+state=device
+boot_completed=1
+keyguard_before=True
+keyguard_after=True
+pin_required=False
+qa_dir=C:\Users\seste\Documents\MegaVault\ai\reports\thinkpad_android_dev_optimization_20260702_085726\qa\device_ready_20260702_091121
+model=sdk_gphone16k_x86_64
+sdk=37
+release=17

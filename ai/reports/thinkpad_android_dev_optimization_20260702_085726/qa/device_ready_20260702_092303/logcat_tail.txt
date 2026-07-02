@@ -1,0 +1,451 @@
+--------- beginning of main
+07-02 09:23:13.507  2588  2831 W nce     : Cancelling the stream because of internal error
+07-02 09:23:13.507  2588  2831 W nce     : mre: INTERNAL: Completed without a response
+07-02 09:23:13.507  2588  2831 W nce     : 	at nce.a(PG:44)
+07-02 09:23:13.507  2588  2831 W nce     : 	at mqh.a(PG:3)
+07-02 09:23:13.507  2588  2831 W nce     : 	at jkl.a(PG:1)
+07-02 09:23:13.507  2588  2831 W nce     : 	at mqh.a(PG:3)
+07-02 09:23:13.507  2588  2831 W nce     : 	at lcm.a(PG:68)
+07-02 09:23:13.507  2588  2831 W nce     : 	at nhq.a(PG:10)
+07-02 09:23:13.507  2588  2831 W nce     : 	at hwn.a(PG:22)
+07-02 09:23:13.507  2588  2831 W nce     : 	at hww.a(PG:150)
+07-02 09:23:13.507  2588  2831 W nce     : 	at jjk.a(PG:18)
+07-02 09:23:13.507  2588  2831 W nce     : 	at kmc.run(PG:19)
+07-02 09:23:13.507  2588  2831 W nce     : 	at eau.run(PG:7)
+07-02 09:23:13.507  2588  2831 W nce     : 	at kfj.run(PG:44)
+07-02 09:23:13.507  2588  2831 W nce     : 	at dlz.run(PG:1231)
+07-02 09:23:13.507  2588  2831 W nce     : 	at java.lang.Thread.run(Thread.java:1572)
+07-02 09:23:13.507  2588  2831 W nce     : 	at ecf.run(PG:61)
+07-02 09:23:13.508  2588  2831 W NGSA.GoogleAsrService: #checkModelAvailability cancelled by client.
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: Failed to get VoiceLM model paths.
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: mre: CANCELLED
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: 	at nhm.a(PG:41)
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: 	at mvr.l(PG:1)
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: 	at mvo.a(PG:28)
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: 	at mwg.run(PG:7)
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: 	at ncb.run(PG:12)
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-02 09:23:13.512  2588  2750 W VoiceDataManager: 	at java.lang.Thread.run(Thread.java:1572)
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: VoiceLM path fetch failed, resetting future ref.
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: mre: CANCELLED
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: 	at nhm.a(PG:41)
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: 	at mvr.l(PG:1)
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: 	at mvo.a(PG:28)
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: 	at mwg.run(PG:7)
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: 	at ncb.run(PG:12)
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+07-02 09:23:13.512  2588  2736 W VoiceDataDownloader: 	at java.lang.Thread.run(Thread.java:1572)
+07-02 09:23:13.512  2196  2494 D WM-SystemJobScheduler: Scheduling work ID 321f0994-627d-4655-8d52-af7fc8915fb3 (com.google.android.libraries.notifications.platform.entrypoints.job.GnpWorker), Job ID 89
+07-02 09:23:13.542   684  2299 D ConnectivityService: requestNetwork for uid/pid:1000/684 asUid: 10152 activeRequest: null callbackRequest: 113 [NetworkRequest [ REQUEST id=114, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|BLK
+07-02 09:23:13.557  1256  2792 I NearbyUWB: Use AOSP Backend in UWB API. [CONTEXT service_id=49 ]
+07-02 09:23:13.557  2588  2738 W JobInfo : Requested important-while-foreground flag for job16 is ignored and takes no effect
+--------- beginning of system
+07-02 09:23:13.572   684   684 W JobScheduler: Job didn't exist in JobStore: 745275c #u0a156/10371 com.android.vending/com.google.android.finsky.scheduler.process.backgroundimpl.PhoneskyJobServiceBackground
+07-02 09:23:13.573   684   684 W Looper  : Slow dispatch took 536ms main app=system_server main=true group=FOREGROUND h=android.app.ActivityThread$H c=android.app.LoadedApk$ServiceDispatcher$RunConnection@133048a m=0
+07-02 09:23:13.586   684   853 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=114, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:23:13.586   684   853 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=114, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:23:13.586   684   853 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=114, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:23:13.588  2180  2492 W JobInfo : Job 'com.google.android.apps.wellbeing/.autodnd.impl.AutoDndJobService#1' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+07-02 09:23:13.588  2196  2494 D WM-SystemJobScheduler: Scheduling work ID 74cb0d58-34e3-49b0-84da-dac500d5a934 (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 77
+07-02 09:23:13.593  2468  2767 I Finsky:background: [88] CronetDownloader: onRedirectReceived
+07-02 09:23:13.593   684   865 D ConnectivityService: NetReassign [114 : null → 100] [c 0] [a 12] [i 9]
+07-02 09:23:13.594   684   853 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=114, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:23:13.595   684  1993 W JobInfo : Job 'com.google.android.apps.wellbeing/.autodnd.impl.AutoDndJobService#1' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+07-02 09:23:13.623  1453  2171 I aohp    : (REDACTED) DelegationStatus: %s
+07-02 09:23:13.635  2240  2240 W ActivityThread: getPackageInfo() called with an older ApplicationInfo than the cached version for package com.google.android.googlequicksearchbox
+07-02 09:23:13.636  1256  2794 I NearbyPresence: (REDACTED) %s: Start BleAdvertiseBluetoothProvider.
+07-02 09:23:13.636  1256  2794 W Nearby  : Can not obtain bluetoothLeAdvertiser! [CONTEXT service_id=49 ]
+07-02 09:23:13.640  1256  1333 I NearbyUWB: (REDACTED) onGetService: Create client bridge with key %s
+07-02 09:23:13.640  1256  1333 I NearbyUWB: (REDACTED) Analytics is enabled for package %s
+07-02 09:23:13.649  2196  2479 W Settings: Setting airplane_mode_on has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+07-02 09:23:13.653   684   684 W Looper  : Drained
+07-02 09:23:13.660   684   716 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@a2d2e3e3 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+07-02 09:23:13.661  2196  2479 I DialerVoicemailStatusDataServiceImpl: com.android.dialer.voicemailstatus.dataservice.impl.VoicemailStatusDataServiceImpl.insertOrUpdateVoicemailStatus:268 merged status: # vfa@1a918fc9
+07-02 09:23:13.684  2240  2240 I ykf     : processValidityUpdateForAllData
+07-02 09:23:13.687  1084  1286 W libbinder.Binder: Binder transaction to android.content.IContentProvider, function: UNKNOWN_FUNCTION_NAME, code: 1, took 4486ms. Data bytes: 332 Reply bytes: 136 Flags: 16
+07-02 09:23:13.687  2196  2446 I DialerFixedDialingNumberPhoneLookupContributor: com.android.dialer.fixeddialingnumber.impl.phonelookup.FixedDialingNumberPhoneLookupContributor.getFdnListFromUri:245 empty cursor
+07-02 09:23:13.688  2196  2446 I DialerRefreshAnnotatedCallLogWorker: com.android.dialer.calllog.refresh.impl.RefreshAnnotatedCallLogWorker.fillAndTime:293 filling VoicemailDataSource
+07-02 09:23:13.688  2196  2446 I DialerRefreshAnnotatedCallLogWorker: com.android.dialer.calllog.refresh.impl.RefreshAnnotatedCallLogWorker.fillAndTime:293 filling SpamCallDataSource
+07-02 09:23:13.688  2196  2446 I DialerSpamCallDataSource: com.android.dialer.spam.calllog.SpamCallDataSource.fill:77 fill
+07-02 09:23:13.688  2196  2446 I DialerSpamCallDataSource: com.android.dialer.spam.calllog.SpamCallDataSource.handleInserts:83 handleInserts
+07-02 09:23:13.688  2196  2446 I DialerRefreshAnnotatedCallLogWorker: com.android.dialer.calllog.refresh.impl.RefreshAnnotatedCallLogWorker.fillAndTime:293 filling CallingNetworksDataSource
+07-02 09:23:13.699   458   458 D Zygote  : Forked child process 2876
+07-02 09:23:13.703   684   717 I ActivityManager: Start proc 2876:com.google.android.deskclock/u0a176 for broadcast {com.google.android.deskclock/com.android.deskclock.AlarmInitReceiver}
+07-02 09:23:13.703  1453  2171 I agok    : (REDACTED) Populated bump behaviors: %s
+07-02 09:23:13.703  1453  2171 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:23:13.703  1453  2171 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:23:13.703  1453  2171 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:23:13.708   684   865 D ConnectivityService: NetReassign [no changes] [c 0] [a 1] [i 0]
+07-02 09:23:13.711  2588  2738 W JobInfo : Requested important-while-foreground flag for job17 is ignored and takes no effect
+07-02 09:23:13.717   684  1838 D UwbServiceCore: registerAdapterStateCallbacks(): notify adapterState = 1, reason = 3
+07-02 09:23:13.727  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.727  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.727  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.727  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.727  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.727  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ImageCategory
+07-02 09:23:13.728  2138  2279 W DefaultCategoryFactory: Passed category is not of type ThirdPartyAppCategory
+07-02 09:23:13.728  2138  2279 D GoogleWallpaperCategoryRepository: Successfully fetched BackdropWallpaperCategories
+07-02 09:23:13.728  2138  2279 I GoogleWallpaperCategoryRepository: All parallel fetch operations have completed.
+07-02 09:23:13.729  2138  2279 D GoogleWallpaperCategoryRepository: Setting isMainCategoriesFetched to true.
+07-02 09:23:13.730  1256  2792 I NearbyUWB: (REDACTED) Screen unlocked: %s
+07-02 09:23:13.737  2876  2876 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10176
+07-02 09:23:13.737  1494  2002 D nativeloader: Load /product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk!/lib/x86_64/libsense_nnfp_v3.so using class loader ns product-clns-9 (caller=/product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk): ok
+07-02 09:23:13.738  2876  2876 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_10176/pid_2876
+07-02 09:23:13.740   684  1719 D ConnectivityService: requestNetwork for uid/pid:1000/684 asUid: 10169 activeRequest: null callbackRequest: 116 [NetworkRequest [ REQUEST id=117, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10169 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false declaredMethods: AVAIL|LOST|BLK
+07-02 09:23:13.754  2876  2876 I Zygote  : Process 2876 created for com.google.android.deskclock
+07-02 09:23:13.757  2876  2876 I droid.deskclock: Using generational CollectorTypeCMC GC.
+07-02 09:23:13.758  2876  2876 W droid.deskclock: Unexpected CPU variant for x86: x86_64.
+07-02 09:23:13.758  2876  2876 W droid.deskclock: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+07-02 09:23:13.763   964   964 I Choreographer: Skipped 35 frames!  The application may be doing too much work on its main thread.
+07-02 09:23:13.764  1494  2002 D nativeloader: Load /product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk!/lib/x86_64/libmodeleditor-jni.so using class loader ns product-clns-9 (caller=/product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2021/DevicePersonalizationAiAiPrebuiltPixel2021.apk): ok
+07-02 09:23:13.768  2588  2738 W JobInfo : Requested important-while-foreground flag for job18 is ignored and takes no effect
+07-02 09:23:13.774  2468  2468 I Finsky:background: [2] SCH: job service start with id 10373.
+07-02 09:23:13.784   684   865 D ConnectivityService: NetReassign [117 : null → 100] [c 38] [a 0] [i 1]
+07-02 09:23:13.788   684   853 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=117, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10169 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:23:13.788   684   853 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=117, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10169 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:23:13.789   684   853 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=117, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10169 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:23:13.789   684   853 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=117, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10169 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]
+07-02 09:23:13.790   684  1838 D SystemServerTiming: getUserSwitchability-0
+07-02 09:23:13.790   684  1838 D SystemServerTiming: TM.isInCall
+07-02 09:23:13.790   684  1838 D SystemServerTiming: hasUserRestriction-DISALLOW_USER_SWITCH
+07-02 09:23:13.790   684  1838 D SystemServerTiming: getInt-ALLOW_USER_SWITCHING_WHEN_SYSTEM_USER_LOCKED
+07-02 09:23:13.790   684  1838 D SystemServerTiming: isUserUnlocked-USER_SYSTEM
+07-02 09:23:13.794  2196  2479 I DialerLogcatLoggingBindings: com.android.dialer.logging.logcat.LogcatLoggingBindings.logImpression:47 Impression: VVM_UNBUNDLED_EVENT_RECEIVED
+07-02 09:23:13.796  2876  2876 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+07-02 09:23:13.832  1494  2002 I ModelReloader: Cancelled all jobs.
+07-02 09:23:13.851  1453  2171 I thm     : no assistant invocation found, returning 0.
+07-02 09:23:13.851  1453  2171 I thm     : no assistant invocation found, returning max duration.
+07-02 09:23:13.860  2588  2631 I GoogleTTSServiceImpl: For default lang en-us is name en-US-language (en-us-x-iog-server)
+07-02 09:23:13.860  2588  2631 W libbinder.Binder: Binder transaction to android.speech.tts.ITextToSpeechService, function: UNKNOWN_FUNCTION_NAME, code: 15, took 1489ms. Data bytes: 128 Reply bytes: 40 Flags: 18
+07-02 09:23:13.861  1494  2829 I TextToSpeech: Setting up the connection to TTS engine...
+07-02 09:23:13.867  1494  1494 I AiAiCaptions: TtsSynthesizerImpl::onInit(): status: true(0).
+07-02 09:23:13.898  1453  2125 I akpd    : (REDACTED) #isRobinOnlyLocale checkedLocale:%s language:%s list:%s
+07-02 09:23:13.899  1453  2125 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:23:13.899  1453  2125 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:23:13.899  1453  2125 I agyg    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig Current Locale set to: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig Assistant is currently enabled: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig InputModality is currently: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig Speed Bump entry points: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig Long Press Power Education entrypoints: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig Robin entrypoints: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig Preferred audio route type: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig Earcons to be added: %s
+07-02 09:23:13.899  1453  2125 I agfj    : (REDACTED) #initialConfig Mic occupied behavior: %s
+07-02 09:23:13.900  1453  2125 I agfj    : (REDACTED) #initialConfig Headphone voice queries and spoken notifications status: %s
+07-02 09:23:13.900  1453  2125 I aohp    : (REDACTED) DelegationStatus: %s
+07-02 09:23:13.905  1494  2002 I AiAiStorageStats: Register storage stats worker:
+07-02 09:23:13.905  1494  2002 I AiAiStorageStats: Enable: false
+07-02 09:23:13.905  1494  2002 I AiAiStorageStats: Repeat every: 1440 minutes
+07-02 09:23:13.907  2468  2621 I Finsky:background: [52] SCH: no pending jobs to schedule.
+07-02 09:23:13.908  2468  2753 I Finsky:background: [85] SCH: job service finished with id 10362.
+07-02 09:23:13.918  2196  2446 I DialerInternalSemanticEventLogger: com.android.dialer.cui.impl.InternalSemanticEventLogger.handleEvent:141 CUI event: ACTIVATE_VVM_ON_CELL_SERVICE_CONNECTED; uniqueCallId: null
+07-02 09:23:13.927  2468  2727 I Finsky:background: [79] SCH: Canceling job 3-46
+07-02 09:23:13.927  2468  2727 I Finsky:background: [79] WM::SCH: Logging work end for 3-46
+07-02 09:23:13.928  2468  2727 I Finsky:background: [79] SCH: Satisfied jobs for 10373 are: 40-9998
+07-02 09:23:13.931  2468  2648 I Finsky:background: [57] SCH: no pending jobs to schedule.
+07-02 09:23:13.938  2468  2825 I Finsky:background: [97] CronetDownloader: onRedirectReceived
+07-02 09:23:13.950  2468  2657 I Finsky:background: [60] IQ: Creating job 47, for (REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY)
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] IQ: Creating job 48, for (REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, MIN_BATTERY=20, SHOULD_APPLY_BUDGET=true, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, TIME=[2026-07-02T23:00:00Z-2026-07-03T02:00:00Z])
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] IQ: Creating job 49, for (REQ_CHARGING, REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY, PROCESS_IMPORTANCE_THRESHOLD=125, REQ_CAR_KEY_NOT_IN_USE=true)
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] IQ: Creating job 50, for (REQ_CHARGING, REQ_GEARHEAD_PROJECTION_OFF, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY)
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] IQ: Creating job 51, for (REQ_CHARGING, REQ_DEVICE_IDLE, REQ_GEARHEAD_PROJECTION_OFF, NETWORK=UNMETERED, PROVISIONING_STATE=PROVISIONED, BACKUP_MANAGER_STATE=BACKUP_READY)
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] IQ: Bulk scheduling created jobs
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] SCH: Received scheduling request: Id: 3-47, Constraints: [{ L: 0, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] SCH: Received scheduling request: Id: 3-48, Constraints: [{ L: 56206049, D: 67006049, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] SCH: Received scheduling request: Id: 3-49, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] SCH: Received scheduling request: Id: 3-50, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_NONE, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:13.951  2468  2657 I Finsky:background: [60] SCH: Received scheduling request: Id: 3-51, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:13.956  1588  1959 W gle.android.gms: Verification of void m32.uzy.<clinit>() took 244.296ms (307.00 bytecodes/s) (0B arena alloc)
+07-02 09:23:13.976  1256  1333 I NearbyUWB: (REDACTED) Client %s with package name %s, 0p Identifier %s, and sdk version %s has connected.
+07-02 09:23:13.980  2468  2621 I Finsky:background: [52] SSM: Start staged session task with 0 tracked staged sessions
+07-02 09:23:13.980  2468  2613 I Finsky:background: [49] IQ: start evaluating install requests.
+07-02 09:23:13.983  2196  2446 I DialerVvmServiceSchedulerImpl: com.android.dialer.voicemail.service.impl.scheduler.VvmServiceSchedulerImpl.schedule:324 scheduling action: ACTIVATE [CONTEXT enable_persistent_logger=true ]
+07-02 09:23:13.996  2468  2613 I Finsky:background: [49] IQ: There are 5 installs pending for job 45: [com.google.android.gm, com.google.android.contacts, com.google.android.calendar, com.google.android.inputmethod.latin, com.google.android.googlequicksearchbox]
+07-02 09:23:13.997  1256  2794 I NearbyPresence: (REDACTED) %s verified [!=] new request %s does not equal to the old request %s
+07-02 09:23:13.997  1256  2794 I NearbyPresence: (REDACTED) %s verified [!=] new request %s does not equal to the old request %s
+07-02 09:23:13.998   684  1778 W ActivityManager: Slow operation: 95ms so far, now at attachApplicationLocked: after updateOomAdjLocked
+07-02 09:23:13.999  2468  2657 I Finsky:background: [60] IQ: Notifying installation update. [Package:com.google.android.youtube, isid:oL_fG7RRR4ymvBchEA29VA] state:DOWNLOADING, status=DOWNLOADING, status_code=0, reason=auto_update, tsc=PT2H48M21.547S, attempt=0
+07-02 09:23:14.002  2240  2396 D WM-SystemJobScheduler: Scheduling work ID d38e9383-1426-494f-9c3c-f2b6329006a6Job ID 123
+07-02 09:23:14.004  2240  2482 I alqn    : Robin eligibility : Account is Pseudonymous type.
+07-02 09:23:14.004  2240  2482 I alqn    : User became ineligible due to one of checks failed on client
+07-02 09:23:14.012   684  1993 W ApplicationInfo: Large ApplicationInfo parcel: size=17508 package=com.google.android.googlequicksearchbox sharedLibs=3 resDirs=2 overlayPaths=2
+07-02 09:23:14.013  2240  2482 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:23:14.013  2240  2482 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:23:14.013  2240  2482 I alqn    : (REDACTED) Robin eligibility : Robin is ineligible failure reasons: %s
+07-02 09:23:14.012   684  1993 W PackageInfo: Large parcel: size=18976 pkg=com.google.android.googlequicksearchbox uid=10161 sig=1208(1) prevAllowSquashing=false
+07-02 09:23:14.021  1453  2125 I agzr    : (REDACTED) Robin eligibility #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:23:14.022  1453  2125 I agoc    : Robin not enabled
+07-02 09:23:14.022  1453  2125 I agfj    : Assistant backend selected for headphone invocations.
+07-02 09:23:14.023  1453  2125 I agrm    : (REDACTED) #FCF: Preferred assistant locale set %s 
+07-02 09:23:14.023  1453  2125 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:23:14.023  1453  2125 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:23:14.023  1453  2125 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:23:14.023  1453  2125 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:23:14.023  1453  2125 I agyg    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:23:14.023  1453  2125 I agyi    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:23:14.023  1453  2125 I agym    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:23:14.023  1453  2125 I agrm    : (REDACTED) #FCF: Preferred assistant locale set %s 
+07-02 09:23:14.024  1453  2125 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:23:14.024  1453  2125 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:23:14.025  1453  2125 I agys    : (REDACTED) #evaluate: isEnabled[ = %s failure reasons: %s
+07-02 09:23:14.025  1453  2125 I agyr    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:23:14.025  1453  2125 I agfj    : (REDACTED) Needs to download files: %s
+07-02 09:23:14.026  1453  2125 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:23:14.027  1453  2125 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:23:14.027  1453  2125 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:23:14.028  1453  2125 I aggn    : No changes in config detected
+07-02 09:23:14.028  1453  2125 I aggn    : (REDACTED) starting updateConfig, reason: %s
+07-02 09:23:14.029  1453  2125 I agri    : #getEarcons
+07-02 09:23:14.030   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:14.030  1453  2125 I ahpq    : (REDACTED) #isBluetoothOrWiredHeadsetConnected Number of connected audio devices: %s
+07-02 09:23:14.031   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:14.031  1453  2125 I akpd    : (REDACTED) #isRobinOnlyLocale checkedLocale:%s language:%s list:%s
+07-02 09:23:14.033  1256  2794 I NearbyPresence: (REDACTED) %s verified [!=] new request %s does not equal to the old request %s
+07-02 09:23:14.033  1453  2122 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:23:14.033  1453  2122 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:23:14.034  1453  2122 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:23:14.034  1453  2125 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:23:14.034  1453  2054 I bgzr    : (REDACTED) getInitialSimplifiedOobeViaDeeplinkUser: %b
+07-02 09:23:14.034  1453  2125 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:23:14.034  1453  2125 I agzg    : User not OptedIn. Skipping Eligibility Checks.
+07-02 09:23:14.035  1453  2054 I apfn    : (REDACTED) isDeeplinkEnabled %s, isInitialSimplifiedOobeViaDeeplinkUser %s
+07-02 09:23:14.035  1453  2125 I agxo    : Robin is not eligible or not opted-in
+07-02 09:23:14.035  1453  2125 I agxo    : (REDACTED) Headphone Integration status: %s
+07-02 09:23:14.035  1453  2125 W (setupdesign) Partner: No partner package found!
+07-02 09:23:14.037   964  1117 I AmbientCueRepository: Receiving SmartSpace targets # 0
+07-02 09:23:14.037  2196  2446 I DialerLoggingConsentCheckerImpl: com.google.android.callingshared.logging.consent.impl.LoggingConsentCheckerImpl.getConsent:72 timer stop with success, timer present: false
+07-02 09:23:14.038  1256  2794 E AbstractGmsTracer: Traced class shouldn't be obfuscated: dtnc [CONTEXT service_id=259 ]
+07-02 09:23:14.038  1256  2794 I NearbyPresence: (REDACTED) %s verified [!=] new request %s does not equal to the old request %s
+07-02 09:23:14.038  1256  2794 I NearbyPresence: MdnsServerProviderController is not enabled or requested [CONTEXT service_id=317 ]
+07-02 09:23:14.038  1256  2794 I NearbyPresence: (REDACTED) BleAdvertiseProviderController: request.isRequested() %s
+07-02 09:23:14.039  1256  2794 I NearbyPresence: (REDACTED) %s: Overriding the broadcastV1 request to : %s
+07-02 09:23:14.039  1256  2794 I NearbyPresence: (REDACTED) %s: Enabling engine.
+07-02 09:23:14.040  1453  2122 I aohp    : (REDACTED) DelegationStatus: %s
+07-02 09:23:14.040  1453  2122 I agok    : (REDACTED) Populated bump behaviors: %s
+07-02 09:23:14.040  1453  2122 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:23:14.040  1453  2122 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:23:14.040  1453  2122 I agor    : (REDACTED) Client type %s set for %s
+07-02 09:23:14.040  1453  2122 I thm     : no assistant invocation found, returning 0.
+07-02 09:23:14.047  1494  2002 I AiAiSyshealth: UptimeLoggerInitializer is disabled via flag.
+07-02 09:23:14.047  1494  2002 I AiAiLocation: Initializing Android location tracker
+07-02 09:23:14.052  2196  2479 I DialerVoicemailStatusDataServiceImpl: com.android.dialer.voicemailstatus.dataservice.impl.VoicemailStatusDataServiceImpl.insertOrUpdateVoicemailStatus:253 enter
+07-02 09:23:14.053  1494  2002 I AiAiLocation: Fetching last known location
+07-02 09:23:14.055  2468  2657 I Finsky:background: [60] SCH: jobFinished: 3-45. TimeElapsed: 2821ms.
+07-02 09:23:14.055  2468  2657 I Finsky:background: [60] WM::SCH: Logging work end for 3-45
+07-02 09:23:14.056  2468  2657 W Finsky:background: [60] SCH: Controller has updated to job 40-9998 when job 3-45 checks state..
+07-02 09:23:14.057  1494  2002 I AiAiLocation: No last known location returned by provider
+07-02 09:23:14.057  1494  2002 I AiAiLocation: Requesting location updates with LocationConfig(minUpdateIntervalSeconds=21600, minTravelDistanceMeters=100000)
+07-02 09:23:14.071  1453  2122 I thm     : no assistant invocation found, returning max duration.
+07-02 09:23:14.076  2468  2657 I Finsky:background: [60] IQ: Notifying installation update. [Package:com.google.android.youtube, isid:oL_fG7RRR4ymvBchEA29VA] state:DOWNLOADING, status=DOWNLOADING, status_code=0, reason=auto_update, tsc=PT2H48M21.624S, attempt=0
+07-02 09:23:14.086  2468  2468 I Finsky:background: [2] PIM: Ignore install package event for: com.google.android.youtube, isid: oL_fG7RRR4ymvBchEA29VA
+07-02 09:23:14.088  2240  2483 W blhv    : No value provided for the places model index flag.
+07-02 09:23:14.089  2240  2483 W blhv    : No value provided for the places model index flag.
+07-02 09:23:14.093  1453  2125 I akpd    : (REDACTED) #isRobinOnlyLocale checkedLocale:%s language:%s list:%s
+07-02 09:23:14.093  1453  2125 I agsd    : (REDACTED) FCF System FeatureName to check: %s
+07-02 09:23:14.093  1453  2125 I agsd    : (REDACTED) FCF: Device model check status : %s
+07-02 09:23:14.122  2468  2468 I Finsky:background: [2] PIM: Ignore install package event for: com.google.android.youtube, isid: oL_fG7RRR4ymvBchEA29VA
+07-02 09:23:14.127  1453  2125 I agyg    : (REDACTED) #evaluate: isEnabled = %s failure reasons: %s
+07-02 09:23:14.127  1453  2125 I agfj    : (REDACTED) #initialConfig Current Locale set to: %s
+07-02 09:23:14.127  1453  2125 I agfj    : (REDACTED) #initialConfig Assistant is currently enabled: %s
+07-02 09:23:14.127  1453  2125 I agfj    : (REDACTED) #initialConfig InputModality is currently: %s
+07-02 09:23:14.132  1588  2371 I NearbySharing: onBindSlice failed since shareTargets is empty
+07-02 09:23:14.146  1453  2125 I agfj    : (REDACTED) #initialConfig Speed Bump entry points: %s
+07-02 09:23:14.146  1453  2125 I agfj    : (REDACTED) #initialConfig Long Press Power Education entrypoints: %s
+07-02 09:23:14.146  1453  2125 I agfj    : (REDACTED) #initialConfig Robin entrypoints: %s
+07-02 09:23:14.146  1453  2125 I agfj    : (REDACTED) #initialConfig Preferred audio route type: %s
+07-02 09:23:14.146  1453  2125 I agfj    : (REDACTED) #initialConfig Earcons to be added: %s
+07-02 09:23:14.146  1453  2125 I agfj    : (REDACTED) #initialConfig Mic occupied behavior: %s
+07-02 09:23:14.146  1453  2125 I agfj    : (REDACTED) #initialConfig Headphone voice queries and spoken notifications status: %s
+07-02 09:23:14.147  1453  2125 I aohp    : (REDACTED) DelegationStatus: %s
+07-02 09:23:14.179   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:14.179  2468  2570 I Finsky:background: [46] WM::SCH: Logging work initialize for 3-47
+07-02 09:23:14.179  2468  2570 I Finsky:background: [46] WM::SCH: Logging work initialize for 3-48
+07-02 09:23:14.179  2468  2570 I Finsky:background: [46] WM::SCH: Logging work initialize for 3-49
+07-02 09:23:14.179   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:14.180  2468  2570 I Finsky:background: [46] WM::SCH: Logging work initialize for 3-50
+07-02 09:23:14.180  2468  2570 I Finsky:background: [46] WM::SCH: Logging work initialize for 3-51
+07-02 09:23:14.222  2240  2249 W earchbox:search: Suspending all threads took: 20.596ms
+07-02 09:23:14.235  2196  2494 D WM-SystemJobScheduler: Scheduling work ID a4c37c70-d457-46bb-b0ee-02e5b18bc886 (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 95
+07-02 09:23:14.249  1588  1955 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+07-02 09:23:14.252  1588  2638 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=null serviceId=36
+07-02 09:23:14.255  2468  2613 I Finsky:background: [49] IQ: 5 scheduled install statuses found to proceed. 
+07-02 09:23:14.265  1256  2509 I NearbySharing: Granted slice and uri permissions to android
+07-02 09:23:14.293  1256  1342 D DesktopExperienceFlags: Toggle override initialized to: false
+07-02 09:23:14.294  2062  2062 I Finsky  : [2] IQ::HLD: if pauseAppUpdates is called now, it must wait for these ongoing installs: [[Package:com.google.android.youtube, isid:oL_fG7RRR4ymvBchEA29VA] state:DOWNLOADING]
+07-02 09:23:14.295  2062  2062 I Finsky  : [2] IQ::HLD: if pauseAppUpdates is called now, it must wait for these ongoing installs: [[Package:com.google.android.youtube, isid:oL_fG7RRR4ymvBchEA29VA] state:DOWNLOADING]
+07-02 09:23:14.308  1747  2840 D CompatChangeReporter: Compat change id reported: 418924588; UID 10112; state: ENABLED
+07-02 09:23:14.324  1256  2509 I NearbySharing: Granted slice and uri permissions to com.google.android.apps.nbu.files
+07-02 09:23:14.330  2588  2631 I GoogleTTSServiceImpl: onIsValidVoiceName(en-us-x-tpf-local): SUCCESS
+07-02 09:23:14.333  1256  2509 I NearbySharing: com.google.android.gms.nearby.sharing.receive.SamsungQrCodeActivity enable=false
+07-02 09:23:14.336  2468  2648 I Finsky:background: [57] SCH: Scheduling phonesky job Id: 3-47, CT: 1782976993951, Constraints: [{ L: 0, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_UNMETERED, B: BATTERY_ANY }, { L: 0, D: 0, C: CHARGING_NONE, I: IDLE_NONE, N: NET_NONE, B: BATTERY_ANY }]
+07-02 09:23:14.336  2468  2648 I Finsky:background: [57] SCH: Scheduling phonesky job Id: 3-48, CT: 1782976993951, Constraints: [{ L: 56206049, D: 67006049, C: CHARGING_NONE, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:14.336  2468  2648 I Finsky:background: [57] SCH: Scheduling phonesky job Id: 3-49, CT: 1782976993951, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:14.336  2468  2648 I Finsky:background: [57] SCH: Scheduling phonesky job Id: 3-50, CT: 1782976993951, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_NONE, N: NET_UNMETERED, B: BATTERY_ANY }, { L: 0, D: 0, C: CHARGING_NONE, I: IDLE_NONE, N: NET_NONE, B: BATTERY_ANY }]
+07-02 09:23:14.336  2468  2648 I Finsky:background: [57] SCH: Scheduling phonesky job Id: 3-51, CT: 1782976993951, Constraints: [{ L: 0, D: 86400000, C: CHARGING_REQUIRED, I: IDLE_REQUIRED, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:14.336  2468  2648 I Finsky:background: [57] SCH: Scheduling system job 10363 to resume after 0 ms
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: <DWB> Call failed: get_actions
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: java.util.concurrent.TimeoutException: Waited 5000 milliseconds (plus 798200 nanoseconds delay) for opn@fdc37a8[status=PENDING, info=[inputFuture=[opm@da912c1[status=PENDING, setFuture=[oot@6f9fa66[status=PENDING, info=[inputFuture=[opn@39ee1a7[status=PENDING, info=[inputFuture=[opn@1912654[status=PENDING, info=[inputFuture=[oqj@d7319fd[status=PENDING, info=[futures=[opn@29b56f2[status=PENDING, info=[inputFuture=[opn@1cdf143[status=PENDING, info=[inputFuture=[orj@10453c0[status=PENDING, info=[delegate=[osq@6dc58f9[status=PENDING, setFuture=[opn@883f03e[status=PENDING, info=[inputFuture=[opm@1545e9f[status=PENDING, info=[inputFuture=[orj@3baebec[status=PENDING, info=[delegate=[osq@f008bb5[status=PENDING, setFuture=[opm@cad24a[status=PENDING, info=[function=[propagating=[emz@1aa45bb]]]]]]]]]], function=[propagating=[ecr@60dad8]]]]], function=[propagating=[ect@6fb2e31]]]]]]]]]], function=[propagating=[ece@bebc916]]]]], function=[propagating=[fjj@7ad8297]]]]]]]], function=[propagating=[few@a74cc84]]]]], function=[propagating=[dzs@c237c6d]]]]], exceptionType=[class java.lang.Throwable], fallback=[propagating=[ect@45360a2]]]]]]], function=[propagating=[dzs@e3db133]]]]
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at opk.t(PG:370)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at opc.get(PG:6)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at orb.get(PG:10)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at com.google.android.apps.wellbeing.api.impl.WellbeingSettingsProvider.i(PG:9)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at com.google.android.apps.wellbeing.api.impl.WellbeingSettingsProvider.call(PG:150)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at android.content.ContentProvider.call(ContentProvider.java:2756)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at android.content.ContentProvider$Transport.call(ContentProvider.java:648)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:309)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at android.os.Binder.execTransactInternal(Binder.java:1364)
+07-02 09:23:14.345  2180  2217 W WellbeingSettingsProvid: 	at android.os.Binder.execTransact(Binder.java:1323)
+07-02 09:23:14.347   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:14.347   523   552 W skia    : AGTM parsing failed flags.readFromStream(s) at 159
+07-02 09:23:14.349  2468  2648 I Finsky:background: [57] SCH: Scheduling system job 10363 to resume after 0 ms
+07-02 09:23:14.349  2468  2648 I Finsky:background: [57] SCH: Resuming system job 10363 from hub.
+07-02 09:23:14.351  2180  2217 W libbinder.Binder: Binder transaction to android.content.IContentProvider, function: UNKNOWN_FUNCTION_NAME, code: 21, took 8278ms. Data bytes: 1892 Reply bytes: 116 Flags: 18
+07-02 09:23:14.356  2876  2876 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+07-02 09:23:14.356  2876  2876 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+07-02 09:23:14.359  2468  2593 I Finsky:background: [48] SCH: Resuming system job 10363 from hub.
+07-02 09:23:14.360  2468  2593 I Finsky:background: [48] SCH: Scheduling 3 system job(s)
+07-02 09:23:14.360  2468  2593 I Finsky:background: [48] SCH: Scheduling system job Id: 10359, L: 0, D: 86089605, C: false, I: false, N: 2
+07-02 09:23:14.366  2196  2479 I DialerRefreshAnnotatedCallLogWorker: com.android.dialer.calllog.refresh.impl.RefreshAnnotatedCallLogWorker.fillAndTime:293 filling CallRecordingDataSource
+07-02 09:23:14.366  2196  2479 I DialerCallRecordingDataSource: com.android.dialer.callrecording.impl.calllog.CallRecordingDataSource.fill:81 enter
+07-02 09:23:14.367  2196  2479 I DialerCallRecordingDataSource: com.android.dialer.callrecording.impl.calllog.CallRecordingDataSource.handleInsertsAndUpdatesFromAnnotatedCallLog:96 enter
+07-02 09:23:14.380  2468  2727 I Finsky:background: [79] SCH: Satisfied jobs for 10363 are: 3-47, 3-50, 40-9998
+07-02 09:23:14.391  2468  2753 I Finsky:background: [85] SCH: Job 3-47 starting
+07-02 09:23:14.391  2468  2727 I Finsky:background: [79] SCH: Satisfied jobs for 10363 are: 3-47, 3-50, 40-9998
+07-02 09:23:14.391  2468  2468 I Finsky:background: [2] WM::SCH: Logging work start for 3-47
+07-02 09:23:14.391  2468  2748 I Finsky:background: [83] DSC::L: Update all listeners for download <118:RUNNING:24%[24%]> in group com.google.android.googlequicksearchbox:YpzOuEZDQ7CBx3TklyIFoQ
+07-02 09:23:14.391  2468  2748 I Finsky:background: [83] DSC::L: Updating listener vjo@afee13c for download <118:RUNNING:24%[24%]>
+07-02 09:23:14.391  2468  2748 I Finsky:background: [83] DSC::L: Updating listener DownloadServiceManagerListener::taw@824972f for download <118:RUNNING:24%[24%]>
+07-02 09:23:14.391  2468  2748 I Finsky:background: [83] DSC::L: Updating listener DownloadServiceManagerListener::apeg@2f81bd4 for download <118:RUNNING:24%[24%]>
+07-02 09:23:14.391  2468  2748 I Finsky:background: [83] DS: Received onProgress request_id=118
+07-02 09:23:14.392  2468  2748 I Finsky:background: [83] RM: receive resource status onStart com.google.android.googlequicksearchbox.apk reason: auto_update isid: YpzOuEZDQ7CBx3TklyIFoQ, 2, 192, size: 58314752/242228175
+07-02 09:23:14.392  2468  2748 I Finsky:background: [83] RM: receive resource status onProgress download_request_id=118, group_id=com.google.android.googlequicksearchbox.apk reason: auto_update isid: YpzOuEZDQ7CBx3TklyIFoQ, status_code=RESOURCE_STATUS_IN_PROGRESS, legacy_status_code=192, size: 58314752/242228175
+07-02 09:23:14.392  2468  2748 I Finsky:background: [83] DS::IDC: updateWith: <118:RUNNING:24%[24%]>
+07-02 09:23:14.392  2468  2753 I Finsky:background: [85] SCH: Job 3-50 starting
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] SCH: CustomConstraint that is one of outstanding constraints BudgetConstraint[N=-3/10, B=5.0] failed for job 3-47
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] IQ::IQPJ: CustomConstraint BudgetConstraint[N=-3/10, B=5.0] with backoff 7200000 ms
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] IQ::IQPJ: CustomConstraint EnterpriseSetupConstraint with backoff 60000 ms
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] IQ::IQPJ: CustomConstraint BatteryLevelConstraint[Min=20] with backoff 7200000 ms
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] IQ::IQPJ: CustomConstraint BackupReadyConstraint with backoff 60000 ms
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] IQ::IQPJ: CustomConstraint DeviceProvisionedConstraint with backoff 60000 ms
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] IQ::IQPJ: CustomConstraint InstallHoldoffConstraint with backoff 60000 ms
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] IQ::IQPJ: CustomConstraint GearheadProjectionConstraint with backoff 3600000 ms
+07-02 09:23:14.395  2468  2468 I Finsky:background: [2] SCH: jobFinished: 3-47. TimeElapsed: 5ms.
+07-02 09:23:14.396  2468  2468 I Finsky:background: [2] WM::SCH: Logging work end for 3-47
+07-02 09:23:14.396  2468  2468 I Finsky:background: [2] WM::SCH: Logging work start for 3-50
+07-02 09:23:14.396  2468  2468 I Finsky:background: [2] XPF:Binding for 44655073
+07-02 09:23:14.396  2468  2468 I Finsky:background: [2] XPF:Binding for 44655073
+07-02 09:23:14.409  2062  2092 I Finsky  : [38] XPF: 0 profiles are paused for app updates: []
+07-02 09:23:14.409  2468  2468 I Finsky:background: [2] IQ: Connection has changed false
+07-02 09:23:14.409  2062  2092 I Finsky  : [38] XPF:0 profiles are currently in enterprise setup: []
+07-02 09:23:14.410  2468  2620 I Finsky:background: [50] RM: getStatus resourceRequestId=2ae2a2e2-15f1-4bbc-bdb1-1dfbc6311a89 requestId=118 package=com.google.android.googlequicksearchbox artifact=com.google.android.googlequicksearchbox.apk isid=YpzOuEZDQ7CBx3TklyIFoQ
+07-02 09:23:14.410  2468  2468 I Finsky:background: [2] IQ::IQPJ: Start job 50
+07-02 09:23:14.410  2468  2620 I Finsky:background: [50] DSC: reviveDownload(118)
+07-02 09:23:14.410  2468  2658 I Finsky:background: [62] RM: getStatus resourceRequestId=2ae2a2e2-15f1-4bbc-bdb1-1dfbc6311a89 requestId=118 package=com.google.android.googlequicksearchbox artifact=com.google.android.googlequicksearchbox.apk isid=YpzOuEZDQ7CBx3TklyIFoQ
+07-02 09:23:14.410  2468  2658 I Finsky:background: [62] DSC: reviveDownload(118)
+07-02 09:23:14.411  2196  2479 I DialerCallRecordingDataSourceStatusService: com.android.dialer.callrecording.impl.calllog.CallRecordingDataSourceStatusService.getTimestampOfLastSyncedCallRecordingInfoMillis:104 lastSyncedCallRecordingInfoTimestamp 0
+07-02 09:23:14.411  2468  2620 I Finsky:background: [50] DS: reviveDownload(request_id=118)
+07-02 09:23:14.411  2468  2658 I Finsky:background: [62] DS: reviveDownload(request_id=118)
+07-02 09:23:14.413  1588  1593 W gle.android.gms: Suspending all threads took: 77.550ms
+07-02 09:23:14.418  2468  2748 I Finsky:background: [83] DS: DS: onReviveDownload(request_id=118, files_to_download=[com.google.android.googlequicksearchbox.apk(size:242228175)], context[group_id=com.google.android.googlequicksearchbox:YpzOuEZDQ7CBx3TklyIFoQ], display_data[invisible=true, title=Google], network_restrictions=UNMETERED_ONLY status=running, bytes_downloaded=58314752, total_bytes=242228175, retry[count=0, next_retry=n/a])
+07-02 09:23:14.418  2468  2748 I Finsky:background: [83] DS: DS: onReviveDownload(request_id=118, files_to_download=[com.google.android.googlequicksearchbox.apk(size:242228175)], context[group_id=com.google.android.googlequicksearchbox:YpzOuEZDQ7CBx3TklyIFoQ], display_data[invisible=true, title=Google], network_restrictions=UNMETERED_ONLY status=running, bytes_downloaded=58314752, total_bytes=242228175, retry[count=0, next_retry=n/a])
+07-02 09:23:14.420   964   964 D TileServices: Couldn't find tile for ComponentInfo{com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.screen.ui.GrayscaleTileService}(0)
+07-02 09:23:14.468  2240  2396 W JobInfo : Requested important-while-foreground flag for job125 is ignored and takes no effect
+07-02 09:23:14.468  2240  2396 D WM-SystemJobScheduler: Scheduling work ID 92503e67-507d-4b36-8940-a0b84b34393dJob ID 125
+07-02 09:23:14.468  1494  1871 I LPDownloadSettingsState: Defaulting LP download condition to 2 as user has not edited settings.
+07-02 09:23:14.469  1494  1871 I DefaultLPManager: #getAvailablePackages
+07-02 09:23:14.476  2468  2727 I Finsky:background: [79] SCH: Attempting to reschedule job: Id: 3-47, Constraints: [{ L: 7200000, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_UNMETERED, B: BATTERY_ANY }]
+07-02 09:23:14.479  2196  2427 I DialerCallRecordingDataSource: com.android.dialer.callrecording.impl.calllog.CallRecordingDataSource.getAnnotatedCallLogIdsToCallRecordingInfoMap:280 lastSyncedCallRecordingInfoTimestamp 0
+07-02 09:23:14.482  2196  2494 D WM-SystemJobScheduler: Scheduling work ID 05dc534c-d629-4bc7-92eb-c0f9940b90e5 (com.google.apps.tiktok.contrib.work.TikTokListenableWorker), Job ID 96
+07-02 09:23:14.516  2468  2630 I Finsky:background: [53] IV2: installer unavailable to accept com.google.android.googlequicksearchbox. Current active installs : 
+07-02 09:23:14.516  2468  2630 I Finsky:background: com.google.android.youtube: installId: 20 isid: oL_fG7RRR4ymvBchEA29VA requested 4 min ago
+07-02 09:23:14.518  2468  2630 W Finsky:background: [53] IV2: cannot process install request now for [Package:com.google.android.googlequicksearchbox, isid:YpzOuEZDQ7CBx3TklyIFoQ] with status code 1136
+07-02 09:23:14.518  2468  2613 I Finsky:background: [49] IQ: start evaluating install requests.
+07-02 09:23:14.537  2468  2613 I Finsky:background: [49] IQ: There are 5 installs pending for job 50: [com.google.android.gm, com.google.android.contacts, com.google.android.calendar, com.google.android.inputmethod.latin, com.google.android.googlequicksearchbox]
+07-02 09:23:14.538  2468  2570 I Finsky:background: [46] WM::SCH: Logging work initialize for 3-47
+07-02 09:23:14.546  2468  2613 I Finsky:background: [49] IQ: 5 scheduled install statuses found to proceed. 
+07-02 09:23:14.550  2196  2479 I DialerCallRecordingDataSource: com.android.dialer.callrecording.impl.calllog.CallRecordingDataSource.handleDeletesFromAnnotatedCallLog:124 enter
+07-02 09:23:14.551  2196  2479 I DialerCallRecordingDataSource: com.android.dialer.callrecording.impl.calllog.CallRecordingDataSource.addDeleteUpdatesFromCallRecordingInitiatedDeletes:172 enter
+07-02 09:23:14.551  2196  2479 I DialerRefreshAnnotatedCallLogWorker: com.android.dialer.calllog.refresh.impl.RefreshAnnotatedCallLogWorker.rebuild:233 applying mutations
+07-02 09:23:14.551  2196  2479 I DialerCallRecordingDataSource: com.android.dialer.callrecording.impl.calllog.CallRecordingDataSource.onSuccessfulFill:211 enter
+07-02 09:23:14.551  2196  2479 I DialerConversationHistoryCoalescer: com.android.dialer.calllog.coalescer.ConversationHistoryCoalescer.coalesce:81 coalescing conversation history
+07-02 09:23:14.551  2196  2479 I DialerCoalescedRowsDao: com.android.dialer.calllog.coalescer.CoalescedRowsDao.saveToFileForAllCallsInConversationHistory:92 saveToFileForAllCallsInConversationHistory
+07-02 09:23:14.552  2196  2479 I DialerCoalescedRowsUpdatedNotifier: com.android.dialer.calllog.coalescer.CoalescedRowsUpdatedNotifier.notifyForConversationHistory:49 notifyForConversationHistory
+07-02 09:23:14.552  2196  2479 I DialerConversationHistoryCoalescer: com.android.dialer.calllog.coalescer.ConversationHistoryCoalescer.coalesce:92 coalesced rows updated
+07-02 09:23:14.557   684  1654 W ActivityManager: Skipping manifest association check for null package. SourceUid: -1, SourcePkg: null, TargetUid: 10208, TargetPkg: com.google.android.gms
+07-02 09:23:14.565  2196  2427 I DialerSystemCallLogUpdater: com.android.dialer.calllog.refresh.impl.SystemCallLogUpdater.getCallTypeUpdates:203 There are no system call log mutations
+07-02 09:23:14.566  2196  2427 I DialerSystemCallLogUpdater: com.android.dialer.calllog.refresh.impl.SystemCallLogUpdater.updateSystemCallLog:227 empty operations list, will not do anything [CONTEXT ratelimit_period="1 MINUTES" ]
+07-02 09:23:14.567  2240  2240 D WM-SystemJobService: onStopJob for WorkGenerationalId(workSpecId=92503e67-507d-4b36-8940-a0b84b34393d, generation=0)
+07-02 09:23:14.567  1256  2509 I NearbySharing: There is no account metadata, return default instance.
+07-02 09:23:14.567  1256  2509 I NearbySharing: Uwb feature is off.
+07-02 09:23:14.570  1256  2509 I NearbySharing: Uwb feature is off.
+07-02 09:23:14.570  1256  2509 I NearbySharing: Stopping scanning because Bluetooth is disabled.
+07-02 09:23:14.571  1256  2509 I NearbySharing: Stopping Fast Init advertisement because Bluetooth is off.
+07-02 09:23:14.571  1256  2509 I NearbySharing: Stopping advertising because Bluetooth is disabled.
+07-02 09:23:14.571  1256  2509 I NearbySharing: There is no account metadata, return default instance.
+07-02 09:23:14.572   532   532 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''
+07-02 09:23:14.575  1256  1342 I GetConfigSnapshotOp: (REDACTED) Succeeded but not registered: %s
+07-02 09:23:14.578  2196  2479 I DialerCoalescedRowsDao: com.android.dialer.calllog.coalescer.CoalescedRowsDao.saveToFileForAllCallsInConversationHistory:114 Finished saving coalesced rows for conversation history.
+07-02 09:23:14.595  2588  2754 I LocalSynthesizer: Attempting to load synthesizer for voice: en-us-x-tpf-seanet-embedded
+07-02 09:23:14.599  2468  2593 I Finsky:background: [48] SCH: Scheduling system job Id: 10360, L: 56205401, D: 67005401, C: false, I: true, N: 2
+07-02 09:23:14.603  2588  2754 I ExoPlayerImpl: Init 1e716e3 [AndroidXMedia3/1.10.1] [emu64xa16k, sdk_gphone16k_x86_64, Google, 37]
+07-02 09:23:14.604  2196  2479 I DialerLogcatLoggingBindings: com.android.dialer.logging.logcat.LogcatLoggingBindings.logImpression:47 Impression: ANNOTATED_CALL_LOG_FORCE_REFRESH_NO_CHANGES_NEEDED
+07-02 09:23:14.612  2180  2200 W .apps.wellbeing: Suspending all threads took: 30.625ms
+07-02 09:23:14.623  2876  2876 W droid.deskclock: Failed to find entry 'classes.dex': Entry not found
+07-02 09:23:14.625  2588  2754 I ExoPlayerImpl: Init 8bf8455 [AndroidXMedia3/1.10.1] [emu64xa16k, sdk_gphone16k_x86_64, Google, 37]
+07-02 09:23:14.627  2876  2876 D nativeloader: Configuring clns-9 for other apk /data/app/~~_wli3YwbW_tDV2aZj-tARA==/com.google.android.deskclock-MxmTTCvzQojyxcA1GpyOmQ==/base.apk:/data/app/~~_wli3YwbW_tDV2aZj-tARA==/com.google.android.deskclock-MxmTTCvzQojyxcA1GpyOmQ==/split_config.xxhdpi.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~_wli3YwbW_tDV2aZj-tARA==/com.google.android.deskclock-MxmTTCvzQojyxcA1GpyOmQ==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.google.android.deskclock
+07-02 09:23:14.627  1588  1909 I NearbySharing: Create pesudo logger.
+07-02 09:23:14.631  1494  1871 I tvz     : #getDownloadableLanguagePacks
+07-02 09:23:14.632  1494  1871 I LanguagePackConfigImpl: Loaded languagepack (LP) flag value from latest config autogen_BatchV3071V3072: [en-US3008, de-DE3003, es-ES3000, fr-FR3003, it-IT3000, en-AU3003, en-GB3002, en-IE3002, en-SG3001, ja-JP3004, de-AT3054, de-BE3054, de-CH3054, de-DE3054, en-AU3054, en-CA3054, en-GB3054, en-IE3054, en-IN3054, en-SG3054, en-US3054, es-ES3054, es-US3054, fr-BE3054, fr-CA3054, fr-CH3054, fr-FR3054, hi-IN3054, id-ID3054, it-CH3054, it-IT3054, ja-JP3054, ko-KR3054, pt-BR3054, th-TH3054, cmn-Hans-CN3056, cmn-Hant-TW3056, de-AT3056, de-BE3056, de-CH3056, de-DE3056, en-CA3056, en-IN3056, en-US3056, es-ES3056, es-US3056, fr-BE3056, fr-CA3056, fr-CH3056, fr-FR3056, hi-IN3056, id-ID3056, it-CH3056, it-IT3056, ja-JP3056, ko-KR3056, pl-PL3056, pt-BR3056, ru-RU3056, th-TH3056, tr-TR3056, vi-VN3056, ja-JP3059, id-ID3059, ko-KR3061, pl-PL3059, ru-RU3059, th-TH3059, tr-TR3059, vi-VN3059, en-AU3071, en-CA3071, en-GB3071, en-IE3071, en-SG3071, en-US3072, hi-IN3072]
+07-02 09:23:14.632  1494  1871 W SystemLPSourceImpl: #getAvailablePackages: Note there is not reason to call this method, as getInstalledPackages() returns the same LanguagePacks for this impl.
+07-02 09:23:14.635  2588  2754 I LocalSynthesizer: Voice en-us-x-tpf-seanet-embedded is not supported by any existing synthesizers.
+07-02 09:23:14.635  2588  2754 I ComposerWrapperImpl: Initializing new monolithic pipeline. New voice: en-us-x-tpf-seanet-embedded
+07-02 09:23:14.635  2588  2754 I PipelineReaderImpl: Initializing monolithic pipeline from disk: /data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/pipeline.pb
+07-02 09:23:14.637  2588  2754 I native  : I0000 00:00:1782976994.637229    2754 android_resource_loader.cc:38] Using Android specific resource loader
+07-02 09:23:14.639  2588  2754 I native  : I0000 00:00:1782976994.639032    2754 android_resource_loader.cc:109] Loading resources for en_us_x_embedded_havoc/15683001427334881425
+07-02 09:23:14.640  2588  2754 I native  : I0000 00:00:1782976994.640434    2754 data_source.cc:95] Opening data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/burdock_frame_config.pb" (as: FILE) ...
+07-02 09:23:14.640  2588  2754 I native  : I0000 00:00:1782976994.640534    2754 data_source.cc:99] ... Opened data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/burdock_frame_config.pb" of size 68
+07-02 09:23:14.641  2588  2754 I native  : I0000 00:00:1782976994.641076    2754 android_resource_loader.cc:100] Built resource acoustic_frame_config
+07-02 09:23:14.641  2588  2754 I native  : I0000 00:00:1782976994.641100    2754 android_resource_loader.cc:116] Loaded resource:acoustic_frame_config
+07-02 09:23:14.641  2588  2754 I native  : I0000 00:00:1782976994.641132    2754 data_source.cc:95] Opening data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/affixes_en_us_android.far" (as: FILE) ...
+07-02 09:23:14.641  2588  2754 I native  : I0000 00:00:1782976994.641518    2754 data_source.cc:99] ... Opened data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/affixes_en_us_android.far" of size 36782
+07-02 09:23:14.643  2588  2754 I native  : I0000 00:00:1782976994.643857    2754 android_resource_loader.cc:100] Built resource affix_word_splitter_grm
+07-02 09:23:14.643  2588  2754 I native  : I0000 00:00:1782976994.643902    2754 android_resource_loader.cc:116] Loaded resource:affix_word_splitter_grm
+07-02 09:23:14.643  2588  2754 I native  : I0000 00:00:1782976994.643936    2754 data_source.cc:95] Opening data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/affixes_params_en_us.pb" (as: FILE) ...
+07-02 09:23:14.644  2588  2754 I native  : I0000 00:00:1782976994.644008    2754 data_source.cc:99] ... Opened data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/affixes_params_en_us.pb" of size 420
+07-02 09:23:14.644  2588  2754 I native  : I0000 00:00:1782976994.644876    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling ['s] -- their grammars should disambiguate them.
+07-02 09:23:14.644  2588  2754 I native  : I0000 00:00:1782976994.644927    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling ['s] -- their grammars should disambiguate them.
+07-02 09:23:14.644  2588  2754 I native  : I0000 00:00:1782976994.644966    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling ['s] -- their grammars should disambiguate them.
+07-02 09:23:14.645  2588  2754 I native  : I0000 00:00:1782976994.644986    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling [s] -- their grammars should disambiguate them.
+07-02 09:23:14.645  2588  2754 I native  : I0000 00:00:1782976994.645014    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling [s] -- their grammars should disambiguate them.
+07-02 09:23:14.645  2588  2754 I native  : I0000 00:00:1782976994.645109    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling [s] -- their grammars should disambiguate them.
+07-02 09:23:14.645  2588  2754 I native  : I0000 00:00:1782976994.645286    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling [ed] -- their grammars should disambiguate them.
+07-02 09:23:14.645  2588  2754 I native  : I0000 00:00:1782976994.645319    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling [ed] -- their grammars should disambiguate them.
+07-02 09:23:14.646  2588  2754 I native  : I0000 00:00:1782976994.646753    2754 affix_word_splitter_data.cc:33] Ambiguous affix entries for spelling [ed] -- their grammars should disambiguate them.
+07-02 09:23:14.646  2588  2754 I native  : I0000 00:00:1782976994.646821    2754 affix_word_splitter_data.cc:89] Loaded affixes in [/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/affixes_params_en_us.pb].
+07-02 09:23:14.647  1494  1871 I DefaultLPManager: #getInstalledPackages
+07-02 09:23:14.648  1494  1871 I tvz     : #getInstalledPackages from MDD
+07-02 09:23:14.648  1494  1871 I tvz     : #GetLanguagePackList
+07-02 09:23:14.648  1494  1871 I tvz     : MDD.getFileGroupsByFilter(langpack-domain_xx-XX_ver_zipfile)
+07-02 09:23:14.650  2588  2754 I native  : I0000 00:00:1782976994.650446    2754 android_resource_loader.cc:100] Built resource affix_word_splitter
+07-02 09:23:14.650  2588  2754 I native  : I0000 00:00:1782976994.650497    2754 android_resource_loader.cc:116] Loaded resource:affix_word_splitter
+07-02 09:23:14.650  2588  2754 I native  : I0000 00:00:1782976994.650528    2754 data_source.cc:95] Opening data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/roman_numeral_android.far" (as: FILE) ...
+07-02 09:23:14.650  2588  2754 I native  : I0000 00:00:1782976994.650639    2754 data_source.cc:99] ... Opened data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/roman_numeral_android.far" of size 5112
+07-02 09:23:14.652  2588  2754 I native  : I0000 00:00:1782976994.652635    2754 android_resource_loader.cc:100] Built resource classify_roman_numerals_grm_fst
+07-02 09:23:14.653  2588  2754 I native  : I0000 00:00:1782976994.653281    2754 android_resource_loader.cc:116] Loaded resource:classify_roman_numerals_grm_fst
+07-02 09:23:14.653  2588  2754 I native  : I0000 00:00:1782976994.653339    2754 data_source.cc:95] Opening data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/en_us_pronounce.far" (as: FILE) ...
+07-02 09:23:14.653  2588  2754 I native  : I0000 00:00:1782976994.653432    2754 data_source.cc:99] ... Opened data source "/data/user_de/0/com.google.android.tts/files/superpacks/en-us/en-us-x-multi-seanet-r83/../en-us-x-multi-r83/en_us_pronounce.far" of size 5040

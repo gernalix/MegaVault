@@ -1,0 +1,403 @@
+--------- beginning of main
+07-02 09:08:44.553 13378 13378 I Finsky  : [2] Single user settings service is connected
+07-02 09:08:44.575 13378 19785 W Settings: Setting install_non_market_apps has moved from android.provider.Settings.Global to android.provider.Settings.Secure, returning read-only value.
+07-02 09:08:44.608 11146 20514 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+07-02 09:08:44.611 20526 20526 I LoadedApk: No resource references to update in package com.tct.widget.resources
+07-02 09:08:44.617  1602  1617 I system_server: Background concurrent copying GC freed 29MB AllocSpace bytes, 57(3140KB) LOS objects, 31% free, 51MB/75MB, paused 669us,767us total 902.633ms
+07-02 09:08:44.624 20526 20526 I MultiDex: VM with version 2.1.0 has multidex support
+07-02 09:08:44.624 20526 20526 I MultiDex: Installing application
+07-02 09:08:44.625 20526 20526 I MultiDex: VM has multidex support, MultiDex support library is disabled.
+07-02 09:08:44.625 20526 20526 I MultiDex: Installing application
+07-02 09:08:44.625 20526 20526 I MultiDex: VM has multidex support, MultiDex support library is disabled.
+07-02 09:08:44.632 20526 20526 I OtaApp@@@OtaApp: datahub11
+07-02 09:08:44.635 30157 30157 I adbd    : adbd service requested 'exec:uiautomator 'dump' '/dev/tty''
+07-02 09:08:44.637  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:44.637  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:44.638  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:44.638  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:44.643  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:44.649 20526 20526 W .tct.smart.aot: Monitor::Inflate: Install failed 0x736a9f80
+07-02 09:08:44.649 20526 20526 W .tct.smart.aot: Monitor::Inflate: Install failed 0x736aa140
+07-02 09:08:44.651 11146 20514 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-02 09:08:44.652 20526 20550 I OtaApp@@@OtaApp: initMisc ++++
+07-02 09:08:44.663 13378 19785 I Finsky  : [61074] VerifyApps: Installer app: com.android.shell
+07-02 09:08:44.668 20526 20550 W .tct.smart.aot: Monitor::Inflate: Install failed 0x73bbe718
+07-02 09:08:44.670 20526 20550 I OtaApp@@@OtaApp: updateFrequency 86400000
+07-02 09:08:44.671 20526 20550 I OtaApp@@@OtaApp: testModefalse
+07-02 09:08:44.671 20526 20550 I OtaApp@@@OtaApp: registerd:true
+07-02 09:08:44.673 20526 20526 I OtaApp@@@AutoResumeWorkReceiver:  action android.net.conn.CONNECTIVITY_CHANGE
+07-02 09:08:44.674 20526 20550 I OtaApp@@@OtaApp: registPackageListener
+07-02 09:08:44.675 20526 20526 I OtaApp@@@AutoResumeWorkReceiver :  isConnected false isMobile false
+07-02 09:08:44.676 20526 20550 I OtaApp@@@OtaApp: registAotaNotificationReceiver
+07-02 09:08:44.680 20526 20550 I OtaApp@@@OtaApp: registWifiChangeReceiver
+07-02 09:08:44.681 13378 19785 I Finsky  : [61074] Task 7 requested foreground
+07-02 09:08:44.683 13378 19785 I Finsky  : [61074] Not entering foreground
+07-02 09:08:44.683 20526 20550 I OtaApp@@@OtaApp: regiestActionReceiver
+07-02 09:08:44.683 20526 20550 I OtaApp@@@OtaApp: registerScreenBrodcast
+07-02 09:08:44.684 20526 20550 I OtaApp@@@OtaApp: initAlarmDailyCheck~~~~~~
+07-02 09:08:44.684 13378 13412 I Finsky  : [60868] VerifyApps: Starting APK Analysis scan for com.wordpulse.app.test.
+07-02 09:08:44.685 13378 13412 I Finsky  : [60868] Scanning package com.wordpulse.app.test contents with client side protections. File: [b5NKV4Xzij8p8-99mP2aFVqDvTnG9iKR_C2maU6PsGI]
+07-02 09:08:44.686 13378 19785 I Finsky  : [61074] VerifyApps: chooseScanResult for package=com.wordpulse.app.test with timeout=15000ms
+07-02 09:08:44.691  1602  1626 I PackageCloneManager: onPackageAdded :com.wordpulse.app
+07-02 09:08:44.692 20526 20550 I OtaApp@@@OtaApp: currentTime:1782976124    morningTime:1783029599
+07-02 09:08:44.693 20526 20550 I OtaApp@@@OtaApp: randomeTime:1783022288
+07-02 09:08:44.748  1602  1696 I RoleService: Granting default roles...
+07-02 09:08:44.768 13378 13412 E AbstractLogEventBuilder: The provided ProductIdOrigin 3 is not one of the process-level expected values: 1 or 2
+07-02 09:08:44.776 13378 14813 I PlayCore: UID: [10162]  PID: [13378] bdqu : Initiate binding to the service.
+--------- beginning of system
+07-02 09:08:44.788  1602  1626 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+07-02 09:08:44.800 11146 20514 I Icing   : Indexing done com.google.android.gms-apps
+07-02 09:08:44.802 11146 20514 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-02 09:08:44.805 11146 20514 I Icing   : Indexing done com.google.android.gms-apps
+07-02 09:08:44.808  1602  1643 I ActivityManager: Start proc 20558:com.android.vending:isolated_service:com.google.android.finsky.verifier.apkanalysis.service.ApkContentsScanService/u0i695 for service {com.android.vending/com.google.android.finsky.verifier.apkanalysis.service.ApkContentsScanService}
+07-02 09:08:44.813 13378 13411 W PackageParsing: No actions in intent-filter at /data/app/vmdl509078209.tmp/base.apk Binary XML file line #33
+07-02 09:08:44.813 13378 13411 W PackageParsing: No actions in intent-filter at /data/app/vmdl509078209.tmp/base.apk Binary XML file line #41
+07-02 09:08:44.814 13378 13411 W PackageParsing: No actions in intent-filter at /data/app/vmdl509078209.tmp/base.apk Binary XML file line #49
+07-02 09:08:44.840 20558 20558 I entsScanServic: Using generational CollectorTypeCC GC.
+07-02 09:08:44.851 13378 13378 E AbstractLogEventBuilder: The provided ProductIdOrigin 3 is not one of the process-level expected values: 1 or 2
+07-02 09:08:44.852 13378 19762 I Finsky  : [61070] VerifyApps: Verification package=com.wordpulse.app.test, id=235, response=0, upload_requested=false, enable_ecm=false
+07-02 09:08:44.857 13378 19762 I Finsky  : [61070] VerifyApps: PAM result saving to datastore delayed for package: com.wordpulse.app.test
+07-02 09:08:44.861 13378 19785 I Finsky  : [61074] VerifyApps: firstScanResult for package=com.wordpulse.app.test: 0
+07-02 09:08:44.861 13378 19785 I Finsky  : [61074] VerifyApps: firstScanResult verdict is 0. Checking for extended timeout.
+07-02 09:08:44.861 13378 19785 I Finsky  : [61074] VerifyApps: Timeout for second result: 14825ms
+07-02 09:08:44.878 20558 20558 I ActivityThread: Relaunch all activities: onCoreSettingsChange
+07-02 09:08:45.076 20558 20558 W entsScanServic: Failed to find entry 'classes.dex': Entry not found
+07-02 09:08:45.078 20558 20558 W entsScanServic: Failed to find entry 'classes.dex': Entry not found
+07-02 09:08:45.080 20558 20558 W entsScanServic: Failed to find entry 'classes.dex': Entry not found
+07-02 09:08:45.082 20558 20558 W entsScanServic: Failed to find entry 'classes.dex': Entry not found
+07-02 09:08:45.084 20558 20558 W entsScanServic: Failed to find entry 'classes.dex': Entry not found
+07-02 09:08:45.128 20558 20558 I LoadedApk: No resource references to update in package com.tct.widget.resources
+07-02 09:08:45.131 20558 20558 W entsScanServic: Monitor::Inflate: Install failed 0x736a9f80
+07-02 09:08:45.131 20558 20558 W entsScanServic: Monitor::Inflate: Install failed 0x736aa140
+07-02 09:08:45.136 13378 13378 I PlayCore: UID: [10162]  PID: [13378] bdqu : ServiceConnectionImpl.onServiceConnected(ComponentInfo{com.android.vending/com.google.android.finsky.verifier.apkanalysis.service.ApkContentsScanService})
+07-02 09:08:45.137 13378 14813 I PlayCore: UID: [10162]  PID: [13378] bdqu : linkToDeath
+07-02 09:08:45.137   375   375 E SELinux : avc:  denied  { find } for pid=20558 uid=99695 name=content_capture scontext=u:r:isolated_app:s0:c512,c768 tcontext=u:object_r:content_capture_service:s0 tclass=service_manager permissive=0
+07-02 09:08:45.148 22228 22228 I WifiHAL : Get link layer stats
+07-02 09:08:45.148 22228 22228 I WifiHAL : GetLinkStatsCommand::create
+07-02 09:08:45.148 22228 22228 I android.hardware.wifi@1.0-service-lazy: WifiCommand::requestResponse err=-14
+07-02 09:08:45.148 22228 22228 I WifiHAL : wifi_get_link_stats: result=-1
+07-02 09:08:45.149  1602  2914 E WifiVendorHal: $r8$lambda$s6w0pmKyq6-tDdqCEDbOV_xqgVE(l.1191) failed {.code = ERROR_UNKNOWN, .description = unknown}
+07-02 09:08:45.158 20558 20575 I native  : I0000 00:00:1782976125.158592   20575 zip_archive.cpp:490] +++ Found EOCD at buf+65535
+07-02 09:08:45.158 20558 20575 I native  : I0000 00:00:1782976125.158860   20575 zip_archive.cpp:534] +++ num_entries=53dir_size=4691 dir_offset=1231368
+07-02 09:08:45.158 20558 20575 I native  : I0000 00:00:1782976125.158966   20575 file_map.cpp:112] MAP: base 0xa4fdb000/7259 data 0xa4fdba08/4691
+07-02 09:08:45.159 20558 20575 I native  : I0000 00:00:1782976125.159065   20575 zip_archive.cpp:695] +++ zip good scan 53 entries
+07-02 09:08:45.295   885  1342 I netd    : trafficSwapActiveStatsMap() <0.31ms>
+07-02 09:08:45.295 20558 20575 I native  : I0000 00:00:1782976125.295399   20575 zip_archive.cpp:783] Closing archive 0xa70a37e0
+07-02 09:08:45.301   885  1342 I netd    : tetherGetStats() -> {[]} <1.86ms>
+07-02 09:08:45.302 13378 13414 E AbstractLogEventBuilder: The provided ProductIdOrigin 3 is not one of the process-level expected values: 1 or 2
+07-02 09:08:45.302 13378 14813 I PlayCore: UID: [10162]  PID: [13378] bdqu : Unbind from service.
+07-02 09:08:45.305  1602  4760 I ActivityManager: Killing 20558:com.android.vending:isolated_service:com.google.android.finsky.verifier.apkanalysis.service.ApkContentsScanService/u0a162i695 (adj 0): isolated not needed
+07-02 09:08:45.312  1602  1644 I libprocessgroup: Successfully killed process cgroup uid 99695 pid 20558 in 5ms
+07-02 09:08:45.329   885  1342 I netd    : bandwidthSetGlobalAlert(2097152) <0.50ms>
+07-02 09:08:45.338 13378 16360 I PlayCore: UID: [10162]  PID: [13378] bdqu : reportBinderDeath
+07-02 09:08:45.338 13378 16360 I PlayCore: UID: [10162]  PID: [13378] bdqu : ApkContentsScanService : Binder has died.
+07-02 09:08:45.341   886   886 I Zygote  : Process 20558 exited due to signal 9 (Killed)
+07-02 09:08:45.341   939  1030 I libPowerHal: [perfNotifyAppState] pack:com.android.vending, act:com.android.vending, state:3, pid:20558, uid:99695, fps:60
+07-02 09:08:45.342   939  1030 I libPowerHal: [perfNotifyAppState] pack:com.android.vending, pid:20558, STATE_DEAD
+07-02 09:08:45.369  1602  1649 E system_server: Cannot read thread CPU times for PID 1602
+07-02 09:08:45.509   939  1030 I mtkpower@impl: [powerd_req] TIMER_MSG_PERF_LOCK_TIMEOUT hdl:487005
+07-02 09:08:45.509   939  1030 E libPowerHal: Could not open '/proc/perfmgr/boost_ctrl/cpu_ctrl/perfserv_core'
+07-02 09:08:45.509   939  1030 E libPowerHal: error : 2, No such file or directory
+07-02 09:08:45.509   939  1030 I libPowerHal: MTKPOWER_HINT_APP_TOUCH: cpu_ctrl set cpu core: 4 -1 2 -1
+07-02 09:08:45.579 20554 20554 I AndroidRuntime: Using default boot image
+07-02 09:08:45.579 20554 20554 I AndroidRuntime: Leaving lock profiling enabled
+07-02 09:08:45.589 20554 20554 W app_process: Could not reserve sentinel fault page
+07-02 09:08:45.591 20554 20554 I app_process: Using generational CollectorTypeCC GC.
+07-02 09:08:45.853   954   954 I BufferQueueProducer: [com.whatsapp/com.whatsapp.Conversation#0](this:0xa8f83d6c,id:-1,api:0,p:-1,c:954) queueBuffer: fps=1.99 dur=1507.27 max=513.67 min=496.55
+07-02 09:08:45.855   920  1167 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.990866,dur:1506.88,max:513.79,min:496.31  
+07-02 09:08:45.911 13378 13411 I Finsky  : [60867] VerifyApps: FEATURE_8309_THRESHOLDS flag is empty
+07-02 09:08:45.912 13378 13411 W Finsky  : [60867] No dynamic thresholds found for model raccoon_3_3000001_20.
+07-02 09:08:45.935 13378 19762 E AbstractLogEventBuilder: The provided ProductIdOrigin 3 is not one of the process-level expected values: 1 or 2
+07-02 09:08:45.936 13378 13411 E AbstractLogEventBuilder: The provided ProductIdOrigin 3 is not one of the process-level expected values: 1 or 2
+07-02 09:08:45.936 13378 13411 I Finsky  : [60867] VerifyApps: APK Analysis scan finished for com.wordpulse.app.test. Verdict: 0
+07-02 09:08:45.937 13378 13398 I Finsky  : [60854] Apk Analysis Protection verdict logged: 0.
+07-02 09:08:45.938 13378 19785 I Finsky  : [61074] VerifyApps: overallScanResult for package=com.wordpulse.app.test: 0
+07-02 09:08:45.938 13378 19762 I Finsky  : [61070] Apk Analysis scan verification duration=PT1.254S 
+07-02 09:08:45.938 13378 19785 I Finsky  : [61074] VerifyApps: chooseScanResult returning verdict 0 for package=com.wordpulse.app.test
+07-02 09:08:45.938 13378 19785 E AbstractLogEventBuilder: The provided ProductIdOrigin 3 is not one of the process-level expected values: 1 or 2
+07-02 09:08:45.939 13378 13411 E AbstractLogEventBuilder: The provided ProductIdOrigin 3 is not one of the process-level expected values: 1 or 2
+07-02 09:08:45.940 13378 19785 I Finsky  : [61074] VerifyApps: Starting required split types check for com.wordpulse.app.test.
+07-02 09:08:45.943 13378 19785 I Finsky  : [61074] VerifyApps: Required split types check successful for com.wordpulse.app.test.
+07-02 09:08:45.944 13378 19785 I Finsky  : [61074] VerifyApps AdvancedProtection: Verify AP install started
+07-02 09:08:45.944 13378 19785 I Finsky  : [61074] VerifyApps AdvancedProtection: Allowing install because there are no Advanced Protection users
+07-02 09:08:45.944 13378 13378 I Finsky  : [2] VerifyApps AdvancedProtection: Reported Advanced Protection verification result: ALLOW
+07-02 09:08:45.946 13378 19785 E Finsky  : [61074] Package name null is not an installed package
+07-02 09:08:45.949 13378 19785 I Finsky  : [61074] Skipping logging for attempted installation. The source is a system package.
+07-02 09:08:45.951 13378 19785 I Finsky  : [61074] VerifyApps: Returning package verification result id=235, result=ALLOW
+07-02 09:08:45.958 13378 13378 I Finsky  : [2] VerifyApps: Install-time verification complete: id=235, package_name=com.wordpulse.app.test
+07-02 09:08:45.965  1602  1665 W PackageParsing: No actions in intent-filter at /data/app/vmdl509078209.tmp/base.apk Binary XML file line #33
+07-02 09:08:45.966  1602  1665 W PackageParsing: No actions in intent-filter at /data/app/vmdl509078209.tmp/base.apk Binary XML file line #41
+07-02 09:08:45.966  1602  1665 W PackageParsing: No actions in intent-filter at /data/app/vmdl509078209.tmp/base.apk Binary XML file line #49
+07-02 09:08:46.071 20554 20554 W app_process: Using default priority map due to SDK version
+07-02 09:08:46.123  1602  1602 I TransportClient: BackupTransportService#10895: Notifying [PerformUnifiedRestoreTask.startRestore()] transport = IBackupTransport
+07-02 09:08:46.124 11146 18916 I AndroidBackupEventsLogg: (REDACTED) Logging with sampling event %s
+07-02 09:08:46.127 11146 18916 I Backup  : [GmsBackupTransport] New restore session, 2 apps
+07-02 09:08:46.132 11146 18916 I Backup  : [DenylistedInfoRequestProcessor] Attaching GetAppKeyDenylistInfo request to restore request.
+07-02 09:08:46.196 20554 20554 W System  : ClassLoader referenced unknown path: /system/framework/mediatek-cta.jar
+07-02 09:08:46.196 20554 20554 W CtaManagerFactory: CtaManagerFactoryImpl not found
+07-02 09:08:46.413 11146 18916 I Backup  : [RestoreRequestProcessor] Skipping app with no doc url or kv pairs: @pm@
+07-02 09:08:46.414 11146 18916 I Backup  : [RestoreRequestProcessor] Skipping app with no doc url or kv pairs: com.wordpulse.app.test
+07-02 09:08:46.415 11146 18916 I AndroidBackupEventsLogg: (REDACTED) Logging with sampling event %s
+07-02 09:08:46.415  1602  4404 E BackupManagerService: Required package metadata but got NO_MORE_PACKAGES
+07-02 09:08:46.417 11146 18916 I AndroidBackupEventsLogg: (REDACTED) Logging with sampling event %s
+07-02 09:08:46.417 11146 18916 I Backup  : [GmsBackupTransport] restore finished
+07-02 09:08:46.417 11146 18916 I AndroidBackupEventsLogg: (REDACTED) Logging with sampling event %s
+07-02 09:08:46.418  1602  4404 I BackupManagerService: Restore complete.
+07-02 09:08:46.419  1602  1665 I TctRunningAppDexOpt: PERF add pkgInfo:[com.wordpulse.app.test, 0] to smartOptimizeList
+07-02 09:08:46.420  1602  1626 I TctAppClassify: start query local : com.wordpulse.app.test
+07-02 09:08:46.420  1602  1665 I PowerHalWrapper: <setInstallationBoost> enable:false 
+07-02 09:08:46.421  1602  1626 W TctAppClassify: ----queryAllDb---
+07-02 09:08:46.421   939   981 I mtkpower@impl: [mtkPowerHint] hint:104, hold:400, ext:0, ext_hold:0
+07-02 09:08:46.421  1602  1626 W TctAppClassify: queryAllDbCursor pkgName = com.wordpulse.app.test
+07-02 09:08:46.422  1602  1626 I TctAppClassify: @@classify.db--time = 1282692, pkg = com.wordpulse.app.test
+07-02 09:08:46.424   885 20593 I resolv  : GetAddrInfoHandler::run: {128 786560 128 983168 1000 0}
+07-02 09:08:46.425  1084 11594 E installd: Couldn't opendir /data/app/vmdl509078209.tmp: No such file or directory
+07-02 09:08:46.425  1084 11594 E installd: Failed to delete /data/app/vmdl509078209.tmp: No such file or directory
+07-02 09:08:46.426   885 20594 I resolv  : res_nmkquery: (QUERY, IN, A)
+07-02 09:08:46.426   885 20594 I resolv  : resolv_cache_lookup: FOUND IN CACHE entry=0xae9418d0
+07-02 09:08:46.426   885 20594 I resolv  : doQuery: rcode=0, ancount=1, return value=49
+07-02 09:08:46.431  1602  3368 W AppTypeRecognition: queryAllDbCursor pkgName = com.wordpulse.app.test
+07-02 09:08:46.439   885  1342 I netd    : trafficSetNetPermForUids(0, [10582]) <0.03ms>
+07-02 09:08:46.444  1602  1602 I TctModule: getEnabledAppList ListFile not exists
+07-02 09:08:46.444  1602  1602 I TctModule: getDisabledAppList ListFile not exists
+07-02 09:08:46.446 13378 13378 I Finsky  : [2] akrg - Received: android.intent.action.PACKAGE_ADDED, [HO5LG5yDxIlDa8zgW5y42I5_DmvzTv39OOeCaX2iYCw]
+07-02 09:08:46.446 19893 19893 I Finsky:background: [2] akqw - Received: android.intent.action.PACKAGE_ADDED, [HO5LG5yDxIlDa8zgW5y42I5_DmvzTv39OOeCaX2iYCw]
+07-02 09:08:46.446 23861 23881 I dwbm    : (REDACTED) maybeUpdateCacheDataForAddedPackage %s
+07-02 09:08:46.449  1602  1696 I RoleService: Granting default roles...
+07-02 09:08:46.454  1602  1642 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 (has extras) } to com.google.android.packageinstaller/com.android.packageinstaller.PackageInstalledReceiver
+07-02 09:08:46.456 30157 30157 I adbd    : adbd service requested 'shell:cat /proc/meminfo ; echo utp_shell_exit_code=$?'
+07-02 09:08:46.460  1602  3368 W AppTypeRecognition: queryAllDbCursor pkgName = com.wordpulse.app.test
+07-02 09:08:46.461  1602  1703 I InputReader: Reconfiguring input devices, changes=KEYBOARD_LAYOUTS | 
+07-02 09:08:46.484  1602  1642 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemonitor.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+07-02 09:08:46.485  1602  1642 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemonitor.backgroundimpl.BackgroundPackageMonitorReceiverImpl$RegisteredReceiver
+07-02 09:08:46.485  1602  1642 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 (has extras) } to com.google.android.apps.nbu.files/.documentbrowser.browselanding.rootcontainerlist.receiver.PackageChangeReceiver_Receiver
+07-02 09:08:46.485  1602  1642 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 (has extras) } to com.google.android.ext.services/com.android.adservices.service.common.PackageChangedReceiver
+07-02 09:08:46.485  1602  1642 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 (has extras) } to com.google.android.gms/.gass.chimera.PackageChangeBroadcastReceiver
+07-02 09:08:46.485  1602  1642 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+07-02 09:08:46.485  1602  1642 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 (has extras) } to com.tct.smart.aota/com.tcl.ota.receiver.PackageIntentReceiver
+07-02 09:08:46.509  1602  1602 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now com.google.android.dialer: DDC.oR@GZM
+07-02 09:08:46.511 23861 23881 I dwbm    : (REDACTED) Package %s is not launchable
+07-02 09:08:46.519 20526 20526 E AppSession: com.tcl.ota
+07-02 09:08:46.525 13378 13378 I Finsky  : [2] Do not start WearSupportService due to Wear service optimization
+07-02 09:08:46.525 13378 13378 I Finsky  : [2] AIM: AppInfoCacheUpdater -> invalidating apps: [com.wordpulse.app.test]
+07-02 09:08:46.525 13378 13378 I Finsky  : [2] AIM: AppInfoManager-Perf > getApps > called for 1 apps
+07-02 09:08:46.530 13378 13378 I Finsky  : [2] Clearing split related stale data.
+07-02 09:08:46.532 13378 13414 I Finsky  : [60870] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.wordpulse.app.test]
+07-02 09:08:46.532 14975 15244 I PermissionControllerServiceImpl: Updating user sensitive for uid 10582
+07-02 09:08:46.533 30157 30157 I adbd    : adbd service requested 'shell:cat /proc/cpuinfo ; echo utp_shell_exit_code=$?'
+07-02 09:08:46.539 19893 20461 I Finsky:background: [61334] Wrote row to frosting DB: 24815
+07-02 09:08:46.542  1602  1703 I InputReader: Reconfiguring input devices, changes=KEYBOARD_LAYOUTS | 
+07-02 09:08:46.542  1602  1661 E VerityUtils: Failed to measure fs-verity, errno 1: /data/app/~~HUlXCRz_7TSE6_zad9JFYg==/com.wordpulse.app.test-yZ3a-SfB6Wx5NA5N16wlnQ==/base.apk
+07-02 09:08:46.543 13378 13415 I Finsky  : [60871] AIM: Got app ownership map. App counts: . Unique apps: 0
+07-02 09:08:46.543 13378 13415 E Finsky  : [60871] [Counters] attempted to use a non-positive increment for: 4752
+07-02 09:08:46.544 13378 13415 I Finsky  : [60871] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.wordpulse.app.test]
+07-02 09:08:46.545 13378 13415 E Finsky  : [60871] [Counters] attempted to use a non-positive increment for: 4753
+07-02 09:08:46.545 13378 13411 I Finsky  : [60867] AIM: Got app ownership map. App counts: . Unique apps: 0
+07-02 09:08:46.545 13378 13411 E Finsky  : [60867] [Counters] attempted to use a non-positive increment for: 4752
+07-02 09:08:46.545  1602  1602 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now com.google.android.dialer: DDC.oR@GZQ
+07-02 09:08:46.554  5085 20505 W GCM     : Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+07-02 09:08:46.555 14975 15244 I PermissionControllerServiceImpl: Updating user sensitive for uid 10582
+07-02 09:08:46.556  5085 20484 I FontLog : (REDACTED) Package %s has no metadata
+07-02 09:08:46.556  5085 20499 W NetworkScheduler: Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.wordpulse.app.test flg=0x4000010 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+07-02 09:08:46.557 11146 20504 I Auth    : (REDACTED) [SupervisedAccountIntentOperation] onHandleIntent: %s
+07-02 09:08:46.557 20526 20526 I OtaApp@@@PackageIntentReceiver: where = apkPackName='com.wordpulse.app.test' AND update_status = 199===query count = 0
+07-02 09:08:46.561 19893 20461 I Finsky:background: [61334] Wrote row to frosting DB: 24816
+07-02 09:08:46.569 11146 20500 I Dck     : (REDACTED) disableDckSupport: %s
+07-02 09:08:46.569 13378 13411 E Finsky  : [60867] [Counters] attempted to use a non-positive increment for: 4753
+07-02 09:08:46.570 11146 20500 E Dck     : Could not get ProviderInfo when resolving the content provider authority. [CONTEXT service_id=289 ]
+07-02 09:08:46.570 11146 20500 I Dck     : Samsung Content Provider failed app verification [CONTEXT service_id=289 ]
+07-02 09:08:46.570 13378 13378 I Finsky  : [2] DTU: Received onPackageAdded, replacing: false
+07-02 09:08:46.570 11146 20500 I Dck     : [WirelessCapabilitiesFeatures] wccSysProp: 0 [CONTEXT service_id=289 ]
+07-02 09:08:46.570 11146 20500 I Dck     : [WirelessCapabilitiesFeatures] wccOverride: not set [CONTEXT service_id=289 ]
+07-02 09:08:46.570 11146 20500 I Dck     : (REDACTED) [WirelessCapabilitiesFeatures] returned wcc: %s
+07-02 09:08:46.571 11146 20500 I Dck     : Dck module condition - hasWccSupport: false [CONTEXT service_id=289 ]
+07-02 09:08:46.571 11146 20500 I Dck     : Dck module condition - downloadAllowed: false [CONTEXT service_id=289 ]
+07-02 09:08:46.571 11146 20500 I Dck     : Dck module not eligible for asynchronous downloading [CONTEXT service_id=289 ]
+07-02 09:08:46.572 11146 20504 W AppInstallOperation: FDL Migration::InstallIntentOperation by FDL Module [CONTEXT service_id=77 ]
+07-02 09:08:46.575 11146 20504 I FraudProtectUtils: Not in testing population, skipping local test bank apps. [CONTEXT service_id=469 ]
+07-02 09:08:46.577 13378 13378 I Finsky  : [2] akrg - Received: android.intent.action.PACKAGE_CHANGED, [HO5LG5yDxIlDa8zgW5y42I5_DmvzTv39OOeCaX2iYCw]
+07-02 09:08:46.580  3393  3393 E PhoneInterfaceManager: [PhoneIntfMgr] getCarrierPackageNamesForIntentAndPhone: No UICC
+07-02 09:08:46.583 13378 19825 I Finsky  : [61078] [ContentSync] finished, scheduled=false
+07-02 09:08:46.583 13378 13378 I Finsky  : [2] AIM: AppInfoCacheUpdater -> invalidating apps: [com.wordpulse.app.test]
+07-02 09:08:46.584 13378 13378 I Finsky  : [2] AIM: AppInfoManager-Perf > getApps > called for 1 apps
+07-02 09:08:46.585 11146 20504 I FraudProtectUtils: (REDACTED) Latest bank app list size: %d, %s isBankApp: false
+07-02 09:08:46.585 11146 20504 I PackageInstallIntentOp: (REDACTED) Package %s is not a bank app. Skipping updates.
+07-02 09:08:46.588 13378 13414 I Finsky  : [60870] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=0, cacheMissCount=1. Missed  in cache (limit 10) : [com.wordpulse.app.test]
+07-02 09:08:46.590 13378 13414 I Finsky  : [60870] AIM: Got app ownership map. App counts: . Unique apps: 0
+07-02 09:08:46.590 13378 13414 E Finsky  : [60870] [Counters] attempted to use a non-positive increment for: 4752
+07-02 09:08:46.591 13378 13414 I Finsky  : [60870] AIM: AppInfoManager-Perf > OnDeviceAppInfo > cacheHitCount=1, cacheMissCount=0. Missed  in cache (limit 10) : []
+07-02 09:08:46.592 13378 13414 E Finsky  : [60870] [Counters] attempted to use a non-positive increment for: 4753
+07-02 09:08:46.592 13378 13414 I Finsky  : [60870] AIM: Got app ownership map. App counts: . Unique apps: 0
+07-02 09:08:46.592 13378 13414 E Finsky  : [60870] [Counters] attempted to use a non-positive increment for: 4752
+07-02 09:08:46.596 13378 13415 E Finsky  : [60871] [Counters] attempted to use a non-positive increment for: 4753
+07-02 09:08:46.598 13378 13415 I Finsky  : [60871] AIM: AppInfoManager-Perf > ItemModel > CacheSize=51, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=3. Missed  in cache (limit 10) : []
+07-02 09:08:46.601  1602  1626 I PackageCloneManager: onPackageAdded :com.wordpulse.app.test
+07-02 09:08:46.605 11146 20497 I NearbyDiscovery: (REDACTED) processGrantSlicePermission: %s
+07-02 09:08:46.606 13378 13415 I Finsky  : [60871] AIM: AppInfoManager-Perf > getApps > data collection finished
+07-02 09:08:46.607  1602 20592 I AppClassifyUtils: responseCode = 404
+07-02 09:08:46.608  1602 20592 I TctAppClassify: ---start write file---
+07-02 09:08:46.609  1602 20592 I TctAppClassify: ---end write file---
+07-02 09:08:46.610 13378 13400 I Finsky  : [60856] RECEIVER_PACKAGE_MONITOR#logWorkEndAndFinishGoAsync: SUCCESS
+07-02 09:08:46.613  1602 20595 I AppTypeRecognition: Current query pkg:com.wordpulse.app.test, app info:-1
+07-02 09:08:46.614 13378 13415 I Finsky  : [60871] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 1
+07-02 09:08:46.621  5085 20606 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+07-02 09:08:46.624 13378 13415 I Finsky  : [60871] AIM: AppInfoManager-Perf > ItemModel > CacheSize=51, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=3. Missed  in cache (limit 10) : []
+07-02 09:08:46.641  5085 20489 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+07-02 09:08:46.651  1602  1626 W PackageManager: Failed registering loading progress callback. Package is fully loaded.
+07-02 09:08:46.656 19893 19893 I Finsky:background: [2] akqw - Received: android.intent.action.PACKAGE_CHANGED, [HO5LG5yDxIlDa8zgW5y42I5_DmvzTv39OOeCaX2iYCw]
+07-02 09:08:46.662 13378 13411 I Finsky  : [60867] AIM: AppInfoManager-Perf > ItemModel > CacheSize=51, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=3. Missed  in cache (limit 10) : []
+07-02 09:08:46.662 13378 13415 I Finsky  : [60871] AIM: AppInfoManager-Perf > ItemModel > CacheSize=51, cacheHitCount=0, cacheMissCount=0, total appsWithNoServerDataCount=3. Missed  in cache (limit 10) : []
+07-02 09:08:46.668 13378 13415 I Finsky  : [60871] AIM: AppInfoManager-Perf > getApps > data collection finished
+07-02 09:08:46.668 13378 13415 I Finsky  : [60871] AIM: AppInfoManager-Perf > maybeDestroyAppInfoManager is called. actives = 0
+07-02 09:08:46.677 19893 19997 I Finsky:background: [61292] RECEIVER_PACKAGE_MONITOR_BACKGROUND#logWorkEndAndFinishGoAsync: SUCCESS
+07-02 09:08:46.679 19893 20461 I Finsky:background: [61334] Wrote row to frosting DB: 24817
+07-02 09:08:46.683  5085 19661 I Fitness : (REDACTED) Package %s enabled.  Potentially restarting recording
+07-02 09:08:46.687 19893 20461 I Finsky:background: [61334] Wrote row to frosting DB: 24818
+07-02 09:08:46.689  3393  3393 E PhoneInterfaceManager: [PhoneIntfMgr] getCarrierPackageNamesForIntentAndPhone: No UICC
+07-02 09:08:46.706 19893 20043 I Finsky:background: [61304] RECEIVER_ENGAGE_PACKAGE_CHANGED#logWorkEndAndFinishGoAsync: SKIPPED_PRECONDITIONS_UNMET
+07-02 09:08:46.706 11146  7343 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-02 09:08:46.712 13378 13395 I android.vendin: Waiting for a blocking GC ProfileSaver
+07-02 09:08:46.713 11146  7343 I Icing   : Indexing done com.google.android.gms-apps
+07-02 09:08:46.723 11146  7343 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-02 09:08:46.729 11146  7343 I Icing   : Indexing done com.google.android.gms-apps
+07-02 09:08:46.733  1602 20599 I AppTypeRecognition: Current query pkg:com.wordpulse.app.test, app info:-1
+07-02 09:08:46.748  5085 20606 I Fitness : (REDACTED) OnPackageChangedOperation got intent: %s
+07-02 09:08:46.762  5085 20489 I Fitness : (REDACTED) FitCleanupIntentOperation received Intent %s
+07-02 09:08:46.778 30157 30157 I adbd    : adbd service requested 'shell:date +%m-%d\ %H:%M:%S ; echo utp_shell_exit_code=$?'
+07-02 09:08:46.781 13378 13395 I android.vendin: WaitForGcToComplete blocked ProfileSaver on Background for 68.439ms
+07-02 09:08:46.789 11146  7343 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+07-02 09:08:46.791  5085 17880 I Fitness : (REDACTED) Package %s enabled.  Potentially restarting recording
+07-02 09:08:46.791 11146  7343 I Icing   : Indexing done com.google.android.gms-apps
+07-02 09:08:46.796  5085  5085 I NearbyDiscovery: (REDACTED) DiscoveryService onStartCommand action: %s
+07-02 09:08:46.798  5085  5270 I NearbyDiscovery: FastPairApiHandler: trigger firmware update check [CONTEXT service_id=265 ]
+07-02 09:08:46.799  5085 20513 I NearbyDiscovery: (REDACTED) FastPairApiHandler: Send result, package=(%s), requestType=(%s), status=(%s)
+07-02 09:08:46.825   939  1030 I mtkpower@impl: [powerd_req] TIMER_MSG_PERF_LOCK_TIMEOUT hdl:487013
+07-02 09:08:46.826   939  1030 E libPowerHal: Could not open '/proc/perfmgr/boost_ctrl/cpu_ctrl/perfserv_core'
+07-02 09:08:46.826   939  1030 E libPowerHal: error : 2, No such file or directory
+07-02 09:08:46.826   939  1030 I libPowerHal: MTKPOWER_HINT_DEX_OPT: cpu_ctrl set cpu core: -1 -1 -1 -1
+07-02 09:08:46.834 14975 14987 I ssioncontrolle: Background young concurrent copying GC freed 6974KB AllocSpace bytes, 4(80KB) LOS objects, 28% free, 16MB/22MB, paused 895us,77us total 103.826ms
+07-02 09:08:46.885 30157 30157 I adbd    : adbd service requested 'shell:logcat -v threadtime -b main -b crash -T '07-02 09:08:46.000' ; echo utp_shell_exit_code=$?'
+07-02 09:08:46.892 30157 30157 I adbd    : adbd service requested 'shell:rm -rf "/sdcard/Android/media/com.wordpulse.app/additional_test_output" ; echo utp_shell_exit_code=$?'
+07-02 09:08:46.963 30157 30157 I adbd    : adbd service requested 'shell:mkdir -p "/sdcard/Android/media/com.wordpulse.app/additional_test_output" ; echo utp_shell_exit_code=$?'
+07-02 09:08:47.113 30157 30157 I adbd    : adbd service requested 'shell:pm list packages androidx.test.services ; echo utp_shell_exit_code=$?'
+07-02 09:08:47.161  3070  3177 W AppOpsControllerImpl: Removed item: AppOpItem(Op code=1, UID=10163, Package name=com.google.android.gms, Paused=false)false)
+07-02 09:08:47.162  3070  3177 D AppOpsControllerImpl: Notifying of change in package com.google.android.gms
+07-02 09:08:47.184 20629 20629 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+07-02 09:08:47.245 30157 30157 I adbd    : adbd service requested 'shell:pm list packages androidx.test.services ; echo utp_shell_exit_code=$?'
+07-02 09:08:47.269  1602  1617 I system_server: Background concurrent copying GC freed 17MB AllocSpace bytes, 54(3896KB) LOS objects, 32% free, 49MB/73MB, paused 432us,481us total 844.731ms
+07-02 09:08:47.286  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:47.289 20554 20554 W libc    : Access denied finding property "qemu.sf.lcd_density"
+07-02 09:08:47.289 20554 20554 W libc    : Access denied finding property "qemu.sf.lcd_density"
+07-02 09:08:47.286 20554 20554 W uiautomator: type=1400 audit(0.0:197100): avc: denied { read } for name="u:object_r:qemu_sf_lcd_density_prop:s0" dev="tmpfs" ino=9661 scontext=u:r:shell:s0 tcontext=u:object_r:qemu_sf_lcd_density_prop:s0 tclass=file permissive=0
+07-02 09:08:47.286 20554 20554 W uiautomator: type=1400 audit(0.0:197101): avc: denied { read } for name="u:object_r:qemu_sf_lcd_density_prop:s0" dev="tmpfs" ino=9661 scontext=u:r:shell:s0 tcontext=u:object_r:qemu_sf_lcd_density_prop:s0 tclass=file permissive=0
+07-02 09:08:47.290  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:47.291  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:47.291  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:47.310  1602  1619 W System  : A resource failed to call close. 
+07-02 09:08:47.316 20635 20635 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+07-02 09:08:47.362 30157 30157 I adbd    : adbd service requested 'shell:am instrument -w -r -e additionalTestOutputDir /sdcard/Android/media/com.wordpulse.app/additional_test_output -e testTimeoutSeconds 31536000 com.wordpulse.app.test/androidx.test.runner.AndroidJUnitRunner ; echo utp_shell_exit_code=$?'
+07-02 09:08:47.444   954   954 I BufferQueueProducer: [com.whatsapp/com.whatsapp.Conversation#0](this:0xa8f83d6c,id:-1,api:0,p:-1,c:954) queueBuffer: fps=1.89 dur=1590.65 max=596.70 min=496.48
+07-02 09:08:47.448   920  1167 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:3.767251,dur:1592.67,max:598.40,min:15.61  
+07-02 09:08:47.490 20554 20554 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@15a5be; boundsInParent: Rect(0, 0 - 720, 0); boundsInScreen: Rect(0, 160 - 720, 160); packageName: com.whatsapp; className: android.view.View; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; viewIdResName: com.whatsapp:id/transition_clipper_top; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; importantForAccessibility: false; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+07-02 09:08:47.649 20640 20640 D AVStageFactory: createInstance(32bit): createVendorAVFactory success!
+07-02 09:08:47.650 20640 20640 D AVStageUtils: createInstance(32bit): createVendorAVUtils success!
+07-02 09:08:47.650 20640 20640 D AVStageFactory: createInstance(32bit): createVendorAVFactory success!
+07-02 09:08:47.658 20640 20640 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+07-02 09:08:47.662 20554 20554 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@15ed11; boundsInParent: Rect(0, 0 - 720, 0); boundsInScreen: Rect(0, 1344 - 720, 1344); packageName: com.whatsapp; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; viewIdResName: com.whatsapp:id/footer_container; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; importantForAccessibility: false; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+07-02 09:08:47.665 20554 20554 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@15bc44; boundsInParent: Rect(0, 0 - 720, 0); boundsInScreen: Rect(0, 1344 - 720, 1344); packageName: com.whatsapp; className: android.view.View; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; viewIdResName: com.whatsapp:id/transition_clipper_bottom; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; importantForAccessibility: false; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+07-02 09:08:47.672 20640 20640 I AndroidRuntime: Using default boot image
+07-02 09:08:47.672 20640 20640 I AndroidRuntime: Leaving lock profiling enabled
+07-02 09:08:47.682 20640 20640 W app_process: Could not reserve sentinel fault page
+07-02 09:08:47.684 20640 20640 I app_process: Using generational CollectorTypeCC GC.
+07-02 09:08:47.691 20554 20554 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@16526c; boundsInParent: Rect(0, 0 - 597, 0); boundsInScreen: Rect(8, 1351 - 605, 1351); packageName: com.whatsapp; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; viewIdResName: com.whatsapp:id/biz_prompts_container; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; importantForAccessibility: false; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+07-02 09:08:47.710 20554 20554 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@16dd51; boundsInParent: Rect(0, 0 - 0, 112); boundsInScreen: Rect(0, 1344 - 0, 1456); packageName: com.whatsapp; className: android.view.View; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; viewIdResName: com.whatsapp:id/footer_size; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; importantForAccessibility: false; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+07-02 09:08:47.714 20554 20554 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@16e112; boundsInParent: Rect(0, 0 - 0, 0); boundsInScreen: Rect(8, 1354 - 8, 1354); packageName: com.whatsapp; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; viewIdResName: com.whatsapp:id/mention_attach; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; importantForAccessibility: false; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+07-02 09:08:47.717 20554 20554 W AccessibilityNodeInfoDumper: Fetch time: 424ms
+07-02 09:08:47.725  1602  4759 D WindowManager: setParent old=Leaf:29:31@174571803,new=null,this window=WindowToken{c3ce5eb android.os.Binder@860153a},callers=com.android.server.wm.WindowContainer.removeChild:608 com.android.server.wm.WindowContainer.removeImmediately:660 com.android.server.wm.WindowToken.setExiting:248 com.android.server.wm.DisplayContent.removeWindowToken:1229 com.android.server.wm.WindowManagerService$LocalService.removeWindowToken:7928 com.android.server.accessibility.AbstractAccessibilityServiceConnection.onDisplayRemoved:1267 
+07-02 09:08:47.725  1602  4759 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@860153a
+07-02 09:08:47.729  1602  4759 V SettingsProvider: name : accelerometer_rotation appId : 1000
+07-02 09:08:47.729  1602  4759 V SettingsProvider: name : user_rotation appId : 1000
+07-02 09:08:47.734  1602  1602 D BatterySaverPolicy: accessibility changed to false, updating policy.
+07-02 09:08:47.743 20554 20554 D hw-ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+07-02 09:08:47.744 20554 20554 D AndroidRuntime: Shutting down VM
+07-02 09:08:47.935 20640 20640 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+07-02 09:08:47.973 20640 20640 D nativeloader: Load libicu_jni.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+07-02 09:08:47.974 20640 20640 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+07-02 09:08:47.974 20640 20640 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt68l.dat
+07-02 09:08:47.977 20640 20640 D nativeloader: Load libjavacore.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+07-02 09:08:47.982 20640 20640 D nativeloader: Load libopenjdk.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+07-02 09:08:47.987 20640 20640 W app_process: Using default priority map due to SDK version
+07-02 09:08:48.057  3393  3393 D CarrierConfigLoader: getConfigForSubIdWithFeature: subscriptionId=3, phoneId=0
+07-02 09:08:48.066  3070  3177 D MobileStatusTracker: onSignalStrengthsChanged signalStrength=SignalStrength:{mCdma=CellSignalStrengthCdma: cdmaDbm=2147483647 cdmaEcio=2147483647 evdoDbm=2147483647 evdoEcio=2147483647 evdoSnr=2147483647 level=0,mGsm=CellSignalStrengthGsm: rssi=2147483647 ber=2147483647 mTa=2147483647 mLevel=0,mWcdma=CellSignalStrengthWcdma: ss=2147483647 ber=2147483647 rscp=2147483647 ecno=2147483647 level=0,mTdscdma=CellSignalStrengthTdscdma: rssi=2147483647 ber=2147483647 rscp=2147483647 level=0,mLte=CellSignalStrengthLte: rssi=2147483647 rsrp=-76 rsrq=-8 rssnr=16 cqiTableIndex=2147483647 cqi=0 ta=0 level=4 parametersUseForLevel=0,mNr=CellSignalStrengthNr:{ csiRsrp = 2147483647 csiRsrq = 2147483647 csiCqiTableIndex = 2147483647 csiCqiReport = [] ssRsrp = 2147483647 ssRsrq = 2147483647 ssSinr = 2147483647 level = 0 parametersUseForLevel = 0 },primary=CellSignalStrengthLte}, phoneId=0, mMtkLevel=0, mMtkRsrpOnly=true, mMtkLteRsrpThreshold=null, mMtkLteRssnrThreshold=null level=4
+07-02 09:08:48.067  3070  3177 D NetworkController.MobileSignalController(3): updateTelephonySignalStrength: hasService=true , getDataRegState = 0 , getVoiceRegState0
+07-02 09:08:48.067  3070  3177 E NetworkController.MobileSignalController(3): currentvoiceType = 13 ,voiceType = 2131232829 iconKey = 13
+07-02 09:08:48.085 20640 20640 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+07-02 09:08:48.085 20640 20640 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+07-02 09:08:48.088 20640 20640 W System  : ClassLoader referenced unknown path: /system/framework/mediatek-cta.jar
+07-02 09:08:48.089 20640 20640 W CtaManagerFactory: CtaManagerFactoryImpl not found
+07-02 09:08:48.120  1602  1621 I ActivityManager: Force stopping com.wordpulse.app appid=10581 user=0: start instr
+07-02 09:08:48.124  1602  1621 W ProcessStats: Tracking association SourceState{b688c2c com.google.android.gms.persistent/10163 Fgs #1979682} whose proc state 3 is better than process ProcessState{fe1e5ce com.google.android.gms/10163 pkg=com.google.android.gms} proc state 7 (911 skipped)
+07-02 09:08:48.133  1602  1621 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10581; state: DISABLED
+07-02 09:08:48.134  1602  1621 D ActivityManager: startProcessLocked, launchType = added application,app.processName = com.wordpulse.app,launchSource = com.wordpulse.app,backgroundLaunchConut = 5,getUidProcStateLOSP = :19
+07-02 09:08:48.135  1602  1643 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10581; state: ENABLED
+07-02 09:08:48.156 22228 22228 I WifiHAL : Get link layer stats
+07-02 09:08:48.156 22228 22228 I WifiHAL : GetLinkStatsCommand::create
+07-02 09:08:48.156 22228 22228 D android.hardware.wifi@1.0-service-lazy: WifiRequest::create vendor command to iface 31, vendor_id=0x1a11, subcmd=0x1200, res=0
+07-02 09:08:48.157 22228 22228 I android.hardware.wifi@1.0-service-lazy: WifiCommand::requestResponse err=-14
+07-02 09:08:48.157 22228 22228 I WifiHAL : wifi_get_link_stats: result=-1
+07-02 09:08:48.158  1602  2914 E WifiVendorHal: $r8$lambda$s6w0pmKyq6-tDdqCEDbOV_xqgVE(l.1191) failed {.code = ERROR_UNKNOWN, .description = unknown}
+07-02 09:08:48.160   886   886 D Zygote  : Forked child process 20650
+07-02 09:08:48.165  1602  1643 I ActivityManager: Start proc 20650:com.wordpulse.app/u0a581 for added application com.wordpulse.app
+07-02 09:08:48.166  1602  1602 D DeviceStatusChange: cur status:{type=1, uid=10581, status=1, code=30001, isBackground=false}
+07-02 09:08:48.166  1602  1602 D PrivacyProtectTctPrivacyServiceTime: updateDeviceStatusFromServicesCore cast 0
+07-02 09:08:48.187 20650 20650 I m.wordpulse.ap: Late-enabling -Xcheck:jni
+07-02 09:08:48.266 20650 20650 I m.wordpulse.ap: Using generational CollectorTypeCC GC.
+07-02 09:08:48.291 30157 30164 I adbd    : jdwp connection from 20650
+07-02 09:08:48.305 20650 20650 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+07-02 09:08:48.324  1602  1621 V ActivityManager: New death recipient com.android.server.am.ActivityManagerService$AppDeathRecipient@902a766 for thread android.os.BinderProxy@4068aa7
+07-02 09:08:48.357 20650 20650 I ActivityThread: Relaunch all activities: onCoreSettingsChange
+07-02 09:08:48.361 20650 20650 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10581; state: ENABLED
+07-02 09:08:48.413 20650 20650 W ActivityThread: Package uses different ABI(s) than its instrumentation: package[com.wordpulse.app]: armeabi-v7a, null instrumentation[com.wordpulse.app.test]: null, null
+07-02 09:08:48.473  3312 22546 D IpClient/wlan0: interfaceLinkStateChanged: ifindex 31 up
+07-02 09:08:48.597 20554 20554 D RefBase : RefBase: Explicit destruction, weak count = 0 (in 0xaee6a0c8)
+07-02 09:08:48.630 20554 20554 D RefBase : #00 pc 0000aaa1  /system/lib/libutils.so (android::RefBase::~RefBase()+104)
+07-02 09:08:48.630 20554 20554 D RefBase : #01 pc 00082ed7  /apex/com.android.runtime/lib/bionic/libc.so (__cxa_finalize+190)
+07-02 09:08:48.630 20554 20554 D RefBase : #02 pc 00078513  /apex/com.android.runtime/lib/bionic/libc.so (exit+10)
+07-02 09:08:48.630 20554 20554 D RefBase : #03 pc 00031fbf  /apex/com.android.runtime/lib/bionic/libc.so (__libc_init+58)
+07-02 09:08:48.701 30157 30157 I adbd    : adbd service requested 'shell,v2,raw:dumpsys window'
+07-02 09:08:48.752 20667 20667 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+07-02 09:08:48.776  1138  1298 D ULogGuard: Monitoring: 9 threads, 0 requests, 0 time-bombs; 1 guards. ResetFlags = 0x7
+07-02 09:08:48.806 30157 30157 I adbd    : adbd service requested 'jdwp:20650'
+07-02 09:08:48.910 30157 30157 I adbd    : adbd service requested 'exec:screencap '-p''
+07-02 09:08:48.941   954   954 I BufferQueueProducer: [com.whatsapp/com.whatsapp.Conversation#0](this:0xa8f83d6c,id:-1,api:0,p:-1,c:954) queueBuffer: fps=2.00 dur=1497.04 max=503.58 min=495.67
+07-02 09:08:48.943   920  1167 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:4.012289,dur:1495.41,max:502.93,min:12.44  
+07-02 09:08:49.233 20672 20672 D AVStageFactory: createInstance(32bit): createVendorAVFactory success!
+07-02 09:08:49.234 20672 20672 D AVStageUtils: createInstance(32bit): createVendorAVUtils success!
+07-02 09:08:49.235 20672 20672 D AVStageFactory: createInstance(32bit): createVendorAVFactory success!
+07-02 09:08:49.242 20672 20672 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+07-02 09:08:49.264   954   954 I SurfaceFlinger: operator()(), mtkRenderCntDebug 720, screenshot (com.whatsapp/com.whatsapp.Conversation#0)
+07-02 09:08:49.264   954   954 I SurfaceFlinger: operator()(), mtkRenderCntDebug 720, screenshot (StatusBar#0)
+07-02 09:08:49.264   954   954 I SurfaceFlinger: operator()(), mtkRenderCntDebug 720, screenshot (NavigationBar0#0)
+07-02 09:08:49.277 20672 20673 D hw-ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+07-02 09:08:49.403 20672 20673 E ion     : ioctl c0044901 failed with code -1: Invalid argument
+07-02 09:08:49.447   965   980 D ccci_mdinit: (1):monitor_time_update_thread round:215634 ########
+07-02 09:08:49.948   954   954 I BufferQueueProducer: [com.whatsapp/com.whatsapp.Conversation#0](this:0xa8f83d6c,id:-1,api:0,p:-1,c:954) queueBuffer: fps=1.99 dur=1006.71 max=513.19 min=493.52
+07-02 09:08:49.952   920  1167 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.982533,dur:1008.81,max:514.52,min:494.29  
+07-02 09:08:50.108 20650 20650 D nativeloader: Configuring clns-4 for other apk /system/framework/android.test.runner.jar:/system/framework/android.test.mock.jar:/system/framework/android.test.base.jar:/data/app/~~HUlXCRz_7TSE6_zad9JFYg==/com.wordpulse.app.test-yZ3a-SfB6Wx5NA5N16wlnQ==/base.apk:/data/app/~~dY1t5gq61fPPxWr2V0k_MA==/com.wordpulse.app-R3JchISep6CcmX1FWpmZ6g==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~HUlXCRz_7TSE6_zad9JFYg==/com.wordpulse.app.test-yZ3a-SfB6Wx5NA5N16wlnQ==/lib/arm:/data/app/~~dY1t5gq61fPPxWr2V0k_MA==/com.wordpulse.app-R3JchISep6CcmX1FWpmZ6g==/lib/arm:/data/app/~~HUlXCRz_7TSE6_zad9JFYg==/com.wordpulse.app.test-yZ3a-SfB6Wx5NA5N16wlnQ==/base.apk!/lib/armeabi-v7a:/data/app/~~dY1t5gq61fPPxWr2V0k_MA==/com.wordpulse.app-R3JchISep6CcmX1FWpmZ6g==/base.apk!/lib/armeabi-v7a, permitted_path=/data:/mnt/expand:/data/user/0/com.wordpulse.app
+07-02 09:08:50.138 20650 20650 V GraphicsEnvironment: ANGLE Developer option for 'com.wordpulse.app' set to: 'default'
+07-02 09:08:50.139 20650 20650 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+07-02 09:08:50.152 20650 20650 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.test.base.jar
+07-02 09:08:50.158 20650 20650 D nativeloader: Configuring clns-5 for other apk /system/framework/android.test.mock.jar. target_sdk_version=36, uses_libraries=ALL, library_path=/data/app/~~HUlXCRz_7TSE6_zad9JFYg==/com.wordpulse.app.test-yZ3a-SfB6Wx5NA5N16wlnQ==/lib/arm:/data/app/~~dY1t5gq61fPPxWr2V0k_MA==/com.wordpulse.app-R3JchISep6CcmX1FWpmZ6g==/lib/arm, permitted_path=/data:/mnt/expand
+07-02 09:08:50.158 20650 20650 D nativeloader: Extending system_exposed_libraries: libapuwareapusys.mtk.so:libapuwareapusys_v2.mtk.so:libapuwarexrp.mtk.so:libapuwarexrp_v2.mtk.so:libapuwareutils.mtk.so:libapuwareutils_v2.mtk.so:libapuwarehmp.mtk.so:libmcv_runtime_usdk.mtk.so:libneuron_graph_delegate.mtk.so:libneuronusdk_adapter.mtk.so:libtflite_mtk.mtk.so:libarmnn_ndk.mtk.so:libcmdl_ndk.mtk.so:libnir_neon_driver_ndk.mtk.so:libmvpu_runtime.mtk.so:libmvpu_runtime_pub.mtk.so:libmvpu_engine_pub.mtk.so:libmvpu_pattern_pub.mtk.so:libmvpuop_mtk_cv.mtk.so:libmvpuop_mtk_nn.mtk.so:libteeservice_client.trustonic.so:libtctcameraalgo_jni.mtk.so:libjni_calibration.mtk.so:libtctcameraalgo_jni.tct.so:libLilyMobile.tct.so:libLilyFramework.tct.so:libLilyCore.tct.so
+07-02 09:08:50.160 20650 20650 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.test.base.jar
+07-02 09:08:50.166 20650 20650 D nativeloader: Configuring clns-6 for other apk /system/framework/android.test.runner.jar. target_sdk_version=36, uses_libraries=ALL, library_path=/data/app/~~HUlXCRz_7TSE6_zad9JFYg==/com.wordpulse.app.test-yZ3a-SfB6Wx5NA5N16wlnQ==/lib/arm:/data/app/~~dY1t5gq61fPPxWr2V0k_MA==/com.wordpulse.app-R3JchISep6CcmX1FWpmZ6g==/lib/arm, permitted_path=/data:/mnt/expand
+07-02 09:08:50.166 20650 20650 D nativeloader: Extending system_exposed_libraries: libapuwareapusys.mtk.so:libapuwareapusys_v2.mtk.so:libapuwarexrp.mtk.so:libapuwarexrp_v2.mtk.so:libapuwareutils.mtk.so:libapuwareutils_v2.mtk.so:libapuwarehmp.mtk.so:libmcv_runtime_usdk.mtk.so:libneuron_graph_delegate.mtk.so:libneuronusdk_adapter.mtk.so:libtflite_mtk.mtk.so:libarmnn_ndk.mtk.so:libcmdl_ndk.mtk.so:libnir_neon_driver_ndk.mtk.so:libmvpu_runtime.mtk.so:libmvpu_runtime_pub.mtk.so:libmvpu_engine_pub.mtk.so:libmvpu_pattern_pub.mtk.so:libmvpuop_mtk_cv.mtk.so:libmvpuop_mtk_nn.mtk.so:libteeservice_client.trustonic.so:libtctcameraalgo_jni.mtk.so:libjni_calibration.mtk.so:libtctcameraalgo_jni.tct.so:libLilyMobile.tct.so:libLilyFramework.tct.so:libLilyCore.tct.so
+07-02 09:08:50.182 20672 20672 E IMGSRV  : :2631: GrallocUnregisterBuffer: Cannot free a locked buffer (ID=476691)
+07-02 09:08:50.182 20672 20672 E IMGMapper: freeBuffer:64 Failed to unregister native handle
+07-02 09:08:50.182 20672 20672 E Gralloc4: freeBuffer(0xada011e0) failed with 2
+07-02 09:08:50.196 20672 20672 D RefBase : RefBase: Explicit destruction, weak count = 0 (in 0xb03720c8)
+07-02 09:08:50.215 20672 20672 D RefBase : #00 pc 0000aaa1  /system/lib/libutils.so (android::RefBase::~RefBase()+104)
+07-02 09:08:50.215 20672 20672 D RefBase : #01 pc 00082ed7  /apex/com.android.runtime/lib/bionic/libc.so (__cxa_finalize+190)
+07-02 09:08:50.215 20672 20672 D RefBase : #02 pc 00078513  /apex/com.android.runtime/lib/bionic/libc.so (exit+10)
+07-02 09:08:50.215 20672 20672 D RefBase : #03 pc 00031fbf  /apex/com.android.runtime/lib/bionic/libc.so (__libc_init+58)
+07-02 09:08:50.276 30157 30157 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''

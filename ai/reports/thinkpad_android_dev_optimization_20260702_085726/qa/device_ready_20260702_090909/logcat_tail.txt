@@ -1,0 +1,443 @@
+--------- beginning of main
+07-02 09:09:22.101   968 16662 I AHal::Waves: UpdateUseCasesState: set active max volume 0
+07-02 09:09:22.102   968 16662 I AHal::Waves::CustomAction: GetData: Custom Data: {2,0,1,}
+07-02 09:09:22.102   968 16662 D AHal::ThirdPartyEffectAmcs: UpdateAMCSData: update volume index[1] duration 239 ms.
+07-02 09:09:22.102   968 16662 I AHal::Waves: UpdateTuning: update amcs instance id = Speaker, active_ms_in_vol_range = {52,239,0,0,0,0,0,0,0,0}
+07-02 09:09:22.102  1028  1690 I APM_AudioPolicyManager: getNewOutputDevices io 13 recent device override {AUDIO_DEVICE_OUT_SPEAKER, @:}
+07-02 09:09:22.102   968 16662 D AHal::Waves: UpdateTuning: update Device: speaker, InstanceId: 1, IsInitialize: true, NeedToUpdate: true, Parameters{is_bypass:false, MaxVolume: 0, ScreenOrientation: 0}, is_any_active_track_on_sink: false
+07-02 09:09:22.102   968 16662 I StHal::SoundTriggerHal: ProcessStreamMetadata: active usage tracks: 0
+07-02 09:09:22.102   968 16662 D BTAudioSessionAidl: GetSupportedLatencyModes - SessionType=LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH has NO session
+07-02 09:09:22.102   968 16662 D BTAudioSessionAidl: SetLatencyMode - SessionType=LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH has NO session
+07-02 09:09:22.102   968 16662 D BTAudioSessionAidl: GetSupportedLatencyModes - SessionType=A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH has NO session
+07-02 09:09:22.102   968 16662 D BTAudioSessionAidl: SetLatencyMode - SessionType=A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH has NO session
+--------- beginning of system
+07-02 09:09:22.174  1489  4580 I ActivityManager: Process com.google.android.youtube (pid 31268) has died: cch  +75 CEM 
+07-02 09:09:22.176  2737  2737 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.auth.aang.events.services.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 09:09:22.179 13751 13751 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.potokens.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 09:09:22.179  1489  2104 D ConnectivityService: releasing NetworkRequest [ REQUEST id=15427, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10190 RequestorUid: 10190 RequestorPkg: com.google.android.youtube UnderlyingNetworks: Null] ] (release request)
+07-02 09:09:22.183  1489  2104 D ConnectivityService: releasing NetworkRequest [ REQUEST id=15429, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10190 RequestorUid: 10190 RequestorPkg: com.google.android.youtube UnderlyingNetworks: Null] ] (release request)
+07-02 09:09:22.186  1489  1583 W ActivityManager: Rescheduling restart of crashed service com.google.android.projection.gearhead/com.google.android.apps.auto.carservice.service.impl.GearheadCarStartupService in 0ms for mem-pressure-event
+07-02 09:09:22.186  1489  1584 D ActivityManager: Delaying restart of ServiceRecord{87f29b5 u0 com.google.android.projection.gearhead/com.google.android.apps.auto.carservice.service.impl.GearheadCarStartupService c:com.google.android.apps.maps} because all clients are frozen
+07-02 09:09:22.186  1489  2104 D ConnectivityService: releasing NetworkRequest [ REQUEST id=15438, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10190 RequestorUid: 10190 RequestorPkg: com.google.android.youtube UnderlyingNetworks: Null] ] (release request)
+07-02 09:09:22.187  1489  2104 D ConnectivityService: releasing NetworkRequest [ REQUEST id=15450, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10190 RequestorUid: 10190 RequestorPkg: com.google.android.youtube UnderlyingNetworks: Null] ] (release request)
+07-02 09:09:22.187  1489  2104 D ConnectivityService: releasing NetworkRequest [ REQUEST id=15440, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10190 RequestorUid: 10190 RequestorPkg: com.google.android.youtube UnderlyingNetworks: Null] ] (release request)
+07-02 09:09:22.188  1489  1586 I libprocessgroup: Removed cgroup /sys/fs/cgroup/apps/uid_10190/pid_31268
+07-02 09:09:22.188   950   950 I Zygote  : Process 31268 exited due to signal 9 (Killed)
+07-02 09:09:22.312  4164 19268 W AiAiOverview: Scenario undefined.
+07-02 09:09:22.312  4164 19268 W AiAiOcr : Unable to obtain assist structure (empty).
+07-02 09:09:22.317  4164 19268 I AiAiLens: #classifySelections
+07-02 09:09:22.321  5011  5099 D ScreenshotActionsGoogle: Total time taken to get smart actions: 489 ms
+07-02 09:09:22.484  5011  5011 D ThumbnailObserver: Entrance complete
+07-02 09:09:22.572   551 10287 E gralloc5: Producer and consumer not identified.
+07-02 09:09:22.580  1027  4008 I WifiHAL : Creating message to get link statistics; iface = 47
+07-02 09:09:22.587   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:22.628  2201  2205 I deeptouch: I0000 00:00:1782976162.628441    2205 tf_lite_classifier.cc:415] Event stream classified as kNone
+07-02 09:09:22.631  1027  1027 I WifiHAL : Getting cached scan results, iface handle = 0xb4000074df637e90
+07-02 09:09:22.631  1027  1027 E WifiHAL : Creating message to get cached scan results
+07-02 09:09:22.636  1027  1027 I WifiHAL : In GetCachedScanResultsCommand::handleResponse
+07-02 09:09:22.646  2737  4417 I NearbyMediums: No BLE Fast/GATT advertisements found in the latest cycle.
+07-02 09:09:22.646  2737  4417 I NearbyMediums: Current Tracked Scanning Clients are : {NearbyConnections.EnvironmentMonitor, NearbySharing, NearbyConnections.TxAdvertisement}
+07-02 09:09:22.650  1489  2674 D WindowManager: captureDisplay
+07-02 09:09:22.671  5011  5041 I Surface : Creating surface for consumer unnamed-5011-1 with slotExpansion=1 for 64 slots
+07-02 09:09:22.671  5011  5041 I Surface : Creating surface for consumer ImageReader-1080x1139f1m30-5011-0 with slotExpansion=1 for 64 slots
+07-02 09:09:22.672 14281 14633 I Surface : Creating surface for consumer ImageReader-1080x1139f1m30-5011-0 with slotExpansion=1 for 64 slots
+07-02 09:09:22.681  1027  1027 D WifiHAL : Start debug command: mType GET_FEATURE
+07-02 09:09:22.681  1027  1027 I WifiHAL : CreateRequest mType = GET_FEATURE
+07-02 09:09:22.681  1027  1027 D WifiHAL : In DebugCommand::handleResponse, mType:GET_FEATURE
+07-02 09:09:22.681  1027  1027 D WifiHAL : len = 4, expected len = 4
+07-02 09:09:22.684  1489  2093 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-02 09:09:22.695  5011  5037 D Screenshot: onCaptureStarted
+07-02 09:09:22.700  1489  4580 W InputChannel-JNI: Channel already disposed.
+07-02 09:09:22.709  1489  2674 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@2bdd4770 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+07-02 09:09:22.715  1489  2674 D WindowManager: setClientSurface Surface(name=VRI-Toast#58229)/@0xf05969f for 1108fa8 Toast
+07-02 09:09:22.717 14281 14281 I Surface : Creating surface for consumer unnamed-14281-6 with slotExpansion=1 for 64 slots
+07-02 09:09:22.718 14281 14281 I Surface : Creating surface for consumer VRI[Toast]#6(BLAST Consumer)6 with slotExpansion=1 for 64 slots
+07-02 09:09:22.734  5117  5117 I zygote_next: zygote: Native Zygote: Exiting server
+07-02 09:09:22.735  1489  1585 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_90009
+07-02 09:09:22.738  1489  1585 I libprocessgroup: Created cgroup /sys/fs/cgroup/apps/uid_90009/pid_5117
+07-02 09:09:22.741  5011  5041 D Screenshot: end()
+07-02 09:09:22.743  1489  1585 I ActivityManager: Start proc 5117:com.android.chrome:sandboxed_process0:org.chromium.content.app.NativeOnlySandboxedProcessService0:14/u0ai9 for bound-service {com.android.chrome/org.chromium.content.app.NativeOnlySandboxedProcessService0:14}
+07-02 09:09:22.747  5117  5117 E libc    : SetHeapTaggingLevel: re-enabling tagging after it was disabled is not supported
+07-02 09:09:22.747  5117  5117 W zygote_next: native_activity_thread::utils: Failed to mallopt(M_BIONIC_SET_HEAP_TAGGING_LEVEL): Success (os error 0)
+07-02 09:09:22.747  5117  5117 I zygote_next: native_activity_thread: Hello from the native activity thread! start_seq=2516
+07-02 09:09:22.750  5117  5117 I zygote_next: native_activity_thread::task: A handler is activated on the thread ThreadId(1)
+07-02 09:09:22.752  5117  5129 I zygote_next: native_activity_thread::native_application_thread: bindApplication thread id=ThreadId(3)
+07-02 09:09:22.753  5117  5129 I zygote_next: native_activity_thread::native_application_thread: setProcessState thread id=ThreadId(3)
+07-02 09:09:22.757  5117  5129 I zygote_next: native_activity_thread::native_application_thread: setProcessState thread id=ThreadId(3)
+07-02 09:09:22.757  1489  3567 I ActivityManager: Scheduling native service – lib: libmonochrome_64.so, base symbol: NativeChildProcessService_onCreate, nativeLibraryDir: /data/app/~~6XdNwfHXWCqIl0y41CpR3g==/com.android.chrome-Jl97fugXeXlRTxTnxqVXIA==/lib/arm64
+07-02 09:09:22.757  1489  3567 I ActivityManager: libPath: /data/app/~~6XdNwfHXWCqIl0y41CpR3g==/com.android.chrome-Jl97fugXeXlRTxTnxqVXIA==/lib/arm64:/data/app/~~6XdNwfHXWCqIl0y41CpR3g==/com.android.chrome-Jl97fugXeXlRTxTnxqVXIA==/base.apk!/lib/arm64-v8a:/data/app/~~xydIMI2DAXjAxzzvp0KJEw==/com.google.android.trichromelibrary_782720033-I6CFpTYggrlduxqryKsm1Q==/base.apk!/lib/arm64-v8a
+07-02 09:09:22.757  5117  5129 I zygote_next: native_activity_thread::native_application_thread: scheduleCreateService thread id=ThreadId(3)
+07-02 09:09:22.758  5117  5129 I zygote_next: native_activity_thread::native_application_thread: scheduleBindService thread id=ThreadId(3)
+07-02 09:09:22.760 14281 14332 E cr_ChildProcessConn: Child process's classpath doesn't match, but main process's package hasn't changed; the child is likely to be broken!
+07-02 09:09:22.766  1489  1583 W ActivityManager: Rescheduling restart of crashed service com.google.android.projection.gearhead/com.google.android.apps.auto.carservice.service.impl.GearheadCarStartupService in 0ms for mem-pressure-event
+07-02 09:09:22.766  1489  1584 D ActivityManager: Delaying restart of ServiceRecord{87f29b5 u0 com.google.android.projection.gearhead/com.google.android.apps.auto.carservice.service.impl.GearheadCarStartupService c:com.google.android.apps.maps} because all clients are frozen
+07-02 09:09:22.779  1489  3567 I ActivityManager: Killing 5117:com.android.chrome:sandboxed_process0:org.chromium.content.app.NativeOnlySandboxedProcessService0:14/u0a185i-8991 (adj 0): isolated not needed
+07-02 09:09:22.779   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:22.784 14281 14281 W chromium: [WARNING:chrome/browser/android/compositor/compositor_view.cc:390] Child process died (type=6) pid=5117)
+07-02 09:09:22.785 14281 14281 W chromium: [WARNING:chrome/browser/android/compositor/compositor_view.cc:390] Child process died (type=6) pid=5117)
+07-02 09:09:22.785  1489  1586 I libprocessgroup: Removed cgroup /sys/fs/cgroup/apps/uid_90009/pid_5117
+07-02 09:09:22.786  1489  1586 I libprocessgroup: Removed cgroup /sys/fs/cgroup/apps/uid_90009
+07-02 09:09:22.869  1489  1594 E system_server: updateValue is called with a value 91, which is lower than the previous value 631
+07-02 09:09:22.869  1489  1594 E system_server: updateValue is called with a value 14, which is lower than the previous value 6144
+07-02 09:09:22.881   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:23.371  4119  4119 D WM-DelayedWorkTracker: Scheduling work 98dd44e2-0804-44b3-90b7-b4dc7a917819
+07-02 09:09:23.375  4119  4119 D WM-GreedyScheduler: Starting tracking for 98dd44e2-0804-44b3-90b7-b4dc7a917819
+07-02 09:09:23.393  4119  4202 D WM-ConstraintTracker: BatteryNotLowTracker: initial state = true
+07-02 09:09:23.393  4119  4202 D WM-BrdcstRcvrCnstrntTrc: BatteryNotLowTracker: registering receiver
+07-02 09:09:23.407  4119  4272 D WM-GreedyScheduler: Constraints met: Scheduling work ID WorkGenerationalId(workSpecId=98dd44e2-0804-44b3-90b7-b4dc7a917819, generation=0)
+07-02 09:09:23.411  4119  4272 D WM-Processor: Processor: processing WorkGenerationalId(workSpecId=98dd44e2-0804-44b3-90b7-b4dc7a917819, generation=0)
+07-02 09:09:23.417  4119  4119 D WM-SystemJobService: onStartJob for WorkGenerationalId(workSpecId=98dd44e2-0804-44b3-90b7-b4dc7a917819, generation=0)
+07-02 09:09:23.426  4119  4272 D WM-Processor: Work WorkGenerationalId(workSpecId=98dd44e2-0804-44b3-90b7-b4dc7a917819, generation=0) is already enqueued for processing
+07-02 09:09:23.427  4119  4119 D WM-WorkerWrapper: Starting work for com.android.providers.media.photopicker.sync.ProactiveSyncWorker
+07-02 09:09:23.430  4119  5142 I PSyncWorker: Starting proactive picker sync from sync source: 1
+07-02 09:09:23.430  4119  5142 I PickerSyncTracker: Created new sync future java.util.concurrent.CompletableFuture@5e6ba42[Not completed, 1 dependents]. Future map: {98dd44e2-0804-44b3-90b7-b4dc7a917819=java.util.concurrent.CompletableFuture@5e6ba42[Not completed, 1 dependents]}
+07-02 09:09:23.431  4119  5142 D PickerSyncController: syncAllMediaFromProvider() LOCAL, auth=com.android.providers.media.photopicker, retry=true
+07-02 09:09:23.431  4119  5142 D PickerSyncController: getSyncRequestParams() LOCAL, auth=com.android.providers.media.photopicker
+07-02 09:09:23.467   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:23.483   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:23.537  2737  4417 I NearbyDiscovery: [trigger-id=ScanF7A83FF1, feature-id=Sass] NearbyDeviceManager: notifyActiveAudioStatusChanged profile list including BluetoothLeAudio  [CONTEXT service_id=265 ]
+07-02 09:09:23.541  2737  4417 I NearbyDiscovery: (REDACTED) [trigger-id=ScanF7A83FF1, feature-id=Sass] NearbyDeviceManager: notifyActiveAudioStatusChanged failed to get connected devices from profile proxy %d
+07-02 09:09:23.545  2737  4417 I NearbyDiscovery: (REDACTED) [trigger-id=ScanF7A83FF1, feature-id=Sass] NearbyDeviceManager: notifyActiveAudioStatusChanged failed to get connected devices from profile proxy %d
+07-02 09:09:23.548  2737  4417 I NearbyDiscovery: (REDACTED) [trigger-id=ScanF7A83FF1, feature-id=Sass] NearbyDeviceManager: notifyActiveAudioStatusChanged failed to get connected devices from profile proxy %d
+07-02 09:09:23.776  4949  4949 W libc    : Access denied finding property "qemu.sf.lcd_density"
+07-02 09:09:23.776  4949  4949 W libc    : Access denied finding property "qemu.sf.lcd_density"
+07-02 09:09:23.770  4949  4949 W uiautomator: type=1400 audit(0.0:30112): avc:  denied  { read } for  name="u:object_r:qemu_sf_lcd_density_prop:s0" dev="tmpfs" ino=352 scontext=u:r:shell:s0 tcontext=u:object_r:qemu_sf_lcd_density_prop:s0 tclass=file permissive=0 bug=b/449890606
+07-02 09:09:23.770  4949  4949 W uiautomator: type=1400 audit(0.0:30113): avc:  denied  { read } for  name="u:object_r:qemu_sf_lcd_density_prop:s0" dev="tmpfs" ino=352 scontext=u:r:shell:s0 tcontext=u:object_r:qemu_sf_lcd_density_prop:s0 tclass=file permissive=0 bug=b/449890606
+07-02 09:09:23.779   968  1602 D AHal::Cs35l41Codec: CheckAllSpeakers: get ctl [PCM Source] = 1, expects 1
+07-02 09:09:23.779   968  1602 D AHal::Cs35l41Codec: CheckAllSpeakers: get ctl [R PCM Source] = 1, expects 1
+07-02 09:09:23.785  4949  4949 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@b6e0; boundsInParent: Rect(0, 0 - 0, 55); boundsInScreen: Rect(179, 2204 - 179, 2259); boundsInWindow: Rect(179, 2204 - 179, 2259); packageName: com.android.systemui; className: android.widget.TextView; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; containerTitle: null; viewIdResName: com.android.systemui:id/overlay_action_chip_text; uniqueId: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; granularScrollingSupported: false; importantForAccessibility: true; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]; isTextSelectable: false
+07-02 09:09:23.786  4949  4949 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@c223; boundsInParent: Rect(0, 0 - 0, 55); boundsInScreen: Rect(338, 2204 - 338, 2259); boundsInWindow: Rect(338, 2204 - 338, 2259); packageName: com.android.systemui; className: android.widget.TextView; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; containerTitle: null; viewIdResName: com.android.systemui:id/overlay_action_chip_text; uniqueId: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; granularScrollingSupported: false; importantForAccessibility: true; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]; isTextSelectable: false
+07-02 09:09:23.786  4949  4949 I AccessibilityNodeInfoDumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@fe33; boundsInParent: Rect(0, 0 - 0, 55); boundsInScreen: Rect(497, 2204 - 497, 2259); boundsInWindow: Rect(497, 2204 - 497, 2259); packageName: com.android.systemui; className: android.widget.TextView; text: null; error: null; maxTextLength: -1; stateDescription: null; contentDescription: null; tooltipText: null; containerTitle: null; viewIdResName: com.android.systemui:id/overlay_action_chip_text; uniqueId: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; granularScrollingSupported: false; importantForAccessibility: true; visible: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]; isTextSelectable: false
+07-02 09:09:23.787  4949  4949 W AccessibilityNodeInfoDumper: Fetch time: 6ms
+07-02 09:09:23.791  1489  2674 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:09:23.806  1489  2674 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:09:23.806  1489  2674 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:09:23.806  1489  2674 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:09:23.806  1489  2674 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:09:23.806  1489  2674 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:09:23.806  1489  2674 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:09:23.806  1489  2674 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:09:23.806  1489  2674 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:09:23.806  1489  2674 D AccessibilityManagerService: restoreCurrentUserForTestAutomationIfNeededLocked(): ignoring because device doesn't support visible background users
+07-02 09:09:23.808  4949  4997 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:09:23.809  4949  4978 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:09:23.809  4949  4986 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:09:23.810  4949  4999 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:09:23.819  4949  4979 W DeliQueue: Handler (android.os.Handler) {22b39e6} sending message to a Handler on a dead thread
+07-02 09:09:23.819  4949  4979 W DeliQueue: java.lang.IllegalStateException: Handler (android.os.Handler) {22b39e6} sending message to a Handler on a dead thread
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.MessageQueue.logDeadThread(MessageQueue.java:381)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.MessageQueue.enqueueMessageUnchecked(MessageQueue.java:408)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.MessageQueue.enqueueMessageDeliQueue(MessageQueue.java:491)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.MessageQueue.enqueueMessage(MessageQueue.java:393)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.Handler.enqueueMessage(Handler.java:854)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.Handler.sendMessageAtTime(Handler.java:798)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.Handler.sendMessageDelayed(Handler.java:768)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.Handler.post(Handler.java:488)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.HandlerExecutor.execute(HandlerExecutor.java:42)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.accessibilityservice.AccessibilityService$IAccessibilityServiceClientWrapper.init(AccessibilityService.java:2954)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.accessibilityservice.IAccessibilityServiceClient$Stub.onTransact(IAccessibilityServiceClient.java:232)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.Binder.execTransactInternal(Binder.java:1369)
+07-02 09:09:23.819  4949  4979 W DeliQueue: 	at android.os.Binder.execTransact(Binder.java:1323)
+07-02 09:09:23.819  4949  4979 W Binder  : Caught a RuntimeException from the binder stub implementation.
+07-02 09:09:23.819  4949  4979 W Binder  : java.util.concurrent.RejectedExecutionException: Handler (android.os.Handler) {22b39e6} is shutting down
+07-02 09:09:23.819  4949  4979 W Binder  : 	at android.os.HandlerExecutor.execute(HandlerExecutor.java:43)
+07-02 09:09:23.819  4949  4979 W Binder  : 	at android.accessibilityservice.AccessibilityService$IAccessibilityServiceClientWrapper.init(AccessibilityService.java:2954)
+07-02 09:09:23.819  4949  4979 W Binder  : 	at android.accessibilityservice.IAccessibilityServiceClient$Stub.onTransact(IAccessibilityServiceClient.java:232)
+07-02 09:09:23.819  4949  4979 W Binder  : 	at android.os.Binder.execTransactInternal(Binder.java:1369)
+07-02 09:09:23.819  4949  4979 W Binder  : 	at android.os.Binder.execTransact(Binder.java:1323)
+07-02 09:09:23.819  4949  4979 W libbinder.IPCThreadState: call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+07-02 09:09:23.820  4949  4949 D AndroidRuntime: Shutting down VM
+07-02 09:09:23.823  1489  1489 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:09:23.824  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:09:23.824  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:09:23.824  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:09:23.824  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:09:23.824  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:09:23.824  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:09:23.824  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:09:23.824  1489  1489 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:09:23.826   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:23.828  1489  4261 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:09:23.831  1489  4866 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:09:23.832  1489  4866 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:09:23.832  1489  4866 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:09:23.832  1489  4866 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:09:23.832  1489  4866 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:09:23.832  1489  4866 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:09:23.832  1489  4866 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:09:23.832  1489  4866 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:09:23.832  1489  4866 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:09:23.840  1489  1561 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:09:23.849  1489  1489 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:09:23.852  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:09:23.852  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:09:23.852  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:09:23.852  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:09:23.852  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:09:23.852  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:09:23.852  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:09:23.852  1489  1489 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:09:23.855  1489  1561 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:09:23.862  1489  1489 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:09:23.863  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:09:23.864  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:09:23.864  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:09:23.864  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:09:23.864  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:09:23.864  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:09:23.864  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:09:23.864  1489  1489 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:09:23.865  1489  4580 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:09:23.893  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:09:23.904  1489  1489 V AccessibilityManagerService: onUserStateChangedLocked for userId: 0, forceUpdate: false
+07-02 09:09:23.906  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_shortcut_target_service, current:{}, new:{}
+07-02 09:09:23.906  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_button_targets, current:{}, new:{}
+07-02 09:09:23.906  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_gesture_targets, current:{}, new:{}
+07-02 09:09:23.906  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_qs_targets, current:{}, new:{}
+07-02 09:09:23.906  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_key_gesture_targets, current:{}, new:{}
+07-02 09:09:23.906  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_top_row_key_targets, current:{}, new:{}
+07-02 09:09:23.906  1489  1489 V AccessibilityUserState: updateShortcutTargets: type:accessibility_quick_access_targets, current:{}, new:{}
+07-02 09:09:23.906  1489  1489 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+07-02 09:09:23.907  1489  4580 D AccessibilityManagerService: .getAccessibilityShortcutTargets {shortcutType=32, userId=0}
+07-02 09:09:23.912  4119  5142 D PickerSyncController:    Latest ID/Gen=f8f63f6aa8083e03:external_primary/1048411
+07-02 09:09:23.913  4119  5142 D PickerSyncController:    Cached ID/Gen=f8f63f6aa8083e03:external_primary/1048363
+07-02 09:09:23.913  4119  5142 D PickerSyncController:    RESULT=SyncRequestParams{type=MEDIA_INCREMENTAL, gen=1048363, latest=Bundle[{last_media_sync_generation=1048411, media_collection_id=f8f63f6aa8083e03:external_primary}], pageSize=1000}
+07-02 09:09:23.913  4119  5142 I PickerSyncController: Executing SyncAdd. isLocal: true. authority: com.android.providers.media.photopicker
+07-02 09:09:23.913  4119  5142 D PickerSyncLockManager: Trying to acquire lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = [] with timeout.
+07-02 09:09:23.913  4119  5142 D CloseableReentrantLock: Successfully acquired lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Locked by thread pool-4-thread-595]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.913  4119  5142 D CloseableReentrantLock: Successfully released lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.915  4119  5142 D ExternalDbFacade: Token received for queryMedia = null
+07-02 09:09:23.918  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:09:23.922  4896  4896 V A11yInputMethod: restartInput(): editor=android.view.inputmethod.EditorInfo@aefaea0
+07-02 09:09:23.922  4896  4896 V A11yInputMethod: CALL: onStartInput
+07-02 09:09:23.928  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:09:23.939  4119  5142 D PickerSyncLockManager: Trying to acquire lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = [] with timeout.
+07-02 09:09:23.939  4119  5142 D CloseableReentrantLock: Successfully acquired lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Locked by thread pool-4-thread-595]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.939  4119  5142 D PickerSyncController: Saving next page token: 1782976161216|1000095939 for key: local_provider:media_add:resume
+07-02 09:09:23.939  4119  5142 D CloseableReentrantLock: Successfully released lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.940  4119  5142 D PickerNotificationSender: Sending a notification for media update
+07-02 09:09:23.941  4119  5142 D PickerNotificationSender: Sending a notification for merged album media update Videos
+07-02 09:09:23.941  4119  5142 D PickerNotificationSender: Sending a notification for album media update Videos
+07-02 09:09:23.941  4119  5142 D PickerNotificationSender: Sending a notification for merged album media update Favorites
+07-02 09:09:23.941  4119  5142 D PickerNotificationSender: Sending a notification for album media update Favorites
+07-02 09:09:23.942  4119  5142 D ExternalDbFacade: Token received for queryMedia = 1782976161216|1000095939
+07-02 09:09:23.944  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:09:23.960  4119  5142 D PickerSyncLockManager: Trying to acquire lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = [] with timeout.
+07-02 09:09:23.960  4119  5142 D CloseableReentrantLock: Successfully acquired lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Locked by thread pool-4-thread-595]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.962  4119  5142 D PickerSyncController: Clearing next page token for key: local_provider:media_add:resume
+07-02 09:09:23.962  4119  5142 D CloseableReentrantLock: Successfully released lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.962  4119  5142 D PickerNotificationSender: Sending a notification for media update
+07-02 09:09:23.963  4119  5142 D PickerNotificationSender: Sending a notification for merged album media update Videos
+07-02 09:09:23.963  4119  5142 D PickerNotificationSender: Sending a notification for album media update Videos
+07-02 09:09:23.964  4119  5142 D PickerNotificationSender: Sending a notification for merged album media update Favorites
+07-02 09:09:23.964  4119  5142 D PickerNotificationSender: Sending a notification for album media update Favorites
+07-02 09:09:23.964  4119  5142 I PickerSyncController: Paged sync successful. QueryArgs: Bundle[{android.provider.extra.PAGE_TOKEN=1782976161216|1000095939, android.provider.extra.SYNC_GENERATION=1048363, android.provider.extra.PAGE_SIZE=1000}] Total Rows: 1
+07-02 09:09:23.965  4119  5142 I PickerSyncController: Executing SyncRemove. isLocal: true. authority: com.android.providers.media.photopicker
+07-02 09:09:23.965  4119  5142 D PickerSyncLockManager: Trying to acquire lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = [] with timeout.
+07-02 09:09:23.966  4119  5142 D CloseableReentrantLock: Successfully acquired lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Locked by thread pool-4-thread-595]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.966  4119  5142 D CloseableReentrantLock: Successfully released lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.969  4119  5142 D PickerSyncLockManager: Trying to acquire lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = [] with timeout.
+07-02 09:09:23.969  4119  5142 D CloseableReentrantLock: Successfully acquired lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Locked by thread pool-4-thread-595]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.969  4119  5142 D PickerSyncController: Clearing next page token for key: local_provider:media_remove:resume
+07-02 09:09:23.969  4119  5142 D CloseableReentrantLock: Successfully released lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@663fc69[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+07-02 09:09:23.969  4119  5142 D PickerNotificationSender: Sending a notification for media update
+07-02 09:09:23.970  4119  5142 D PickerNotificationSender: Sending a notification for merged album media update Videos
+07-02 09:09:23.970  4119  5142 D PickerNotificationSender: Sending a notification for album media update Videos
+07-02 09:09:23.971  4119  5142 D PickerNotificationSender: Sending a notification for merged album media update Favorites
+07-02 09:09:23.971  4119  5142 D PickerNotificationSender: Sending a notification for album media update Favorites
+07-02 09:09:23.972  4119  5142 I PickerSyncController: Paged sync successful. QueryArgs: Bundle[{android.provider.extra.PAGE_TOKEN=1782976161216|1000095939, android.provider.extra.SYNC_GENERATION=1048363, android.provider.extra.PAGE_SIZE=1000}] Total Rows: 0
+07-02 09:09:23.973  4119  5142 I PickerSyncTracker: Marked sync future complete for work id: 98dd44e2-0804-44b3-90b7-b4dc7a917819. Future map: {}
+07-02 09:09:23.973  4119  5142 I PSyncWorker: Completed picker proactive sync complete from local provider.
+07-02 09:09:23.977  4119  4280 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=98dd44e2-0804-44b3-90b7-b4dc7a917819, tags={ com.android.providers.media.photopicker.sync.ProactiveSyncWorker } ]
+07-02 09:09:23.980  4119  4119 D WM-Processor: Processor 98dd44e2-0804-44b3-90b7-b4dc7a917819 executed; reschedule = false
+07-02 09:09:23.984  4119  4119 D WM-GreedyScheduler: Stopping tracking for WorkGenerationalId(workSpecId=98dd44e2-0804-44b3-90b7-b4dc7a917819, generation=0)
+07-02 09:09:23.985  4119  4119 D WM-SystemJobService: 98dd44e2-0804-44b3-90b7-b4dc7a917819 executed on JobScheduler
+07-02 09:09:23.990  4119  4280 D WM-GreedyScheduler: Cancelling work ID 98dd44e2-0804-44b3-90b7-b4dc7a917819
+07-02 09:09:23.991  1489  4866 W JobScheduler: Job didn't exist in JobStore: 69cf389 {androidx.work.systemjobscheduler} #u0a270/83941 #ProactiveSyncWorker#@androidx.work.systemjobscheduler@com.google.android.providers.media.module/androidx.work.impl.background.systemjob.SystemJobService
+07-02 09:09:23.991  4119  4119 D WM-SystemJobService: onStopJob for WorkGenerationalId(workSpecId=98dd44e2-0804-44b3-90b7-b4dc7a917819, generation=0)
+07-02 09:09:23.996  4119  4280 D WM-GreedyScheduler: Ignoring {WorkSpec: bbba5780-e95f-480d-bb79-3ab0cddf6671}. Requires device idle.
+07-02 09:09:23.996  4119  4280 D WM-GreedyScheduler: Ignoring {WorkSpec: ddc5f3ac-b207-46e6-91e3-e379bfa09f0c}. Requires device idle.
+07-02 09:09:23.996  4119  4280 D WM-GreedyScheduler: Ignoring {WorkSpec: 43befa99-d9fe-4dbb-9945-60c559f65d8d}. Requires device idle.
+07-02 09:09:23.996  4119  4280 D WM-GreedyScheduler: Ignoring {WorkSpec: 7986c718-24b6-4d0c-8455-398f5edff930}. Requires device idle.
+07-02 09:09:23.997  4119  4272 D WM-BrdcstRcvrCnstrntTrc: BatteryNotLowTracker: unregistering receiver
+07-02 09:09:24.022  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:09:24.022  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:09:24.022  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:09:24.022  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:09:24.021   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.024   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.257281 hPa (bucket: 6), duration = 201.000000 ms (bucket: 18).
+07-02 09:09:24.024   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.028   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.111249 hPa (bucket: 2), duration = 120.000000 ms (bucket: 11).
+07-02 09:09:24.029   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.030   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.119580 hPa (bucket: 3), duration = 80.000000 ms (bucket: 7).
+07-02 09:09:24.030   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.030   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.169886 hPa (bucket: 4), duration = 321.000000 ms (bucket: 27).
+07-02 09:09:24.031   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.031   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.209004 hPa (bucket: 5), duration = 120.000000 ms (bucket: 11).
+07-02 09:09:24.031   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.031   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.140171 hPa (bucket: 3), duration = 40.000000 ms (bucket: 3).
+07-02 09:09:24.032   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.032   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 1.274011 hPa (bucket: 22), duration = 523.000000 ms (bucket: 42).
+07-02 09:09:24.032   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.032   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.317310 hPa (bucket: 7), duration = 201.000000 ms (bucket: 18).
+07-02 09:09:24.033   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.033   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.149170 hPa (bucket: 3), duration = 160.000000 ms (bucket: 14).
+07-02 09:09:24.033   974  1044 D CHRE.HAL: Received a nanoapp message from 0x476f6f676c001022 endpoint 0x8042: Type 0x3 size 8 
+07-02 09:09:24.034   998  1598 I suez-nanoapp-clients: Barometric peak detected: magnitude = 0.144623 hPa (bucket: 3), duration = 120.000000 ms (bucket: 11).
+07-02 09:09:24.034   974  1044 I CHRE    : @ 160232.099: [ip] Peak detected: magnitude = 0.257281 hpa, duration = 201.000000 ms
+07-02 09:09:24.034   974  1044 I CHRE    : @ 160232.099: [ip] Peak detected: magnitude = 0.111249 hpa, duration = 120.000000 ms
+07-02 09:09:24.034   974  1044 I CHRE    : @ 160232.099: [ip] Peak detected: magnitude = 0.119580 hpa, duration = 80.000000 ms
+07-02 09:09:24.034   974  1044 I CHRE    : @ 160232.099: [ip] Peak detected: magnitude = 0.169886 hpa, duration = 321.000000 ms
+07-02 09:09:24.034   974  1044 I CHRE    : @ 160232.099: [ip] Peak detected: magnitude = 0.209004 hpa, duration = 120.000000 ms
+07-02 09:09:24.034   974  1044 I CHRE    : @ 160232.100: [ip] Peak detected: magnitude = 0.140171 hpa, duration = 40.000000 ms
+07-02 09:09:24.035   974  1044 I CHRE    : @ 160232.100: [ip] Peak detected: magnitude = 1.274011 hpa, duration = 523.000000 ms
+07-02 09:09:24.035   974  1044 I CHRE    : @ 160232.100: [ip] Peak detected: magnitude = 0.317310 hpa, duration = 201.000000 ms
+07-02 09:09:24.035   974  1044 I CHRE    : @ 160232.100: [ip] Peak detected: magnitude = 0.149170 hpa, duration = 160.000000 ms
+07-02 09:09:24.035   974  1044 I CHRE    : @ 160232.101: [ip] Peak detected: magnitude = 0.144623 hpa, duration = 120.000000 ms
+07-02 09:09:24.126  2895  2895 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:09:24.135  9052  9191 I NotifySyncService_9052_9191: MSG_NOTIFY_POSTED 
+07-02 09:09:24.135  4164  5506 I AiAiEcho: SmartspaceNotificationPredictor no parser can handle this notification or notification is invalid
+07-02 09:09:24.136  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:9 key:0|com.burockgames.timeclocker|9|null|10425 PackageName:com.burockgames.timeclocker IsOngoing:true PostTime:1782976163881 currentDeviceModel.connected: true
+07-02 09:09:24.136  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:9 , appName : StayFree
+07-02 09:09:24.136  9052  9191 I NotifySyncService_9052_9191:  isOngoing = true isIncomingCall = false
+07-02 09:09:24.138  9052  9155 I NotifyLogUtils_9052_9155: isIgnoringBatteryOptimizations false
+07-02 09:09:24.171  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:09:24.172  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:09:24.172  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:09:24.187  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:09:24.194  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:09:24.201  4779  3975 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:09:24.324  2520  2592 W System  : A resource failed to call release. 
+07-02 09:09:24.324  2520  2592 W System  : A resource failed to call release. 
+07-02 09:09:24.324  2520  2592 W System  : A resource failed to call release. 
+07-02 09:09:24.324  2520  2592 W System  : A resource failed to call release. 
+07-02 09:09:24.385  2895  2895 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:09:24.393  4164  5506 I AiAiEcho: SmartspaceNotificationPredictor no parser can handle this notification or notification is invalid
+07-02 09:09:24.397  9052  9191 I NotifySyncService_9052_9191: MSG_NOTIFY_POSTED 
+07-02 09:09:24.397  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:9 key:0|com.burockgames.timeclocker|9|null|10425 PackageName:com.burockgames.timeclocker IsOngoing:true PostTime:1782976164091 currentDeviceModel.connected: true
+07-02 09:09:24.397  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:9 , appName : StayFree
+07-02 09:09:24.397  9052  9191 I NotifySyncService_9052_9191:  isOngoing = true isIncomingCall = false
+07-02 09:09:24.400  9052  9155 I NotifyLogUtils_9052_9155: isIgnoringBatteryOptimizations false
+07-02 09:09:24.407  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:09:24.410  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:09:24.769  1489  2674 W ParceledListSlice: Element #27 is 20908 bytes.
+07-02 09:09:24.770  1489  2674 W ParceledListSlice: Element #28 is 21268 bytes.
+07-02 09:09:24.780  1489  1561 W ParceledListSlice: Element #37 is 42368 bytes.
+07-02 09:09:24.781  1489  1561 W ParceledListSlice: Element #38 is 38972 bytes.
+07-02 09:09:24.786  1489  1561 W ParceledListSlice: Element #39 is 38188 bytes.
+07-02 09:09:24.796  1489  1561 W ParceledListSlice: Element #58 is 154812 bytes.
+07-02 09:09:24.797  1489  1561 W ParceledListSlice: Overly large reply size: 167696
+07-02 09:09:24.857  1235  1235 I adbd    : adbd service requested 'shell,v2,raw:dumpsys window'
+07-02 09:09:24.914   968  1602 I AHal::Cs35l41Health: GetImpedances: speaker [0] impedance: 6.06306 Ohms
+07-02 09:09:24.914   968  1602 I AHal::Cs35l41Health: GetImpedances: speaker [1] impedance: 7.07547 Ohms
+07-02 09:09:24.915   968  1602 I AHal::Cs35l41Health: GetTemperatures: DSP1 Protection cd BDLOG_MAX_TEMP Max temp: 0x19dca4 ==> 103.448 C
+07-02 09:09:24.915   968  1602 I AHal::Cs35l41Health: GetTemperatures: R DSP1 Protection cd BDLOG_MAX_TEMP Max temp: 0x18f310 ==> 99.7979 C
+07-02 09:09:24.915   968  1602 I AHal::Cs35l41Health: GetExcursions: DSP1 Protection cd BDLOG_MAX_EXC Max exc: 0x39999 ==> 0.449999 mm
+07-02 09:09:24.915   968  1602 I AHal::Cs35l41Health: GetExcursions: R DSP1 Protection cd BDLOG_MAX_EXC Max exc: 0x33334 ==> 0.400002 mm
+07-02 09:09:24.916   968  1602 I AHal::Cs35l41Health: GetHeartBeats: DSP1 Protection 400a4 HALO_HEARTBEAT dsp heartbeat = 0x17258
+07-02 09:09:24.916   968  1602 I AHal::Cs35l41Health: GetHeartBeats: R DSP1 Protection 400a4 HALO_HEARTBEAT dsp heartbeat = 0x54b9e
+07-02 09:09:24.978  1028  1795 D StreamHalAidl: [out|ioHandle:13] standby
+07-02 09:09:24.978  1028  1795 D StreamHalAidl: [out|ioHandle:13] pause
+07-02 09:09:24.978   968  1793 I AHal::Stream: Stop: stop stream primary-playback
+07-02 09:09:24.978   968  1793 I AHal::TinyalsaDriverOperations: Stop: pcm_close card_index 0 device 1
+07-02 09:09:24.980  1209  1209 D AOC     : F1:MSG: controller.cc, 275: AudioOutCtrl: cmd ID: 0x00c9, tag: 0xee [cntr = 36029]
+07-02 09:09:24.980  1209  1209 D AOC     : F1:MSG: controller.cc, 919: AudioOutCtrl: ipc: audio_output_co, cmd ID: 0x00c9, tag: 0xee, rc: 0
+07-02 09:09:24.984   968  1793 I AHal::Router: Deactivate: deactivate 400001
+07-02 09:09:24.984   968  1793 I AHal::DspModeAdapter: OnEarlyNotifyRoutingGraphChange: Just return, it's the case from inactive to active.
+07-02 09:09:24.984   968  1793 I AHal::Router: InvalidateLocked: new graph #7786 Edges(0):
+07-02 09:09:24.984   968  1793 I AHal::Router: InvalidateLocked: ============ apply graph #7786 [Thu Jul  2 09:09:24 2026] start ============
+07-02 09:09:24.984   968  1793 I AHal::Waves: UpdateActiveDevices: removing speaker
+07-02 09:09:24.984   968  1793 I AHal::DeviceInterface: Disconnect: disconnect primary-playback-0 -> speaker
+07-02 09:09:24.985  1209  1209 D AOC     : F1:MSG: controller.cc, 275: AudioOutCtrl: cmd ID: 0x010f, tag: 0xef [cntr = 36030]
+07-02 09:09:24.985   968  1793 I AHal::AudioRoutePathController: ResetPath: primary-playback-0 -> speaker: true
+07-02 09:09:24.985  1209  1209 D AOC     : F1:Unregistered Source 1 [Primary] from Sink 0 [Speaker]
+07-02 09:09:24.985  1209  1209 D AOC     : F1:AT Map:0 (LL:0), 0 EPs active, Power: Yes, Config: No
+07-02 09:09:24.986  1209  1209 D AOC     : F1:Mixer 0 configuration changed: (0)
+07-02 09:09:24.986   968  1793 I AHal::AudioRoutePathController: ResetPath: speaker: true
+07-02 09:09:24.986  1209  1209 D AOC     : F1:Sink 0 Configuration changed: ULL (disabled)
+07-02 09:09:24.986   968  1793 I AHal::Speaker: Disable: speaker
+07-02 09:09:24.987   968  1793 I AHal::AudioRoutePathController: ResetPath: hostless-ulC spk-vi: true
+07-02 09:09:24.987   968  1793 I AHal::TinyalsaDriverOperations: Stop: pcm_close card_index 0 device 15
+07-02 09:09:24.987   968  1793 I AHal::AdaptedRouteControl: Update: update route from adapted-speaker to null
+07-02 09:09:24.987   968  1793 I AHal::AudioRoutePathController: ResetPath: adapted-speaker: true
+07-02 09:09:24.987   968  1793 I AHal::Router: LogTransferring: Transferring (1):
+07-02 09:09:24.987   968  1793 I AHal::Router: LogTransferring:   primary-playback-0 -> speaker => (null)
+07-02 09:09:24.987   968  1793 I AHal::PlaybackThermalThrottleByTemperature: Update Temperature: kOnce to kIdle
+07-02 09:09:24.988   968  1793 I AHal::VoiceCall: Update: reset echo reference device
+07-02 09:09:24.988   968  1531 I AHal::BatteryAdaptiveAudio: ProcessPlaybackTunerControl: update playback tuner with Bypassed
+07-02 09:09:24.988   968  1793 I AHal::Router: InvalidateLocked: ============ apply graph #7786 end ============
+07-02 09:09:24.988   968  1793 D AHal::AudioMetric::EventDataHandler: UpdatePlaybackInfo: Updating Playback Info: PlaybackInfo {}
+07-02 09:09:24.988   968  1793 D AHal::AudioMetric::AtomWriter: WriteAtom: Writing atom to statsd service. Atom: MediaPlaybackUsageAtom: Playback Info: PlaybackInfo {Route: {audio_source: SYS_RESERVED_INVALID, device: speaker, use_case: primary-playback}, volume: 0, is_active: 0, sample_rate: 48000, channel_count: 2, audio_format_type: PCM, pcm_type: FLOAT_32_BIT, encoding:  }, Device State: {camera_type: Back, screen_orientation: DEG_0, screen_state: on, folded_type: kUnknown, in_thermal_throttle_duration_ms: 0, thermal_throttle_count: 0, in_acoustic_shock_duration_ms: 0, acoustic_shock_count: 0, in_battery_adapted_audio_control_duration_ms: 0, battery_adapted_audio_control_count: 0}, duration_second: 3, startup latencies: {usecase: primary-playback, startup_latency_ms: 8 }, is_ended: 1
+07-02 09:09:24.988   968  1793 D AHal::AudioMetric::EventDataHandler: UpdateCaptureInfo: Updating Capture Info: CaptureInfo: {}
+07-02 09:09:24.988   968  1793 D AHal::AudioMetric::EventDataHandler: UpdateCallInfo: Updating Call Info: RoutingInfo:
+07-02 09:09:24.988   968  1793 D AHal::AudioMetric::EventDataHandler: Uplink: NULL, 
+07-02 09:09:24.988   968  1793 D AHal::AudioMetric::EventDataHandler: Downlink: NULL
+07-02 09:09:24.988   968  1793 D AHal::AudioMetric::EventDataHandler: AudioMode: NORMAL
+07-02 09:09:24.988   968  1793 I AHal::AocDspModeAdapter: RemoveRoutes: remove Route:{{use case = primary-playback, device = speaker, source = SYS_RESERVED_INVALID, channel_count = 2}}, current active route: 
+07-02 09:09:24.988   968  1793 I AHal::AocDspModeAdapter: SetAudioTaskActive: Updated audio task is 0
+07-02 09:09:24.988   968  1793 I ASvc::PeriodicWorker: SetLinkedConfigIds: update linked configs []
+07-02 09:09:24.990  1028  1795 D StreamHalAidl: [out|ioHandle:13] flush
+07-02 09:09:24.990   968  1793 I ASvc::CommandWorker: cw-primary-playback: Command{flush: Void{}} in StreamOutPausedState
+07-02 09:09:24.990   968  1793 I ASvc::StreamOutSyncStates: FlushDataQueue: flush 0 bytes in data queue
+07-02 09:09:24.990   968  1793 I ASvc::CommandWorker: cw-primary-playback: Command{standby: Void{}} in StreamOutIdleState
+07-02 09:09:24.990  1209  1209 D AOC     : F1:[Idle Tracker] long no idle:[5] average between idle:[1.730688ms] max no idle:[116.633966ms]
+07-02 09:09:24.991  1209  1209 D AOC     : F1:MSG: controller.cc, 919: AudioOutCtrl: ipc: audio_output_co, cmd ID: 0x010f, tag: 0xef, rc: 0
+07-02 09:09:24.991  1209  1209 D AOC     : H0:Mixer AMixSPKR: 480 samples (0000/0000) (OFF SC) multi out OFF
+07-02 09:09:24.991  1209  1209 D AOC     : H0:Mixer configuration updated
+07-02 09:09:24.991  1209  1209 D AOC     : H0:[Idle Tracker] long no idle:[6] average between idle:[3.538932ms] max no idle:[149.589329ms]
+07-02 09:09:24.991   968  1602 I AHal::Cs35l41Codec: skip health data provide
+07-02 09:09:25.092  1489  1583 W ActivityManager: Rescheduling restart of crashed service com.google.android.projection.gearhead/com.google.android.apps.auto.carservice.service.impl.GearheadCarStartupService in 0ms for mem-pressure-event
+07-02 09:09:25.093  1489  1584 D ActivityManager: Delaying restart of ServiceRecord{87f29b5 u0 com.google.android.projection.gearhead/com.google.android.apps.auto.carservice.service.impl.GearheadCarStartupService c:com.google.android.apps.maps} because all clients are frozen
+07-02 09:09:25.214  1235  1235 I adbd    : adbd service requested 'exec:screencap '-p''
+07-02 09:09:25.318   551 10287 E gralloc5: Producer and consumer not identified.
+07-02 09:09:25.326  1489  2674 D InputManagerService: transferTouchGesture: transferEntireGesture=true
+07-02 09:09:25.345   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:25.386  1489  2066 I ImeTracker: com.android.chrome:6a5841d4: onRequestHide at ORIGIN_SERVER reason HIDE_SAME_WINDOW_FOCUSED_WITHOUT_EDITOR fromUser false userId 0 displayId 0
+07-02 09:09:25.387 14281 14281 D InsetsController: hide(ime())
+07-02 09:09:25.387 14281 14281 I ImeTracker: com.android.chrome:6a5841d4: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+07-02 09:09:25.389  4896  4896 V A11yInputMethod: startInput(): editor=android.view.inputmethod.EditorInfo@f024a59
+07-02 09:09:25.389  4896  4896 V A11yInputMethod: CALL: doFinishInput
+07-02 09:09:25.389  4896  4896 V A11yInputMethod: CALL: onFinishInput
+07-02 09:09:25.391  1489  2066 W InputChannel-JNI: Channel already disposed.
+07-02 09:09:25.398  9962  9962 W c0      : onStartInput event aborted
+07-02 09:09:25.398  9962  9962 W c0      : fc0.z: could not obtain extracted text
+07-02 09:09:25.398  9962  9962 W c0      : 	at fc0.w0.H(SourceFile:329)
+07-02 09:09:25.398  9962  9962 W c0      : 	at m70.y.g(SourceFile:285)
+07-02 09:09:25.398  9962  9962 W c0      : 	at m70.f3.g(SourceFile:4)
+07-02 09:09:25.398  9962  9962 W c0      : 	at com.touchtype.KeyboardService.onStartInput(SourceFile:11)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3403)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.startInput(InputMethodService.java:821)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:852)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:200)
+07-02 09:09:25.398  9962  9962 W c0      : 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.os.Handler.dispatchMessageImpl(Handler.java:142)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.os.Handler.dispatchMessage(Handler.java:125)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.os.Looper.loopOnce(Looper.java:296)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.os.Looper.loop(Looper.java:397)
+07-02 09:09:25.398  9962  9962 W c0      : 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+07-02 09:09:25.398  9962  9962 W c0      : 	at java.lang.reflect.Method.invoke(Native Method)
+07-02 09:09:25.398  9962  9962 W c0      : 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+07-02 09:09:25.398  9962  9962 W c0      : 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+07-02 09:09:25.488  5152  5152 W libbinder.BackendUnifiedServiceManager: Thread Pool max thread count is 0. Cannot cache binder as linkToDeath cannot be implemented. serviceName: SurfaceFlingerAIDL
+07-02 09:09:25.488  5152  5152 W libbinder.BpBinder: Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+07-02 09:09:25.488  5152  5152 W libbinder.ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+07-02 09:09:25.524  2201  2205 I deeptouch: I0000 00:00:1782976165.524154    2205 tf_lite_classifier.cc:415] Event stream classified as kNone
+07-02 09:09:25.689  1027  1027 I WifiHAL : Creating message to get link statistics; iface = 47
+07-02 09:09:25.717  1027  4008 I WifiHAL : Getting cached scan results, iface handle = 0xb4000074df637e90
+07-02 09:09:25.718  1027  4008 E WifiHAL : Creating message to get cached scan results
+07-02 09:09:25.722  1027  4008 I WifiHAL : In GetCachedScanResultsCommand::handleResponse
+07-02 09:09:25.740  1027  4008 D WifiHAL : Start debug command: mType GET_FEATURE
+07-02 09:09:25.740  1027  4008 I WifiHAL : CreateRequest mType = GET_FEATURE
+07-02 09:09:25.741  1027  4008 D WifiHAL : In DebugCommand::handleResponse, mType:GET_FEATURE
+07-02 09:09:25.741  1027  4008 D WifiHAL : len = 4, expected len = 4
+07-02 09:09:25.742  1489  2093 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-02 09:09:25.799  1489  1574 W AccessibilityWindowsPopulator: Windows change within in 2 frames continuously over 500 ms and notify windows changed immediately
+07-02 09:09:25.800   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:25.847  4694  4708 E ashmem  : readlink(/proc/self/fd/81) failed: Operation not permitted
+07-02 09:09:25.848  4694  4708 E ashmem  : readlink(/proc/self/fd/88) failed: Operation not permitted
+07-02 09:09:25.870   551 10287 E gralloc5: Producer and consumer not identified.
+07-02 09:09:25.872  1489  4580 D InputManagerService: transferTouchGesture: transferEntireGesture=true
+07-02 09:09:25.887   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,947,8)
+07-02 09:09:25.982  4694  4705 E ashmem  : readlink(/proc/self/fd/84) failed: Operation not permitted
+07-02 09:09:26.070  2201  2205 I deeptouch: I0000 00:00:1782976166.070515    2205 tf_lite_classifier.cc:415] Event stream classified as kNone
+07-02 09:09:26.153  1235  1235 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''

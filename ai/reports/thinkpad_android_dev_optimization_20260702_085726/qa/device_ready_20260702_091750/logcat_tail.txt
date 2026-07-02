@@ -1,0 +1,434 @@
+--------- beginning of main
+07-02 09:18:08.947  2520  2520 D TaskThumbnailView: [TaskThumbnailView@5b549f0] taskId: 30524 - uiState changed from: BackgroundOnly(backgroundColor=-328966) to: SnapshotSplash(snapshot=Snapshot(bitmap=android.graphics.Bitmap@ff30c9b, thumbnailRotation=0, backgroundColor=-328966), splash=null)
+07-02 09:18:08.947  2520  2520 D b/417220811: Task id: 30433, thumbnailData: null, isLocked: false
+07-02 09:18:08.947  2520  2520 D TaskThumbnailView: [TaskThumbnailView@2bd151c] taskId: 30433 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-328966)
+07-02 09:18:08.947  2520  2520 D b/417220811: Task id: 30490, thumbnailData: null, isLocked: false
+07-02 09:18:08.947  2520  2520 D TaskThumbnailView: [TaskThumbnailView@9146708] taskId: 30490 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.947  2520  2520 D b/417220811: Task id: 30475, thumbnailData: null, isLocked: false
+07-02 09:18:08.947  2520  2520 D TaskThumbnailView: [TaskThumbnailView@a0cebb4] taskId: 30475 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-328966)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30523, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@8670f20] taskId: 30523 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1580820)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30572, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@7dfd4c] taskId: 30572 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30443, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@733a238] taskId: 30443 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-328966)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30570, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@b9ca9e4] taskId: 30570 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-13619152)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30569, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@e5f36f4] taskId: 30569 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30553, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@8b2ce60] taskId: 30553 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30540, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@e493f54] taskId: 30540 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1580820)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30463, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@4e6708c] taskId: 30463 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-328966)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30519, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@6d00978] taskId: 30519 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30493, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@7b84524] taskId: 30493 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30518, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@ac68f90] taskId: 30518 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.948  2520  2520 D b/417220811: Task id: 30459, thumbnailData: null, isLocked: false
+07-02 09:18:08.948  2520  2520 D TaskThumbnailView: [TaskThumbnailView@c2d14bc] taskId: 30459 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-328966)
+07-02 09:18:08.949  2520  2520 D b/417220811: Task id: 30541, thumbnailData: null, isLocked: false
+07-02 09:18:08.949  2520  2520 D TaskThumbnailView: [TaskThumbnailView@714c0a8] taskId: 30541 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.949  2520  2520 D b/417220811: Task id: 30425, thumbnailData: null, isLocked: false
+07-02 09:18:08.949  2520  2520 D TaskThumbnailView: [TaskThumbnailView@3a4fcc0] taskId: 30425 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-328966)
+07-02 09:18:08.949  2520  2520 D b/417220811: Task id: 30517, thumbnailData: null, isLocked: false
+07-02 09:18:08.949  2520  2520 D TaskThumbnailView: [TaskThumbnailView@25ddfe7] taskId: 30517 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.949  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.949  2520  2520 D b/417220811: Task id: 30537, thumbnailData: null, isLocked: false
+07-02 09:18:08.949  2520  2520 D TaskThumbnailView: [TaskThumbnailView@21e9383] taskId: 30537 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-16777216)
+07-02 09:18:08.949  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.950  2520  2520 D b/417220811: Task id: 30535, thumbnailData: null, isLocked: false
+07-02 09:18:08.950  2520  2520 D TaskThumbnailView: [TaskThumbnailView@4ace4df] taskId: 30535 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.950  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+--------- beginning of system
+07-02 09:18:08.950  1489  2066 E HandwritingModeController: Cannot get requestId: Handwriting was not initialized.
+07-02 09:18:08.950  2520  2520 D b/417220811: Task id: 30534, thumbnailData: null, isLocked: false
+07-02 09:18:08.950  2520  2520 D TaskThumbnailView: [TaskThumbnailView@aa4effb] taskId: 30534 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-14869219)
+07-02 09:18:08.950  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.950  2520  2520 D b/417220811: Task id: 30533, thumbnailData: null, isLocked: false
+07-02 09:18:08.950  2520  2520 D TaskThumbnailView: [TaskThumbnailView@84890d7] taskId: 30533 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-328966)
+07-02 09:18:08.950  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.950  2520  2520 D b/417220811: Task id: 30532, thumbnailData: null, isLocked: false
+07-02 09:18:08.950  2520  2520 D TaskThumbnailView: [TaskThumbnailView@a1b6373] taskId: 30532 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1580820)
+07-02 09:18:08.950  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.950  2520  2520 D b/417220811: Task id: 30528, thumbnailData: null, isLocked: false
+07-02 09:18:08.950  2520  2520 D TaskThumbnailView: [TaskThumbnailView@73ec3cf] taskId: 30528 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-15527148)
+07-02 09:18:08.950  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.950  1489  1561 D WindowManager: setClientSurface Surface(name=VRI-app.lawnchair.play/app.lawnchair.LawnchairLauncher#59044)/@0xfa7bc48 for 409f577 app.lawnchair.play/app.lawnchair.LawnchairLauncher
+07-02 09:18:08.950  2520  2520 D b/417220811: Task id: 30522, thumbnailData: null, isLocked: false
+07-02 09:18:08.950  2520  2520 D TaskThumbnailView: [TaskThumbnailView@d8dcdeb] taskId: 30522 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-16777216)
+07-02 09:18:08.950  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.950  2520  2520 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+07-02 09:18:08.951  2212  2232 D WindowManagerShell: onActivityRestartAttempt: topActivity=ComponentInfo{app.lawnchair.play/app.lawnchair.LawnchairLauncher}, wasVisible=false, displayId=0, pipDisplayLayoutState#displayId=0
+07-02 09:18:08.953  2212  2841 V ShellRecents: [210719058] RecentsController.detachNavigationBarFromApp
+07-02 09:18:08.955   550   593 I libbinder.BpBinder: onLastStrongRef automatically unlinking death recipients for binder (0xb400007c16973fd0) with descriptor: '(not cached)'
+07-02 09:18:08.960  4453  4453 D BaseDepthController: mSurface is null and mCurrentBlur is: 0
+07-02 09:18:08.960  4453  4453 D BaseDepthController: mSurface is null and mCurrentBlur is: 0
+07-02 09:18:08.960  2520  2520 D b/417220811: Task id: 30521, thumbnailData: null, isLocked: false
+07-02 09:18:08.960  2520  2520 D TaskThumbnailView: [TaskThumbnailView@3795dc7] taskId: 30521 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-1)
+07-02 09:18:08.960  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.961  2520  2520 D b/417220811: Task id: 30520, thumbnailData: null, isLocked: false
+07-02 09:18:08.961  2520  2520 D TaskThumbnailView: [TaskThumbnailView@ba40f63] taskId: 30520 - uiState changed from: Uninitialized to: BackgroundOnly(backgroundColor=-791563)
+07-02 09:18:08.961  2520  2520 W BitmapDrawable: BitmapDrawable created with null Bitmap
+07-02 09:18:08.963   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:08.964  1489  1571 V WindowManager: Sent Transition (#6174) createdAt=07-02 09:18:08.935 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=30420 effectiveUid=10390 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000000 cmp=app.lawnchair.play/app.lawnchair.LawnchairLauncher } baseActivity=ComponentInfo{app.lawnchair.play/app.lawnchair.LawnchairLauncher} topActivity=ComponentInfo{app.lawnchair.play/app.lawnchair.LawnchairLauncher} origActivity=null realActivity=ComponentInfo{app.lawnchair.play/app.lawnchair.LawnchairLauncher} realActivityIsAppLockEnabled=false numActivities=1 lastActiveTime=160754792 supportsMultiWindow=true supportsMultiWindowWithoutConstraints=true resizeMode=2 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{1bca98 Task{569928b #30420 type=home I=app.lawnchair.play/app.lawnchair.LawnchairLauncher}}} topActivityType=2 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 0 - 0, 0) topActivityInfo=ActivityInfo{d1fc2f1 app.lawnchair.LawnchairLauncher} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isInteractive=true isVisible=false isVisibleRequested=true isTopActivityNoDisplay=false isSleeping=false locusId=LocusId[17_chars] displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=null leafTaskBoundsFromOptions= false capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=503 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false isLeafTask= true eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 1080, 2400) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null topNonResizableActivityAspectRatio=-1.0} topActivityMainWindowFrame=null isAppBubble=false}, pipChange = null, remoteTransitionInfo = null, displayChanges = null, requestedLocation = null, userChange = null, windowingLayerChange = null, fullscreenRequestChange = null, flags = 0, debugId = 6174 }
+07-02 09:18:08.964  1489  1571 V WindowManager:     startWCT=WindowContainerTransaction { changes= {} hops= [] flags= 0 errorCallbackToken=null taskFragmentOrganizer=null }
+07-02 09:18:08.964  4453  4453 I Surface : Creating surface for consumer unnamed-4453-1324 with slotExpansion=1 for 64 slots
+07-02 09:18:08.964  1489  1571 V WindowManager:     info={id=6174 t=OPEN f=0x0 trk=1 r=[0@Point(0, 0)] c=[
+07-02 09:18:08.964  1489  1571 V WindowManager:         {WCT{RemoteToken{6143114 Task{b75a07c #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP|FLAG_CHANGED_INTERACTIVE leash=Surface(name=Task=1#35)/@0x16c9c19 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1 winMode=1 userId=0},
+07-02 09:18:08.964  1489  1571 V WindowManager:         {WCT{RemoteToken{e3904e6 Task{79d3dc0 #30422 type=recents I=com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity}}} m=TO_BACK f=SHOW_WALLPAPER|FLAG_CHANGED_INTERACTIVE leash=Surface(name=Task=30422#306)/@0x3689e28 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1 winMode=1 userId=0},
+07-02 09:18:08.964  1489  1571 V WindowManager:         {WCT{RemoteToken{6a67fd5 Task{202530 #30529 type=standard A=10331:org.telegram.messenger}}} m=TO_BACK f=FLAG_CHANGED_INTERACTIVE leash=Surface(name=Task=30529#49382)/@0x196edbf sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1 winMode=1 userId=0}
+07-02 09:18:08.964  1489  1571 V WindowManager:     ]}
+07-02 09:18:08.964  4453  4453 I Surface : Creating surface for consumer ac15b16 SurfaceView[app.lawnchair.play/app.lawnchair.LawnchairLauncher]#1317(BLAST Consumer)1317 with slotExpansion=1 for 64 slots
+07-02 09:18:08.972  2212  2842 V WindowManagerShell: onTransitionReady(transaction=6395209479531)
+07-02 09:18:08.973  2212  2232 V WindowManagerShell: onTransitionReady (#6174) android.os.BinderProxy@dd5b0a4: {id=6174 t=OPEN f=0x0 trk=1 r=[0@Point(0, 0)] c=[
+07-02 09:18:08.973  2212  2232 V WindowManagerShell:         {m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP|FLAG_CHANGED_INTERACTIVE leash=Surface(name=Task=1#35)/@0xc8c31c2 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1 winMode=1 userId=0},
+07-02 09:18:08.973  2212  2232 V WindowManagerShell:         {m=TO_BACK f=SHOW_WALLPAPER|FLAG_CHANGED_INTERACTIVE leash=Surface(name=Task=30422#306)/@0xce67bd3 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1 winMode=1 userId=0},
+07-02 09:18:08.973  2212  2232 V WindowManagerShell:         {m=TO_BACK f=FLAG_CHANGED_INTERACTIVE leash=Surface(name=Task=30529#49382)/@0xf3310 sb=Rect(0, 0 - 1080, 2400) eb=Rect(0, 0 - 1080, 2400) epz=Point(1080, 2400) d=0 taskParent=-1 winMode=1 userId=0}
+07-02 09:18:08.973  2212  2232 V WindowManagerShell:     ]}
+07-02 09:18:08.973  2212  2232 V WindowManagerShell: FocusTransitionObserver: Updating focus state for transition #6174
+07-02 09:18:08.973  2212  2232 D WindowManagerShell: FocusTransitionObserver: Focus updated on displayId=0 to taskId=1
+07-02 09:18:08.973  2212  2232 V WindowManagerShell: FocusTransitionObserver: Notifying local listeners of task focus change: taskId=30422, isFocusedOnDisplay=false, isFocusedGlobally=false
+07-02 09:18:08.973  2212  2232 V WindowManagerShell: FocusTransitionObserver: Notifying local listeners of task focus change: taskId=1, isFocusedOnDisplay=true, isFocusedGlobally=true
+07-02 09:18:08.973  2212  2232 V ShellDesktopMode: DesktopModeLogger: taskInfo map after processing changes 0
+07-02 09:18:08.973  2212  2232 D ShellDesktopMode: DesktopTaskChangeListener: onTaskMovingToFront for taskId=1, displayId=0 - desktop not supported
+07-02 09:18:08.974  2212  2232 V WindowManagerShell: Transition (#6174) android.os.BinderProxy@dd5b0a4@1 ready while (#6173) android.os.BinderProxy@eb01dd@1 is still animating. Notify the animating transition in case they can be merged
+07-02 09:18:08.974  2212  2232 V ShellRecents: [210719058] RecentsController.merge
+07-02 09:18:08.974  2212  2232 V ShellRecents: [210719058]   Opening task=1
+07-02 09:18:08.974  2212  2232 V ShellRecents: [210719058]   Closing recents
+07-02 09:18:08.974  2212  2232 V ShellRecents: [210719058]   Closing task=30529
+07-02 09:18:08.974  2212  2232 V ShellRecents:   closing pausing taskId=30529
+07-02 09:18:08.974  2520  2646 D b/417220811: Current thumbnail: null, replacing with android.graphics.Bitmap@596616
+07-02 09:18:08.974  2212  2232 V ShellRecents:   opening new leaf taskId=1 wasClosing=false childOfOpeningPausedDesk=false
+07-02 09:18:08.974  2212  2232 V ShellRecents: [210719058] RecentsController.merge: empty pausing tasks
+07-02 09:18:08.974  2212  2232 V ShellRecents: [210719058] RecentsController.merge: calling onTasksAppeared
+07-02 09:18:08.975  2212  2232 V ShellRecents: [210719058] RecentsController.merge: consuming merge
+07-02 09:18:08.976  2212  2232 V WindowManagerShell: Transition was merged: (#6174) android.os.BinderProxy@dd5b0a4@1 into (#6173) android.os.BinderProxy@eb01dd@1
+07-02 09:18:08.984  4453  4453 D BaseDepthController: mSurface is null and mCurrentBlur is: 0
+07-02 09:18:08.990  4453  4453 D StatsLog: LAUNCHER_ONRESUME
+07-02 09:18:08.991  1489  3566 W ParceledListSlice: Element #3 is 38972 bytes.
+07-02 09:18:08.991  1489  3566 W ParceledListSlice: Element #4 is 38188 bytes.
+07-02 09:18:08.995  1489  3566 W ParceledListSlice: Element #3 is 38972 bytes.
+07-02 09:18:08.996  1489  3566 W ParceledListSlice: Element #4 is 38188 bytes.
+07-02 09:18:08.999   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:09.007  1489  4860 W ParceledListSlice: Element #3 is 38972 bytes.
+07-02 09:18:09.007  1489  4860 W ParceledListSlice: Element #4 is 38188 bytes.
+07-02 09:18:09.008  1489  4860 W ParceledListSlice: Element #32 is 20908 bytes.
+07-02 09:18:09.009  1489  4860 W ParceledListSlice: Element #33 is 21268 bytes.
+07-02 09:18:09.018  1489  1561 W ParceledListSlice: Element #32 is 20908 bytes.
+07-02 09:18:09.018  1489  1561 W ParceledListSlice: Element #33 is 21268 bytes.
+07-02 09:18:09.020  2520  2646 D b/417220811: Current thumbnail: null, replacing with android.graphics.Bitmap@a976995
+07-02 09:18:09.021  2520  2520 D TaskThumbnailView: [TaskThumbnailView@4ae1984] taskId: 30476 - uiState changed from: BackgroundOnly(backgroundColor=-13619152) to: SnapshotSplash(snapshot=Snapshot(bitmap=android.graphics.Bitmap@a976995, thumbnailRotation=0, backgroundColor=-13619152), splash=null)
+07-02 09:18:09.021 13751 13751 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 09:18:09.023  1489  4693 W ParceledListSlice: Element #32 is 20908 bytes.
+07-02 09:18:09.023  1489  4693 W ParceledListSlice: Element #33 is 21268 bytes.
+07-02 09:18:09.026  1489  4693 W ParceledListSlice: Element #59 is 154812 bytes.
+07-02 09:18:09.026  1489  4693 W ParceledListSlice: Overly large reply size: 191468
+07-02 09:18:09.034  1489  1561 W ParceledListSlice: Element #59 is 154812 bytes.
+07-02 09:18:09.034  1489  1561 W ParceledListSlice: Overly large reply size: 191468
+07-02 09:18:09.035  1489  1561 W ParceledListSlice: Element #59 is 154812 bytes.
+07-02 09:18:09.035  1489  1561 W ParceledListSlice: Overly large reply size: 191468
+07-02 09:18:09.038  2212  2232 V RecentTasksController: Notify recent tasks changed
+07-02 09:18:09.038  2520  2520 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+07-02 09:18:09.043  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.052  2520  2520 D TaskThumbnailView: [TaskThumbnailView@4ae1984] taskId: 30476 - uiState changed from: SnapshotSplash(snapshot=Snapshot(bitmap=android.graphics.Bitmap@a976995, thumbnailRotation=0, backgroundColor=-13619152), splash=null) to: SnapshotSplash(snapshot=Snapshot(bitmap=android.graphics.Bitmap@a976995, thumbnailRotation=0, backgroundColor=-13619152), splash=com.android.launcher3.icons.FastBitmapDrawable@ba6e205)
+07-02 09:18:09.059  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.069  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.074  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.081  1489  2040 D ActivityManager: freezing 5245 com.instagram.android
+07-02 09:18:09.083  2520  2520 D TaskThumbnailView: [TaskThumbnailView@5b549f0] taskId: 30524 - uiState changed from: SnapshotSplash(snapshot=Snapshot(bitmap=android.graphics.Bitmap@ff30c9b, thumbnailRotation=0, backgroundColor=-328966), splash=null) to: SnapshotSplash(snapshot=Snapshot(bitmap=android.graphics.Bitmap@ff30c9b, thumbnailRotation=0, backgroundColor=-328966), splash=com.android.launcher3.icons.FastBitmapDrawable@d1dfb5f)
+07-02 09:18:09.087  1489  2104 D InetDiagMessage: Destroyed 2 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+07-02 09:18:09.088  1489  2104 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+07-02 09:18:09.088  1489  2104 D InetDiagMessage: Destroyed live tcp sockets for uids={10283} in 3ms
+07-02 09:18:09.114   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:09.115  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.119  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.122  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.125  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.131   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:09.134  2737  2737 I NearbyDiscovery: (REDACTED) DiscoveryService onStartCommand action: %s
+07-02 09:18:09.134  2737  6076 I NearbyDiscovery: FastPairApiHandler: trigger firmware update check [CONTEXT service_id=265 ]
+07-02 09:18:09.134  2737 11583 I NearbyDiscovery: (REDACTED) FastPairApiHandler: Send result, package=(%s), requestType=(%s), status=(%s)
+07-02 09:18:09.138  1027  1027 I WifiHAL : Creating message to get link statistics; iface = 47
+07-02 09:18:09.160  1027  4008 I WifiHAL : Getting cached scan results, iface handle = 0xb4000074df637e90
+07-02 09:18:09.160  1027  4008 E WifiHAL : Creating message to get cached scan results
+07-02 09:18:09.163  1027  4008 I WifiHAL : In GetCachedScanResultsCommand::handleResponse
+07-02 09:18:09.176  1489  2134 I AdbWifiNetworkMonitor: Wi-Fi network available
+07-02 09:18:09.176  1489  2134 I AdbWifiNetworkMonitor: Received the same Wi-Fi SSID. Ignoring.
+07-02 09:18:09.181  2787  2820 D IwlanDataService: onCapabilitiesChanged: 131 [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=25026Kbps LinkDnBandwidth>=45810Kbps TransportInfo: <SSID: "Alaska_5G", BSSID: 18:31:bf:e4:10:14, MAC: 62:e0:ab:8b:4b:6f, IP: /192.168.1.37, Security type: 2, Supplicant state: COMPLETED, Wi-Fi standard: 11ac, RSSI: -60, Link speed: 650Mbps, Tx Link speed: 650Mbps, Max Supported Tx Link speed: 866Mbps, Calculated Tx : 483Mbps, Rx Link speed: 526Mbps, Max Supported Rx Link speed: 866Mbps, Calculated Rx : 660Mbps, Frequency: 5220MHz, Net ID: 8, Metered hint: false, score: 100, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none>"Alaska_5G"wpa2-pskMLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -60 OwnerUid: 1000 AdminUids: [1000] SSID: "Alaska_5G" UnderlyingNetworks: Null]
+07-02 09:18:09.181  2787  2820 D IwlanDataService: Network 131 connected using transport WIFI
+07-02 09:18:09.181  2787  3092 D IwlanNetworkService: onCapabilitiesChanged: 131
+07-02 09:18:09.181 11008 11008 W JobService: onNetworkChanged() not implemented in androidx.work.impl.background.systemjob.SystemJobService. Must override in a subclass.
+07-02 09:18:09.182  2463  3639 W SHANNON_IMS: 4555 [CONN] NetworkSpecifier and TransportInfo are not valid (DefaultNetworkCallback%updateSubscriptionId:121)
+07-02 09:18:09.182  2425  3757 D SHANNON_RCS: 5025 [0][PROX][TELE] onCapabilitiesChanged, Network: 131, NetworkCapabilities: [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=25026Kbps LinkDnBandwidth>=45810Kbps TransportInfo: <SSID: <unknown ssid>, BSSID: 02:00:00:00:00:00, MAC: 02:00:00:00:00:00, IP: /192.168.1.37, Security type: 2, Supplicant state: COMPLETED, Wi-Fi standard: 11ac, RSSI: -60, Link speed: 650Mbps, Tx Link speed: 650Mbps, Max Supported Tx Link speed: 866Mbps, Calculated Tx : 483Mbps, Rx Link speed: 526Mbps, Max Supported Rx Link speed: 866Mbps, Calculated Rx : 660Mbps, Frequency: 5220MHz, Net ID: -1, Metered hint: false, score: 100, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: -1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none><none>MLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -60 UnderlyingNetworks: Null] (DefaultNetworkCallback%onCapabilitiesChanged:76)
+07-02 09:18:09.182  2463  3639 I SHANNON_IMS: 4556 [CONN] network:131 WIFI connected, subId: -1 [SLID:0] (DefaultNetworkCallback%onCapabilitiesChanged:76)
+07-02 09:18:09.183  3341  3595 I WifiSignalInfo: onCapabilitiesChanged: rssi:-60
+07-02 09:18:09.183  3341  3525 D ImsPreconditionCheck: {subId=4} handleMessage: { when=0 what=16 target=eja async=false heapIndex=-1 }
+07-02 09:18:09.183  3341  3525 D ImsPreconditionCheck: {subId=4} onWifiCapabilitiesChanged: wifiNetworkValidated: true
+07-02 09:18:09.183  1027  4008 D WifiHAL : Start debug command: mType GET_FEATURE
+07-02 09:18:09.183  1027  4008 I WifiHAL : CreateRequest mType = GET_FEATURE
+07-02 09:18:09.183  1027  4008 D WifiHAL : In DebugCommand::handleResponse, mType:GET_FEATURE
+07-02 09:18:09.183  1027  4008 D WifiHAL : len = 4, expected len = 4
+07-02 09:18:09.184  3341  3502 D DeviceStateHelper: Wifi freq: 5220
+07-02 09:18:09.184  2988  3191 D IwlanNetworkStatusTracker: onCapabilitiesChanged: 131
+07-02 09:18:09.184  2988  3191 D IwlanNetworkStatusTracker: OnCapability : Wifi Available already true and validation status unchanged
+07-02 09:18:09.184  2988  3191 E IwlanNetworkStatusTracker: Could not get Wifi SSID
+07-02 09:18:09.185  1489  2093 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-02 09:18:09.189  4180  4780 I BugleRcsEngine: Connected state: [1], networkType: [WIFI] [CONTEXT thread_id=61 ]
+07-02 09:18:09.189  4180  4957 I BugleRcsEngine: handleMessage processing message:[NOTIFY_UPTIME_IGNORE_STATE_CHANGED] with [non-null]:RcsEngineImpl reference [CONTEXT log_prefix="RcsEngineImpl[DUAL_REG]:[e6d48b4d-16d8]>Handler" thread_id=66 ]
+07-02 09:18:09.192  1489  1584 D ActivityManager: sync unfroze 7223 com.google.android.apps.privacy.wildlife for 3
+07-02 09:18:09.193  4180  4957 I BugleRcsEngine: Cannot use CS.apk as it's battery optimized [CONTEXT thread_id=66 ]
+07-02 09:18:09.195 11008 11745 D WM-NetworkStateTracker: Network capabilities changed: [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=25026Kbps LinkDnBandwidth>=45810Kbps TransportInfo: <SSID: <unknown ssid>, BSSID: 02:00:00:00:00:00, MAC: 02:00:00:00:00:00, IP: /192.168.1.37, Security type: 2, Supplicant state: COMPLETED, Wi-Fi standard: 11ac, RSSI: -60, Link speed: 650Mbps, Tx Link speed: 650Mbps, Max Supported Tx Link speed: 866Mbps, Calculated Tx : 483Mbps, Rx Link speed: 526Mbps, Max Supported Rx Link speed: 866Mbps, Calculated Rx : 660Mbps, Frequency: 5220MHz, Net ID: -1, Metered hint: false, score: 100, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: -1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none><none>MLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -60 UnderlyingNetworks: Null]
+07-02 09:18:09.195  7223  7223 I Wildlife_WildlifeVpnReceiver: ACTION_WIFI_STATE_CHANGED
+07-02 09:18:09.195  7223  7223 I Wildlife_WildlifeCobaltEventLoggerImpl: SysUI wifi state changed event logged
+07-02 09:18:09.195  7223  7223 I Wildlife_WildlifeVpnManagerImpl: restoreSettingsFromBackupIfNecessary() false, true, false
+07-02 09:18:09.195  7223  7223 I Wildlife_OpenWifiNudgeManagerImpl: wifiStateChangedFuture
+07-02 09:18:09.196  7226  7384 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+07-02 09:18:09.196  7223  8526 I Wildlife_OpenWifiNudgeManagerImpl: handleWifiStateChanged(): consumer is not active
+07-02 09:18:09.198  1489  2104 D ConnectivityService: NetReassign [no changes] [c 0] [a 4] [i 1]
+07-02 09:18:09.200  2737 30362 I NearbyMediums: Wifi changed new SSID: "Alaska_5G"
+07-02 09:18:09.200  2737 30362 I NearbyMediums: WifiLanConnectivityInfo is not changed, skip notify.
+07-02 09:18:09.205  2737  4824 I NullBinder: NullBinder for android.net.action.RECOMMEND_NETWORKS triggering remote TransactionTooLargeException due to Service without Chimera impl, calling uid: 1000, calling pid: 0
+07-02 09:18:09.205  2737  4824 W libbinder.Binder: Large reply transaction of 1056768 bytes, interface descriptor , function: UNKNOWN_FUNCTION_NAME, code: 1, flags: 17
+07-02 09:18:09.207  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:18:09.208  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:18:09.208   974  1044 D CHRE    : @ 160757.287: Parsed nanoapp message from host: app ID 0x476f6f676c00100b endpoint 0x6 msgType 112 payload size 14
+07-02 09:18:09.208  1209  1209 D AOC     : CHRE: DRAM vote count begins
+07-02 09:18:09.208  1209  1209 D AOC     : CHRE: DRAM vote count ends: 0 ms
+07-02 09:18:09.208   974  1044 I CHRE    : @ 160757.287: [NanoMinion] received MSG Type 0x70, Version 1, 10 bytes
+07-02 09:18:09.208   974  1044 I CHRE    : @ 160757.287: [AR] context-signal: has_bt=0, bt=0, has_wifi=1, wifi=1
+07-02 09:18:09.212 13751  9369 I CobaltLoggerImpl: (REDACTED) Logging Cobalt occurrence for metric %d-%d-%d, with count %d and event vector %s, for caller: %s
+07-02 09:18:09.212 13751  9369 I CobaltLoggerImpl: (REDACTED) Loaded Cobalt registry contains metric: %d-%d-%d
+07-02 09:18:09.218 12728 12762 D PaySecureElementClient: Felica app not found; returning isSecureElementAvailable = false!
+07-02 09:18:09.221  1489  3566 D BiometricService: canAuthenticate: User=0, Caller=0, Authenticators=15
+07-02 09:18:09.221  1489  3566 D BiometricService/PreAuthInfo: Package: com.android.vending Sensor ID: 0 Modality: 2 User id: 0 Status: 1
+07-02 09:18:09.221  1489  3566 D BiometricService/PreAuthInfo: Package: com.android.vending Sensor ID: 1 Modality: 8 User id: 0 Status: 7
+07-02 09:18:09.221  1489  3566 D BiometricService/PreAuthInfo: getCanAuthenticateInternal Modality: 2 AuthenticatorStatus: 1
+07-02 09:18:09.222  1489  3566 D AuthService: canAuthenticate, userId: 0, callingUserId: 0, authenticators: 15, result: 0
+07-02 09:18:09.222  1489  3566 D BiometricService: canAuthenticate: User=0, Caller=0, Authenticators=32768
+07-02 09:18:09.222  1489  3566 D BiometricService/PreAuthInfo: getCanAuthenticateInternal Modality: 1 AuthenticatorStatus: 1
+07-02 09:18:09.222  1489  3566 D AuthService: canAuthenticate, userId: 0, callingUserId: 0, authenticators: 32768, result: 0
+07-02 09:18:09.222  1489  3566 D BiometricService: canAuthenticate: User=0, Caller=0, Authenticators=15
+07-02 09:18:09.222  1489  3566 D BiometricService/PreAuthInfo: Package: com.android.vending Sensor ID: 0 Modality: 2 User id: 0 Status: 1
+07-02 09:18:09.223  1489  3566 D BiometricService/PreAuthInfo: Package: com.android.vending Sensor ID: 1 Modality: 8 User id: 0 Status: 7
+07-02 09:18:09.223  1489  3566 D BiometricService/PreAuthInfo: getCanAuthenticateInternal Modality: 2 AuthenticatorStatus: 1
+07-02 09:18:09.223  1489  3566 D AuthService: canAuthenticate, userId: 0, callingUserId: 0, authenticators: 15, result: 0
+07-02 09:18:09.223  1489  3566 D BiometricService: canAuthenticate: User=0, Caller=0, Authenticators=15
+07-02 09:18:09.223  1489  3566 D BiometricService/PreAuthInfo: Package: com.android.vending Sensor ID: 0 Modality: 2 User id: 0 Status: 1
+07-02 09:18:09.224  1489  3566 D BiometricService/PreAuthInfo: Package: com.android.vending Sensor ID: 1 Modality: 8 User id: 0 Status: 7
+07-02 09:18:09.224  1489  3566 D BiometricService/PreAuthInfo: getCanAuthenticateInternal Modality: 2 AuthenticatorStatus: 1
+07-02 09:18:09.224  1489  3566 D AuthService: canAuthenticate, userId: 0, callingUserId: 0, authenticators: 15, result: 0
+07-02 09:18:09.234  1489  3566 D BiometricService: Sensor ID(1), oemStrength: 15, updatedStrength: 15, modality 8, state: 0, cookie: 0, sensorId 1, hasEnrollments: false cannot participate in Keystore operations
+07-02 09:18:09.235  1489  4693 D BiometricService: canAuthenticate: User=0, Caller=0, Authenticators=15
+07-02 09:18:09.236  1489  4693 D BiometricService/PreAuthInfo: Package: com.android.vending Sensor ID: 0 Modality: 2 User id: 0 Status: 1
+07-02 09:18:09.236  1489  4693 D BiometricService/PreAuthInfo: Package: com.android.vending Sensor ID: 1 Modality: 8 User id: 0 Status: 7
+07-02 09:18:09.236  1489  4693 D BiometricService/PreAuthInfo: getCanAuthenticateInternal Modality: 2 AuthenticatorStatus: 1
+07-02 09:18:09.236  1489  4693 D AuthService: canAuthenticate, userId: 0, callingUserId: 0, authenticators: 15, result: 0
+07-02 09:18:09.281  2895  2895 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:18:09.284  4164  5506 I AiAiEcho: SmartspaceNotificationPredictor no parser can handle this notification or notification is invalid
+07-02 09:18:09.286  9052  9191 I NotifySyncService_9052_9191: MSG_NOTIFY_POSTED 
+07-02 09:18:09.286  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:103 key:0|com.a0soft.gphone.uninstaller|103|null|10380 PackageName:com.a0soft.gphone.uninstaller IsOngoing:true PostTime:1782976689069 currentDeviceModel.connected: true
+07-02 09:18:09.286  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:103 , appName : App Usage
+07-02 09:18:09.286  9052  9191 I NotifySyncService_9052_9191:  isOngoing = true isIncomingCall = false
+07-02 09:18:09.287  9052  9155 I NotifyLogUtils_9052_9155: isIgnoringBatteryOptimizations false
+07-02 09:18:09.318  2895  2895 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:18:09.321  4164  5506 I AiAiEcho: SmartspaceNotificationPredictor no parser can handle this notification or notification is invalid
+07-02 09:18:09.323  9052  9191 I NotifySyncService_9052_9191: MSG_NOTIFY_POSTED 
+07-02 09:18:09.323  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:103 key:0|com.a0soft.gphone.uninstaller|103|null|10380 PackageName:com.a0soft.gphone.uninstaller IsOngoing:true PostTime:1782976689094 currentDeviceModel.connected: true
+07-02 09:18:09.323  9052  9191 I NotifySyncService_9052_9191: onNotificationPosted Id:103 , appName : App Usage
+07-02 09:18:09.323  9052  9191 I NotifySyncService_9052_9191:  isOngoing = true isIncomingCall = false
+07-02 09:18:09.323  9052  9155 I NotifyLogUtils_9052_9155: isIgnoringBatteryOptimizations false
+07-02 09:18:09.333  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:18:09.333  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:18:09.412  2520  2520 D b/417220811: Current thumbnail: android.graphics.Bitmap@596616, replacing with android.graphics.Bitmap@b627a4f
+07-02 09:18:09.412  2520  2520 D RecentsView: cleanupRemoteTargets - mRemoteTargetHandles: [com.android.quickstep.RemoteTargetGluer$RemoteTargetHandle@24c55dc]
+07-02 09:18:09.412  2520  2520 D StatsLog: LAUNCHER_HOME_GESTURE
+07-02 09:18:09.413  2520  2520 D RecentsView: setRecentsAnimationTargets - recentsAnimationController: null, recentsAnimationTargets: null
+07-02 09:18:09.413  2212  2232 V ShellRecents: [210719058] RecentsController.finishInner: toHome=false userLeave=true willFinishToHome=true state=1 hasPausingTasks=true reason=requested
+07-02 09:18:09.413  2212  2232 V ShellRecents:   normal finish
+07-02 09:18:09.413  2212  2232 V ShellRecents: [210719058] RecentsController.finishInner: Completing finish
+07-02 09:18:09.413  2212  2232 V ShellRecents: [210719058] RecentsController.cleanup
+07-02 09:18:09.413  2212  2232 D WindowManagerShell: PipDesktopState: Recents transition state changed: TRANSITION_STATE_NOT_RUNNING
+07-02 09:18:09.413  2212  2232 V ShellDesktopMode: DesktopTasksController: Recents transition state changed: TRANSITION_STATE_NOT_RUNNING
+07-02 09:18:09.413  2212  2232 D ShellDesktopMode: DesktopTaskChangeListener: onTaskMovingToBack for taskId=30529, displayId=0 - desktop not supported
+07-02 09:18:09.413  2212  2232 D ShellDesktopMode: DesktopTaskChangeListener: onTaskMovingToBack for taskId=30422, displayId=0 - desktop not supported
+07-02 09:18:09.414  2212  2232 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#6173) android.os.BinderProxy@eb01dd@1
+07-02 09:18:09.415   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:09.418 11204 11337 I FA      : Application backgrounded at: timestamp_millis: 1782976687417
+07-02 09:18:09.418  1489  1571 V WindowManager: Finish Transition (#6173): created at 07-02 09:18:08.872 collect-started=0.046ms started=0.06ms ready=2.715ms sent=6.009ms commit=33.251ms finished=545.638ms
+07-02 09:18:09.419  2520  2520 D BaseActivity: Launcher flags updated: [state_started|state_resumed] -[state_user_active]
+07-02 09:18:09.419  2520  2520 D BaseActivity: Launcher flags updated: [state_started] -[state_resumed]
+07-02 09:18:09.421  2520  2520 D VRI[RecentsActivity]: visibilityChanged oldVisibility=true newVisibility=false
+07-02 09:18:09.421  1489  1571 V WindowManager: Finish Transition (#6174): created at 07-02 09:18:08.935 collect-started=0.031ms request-sent=5.667ms started=7.257ms ready=7.238ms sent=25.18ms commit=20.221ms finished=486.174ms
+07-02 09:18:09.422  2212  2232 V WindowManagerShell: Track 1 became idle
+07-02 09:18:09.423  2212  2232 V WindowManagerShell: All active transition animations finished
+07-02 09:18:09.423  2212  2232 V ShellRecents: [210719058] RecentsController.finishInner: calling finish callback
+07-02 09:18:09.426  4453  5878 E BufferQueueProducer: [ac15b16 SurfaceView[app.lawnchair.play/app.lawnchair.LawnchairLauncher]#1317(BLAST Consumer)1317](id:11650000052c,api:0,p:-1,c:4453) disconnect: not connected (req=1)
+07-02 09:18:09.426  4453  5878 E Surface : [ac15b16 SurfaceView[app.lawnchair.play/app.lawnchair.LawnchairLauncher]#1317(BLAST Consumer)1317-DISCONNECTED](id:0) Surface failed to disconnect. Cleaning up internals anyway. Error -19 (NO_INIT).
+07-02 09:18:09.426  4453  5878 W HWUI    : native_window_api_disconnect failed: No such device (-19)
+07-02 09:18:09.432  2520  2520 D ContextTracker: Unregistering callback: com.android.quickstep.util.ContextInitListener@a22a1d7, reason=AbsSwipeUpHandler.invalidateHandler
+07-02 09:18:09.432  2520  2520 D RecentsView: reset - mEnableDrawingLiveTile: false, mRecentsAnimationController: null
+07-02 09:18:09.433  2520  2520 D RecentsView: updateTaskStackListenerState: false
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@7af57d8] taskId: null - uiState changed from: LiveTile to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@4ae1984] taskId: null - uiState changed from: SnapshotSplash(snapshot=Snapshot(bitmap=android.graphics.Bitmap@a976995, thumbnailRotation=0, backgroundColor=-13619152), splash=com.android.launcher3.icons.FastBitmapDrawable@ba6e205) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@5b549f0] taskId: null - uiState changed from: SnapshotSplash(snapshot=Snapshot(bitmap=android.graphics.Bitmap@ff30c9b, thumbnailRotation=0, backgroundColor=-328966), splash=com.android.launcher3.icons.FastBitmapDrawable@d1dfb5f) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@2bd151c] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-328966) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@9146708] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@a0cebb4] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-328966) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@8670f20] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1580820) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@7dfd4c] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@733a238] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-328966) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@b9ca9e4] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-13619152) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@e5f36f4] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@8b2ce60] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@4e6708c] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-328966) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@6d00978] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@7b84524] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.433  2520  2520 D TaskThumbnailView: [TaskThumbnailView@ac68f90] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@c2d14bc] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-328966) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@714c0a8] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@e493f54] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1580820) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@3a4fcc0] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-328966) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@25ddfe7] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@21e9383] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-16777216) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@4ace4df] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@aa4effb] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-14869219) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@84890d7] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-328966) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@a1b6373] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1580820) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@73ec3cf] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-15527148) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@d8dcdeb] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-16777216) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@3795dc7] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-1) to: Uninitialized
+07-02 09:18:09.434  2520  2520 D TaskThumbnailView: [TaskThumbnailView@ba40f63] taskId: null - uiState changed from: BackgroundOnly(backgroundColor=-791563) to: Uninitialized
+07-02 09:18:09.435  2520  2520 D OverviewActionsView: updateForGroupedTask() called with: isGroupedTask = [false], canSaveAppPair = [false]
+07-02 09:18:09.435  2520  2520 D OverviewActionsView: updateActionButtonsVisibility() called: showSingleTaskActions = [true], showGroupActions = [false]
+07-02 09:18:09.435  2520  2520 D OverviewActionsView: updateForGroupedTask() called with: isGroupedTask = [false], canSaveAppPair = [false]
+07-02 09:18:09.435  2520  2520 D OverviewActionsView: updateActionButtonsVisibility() called: showSingleTaskActions = [true], showGroupActions = [false]
+07-02 09:18:09.435  2520  2520 D RecentsView: onGestureAnimationEnd - mEnableDrawingLiveTile: false
+07-02 09:18:09.436  2520  2520 D BaseActivity: Launcher flags updated: [] -[state_started]
+07-02 09:18:09.437  2520  2520 D LauncherStateManager: StateManager.goToState: fromState: RECENTS_BACKGROUND_APP, toState: RECENTS_HOME, partial trace:
+07-02 09:18:09.437  2520  2520 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 8bcbbc35bb13161dedaa519f339f298517b051dcbf8e2046701ae935fa579434:26)
+07-02 09:18:09.437  2520  2520 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 8bcbbc35bb13161dedaa519f339f298517b051dcbf8e2046701ae935fa579434:35)
+07-02 09:18:09.437  2520  2520 D LauncherStateManager: 	at com.android.launcher3.statemanager.StatefulActivity.onStop(go/retraceme 8bcbbc35bb13161dedaa519f339f298517b051dcbf8e2046701ae935fa579434:31)
+07-02 09:18:09.438  2520  2520 D LauncherStateManager: StateManager.cancelAnimation: animation ongoing: false, partial trace:
+07-02 09:18:09.438  2520  2520 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.goToState(go/retraceme 8bcbbc35bb13161dedaa519f339f298517b051dcbf8e2046701ae935fa579434:143)
+07-02 09:18:09.438  2520  2520 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.goToState(go/retraceme 8bcbbc35bb13161dedaa519f339f298517b051dcbf8e2046701ae935fa579434:222)
+07-02 09:18:09.438  2520  2520 D LauncherStateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 8bcbbc35bb13161dedaa519f339f298517b051dcbf8e2046701ae935fa579434:26)
+07-02 09:18:09.438  2520  2520 D LauncherStateManager: StateManager.onStateTransitionStart: state: RECENTS_HOME
+07-02 09:18:09.439  2520  2520 D Current state display 0: newValue: RECENTS_HOME
+07-02 09:18:09.441  2520  2520 D RecentsActivity: onStateSetEnd - moveTaskToBack as Recents should no longer be visible
+07-02 09:18:09.442  1489  2022 I ActivityTaskManager: moveTaskToBack: Task{79d3dc0 #30422 type=recents I=com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity}
+07-02 09:18:09.442  1489  2178 I Surface : Creating surface for consumer unnamed-1489-1663 with slotExpansion=1 for 64 slots
+07-02 09:18:09.442  1489  2178 I Surface : Creating surface for consumer ImageReader-864x1920f1m1-1489-1446 with slotExpansion=1 for 64 slots
+07-02 09:18:09.443  1489  2178 W ImageReader_JNI: Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+07-02 09:18:09.443  2520  2520 D LauncherStateManager: StateManager.onStateTransitionEnd: state: RECENTS_HOME
+07-02 09:18:09.443  2212  2232 V WindowManagerShell: Transition requested (#6175): android.os.BinderProxy@a46e41f TransitionRequestInfo { type = TO_BACK, triggerTask = TaskInfo{userId=0 taskId=30422 effectiveUid=10237 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.DEFAULT] flg=0x10800000 pkg=com.google.android.apps.nexuslauncher cmp=com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity } baseActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity} topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity} origActivity=null realActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity} realActivityIsAppLockEnabled=false numActivities=1 lastActiveTime=160755273 supportsMultiWindow=true supportsMultiWindowWithoutConstraints=true resizeMode=2 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.os.BinderProxy@3d63af8} topActivityType=3 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 121 - 0, 0) topActivityInfo=ActivityInfo{8aac36c com.android.quickstep.RecentsActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isInteractive=false isVisible=false isVisibleRequested=false isTopActivityNoDisplay=false isSleeping=false locusId=LocusId[16_chars] displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=null leafTaskBoundsFromOptions= false capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=503 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false isLeafTask= true eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 1080, 2400) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null topNonResizableActivityAspectRatio=-1.0} topActivityMainWindowFrame=null isAppBubble=false}, pipChange = null, remoteTransitionInfo = null, displayChanges = null, requestedLocation = null, userChange = null, windowingLayerChange = null, fullscreenRequestChange = null, flags = 0, debugId = 6175 }
+07-02 09:18:09.443  2520  2520 D RecentsView: reset - mEnableDrawingLiveTile: false, mRecentsAnimationController: null
+07-02 09:18:09.443  2212  2232 W DisconnectHandler: No disconnect change found in the transition, not handling request.
+07-02 09:18:09.443  2520  2520 D RecentsView: onSplitSelectionExit
+07-02 09:18:09.443  2212  2232 V ShellDesktopMode: DesktopTasksController: skipping handleRequest reason=triggerTask's display doesn't support desktop mode
+07-02 09:18:09.444  2520  2520 D OverviewActionsView: updateForGroupedTask() called with: isGroupedTask = [false], canSaveAppPair = [false]
+07-02 09:18:09.444  2520  2520 D OverviewActionsView: updateActionButtonsVisibility() called: showSingleTaskActions = [true], showGroupActions = [false]
+07-02 09:18:09.444  2520  2520 D TasksRepository: updateTaskRequests to: [], removed: [30529, 30476, 30524], added: []
+07-02 09:18:09.444  2520  2520 I TasksRepository: removeTasks: [30529, 30476, 30524]
+07-02 09:18:09.445  1489  1574 W ActivityTaskManager: Activity top resumed state loss timeout for ActivityRecord{132379794 u0 org.telegram.messenger/org.telegram.ui.LaunchActivity t30529}
+07-02 09:18:09.446  1489  3566 D WindowManager: setClientSurface Surface(name=VRI-ScreenDecorOverlay#119)/@0xae88bb for cbbbe89 ScreenDecorOverlay
+07-02 09:18:09.446  2212  2388 I Surface : Creating surface for consumer unnamed-2212-4429 with slotExpansion=1 for 64 slots
+07-02 09:18:09.447  2520  2520 D OverviewActionsView: updateForGroupedTask() called with: isGroupedTask = [false], canSaveAppPair = [false]
+07-02 09:18:09.447  2520  2520 D OverviewActionsView: updateActionButtonsVisibility() called: showSingleTaskActions = [true], showGroupActions = [false]
+07-02 09:18:09.448  2212  2388 I Surface : Creating surface for consumer VRI[ScreenDecorOverlay]#3985(BLAST Consumer)3985 with slotExpansion=1 for 64 slots
+07-02 09:18:09.456  1489  1571 V WindowManager: Sent Transition (#6175) createdAt=07-02 09:18:09.442 via request=TransitionRequestInfo { type = TO_BACK, triggerTask = TaskInfo{userId=0 taskId=30422 effectiveUid=10237 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.DEFAULT] flg=0x10800000 pkg=com.google.android.apps.nexuslauncher cmp=com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity } baseActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity} topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity} origActivity=null realActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity} realActivityIsAppLockEnabled=false numActivities=1 lastActiveTime=160755273 supportsMultiWindow=true supportsMultiWindowWithoutConstraints=true resizeMode=2 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{e3904e6 Task{79d3dc0 #30422 type=recents I=com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity}}} topActivityType=3 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 121 - 0, 0) topActivityInfo=ActivityInfo{94c786e com.android.quickstep.RecentsActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isInteractive=false isVisible=false isVisibleRequested=false isTopActivityNoDisplay=false isSleeping=false locusId=LocusId[16_chars] displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=null leafTaskBoundsFromOptions= false capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=503 topActivityRequestOpenInBrowserEducationTimestamp=0 appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false isLeafTask= true eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 0 - 1080, 2400) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null topNonResizableActivityAspectRatio=-1.0} topActivityMainWindowFrame=null isAppBubble=false}, pipChange = null, remoteTransitionInfo = null, displayChanges = null, requestedLocation = null, userChange = null, windowingLayerChange = null, fullscreenRequestChange = null, flags = 0, debugId = 6175 }
+07-02 09:18:09.456  1489  1571 V WindowManager:     startWCT=WindowContainerTransaction { changes= {} hops= [] flags= 0 errorCallbackToken=null taskFragmentOrganizer=null }
+07-02 09:18:09.456  1489  1571 V WindowManager:     info={id=6175 t=TO_BACK f=0x0 trk=0 r=[] c=[]}
+07-02 09:18:09.457  1489  1574 V WindowManager: Unknown focus tokens, dropping reportFocusChanged
+07-02 09:18:09.458  2212  2232 V RecentTasksController: generateList(getRecentTasks)
+07-02 09:18:09.458  2212  2232 V RecentTasksController: initializeDesksMap - allDeskIds: []
+07-02 09:18:09.458  2212  2232 V RecentTasksController: Task 30529 is not an active desktop task
+07-02 09:18:09.458  2212  2232 V RecentTasksController: Added fullscreen task: 30529
+07-02 09:18:09.458  2212  2232 V RecentTasksController: Task 30476 is not an active desktop task
+07-02 09:18:09.458  2212  2232 V RecentTasksController: Added fullscreen task: 30476
+07-02 09:18:09.458  2212  2232 V RecentTasksController: Task 30524 is not an active desktop task
+07-02 09:18:09.458  2212  2232 V RecentTasksController: Added fullscreen task: 30524
+07-02 09:18:09.458  2212  2232 V RecentTasksController: generateList - complete
+07-02 09:18:09.459  2520  2646 D PreloadThumbnailUseCase: Preloading thumbnails for task ids: [[id=30524 windowingMode=1 user=0 lastActiveTime=160727906] null, [id=30476 windowingMode=1 user=0 lastActiveTime=160753141] null, [id=30529 windowingMode=1 user=0 lastActiveTime=160754791] null]
+07-02 09:18:09.462  1489  2178 E ConsumerBase: [ImageReader-864x1920f1m1-1489-1446] abandonLocked: ConsumerBase is abandoned!
+07-02 09:18:09.463  2212  2842 V WindowManagerShell: onTransitionReady(transaction=6395209479592)
+07-02 09:18:09.463  2212  2232 V WindowManagerShell: onTransitionReady (#6175) android.os.BinderProxy@a46e41f: {id=6175 t=TO_BACK f=0x0 trk=0 r=[] c=[]}
+07-02 09:18:09.463  2212  2232 V WindowManagerShell: FocusTransitionObserver: Updating focus state for transition #6175
+07-02 09:18:09.463  2212  2232 V ShellDesktopMode: DesktopModeLogger: taskInfo map after processing changes 0
+07-02 09:18:09.463  2212  2232 V WindowManagerShell: No transition roots in (#6175) android.os.BinderProxy@a46e41f@0 so abort
+07-02 09:18:09.463  2212  2232 V WindowManagerShell: Transition animation finished (aborted=true), notifying core (#6175) android.os.BinderProxy@a46e41f@0
+07-02 09:18:09.464  1489  2066 I ImeTracker: app.lawnchair.play:27b9880: onRequestHide at ORIGIN_SERVER reason HIDE_SAME_WINDOW_FOCUSED_WITHOUT_EDITOR fromUser false userId 0 displayId 0
+07-02 09:18:09.467  4453  4453 D InsetsController: hide(ime())
+07-02 09:18:09.467  4453  4453 I ImeTracker: app.lawnchair.play:27b9880: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+07-02 09:18:09.469  1489  1571 V WindowManager: Finish Transition (#6175): created at 07-02 09:18:09.442 collect-started=0.034ms request-sent=0.172ms started=2.895ms ready=2.875ms sent=7.881ms finished=26.499ms
+07-02 09:18:09.470   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:09.470  2212  2232 V WindowManagerShell: Track 0 became idle
+07-02 09:18:09.470  2212  2232 V WindowManagerShell: All active transition animations finished
+07-02 09:18:09.470  1489  2066 W InputChannel-JNI: Channel already disposed.
+07-02 09:18:09.473  4896  4896 V A11yInputMethod: startInput(): editor=android.view.inputmethod.EditorInfo@a55eab7
+07-02 09:18:09.473  4896  4896 V A11yInputMethod: CALL: doFinishInput
+07-02 09:18:09.473  4896  4896 V A11yInputMethod: CALL: onFinishInput
+07-02 09:18:09.473   550   595 I libbinder.BpBinder: onLastStrongRef automatically unlinking death recipients for binder (0xb400007c1693f2e0) with descriptor: '(not cached)'
+07-02 09:18:09.490  9962  9962 W c0      : onStartInput event aborted
+07-02 09:18:09.490  9962  9962 W c0      : fc0.z: could not obtain extracted text
+07-02 09:18:09.490  9962  9962 W c0      : 	at fc0.w0.H(SourceFile:329)
+07-02 09:18:09.490  9962  9962 W c0      : 	at m70.y.g(SourceFile:285)
+07-02 09:18:09.490  9962  9962 W c0      : 	at m70.f3.g(SourceFile:4)
+07-02 09:18:09.490  9962  9962 W c0      : 	at com.touchtype.KeyboardService.onStartInput(SourceFile:11)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3403)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.startInput(InputMethodService.java:821)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:852)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:200)
+07-02 09:18:09.490  9962  9962 W c0      : 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.os.Handler.dispatchMessageImpl(Handler.java:142)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.os.Handler.dispatchMessage(Handler.java:125)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.os.Looper.loopOnce(Looper.java:296)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.os.Looper.loop(Looper.java:397)
+07-02 09:18:09.490  9962  9962 W c0      : 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+07-02 09:18:09.490  9962  9962 W c0      : 	at java.lang.reflect.Method.invoke(Native Method)
+07-02 09:18:09.490  9962  9962 W c0      : 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+07-02 09:18:09.490  9962  9962 W c0      : 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+07-02 09:18:09.500   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:09.521  2212  2232 V RecentTasksController: Notify recent tasks changed
+07-02 09:18:09.522  2520  2520 D RecentTasksList: invalidateLoadedTasks - previous requestLoadId: -1
+07-02 09:18:09.523  2212  2232 V RecentTasksController: generateList(getRecentTasks)
+07-02 09:18:09.523  2212  2232 V RecentTasksController: initializeDesksMap - allDeskIds: []
+07-02 09:18:09.523  2212  2232 V RecentTasksController: Task 30529 is not an active desktop task
+07-02 09:18:09.523  2212  2232 V RecentTasksController: Added fullscreen task: 30529
+07-02 09:18:09.523  2212  2232 V RecentTasksController: Task 30476 is not an active desktop task
+07-02 09:18:09.523  2212  2232 V RecentTasksController: Added fullscreen task: 30476
+07-02 09:18:09.523  2212  2232 V RecentTasksController: Task 30524 is not an active desktop task
+07-02 09:18:09.523  2212  2232 V RecentTasksController: Added fullscreen task: 30524
+07-02 09:18:09.523  2212  2232 V RecentTasksController: generateList - complete
+07-02 09:18:09.524  2520  2646 D PreloadThumbnailUseCase: Preloading thumbnails for task ids: [[id=30524 windowingMode=1 user=0 lastActiveTime=160727906] null, [id=30476 windowingMode=1 user=0 lastActiveTime=160753141] null, [id=30529 windowingMode=1 user=0 lastActiveTime=160754791] null]
+07-02 09:18:09.536  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:18:09.537  2212  2604 W LocaleConfig: The resource file pointed to by the given resource ID isn't found.
+07-02 09:18:09.684   552   897 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:09.685  1489  2022 W ParceledListSlice: Element #3 is 38972 bytes.
+07-02 09:18:09.686  1489  2022 W ParceledListSlice: Element #4 is 38188 bytes.
+07-02 09:18:09.686  2737 30362 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=false, isWifiConnected=true)
+07-02 09:18:09.691  2737 30362 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=false, isWifiConnected=true)
+07-02 09:18:09.693  1489  2022 W ParceledListSlice: Element #32 is 20908 bytes.
+07-02 09:18:09.694  1489  2022 W ParceledListSlice: Element #33 is 21268 bytes.
+07-02 09:18:09.700  1489  3564 W ParceledListSlice: Element #59 is 154812 bytes.
+07-02 09:18:09.700  1489  3564 W ParceledListSlice: Overly large reply size: 191468
+07-02 09:18:09.770  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.782   551 10287 E gralloc5: Producer and consumer not identified.
+07-02 09:18:09.786  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.792   552   896 W hwc-libdisplaycolor: GetRrRegammaForRange: no match found (op_hz, hz, dbv, range_id)=(60,60,940,8)
+07-02 09:18:09.802  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.823  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.841  1489  2022 W PackageInfo: Large parcel: size=18076 pkg=com.google.android.googlequicksearchbox uid=10169 perm=3680(14) reqPerm=8056(162) prevAllowSquashing=false
+07-02 09:18:09.841  2201  2205 I deeptouch: I0000 00:00:1782976689.841368    2205 tf_lite_classifier.cc:415] Event stream classified as kNone
+07-02 09:18:09.873  1489  2022 W PackageInfo: Large parcel: size=16496 pkg=com.excelliance.multiaccounts uid=10371 perm=388(2) reqPerm=12808(260) prevAllowSquashing=false
+07-02 09:18:09.934  1489  4693 W PackageInfo: Large parcel: size=20836 pkg=com.zhiliaoapp.musically uid=10435 perm=968(5) reqPerm=2892(61) prevAllowSquashing=false
+07-02 09:18:09.958  1235  1235 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '400''
+07-02 09:18:09.993  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:09.998  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:10.007  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:10.013  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:10.021  4779 11903 E FA      : Discarding data. Max runnable queue size reached
+07-02 09:18:10.025  4779 11903 E FA      : Discarding data. Max runnable queue size reached

@@ -1,0 +1,20 @@
+Loading package information...                                                  
+Loading local repository...                                                     
+[=========                              ] 25% Loading local repository...       
+Installed packages:
+  Path                                                          | Version | Description                                                | Location                                                     
+  -------                                                       | ------- | -------                                                    | -------                                                      
+  build-tools;35.0.0                                            | 35.0.0  | Android SDK Build-Tools 35                                 | build-tools\35.0.0                                           
+  build-tools;36.0.0                                            | 36.0.0  | Android SDK Build-Tools 36                                 | build-tools\36.0.0                                           
+  build-tools;36.1.0                                            | 36.1.0  | Android SDK Build-Tools 36.1                               | build-tools\36.1.0                                           
+  build-tools;37.0.0                                            | 37.0.0  | Android SDK Build-Tools 37                                 | build-tools\37.0.0                                           
+  emulator                                                      | 36.6.11 | Android Emulator                                           | emulator                                                     
+  extras;google;Android_Emulator_Hypervisor_Driver              | 2.2.0   | Android Emulator hypervisor driver (installer)             | extras\google\Android_Emulator_Hypervisor_Driver             
+  platform-tools                                                | 37.0.0  | Android SDK Platform-Tools                                 | platform-tools                                               
+  platforms;android-36                                          | 2       | Android SDK Platform 36                                    | platforms\android-36                                         
+  platforms;android-36.1                                        | 1       | Android SDK Platform 36.1                                  | platforms\android-36.1                                       
+  platforms;android-37.0                                        | 2       | Android SDK Platform 37.0                                  | platforms\android-37.0                                       
+  sources;android-36.1                                          | 1       | Sources for Android 36.1                                   | sources\android-36.1                                         
+  system-images;android-37.0;google_apis_playstore_ps16k;x86_64 | 6       | 16 KB Page Size Google Play Intel x86_64 Atom System Image | system-images\android-37.0\google_apis_playstore_ps16k\x86_64
+
+

@@ -1,0 +1,3 @@
+"Serial","State","Details","Model","Manufacturer","Android","Sdk","BootCompleted","Battery","Keyguard","TransportId"
+"adb-52131JEKB01070-Ne8QqZ._adb-tls-connect._tcp","device","product:akita model:Pixel_8a device:akita transport_id:2","Pixel 8a","Google","17","37","1","status: 3; level: 29; Capacity level: 2","maybe_locked","2"
+"adb-QCGADUVOSSEYFES4-RnSa0K._adb-tls-connect._tcp","device","product:6102H_EEA model:6102H device:Cruze_Lite_S transport_id:1","6102H","TCL","12","31","1","status: 3; level: 96","maybe_locked","1"
