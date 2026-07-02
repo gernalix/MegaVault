@@ -1,0 +1,6 @@
+Clearing logcat and starting validation capture after netpolicy fix.
+Putting device to sleep (KEYCODE_SLEEP=223).
+Capture window start: 2026-07-02T05:17:13.0463825+02:00
+Capture window end: 2026-07-02T05:19:13.0626604+02:00
+--- active notifications after capture ---
+--- latest usagestats whatsapp after capture ---

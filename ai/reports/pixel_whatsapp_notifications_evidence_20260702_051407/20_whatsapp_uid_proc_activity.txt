@@ -1,0 +1,166 @@
+pid
+736
+activity processes
+    earliestFreezableTimeMs=-3m6s542ms
+     Configuration={1.0 238mcc2mnc [en_US_#u-mu-celsius,it_IT_#u-mu-celsius] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.11 fontWeightAdjustment=0}
+     OverrideConfiguration={0.0 ?mcc0mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?round ?ldr ?wideColorGamut ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/? winConfig={ mBounds=Rect(0, 0 - 0, 0) mAppBounds=null mMaxBounds=Rect(0, 0 - 0, 0) mDisplayRotation=undefined mWindowingMode=undefined mActivityType=undefined mAlwaysOnTop=undefined mRotation=undefined} ?fontWeightAdjustment}
+     mLastReportedConfiguration={1.0 238mcc2mnc [en_US_#u-mu-celsius,it_IT_#u-mu-celsius] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.11 fontWeightAdjustment=0}
+  *APP* UID 10363 ProcessRecord{f12db35 736:com.whatsapp/u0a363}
+    user #0 uid=10363 gids={3003, 50363, 20363, 9997}
+    mRequiredAbi=arm64-v8a instructionSet=arm64
+    class=com.whatsapp.AppShell
+    manageSpaceActivityName=com.whatsapp.storage.StorageUsageManageSpaceActivity
+    dir=/data/app/~~xKtk7VmHQ5BJD_IQ_4t82Q==/com.whatsapp-NACoQPKnJywy6OzU9Q1ItQ==/base.apk publicDir=/data/app/~~xKtk7VmHQ5BJD_IQ_4t82Q==/com.whatsapp-NACoQPKnJywy6OzU9Q1ItQ==/base.apk data=/data/user/0/com.whatsapp
+    packageList={com.whatsapp}
+    compat={420dpi}
+    thread=com.android.server.am.ApplicationThreadDeferred@2701dd0
+    pid=736
+    lastActivityTime=-3m9s444ms    startUpTime=-10h9m18s819ms    startElapsedTime=-10h56m50s562ms
+    startSeq=1091 lruSeq=189288
+    mountMode=DEFAULT
+--
+      - ConnectionRecord{8b0a77b u0 CR WACT CAPS com.google.android.gms/.wearable.service.WearableService:@5caa30a flags=0x1081}
+    scheduleServiceTimeoutPending=false
+    lastProviderTime=-1h7m18s754ms
+    Published Providers:
+      - com.whatsapp.accountlinking.ipc.handler.quicksends.QuickSendsContactsProvider
+        -> ContentProviderRecord{1b241c9 u0 com.whatsapp/.accountlinking.ipc.handler.quicksends.QuickSendsContactsProvider}
+      - com.facebook.secure.fileprovider.SecureFileProvider
+        -> ContentProviderRecord{36770ce u0 com.whatsapp/com.facebook.secure.fileprovider.SecureFileProvider}
+      - com.whatsapp.pixel.besties.provider.PixelBestiesApiContentProvider
+        -> ContentProviderRecord{4bdfbef u0 com.whatsapp/.pixel.besties.provider.PixelBestiesApiContentProvider}
+      - com.whatsapp.orbitsso.OrbitSsoProvider
+        -> ContentProviderRecord{18146fc u0 com.whatsapp/.orbitsso.OrbitSsoProvider}
+      - com.whatsapp.registration.directmigration.MigrationContentProvider
+        -> ContentProviderRecord{a943185 u0 com.whatsapp/.registration.directmigration.MigrationContentProvider}
+      - com.whatsapp.media.contentprovider.MediaProvider
+        -> ContentProviderRecord{a0dcbda u0 com.whatsapp/.media.contentprovider.MediaProvider}
+      - androidx.core.content.FileProvider
+        -> ContentProviderRecord{98680b u0 com.whatsapp/androidx.core.content.FileProvider}
+      - com.whatsapp.registration.directmigration.DirectMigrationContentProvider
+        -> ContentProviderRecord{419d6e8 u0 com.whatsapp/.registration.directmigration.DirectMigrationContentProvider}
+      - com.whatsapp.instrumentation.product.api.InstrumentationProvider
+        -> ContentProviderRecord{deb6101 u0 com.whatsapp/.instrumentation.product.api.InstrumentationProvider}
+      - com.whatsapp.accesslibraryprovider.provider.FamilyAppsUserValuesProvider
+        -> ContentProviderRecord{c8ccba6 u0 com.whatsapp/.accesslibraryprovider.provider.FamilyAppsUserValuesProvider}
+      - com.whatsapp.backup.google.restart.RestartAppContentProvider
+        -> ContentProviderRecord{66379e7 u0 com.whatsapp/.backup.google.restart.RestartAppContentProvider}
+      - com.whatsapp.stickers.ui.storage.WhitelistPackQueryContentProvider
+        -> ContentProviderRecord{7297994 u0 com.whatsapp/.stickers.ui.storage.WhitelistPackQueryContentProvider}
+      - com.google.mlkit.common.internal.MlKitInitProvider
+        -> ContentProviderRecord{c2c0c3d u0 com.whatsapp/com.google.mlkit.common.internal.MlKitInitProvider}
+      - com.google.firebase.provider.FirebaseInitProvider
+        -> ContentProviderRecord{ea9fc32 u0 com.whatsapp/com.google.firebase.provider.FirebaseInitProvider}
+      - com.whatsapp.accountswitching.AccountSwitchingContentProvider
+        -> ContentProviderRecord{9e3cd83 u0 com.whatsapp/.accountswitching.AccountSwitchingContentProvider}
+    Connected Providers:
+      - 8561c35/com.android.providers.settings/.SettingsProvider->736:com.whatsapp/u0a363 s1/1 u0/0 +10h56m50s202ms
+      - 5f24a0f/com.google.android.providers.media.module/com.android.providers.media.MediaProvider->736:com.whatsapp/u0a363 s0/9 u9/644 +9h50m33s632ms
+    mIsReceivingBroadcast=false
+    mBroadcastReceiverSchedGroup=-2147483648
+    mReceivers:
+      - ReceiverList{254479 736 com.whatsapp/10363/u0 remote:a77bd40}
+      - ReceiverList{25f4d2f 736 com.whatsapp/10363/u0 remote:e23f0e}
+      - ReceiverList{2c09e79 736 com.whatsapp/10363/u0 remote:7603f40}
+      - ReceiverList{40958ce 736 com.whatsapp/10363/u0 remote:98ac9c9}
+      - ReceiverList{5740278 736 com.whatsapp/10363/u0 remote:a38c7db}
+      - ReceiverList{59d3de2 736 com.whatsapp/10363/u0 remote:fa186ad}
+      - ReceiverList{6d5562e 736 com.whatsapp/10363/u0 remote:ffce0a9}
+      - ReceiverList{6e633da 736 com.whatsapp/10363/u0 remote:b6d3985}
+      - ReceiverList{74669a8 736 com.whatsapp/10363/u0 remote:8a48dcb}
+      - ReceiverList{9317218 736 com.whatsapp/10363/u0 remote:40db1fb}
+      - ReceiverList{9b1452f 736 com.whatsapp/10363/u0 remote:ae1170e}
+      - ReceiverList{9e3917e 736 com.whatsapp/10363/u0 remote:1dcb739}
+      - ReceiverList{b3441e7 736 com.whatsapp/10363/u0 remote:283b3a6}
+      - ReceiverList{c7b72d7 736 com.whatsapp/10363/u0 remote:af65256}
+      - ReceiverList{d0cd98c 736 com.whatsapp/10363/u0 remote:c68febf}
+      - ReceiverList{e488df5 736 com.whatsapp/10363/u0 remote:5748f2c}
+      - ReceiverList{e867f36 736 com.whatsapp/10363/u0 remote:5468d1}
+      - ReceiverList{ef91583 736 com.whatsapp/10363/u0 remote:1276432}
+      - ReceiverList{f3b61ca 736 com.whatsapp/10363/u0 remote:8a3a935}
+    lastCompactTime=126321169 lastCompactProfile=FULL
+    hasPendingCompaction=false    isPendingFreeze=false isFrozen=true
+    earliestFreezableTimeMs=-1m7s48ms
+    Activities:
+      - ActivityRecord{241510226 u0 com.whatsapp/.home.ui.HomeActivity t30524}
+    Recent Tasks:
+      - Task{5b2a5ee #30524 type=standard A=10363:com.whatsapp}
+     Configuration={1.0 238mcc2mnc [en_US_#u-mu-celsius,it_IT_#u-mu-celsius] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.11 fontWeightAdjustment=0}
+     OverrideConfiguration={1.0 238mcc2mnc [en_US_#u-mu-celsius,it_IT_#u-mu-celsius] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.2 fontWeightAdjustment=0}
+     mLastReportedConfiguration={1.0 238mcc2mnc [en_US_#u-mu-celsius,it_IT_#u-mu-celsius] ldltr sw411dp w411dp h914dp 420dpi nrml long compactNeeded hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.11 fontWeightAdjustment=0}
+  *APP* UID 10161 ProcessRecord{492cc4e 4330:com.google.android.apps.messaging/u0a161}
+    user #0 uid=10161 gids={3003, 50161, 20161, 9997}
+    mRequiredAbi=arm64-v8a instructionSet=arm64
+--
+      - com.instagram.contentprovider.DeferredCurrentUserProvider
+        -> ContentProviderRecord{b4e91aa u0 com.instagram.android/com.instagram.contentprovider.DeferredCurrentUserProvider}
+      - com.instagram.barcelona.feed.crossapp.contentprovider.ThreadsContentProvider
+        -> ContentProviderRecord{452019b u0 com.instagram.android/com.instagram.barcelona.feed.crossapp.contentprovider.ThreadsContentProvider}
+      - com.instagram.whatsapp.foabackuptoken.FoaBackupTokenProvider
+        -> ContentProviderRecord{c4a1938 u0 com.instagram.android/com.instagram.whatsapp.foabackuptoken.FoaBackupTokenProvider}
+      - androidx.core.content.FileProvider
+        -> ContentProviderRecord{88bfd11 u0 com.instagram.android/androidx.core.content.FileProvider}
+      - com.instagram.basel.integration.contentprovider.BaselContextProvider
+        -> ContentProviderRecord{6dc1e76 u0 com.instagram.android/com.instagram.basel.integration.contentprovider.BaselContextProvider}
+      - com.instagram.quicksnap.viewer.seenstate.provider.QuickSnapSeenStateProvider
+        -> ContentProviderRecord{2451c77 u0 com.instagram.android/com.instagram.quicksnap.viewer.seenstate.provider.QuickSnapSeenStateProvider}
+--
+    Proc # 10: cch      b/ /CAC  ---------  t: 0 23811:com.facebook.orca/u0a279 (cch-act)
+        oom: max=1001 curRaw=900 setRaw=900 cur=900 set=900
+        state: cur=CAC  set=CAC  lastRss=378MB lastCachedRss=378MB
+        cached=true empty=false hasAboveClient=false
+    Proc #  7: cch      b/ /CAC  ---------  t: 0 736:com.whatsapp/u0a363 (cch-act)
+        oom: max=1001 curRaw=900 setRaw=900 cur=900 set=900
+        state: cur=CAC  set=CAC  lastRss=569MB lastCachedRss=168MB
+        cached=true empty=false hasAboveClient=false
+        run cpu over +2m33s885ms used 0 (0%)
+    Proc # 12: cch      b/ /CACC -------TI  t: 0 6633:com.android.chrome:privileged_process0/u0a185 (cch-client-act)
+        oom: max=1001 curRaw=900 setRaw=900 cur=900 set=900
+--
+      curProcState=19 curCapability=---------
+      proc=ProcessRecord{cc5fd5a 14762:com.snapchat.android/u0a359}
+    UID u0a363: UidRecord{6c93bc u0a363 CAC  bg:+3m7s791ms idle change:procstateprocadj procs:0 seq(2552338,2550400)} caps=---------
+      curProcState=16 curCapability=---------
+      proc=ProcessRecord{f12db35 736:com.whatsapp/u0a363}
+    UID u0a380: UidRecord{f567343 u0a380 FGS  fgServices change:procadj procs:0 seq(2553211,376592)} caps=---NFUATI
+      curProcState=4 curCapability=---NFUATI
+      proc=ProcessRecord{d6cac33 1269:com.a0soft.gphone.uninstaller:bg/u0a380}
+      proc=ProcessRecord{a6c7c9 1388:com.a0soft.gphone.uninstaller/u0a380}
+    UID u0a386: UidRecord{7bfadc0 u0a386 BFGS change:procadj procs:0 seq(2552336,2398972)} caps=LCMNFUATI
+      curProcState=5 curCapability=LCMNFUATI
+--
+    #98: vis      BFGS ---NFUATI 2520:com.google.android.apps.nexuslauncher/u0a237 act:activities|recents
+    #97: cch      LAST --------- 10702:com.grindrapp.android/u0a284 act:activities|recents
+    #96: vis      FGS  ---NFUATI 7451:com.google.android.adservices.api/u0a267 act:client
+    #95: cch      LAST --------- 10888:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a284i133 act:client
+    #94: cch      CAC  --------- 736:com.whatsapp/u0a363 act:activities|recents
+    #93: vis      BTOP ---NFUATI 13088:com.android.vending/u0a168 act:activities|recents|client
+    #92: vis      TRNB -------TI 3206:com.android.vending:background/u0a168 act:client
+    #91: cch      CAC  --------- 23811:com.facebook.orca/u0a279 act:activities|recents
+    #90: cch      CAC  -------TI 6587:com.android.chrome/u0a185 act:activities|recents
+    #89: cch      CACC -------TI 6633:com.android.chrome:privileged_process0/u0a185 act:client
+    #88: cch  +10 CACC -------TI 14179:com.android.chrome:sandboxed_process0:org.chromium.content.app.NativeOnlySandboxedProcessService0:1/u0a185i-9000 act:client
+--
+        com.grindrapp.android/org.chromium.content.app.SandboxedProcessService0:0<=Proc{10702:com.grindrapp.android/u0a284}
+    Proc #  4: cch      b/ /LAST ---------  t: 0 10702:com.grindrapp.android/u0a284 (previous-expired)
+    Proc # 11: cch      b/ /CAC  -------TI  t: 0 6587:com.android.chrome/u0a185 (cch-act)
+    Proc # 10: cch      b/ /CAC  ---------  t: 0 23811:com.facebook.orca/u0a279 (cch-act)
+    Proc #  7: cch      b/ /CAC  ---------  t: 0 736:com.whatsapp/u0a363 (cch-act)
+    Proc # 12: cch      b/ /CACC -------TI  t: 0 6633:com.android.chrome:privileged_process0/u0a185 (cch-client-act)
+    Proc # 44: cch  + 5 b/ /CEM  ---------  t: 0 6525:com.google.android.googlequicksearchbox:googleapp/u0a169 (cch-empty)
+    Proc # 42: cch  + 5 b/ /CEM  ---------  t: 0 23644:com.xiaomi.wearable:persistent/u0a309 (cch-empty)
+    Proc # 35: cch  + 5 b/ /CEM  ---------  t: 0 6204:com.google.android.apps.privacy.wildlife/u0a135 (cch-empty)
+    Proc # 34: cch  + 5 b/ /CEM  ---------  t: 0 20492:android.process.acore/u0a74 (cch-empty)
+    Proc # 33: cch  + 5 b/ /CEM  ---------  t: 0 4330:com.google.android.apps.messaging/u0a161 (cch-empty)
+--
+    Proc # 66: cch  +75 b/ /CEM  ---------  t: 0 19685:com.google.android.permissioncontroller/u0a255 (cch-empty)
+    Proc # 69: cch  +85 b/ /CEM  ---------  t: 0 20506:com.google.android.apps.weather/u0a159 (cch-empty)
+
+  PID mappings:
+    PID #736: ProcessRecord{f12db35 736:com.whatsapp/u0a363}
+    PID #1269: ProcessRecord{d6cac33 1269:com.a0soft.gphone.uninstaller:bg/u0a380}
+    PID #1388: ProcessRecord{a6c7c9 1388:com.a0soft.gphone.uninstaller/u0a380}
+    PID #1489: ProcessRecord{7aade12 1489:system/1000}
+    PID #2212: ProcessRecord{e17b679 2212:com.android.systemui/u0a228}
+    PID #2310: ProcessRecord{a07334d 2310:com.android.networkstack.process/1073}
+    PID #2381: ProcessRecord{5bbf8d 2381:com.google.android.pixelsystemservice/u0a247}

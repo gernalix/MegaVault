@@ -1,0 +1,15 @@
+GMS appops filtered
+POST_NOTIFICATION: allow
+WAKE_LOCK: allow; time=+17s290ms ago; duration=+4ms
+MONITOR_LOCATION: allow; time=+1m14s88ms ago (running)
+START_FOREGROUND: allow; time=+115d22h56m24s971ms ago; duration=+12s189ms
+ACTIVITY_RECOGNITION: allow; time=+1m14s88ms ago (running)
+ACTIVITY_RECOGNITION_SOURCE: allow; time=+1m14s88ms ago (running)
+ACCESS_LOCAL_NETWORK: allow; time=+1m14s88ms ago (running)
+GMS standby
+5
+GMS notification importance
+error: no active notification matching key: com.google.android.gms
+GMS package version
+    versionName=26.23.34 (260400-933906539)
+    versionName=26.11.36 (260400-892401869)

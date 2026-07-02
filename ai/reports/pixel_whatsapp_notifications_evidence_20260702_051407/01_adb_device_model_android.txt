@@ -1,0 +1,5 @@
+List of devices attached
+adb-52131JEKB01070-Ne8QqZ._adb-tls-connect._tcp	device
+
+Pixel 8a
+17

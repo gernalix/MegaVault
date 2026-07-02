@@ -1,0 +1,9 @@
+restrict-background
+Restrict background status: disabled
+restrict-background-whitelist
+Restrict background whitelisted UIDs: 10075 10127 10135 10172 10175 10253 10273 10384 
+restrict-background-blacklist
+Restrict background blacklisted UIDs: 10060 10279 10281 10282 10283 10284 10285 10292 10294 10302 10308 10309 10310 10313 10314 10316 10318 10321 10331 10341 10344 10345 10347 10353 10359 10361 10363 10376 10385 10387 10388 10393 10395 10398 10418 10423 10445 10450 10458 10466 10470 10524 10563 
+app idle whitelist
+App Idle whitelisted UIDs: none
+

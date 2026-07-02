@@ -1,0 +1,11 @@
+--- RUN_ANY_IN_BACKGROUND ---
+No operations.
+Default mode: allow
+--- RUN_IN_BACKGROUND ---
+No operations.
+Default mode: allow
+--- POST_NOTIFICATION ---
+No operations.
+Default mode: allow
+--- WAKE_LOCK ---
+WAKE_LOCK: allow; time=+2m3s286ms ago; duration=+3s3ms

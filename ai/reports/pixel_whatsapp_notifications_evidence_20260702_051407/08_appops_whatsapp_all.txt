@@ -1,0 +1,78 @@
+Uid mode: COARSE_LOCATION: foreground
+FINE_LOCATION: foreground
+READ_CALL_LOG: ignore
+WRITE_CALL_LOG: ignore
+READ_CALENDAR: ignore
+WRITE_CALENDAR: ignore
+CALL_PHONE: ignore
+READ_SMS: ignore
+RECEIVE_SMS: ignore
+RECEIVE_MMS: ignore
+RECEIVE_WAP_PUSH: ignore
+SEND_SMS: ignore
+CAMERA: foreground
+RECORD_AUDIO: foreground
+ADD_VOICEMAIL: ignore
+USE_SIP: ignore
+PROCESS_OUTGOING_CALLS: ignore
+BODY_SENSORS: ignore
+READ_CELL_BROADCASTS: ignore
+READ_EXTERNAL_STORAGE: ignore
+WRITE_EXTERNAL_STORAGE: ignore
+READ_PHONE_NUMBERS: ignore
+ANSWER_PHONE_CALLS: ignore
+ACCEPT_HANDOVER: ignore
+BLUETOOTH_SCAN: ignore
+ACTIVITY_RECOGNITION: ignore
+LEGACY_STORAGE: ignore
+ACCESS_MEDIA_LOCATION: ignore
+AUTO_REVOKE_PERMISSIONS_IF_UNUSED: ignore
+BLUETOOTH_CONNECT: ignore
+UWB_RANGING: ignore
+BLUETOOTH_ADVERTISE: ignore
+NEARBY_WIFI_DEVICES: ignore
+USE_FULL_SCREEN_INTENT: allow
+READ_HEART_RATE: ignore
+READ_SKIN_TEMPERATURE: ignore
+RANGING: ignore
+READ_OXYGEN_SATURATION: ignore
+READ_BLOOD_PRESSURE: ignore
+READ_HEART_RATE_VARIABILITY: ignore
+READ_RESPIRATORY_RATE: ignore
+READ_VO2_MAX: ignore
+COARSE_LOCATION: allow; time=+40m1s29ms ago; rejectTime=+2h11m31s399ms ago
+FINE_LOCATION: allow; time=+40m1s29ms ago; rejectTime=+23s36ms ago
+GPS: allow; time=+2h51m31s585ms ago; duration=+1m58s456ms
+VIBRATE: allow; time=+15h32m6s280ms ago; duration=+87ms
+READ_CONTACTS: allow; time=+40m30s347ms ago
+WRITE_CONTACTS: allow; time=+2h54m43s974ms ago
+WIFI_SCAN: allow; time=+1h32m1s664ms ago
+CALL_PHONE: allow; rejectTime=+14h35m25s144ms ago
+SYSTEM_ALERT_WINDOW: default; rejectTime=+1h5m26s133ms ago
+CAMERA: allow; time=+2h8m26s595ms ago; duration=+2m19s41ms
+RECORD_AUDIO: allow; time=+2h8m26s570ms ago; duration=+2m18s848ms
+READ_CLIPBOARD: allow; time=+1h36m46s646ms ago
+WRITE_CLIPBOARD: allow; time=+14m29s556ms ago
+TAKE_AUDIO_FOCUS: foreground; time=+2h52m30s680ms ago
+WAKE_LOCK: allow; time=+2m2s817ms ago; duration=+3s3ms
+MONITOR_LOCATION: allow; time=+2h51m35s293ms ago; duration=+2m2s125ms
+MONITOR_HIGH_POWER_LOCATION: allow; time=+2h51m35s293ms ago; duration=+2m2s125ms
+GET_USAGE_STATS: default; rejectTime=+5h13m11s627ms ago
+MUTE_MICROPHONE: allow; time=+2h8m26s272ms ago
+TOAST_WINDOW: allow; time=+3d23h10m26s825ms ago; duration=+2s521ms
+READ_PHONE_STATE: allow; time=+23s36ms ago
+GET_ACCOUNTS: allow; time=+5h10m23s205ms ago
+START_FOREGROUND: allow; time=+1m15s58ms ago (running)
+USE_BIOMETRIC: allow; time=+12d12h19m1s633ms ago
+READ_MEDIA_AUDIO: allow; time=+12h49m10s877ms ago
+WRITE_MEDIA_AUDIO: deny; rejectTime=+1d16h35m5s347ms ago
+READ_MEDIA_VIDEO: allow; time=+1d2h6m14s481ms ago
+WRITE_MEDIA_VIDEO: deny; rejectTime=+1d16h35m5s351ms ago
+READ_MEDIA_IMAGES: allow; time=+1d2h6m14s486ms ago
+WRITE_MEDIA_IMAGES: deny; rejectTime=+1d16h35m5s355ms ago
+MANAGE_EXTERNAL_STORAGE: default; rejectTime=+1d16h35m9s771ms ago
+ACCESS_RESTRICTED_SETTINGS: default; rejectTime=+7d8h6m59s783ms ago
+READ_MEDIA_VISUAL_USER_SELECTED: allow; time=+12h49m10s879ms ago
+USE_FULL_SCREEN_INTENT: default; time=+2h8m28s906ms ago
+CONTROL_AUDIO: foreground; time=+5m49s373ms ago; duration=+4ms
+CONTROL_AUDIO_PARTIAL: foreground; time=+5m49s374ms ago; duration=+4ms

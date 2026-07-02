@@ -1,0 +1,784 @@
+    
+    
+    In quota alarms:
+      NOT WAITING
+    
+    Per-app free quota:
+  
+  Instantaneous events:
+    <0>com.whatsapp::.schedulePersisted():
+      125569108
+    <0>com.google.android.apps.docs.editors.sheets::.schedulePersisted():
+      95766653, 95766659, 95767209, 95767226, 98175149
+    <0>com.google.android.apps.safetyhub::.schedulePersisted():
+      102570076, 102570780, 102576446
+    <0>com.android.vending::timeout-reg:
+      77850204
+    <0>com.android.vending::.schedulePersisted():
+      141844422
+    <0>com.android.vending::timeout-total:
+      77652224, 77850204, 77851073, 80350639, 80530882, 80711398, 102767131
+    <0>com.android.vending::timeout-ej:
+--
+    <0>com.revolut.revolut::timeout-reg:
+      expirationTime=172830342, windowSizeMs=86400000, countLimit=3, countInWindow=0, inQuotaTime=0
+    <0>com.revolut.revolut::.schedulePersisted():
+      expirationTime=172830342, windowSizeMs=60000, countLimit=250, countInWindow=0, inQuotaTime=0
+    <0>com.revolut.revolut::anr:
+      expirationTime=172830342, windowSizeMs=21600000, countLimit=3, countInWindow=0, inQuotaTime=0
+    <0>com.revolut.revolut::timeout-total:
+      expirationTime=172814830, windowSizeMs=86400000, countLimit=10, countInWindow=0, inQuotaTime=0
+    <0>com.whatsapp::timeout-reg:
+      expirationTime=172830341, windowSizeMs=86400000, countLimit=3, countInWindow=0, inQuotaTime=0
+    <0>com.whatsapp::.schedulePersisted():
+      expirationTime=9223372036854775807, windowSizeMs=60000, countLimit=250, countInWindow=0, inQuotaTime=0
+    <0>com.whatsapp::anr:
+      expirationTime=172833731, windowSizeMs=21600000, countLimit=3, countInWindow=0, inQuotaTime=0
+    <0>com.whatsapp::timeout-total:
+      expirationTime=172814829, windowSizeMs=86400000, countLimit=10, countInWindow=0, inQuotaTime=0
+    <0>com.whatsapp::timeout-ej:
+      expirationTime=172843323, windowSizeMs=86400000, countLimit=5, countInWindow=0, inQuotaTime=0
+    <0>de.number26.android::timeout-reg:
+      expirationTime=172932880, windowSizeMs=86400000, countLimit=3, countInWindow=0, inQuotaTime=0
+    <0>de.number26.android::.schedulePersisted():
+      expirationTime=172932880, windowSizeMs=60000, countLimit=250, countInWindow=0, inQuotaTime=0
+    <0>de.number26.android::anr:
+      expirationTime=172932880, windowSizeMs=21600000, countLimit=3, countInWindow=0, inQuotaTime=0
+    <0>de.number26.android::timeout-total:
+      expirationTime=172932880, windowSizeMs=86400000, countLimit=10, countInWindow=0, inQuotaTime=0
+    <0>com.google.android.apps.docs.editors.sheets::timeout-reg:
+      expirationTime=172830342, windowSizeMs=86400000, countLimit=3, countInWindow=0, inQuotaTime=0
+    <0>com.google.android.apps.docs.editors.sheets::.schedulePersisted():
+--
+    Started with foreground flag: false
+    Network: 121
+    Standby bucket: EXEMPTED
+    Enqueue time: -1d16h35m32s72ms
+    Run time: earliest=+2d9h16m45s611ms, latest=+2d17h40m45s611ms, original latest=+2d17h40m45s611ms
+    Last successful run: 2026-06-27 18:34:35
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB SyncManager:1000/72: eb364b7 @SyncManager@com.android.contacts/com.whatsapp:android
+    1000 tag=*job*r/@SyncManager@com.android.contacts/com.whatsapp:android
+    Source: uid=u0a363 user=0 pkg=com.whatsapp
+    JobInfo:
+      Service: android/com.android.server.content.SyncJobService
+      PERIODIC: interval=+1h0m0s0ms flex=+5m0s0ms
+      PERSISTED
+      Priority: 300 [DEFAULT]
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Has media backup exemption=false 
+      Extras: {provider=com.android.contacts, ejDowngradedToRegular=false, reason=-4, source=4, userId=0, expectedRuntime=0, syncExemptionFlag=0, owningPackage=com.whatsapp, SyncManagerJob=true, isPeriodic=true, allowParallelSyncs=false, periodMillis=3600000, sourcePeriodicId=-1, jobId=72, owningUid=10363, flexMillis=144000, accountName=WhatsApp, accountType=com.whatsapp, retries=0, syncExtras=PersistableBundle[{}]}
+      Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&TRUSTED&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10363 UnderlyingNetworks: Null] ]
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: STORAGE_NOT_LOW TIMING_DELAY DEADLINE CONNECTIVITY FLEXIBILITY [0xd0200008]
+    Dynamic constraints:
+    Satisfied constraints: STORAGE_NOT_LOW CONNECTIVITY FLEXIBILITY DEVICE_NOT_DOZING WITHIN_QUOTA [0x13200008]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Num Required Flexible constraints: 0
+    Num Dropped Flexible constraints: 0
+    Constraint history:
+      -40m31s534ms = FLEXIBILITY [0x200000]
+--
+      readyComponentEnabled: true
+    Started with foreground flag: false
+    Standby bucket: RARE
+      Deferred since: -2m25s764ms
+    Enqueue time: -22m7s926ms
+    Run time: earliest=+7m51s990ms, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB androidx.work.systemjobscheduler:u0a363/17527: b99de65 #SnaplWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+    u0a363 tag=*job*r/#SnaplWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+    Source: uid=u0a363 user=0 pkg=com.whatsapp
+    JobInfo:
+      Service: com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+      Priority: 300 [DEFAULT]
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Has media backup exemption=false 
+      Extras: mParcelledData.dataSize=248
+      Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&TRUSTED&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10363 UnderlyingNetworks: Null] ]
+      Minimum latency: +20h20m23s635ms
+      Backoff: policy=0 initial=+3m0s0ms
+      Has early constraint
+      Trace tag: SnaplWorker
+    Required constraints: TIMING_DELAY CONNECTIVITY FLEXIBILITY [0x90200000]
+    Dynamic constraints:
+    Satisfied constraints: CONNECTIVITY FLEXIBILITY DEVICE_NOT_DOZING WITHIN_QUOTA [0x13200000]
+--
+    Started with foreground flag: false
+    Network: 121
+    Standby bucket: ACTIVE
+      Deferred since: -3h46m38s99ms
+    Enqueue time: -10h55m55s303ms
+    Run time: earliest=+9h24m28s330ms, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB androidx.work.systemjobscheduler:u0a363/17798: e0fbd32 #RandomizedDailyCronWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+    u0a363 tag=*job*r/#RandomizedDailyCronWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+    Source: uid=u0a363 user=0 pkg=com.whatsapp
+    JobInfo:
+      Service: com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+      Priority: 300 [DEFAULT]
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Has media backup exemption=false 
+      Extras: mParcelledData.dataSize=248
+      Minimum latency: +23h59m52s90ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Trace tag: RandomizedDailyCronWorker
+    Required constraints: TIMING_DELAY FLEXIBILITY [0x80200000]
+    Dynamic constraints:
+    Satisfied constraints: FLEXIBILITY DEVICE_NOT_DOZING WITHIN_QUOTA [0x3200000]
+    Unsatisfied constraints: TIMING_DELAY [0x80000000]
+--
+    10389/com.google.android.apps.pixel.customizationbundle: {-16h25m26s425ms=3}
+    10387/com.airmee.customer: {-1d12h7m6s29ms=3}
+    10386/sen.typinghero: {-1d16h34m37s328ms=6, -1d9h4m39s212ms=3, -1d0h35m32s738ms=6, -4h7m57s865ms=3, -1h12m9s916ms=3}
+    10385/com.alarmclock.xtreme.free: {-1d16h34m29s915ms=15, -1d12h4m53s773ms=6, -1d9h49m56s365ms=6, -1d8h42m18s482ms=6, -23h6m32s777ms=12, -21h49m54s262ms=12, -12h20m0s596ms=9, -9h43m39s959ms=18}
+    10380/com.a0soft.gphone.uninstaller: {-1d16h34m39s248ms=12, -1d4h14m8s15ms=18, -1d2h14m35s675ms=3, -1d0h3m59s128ms=3, -19h10m50s995ms=57, -16h45m41s510ms=3, -12h6m12s138ms=33, -10h56m48s452ms=12, -7h38m5s775ms=12, -4h3m15s151ms=6, -2h44m41s885ms=24, -1h12m58s565ms=6}
+    10376/org.thoughtcrime.securesms: {-1d16h35m20s276ms=33, -1d14h30m15s992ms=12, -1d12h50m16s233ms=6, -1d11h45m38s477ms=27, -1d10h19m58s965ms=27, -1d7h36m36s411ms=15, -1d6h36m34s535ms=12, -1d5h21m32s615ms=21, -1d3h47m35s441ms=6, -1d2h6m41s382ms=24, -1d0h47m35s516ms=15, -22h26m53s307ms=15, -21h5m0s238ms=9, -19h17m35s911ms=27, -16h40m18s441ms=9, -14h1m21s652ms=3, -12h19m59s769ms=12, -11h4m58s266ms=9, -10h4m57s714ms=42, -7h28m1s730ms=12, -5h54m59s543ms=36, -4h49m57s812ms=3, -3h29m47s661ms=18, -1h53m5s807ms=27}
+    10370/com.reddit.frontpage: {-1d15h29m57s213ms=6, -13h3m19s59ms=24}
+    10369/com.ubercab: {-1d7h57m31s858ms=3, -18h4m57s348ms=3}
+    10363/com.whatsapp: {-1d5h12m35s905ms=20, -1d3h32m32s530ms=39, -1d2h6m41s632ms=25, -1d1h6m32s686ms=9, -23h21m32s74ms=31, -21h35m0s404ms=58, -20h34m57s818ms=54, -19h34m57s583ms=29, -18h34m56s965ms=26, -17h34m52s920ms=46, -16h21m13s418ms=88, -13h34m35s220ms=23, -12h21m41s47ms=22, -11h3m18s744ms=52, -9h59m8s450ms=90, -8h54m22s411ms=40, -7h52m52s252ms=88, -6h52m11s164ms=113, -5h46m29s871ms=82, -4h34m39s725ms=25, -3h29m45s323ms=97, -2h19m15s724ms=81, -1h11m9s955ms=87, -5m40s784ms=10}
+    10359/com.snapchat.android: {-1d16h33m17s110ms=3, -1d15h29m56s386ms=9, -1d12h5m0s894ms=12, -1d11h4m56s993ms=12, -1d7h57m32s721ms=3, -1d4h28m47s943ms=14, -18h58m17s185ms=12, -17h34m56s880ms=6, -16h34m54s449ms=6, -10h4m3s494ms=21, -9h3m57s236ms=18, -7h55m2s893ms=21, -6h49m56s847ms=6, -3h48m51s192ms=14, -1h53m34s413ms=18, -53m26s673ms=9}
+    10357/org.zwanoo.android.speedtest: {-1d16h32m11s839ms=3, -1d12h43m24s510ms=3, -1d6h44m6s584ms=3, -1d0h43m19s607ms=3, -18h43m35s491ms=3, -12h43m2s655ms=3, -6h43m32s323ms=3, -43m52s454ms=3}
+    10356/org.mozilla.firefox: {-13h19m27s80ms=6, -11h49m38s470ms=3}
+    10347/com.lidl.eci.lidlplus: {-1d16h32m19s567ms=3, -18h59m50s869ms=15}
+    10345/com.linkedin.android: {-1d13h18m20s508ms=9, -1d12h4m43s649ms=30, -1d10h49m51s967ms=39, -1d9h49m40s29ms=27, -1d8h33m12s321ms=6, -1d6h51m32s738ms=27, -1d5h51m32s639ms=51, -1d4h37m2s247ms=39, -1d2h32m31s227ms=27, -1d1h6m32s740ms=42, -23h51m32s193ms=24, -20h49m58s306ms=42, -19h49m50s706ms=78, -18h29m47s649ms=36, -17h0m32s48ms=36, -14h2m32s484ms=6, -12h19m59s687ms=60, -11h19m58s754ms=60, -10h4m58s828ms=45, -9h3m28s222ms=117, -7h55m2s900ms=84, -6h49m56s816ms=27, -1h53m34s424ms=66, -53m19s592ms=51}
+    10341/dk.mitid.app.android: {-1d12h18m14s19ms=3}
+    10339/org.brilliant.android: {-1d16h32m13s484ms=3}
+    10331/org.telegram.messenger: {-1d16h34m23s243ms=3, -1d15h32m17s627ms=3, -1d13h49m36s965ms=6, -1d11h34m23s456ms=3, -1d10h9m8s927ms=57, -1d8h42m9s211ms=6, -1d3h17m35s639ms=3, -1d0h32m2s203ms=3, -23h31m46s293ms=6, -20h59m18s299ms=12, -19h1m49s37ms=21, -16h43m34s49ms=3, -13h8m53s488ms=3, -11h34m9s75ms=12, -10h33m34s995ms=33, -8h42m7s952ms=6, -5h26m55s905ms=12, -55m37s104ms=6}
+    10330/com.google.android.apps.chromecast.app: {-1d11h37m57s133ms=6, -1d4h51m35s737ms=18, -1d2h0m37s211ms=9, -19h13m46s963ms=21, -12h5m58s922ms=6, -7h37m21s237ms=6, -4h57m5s855ms=6, -2h54m56s16ms=9}
+    10329/com.google.android.apps.docs.editors.docs: {-10h20m0s497ms=3}
+    10325/com.google.android.apps.fitness: {-1d16h33m57s812ms=3, -1d12h4m41s691ms=18, -1d10h49m51s883ms=15, -1d0h2m32s541ms=18, -22h47m30s795ms=18, -21h35m0s202ms=3, -18h58m19s969ms=27, -17h49m49s278ms=27, -16h49m31s773ms=21, -15h49m9s28ms=18, -14h46m54s543ms=18, -13h34m57s719ms=18, -12h34m48s801ms=21, -11h34m21s721ms=21, -10h34m1s558ms=21, -9h24m15s921ms=30, -8h24m14s34ms=30, -7h24m9s557ms=24, -6h19m44s780ms=27, -5h19m17s179ms=18, -4h2m44s831ms=18, -2h49m58s58ms=24, -1h49m32s858ms=24, -49m18s31ms=30}
+    10320/com.google.android.apps.bard: {-1d16h33m11s265ms=3}
+--
+    JobStatus{66de385 androidx.work.systemjobscheduler:u0a184/19415 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncWorker#@androidx.work.systemjobscheduler@com.google.android.apps.youtube.music/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10184 TIME=+1d7h28m27s363ms:none CHARGING satisfied:0x2200002 unsatisfied:0x81400001}: 292029213
+    JobStatus{a913408 androidx.work.systemjobscheduler:u0a169/17294 #TikTokWorker#com.google.android.libraries.notifications.platform.plugins.tiktokworker.GnpTikTokWorker#@androidx.work.systemjobscheduler@com.google.android.googlequicksearchbox/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10169 TIME=+4h36m27s457ms:none NET satisfied:0x13600000 unsatisfied:0x80000000}: 223209307
+    JobStatus{171b666 androidx.work.systemjobscheduler:u0a205/2141 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.docs/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10205 TIME=+16h17m19s466ms:none satisfied:0x2200002 unsatisfied:0x81400000}: 226921316
+    JobStatus{98be358 androidx.work.systemjobscheduler:u0a208/8571 #AppSearchWorker#@androidx.work.systemjobscheduler@com.google.android.calendar/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10208 TIME=+12h54m36s672ms:none satisfied:0x3200000 unsatisfied:0x80400000}: 219918522
+    JobStatus{536e420 SyncManager:1000/66 @SyncManager@com.android.contacts/com.google:android u=0 s=10175 TIME=+2d9h16m45s478ms:+2d17h40m45s478ms NET STORENOTLOW PERIODIC PERSISTED satisfied:0x13600008 unsatisfied:0x80000000}: 373947328
+    JobStatus{30c7887 #1000/375432472 android/com.android.server.memory.ZramMaintenance u=0 s=1000 TIME=+9h57m27s476ms:none BATNOTLOW IDLE satisfied:0x3600002 unsatisfied:0x80000004}: 228789326
+    JobStatus{c5d85e8 SyncManager:1000/43 @SyncManager@com.android.calendar/com.google:android u=0 s=10208 TIME=+14h1m27s981ms:+15h13m27s981ms NET STORENOTLOW PERIODIC PERSISTED satisfied:0x13200008 unsatisfied:0x80400000}: 223389831
+    JobStatus{5709fc7 androidx.work.systemjobscheduler:u0a317/15101 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.walletnfcrel/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10317 TIME=+1d5h32m7s201ms:none NET satisfied:0x2200000 unsatisfied:0x91400000}: 283069051
+    JobStatus{eb364b7 SyncManager:1000/72 @SyncManager@com.android.contacts/com.whatsapp:android u=0 s=10363 TIME=+19m27s795ms:+24m27s795ms NET STORENOTLOW PERIODIC PERSISTED satisfied:0x13200008 unsatisfied:0x80400000}: 235749645
+    JobStatus{25fcf94 #u0a174/110 com.google.android.apps.turbo/com.google.android.libraries.smartbattery.appusage.library.TrainModelJob u=0 s=10174 CHARGING IDLE satisfied:0x3600002 unsatisfied:0x5}: 274247378
+    JobStatus{528b51f #u0a318/17 com.touchtype.swiftkey/com.touchtype.scheduler.SwiftKeyJobService u=0 s=10318 TIME=+13h20m25s184ms:none NET satisfied:0x13600000 unsatisfied:0x80000000}: 218107034
+    JobStatus{a4156cb androidx.work.systemjobscheduler:u0a202/18716 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncPeriodicWorker#@androidx.work.systemjobscheduler@com.google.android.apps.tachyon/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10202 TIME=+1d7h25m36s148ms:none CHARGING satisfied:0x3200002 unsatisfied:0x80400001}: 283937998
+    JobStatus{6ba0aed #u0a318/2 com.touchtype.swiftkey/com.touchtype.scheduler.SwiftKeyJobService u=0 s=10318 TIME=+1d8h52m0s660ms:none NET satisfied:0x13600002 unsatisfied:0x80000000}: 288042510
+    JobStatus{4c718ef androidx.work.systemjobscheduler:u0a161/1026 #TikTokWorker#com.google.apps.tiktok.contrib.work.impl.WipeoutWorker#@androidx.work.systemjobscheduler@com.google.android.apps.messaging/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10161 TIME=+1d7h25m27s249ms:none CHARGING satisfied:0x3600002 unsatisfied:0x80000001}: 297789099
+    JobStatus{9d0a942 androidx.work.systemjobscheduler:u0a243/14202 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.pixel.dcservice/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10243 TIME=+3d12h14m8s659ms:none NET satisfied:0x13200000 unsatisfied:0x80400000}: 474230509
+    JobStatus{91ed96e #u0a318/20 com.touchtype.swiftkey/com.touchtype.scheduler.SwiftKeyJobService u=0 s=10318 TIME=+29d8h13m42s972ms:none NET satisfied:0x13600002 unsatisfied:0x80000000}: 2704944822
+    JobStatus{803a918 #u0a318/21 com.touchtype.swiftkey/com.touchtype.scheduler.SwiftKeyJobService u=0 s=10318 TIME=+13h20m3s823ms:none NET satisfied:0x13600000 unsatisfied:0x80000000}: 217905673
+    JobStatus{380231a androidx.work.systemjobscheduler:u0a208/8565 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.calendar/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10208 TIME=+4d5h35m29s653ms:none NET satisfied:0x13200000 unsatisfied:0x80400000}: 539171503
+    JobStatus{330acaa androidx.work.systemjobscheduler:u0a164/44157 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.nbu.files/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10164 TIME=+3d22h50m12s607ms:none NET satisfied:0x2200000 unsatisfied:0x91400000}: 509154457
+    JobStatus{76754f0 androidx.work.systemjobscheduler:u0a158/1195 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.pixel.support/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10158 TIME=+6d21h53m52s174ms:none NET satisfied:0x13200000 unsatisfied:0x80400000}: 765514024
+    JobStatus{407f295 SyncManager:1000/60 @SyncManager@com.google.android.apps.docs.editors.kix/com.google:android u=0 s=10329 TIME=+1d1h49m53s348ms:+1d7h0m54s248ms NET STORENOTLOW PERIODIC PERSISTED satisfied:0x3200008 unsatisfied:0x90400000}: 260735198
+--
+    JobStatus{9cd4e86 androidx.work.systemjobscheduler:u0a297/24853 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.translate/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10297 TIME=+6d4h30m50s667ms:none NET satisfied:0x2200000 unsatisfied:0x91400000}: 707252517
+    JobStatus{6f09a1c androidx.work.systemjobscheduler:u0a158/1193 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncWorker#@androidx.work.systemjobscheduler@com.google.android.apps.pixel.support/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10158 TIME=+5d7h35m26s588ms:none satisfied:0x3200000 unsatisfied:0x80400000}: 627248438
+    JobStatus{4f2203b androidx.work.systemjobscheduler:u0a208/8570 #TaskAppSearchWorker#@androidx.work.systemjobscheduler@com.google.android.calendar/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10208 TIME=+12h10m52s634ms:none satisfied:0x3200000 unsatisfied:0x80400000}: 217294484
+    JobStatus{a85a269 androidx.work.systemjobscheduler:u0a270/50000 #EndlessWorker#@androidx.work.systemjobscheduler@com.google.android.providers.media.module/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10270 TIME=+259d22h43m12s400ms:none satisfied:0x3600000 unsatisfied:0x80000000}: 22627134250
+    JobStatus{8a6fc7c androidx.work.systemjobscheduler:u0a282/52660 #NewsFeedCacheInvalidationWorker#@androidx.work.systemjobscheduler@com.facebook.katana/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10282 TIME=+10h21m28s137ms:none NET CHARGING IDLE satisfied:0x13600002 unsatisfied:0x80000005}: 231849987
+    JobStatus{3792451 androidx.work.systemjobscheduler:u0a282/50961 #IdentityHashWorker#@androidx.work.systemjobscheduler@com.facebook.katana/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10282 TIME=+3d5h49m52s152ms:none NET satisfied:0x13600000 unsatisfied:0x80000000}: 470974002
+    JobStatus{1997684 androidx.work.systemjobscheduler:u0a169/32 #RemoteSessionWorker#@androidx.work.systemjobscheduler@com.google.android.googlequicksearchbox/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10169 TIME=+3608d6h17m0s630ms:none CHARGING satisfied:0x3600002 unsatisfied:0x80000001}: 311960442480
+    JobStatus{e98442 #u0a255/3 com.google.android.permissioncontroller/com.android.permissioncontroller.permission.service.PermissionEventCleanupJobService u=0 s=10255 TIME=+17h35m58s971ms:+1d17h35m58s971ms PERIODIC PERSISTED satisfied:0x3200000 unsatisfied:0x80400000}: 252700821
+    JobStatus{b99de65 androidx.work.systemjobscheduler:u0a363/17527 #SnaplWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10363 TIME=+9h24m28s197ms:none NET satisfied:0x13200000 unsatisfied:0x80400000}: 236830047
+    JobStatus{4597de #u0a180/262200667 com.google.ar.core/.services.profiles.ProfileDownloadJobService u=0 s=10180 TIME=+3d3h3m59s66ms:+10d3h3m59s66ms NET PERIODIC PERSISTED satisfied:0x13200000 unsatisfied:0x80400000}: 718780916
+    JobStatus{6736a7f androidx.work.systemjobscheduler:u0a169/17714 #TikTokWorker#com.google.android.libraries.search.suggest.sources.completeserver.CompleteServerZeroPrefixWorker#@androidx.work.systemjobscheduler@com.google.android.googlequicksearchbox/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10169 TIME=+7h37m50s306ms:none satisfied:0x3600000 unsatisfied:0x80000000}: 234092156
+    JobStatus{2478604 androidx.work.systemjobscheduler:u0a159/11615 #SessionWorker#@androidx.work.systemjobscheduler@com.google.android.apps.weather/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10159 TIME=+3439d10h20m12s736ms:none CHARGING satisfied:0x3200002 unsatisfied:0x80400001}: 297358314586
+    JobStatus{a7f0568 androidx.work.systemjobscheduler:u0a164/44179 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncWorker#@androidx.work.systemjobscheduler@com.google.android.apps.nbu.files/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10164 TIME=+1d7h40m14s950ms:none CHARGING satisfied:0x2200002 unsatisfied:0x81400001}: 281756800
+    JobStatus{c7beca7 androidx.work.systemjobscheduler:u0a158/1192 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncWorker#@androidx.work.systemjobscheduler@com.google.android.apps.pixel.support/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10158 TIME=+1d7h35m25s593ms:none CHARGING satisfied:0x3200002 unsatisfied:0x80400001}: 281647443
+    JobStatus{d710f5 SyncManager:1000/16 @SyncManager@com.google.android.gms.people/com.google:android u=0 s=10175 TIME=+2h6m6s392ms:+3h18m6s392ms NET STORENOTLOW PERIODIC PERSISTED satisfied:0x13600008 unsatisfied:0x80000000}: 178728242
+    JobStatus{d7fb803 androidx.work.systemjobscheduler:u0a157/12426 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncPeriodicWorker#@androidx.work.systemjobscheduler@com.google.android.dialer/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10157 TIME=+7h50m18s111ms:none NET CHARGING satisfied:0x13200002 unsatisfied:0x80400001}: 200999961
+    JobStatus{bdb5825 #u0a119/486216969 com.google.android.as/com.google.android.apps.miphone.aiai.echo.scheduler.EchoJobService u=0 s=10119 TIME=+7h24m41s152ms:+1d7h24m41s152ms IDLE PERIODIC satisfied:0x3600000 unsatisfied:0x80000004}: 216023002
+    JobStatus{da99f7 androidx.work.systemjobscheduler:u0a243/14189 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncWorker#@androidx.work.systemjobscheduler@com.google.android.apps.pixel.dcservice/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10243 TIME=+5h57m3s170ms:none satisfied:0x3200000 unsatisfied:0x80400000}: 192045020
+    JobStatus{f5bc95f androidx.work.systemjobscheduler:u0a282/52664 #SimCarrierInfoLogWorker#@androidx.work.systemjobscheduler@com.facebook.katana/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10282 TIME=+4h1m13s384ms:none NET satisfied:0x13600000 unsatisfied:0x80000000}: 209035234
+    JobStatus{cf054a androidx.work.systemjobscheduler:u0a345/-2147483397 #AppIconUpdatePeriodicWork#@androidx.work.systemjobscheduler@com.linkedin.android/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10345 TIME=+3h41m12s940ms:none satisfied:0x2200000 unsatisfied:0x81400000}: 222234790
+    JobStatus{e84c789 androidx.work.systemjobscheduler:u0a317/15161 #TapDoodleSyncWorker#@androidx.work.systemjobscheduler@com.google.android.apps.walletnfcrel/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10317 TIME=+4h53m41s86ms:none NET satisfied:0x2200000 unsatisfied:0x91400000}: 194902936
+--
+    JobStatus{b3fb511 androidx.work.systemjobscheduler:u0a210/555006801 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncPeriodicWorker#@androidx.work.systemjobscheduler@com.google.android.gm/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10210 TIME=+1d7h39m4s709ms:none CHARGING satisfied:0x3200002 unsatisfied:0x80400001}: 293086560
+    JobStatus{8088a9f androidx.work.systemjobscheduler:u0a317/15160 #GeofenceWorker#@androidx.work.systemjobscheduler@com.google.android.apps.walletnfcrel/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10317 TIME=+23h57m25s405ms:none NET BATNOTLOW satisfied:0x2200002 unsatisfied:0x91400000}: 263527256
+    JobStatus{c2e55d2 #u0a212/1034 com.google.android.apps.photos/com.google.android.libraries.social.mediamonitor.MediaMonitorJobSchedulerService u=0 s=10212 URIS=[android.app.job.JobInfo$TriggerContentUri@e25fb835, android.app.job.JobInfo$TriggerContentUri@8abd8844, android.app.job.JobInfo$TriggerContentUri@fed4dc22, android.app.job.JobInfo$TriggerContentUri@691cff99, android.app.job.JobInfo$TriggerContentUri@f0fcb7fb] satisfied:0x3200000 unsatisfied:0x4400000}: 229768611
+    JobStatus{b0988b4 androidx.work.systemjobscheduler:u0a169/17353 #TikTokWorker#com.google.android.libraries.mdi.download.workmanager.tiktok.TikTokPeriodicWorker#@androidx.work.systemjobscheduler@com.google.android.googlequicksearchbox/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10169 TIME=+14h34m52s139ms:none CHARGING satisfied:0x3600002 unsatisfied:0x80000001}: 259113990
+    JobStatus{245fea8 androidx.work.systemjobscheduler:u0a202/18669 #TikTokWorker#com.google.apps.tiktok.contrib.work.impl.WipeoutWorker#@androidx.work.systemjobscheduler@com.google.android.apps.tachyon/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10202 TIME=+1d7h25m41s514ms:none CHARGING satisfied:0x3200002 unsatisfied:0x80400001}: 283943365
+    JobStatus{18c94a7 androidx.work.systemjobscheduler:u0a202/18690 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.tachyon/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10202 TIME=+7h32m14s493ms:none NET satisfied:0x13200000 unsatisfied:0x80400000}: 197936344
+    JobStatus{fd467bb androidx.work.systemjobscheduler:u0a439/2060 #RepoUpdateWorker#@androidx.work.systemjobscheduler@org.fdroid.fdroid/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10439 TIME=+7h28m9s854ms:none NET BATNOTLOW STORENOTLOW satisfied:0x220000a unsatisfied:0x91400000}: 196431705
+    JobStatus{d31165b androidx.work.systemjobscheduler:u0a128/7208 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncPeriodicWorker#@androidx.work.systemjobscheduler@com.google.android.apps.tips/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10128 TIME=+2d4h41m27s609ms:none CHARGING satisfied:0x2200002 unsatisfied:0x81400001}: 360549460
+    JobStatus{e0fbd32 androidx.work.systemjobscheduler:u0a363/17798 #RandomizedDailyCronWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10363 TIME=+15h59m14s827ms:none satisfied:0x3200000 unsatisfied:0x80400000}: 268736678
+    JobStatus{c6fe431 androidx.work.systemjobscheduler:u0a329/2585 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.docs.editors.docs/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10329 TIME=+13h40m0s369ms:none satisfied:0x2200002 unsatisfied:0x81400000}: 217122220
+    JobStatus{df1627a #u0a210/1007999 com.google.android.gm/com.google.android.libraries.notifications.entrypoints.scheduled.ScheduledTaskService u=0 s=10210 TIME=+17h38m44s317ms:+1d17h38m44s317ms NET PERIODIC PERSISTED satisfied:0x13200000 unsatisfied:0x80400000}: 252866168
+    JobStatus{216b265 #u0a115/-1838665603 com.google.android.as.oss/com.google.android.gms.learning.internal.training.InAppJobService u=0 s=10115 TIME=+6m47s35ms:none NET CHARGING PERSISTED satisfied:0x13600002 unsatisfied:0x80000001}: 207028886
+    JobStatus{d366531 SyncManager:1000/41 @SyncManager@com.google.android.calendar/com.google:android u=0 s=10208 TIME=+9h5m49s400ms:+10h17m49s400ms NET STORENOTLOW PERIODIC PERSISTED satisfied:0x13200008 unsatisfied:0x80400000}: 206011251
+    JobStatus{2999140 #u0a249/5000 com.google.android.flipendo/.suspend.AllowedAppListCleaningJobService u=0 s=10249 TIME=+7h25m27s85ms:+1d7h25m27s85ms CHARGING PERIODIC satisfied:0x3600002 unsatisfied:0x80000001}: 216068936
+    JobStatus{5be8eed #u0a117/3890 com.google.android.apps.scone/.checkin.CheckinJobService u=0 s=10117 TIME=+5h54m41s847ms:none satisfied:0x3600000 unsatisfied:0x80000000}: 202163698
+    JobStatus{2d35087 androidx.work.systemjobscheduler:u0a314/4660 #AppReminderWorker#@androidx.work.systemjobscheduler@com.expressvpn.vpn/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10314 TIME=+660d10h41m56s130ms:none satisfied:0x2200002 unsatisfied:0x81400000}: 57230257981
+    JobStatus{6ea597c #u0a168/9790 com.android.vending/com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain u=0 s=10168 TIME=-18h38m20s25ms:+14d5h21m39s975ms NET CHARGING IDLE satisfied:0x93600002 unsatisfied:0x5}: 727041826
+    JobStatus{b17ac87 #u0a117/5101 com.google.android.apps.scone/.uecapa.UeCapaJobService u=0 s=10117 TIME=+29m41s321ms:+1h29m41s321ms NET PERIODIC satisfied:0x13600000 unsatisfied:0x80000000}: 203183172
+    JobStatus{a88966e #u0a318/11 com.touchtype.swiftkey/com.touchtype.scheduler.SwiftKeyJobService u=0 s=10318 TIME=+7h25m6s249ms:+19h25m6s249ms PERIODIC satisfied:0x3600000 unsatisfied:0x80000000}: 196968100
+    JobStatus{727909 androidx.work.systemjobscheduler:u0a205/2143 #GnpWorker#@androidx.work.systemjobscheduler@com.google.android.apps.docs/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10205 TIME=+3d5h14m55s57ms:none NET satisfied:0x2200002 unsatisfied:0x91400000}: 447096908
+    JobStatus{c5cd5bf androidx.work.systemjobscheduler:u0a425/2296661 #DataUploaderWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10425 TIME=+13m35s338ms:none satisfied:0x3600000 unsatisfied:0x80000000}: 276557189
+--
+    10389:com.google.android.apps.pixel.customizationbundle=false
+    10387:com.airmee.customer=false
+    10386:sen.typinghero=false
+    10385:com.alarmclock.xtreme.free=false
+    10380:com.a0soft.gphone.uninstaller=false
+    10376:org.thoughtcrime.securesms=false
+    10370:com.reddit.frontpage=false
+    10369:com.ubercab=false
+    10363:com.whatsapp=false
+    10359:com.snapchat.android=false
+    10357:org.zwanoo.android.speedtest=false
+    10356:org.mozilla.firefox=false
+    10347:com.lidl.eci.lidlplus=false
+    10345:com.linkedin.android=false
+    10341:dk.mitid.app.android=false
+    10339:org.brilliant.android=false
+    10331:org.telegram.messenger=false
+    10330:com.google.android.apps.chromecast.app=false
+    10329:com.google.android.apps.docs.editors.docs=false
+    10325:com.google.android.apps.fitness=false
+    10320:com.google.android.apps.bard=false
+--
+    #androidx.work.systemjobscheduler:u0a380/5656 from u0a380 active, exempted: com.a0soft.gphone.uninstaller [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #androidx.work.systemjobscheduler:u0a380/5664 from u0a380 active, exempted: com.a0soft.gphone.uninstaller [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #androidx.work.systemjobscheduler:u0a370/1126 from u0a370 idle: com.reddit.frontpage [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a370/1123 from u0a370 idle: com.reddit.frontpage [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a370/1100 from u0a370 idle: com.reddit.frontpage [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a370/1124 from u0a370 idle: com.reddit.frontpage [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a370/1936 from u0a370 idle: com.reddit.frontpage [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #androidx.work.systemjobscheduler:u0a369/53 from u0a369 idle: com.ubercab [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a363/17798 from u0a363 idle: com.whatsapp [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a363/17527 from u0a363 idle: com.whatsapp [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    ##u0a359/15628 from u0a359 idle: com.snapchat.android [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    ##u0a359/15617 from u0a359 idle: com.snapchat.android [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    ##u0a359/15623 from u0a359 idle: com.snapchat.android [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    ##u0a359/15626 from u0a359 idle: com.snapchat.android [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    ##u0a357/-1331025784 from u0a357 idle: org.zwanoo.android.speedtest [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a356/2570 from u0a356 idle: org.mozilla.firefox [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a356/2553 from u0a356 idle: org.mozilla.firefox [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a356/2565 from u0a356 idle: org.mozilla.firefox [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a356/2571 from u0a356 idle: org.mozilla.firefox [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a356/2564 from u0a356 idle: org.mozilla.firefox [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a345/-2147483239 from u0a345 idle: com.linkedin.android [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #androidx.work.systemjobscheduler:u0a345/-2147483240 from u0a345 idle: com.linkedin.android [RUN_ANY_IN_BACKGROUND allowed] WAITING
+--
+    ##u0a74/1 from u0a74 active, exempted: com.android.providers.contacts [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    ##1073/3345678 from 1073 active: com.google.android.networkstack [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #com.android.server.appwidget.AppWidgetServiceImpl.ReportWidgetEventsJob:1000/1 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    ##1000/16964307 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #SyncManager:1000/140 from u0a210 idle: com.google.android.gm [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #SyncManager:1000/151 from u0a205 idle: com.google.android.apps.docs [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #SyncManager:1000/155 from u0a205 idle: com.google.android.apps.docs [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    ##1000/1145656139 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #SyncManager:1000/72 from u0a363 idle: com.whatsapp [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    ##1000/765123 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #SyncManager:1000/52 from u0a175 active, exempted: com.google.android.gms [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #SyncManager:1000/103 from u0a301 idle: com.google.android.apps.docs.editors.sheets [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #SyncManager:1000/22 from u0a175 active, exempted: com.google.android.gms [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #SyncManager:1000/162 from u0a296 idle: com.google.android.keep [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    ##1000/191934935 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #SyncManager:1000/11 from u0a296 idle: com.google.android.keep [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #SyncManager:1000/49 from u0a457 idle: com.companionlink.clusbsync [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #SyncManager:1000/41 from u0a208 idle: com.google.android.calendar [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #SyncManager:1000/102 from u0a301 idle: com.google.android.apps.docs.editors.sheets [RUN_ANY_IN_BACKGROUND allowed] WAITING
+    #HEALTH_CONNECT_ONBOARDING_NOTIFICATION_JOB:1000/210431240 from 1000 active, exempted: android [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE
+    #SyncManager:1000/104 from u0a208 idle: com.google.android.calendar [RUN_ANY_IN_BACKGROUND allowed] WAITING
+--
+    #androidx.work.systemjobscheduler:u0a380/5656 from u0a380: com.a0soft.gphone.uninstaller RUNNABLE WHITELISTED
+    #androidx.work.systemjobscheduler:u0a380/5664 from u0a380: com.a0soft.gphone.uninstaller RUNNABLE WHITELISTED
+    #androidx.work.systemjobscheduler:u0a370/1126 from u0a370: com.reddit.frontpage RUNNABLE
+    #androidx.work.systemjobscheduler:u0a370/1123 from u0a370: com.reddit.frontpage RUNNABLE
+    #androidx.work.systemjobscheduler:u0a370/1100 from u0a370: com.reddit.frontpage RUNNABLE
+    #androidx.work.systemjobscheduler:u0a370/1124 from u0a370: com.reddit.frontpage RUNNABLE
+    #androidx.work.systemjobscheduler:u0a370/1936 from u0a370: com.reddit.frontpage RUNNABLE
+    #androidx.work.systemjobscheduler:u0a369/53 from u0a369: com.ubercab RUNNABLE
+    #androidx.work.systemjobscheduler:u0a363/17798 from u0a363: com.whatsapp RUNNABLE
+    #androidx.work.systemjobscheduler:u0a363/17527 from u0a363: com.whatsapp RUNNABLE
+    ##u0a359/15628 from u0a359: com.snapchat.android RUNNABLE
+    ##u0a359/15617 from u0a359: com.snapchat.android RUNNABLE
+    ##u0a359/15623 from u0a359: com.snapchat.android RUNNABLE
+    ##u0a359/15626 from u0a359: com.snapchat.android RUNNABLE
+    ##u0a357/-1331025784 from u0a357: org.zwanoo.android.speedtest RUNNABLE
+    #androidx.work.systemjobscheduler:u0a356/2570 from u0a356: org.mozilla.firefox RUNNABLE
+    #androidx.work.systemjobscheduler:u0a356/2553 from u0a356: org.mozilla.firefox RUNNABLE
+    #androidx.work.systemjobscheduler:u0a356/2565 from u0a356: org.mozilla.firefox RUNNABLE
+    #androidx.work.systemjobscheduler:u0a356/2571 from u0a356: org.mozilla.firefox RUNNABLE
+    #androidx.work.systemjobscheduler:u0a356/2564 from u0a356: org.mozilla.firefox RUNNABLE
+    #androidx.work.systemjobscheduler:u0a345/-2147483239 from u0a345: com.linkedin.android RUNNABLE
+    #androidx.work.systemjobscheduler:u0a345/-2147483240 from u0a345: com.linkedin.android RUNNABLE
+--
+    ##u0a74/1 from u0a74: com.android.providers.contacts RUNNABLE
+    ##1073/3345678 from 1073: com.google.android.networkstack RUNNABLE
+    #com.android.server.appwidget.AppWidgetServiceImpl.ReportWidgetEventsJob:1000/1 from 1000: android RUNNABLE
+    ##1000/16964307 from 1000: android RUNNABLE
+    #SyncManager:1000/140 from u0a210: com.google.android.gm RUNNABLE
+    #SyncManager:1000/151 from u0a205: com.google.android.apps.docs RUNNABLE
+    #SyncManager:1000/155 from u0a205: com.google.android.apps.docs RUNNABLE
+    ##1000/1145656139 from 1000: android RUNNABLE
+    #SyncManager:1000/72 from u0a363: com.whatsapp RUNNABLE
+    ##1000/765123 from 1000: android RUNNABLE
+    #SyncManager:1000/52 from u0a175: com.google.android.gms RUNNABLE
+    #SyncManager:1000/103 from u0a301: com.google.android.apps.docs.editors.sheets RUNNABLE
+    #SyncManager:1000/22 from u0a175: com.google.android.gms RUNNABLE
+    #SyncManager:1000/162 from u0a296: com.google.android.keep RUNNABLE
+    ##1000/191934935 from 1000: android RUNNABLE
+    #SyncManager:1000/11 from u0a296: com.google.android.keep RUNNABLE
+    #SyncManager:1000/49 from u0a457: com.companionlink.clusbsync RUNNABLE
+    #SyncManager:1000/41 from u0a208: com.google.android.calendar RUNNABLE
+    #SyncManager:1000/102 from u0a301: com.google.android.apps.docs.editors.sheets RUNNABLE
+    #HEALTH_CONNECT_ONBOARDING_NOTIFICATION_JOB:1000/210431240 from 1000: android RUNNABLE
+    #SyncManager:1000/104 from u0a208: com.google.android.calendar RUNNABLE
+--
+        106243484 -> 106243914 (430), 1 bg jobs.
+        105346547 -> 105403194 (56647), 1 bg jobs.
+        103543015 -> 103543738 (723), 1 bg jobs.
+        102645004 -> 102705488 (60484), 1 bg jobs.
+        101741226 -> 101741270 (44), 2 bg jobs.
+        100843436 -> 100843546 (110), 1 bg jobs.
+        61119345 -> 61180010 (60665), 1 bg jobs.
+    
+    Timer<REG>{<0>com.whatsapp} NOT active, 0 running bg jobs
+    
+      Saved events:
+        138884325 -> 138895452 (11127), 2 bg jobs.
+        138252781 -> 138252810 (29), 1 bg jobs.
+        137172122 -> 137182453 (10331), 1 bg jobs.
+        137115452 -> 137170652 (55200), 2 bg jobs.
+        136869775 -> 136869804 (29), 1 bg jobs.
+        136849375 -> 136849441 (66), 1 bg jobs.
+        136630021 -> 136630037 (16), 1 bg jobs.
+        136512836 -> 136513501 (665), 2 bg jobs.
+        136302364 -> 136302497 (133), 1 bg jobs.
+        136113924 -> 136113974 (50), 1 bg jobs.
+--
+    Timer<EJ>{<0>com.android.providers.calendar} NOT active, 0 running bg jobs (debit adj=0)
+    
+      Saved sessions:
+        129630173 -> 129630492 (319), 1 bg jobs.
+        108058669 -> 108058858 (189), 1 bg jobs.
+        92516600 -> 92516695 (95), 1 bg jobs.
+        64986505 -> 64986778 (273), 1 bg jobs.
+    
+    Timer<EJ>{<0>com.whatsapp} NOT active, 0 running bg jobs (debit adj=0)
+    
+      Saved sessions:
+        136303014 -> 136333995 (30981), 1 bg jobs.
+        121445446 -> 121470606 (25160), 1 bg jobs.
+        78345100 -> 78375154 (30054), 1 bg jobs.
+        68442486 -> 68472805 (30319), 1 bg jobs.
+        64987256 -> 65017521 (30265), 1 bg jobs.
+        62050611 -> 62080797 (30186), 1 bg jobs.
+    
+    Timer<EJ>{<0>com.google.android.providers.media.module} NOT active, 0 running bg jobs (debit adj=0)
+    
+    Timer<EJ>{<0>com.android.vending} NOT active, 0 running bg jobs (debit adj=0)
+--
+    TopAppTimer{<0>com.instagram.android} NOT active
+    TopAppTimer{<0>com.tenqube.notisave} NOT active
+    TopAppTimer{<0>com.android.vending} NOT active
+    TopAppTimer{<0>dk.danskebank.mobilepay} NOT active
+    TopAppTimer{<0>com.airmee.customer} NOT active
+    TopAppTimer{<0>com.openai.chatgpt} NOT active
+    TopAppTimer{<0>com.google.android.apps.messaging} NOT active
+    TopAppTimer{<0>com.supercontacts.app.debug} NOT active
+    TopAppTimer{<0>com.whatsapp} NOT active
+    TopAppTimer{<0>com.revolut.revolut} NOT active
+    TopAppTimer{<0>org.telegram.messenger} started at 146115349 (26572ms ago)
+      org.telegram.ui.LaunchActivity
+    TopAppTimer{<0>com.google.android.googlequicksearchbox} NOT active
+    TopAppTimer{<0>dk.sundhed.minsundhed} NOT active
+    TopAppTimer{<0>com.google.android.apps.weather} NOT active
+    TopAppTimer{<0>com.google.android.youtube} NOT active
+    
+    Cached execution stats:
+      <0>com.google.omadm.trigger
+        ACTIVE: expirationTime=86617997, allowedTimePerPeriodMs=1200000, windowSizeMs=3600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=0, rateLimitJobCountWindow=0, rateLimitSessionCountExpirationTime=0, rateLimitSessionCountWindow=0
+      <0>com.google.android.youtube
+--
+      <0>com.revolut.revolut
+        ACTIVE: expirationTime=138915129, allowedTimePerPeriodMs=1200000, windowSizeMs=3600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=13, executionTimeInMaxPeriod=607689, bgJobCountInMaxPeriod=11, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138941911, rateLimitJobCountWindow=3, rateLimitSessionCountExpirationTime=138944196, rateLimitSessionCountWindow=3
+        WORKING_SET: expirationTime=147519345, allowedTimePerPeriodMs=600000, windowSizeMs=14400000, jobCountLimit=120, sessionCountLimit=10, executionTimeInWindow=7573, bgJobCountInWindow=6, executionTimeInMaxPeriod=186676, bgJobCountInMaxPeriod=14, sessionCountInWindow=6, inQuotaTime=0, rateLimitJobCountExpirationTime=138941911, rateLimitJobCountWindow=3, rateLimitSessionCountExpirationTime=138944196, rateLimitSessionCountWindow=3
+        FREQUENT: expirationTime=138915129, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=24, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138941911, rateLimitJobCountWindow=3, rateLimitSessionCountExpirationTime=138944196, rateLimitSessionCountWindow=3
+        RARE: expirationTime=138915129, allowedTimePerPeriodMs=600000, windowSizeMs=86400000, jobCountLimit=48, sessionCountLimit=3, executionTimeInWindow=607689, bgJobCountInWindow=24, executionTimeInMaxPeriod=607689, bgJobCountInMaxPeriod=11, sessionCountInWindow=11, inQuotaTime=142527113, rateLimitJobCountExpirationTime=138941911, rateLimitJobCountWindow=3, rateLimitSessionCountExpirationTime=138944196, rateLimitSessionCountWindow=3
+        NEVER: expirationTime=138915129, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=24, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138941911, rateLimitJobCountWindow=3, rateLimitSessionCountExpirationTime=138944196, rateLimitSessionCountWindow=3
+        RESTRICTED: expirationTime=138915129, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=24, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138941911, rateLimitJobCountWindow=3, rateLimitSessionCountExpirationTime=138944196, rateLimitSessionCountWindow=3
+        EXEMPTED: expirationTime=138915129, allowedTimePerPeriodMs=1200000, windowSizeMs=2400000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=24, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138941911, rateLimitJobCountWindow=3, rateLimitSessionCountExpirationTime=138944196, rateLimitSessionCountWindow=3
+      <0>com.whatsapp
+        ACTIVE: expirationTime=148449766, allowedTimePerPeriodMs=1200000, windowSizeMs=3600000, jobCountLimit=75, sessionCountLimit=75, executionTimeInWindow=0, bgJobCountInWindow=0, executionTimeInMaxPeriod=178413, bgJobCountInMaxPeriod=150, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138944325, rateLimitJobCountWindow=2, rateLimitSessionCountExpirationTime=138955452, rateLimitSessionCountWindow=1
+        WORKING_SET: expirationTime=138895452, allowedTimePerPeriodMs=600000, windowSizeMs=14400000, jobCountLimit=120, sessionCountLimit=10, executionTimeInWindow=49412, bgJobCountInWindow=83, executionTimeInMaxPeriod=156375, bgJobCountInMaxPeriod=146, sessionCountInWindow=52, inQuotaTime=142828736, rateLimitJobCountExpirationTime=138944325, rateLimitJobCountWindow=2, rateLimitSessionCountExpirationTime=138955452, rateLimitSessionCountWindow=1
+        FREQUENT: expirationTime=138895452, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=207, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138944325, rateLimitJobCountWindow=2, rateLimitSessionCountExpirationTime=138955452, rateLimitSessionCountWindow=1
+        RARE: expirationTime=138895452, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=207, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138944325, rateLimitJobCountWindow=2, rateLimitSessionCountExpirationTime=138955452, rateLimitSessionCountWindow=1
+        NEVER: expirationTime=138895452, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=207, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138944325, rateLimitJobCountWindow=2, rateLimitSessionCountExpirationTime=138955452, rateLimitSessionCountWindow=1
+        RESTRICTED: expirationTime=138895452, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=207, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138944325, rateLimitJobCountWindow=2, rateLimitSessionCountExpirationTime=138955452, rateLimitSessionCountWindow=1
+        EXEMPTED: expirationTime=138895452, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=207, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=138944325, rateLimitJobCountWindow=2, rateLimitSessionCountExpirationTime=138955452, rateLimitSessionCountWindow=1
+      <0>de.number26.android
+        ACTIVE: expirationTime=31689343, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=2, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=31749152, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=31749343, rateLimitSessionCountWindow=1
+        WORKING_SET: expirationTime=31689343, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=2, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=31749152, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=31749343, rateLimitSessionCountWindow=1
+        FREQUENT: expirationTime=31689343, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=2, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=31749152, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=31749343, rateLimitSessionCountWindow=1
+        RARE: expirationTime=31689343, allowedTimePerPeriodMs=0, windowSizeMs=0, jobCountLimit=0, sessionCountLimit=0, executionTimeInWindow=0, bgJobCountInWindow=2, executionTimeInMaxPeriod=0, bgJobCountInMaxPeriod=0, sessionCountInWindow=0, inQuotaTime=0, rateLimitJobCountExpirationTime=31749152, rateLimitJobCountWindow=1, rateLimitSessionCountExpirationTime=31749343, rateLimitSessionCountWindow=1
+--
+      <0>com.google.pixel.livewallpaper: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>com.google.android.apps.docs.editors.docs: ShrinkableDebits { debit tally: 0, bucket: 5 }
+      <0>com.expressvpn.vpn: ShrinkableDebits { debit tally: 0, bucket: 5 }
+      <0>com.teslacoilsw.launcher: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>com.a0soft.gphone.uninstaller: ShrinkableDebits { debit tally: 0, bucket: 6 }
+      <0>com.google.euiccpixel: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>com.google.android.flipendo: ShrinkableDebits { debit tally: 0, bucket: 6 }
+      <0>com.revolut.revolut: ShrinkableDebits { debit tally: 0, bucket: 1 }
+      <0>com.whatsapp: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>de.number26.android: ShrinkableDebits { debit tally: 0, bucket: 5 }
+      <0>com.supercontacts.app.debug: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>com.google.android.apps.docs.editors.sheets: ShrinkableDebits { debit tally: 0, bucket: 3 }
+      <0>com.lidl.eci.lidlplus: ShrinkableDebits { debit tally: 0, bucket: 3 }
+      <0>com.android.providers.downloads: ShrinkableDebits { debit tally: 0, bucket: 6 }
+      <0>com.google.android.apps.messaging: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>com.lumenate.lumenateaa: ShrinkableDebits { debit tally: 0, bucket: 5 }
+      <0>com.openai.chatgpt: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>com.airmee.customer: ShrinkableDebits { debit tally: 0, bucket: 2 }
+      <0>com.google.android.configupdater: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>com.google.android.providers.media.module: ShrinkableDebits { debit tally: 0, bucket: 0 }
+      <0>dk.danskebank.mobilepay: ShrinkableDebits { debit tally: 0, bucket: 3 }
+--
+  0-ComponentInfo{com.facebook.katana/com.facebook.battery.monitor.ContinuousBatteryMonitorService}: com.facebook.katana
+  0-ComponentInfo{com.google.android.contacts/com.google.android.apps.contacts.operation.ContactsService}: com.google.android.contacts
+  0-ComponentInfo{com.teslacoilsw.launcher/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService}: com.teslacoilsw.launcher
+  0-ComponentInfo{com.ticktick.task/com.ticktick.task.compat.service.job.TaskAlertJobService}: com.ticktick.task
+  0-ComponentInfo{com.google.ar.core/com.google.ar.core.services.profiles.ProfileDownloadJobService}: com.google.ar.core
+  0-ComponentInfo{com.google.android.settings.intelligence/com.google.android.settings.intelligence.modules.sliceindexing.impl.SliceIndexUpdateJobService}: com.google.android.settings.intelligence
+  0-ComponentInfo{com.a0soft.gphone.uninstaller/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService}: com.a0soft.gphone.uninstaller
+  0-ComponentInfo{com.google.android.keep/com.google.android.libraries.notifications.entrypoints.scheduled.ScheduledTaskService}: com.google.android.keep
+  0-ComponentInfo{com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService}: com.whatsapp
+  0-ComponentInfo{de.number26.android/androidx.work.impl.background.systemjob.SystemJobService}: de.number26.android
+  0-ComponentInfo{com.revolut.revolut/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService}: com.revolut.revolut
+  0-ComponentInfo{com.touchtype.swiftkey/com.touchtype.telemetry.TelemetryJobIntentService}: com.touchtype.swiftkey
+  0-ComponentInfo{com.google.android.apps.docs.editors.sheets/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.docs.editors.sheets
+  0-ComponentInfo{com.google.euiccpixel/com.google.euiccpixel.service.MetricsService}: com.google.euiccpixel
+  0-ComponentInfo{android/com.android.server.net.watchlist.ReportWatchlistJobService}: system
+  0-ComponentInfo{com.app.tgtg/com.salesforce.marketingcloud.MCService}: com.app.tgtg
+  0-ComponentInfo{com.google.android.apps.messaging/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.messaging
+  0-ComponentInfo{com.xiaomi.wearable/com.xiaomi.fitness.keep_alive.KeepAliveJobSchedulerService}: com.xiaomi.wearable:device
+  0-ComponentInfo{com.google.android.configupdater/com.google.android.configupdater.PhenotypeSyncJobService}: com.google.android.configupdater
+  0-ComponentInfo{com.google.android.pixelsystemservice/com.google.android.apps.tsa.ClockSyncWorker}: com.google.android.pixelsystemservice:ephemeral
+  0-ComponentInfo{com.google.android.apps.photos/com.google.android.libraries.social.async.BackgroundTaskJobService}: com.google.android.apps.photos
+--
+  0-ComponentInfo{com.google.android.apps.photos/com.google.android.apps.photos.backup.core.UriTriggeredBackupJob}: com.google.android.apps.photos
+  0-ComponentInfo{com.google.android.apps.maps/com.google.android.libraries.performance.primes.federatedlearning.PrimesExampleStoreDataTtlService}: com.google.android.apps.maps
+  0-ComponentInfo{com.ttxapps.drivesync/androidx.work.impl.background.systemjob.SystemJobService}: com.ttxapps.drivesync
+  0-ComponentInfo{com.touchtype.swiftkey/com.touchtype.scheduler.SwiftKeyJobService}: com.touchtype.swiftkey
+  0-ComponentInfo{com.instagram.android/androidx.work.impl.background.systemjob.SystemJobService}: com.instagram.android
+  0-ComponentInfo{android/com.android.server.content.SyncJobService}: system
+  0-ComponentInfo{com.android.imsserviceentitlement/com.android.imsserviceentitlement.fcm.FcmRegistrationService}: com.android.imsserviceentitlement
+  0-ComponentInfo{com.google.android.settings.intelligence/com.google.android.settings.intelligence.modules.search.indexing.backend.PhenotypeChangedIndexingJobService}: com.google.android.settings.intelligence
+  0-ComponentInfo{com.whatsapp/com.whatsapp.infra.push.RegistrationIntentService}: com.whatsapp
+  0-ComponentInfo{com.google.android.apps.turbo/com.google.android.apps.turbo.nudges.broadcasts.BatteryHistoryLoggerJobService}: com.google.android.apps.turbo
+  0-ComponentInfo{com.google.android.deskclock/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.deskclock
+  0-ComponentInfo{com.digibites.accubattery/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService}: com.digibites.accubattery
+  0-ComponentInfo{com.google.android.apps.scone/com.google.android.apps.scone.modem.MetricsService}: com.google.android.apps.scone
+  0-ComponentInfo{com.google.android.permissioncontroller/com.android.permissioncontroller.permission.service.LocationAccessCheck$LocationAccessCheckJobService}: com.google.android.permissioncontroller
+  0-ComponentInfo{com.lidl.eci.lidlplus/com.salesforce.marketingcloud.MCService}: com.lidl.eci.lidlplus
+  0-ComponentInfo{com.luckydroid.droidbase/com.luckydroid.droidbase.reminders.RestoreRemindersService}: com.luckydroid.droidbase
+  0-ComponentInfo{com.google.android.as/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.as
+  0-ComponentInfo{com.google.android.gm/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.gm
+  0-ComponentInfo{com.android.vending/com.google.android.finsky.instantapps.InstantAppHygieneService}: com.android.vending:instant_app_installer
+  0-ComponentInfo{com.google.android.as/com.google.android.apps.miphone.aiai.interestsmodel.storage.privacy.TtlExpiryService}: com.google.android.as
+  0-ComponentInfo{com.ttxapps.drivesync/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService}: com.ttxapps.drivesync
+  0-ComponentInfo{com.google.android.contacts/com.google.android.apps.contacts.shortcut.ShortcutJobService}: com.google.android.contacts
+  0-ComponentInfo{org.thoughtcrime.securesms/org.thoughtcrime.securesms.jobmanager.JobSchedulerScheduler$SystemService}: org.thoughtcrime.securesms
+  0-ComponentInfo{com.tenqube.notisave/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService}: com.tenqube.notisave
+  0-ComponentInfo{com.google.android.apps.tachyon/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.tachyon
+  0-ComponentInfo{com.google.android.inputmethod.latin/com.google.android.gms.learning.internal.training.InAppJobService}: com.google.android.inputmethod.latin
+  0-ComponentInfo{com.whatsapp/com.whatsapp.infra.crash.upload.ExceptionsUploadService}: com.whatsapp
+  0-ComponentInfo{com.google.android.euicc/com.android.euicc.service.ProfileDiscoveryService}: com.google.android.euicc
+  0-ComponentInfo{com.google.android.hardwareinfo/com.google.android.hardwareinfo.HardwareInfoService}: com.google.android.hardwareinfo
+  0-ComponentInfo{com.google.android.apps.turbo/com.google.android.apps.turbo.adaptiveplatform.impulse.ImpulseRegistrationJobService}: com.google.android.apps.turbo
+  0-ComponentInfo{com.whatsapp/com.whatsapp.networkavailable.service.UnsentMessagesNetworkAvailableJob}: com.whatsapp
+  0-ComponentInfo{android/com.android.server.companion.association.InactiveAssociationsRemovalService}: system
+  0-ComponentInfo{com.google.android.permissioncontroller/com.android.permissioncontroller.safetycenter.service.SafetyCenterBackgroundRefreshJobService}: com.google.android.permissioncontroller
+  0-ComponentInfo{com.google.android.partnersetup/com.google.android.partnersetup.RlzPingJobService}: com.google.android.partnersetup
+  0-ComponentInfo{dk.digst.hc/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService}: dk.digst.hc
+  0-ComponentInfo{com.android.vending/com.google.android.finsky.instantapps.PhenotypeUpdateService}: com.android.vending:instant_app_installer
+  0-ComponentInfo{android/com.android.server.display.BrightnessIdleJob}: system
+  0-ComponentInfo{com.google.android.apps.photos/com.google.android.libraries.social.mediamonitor.MediaMonitorJobSchedulerService}: com.google.android.apps.photos
+  0-ComponentInfo{com.google.android.as/com.google.android.apps.miphone.aiai.common.superpacks.impl.AiAiPersistentDownloadJobService}: com.google.android.as
+  0-ComponentInfo{com.dynamicg.timerecording.pro/androidx.work.impl.background.systemjob.SystemJobService}: com.dynamicg.timerecording.pro
+  0-ComponentInfo{com.google.android.aicore/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.aicore
+  0-ComponentInfo{com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService}: com.burockgames.timeclocker
+  0-ComponentInfo{android/com.android.server.backup.FullBackupJob}: system
+--
+  0-ComponentInfo{com.google.android.permissioncontroller/com.android.permissioncontroller.permission.service.v34.SafetyLabelChangesJobService}: com.google.android.permissioncontroller
+  0-ComponentInfo{com.google.android.apps.wellbeing/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.wellbeing
+  0-ComponentInfo{com.google.android.apps.scone/com.google.android.apps.scone.uecapa.UeCapaJobService}: com.google.android.apps.scone
+  0-ComponentInfo{com.google.android.dialer/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.dialer
+  0-ComponentInfo{com.google.android.apps.nbu.files/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.nbu.files
+  0-ComponentInfo{android/com.android.server.notification.NotificationHistoryJobService}: system
+  0-ComponentInfo{com.google.android.settings.intelligence/com.google.android.settings.intelligence.modules.routines.impl.PruneDatabaseJobService}: null
+  0-ComponentInfo{org.telegram.messenger/org.telegram.messenger.KeepAliveJob}: org.telegram.messenger
+  0-ComponentInfo{com.whatsapp/com.whatsapp.alarmservice.AlarmService}: com.whatsapp
+  0-ComponentInfo{com.google.android.apps.work.clouddpc/com.google.android.apps.work.clouddpc.base.services.HealthCheckJobService}: com.google.android.apps.work.clouddpc
+  0-ComponentInfo{com.twitter.android/androidx.work.impl.background.systemjob.SystemJobService}: com.twitter.android
+  0-ComponentInfo{com.google.android.partnersetup/com.google.android.partnersetup.PhenotypeJobService}: com.google.android.partnersetup
+  0-ComponentInfo{com.google.android.as/com.google.android.apps.miphone.aiai.translate.settings.jobservice.AutoTranslateSettingJobService}: com.google.android.as
+  0-ComponentInfo{org.fdroid.fdroid/org.fdroid.fdroid.installer.InstallerService}: org.fdroid.fdroid
+  0-ComponentInfo{android/com.android.server.SmartStorageMaintIdler}: system
+  0-ComponentInfo{com.google.android.apps.bard/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.bard
+  0-ComponentInfo{com.google.android.apps.docs/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.docs
+  0-ComponentInfo{com.google.android.apps.maps/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.maps
+  0-ComponentInfo{com.google.android.apps.tips/androidx.work.impl.background.systemjob.SystemJobService}: com.google.android.apps.tips
+  0-ComponentInfo{com.google.android.apps.turbo/com.google.android.libraries.smartbattery.appusage.library.TrainModelJob}: com.google.android.apps.turbo:aab
+  0-ComponentInfo{com.google.android.apps.turbo/com.google.android.apps.turbo.deadline.library.BatteryFlagService}: com.google.android.apps.turbo
+--
+  10347: {com.lidl.eci.lidlplus}
+  10348: {dk.dsg.netto}
+  10352: {com.readermobile}
+  10353: {com.glasswire.android}
+  10356: {org.mozilla.firefox}
+  10357: {org.zwanoo.android.speedtest}
+  10359: {com.snapchat.android}
+  10360: {com.microsoft.emmx}
+  10363: {com.whatsapp}
+  10369: {com.ubercab}
+  10370: {com.reddit.frontpage}
+  10376: {org.thoughtcrime.securesms}
+  10379: {com.google.android.apps.healthdata}
+  10380: {com.a0soft.gphone.uninstaller}
+  10385: {com.alarmclock.xtreme.free}
+  10386: {sen.typinghero}
+  10387: {com.airmee.customer}
+  10388: {com.lexa.fakegps}
+  10389: {com.google.android.apps.pixel.customizationbundle}
+  10390: {app.lawnchair.play}
+  10392: {com.ttxapps.drivesync}
+--
+    3x pending 3% 2x active 2% 1x active-top
+    3x successful_finish
+  u0a345 / com.linkedin.android:
+    13x pending 2x active 
+    5x canceled, 11x successful_finish
+  u0a359 / com.snapchat.android:
+    2x pending 2x active 
+    2x successful_finish
+  u0a363 / com.whatsapp:
+    32x pending 15% 11x active 28% 20x active-top
+    33x successful_finish
+  u0a380 / com.a0soft.gphone.uninstaller:
+    2x pending 2x active 
+    2x successful_finish
+  u0a386 / sen.typinghero:
+    1x pending 1x active 
+    1x successful_finish
+  u0a392 / com.ttxapps.drivesync:
+    10x pending 3% 10x active 
+    10x successful_finish
+  u0a403 / com.caynax.hourlychime:
+--
+    4x pending 3x active 
+    1x canceled, 3x successful_finish
+  u0a345 / com.linkedin.android:
+    10x pending 2x active 
+    2x canceled, 9x successful_finish
+  u0a359 / com.snapchat.android:
+    2x pending 2x active 
+    2x successful_finish
+  u0a363 / com.whatsapp:
+    44x pending 13% 9x active 51% 31x active-top
+    44x successful_finish
+  u0a376 / org.thoughtcrime.securesms:
+    3x pending 3x active 
+    3x successful_finish
+  u0a392 / com.ttxapps.drivesync:
+    8x pending 1% 8x active 
+    8x successful_finish
+  u0a393 / com.twitter.android:
+    1x pending 1x active 
+    1x successful_finish
+  u0a403 / com.caynax.hourlychime:
+--
+    3x pending 1% 3x active 
+    3x successful_finish
+  u0a345 / com.linkedin.android:
+    2% 13x pending 2x active 
+    2x successful_finish
+  u0a359 / com.snapchat.android:
+    1x pending 2% 1x active 
+    3x successful_finish
+  u0a363 / com.whatsapp:
+    39x pending 12% 6x active 49% 32x active-top
+    3x constraints, 37x successful_finish
+  u0a376 / org.thoughtcrime.securesms:
+    2% 26x pending 5x active 
+    6x successful_finish
+  u0a380 / com.a0soft.gphone.uninstaller:
+    1x pending 1% 1x active 
+    1x successful_finish
+  u0a392 / com.ttxapps.drivesync:
+    2% 35x pending 1% 12x active 
+    1x canceled, 12x successful_finish
+  u0a403 / com.caynax.hourlychime:
+--
+    4x pending 4x active 
+    2x unknown:-1, 2x canceled
+  u0a325 / com.google.android.apps.fitness:
+    5x pending 4x active 
+    2x canceled, 3x successful_finish
+  u0a331 / org.telegram.messenger:
+    1x pending 1x active-top
+    1x successful_finish
+  u0a363 / com.whatsapp:
+    29x pending 14% 11x active 8% 14x active-top
+    1x canceled, 27x successful_finish
+  u0a376 / org.thoughtcrime.securesms:
+    1% 15x pending 4% 1x active 
+    5x successful_finish
+  u0a380 / com.a0soft.gphone.uninstaller:
+    7x pending 7x active 
+    7x successful_finish
+  u0a392 / com.ttxapps.drivesync:
+    12x pending 6% 11x active 
+    1x canceled, 11x successful_finish
+  u0a393 / com.twitter.android:
+--
+    6x pending 3x active 
+    10x successful_finish
+  u0a357 / org.zwanoo.android.speedtest:
+    1x pending 1x active 
+    1x successful_finish
+  u0a359 / com.snapchat.android:
+    2x pending 2x active 
+    2x successful_finish
+  u0a363 / com.whatsapp:
+    62x pending 8% 9x active 51% 53x active-top
+    62x successful_finish
+  u0a392 / com.ttxapps.drivesync:
+    11x pending 1% 11x active 
+    11x successful_finish
+  u0a403 / com.caynax.hourlychime:
+    3x pending 3x active 
+    3x successful_finish
+  u0a418 / com.glassdoor.app:
+    3x pending 3x active 
+    3x successful_finish
+  u0a423 / com.ticktick.task:
+--
+        -6m05s122ms   START: #u0a154/1 com.google.android.partnersetup/.PhenotypeJobService
+        -6m05s031ms    STOP: #u0a154/1 com.google.android.partnersetup/.PhenotypeJobService app called jobFinished
+        -6m04s902ms   START: #u0a154/2 com.google.android.partnersetup/.PhenotypeJobService
+        -6m04s834ms    STOP: #u0a154/2 com.google.android.partnersetup/.PhenotypeJobService app called jobFinished
+        -6m04s712ms   START: #u0a154/8192 com.google.android.partnersetup/.ClientIdJobService
+        -6m04s298ms    STOP: #u0a154/8192 com.google.android.partnersetup/.ClientIdJobService app called jobFinished
+        -6m00s060ms   START: #u0a325/51343 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncWorker#@androidx.work.systemjobscheduler@com.google.android.apps.fitness/androidx.work.impl.background.systemjob.SystemJobService
+        -5m57s631ms    STOP: #u0a325/51343 #TikTokWorker#com.google.apps.tiktok.sync.impl.workmanager.SyncWorker#@androidx.work.systemjobscheduler@com.google.android.apps.fitness/androidx.work.impl.background.systemjob.SystemJobService app called jobFinished
+        -5m46s228ms    STOP: #u0a363/18169 #XmppLifecycleWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService app called jobFinished
+        -5m40s877ms   START: #u0a363/18170 #XmppLifecycleWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+        -5m33s014ms START-P: #u0a191/27 com.google.android.apps.work.clouddpc/.base.services.HealthCheckJobService
+        -5m32s594ms   START: #u0a191/28 com.google.android.apps.work.clouddpc/.base.services.HealthCheckJobService
+        -5m32s414ms  STOP-P: #u0a191/27 com.google.android.apps.work.clouddpc/.base.services.HealthCheckJobService app called jobFinished
+        -5m32s386ms    STOP: #u0a191/28 com.google.android.apps.work.clouddpc/.base.services.HealthCheckJobService app called jobFinished
+        -5m30s947ms   START: #u0a185/1 com.android.chrome/org.chromium.components.background_task_scheduler.internal.BackgroundTaskJobService
+        -5m30s930ms    STOP: #u0a185/1 com.android.chrome/org.chromium.components.background_task_scheduler.internal.BackgroundTaskJobService app called jobFinished
+        -5m30s827ms   START: #u0a283/2131434913 com.instagram.android/com.instagram.jobscheduler.bgfetch.scheduler.IgBgFetchSchedulerService
+        -5m28s448ms   START: #u0a185/1 com.android.chrome/org.chromium.components.background_task_scheduler.internal.BackgroundTaskJobService
+        -5m28s440ms    STOP: #u0a185/1 com.android.chrome/org.chromium.components.background_task_scheduler.internal.BackgroundTaskJobService app called jobFinished
+        -5m27s974ms   START: #u0a425/2296614 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService
+        -5m27s704ms    STOP: #u0a425/2296614 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService canceled
+        -5m26s719ms    STOP: #u0a283/2131434913 com.instagram.android/com.instagram.jobscheduler.bgfetch.scheduler.IgBgFetchSchedulerService app called jobFinished
+        -5m13s830ms   START: #u0a284/1751986453 com.grindrapp.android/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+        -5m12s965ms    STOP: #u0a284/1751986453 com.grindrapp.android/com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService app called jobFinished
+        -5m11s011ms   START: #u0a279/-1199678986 com.facebook.orca/com.facebook.conditionalworker.ConditionalWorkerService
+        -5m10s987ms    STOP: #u0a279/-1199678986 com.facebook.orca/com.facebook.conditionalworker.ConditionalWorkerService last work dequeued
+        -5m10s796ms    STOP: #u0a363/18170 #XmppLifecycleWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService app called jobFinished
+        -5m10s574ms   START: #u0a279/-1743238118 com.facebook.orca/com.facebook.messaging.livelocation.bindings.MessengerLiveLocationBooterService
+        -5m10s571ms    STOP: #u0a279/-1743238118 com.facebook.orca/com.facebook.messaging.livelocation.bindings.MessengerLiveLocationBooterService last work dequeued
+        -5m10s116ms   START: #u0a279/16593 #MutationEngineWorker#@androidx.work.systemjobscheduler@com.facebook.orca/androidx.work.impl.background.systemjob.SystemJobService
+        -5m10s104ms   START: #u0a279/16594 #MutationEngineWorker#@androidx.work.systemjobscheduler@com.facebook.orca/androidx.work.impl.background.systemjob.SystemJobService
+        -5m10s034ms    STOP: #u0a279/16593 #MutationEngineWorker#@androidx.work.systemjobscheduler@com.facebook.orca/androidx.work.impl.background.systemjob.SystemJobService app called jobFinished
+        -5m10s032ms    STOP: #u0a279/16594 #MutationEngineWorker#@androidx.work.systemjobscheduler@com.facebook.orca/androidx.work.impl.background.systemjob.SystemJobService app called jobFinished
+        -5m05s700ms   START: #u0a279/-1199678986 com.facebook.orca/com.facebook.conditionalworker.ConditionalWorkerService
+        -5m02s396ms    STOP: #u0a279/-1199678986 com.facebook.orca/com.facebook.conditionalworker.ConditionalWorkerService last work dequeued
+        -5m00s912ms START-P: #u0a174/6 com.google.android.apps.turbo/.nudges.battery.PeriodicMaintenanceWindowService
+        -5m00s889ms  STOP-P: #u0a174/6 com.google.android.apps.turbo/.nudges.battery.PeriodicMaintenanceWindowService app called jobFinished
+        -4m55s849ms   START: #u0a425/2296620 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService
+        -4m55s570ms    STOP: #u0a425/2296620 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService canceled
+--
+        -2m26s726ms   START: #u0a174/201 com.google.android.apps.turbo/.deadline.library.BatteryFlagService
+        -2m26s714ms   START: #u0a174/200 com.google.android.apps.turbo/.deadline.library.DeadlineUpdateJobService
+        -2m26s696ms   START: #u0a174/2 com.google.android.apps.turbo/.nudges.broadcasts.BatteryHistoryLoggerJobService
+        -2m26s679ms    STOP: #u0a174/200 com.google.android.apps.turbo/.deadline.library.DeadlineUpdateJobService last work dequeued
+        -2m26s669ms    STOP: #u0a174/201 com.google.android.apps.turbo/.deadline.library.BatteryFlagService last work dequeued
+        -2m26s628ms    STOP: #u0a174/2 com.google.android.apps.turbo/.nudges.broadcasts.BatteryHistoryLoggerJobService last work dequeued
+        -2m26s282ms   START: #u0a117/188052156 com.google.android.apps.scone/.awareness.AwarenessJobIntentService
+        -2m26s216ms    STOP: #u0a117/188052156 com.google.android.apps.scone/.awareness.AwarenessJobIntentService last work dequeued
+        -2m26s078ms   START: #u0a363/4 com.whatsapp/.infra.push.RegistrationIntentService
+        -2m26s064ms    STOP: #u0a363/4 com.whatsapp/.infra.push.RegistrationIntentService last work dequeued
+        -2m14s342ms   START: #u0a425/2296650 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService
+        -2m14s196ms   START: #u0a363/18171 #XmppLifecycleWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+        -2m14s064ms    STOP: #u0a425/2296650 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService canceled
+        -1m44s002ms    STOP: #u0a363/18171 #XmppLifecycleWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService app called jobFinished
+        -1m41s588ms   START: #u0a425/2296656 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService
+        -1m41s380ms    STOP: #u0a425/2296656 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService canceled
+        -1m26s745ms   START: #u0a174/201 com.google.android.apps.turbo/.deadline.library.BatteryFlagService
+        -1m26s734ms   START: #u0a174/200 com.google.android.apps.turbo/.deadline.library.DeadlineUpdateJobService
+        -1m26s707ms   START: #u0a174/2 com.google.android.apps.turbo/.nudges.broadcasts.BatteryHistoryLoggerJobService
+        -1m26s686ms    STOP: #u0a174/200 com.google.android.apps.turbo/.deadline.library.DeadlineUpdateJobService last work dequeued
+        -1m26s669ms    STOP: #u0a174/201 com.google.android.apps.turbo/.deadline.library.BatteryFlagService last work dequeued
+        -1m26s611ms    STOP: #u0a174/2 com.google.android.apps.turbo/.nudges.broadcasts.BatteryHistoryLoggerJobService last work dequeued
+        -1m09s368ms   START: #u0a425/2296663 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService
+        -1m09s040ms    STOP: #u0a425/2296663 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService canceled
+          -37s075ms   START: #u0a425/2296669 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService
+          -36s872ms    STOP: #u0a425/2296669 #GameCheckingWorker#@androidx.work.systemjobscheduler@com.burockgames.timeclocker/androidx.work.impl.background.systemjob.SystemJobService canceled
+--
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Started with foreground flag: false
+      Standby bucket: ACTIVE
+      Enqueue time: -1m46s380ms
+      Run time: earliest=-1m41s425ms, latest=none, original latest=none
+      Cumulative execution time=+217ms
+  -1m43s778ms
+      7c2b576 {androidx.work.systemjobscheduler} #u0a363/18171 #XmppLifecycleWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+      u0a363 tag=*job*e/#XmppLifecycleWorker#@androidx.work.systemjobscheduler@com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+      Source: uid=u0a363 user=0 pkg=com.whatsapp
+      JobInfo:
+        Service: com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService
+        Priority: 500 [MAX]
+        Flags: 10
+        Internal flags: 1 HAS_FOREGROUND_EXEMPTION
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Has media backup exemption=false 
+        Extras: mParcelledData.dataSize=248
+        Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&TRUSTED&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10363 UnderlyingNetworks: Null] ]
+        Backoff: policy=1 initial=+30s0ms
+        Trace tag: XmppLifecycleWorker
+      Required constraints: CONNECTIVITY [0x10000000]
+      Dynamic constraints:
+      Satisfied constraints: CONNECTIVITY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x13600000]
+--
+        readyNotRestrictedInBg: true
+        readyComponentEnabled: true
+      Started with foreground flag: false
+      Standby bucket: ACTIVE
+      Enqueue time: -2m19s131ms
+      Run time: earliest=-2m14s182ms, latest=none, original latest=none
+      Cumulative execution time=+286ms
+  -2m25s845ms
+      b4ee5b5 #u0a363/4 com.whatsapp/.infra.push.RegistrationIntentService
+      u0a363 tag=*job*r/com.whatsapp/.infra.push.RegistrationIntentService
+      Source: uid=u0a363 user=0 pkg=com.whatsapp
+      JobInfo:
+        Service: com.whatsapp/.infra.push.RegistrationIntentService
+        Priority: 300 [DEFAULT]
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Has media backup exemption=false 
+        Backoff: policy=1 initial=+30s0ms
+        Has late constraint
+      Required constraints: DEADLINE FLEXIBILITY [0x40200000]
+      Dynamic constraints:
+      Satisfied constraints: DEADLINE FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x43600000]
+      Unsatisfied constraints:
+      Num Required Flexible constraints: 0
+      Num Dropped Flexible constraints: 0
+      Constraint history:

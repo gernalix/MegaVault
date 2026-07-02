@@ -1,0 +1,289 @@
+07-02 05:17:15.158 E/AppOps  ( 1489): attributionTag  not declared in manifest of com.android.systemui
+07-02 05:17:15.158 E/AppOps  ( 1489): attributionTag  not declared in manifest of com.android.systemui
+07-02 05:17:15.389 E/AppOps  ( 1489): attributionTag  not declared in manifest of com.android.systemui
+07-02 05:17:15.390 E/AppOps  ( 1489): attributionTag  not declared in manifest of com.android.systemui
+07-02 05:17:15.713 I/DreamController( 1489): Starting dream: name=ComponentInfo{com.android.systemui/com.android.systemui.doze.DozeService}, isPreviewMode=false, canDoze=true, userId=0, reason='power manager request'
+07-02 05:17:15.725 D/DLObserver( 2212): add listener: com.android.systemui.doze.DozeTriggers$DockEventListener@5829d91
+07-02 05:17:15.729 D/MediaViewHolder( 2212): 	at com.android.systemui.statusbar.phone.DozeServiceHost.updateDozing(go/retraceme 109b9d95419d40ed7f94ba06f2e494aa100aa2b80b21457e78a8af5d54598634:106)
+07-02 05:17:15.729 D/MediaViewHolder( 2212): 	at com.android.systemui.doze.DozeUi.transitionTo(go/retraceme 109b9d95419d40ed7f94ba06f2e494aa100aa2b80b21457e78a8af5d54598634:376)
+07-02 05:17:15.729 D/MediaViewHolder( 2212): 	at com.android.systemui.doze.DozeMachine.transitionTo(go/retraceme 109b9d95419d40ed7f94ba06f2e494aa100aa2b80b21457e78a8af5d54598634:430)
+07-02 05:17:15.729 D/MediaViewHolder( 2212): 	at com.android.systemui.doze.DozeMachine.requestState(go/retraceme 109b9d95419d40ed7f94ba06f2e494aa100aa2b80b21457e78a8af5d54598634:79)
+07-02 05:17:15.729 D/MediaViewHolder( 2212): 	at com.android.systemui.doze.DozeMachine.requestState(go/retraceme 109b9d95419d40ed7f94ba06f2e494aa100aa2b80b21457e78a8af5d54598634:93)
+07-02 05:17:15.729 D/MediaViewHolder( 2212): 	at com.android.systemui.doze.DozeService.onDreamingStarted(go/retraceme 109b9d95419d40ed7f94ba06f2e494aa100aa2b80b21457e78a8af5d54598634:7)
+07-02 05:17:15.733 D/DLObserver( 2212): add listener: com.android.systemui.doze.DozeDockHandler$DockEventListener@724783d
+07-02 05:17:15.734 V/DreamService[DozeService]( 2212): UpdateDoze mDozeScreenState=1 mDozeScreenBrightness=NaN
+07-02 05:17:15.734 D/DreamManagerService( 1489): Dream requested to start dozing: android.os.Binder@ddd57e0, screenState=OFF, reason=UNKNOWN, screenBrightness=NaN, useNormalBrightnessForDoze=false
+07-02 05:17:15.735 I/DisplayPowerController[0]( 1489): BrightnessEvent: brt=0.0(0.0%), nits=2.0, lux=-1.0, reason=screen_off, strat=ScreenOffBrightnessStrategy, state=OFF, stateReason=UNKNOWN, policy=DOZE, flags=, initBrt=0.0, rcmdBrt=NaN, preBrt=NaN, preLux=0.0, wasShortTermModelActive=false, autoBrightness=true (default), unclampedBrt=-1.0, hbmMax=0.57, hbmMode=off, thrmMax=1.0, rbcStrength=50, powerFactor=1.0, physDisp=Built-in Screen(local:4619827677550801152), logicalId=0, slowChange=false, rampSpeed=0.0, colorTemp=NaN, thermalStatus=none
+07-02 05:17:15.742 V/DreamService[DozeService]( 2212): UpdateDoze mDozeScreenState=1 mDozeScreenBrightness=0.0
+07-02 05:17:15.742 D/DreamManagerService( 1489): Dream requested to start dozing: android.os.Binder@ddd57e0, screenState=OFF, reason=UNKNOWN, screenBrightness=0.0, useNormalBrightnessForDoze=false
+07-02 05:17:15.758 D/GRIL-S  ( 2387): [2375]> UPDATE_DEVICE_STATE DeviceState: Usb:0, Wifi: 1, Wifi AP: 0, Earpiece: 0, Bluetooth: 1, Wireless charging: 0, Screen: 0, Camera: 0, 0, -, -, Motion: 1, Bluetooth tethering: 0, Voice: 0, Wifi 2.4G: 0, Radio: 1, Bluetooth connected: 0, Bluetooth media: 0, Wifi Band: 2, Wifi AP Band: 0, Wifi call: 0, mmWave: 0, mCellBackhaul: 0, mHallSensor: 0, mDozeStatus: 1, mAppClassInfo: 0, mWifiCapSensorStatus: 0, mCellCapSensorStatus: 0, mBesideHeadHandStatus: 0, mSpeakerStatus: 0, mProtectiveCaseStatus: 0, mWifiSettingStatus: 0, mGpsStatus: 0
+07-02 05:17:15.774 D/WindowManager( 1489): setClientSurface Surface(name=VRI-NotificationShade#83)/@0x4af4d1a for 666ee80 NotificationShade
+07-02 05:17:15.774 I/Surface ( 2212): Creating surface for consumer VRI[NotificationShade]#3415(BLAST Consumer)3415 with slotExpansion=1 for 64 slots
+07-02 05:17:15.812 I/NearbyConnections( 2737): ClientProxy(0p:com.google.android.gms.nearby.sharing) allow WebRtc to use mobile data.
+07-02 05:17:15.862 I/keystore2(  544): system/security/keystore2/src/authorization.rs:253 - add LockStateNotification { user: AndroidUserId(0), state: DeviceLocked { unlocking_sids: [SecureUserId(2780979889802134610)], weak_unlock_enabled: false } } to notification queue
+07-02 05:17:15.862 I/keystore2(  544): system/security/keystore2/src/authorization.rs:255 - process LockStateNotification { user: AndroidUserId(0), state: DeviceLocked { unlocking_sids: [SecureUserId(2780979889802134610)], weak_unlock_enabled: false } } from notification queue
+07-02 05:17:15.897 W/AlarmManager( 1489): Unrecognized alarm listener com.android.server.DeviceIdleController$$ExternalSyntheticLambda1@77b9ae2
+07-02 05:17:15.930 D/libnfc_nci( 2436): nfcManager_doSetScreenState: state = 2 sPrevScreenStateMask= 24, screen_state_mask= 2
+07-02 05:17:15.930 D/libnfc_nci( 2436): nfcManager_doSetScreenState: discovry_param = 0x00
+07-02 05:17:15.932 W/AppOps  ( 1489): Noting op not finished: uid 1000 pkg com.android.server.telecom code 169 startTime of in progress event=1782954815554
+07-02 05:17:15.932 D/libnfc_nci( 2436): nfcManager_doSetScreenState: wait for gNfaSetConfigEvent
+07-02 05:17:15.952 D/_BackgroundService$PowerStateLogger(16678): triggeringAction=android.intent.action.SCREEN_OFF isPowerSaveMode=false locationPowerSaveMode=0 isDeviceIdleMode=false isDeviceLightIdleMode=false isInteractive=false isIgnoringBatteryOptimizations=true
+07-02 05:17:15.976 D/libnfc_nci( 2436): nfcManager_doSetScreenState: state = 2 sPrevScreenStateMask= 2, screen_state_mask= 2
+07-02 05:17:15.977 D/libnfc_nci( 2436): nfcManager_doSetScreenState: New screen state is same as previous state. No action taken
+07-02 05:17:15.979 D/libnfc_nci( 2436): nfcManager_doSetScreenState: state = 2 sPrevScreenStateMask= 2, screen_state_mask= 2
+07-02 05:17:15.979 D/libnfc_nci( 2436): nfcManager_doSetScreenState: New screen state is same as previous state. No action taken
+07-02 05:17:16.088 D/NfcCardEmulationManager( 2436): setShouldDefaultToObserveModeForService: (ComponentInfo{com.google.android.gms/com.google.android.gms.tapandpay.hce.service.TpHceService}) to true
+07-02 05:17:16.092 D/NfcService( 2436): setObserveMode: true, uid: 10175, pkg: com.google.android.gms, triggerSrc: 1
+07-02 05:17:16.092 D/NfcService( 2436): setObserveModeInternal: true, uid: 10175, pkg: com.google.android.gms, triggerSrc: 1
+07-02 05:17:16.097 D/libnfc_nci( 2436): nfcManager_isObserveModeEnabled: returning TRUE
+07-02 05:17:16.097 D/libnfc_nci( 2436): nfcManager_setObserveMode: called with TRUE but it is already TRUE, returning early
+07-02 05:17:16.157 W/ChimeraUtils( 2737): Module com.google.android.gms.cast missing resource cast_module_display_name(0)
+07-02 05:17:16.173 W/AxMediaRouter( 2737): Ignoring null provider descriptor from ComponentInfo{com.google.android.gms/com.google.android.gms.cast.media.CastMediaRoute2ProviderService_Persistent}
+07-02 05:17:16.264 D/CDAS-LockOnDisconnect(25511): Device is locked, ignore post lock notification
+07-02 05:17:16.313 D/ActivityManager( 1489): sync unfroze 22918 com.google.android.gms.unstable for 10
+07-02 05:17:16.369 W/CDAS-LockOnDisconnect(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:16.369 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:16.369 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:16.369 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:16.369 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:16.369 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:16.369 E/CDAS-LockOnDisconnect(25511): ShowPromoNotificationUseCaseImpl: bluetoothDeviceNodeId must not be empty if promo notification should be shown
+07-02 05:17:16.371 W/CDAS-LeftBehind(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:16.371 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:16.371 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:16.371 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:16.371 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:16.371 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:16.372 E/CDAS-LeftBehind(25511): ShowPromoNotificationUseCaseImpl: bluetoothDeviceNodeId must not be empty if promo notification should be shown
+07-02 05:17:16.375 W/CDAS-App(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:16.375 W/CDAS-App(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:16.375 W/CDAS-App(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:16.375 W/CDAS-App(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:16.375 W/CDAS-App(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:16.375 W/CDAS-App(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:16.404 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:16.404 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:16.416 I/NearbyDiscovery( 2737): SpotPairing - Cancelling upgrade to Finder notification [CONTEXT service_id=265 ]
+07-02 05:17:16.454 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:17:16.466 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.auth.aang.events.services.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:16.473 D/BoundBrokerSvc(29783): onRebind: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:17:16.483 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.common.telemetry.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:16.511 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.presencemanager.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:16.514 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.presencemanager.service.INTERNAL_IDENTITY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:16.607 I/ActivityManager( 1489): Start proc 25568:com.google.android.projection.gearhead:car/u0a151 for broadcast {com.google.android.projection.gearhead/com.google.android.apps.auto.carservice.gmscorecompat.CarBluetoothReceiver}
+07-02 05:17:16.773 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.libs.gmscorelogger.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+07-02 05:17:16.801 I/AiAiEcho( 4164): SmartspaceNotificationPredictor no parser can handle this notification or notification is invalid
+07-02 05:17:16.809 I/NotifySyncService_9052_9191( 9052): onNotificationPosted Id:103 key:0|com.a0soft.gphone.uninstaller|103|null|10380 PackageName:com.a0soft.gphone.uninstaller IsOngoing:true PostTime:1782962236580 currentDeviceModel.connected: true
+07-02 05:17:16.809 I/NotifySyncService_9052_9191( 9052): onNotificationPosted Id:103 , appName : App Usage
+07-02 05:17:17.792 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:17:18.459 D/BoundBrokerSvc(29783): onRebind: Intent { act=com.google.android.gms.semanticlocationhistory.zeroparty.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:17:18.538 D/PowerNotificationWarningsGoogleImpl( 2212): onReceive: android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED
+07-02 05:17:18.538 D/IncompatibleChargerNotification( 2212): dispatchIntent: android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED
+07-02 05:17:18.567 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:17:18.591 W/CDAS-LockOnDisconnect(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:18.591 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:18.591 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:18.591 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:18.591 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:18.591 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:18.592 E/CDAS-LockOnDisconnect(25511): ShowPromoNotificationUseCaseImpl: bluetoothDeviceNodeId must not be empty if promo notification should be shown
+07-02 05:17:18.592 D/PowerNotificationWarningsGoogleImpl( 2212): onReceive: android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED
+07-02 05:17:18.592 D/IncompatibleChargerNotification( 2212): dispatchIntent: android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED
+07-02 05:17:18.609 W/CDAS-LeftBehind(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:18.609 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:18.609 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:18.609 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:18.609 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:18.609 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:18.609 E/CDAS-LeftBehind(25511): ShowPromoNotificationUseCaseImpl: bluetoothDeviceNodeId must not be empty if promo notification should be shown
+07-02 05:17:18.617 W/NearbyShared( 2737): 	at iukr.s(:com.google.android.gms@262334035@26.23.34 (260400-933906539):1)
+07-02 05:17:18.617 W/NearbyShared( 2737): 	at iukr.h(:com.google.android.gms@262334035@26.23.34 (260400-933906539):49)
+07-02 05:17:18.617 W/NearbyShared( 2737): 	at iukr.a(:com.google.android.gms@262334035@26.23.34 (260400-933906539):1)
+07-02 05:17:18.617 W/NearbyShared( 2737): 	at iukr.b(:com.google.android.gms@262334035@26.23.34 (260400-933906539):30)
+07-02 05:17:18.617 W/NearbyShared( 2737): 	at dopy.r(:com.google.android.gms@262334035@26.23.34 (260400-933906539):5)
+07-02 05:17:18.617 W/NearbyShared( 2737): 	at dopx.a(:com.google.android.gms@262334035@26.23.34 (260400-933906539):10)
+07-02 05:17:18.617 W/NearbyShared( 2737): 	at iukp.onReceive(:com.google.android.gms@262334035@26.23.34 (260400-933906539):170)
+07-02 05:17:18.621 W/CDAS-App(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:18.621 W/CDAS-App(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:18.621 W/CDAS-App(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:18.621 W/CDAS-App(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:18.621 W/CDAS-App(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:18.621 W/CDAS-App(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:18.626 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:18.626 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:18.626 I/KeepAliveHelper_9052_9052( 9052): startService: showConnectionNotification = true
+07-02 05:17:18.649 I/NotifyModule_9052_9101( 9052): provideSendPhoneCallNotification Android S READ_PHONE_STATE permission granted
+07-02 05:17:18.650 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:18.650 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:18.650 I/KeepAliveHelper_9052_9052( 9052): startService: showConnectionNotification = true
+07-02 05:17:18.657 I/KeepAliveService_9052_9052( 9052): onStartCommand: showConnectionNofication true, tempNotification = false,  connected = false, fromMIUI = false showNotificationDevice = true
+07-02 05:17:18.661 I/KeepAliveService_9052_9052( 9052): onStartCommand: showConnectionNofication true, tempNotification = false,  connected = false, fromMIUI = false showNotificationDevice = true
+07-02 05:17:18.698 I/NotifySyncService_9052_9191( 9052): onNotificationRemoved appID:com.xiaomi.wearable uid:1001 key:0|com.xiaomi.wearable|1001|null|10309  reason:REASON_APP_CANCEL
+07-02 05:17:18.698 I/NotifySyncService_9052_9191( 9052): getNotificationActions wearableActions size: 0
+07-02 05:17:18.698 E/NotifySyncService_9052_9191( 9052): getNotificationActions notification actions is null
+07-02 05:17:18.714 I/NotifySyncService_9052_9191( 9052): onNotificationRemoved appID:com.xiaomi.wearable uid:1 key:0|com.xiaomi.wearable|1|0|com.xiaomi.wearable|g:Aggregate_SilentSection|10309|0|com.xiaomi.wearable|g:Aggregate_SilentSection  reason:REASON_UNAUTOBUNDLED
+07-02 05:17:18.714 I/NotifySyncService_9052_9191( 9052): getNotificationActions wearableActions size: 0
+07-02 05:17:18.714 E/NotifySyncService_9052_9191( 9052): getNotificationActions notification actions is null
+07-02 05:17:18.800 I/NotifySyncService_9052_9191( 9052): removeNotifications isHuaMi false
+07-02 05:17:19.604 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:17:20.085 I/libbinder.AidlLazyServiceRegistrar(25406): Process has 0 (of 1 available) client(s) in use after notification artd has clients: 0
+07-02 05:17:20.554 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:20.554 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:20.656 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:17:21.476 D/BoundBrokerSvc(29783): onBind: Intent { act=com.google.android.gms.findmydevice.spot.service.fastpair.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:17:21.476 D/BoundBrokerSvc(29783): Loading bound service for intent: Intent { act=com.google.android.gms.findmydevice.spot.service.fastpair.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:17:21.518 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.common.telemetry.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:21.781 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 113 startTime of in progress event=1782962049811
+07-02 05:17:21.796 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 113 startTime of in progress event=1782962049811
+07-02 05:17:21.813 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 79 startTime of in progress event=1782962049811
+07-02 05:17:21.825 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 79 startTime of in progress event=1782962049811
+07-02 05:17:22.785 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 113 startTime of in progress event=1782962049811
+07-02 05:17:25.767 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:25.772 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:27.074 D/GRIL-S  ( 2387): [2377]> UPDATE_DEVICE_STATE DeviceState: Usb:0, Wifi: 1, Wifi AP: 0, Earpiece: 0, Bluetooth: 1, Wireless charging: 0, Screen: 0, Camera: 0, 0, -, -, Motion: 0, Bluetooth tethering: 0, Voice: 0, Wifi 2.4G: 0, Radio: 1, Bluetooth connected: 0, Bluetooth media: 0, Wifi Band: 2, Wifi AP Band: 0, Wifi call: 0, mmWave: 0, mCellBackhaul: 0, mHallSensor: 0, mDozeStatus: 1, mAppClassInfo: 0, mWifiCapSensorStatus: 0, mCellCapSensorStatus: 0, mBesideHeadHandStatus: 0, mSpeakerStatus: 0, mProtectiveCaseStatus: 0, mWifiSettingStatus: 0, mGpsStatus: 0
+07-02 05:17:29.463 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.findmydevice.spot.service.locationreport.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:29.791 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:29.792 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:31.554 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.presencemanager.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:31.569 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.presencemanager.service.INTERNAL_IDENTITY dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:32.030 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.auth.aang.events.services.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:33.573 D/BoundBrokerSvc(29783): onUnbind: Intent { act=com.google.android.gms.semanticlocationhistory.zeroparty.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:17:34.976 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:34.977 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:36.522 D/BoundBrokerSvc(29783): onUnbind: Intent { act=com.google.android.gms.findmydevice.spot.service.fastpair.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:17:36.590 D/BoundBrokerSvc(29783): onUnbind: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:17:39.618 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:17:43.018 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:43.018 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:46.892 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.libs.gmscorelogger.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+07-02 05:17:48.191 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:48.197 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:48.339 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.auth.aang.events.services.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:17:48.371 D/BoundBrokerSvc(29783): onRebind: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:17:48.626 D/ActivityManager( 1489): freezing 22918 com.google.android.gms.unstable
+07-02 05:17:49.331 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.libs.gmscorelogger.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+07-02 05:17:49.635 D/ActivityManager( 1489): sync unfroze 22918 com.google.android.gms.unstable for 10
+07-02 05:17:49.658 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:17:49.766 W/CDAS-LockOnDisconnect(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:49.766 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:49.766 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:49.766 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:49.766 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:49.766 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:49.766 E/CDAS-LockOnDisconnect(25511): ShowPromoNotificationUseCaseImpl: bluetoothDeviceNodeId must not be empty if promo notification should be shown
+07-02 05:17:49.771 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:17:49.772 W/CDAS-LeftBehind(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:49.772 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:49.772 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:49.772 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:49.772 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:49.772 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:49.772 E/CDAS-LeftBehind(25511): ShowPromoNotificationUseCaseImpl: bluetoothDeviceNodeId must not be empty if promo notification should be shown
+07-02 05:17:49.775 W/CDAS-App(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:17:49.775 W/CDAS-App(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:17:49.775 W/CDAS-App(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:17:49.775 W/CDAS-App(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:17:49.775 W/CDAS-App(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:17:49.775 W/CDAS-App(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:17:49.776 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:17:50.832 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:17:51.343 D/BluetoothGatt( 9363): setCharacteristicNotification() - uuid: 3e73c001-8ff8-4b17-b3ca-e6892ca6f268 enable: true
+07-02 05:17:51.350 I/gatt_offload(23956): system/stack/gatt/gatt_offload.cc:192 gattc_inform_notification_handle: remote_bda: xx:xx:xx:xx:5d:6c, handle: 0x12
+07-02 05:17:51.430 D/BluetoothGatt( 9363): setCharacteristicNotification() - uuid: 3e73c003-8ff8-4b17-b3ca-e6892ca6f268 enable: true
+07-02 05:17:51.436 I/gatt_offload(23956): system/stack/gatt/gatt_offload.cc:192 gattc_inform_notification_handle: remote_bda: xx:xx:xx:xx:5d:6c, handle: 0x17
+07-02 05:17:51.533 D/BluetoothGatt( 9363): setCharacteristicNotification() - uuid: 3e73c004-8ff8-4b17-b3ca-e6892ca6f268 enable: true
+07-02 05:17:51.538 I/gatt_offload(23956): system/stack/gatt/gatt_offload.cc:192 gattc_inform_notification_handle: remote_bda: xx:xx:xx:xx:5d:6c, handle: 0x1a
+07-02 05:17:55.490 D/BoundBrokerSvc(29783): onRebind: Intent { act=com.google.android.gms.findmydevice.spot.service.fastpair.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:18:03.773 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.auth.aang.events.services.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:18:04.776 W/AppOps  ( 1489): Noting op not finished: uid 1000 pkg com.android.server.telecom code 169 startTime of in progress event=1782954815554
+07-02 05:18:05.391 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.libs.gmscorelogger.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+07-02 05:18:10.540 D/BoundBrokerSvc(29783): onUnbind: Intent { act=com.google.android.gms.findmydevice.spot.service.fastpair.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:18:10.557 D/BoundBrokerSvc(29783): onUnbind: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.GmsApiService }
+07-02 05:18:11.164 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:18:20.143 D/ActivityManager( 1489): freezing 22918 com.google.android.gms.unstable
+07-02 05:18:20.564 D/ActivityManager( 1489): freezing 29783 com.google.android.gms
+07-02 05:18:29.438 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 113 startTime of in progress event=1782962049811
+07-02 05:18:29.448 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 113 startTime of in progress event=1782962049811
+07-02 05:18:29.455 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.auth.aang.events.services.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:18:29.474 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 79 startTime of in progress event=1782962049811
+07-02 05:18:29.486 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 79 startTime of in progress event=1782962049811
+07-02 05:18:30.440 W/AppOps  ( 1489): Noting op not finished: uid 10175 pkg com.google.android.gms code 113 startTime of in progress event=1782962049811
+07-02 05:18:30.465 D/BoundBrokerSvc( 2737): onRebind: Intent { act=com.google.android.gms.libs.gmscorelogger.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+07-02 05:18:44.546 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.auth.aang.events.services.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentApiService }
+07-02 05:18:48.673 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:18:48.673 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:18:53.639 D/ActivityManager( 1489): sync unfroze 29783 com.google.android.gms for 10
+07-02 05:18:53.643 D/ActivityManager( 1489): sync unfroze 22918 com.google.android.gms.unstable for 10
+07-02 05:18:53.681 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:18:53.736 W/CDAS-LockOnDisconnect(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:18:53.736 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:18:53.736 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:18:53.736 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:18:53.736 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:18:53.736 W/CDAS-LockOnDisconnect(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:18:53.736 E/CDAS-LockOnDisconnect(25511): ShowPromoNotificationUseCaseImpl: bluetoothDeviceNodeId must not be empty if promo notification should be shown
+07-02 05:18:53.743 W/CDAS-LeftBehind(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:18:53.743 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:18:53.743 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:18:53.743 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:18:53.743 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:18:53.743 W/CDAS-LeftBehind(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:18:53.743 E/CDAS-LeftBehind(25511): ShowPromoNotificationUseCaseImpl: bluetoothDeviceNodeId must not be empty if promo notification should be shown
+07-02 05:18:53.763 W/CDAS-App(25511): com.google.android.gms.common.api.ApiException: 13: ERROR
+07-02 05:18:53.763 W/CDAS-App(25511): 	at com.google.android.gms.common.internal.ApiExceptionUtil.fromStatus(ApiExceptionUtil.java:3)
+07-02 05:18:53.763 W/CDAS-App(25511): 	at com.google.android.gms.common.api.internal.TaskUtil.setResultOrApiException(TaskUtil.java:6)
+07-02 05:18:53.763 W/CDAS-App(25511): 	at com.google.android.gms.wearable.internal.zzoh.zzE(NodeClientImpl.java:2)
+07-02 05:18:53.763 W/CDAS-App(25511): 	at com.google.android.gms.wearable.internal.zzmc.dispatchTransaction(IWearableCallbacks.java:36)
+07-02 05:18:53.763 W/CDAS-App(25511): 	at com.google.android.gms.internal.zzbnk.onTransact(BaseStub.java:3)
+07-02 05:18:53.814 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:18:53.814 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:18:54.132 E/NofityComponent_9052_9134( 9052): PLAY toggleNotificationListenerService
+07-02 05:18:54.140 I/Wearable.KeepAlive_9052_9052( 9052): KeepAliveHelper.startService  containsShowNotificationDevice = true
+07-02 05:18:54.140 I/KeepAliveService_9052_9052( 9052): needStart: showConnectionNotification true, 
+07-02 05:18:54.140 I/KeepAliveHelper_9052_9052( 9052): startService: showConnectionNotification = true
+07-02 05:18:54.202 I/KeepAliveService_9052_9052( 9052): onStartCommand: showConnectionNofication true, tempNotification = false,  connected = true, fromMIUI = false showNotificationDevice = true
+07-02 05:18:54.494 I/NotifySyncService_9052_9191( 9052): onNotificationPosted Id:1001 key:0|com.xiaomi.wearable|1001|null|10309 PackageName:com.xiaomi.wearable IsOngoing:true PostTime:1782962334246 currentDeviceModel.connected: true
+07-02 05:18:54.495 I/NotifySyncService_9052_9191( 9052): onNotificationPosted Id:1001 , appName : Mi Fitness
+07-02 05:18:54.497 I/AiAiEcho( 4164): SmartspaceNotificationPredictor no parser can handle this notification or notification is invalid
+07-02 05:18:54.582 D/BoundBrokerSvc( 2737): onUnbind: Intent { act=com.google.android.gms.libs.gmscorelogger.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+07-02 05:18:54.781 D/PowerNotificationWarningsGoogleImpl( 2212): onReceive: android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED
+07-02 05:18:54.781 D/IncompatibleChargerNotification( 2212): dispatchIntent: android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED
+07-02 05:18:54.790 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:18:55.048 I/SilentUpgradeManager_9052_9052( 9052): checkUpdate: needUpgrade false, isPushed = null
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.xiaomi.wearable/com.xiaomi.wearable.home.devices.ble.sync.NotifySyncService}
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.xiaomi.wearable/com.xiaomi.wearable.home.devices.ble.sync.NotifySyncService} is already bound
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.tenqube.notisave/com.tenqube.notisave.presentation.service.NotiCatchService}
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.tenqube.notisave/com.tenqube.notisave.presentation.service.NotiCatchService} is already bound
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener}
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener} is already bound
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.google.android.as/com.google.android.apps.miphone.aiai.common.notification.service.AiAiNotificationListenerService}
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.google.android.as/com.google.android.apps.miphone.aiai.common.notification.service.AiAiNotificationListenerService} is already bound
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.a0soft.gphone.uninstaller/com.a0soft.gphone.uninstaller.bg.noty.NotyListenerSrvc}
+07-02 05:18:55.226 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.a0soft.gphone.uninstaller/com.a0soft.gphone.uninstaller.bg.noty.NotyListenerSrvc} is already bound
+07-02 05:18:55.227 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{app.lawnchair.play/com.android.launcher3.notification.NotificationListener}
+07-02 05:18:55.227 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{app.lawnchair.play/com.android.launcher3.notification.NotificationListener} is already bound
+07-02 05:18:55.271 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.xiaomi.wearable/com.xiaomi.wearable.home.devices.ble.sync.NotifySyncService}
+07-02 05:18:55.271 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.xiaomi.wearable/com.xiaomi.wearable.home.devices.ble.sync.NotifySyncService} is already bound
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.tenqube.notisave/com.tenqube.notisave.presentation.service.NotiCatchService}
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.tenqube.notisave/com.tenqube.notisave.presentation.service.NotiCatchService} is already bound
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener}
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener} is already bound
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.google.android.as/com.google.android.apps.miphone.aiai.common.notification.service.AiAiNotificationListenerService}
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.google.android.as/com.google.android.apps.miphone.aiai.common.notification.service.AiAiNotificationListenerService} is already bound
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{com.a0soft.gphone.uninstaller/com.a0soft.gphone.uninstaller.bg.noty.NotyListenerSrvc}
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{com.a0soft.gphone.uninstaller/com.a0soft.gphone.uninstaller.bg.noty.NotyListenerSrvc} is already bound
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): enabling notification listener for 0: ComponentInfo{app.lawnchair.play/com.android.launcher3.notification.NotificationListener}
+07-02 05:18:55.272 V/NotificationManagerService.NotificationListeners( 1489): Not registering ComponentInfo{app.lawnchair.play/com.android.launcher3.notification.NotificationListener} is already bound
+07-02 05:18:55.328 E/RoleControllerServiceImpl( 1489): Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+07-02 05:18:55.361 I/Role    ( 1489): com.google.android.gms not qualified for android.app.role.SYSTEM_DEPENDENCY_INSTALLER due to missing RequiredComponent{mFlags='0', mIntentFilterData=IntentFilterData{mAction='android.content.pm.action.INSTALL_DEPENDENCY', mCategories='[]', mDataScheme='null', mDataType='null'}, mMetaData=[], mPermission='android.permission.BIND_DEPENDENCY_INSTALLER', mQueryFlags=0} Requirement{mFeatureFlag=null, mMinTargetSdkVersion=1}
+07-02 05:18:55.361 E/RoleControllerServiceImpl( 1489): Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.SYSTEM_DEPENDENCY_INSTALLER, user: 0
+07-02 05:18:55.448 I/EuiccGoogle(25870): Firebase initialization
+07-02 05:18:55.453 I/FirebaseApp(25870): Device unlocked: initializing all Firebase APIs for app [DEFAULT]
+07-02 05:18:55.550 I/EuiccGoogle(25870): [98] EuiccGoogleBaseApplication.showSetupSimNotification: runningActivities: 0, showSimSetupNotification: true, isFirstTimeSuwFinished: false, showNotificationImmediately: true, repeatedSimPopup: false
+07-02 05:19:05.702 W/AppOps  ( 1489): Noting op not finished: uid 1000 pkg com.android.server.telecom code 169 startTime of in progress event=1782954815554
+07-02 05:19:14.775 I/ewbr    ( 4146): (REDACTED) HDM. appOpsListener %s %s
+07-02 05:19:15.091 I/NotifySyncService_9052_9191( 9052): onNotificationRemoved appID:com.google.android.gms uid:-545043841 key:0|com.google.android.gms|-545043841|null|10175  reason:REASON_APP_CANCEL
+07-02 05:19:15.091 I/NotifySyncService_9052_9191( 9052): getNotificationActions wearableActions size: 0
+07-02 05:19:15.092 E/NotifySyncService_9052_9191( 9052): getNotificationActions notification actions is null
+07-02 05:19:15.092 I/NotifySyncService_9052_9191( 9052): removeActionCache packageName:com.google.android.gms , action size: null
+07-02 05:19:15.199 I/NotifySyncService_9052_9191( 9052): removeNotifications isHuaMi false

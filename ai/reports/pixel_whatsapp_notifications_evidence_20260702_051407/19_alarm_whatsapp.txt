@@ -1,0 +1,222 @@
+      tag=*alarm*:CMAlarm
+      type=ELAPSED origWhen=+7h23m59s546ms window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x0
+      policyWhenElapsed: requester=+7h23m59s546ms app_standby=-19s263ms device_idle=-- battery_saver=-3m16s351ms
+      whenElapsed=+7h23m59s546ms maxWhenElapsed=+8h23m59s546ms
+      listener=android.os.BinderProxy@4d27161
+    ELAPSED_WAKEUP #64: Alarm{e2c0486 type 2 origWhen 172842815 whenElapsed 172842815 com.whatsapp}
+      tag=*walarm*:com.whatsapp.action.HEARTBEAT_WAKEUP
+      type=ELAPSED_WAKEUP origWhen=+7h24m11s146ms window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x20
+      policyWhenElapsed: requester=+7h24m11s146ms app_standby=-3m15s750ms device_idle=-- battery_saver=-2m7s225ms
+      whenElapsed=+7h24m11s146ms maxWhenElapsed=+8h24m11s146ms
+      operation=PendingIntent{7c2f147: PendingIntentRecord{76e8d74 com.whatsapp broadcastIntent}}
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=-1, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=1, android:broadcast.flags=8}]
+    ELAPSED #65: Alarm{4e3c29d type 3 origWhen 172935387 whenElapsed 172935387 com.google.android.gms}
+      tag=*alarm*:com.google.android.gms.westworld.action.ALARM
+      type=ELAPSED origWhen=+7h25m43s718ms window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x0
+      policyWhenElapsed: requester=+7h25m43s718ms app_standby=-19s263ms device_idle=-- battery_saver=-3m16s351ms
+      whenElapsed=+7h25m43s718ms maxWhenElapsed=+8h25m43s718ms
+      operation=PendingIntent{cb3e312: PendingIntentRecord{9b35ae3 com.google.android.gms/com.google.android.gms.westworld startService}}
+    RTC #66: Alarm{5a10ce0 type 1 origWhen 1782988871480 whenElapsed 172937334 com.google.android.youtube}
+--
+      type=RTC_WAKEUP origWhen=2026-07-03 00:00:00.000 window=0 exactAllowReason=policy_permission repeatInterval=0 count=0 flags=0x5
+      policyWhenElapsed: requester=+18h44m34s185ms app_standby=-3m15s750ms device_idle=-- battery_saver=-3m16s351ms
+      whenElapsed=+18h44m34s185ms maxWhenElapsed=+18h44m34s185ms
+      operation=PendingIntent{2248a01: PendingIntentRecord{96140a6 com.ticktick.task broadcastIntent}}
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=302, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=0, android:broadcast.flags=8}]
+    RTC_WAKEUP #95: Alarm{67f4ae7 type 0 origWhen 1783029614000 whenElapsed 213679854 com.whatsapp}
+      tag=*walarm*:com.whatsapp.action.DAILY_CRON
+      type=RTC_WAKEUP origWhen=2026-07-03 00:00:14.000 window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x20
+      policyWhenElapsed: requester=+18h44m48s185ms app_standby=-3m15s750ms device_idle=-- battery_saver=-2m7s225ms
+      whenElapsed=+18h44m48s185ms maxWhenElapsed=+19h44m48s185ms
+      operation=PendingIntent{2af7694: PendingIntentRecord{54ec53d com.whatsapp broadcastIntent}}
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=-1, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=1, android:broadcast.flags=8}]
+    RTC_WAKEUP #96: Alarm{cd0c132 type 0 origWhen 1783030210630 whenElapsed 214276484 com.google.android.calendar}
+      tag=*walarm*:com.google.android.calendar.intent.action.CHECK_NOTIFICATIONS
+      type=RTC_WAKEUP origWhen=2026-07-03 00:10:10.630 window=0 exactAllowReason=policy_permission repeatInterval=0 count=0 flags=0x5
+      policyWhenElapsed: requester=+18h54m44s815ms app_standby=-3m15s750ms device_idle=-- battery_saver=-3m16s351ms
+      whenElapsed=+18h54m44s815ms maxWhenElapsed=+18h54m44s815ms
+      operation=PendingIntent{e6bae83: PendingIntentRecord{f576800 com.google.android.calendar broadcastIntent}}
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=302, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=0, android:broadcast.flags=8}]
+--
+      type=RTC origWhen=2026-07-03 02:00:00.000 window=0 exactAllowReason=listener repeatInterval=0 count=0 flags=0x9
+      policyWhenElapsed: requester=+20h44m34s185ms app_standby=-3m15s750ms device_idle=-- battery_saver=--
+      whenElapsed=+20h44m34s185ms maxWhenElapsed=+20h44m34s185ms
+      listener=android.app.AlarmManager$ListenerWrapper@7cb042c
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=302, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=0, android:broadcast.flags=8}]
+    RTC_WAKEUP #99: Alarm{2be5ef5 type 0 origWhen 1783036802000 whenElapsed 220867854 com.whatsapp}
+      tag=*walarm*:com.whatsapp.action.BACKUP_MESSAGES
+      type=RTC_WAKEUP origWhen=2026-07-03 02:00:02.000 window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x20
+      policyWhenElapsed: requester=+20h44m36s185ms app_standby=-3m15s750ms device_idle=-- battery_saver=-2m7s225ms
+      whenElapsed=+20h44m36s185ms maxWhenElapsed=+21h44m36s185ms
+      operation=PendingIntent{27b448a: PendingIntentRecord{a1a6afb com.whatsapp broadcastIntent}}
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=-1, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=1, android:broadcast.flags=8}]
+    RTC_WAKEUP #100: Alarm{2fa3718 type 0 origWhen 1783037215594 whenElapsed 221281448 com.google.android.apps.messaging}
+      tag=*walarm*:android.intent.action.VIEW
+      type=RTC_WAKEUP origWhen=2026-07-03 02:06:55.594 window=+18h0m0s0ms repeatInterval=86400000 count=0 flags=0x0
+      policyWhenElapsed: requester=+20h51m29s779ms app_standby=-3m15s750ms device_idle=-- battery_saver=-3m16s351ms
+      whenElapsed=+20h51m29s779ms maxWhenElapsed=+1d14h51m29s779ms
+      operation=PendingIntent{5e2f571: PendingIntentRecord{ed11f56 com.google.android.apps.messaging broadcastIntent}}
+    ELAPSED_WAKEUP #101: Alarm{91abbd7 type 2 origWhen 225281322 whenElapsed 225281322 com.google.android.networkstack}
+--
+      type=RTC origWhen=2026-07-08 09:00:00.000 window=0 exactAllowReason=policy_permission repeatInterval=0 count=0 flags=0x5
+      policyWhenElapsed: requester=+6d3h44m34s185ms app_standby=-3m15s750ms device_idle=-- battery_saver=-3m16s351ms
+      whenElapsed=+6d3h44m34s185ms maxWhenElapsed=+6d3h44m34s185ms
+      operation=PendingIntent{35b9797: PendingIntentRecord{bf9bd84 com.google.android.calendar broadcastIntent}}
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=302, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=0, android:broadcast.flags=8}]
+    ELAPSED_WAKEUP #123: Alarm{92c196d type 2 origWhen 1869235314 whenElapsed 1869235314 com.whatsapp}
+      tag=*walarm*:com.whatsapp.action.ROTATE_SENDER_KEYS
+      type=ELAPSED_WAKEUP origWhen=+19d22h37m23s645ms window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x20
+      policyWhenElapsed: requester=+19d22h37m23s645ms app_standby=-3m15s750ms device_idle=-- battery_saver=-2m7s226ms
+      whenElapsed=+19d22h37m23s645ms maxWhenElapsed=+19d23h37m23s645ms
+      operation=PendingIntent{ed439a2: PendingIntentRecord{f381633 com.whatsapp broadcastIntent}}
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=-1, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=1, android:broadcast.flags=8}]
+    ELAPSED_WAKEUP #124: Alarm{172df0 type 2 origWhen 2159638929 whenElapsed 2159638929 com.whatsapp}
+      tag=*walarm*:com.whatsapp.action.ROTATE_SIGNED_PREKEY
+      type=ELAPSED_WAKEUP origWhen=+23d7h17m27s260ms window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x20
+      policyWhenElapsed: requester=+23d7h17m27s260ms app_standby=-3m15s750ms device_idle=-- battery_saver=-2m7s226ms
+      whenElapsed=+23d7h17m27s260ms maxWhenElapsed=+23d8h17m27s260ms
+      operation=PendingIntent{17ddf69: PendingIntentRecord{e04dee com.whatsapp broadcastIntent}}
+      idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlistReasonCode=-1, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, android:broadcast.temporaryAppAllowlistType=1, android:broadcast.flags=8}]
+    RTC #125: Alarm{b53e28f type 1 origWhen 1792890000000 whenElapsed 10074065854 android}
+      tag=*alarm*:*tz_offset_change*
+      type=RTC origWhen=2026-10-25 02:00:00.000 window=0 exactAllowReason=allow-listed repeatInterval=0 count=0 flags=0x1
+      policyWhenElapsed: requester=+114d21h44m34s185ms app_standby=-3m15s750ms device_idle=-- battery_saver=--
+      whenElapsed=+114d21h44m34s185ms maxWhenElapsed=+114d21h44m34s185ms
+      listener=com.android.server.alarm.TimeZoneOffsetHelper$1@b59391c
+    ELAPSED_WAKEUP #126: Alarm{c0c0925 type 2 origWhen 146269534 whenElapsed 31681995318 com.facebook.orca}
+--
+      tag=*alarm*:com.google.android.libraries.notifications.SYSTEM_TRAY_EVENT
+      type=RTC origWhen=2026-07-26 05:01:59.585 window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x0
+      policyWhenElapsed: requester=+23d23h46m33s770ms app_standby=-3m15s750ms device_idle=-- battery_saver=+364d23h56m43s649ms
+      whenElapsed=+364d23h56m43s649ms maxWhenElapsed=+364d23h56m43s649ms
+      operation=PendingIntent{3cabfc8: PendingIntentRecord{72c861 com.google.android.apps.maps broadcastIntent}}
+    ELAPSED #149: Alarm{5f30f86 type 3 origWhen 147634755 whenElapsed 31682064444 com.whatsapp}
+      tag=*alarm*:com.whatsapp.action.HOURLY_CRON
+      type=ELAPSED origWhen=+24m3s86ms window=+45m0s0ms repeatInterval=3600000 count=0 flags=0x0
+      policyWhenElapsed: requester=+24m3s86ms app_standby=-3m15s750ms device_idle=-- battery_saver=+364d23h57m52s775ms
+      whenElapsed=+364d23h57m52s775ms maxWhenElapsed=+364d23h57m52s775ms
+      operation=PendingIntent{edca047: PendingIntentRecord{ab01074 com.whatsapp broadcastIntent}}
+    ELAPSED #150: Alarm{fb2899d type 3 origWhen 149993066 whenElapsed 31682064444 com.whatsapp}
+      tag=*alarm*:com.whatsapp.action.UPDATE_NTP
+      type=ELAPSED origWhen=+1h3m21s397ms window=+9h0m0s0ms repeatInterval=43200000 count=0 flags=0x0
+      policyWhenElapsed: requester=+1h3m21s397ms app_standby=-3m15s750ms device_idle=-- battery_saver=+364d23h57m52s775ms
+      whenElapsed=+364d23h57m52s775ms maxWhenElapsed=+364d23h57m52s775ms
+      operation=PendingIntent{1609e12: PendingIntentRecord{a38f9e3 com.whatsapp broadcastIntent}}
+    RTC #151: Alarm{ef7bfe0 type 1 origWhen 1783042811612 whenElapsed 31682174966 com.facebook.katana}
+      tag=*alarm*:com.facebook.intent.action.prod.FOR_DELAYED_WORKER_SERVICE
+      type=RTC origWhen=2026-07-03 03:40:11.612 window=+1h0m0s0ms repeatInterval=0 count=0 flags=0x0
+      policyWhenElapsed: requester=+22h24m45s797ms app_standby=-3m15s750ms device_idle=-- battery_saver=+364d23h59m43s297ms
+      whenElapsed=+364d23h59m43s297ms maxWhenElapsed=+364d23h59m43s297ms
+      operation=PendingIntent{3332299: PendingIntentRecord{ca6895e com.facebook.katana broadcastIntent}}
+    ELAPSED_WAKEUP #152: Alarm{d77513f type 2 origWhen 315360025157 whenElapsed 315360025157 com.google.android.gms}
+      tag=*walarm*:com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService
+--
+  App Alarm history:
+    com.google.android.googlequicksearchbox, u0: -24m8s873ms, -54m23s545ms, 
+    com.android.providers.calendar, u0: -35m8s123ms, -1h5m54s234ms, 
+    org.telegram.messenger, u0: -3h26m36s666ms, 
+    com.ichi2.anki, u0: -1d1h13m25s812ms, 
+    com.whatsapp, u0: -35m35s207ms, -1h2m38s923ms, -1h5m54s720ms, -1h6m57s961ms, -1h7m47s110ms, -1h34m31s802ms, 
+    com.lidl.eci.lidlplus, u0: -18h58m57s312ms, 
+    com.google.android.apps.messaging, u0: -3h7m28s919ms, 
+    com.google.android.configupdater, u0: -16h35m11s180ms, 
+    com.android.vending, u0: -8h53m7s273ms, 
+    com.companionlink.clusbsync, u0: -4h20m41s233ms, 
+    com.tenqube.notisave, u0: -1d16h36m10s378ms, 
+    com.instagram.android, u0: -59m11s382ms, -1h0m50s600ms, -1h2m23s754ms, -1h3m5s802ms, -1h3m27s258ms, -1h4m32s827ms, -1h5m21s131ms, -1h5m54s720ms, -1h6m30s528ms, -1h6m57s961ms, -1h7m20s165ms, -1h32m16s486ms, -1h48m43s289ms, 
+    org.thoughtcrime.securesms, u0: -1h25m30s619ms, -1h40m50s154ms, -2h6m59s447ms, 
+--
+    com.ticktick.task, u0: -5h15m25s791ms, 
+    com.google.android.calendar, u0: -5h15m25s791ms, 
+  
+  Allow while idle compat history:
+    com.android.providers.calendar, u0: -2h55m35s164ms, 
+    com.whatsapp, u0: -2h17m48s669ms, 
+    com.google.android.gms, u0: -2h8m8s785ms, 
+    com.google.android.apps.scone, u0: -19s285ms, 
+  
+  Allow while idle listener history:
+    com.google.android.gms, u0: -2h12m22s686ms, -2h14m22s883ms, -2h16m22s951ms, -2h18m13s666ms, -2h48m26s866ms, -2h56m13s253ms, -2h58m13s395ms, -3h3m42s870ms, 
+  
+  Removal history:
+    1000:
+--
+          type=RTC_WAKEUP tag=*walarm*:com.lidl.eci.lidlplus.com.salesforce.marketingcloud.WAKE_FOR_ALARM 
+          policyWhenElapsed: requester=-18h59m37s798ms app_standby=-19h0m37s791ms device_idle=-- battery_saver=-19h0m37s791ms
+    u0a363:
+      #1: Reason=alarm_cancelled elapsed=-2m2s190ms rtc=2026-07-02 05:13:23.625
+        Snapshot:
+          type=ELAPSED tag=*alarm*:com.whatsapp.alarm.CLIENT_PING_PERIODIC 
+          policyWhenElapsed: requester=+1m26s247ms app_standby=-2m33s752ms device_idle=-- battery_saver=+364d23h57m52s775ms
+      #2: Reason=alarm_cancelled elapsed=-2m2s191ms rtc=2026-07-02 05:13:23.624
+        Snapshot:
+          type=ELAPSED_WAKEUP tag=*walarm*:com.whatsapp.MessageHandler.LOGOUT_ACTION 
+          policyWhenElapsed: requester=+6m46s779ms app_standby=-3m13s212ms device_idle=-- battery_saver=-2m7s225ms
+      #3: Reason=alarm_cancelled elapsed=-3m13s149ms rtc=2026-07-02 05:12:12.666
+        Snapshot:
+          type=ELAPSED_WAKEUP tag=*walarm*:com.whatsapp.alarm.CLIENT_PING_TIMEOUT 
+          policyWhenElapsed: requester=-2m41s219ms app_standby=-3m13s214ms device_idle=-- battery_saver=-3m13s214ms
+      #4: Reason=alarm_cancelled elapsed=-3m13s221ms rtc=2026-07-02 05:12:12.594
+        Snapshot:
+          type=ELAPSED tag=*alarm*:com.whatsapp.alarm.CLIENT_PING_PERIODIC 
+          policyWhenElapsed: requester=-3m0s967ms app_standby=-3m15s750ms device_idle=-- battery_saver=-3m15s965ms
+      #5: Reason=alarm_cancelled elapsed=-5m12s432ms rtc=2026-07-02 05:10:13.383
+        Snapshot:
+          type=ELAPSED tag=*alarm*:com.whatsapp.alarm.CLIENT_PING_PERIODIC 
+          policyWhenElapsed: requester=-2m16s196ms app_standby=-6m16s195ms device_idle=-- battery_saver=-6m16s195ms
+      #6: Reason=alarm_cancelled elapsed=-5m12s710ms rtc=2026-07-02 05:10:13.105
+        Snapshot:
+          type=ELAPSED_WAKEUP tag=*walarm*:com.whatsapp.MessageHandler.LOGOUT_ACTION 
+          policyWhenElapsed: requester=+3m49s463ms app_standby=-6m10s536ms device_idle=-- battery_saver=-6m10s536ms
+      #7: Reason=alarm_cancelled elapsed=-6m16s198ms rtc=2026-07-02 05:09:09.617
+        Snapshot:
+          type=ELAPSED_WAKEUP tag=*walarm*:com.whatsapp.alarm.CLIENT_PING_TIMEOUT 
+          policyWhenElapsed: requester=-5m44s258ms app_standby=-6m16s257ms device_idle=-- battery_saver=-6m16s257ms
+      #8: Reason=alarm_cancelled elapsed=-6m16s260ms rtc=2026-07-02 05:09:09.555
+        Snapshot:
+          type=ELAPSED tag=*alarm*:com.whatsapp.alarm.CLIENT_PING_PERIODIC 
+          policyWhenElapsed: requester=-2m36s4ms app_standby=-6m36s3ms device_idle=-- battery_saver=-6m36s3ms
+      #9: Reason=alarm_cancelled elapsed=-9m36s46ms rtc=2026-07-02 05:05:49.770
+        Snapshot:
+          type=ELAPSED_WAKEUP tag=*walarm*:com.whatsapp.alarm.CLIENT_PING_TIMEOUT 
+          policyWhenElapsed: requester=-9m4s100ms app_standby=-9m36s97ms device_idle=-- battery_saver=-9m36s97ms
+      #10: Reason=alarm_cancelled elapsed=-9m36s101ms rtc=2026-07-02 05:05:49.714
+        Snapshot:
+          type=ELAPSED tag=*alarm*:com.whatsapp.alarm.CLIENT_PING_PERIODIC 
+          policyWhenElapsed: requester=-5m40s532ms app_standby=-9m40s530ms device_idle=-- battery_saver=-9m40s530ms
+    u0a376:
+      #1: Reason=alarm_cancelled elapsed=-1h25m29s768ms rtc=2026-07-02 03:49:56.047
+        Snapshot:
+          type=RTC_WAKEUP tag=*walarm*:org.thoughtcrime.securesms/.revealable.ViewOnceMessageManager$ViewOnceAlarm 
+          policyWhenElapsed: requester=+10d22h45m16s667ms app_standby=-1h25m29s776ms device_idle=-- battery_saver=-1h25m29s776ms
+      #2: Reason=alarm_cancelled elapsed=-1h25m29s777ms rtc=2026-07-02 03:49:56.038
+        Snapshot:
+--
+    +108ms 2 wakes 2 alarms, last -3h26m36s666ms:
+      *walarm*:org.telegram.messenger/.NotificationRepeat
+  u0a347:com.lidl.eci.lidlplus +245ms running, 1 wakeups:
+    +245ms 1 wakes 1 alarms, last -18h58m57s312ms:
+      *walarm*:com.lidl.eci.lidlplus.com.salesforce.marketingcloud.WAKE_FOR_ALARM
+  u0a363:com.whatsapp +9s660ms running, 7 wakeups:
+    +6s200ms 0 wakes 40 alarms, last -35m35s207ms:
+      *alarm*:com.whatsapp.action.HOURLY_CRON
+    +2s710ms 0 wakes 63 alarms, last -1h2m38s923ms:
+      *alarm*:com.whatsapp.alarm.CLIENT_PING_PERIODIC
+    +421ms 2 wakes 2 alarms, last -3h14m16s665ms:
+      *walarm*:com.whatsapp.action.BACKUP_MESSAGES
+    +260ms 2 wakes 2 alarms, last -5h14m3s887ms:
+      *walarm*:com.whatsapp.action.DAILY_CRON
+    +221ms 0 wakes 1 alarms, last -1d4h34m44s907ms:
+      *alarm*:com.whatsapp.action.UPDATE_NTP
+    +150ms 1 wakes 1 alarms, last -16h35m49s53ms:
+      *walarm*:com.whatsapp.action.HEARTBEAT_WAKEUP
+    +48ms 2 wakes 2 alarms, last -2h17m48s669ms:
+      *walarm*:com.whatsapp.MessageHandler.RECONNECT_ACTION
+  u0a376:org.thoughtcrime.securesms +6s872ms running, 15 wakeups:
+    +3s605ms 5 wakes 5 alarms, last -21h5m51s18ms:
+      *walarm*:org.thoughtcrime.securesms.action.PROCESS_MESSAGES
+    +1s249ms 2 wakes 2 alarms, last -2h6m59s447ms:
+      *walarm*:org.thoughtcrime.securesms/.service.AnalyzeDatabaseAlarmListener
+    +926ms 2 wakes 2 alarms, last -1h25m30s619ms:
+      *walarm*:org.thoughtcrime.securesms/.service.LocalBackupListener
+    +468ms 2 wakes 2 alarms, last -1h40m50s154ms:

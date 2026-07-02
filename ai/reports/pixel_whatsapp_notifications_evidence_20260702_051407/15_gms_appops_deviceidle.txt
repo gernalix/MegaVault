@@ -1,0 +1,6 @@
+grep: 
+Line |
+  22 |  … ered'; adb shell cmd appops get com.google.android.gms | grep -iE 'RU …
+     |                                                             ~~~~
+     | The term 'grep' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.

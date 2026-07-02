@@ -1,0 +1,22 @@
+
+        android.permission.FOREGROUND_SERVICE_CAMERA
+        com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+        com.sonyericsson.home.permission.BROADCAST_BADGE
+>       android.permission.POST_NOTIFICATIONS
+        android.permission.READ_CALL_LOG
+        com.google.android.c2dm.permission.RECEIVE
+        android.permission.ACCESS_FINE_LOCATION
+        android.permission.USE_CREDENTIALS
+        android.permission.MODIFY_AUDIO_SETTINGS
+        com.google.android.providers.gsf.permission.READ_GSERVICES
+        lastDisabledCaller: com.android.vending
+        gids=[3003]
+        runtime permissions:
+>         android.permission.POST_NOTIFICATIONS: granted=true, flags=[ USER_SET|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+          android.permission.READ_CALL_LOG: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT]
+          android.permission.ACCESS_FINE_LOCATION: granted=true, flags=[ USER_SET|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|SELECTED_LOCATION_ACCURACY]
+          android.permission.ANSWER_PHONE_CALLS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+          android.permission.ACCESS_LOCAL_NETWORK: granted=true, flags=[ REVOKE_WHEN_REQUESTED|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+          android.permission.READ_PHONE_NUMBERS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+          android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=true, flags=[ USER_SET|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+
