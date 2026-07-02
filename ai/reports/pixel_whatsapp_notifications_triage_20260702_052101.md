@@ -202,3 +202,127 @@ Conclusion update:
 The post-fix test confirms that, after removing WhatsApp UID `10363` from `restrict-background-blacklist`, the Pixel receives WhatsApp push while locked/screen-off and Android posts the WhatsApp notification without opening the app. This supports the netpolicy background-data restriction as the real root cause.
 
 User-visible sound/vibration/banner still depends on the exact chat/channel sound settings and current device volume/vibration state, but Android delivery and notification posting are now confirmed.
+
+## Sound issue addendum
+
+Follow-up symptom: after push/background delivery was fixed, WhatsApp notifications arrived on the locked Pixel but did not emit an audible notification sound.
+
+Scope for this pass:
+
+- Diagnose Android/WhatsApp notification audio and channels only.
+- Do not clear WhatsApp data/cache.
+- Do not reinstall WhatsApp.
+- Do not reset or change Google Play Services.
+
+Evidence folder:
+
+- `ai/reports/pixel_whatsapp_sound_evidence_20260702_053312/`
+- The raw local captures in that folder may contain unredacted notification metadata. The committed evidence file is the redacted `README.md` summary.
+
+Commands and UI paths used:
+
+```powershell
+adb shell dumpsys notification --noredact
+adb shell settings get global zen_mode
+adb shell cmd audio get-volume MUSIC
+adb shell cmd audio get-volume RING
+adb shell cmd audio get-volume NOTIFICATION
+adb shell dumpsys audio
+adb shell dumpsys audio_policy
+adb shell dumpsys bluetooth_manager
+adb shell am start -a android.settings.CHANNEL_NOTIFICATION_SETTINGS --es android.provider.extra.APP_PACKAGE com.whatsapp --es android.provider.extra.CHANNEL_ID individual_chat_defaults_4
+adb shell am start -a android.settings.CHANNEL_NOTIFICATION_SETTINGS --es android.provider.extra.APP_PACKAGE com.whatsapp --es android.provider.extra.CHANNEL_ID silent_notifications_6
+adb exec-out uiautomator dump /dev/tty
+adb logcat -c
+adb logcat -v time
+```
+
+Audio/channel findings before the sound fix:
+
+- WhatsApp `individual_chat_defaults_4` (`Message notifications`) was not silent:
+  - `mImportance=4`.
+  - `mSound=content://settings/system/notification_sound`.
+  - `mVibrationEnabled=true`.
+  - `mBypassDnd=false`.
+  - `mUserLockedFields=4`.
+- Android UI for `individual_chat_defaults_4` showed:
+  - `Default` selected, not `Silent`.
+  - `Sound`: `Default notification sound`.
+  - `Vibration`: enabled.
+- WhatsApp in-app settings showed:
+  - conversation tones enabled.
+  - message notification tone `Default (Eureka)`.
+  - group notification tone `Default (Eureka)`.
+  - high priority notifications enabled.
+- DND/Zen was off: `zen_mode=0`.
+- Bedtime/Focus automatic rules were not active in the captured state.
+- Ringer mode was normal, notification stream was not muted, and notification volume was non-zero.
+- Audio route evidence pointed to device speaker for notification/ring use; no active Bluetooth audio route explained the missing sound.
+
+Important pre-fix notification record:
+
+- WhatsApp posted two records for the same message group:
+  - a summary notification on channel `silent_notifications_6`;
+  - a child message notification on channel `individual_chat_defaults_4`.
+- The child message channel was audible, but the active record used `groupAlertBehavior=1`, meaning the summary is the alerting notification in this grouping model.
+- The summary channel was the real silent path:
+  - `Notification(channel=silent_notifications_6 ... flags=GROUP_SUMMARY ...)`.
+  - effective channel `silent_notifications_6`.
+  - `mImportance=2`.
+  - `mSound=null`.
+  - `mVibrationEnabled=false`.
+- Therefore Android could receive and post the WhatsApp notification correctly while still not playing sound, because the alerting summary was assigned to a silent channel.
+
+Root cause for the sound issue:
+
+WhatsApp's grouped notification behavior delegated the audible alert to the group summary, and that summary used Android channel `silent_notifications_6`, which had been user/configuration-set to silent (`mImportance=2`, `mSound=null`). The visible per-chat/message channel `individual_chat_defaults_4` looked correct, but it was not the effective alerting channel for the grouped notification.
+
+Fix applied:
+
+Using Android Settings UI opened through ADB, changed:
+
+- Android Settings > Apps > WhatsApp > Notifications > Silent notifications
+- from `Silent / No sound or vibration`
+- to `Default / May ring or vibrate based on device settings`
+
+Post-fix evidence:
+
+- `silent_notifications_6` changed to:
+  - `mImportance=3`.
+  - `mSound=content://settings/system/notification_sound`.
+  - `mBypassDnd=false`.
+  - `mUserLockedFields=24`.
+  - `mVibrationEnabled=false`.
+- The UI showed `Default` selected and `Sound: Default notification sound`.
+- No WhatsApp data/cache was cleared.
+- WhatsApp was not uninstalled or logged out.
+- Google Play Services was not touched.
+
+Validation after the sound fix:
+
+- Started a fresh logcat capture.
+- Locked the Pixel / turned screen off.
+- User sent another WhatsApp message from another account/device.
+- User confirmed: the Pixel emitted the notification sound.
+- Logcat corroborated this at approximately 05:46:39-05:46:40 CEST:
+  - WhatsApp was unfrozen and allowed to start push handling from background via `PUSH_MESSAGING`.
+  - Android posted WhatsApp notification records.
+  - `RingtonePlayer` played `content://settings/system/notification_sound`.
+  - SystemUI requested audio focus with `USAGE_NOTIFICATION`.
+  - `RingtonePlayer` started playback.
+- Post-validation notification state still showed the WhatsApp summary on `silent_notifications_6`, now with `mSound=content://settings/system/notification_sound`.
+
+Conclusion update:
+
+The original no-notification problem was background network policy (`restrict-background-blacklist`). The later no-sound problem was a separate notification-channel issue: WhatsApp's alerting group summary used the `silent_notifications_6` channel, which had no sound. Making that channel `Default` restored audible notification sound while keeping the fix reversible and non-destructive.
+
+Reversal path if this becomes too noisy:
+
+1. Android Settings > Apps > WhatsApp > Notifications.
+2. Open `Silent notifications`.
+3. Change it back from `Default` to `Silent`.
+
+Residual risk:
+
+- Because the fixed channel is named `Silent notifications`, WhatsApp notifications that WhatsApp routes to that category may now be audible. This is intentional for the current symptom because the active WhatsApp message summary was using that category, but it may make some previously quiet WhatsApp summary notifications produce sound.
+- If sound disappears again, first re-check `silent_notifications_6` and `individual_chat_defaults_4` with `dumpsys notification --noredact`; then check DND, notification volume, Bluetooth route, and per-chat mute/custom notification overrides.
