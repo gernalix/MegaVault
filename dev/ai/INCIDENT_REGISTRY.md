@@ -114,7 +114,7 @@ Sistemi_coinvolti=Oracle VM instance-20260201-1126; codex-weekly-limit-monitor.s
 Alert_coinvolti=Codex weekly token limit monitor Telegram notifications; local codex weekly usage log/state
 Tentativi_effettuati=Identified systemd service, no cron; inspected app logs, journal, process tree, config placeholders, Codex binaries, network/DNS/TLS reachability, helper imports, dry-run config, and Telegram delivery path without printing secrets.
 Soluzione_finale=Switched config to /usr/bin/codex 0.137.0; added normal rateLimits parser plus wham/usage snake_case fallback; sanitized log/state errors; replaced /home/ubuntu/telegram_notify.py with env-based compatible helper; migrated Telegram token/chat from legacy hardcoded helper into /etc/codex-weekly-limit-monitor.env mode 600; set module_path to the safe helper; redacted monitor logs/state/helper backups; restarted service.
-Commit_correlati=7d1bcdc
+Commit_correlati=894b880
 Prompt_correlati=codex_weekly_limit_monitor_vm_fix_20260705
 Tempo_totale_di_impatto=At least 2026-06-11T06:27:26Z to 2026-07-05T14:25:21Z based on journal/log evidence
 Note=Post-fix live state: service enabled+active, weekly_left=64.0, five_hour_left=94.0, last_error empty, Telegram notification sent. Security scan in monitor perimeter found zero email/user_id/telegram_bot_url/literal_bot_token matches after redaction. Residual out-of-scope risk: other VM Telegram helper copies may still be hardcoded and require separate migration.
