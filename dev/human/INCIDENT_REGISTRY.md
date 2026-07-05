@@ -54,3 +54,13 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Anti-loop: gli aggiornamenti sync (`last_export_attempt_at`, `last_successful_export_at`, `last_export_status`, errore/file/integrity) non marcano mutazioni DB.
 - Commit app: `b612da3`.
 - Verifica: TCL deviceTest mirato PASS 7/7 su TCL 6102H.
+
+## CODEX_WEEKLY_LIMIT_MONITOR_PROLITE_DECODE
+- Timestamp UTC: 2026-07-05T14:25:21Z.
+- Sintomo: il monitor Oracle VM delle quote Codex restava attivo ma falliva ogni poll e non ripristinava notifiche Telegram affidabili.
+- Root cause: il servizio usava `/opt/codex-native/bin/codex` `0.120.0`, che non deserializzava piu' `plan_type=prolite` dalla risposta `wham/usage`; il body conteneva quote valide ma veniva trattato come errore. Telegram dipendeva da una vecchia copia hardcoded di `/home/ubuntu/telegram_notify.py`, mentre config/env avevano placeholder.
+- Fix: `config.ini` punta a `/usr/bin/codex` `0.137.0`; il watcher ora gestisce sia `rateLimits` normale sia fallback `wham/usage`, redige log/stato, e carica esplicitamente `/home/ubuntu/telegram_notify.py`. Il helper Telegram e' stato sostituito con versione env-based senza segreti hardcoded; token/chat migrati in `/etc/codex-weekly-limit-monitor.env` con permessi `600`.
+- Verifica: dry-run senza Telegram PASS con weekly_left `64.0` e five_hour_left `95.0`; notifica reale Telegram OK; service `enabled` e `active`; run reale registra weekly_left `64.0`, five_hour_left `94.0`, `last_error` vuoto e notifica `weekly_left_change` inviata.
+- Sicurezza: log/stato/helper del perimetro monitor redatti; scan finale `email_matches=0`, `user_id_matches=0`, `telegram_bot_url_matches=0`, `literal_bot_token_matches=0`.
+- Report: `ai/reports/codex_weekly_limit_monitor_vm_fix_20260705.md`.
+- Note: altre copie legacy VM di `telegram_notify.py` fuori scope possono ancora contenere hardcoding e vanno migrate in prompt dedicato.

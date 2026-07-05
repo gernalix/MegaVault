@@ -100,3 +100,21 @@ Commit_correlati=b612da3
 Prompt_correlati=947381
 Tempo_totale_di_impatto=unknown pre-fix; detected during 2026-06-15 validation before release
 Note=TCL targeted deviceTest rerun passed 7/7 after fix; this incident is app-local, not a host monitoring alert.
+
+INCIDENT:
+Incident_ID=CODEX_WEEKLY_LIMIT_MONITOR_PROLITE_DECODE
+Titolo=Oracle VM Codex weekly limit monitor failed on prolite plan decode and Telegram hardcoded helper
+Data_prima_comparsa_UTC=2026-06-11T06:27:26Z
+Data_ultima_comparsa_UTC=2026-07-05T14:25:21Z
+Numero_occorrenze=recurring_every_poll_until_fix
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=Runtime service used /opt/codex-native/bin/codex 0.120.0; account/rateLimits/read failed when ChatGPT wham usage returned plan_type=prolite, while the watcher logged the raw error body and treated valid quota data as failure. Telegram delivery also depended on legacy hardcoded values inside /home/ubuntu/telegram_notify.py while config/env only had placeholders.
+Sistemi_coinvolti=Oracle VM instance-20260201-1126; codex-weekly-limit-monitor.service; /home/ubuntu/codex/automazione/codex_weekly_limit_monitor; /home/ubuntu/telegram_notify.py; /etc/codex-weekly-limit-monitor.env
+Alert_coinvolti=Codex weekly token limit monitor Telegram notifications; local codex weekly usage log/state
+Tentativi_effettuati=Identified systemd service, no cron; inspected app logs, journal, process tree, config placeholders, Codex binaries, network/DNS/TLS reachability, helper imports, dry-run config, and Telegram delivery path without printing secrets.
+Soluzione_finale=Switched config to /usr/bin/codex 0.137.0; added normal rateLimits parser plus wham/usage snake_case fallback; sanitized log/state errors; replaced /home/ubuntu/telegram_notify.py with env-based compatible helper; migrated Telegram token/chat from legacy hardcoded helper into /etc/codex-weekly-limit-monitor.env mode 600; set module_path to the safe helper; redacted monitor logs/state/helper backups; restarted service.
+Commit_correlati=7d1bcdc
+Prompt_correlati=codex_weekly_limit_monitor_vm_fix_20260705
+Tempo_totale_di_impatto=At least 2026-06-11T06:27:26Z to 2026-07-05T14:25:21Z based on journal/log evidence
+Note=Post-fix live state: service enabled+active, weekly_left=64.0, five_hour_left=94.0, last_error empty, Telegram notification sent. Security scan in monitor perimeter found zero email/user_id/telegram_bot_url/literal_bot_token matches after redaction. Residual out-of-scope risk: other VM Telegram helper copies may still be hardcoded and require separate migration.
