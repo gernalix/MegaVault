@@ -8,6 +8,12 @@ PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/PROJECT_INDEX_EXTENDED.md
 
+CURRENT_HOST_NOTE:
+primary_host=Windows_11_Pro Lenovo_ThinkPad_P14s_Gen_5_AMD
+windows_root=C:\Users\seste\Documents
+rule=project_rows_may_describe_legacy_Linux_Mint_or_remote_VM_runtime;do_not_read_as_current_host_profile
+project_path_refresh=TODO_per_project_from_metadata_when_project_is_touched
+
 RULES:
 rule=PROJECT_INDEX.md remains canonical project list
 rule=this_file_maps_cross_project_infra_relations_only

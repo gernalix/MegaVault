@@ -8,6 +8,12 @@ PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
 
+CURRENT_HOST:
+primary=Windows_11_Pro Lenovo_ThinkPad_P14s_Gen_5_AMD
+windows_alerting=TODO_refresh;do_not_assume_Linux_Mint_push_services_running_locally
+veeam_service=VeeamEndpointBackupSvc_running;alert_policy_UNKNOWN
+legacy_linux_snapshot=Mint/Surface/Kuma_push_entries_below_are_historical_or_project_specific_until_reverified
+
 RULES:
 rule=never_print_tokens
 rule=never_commit_Kuma_push_URLs

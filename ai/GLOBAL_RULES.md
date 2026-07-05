@@ -16,10 +16,15 @@ This file is an operator-readable routing summary. Canonical mandatory rules liv
 10. If UX, functionality, user workflows, troubleshooting, or changelog change, update Human docs from the AI doc.
 11. Conflict rule: protocol + HOST_PROFILE + metadata + AI doc win over Human docs and legacy docs. If metadata and AI doc conflict, stop and repair metadata/AI doc before continuing.
 
+## Current Host
+- Primary host: Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 AMD.
+- Canonical Windows paths use `C:\Users\seste\Documents\...`.
+- Surface/Linux Mint paths are historical or project-specific unless `HOST_PROFILE.md` says otherwise.
+
 ## Global Docs
 - HOST_PROFILE_AI: [global/HOST_PROFILE.md](global/HOST_PROFILE.md)
 - HOST_PROFILE_HUMAN: [../human/global/HOST_PROFILE.md](../human/global/HOST_PROFILE.md)
-- HOST_PROFILE_REQUIRED_FOR: performance, monitoring, automation, service, system tuning, Android tooling, backup, storage, Linux Mint, freeze investigations.
+- HOST_PROFILE_REQUIRED_FOR: performance, monitoring, automation, service, system tuning, Android tooling, backup, storage, Windows host work, and legacy Linux Mint/freeze investigations.
 - SERVICE_REGISTRY_AI: [global/SERVICE_REGISTRY.md](global/SERVICE_REGISTRY.md)
 - DATA_REGISTRY_AI: [global/DATA_REGISTRY.md](global/DATA_REGISTRY.md)
 - NETWORK_TOPOLOGY_AI: [global/NETWORK_TOPOLOGY.md](global/NETWORK_TOPOLOGY.md)
@@ -38,4 +43,4 @@ This file is an operator-readable routing summary. Canonical mandatory rules liv
 ## Next-Prompt Rule
 For every future Codex prompt inside an indexed repo: `ai/MEGAVAULT_PROTOCOL.md` -> `ai/global/HOST_PROFILE.md` -> `dev/project.metadata.json` -> `ai_doc` -> task files -> legacy only if the AI doc lacks required history.
 
-LAST_UPDATED: 2026-06-08T06:40:00+02:00 by #845317
+LAST_UPDATED: 2026-07-05T00:00:00+02:00 by global_docs_windows_update

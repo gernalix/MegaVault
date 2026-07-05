@@ -2,6 +2,8 @@
 
 Registro globale dei monitor Kuma e delle sorgenti Telegram. Il file AI autorevole e' [ALERT_REGISTRY.md](../../ai/global/ALERT_REGISTRY.md).
 
+Nota corrente 2026-07-05: host primario Windows 11 Pro su Lenovo ThinkPad P14s Gen 5 AMD. Monitor/servizi Mint, Surface e Kuma push locali sono storici o project-specific finche' non riverificati; unico servizio Windows verificato in questo passaggio: `VeeamEndpointBackupSvc` running/automatic.
+
 ## Kuma
 
 Kuma vive sulla VM Oracle ed e' usato per storico, alerting e visualizzazione. La notifica Telegram documentata e' `id=1`. Il DB remoto e' stato verificato in sola lettura il 2026-06-10: `/opt/uptime-kuma/data/kuma.db`, integrity `ok`.

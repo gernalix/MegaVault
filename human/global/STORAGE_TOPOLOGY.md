@@ -1,34 +1,23 @@
-# Storage Topology
+# Topologia storage globale
 
-Topologia storage del Surface verificata con `lsblk` e `HOST_PROFILE`. Il file AI autorevole e' [STORAGE_TOPOLOGY.md](../../ai/global/STORAGE_TOPOLOGY.md).
+Aggiornato: 2026-07-05. Autorita' operativa: [STORAGE_TOPOLOGY AI](../../ai/global/STORAGE_TOPOLOGY.md).
 
-## Dischi
+## Stato Windows corrente
 
-- Root Linux: `/dev/sda2` su Samsung PSSD T7 Shield USB, seriale `S6YGNS0Y903440H`.
-- EFI: `/dev/sda1`.
-- Disco interno NVMe: `/dev/nvme0n1`, Toshiba `KBG30ZPZ256G`, usato per partizioni Windows/BitLocker, non root Linux.
-- Sorgente storica transfer: `/dev/sdb2`, Seagate 4 TB BitLocker.
-- Destinazione backup/transfer: `/dev/sdc1`, Seagate 6 TB ext4, mount `/media/daniele/Seagate6TB2`.
+- Host: `DANIELE_PC`, Lenovo ThinkPad P14s Gen 5 AMD.
+- Root/documenti: `C:\Users\seste\Documents`.
+- Repo corrente: `C:\Users\seste\Documents\megavault_content_aware_merge_20260705`.
+- `C:` NTFS, disco Kioxia NVMe, sistema Windows.
+- `D:` Seagate Expansion Drive USB NTFS, poco spazio libero al controllo.
+- `E:` NTFS, ruolo non verificato.
+- T7: non connesso nel controllo; verificare mount/lettera prima di usarlo.
 
-## Hub USB
+## Regole
 
-Root, sorgente storica e destinazione backup passano dal SABRENT HB-BUP7 alimentato. Questo rende il singolo hub un punto critico per freeze, backup e transfer I/O.
+- Non usare path Linux `/home`, `/mnt`, `/media` come path host corrente.
+- Non assumere che una lettera disco Veeam/T7 sia stabile.
+- Non cancellare, formattare, fare prune o unlock senza intenzione esplicita e prova del target.
 
-Vista sintetica:
+## Storico
 
-- Surface: host locale, root su T7 USB.
-- T7 root: critico, qualsiasi stall USB puo' impattare tutto il sistema.
-- 4TB BitLocker source: sorgente storica transfer, da trattare read-only.
-- 6TB backup destination: destinazione backup e transfer, critica.
-- SABRENT hub: punto condiviso e critico per root, sorgente e destinazione.
-
-## Percorsi critici
-
-- Backup home: `/media/daniele/Seagate6TB2/home-backups`.
-- Transfer vecchio disco: `/media/daniele/Seagate6TB2/vecchio disco`.
-- Stato backup cloud: `/var/lib/mint-cloud-backup`.
-- Stato freeze forensics: `~/.local/state/mint-freeze-forensics`.
-
-## Vincoli
-
-Non assumere indipendenza tra root, sorgente e destinazione quando ci sono workload USB pesanti. Non usare `rsync --delete` sul transfer e non riprendere automaticamente dopo errori storage.
+La topologia Surface/Linux Mint con root ext4 su Samsung T7 e backup `/media/daniele/Seagate6TB2` resta storica o project-specific.

@@ -2,6 +2,8 @@
 
 Readable project documentation derived from the AI Vault.
 
+Current host note: Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 AMD; canonical local paths use `C:\Users\seste\Documents\...`.
+
 - Global host profile: [global/HOST_PROFILE.md](global/HOST_PROFILE.md)
 - Service registry: [global/SERVICE_REGISTRY.md](global/SERVICE_REGISTRY.md)
 - Data registry: [global/DATA_REGISTRY.md](global/DATA_REGISTRY.md)
@@ -14,4 +16,4 @@ Readable project documentation derived from the AI Vault.
 - Enrichment report: [ENRICHMENT_REPORT.md](ENRICHMENT_REPORT.md)
 - Migration report: [MIGRATION_REPORT.md](MIGRATION_REPORT.md)
 
-Updated: 2026-06-08T06:40:00+02:00
+Updated: 2026-07-05T00:00:00+02:00

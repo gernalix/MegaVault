@@ -1,36 +1,25 @@
-# Network Topology
+# Topologia rete globale
 
-Topologia di rete verificata dal vivo il 2026-06-08 e integrata con `HOST_PROFILE`. Il file AI autorevole e' [NETWORK_TOPOLOGY.md](../../ai/global/NETWORK_TOPOLOGY.md).
+Aggiornato: 2026-07-05. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/global/NETWORK_TOPOLOGY.md).
 
-## Host locale
+## Host corrente
 
-- Host: `daniele-Surface-Pro`.
-- Interfaccia principale: `wlp1s0`, IP `192.168.1.97/24`, gateway `192.168.1.1`.
-- Wi-Fi: `Alaska_5G`, 5.22 GHz, bitrate rilevato `468 Mb/s`, power management off.
-- Tailscale: `tailscale0`, IP `100.68.141.10/32`.
+- Host primario: `DANIELE_PC`, Windows 11 Pro su ThinkPad P14s Gen 5 AMD.
+- IP LAN/Tailscale correnti: non verificati in questo passaggio.
+- Non usare il vecchio IP Surface `192.168.1.97` come stato corrente senza `ipconfig`/verifica live.
 
-## Endpoint locali
+## Oracle VM/Kuma
 
-- Dashboard servizi: `http://127.0.0.1:8788`.
-- Dashboard backup cloud: `http://127.0.0.1:8765`.
+- Nodo remoto: `ubuntu@150.230.148.128`.
+- Ruoli: Uptime Kuma, backup Oracle, monitoraggio remoto.
+- DB Kuma: `/opt/uptime-kuma/data/kuma.db` sul runtime remoto Linux.
+- Path chiave SSH Windows: unknown; vecchio path Linux solo storico.
 
-## Nodo remoto
+## Android
 
-- Oracle VM: `ubuntu@150.230.148.128`.
-- Ruoli documentati: Uptime Kuma, backup Oracle e monitor remoti.
-- Kuma admin: solo tunnel SSH verso `127.0.0.1:3002`, poi browser locale `http://127.0.0.1:3001`.
-- Kuma pubblico: `http://150.230.148.128:3001` e' solo proxy `/api/push/...`; root/dashboard pubbliche devono rispondere `403`.
-- SSH live: `UNKNOWN`, timeout durante questa discovery.
+- ADB Windows: `C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe`.
+- Pixel 8a/TCL: indirizzi correnti unknown; verificare con `adb devices -l`.
 
-Vista sintetica:
+## Storico
 
-- Surface: workstation locale, LAN `192.168.1.97`, Tailscale `100.68.141.10`.
-- Oracle VM: Kuma e backup remoti.
-- Kuma: alerting/storico/visualizzazione, non remediation.
-- Pixel 8a e TCL 6102H: target ADB Wi-Fi, da verificare live prima dell'uso.
-
-## Vincoli
-
-- Kuma e' storico, alerting e visualizzazione: un DOWN e' un segnale, non una prova conclusiva.
-- Per ADB Wi-Fi usare `adb devices -l`; mDNS/Avahi non basta.
-- Non stampare URL push Kuma o token.
+Surface/Linux Mint, Tailscale `100.68.141.10`, servizi push Mint e monitor Kuma Mint sono snapshot storici o specifici di progetto.

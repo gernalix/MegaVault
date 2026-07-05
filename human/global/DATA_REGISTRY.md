@@ -2,6 +2,8 @@
 
 Registro leggibile dei database e degli stati locali rilevanti. Il file AI autorevole e' [DATA_REGISTRY.md](../../ai/global/DATA_REGISTRY.md).
 
+Nota corrente 2026-07-05: host primario Windows 11 Pro su Lenovo ThinkPad P14s Gen 5 AMD; path host reali sotto `C:\Users\seste\Documents`. I path `/home`, `/media`, `/mnt` qui sotto sono legacy, remoti Linux, o project-specific finche' non riverificati.
+
 ## SQLite principali
 
 - `software_audit.db`: `/home/ubuntu/sync_root/db/software_audit.db`, owner `mint-update-tracker`, con WAL/SHM presenti.

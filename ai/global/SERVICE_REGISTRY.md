@@ -8,6 +8,13 @@ PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
 
+CURRENT_HOST:
+primary=Windows_11_Pro Lenovo_ThinkPad_P14s_Gen_5_AMD
+service_manager=Windows_Service_Control_Manager+Task_Scheduler;not_systemd_for_current_host
+verified_windows_service=VeeamEndpointBackupSvc running automatic
+windows_services_inventory=TODO_refresh_before_ops
+legacy_linux_snapshot=systemd_user/system_entries_below_are_Surface_Mint_historical_or_remote/project_specific
+
 SCOPE:
 scope=custom_project_infra_units
 exclude=desktop_autostart,package_default_services,third_party_background_units_unless_project_relevant

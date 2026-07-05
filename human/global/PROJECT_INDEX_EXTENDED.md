@@ -2,6 +2,8 @@
 
 Mappa relazionale tra progetti, servizi, DB, dashboard, monitor e alert. La lista canonica dei progetti resta [PROJECTS.md](../PROJECTS.md); il file AI autorevole per le relazioni e' [PROJECT_INDEX_EXTENDED.md](../../ai/global/PROJECT_INDEX_EXTENDED.md).
 
+Nota corrente 2026-07-05: host primario Windows 11 Pro su Lenovo ThinkPad P14s Gen 5 AMD. Le righe progetto possono descrivere runtime Linux Mint storici o VM remote e non sovrascrivono `ai/global/HOST_PROFILE.md`.
+
 ## Relazioni principali
 
 - `android`: `adb-wifi-autoconnect.service`.

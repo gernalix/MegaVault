@@ -8,6 +8,14 @@ PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/DATA_REGISTRY.md
 
+CURRENT_HOST:
+primary=Windows_11_Pro Lenovo_ThinkPad_P14s_Gen_5_AMD
+documents_root=C:\Users\seste\Documents
+repo=C:\Users\seste\Documents\megavault_content_aware_merge_20260705
+rule=do_not_treat_/home_or_/media_paths_as_current_host_paths
+windows_data_inventory=TODO_refresh_per_project_when_needed
+legacy_linux_snapshot=all_Linux_Mint_local_paths_below_are_historical_or_project_specific_unless_remote_VM
+
 RULES:
 rule=do_not_modify_databases_for_docs_tasks
 rule=read_sqlite_readonly_when_possible

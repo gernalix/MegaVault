@@ -2,6 +2,8 @@
 
 Updated: 2026-07-05T00:00:00+02:00
 
+Host note: current primary host is Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 AMD; project rows may still describe legacy Linux Mint or remote VM runtime and must not override `ai/global/HOST_PROFILE.md`.
+
 | name | slug | purpose | AI doc | Human overview | metadata | repo |
 |---|---|---|---|---|---|---|
 | amici_fb | amici-fb | Windows 11 Facebook friends snapshot automation using Playwright, Task Scheduler, SQLite, CSV diff output, scheduler logs, and optional Telegram/Uptime Kuma reporting; runtime state and secrets stay outside Git. | [AI](projects/amici-fb.md) | [Human](../human/projects/amici-fb/overview.md) | metadata in C:/codex_clean_repos/amici_fb/dev/project.metadata.json | repo C:/codex_clean_repos/amici_fb |

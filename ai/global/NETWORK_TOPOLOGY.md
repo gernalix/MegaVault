@@ -1,29 +1,21 @@
 # NETWORK_TOPOLOGY
-VERSION=1
+VERSION=2
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=ip_live_2026-06-08+HOST_PROFILE+dashboard_status+prompt_458217_kuma_hardening
+SOURCE=HOST_PROFILE_2026-07-05+legacy_Kuma_docs
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/NETWORK_TOPOLOGY.md
 
 LOCAL_HOST:
-host=daniele-Surface-Pro
-primary_lan=wlp1s0
-primary_ip=192.168.1.97/24
-default_gateway=192.168.1.1
-wifi_essid=Alaska_5G
-wifi_frequency=5.22GHz
-wifi_bitrate=468Mb/s
-wifi_power_management=off
-tailscale=tailscale0 100.68.141.10/32 fd7a:115c:a1e0::b434:8d0a/128
-loopback=127.0.0.1/8
-
-LOCAL_ENDPOINTS:
-endpoint=system-service-dashboard;url=http://127.0.0.1:8788;service=system-service-dashboard.service;state=ok
-endpoint=mint-cloud-backup-dashboard;url=http://127.0.0.1:8765;service=mint-cloud-backup-dashboard.service;state=ok
-endpoint=windowtabnotes;url=UNKNOWN;service=windowtabnotes.service;state=active
+host=DANIELE_PC
+machine=Lenovo_ThinkPad_P14s_Gen_5_AMD
+os=Windows_11_Pro
+lan_ip=UNKNOWN_not_scanned
+tailscale=UNKNOWN_not_scanned
+loopback=127.0.0.1
+rule=do_not_use_old_Surface_IP_as_current_host_without_live_ipconfig
 
 REMOTE_NODES:
 node=oracle_vm
@@ -31,49 +23,31 @@ host=ubuntu@150.230.148.128
 roles=uptime_kuma,oracle_backup,remote_monitoring
 kuma_admin=ssh_tunnel http://127.0.0.1:3001 -> VM 127.0.0.1:3002
 kuma_public_push=http://150.230.148.128:3001/api/push/<token>
-kuma_container=uptime-kuma
 kuma_db=/opt/uptime-kuma/data/kuma.db
-ssh_key=/home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key
-live_ssh_status=UNKNOWN_timeout_2026-06-08
-
-SYNTHETIC_VIEW:
-node=Surface;role=local_workstation;lan=192.168.1.97;tailscale=100.68.141.10
-node=Oracle_VM;role=Kuma+backup;addr=150.230.148.128;kuma_admin=ssh_tunnel_to_127.0.0.1:3002;kuma_public=push_only_proxy_3001
-node=Kuma;role=alert_history_visualization;remediation=no
-node=Pixel_8a;role=ADB_Wi-Fi;addr=192.168.1.37;current=verify_live_before_use
-node=TCL_6102H;role=ADB_Wi-Fi;addr=192.168.1.200;current=verify_live_before_use
+ssh_key_windows=UNKNOWN
+ssh_key_legacy_linux=/home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key
 
 ANDROID_NETWORK:
-device=Pixel_8a;ip=192.168.1.37;role=ADB_Wi-Fi;current=not_connected_at_2026-06-07_from_HOST_PROFILE
-device=TCL_6102H;ip=192.168.1.200;role=ADB_Wi-Fi;current=adb_empty_at_2026-06-07_from_HOST_PROFILE
-constraint=verify_with_adb_devices_l_not_mdns_only
+adb=C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe
+device=Pixel_8a;role=ADB_Wi-Fi/USB;addr=UNKNOWN_current;verify=adb devices -l
+device=TCL_6102H;role=ADB_Wi-Fi/USB;addr=UNKNOWN_current;verify=adb devices -l
+constraint=mDNS/IP_cache_not_proof
 
-KUMA_PUSH_PATHS:
-path=local_Mint_service->HTTP_push->oracle_vm:3001/api/push via Nginx push-only proxy
-monitor=cloud_backup;id=3;source=mint-cloud-backup-kuma-push.service
-monitor=mint-home-backup;id=4;source=home-backup-kuma-push.service
-monitor=amici_fb;id=5;source=amici_fb.service
-monitor=disk-usage-monitor;id=6;source=disk-usage-monitor.service
-monitor=parcel-tracker;id=7;source=parcel-tracker.service
-monitor=mint-home-backup-retention;id=9;source=home-backup-retention-kuma-push.service
-monitor=software_audit_mint;id=11;source=mint-update-tracker.service
-monitor=Freeze_Gaps;id=13;source=mint-freeze-forensics.service
-monitor=PSI_Memory;id=14;source=mint-freeze-forensics.service
-monitor=PSI_IO;id=15;source=mint-freeze-forensics.service
-monitor=Guardian_Alerts;id=16;source=mint-freeze-forensics.service
-monitor=Forensics_Alive;id=17;source=mint-freeze-forensics.service
-
-DISABLED_REMOTE_MONITORS:
-monitor=mint_heartbeat;id=1;state=disabled_obsolete
-monitor=rsync-transfer;id=2;state=disabled_obsolete
-monitor=codex-token-watcher;id=10;state=disabled_obsolete
+LEGACY_2026-06_SURFACE_MINT:
+status=historical_not_primary
+legacy_host=daniele-Surface-Pro;lan=192.168.1.97;tailscale=100.68.141.10
+wifi=Alaska_5G
+kuma_push_sources=cloud_backup,mint-home-backup,amici_fb,disk-usage-monitor,parcel-tracker,software_audit_mint,freeze_monitors
+disabled_monitors=mint_heartbeat,rsync-transfer,codex-token-watcher
+rule=Surface_IPs,Mint_services,/home_paths are legacy unless reverified
 
 CONSTRAINTS:
+constraint=do_not_print_Kuma_push_URL_tokens
 constraint=Kuma_DOWN_is_signal_not_truth
-constraint=local_state_files_authoritative_for_job_semantics
-constraint=do_not_print_Kuma_push_URLs
 constraint=do_not_assume_Oracle_reachable_without_live_ssh_or_http_check
+constraint=network_facts_drift_fast_verify_before_use
 
 OPEN:
-open=Oracle_Kuma_monitor_table_not_live_verified_due_ssh_timeout
-open=router_model_UNKNOWN
+open=current_LAN_IP_UNKNOWN
+open=current_Tailscale_state_UNKNOWN
+open=current_Oracle_SSH_key_Windows_path_UNKNOWN

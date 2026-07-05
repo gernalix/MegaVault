@@ -1,6 +1,8 @@
 # Service Registry
 
-Mappa globale dei servizi e timer infrastrutturali verificati sul host Mint il 2026-06-08. Il file AI autorevole e' [SERVICE_REGISTRY.md](../../ai/global/SERVICE_REGISTRY.md).
+Mappa globale dei servizi e timer infrastrutturali. Le righe Mint sono snapshot legacy verificati il 2026-06-08. Il file AI autorevole e' [SERVICE_REGISTRY.md](../../ai/global/SERVICE_REGISTRY.md).
+
+Nota corrente 2026-07-05: host primario Windows 11 Pro su Lenovo ThinkPad P14s Gen 5 AMD. Il current host usa Windows Service Control Manager/Task Scheduler, non systemd; le righe systemd Mint sotto sono snapshot legacy, remote o project-specific finche' non riverificate.
 
 ## Dashboard locali
 

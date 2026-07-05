@@ -35,6 +35,12 @@ ANDROID_TOOLING_AUTONOMY=yes
 SDK_INSTALL_ALLOWED=yes
 ADB_INSTALL_ALLOWED=yes
 BUILD_BLOCKED=auto_repair
+HOST_WINDOWS_PRIMARY=yes
+WINDOWS_ANDROID_STUDIO=C:\Program Files\Android\Android Studio\bin\studio64.exe
+WINDOWS_ANDROID_SDK=C:\Users\seste\AppData\Local\Android\Sdk
+WINDOWS_ADB=C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe
+WINDOWS_SHELL=pwsh/PowerShell
+LEGACY_LINUX_SDK_PATHS=historical_or_project_specific_only
 
 # BUILD
 DEFAULT_BUILD=./gradlew assembleDebug
