@@ -1,0 +1,2477 @@
+{
+  "generated": "2026-06-01T07:23:54+02:00",
+  "projects": [
+    {
+      "name": "SuperContacts",
+      "slug": "supercontacts",
+      "path": "/home/daniele/codex-workspace/SuperContacts",
+      "remote": "https://github.com/gernalix/SuperContacts.git",
+      "branch": "codex/prompt-xxx",
+      "pre_status_count": 8,
+      "docs_found": 4,
+      "docs_archived": 3,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/supercontacts.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/supercontacts",
+      "metadata": "/home/daniele/codex-workspace/SuperContacts/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "WindowTabNotes",
+      "slug": "windowtabnotes",
+      "path": "/home/daniele/codex-workspace/WindowTabNotes",
+      "remote": "git@github.com:gernalix/WindowTabNotes.git",
+      "branch": "codex/prompt-581472",
+      "pre_status_count": 7,
+      "docs_found": 13,
+      "docs_archived": 13,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/windowtabnotes.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/windowtabnotes",
+      "metadata": "/home/daniele/codex-workspace/WindowTabNotes/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "android-sdk-auto-update",
+      "slug": "android-sdk-auto-update",
+      "path": "/home/daniele/codex-workspace/android-sdk-auto-update",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 7,
+      "docs_found": 5,
+      "docs_archived": 5,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/android-sdk-auto-update.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/android-sdk-auto-update",
+      "metadata": "/home/daniele/codex-workspace/android-sdk-auto-update/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "aw-converter",
+      "slug": "aw-converter",
+      "path": "/home/daniele/codex-workspace/aw-converter",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 0,
+      "docs_found": 0,
+      "docs_archived": 0,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/aw-converter.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/aw-converter",
+      "metadata": "/home/daniele/codex-workspace/aw-converter/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "chatgpt-chrome-debug",
+      "slug": "chatgpt-chrome-debug",
+      "path": "/home/daniele/codex-workspace/chatgpt-chrome-debug",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 7,
+      "docs_found": 7,
+      "docs_archived": 7,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/chatgpt-chrome-debug.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/chatgpt-chrome-debug",
+      "metadata": "/home/daniele/codex-workspace/chatgpt-chrome-debug/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "codex-html-live",
+      "slug": "codex-html-live",
+      "path": "/home/daniele/codex-workspace/codex-html-live",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 7,
+      "docs_found": 5,
+      "docs_archived": 5,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/codex-html-live.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/codex-html-live",
+      "metadata": "/home/daniele/codex-workspace/codex-html-live/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "codex-token-watcher",
+      "slug": "codex-token-watcher",
+      "path": "/home/daniele/codex-workspace/codex-token-watcher",
+      "remote": "",
+      "branch": "codex/prompt-384921",
+      "pre_status_count": 0,
+      "docs_found": 0,
+      "docs_archived": 0,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/codex-token-watcher.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/codex-token-watcher",
+      "metadata": "/home/daniele/codex-workspace/codex-token-watcher/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "codex-wrapper",
+      "slug": "codex-wrapper",
+      "path": "/home/daniele/codex-workspace/codex-wrapper",
+      "remote": "",
+      "branch": "codex/prompt-582746",
+      "pre_status_count": 0,
+      "docs_found": 0,
+      "docs_archived": 0,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/codex-wrapper.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/codex-wrapper",
+      "metadata": "/home/daniele/codex-workspace/codex-wrapper/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "facebook-video-archiver",
+      "slug": "facebook-video-archiver",
+      "path": "/home/daniele/codex-workspace/facebook-video-archiver",
+      "remote": "",
+      "branch": "work/v4-deep-discovery",
+      "pre_status_count": 16,
+      "docs_found": 8,
+      "docs_archived": 8,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/facebook-video-archiver.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/facebook-video-archiver",
+      "metadata": "/home/daniele/codex-workspace/facebook-video-archiver/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "installa-app",
+      "slug": "installa-app",
+      "path": "/home/daniele/codex-workspace/installa-app",
+      "remote": "",
+      "branch": "codex/prompt-582746",
+      "pre_status_count": 0,
+      "docs_found": 0,
+      "docs_archived": 0,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/installa-app.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/installa-app",
+      "metadata": "/home/daniele/codex-workspace/installa-app/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "linux-mint-service-dashboard",
+      "slug": "linux-mint-service-dashboard",
+      "path": "/home/daniele/codex-workspace/linux-mint-service-dashboard",
+      "remote": "",
+      "branch": "prompt-816-local-dashboard",
+      "pre_status_count": 21,
+      "docs_found": 12,
+      "docs_archived": 12,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/linux-mint-service-dashboard.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/linux-mint-service-dashboard",
+      "metadata": "/home/daniele/codex-workspace/linux-mint-service-dashboard/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "mint-manual-updates",
+      "slug": "mint-manual-updates",
+      "path": "/home/daniele/codex-workspace/mint-manual-updates",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 0,
+      "docs_found": 4,
+      "docs_archived": 4,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/mint-manual-updates.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/mint-manual-updates",
+      "metadata": "/home/daniele/codex-workspace/mint-manual-updates/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "os-observer",
+      "slug": "os-observer",
+      "path": "/home/daniele/codex-workspace/os-observer",
+      "remote": "",
+      "branch": "codex/prompt-914582",
+      "pre_status_count": 12,
+      "docs_found": 25,
+      "docs_archived": 25,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/os-observer.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/os-observer",
+      "metadata": "/home/daniele/codex-workspace/os-observer/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "owntracks-watcher",
+      "slug": "owntracks-watcher",
+      "path": "/home/daniele/codex-workspace/owntracks-watcher",
+      "remote": "",
+      "branch": "codex/prompt-384917",
+      "pre_status_count": 0,
+      "docs_found": 0,
+      "docs_archived": 0,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/owntracks-watcher.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/owntracks-watcher",
+      "metadata": "/home/daniele/codex-workspace/owntracks-watcher/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "parcel-tracker",
+      "slug": "parcel-tracker",
+      "path": "/home/daniele/codex-workspace/parcel-tracker",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 7,
+      "docs_found": 4,
+      "docs_archived": 4,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/parcel-tracker.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/parcel-tracker",
+      "metadata": "/home/daniele/codex-workspace/parcel-tracker/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "MultiTimeTracker",
+      "slug": "multitimetracker",
+      "path": "/home/daniele/codex-workspace/projects/MultiTimeTracker",
+      "remote": "https://github.com/gernalix/MultiTimeTracker.git",
+      "branch": "codex/v488-release-safe-ui-lockdown",
+      "pre_status_count": 9,
+      "docs_found": 98,
+      "docs_archived": 97,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/multitimetracker.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/multitimetracker",
+      "metadata": "/home/daniele/codex-workspace/projects/MultiTimeTracker/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "maintenance-486",
+      "slug": "maintenance-486",
+      "path": "/home/daniele/codex-workspace/projects/vm_oracle/maintenance-486",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 1,
+      "docs_found": 1,
+      "docs_archived": 1,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/maintenance-486.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/maintenance-486",
+      "metadata": "/home/daniele/codex-workspace/projects/vm_oracle/maintenance-486/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "oracle-backup-service",
+      "slug": "oracle-backup-service",
+      "path": "/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service",
+      "remote": "https://github.com/gernalix/oracle-backup-service.git",
+      "branch": "fix/degraded-healthcheck-state",
+      "pre_status_count": 15,
+      "docs_found": 4,
+      "docs_archived": 4,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/oracle-backup-service.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/oracle-backup-service",
+      "metadata": "/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "remote_opt_oracle_backup",
+      "slug": "remote-opt-oracle-backup",
+      "path": "/home/daniele/codex-workspace/projects/vm_oracle/remote_opt_oracle_backup",
+      "remote": "",
+      "branch": "main",
+      "pre_status_count": 10,
+      "docs_found": 1,
+      "docs_archived": 1,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/remote-opt-oracle-backup.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/remote-opt-oracle-backup",
+      "metadata": "/home/daniele/codex-workspace/projects/vm_oracle/remote_opt_oracle_backup/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "remote-codex-phone",
+      "slug": "remote-codex-phone",
+      "path": "/home/daniele/codex-workspace/remote-codex-phone",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 7,
+      "docs_found": 3,
+      "docs_archived": 3,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/remote-codex-phone.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/remote-codex-phone",
+      "metadata": "/home/daniele/codex-workspace/remote-codex-phone/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "amici_fb",
+      "slug": "amici-fb",
+      "path": "/home/daniele/codex-workspace/scripts/amici_fb",
+      "remote": "https://github.com/gernalix/amici_fb.git",
+      "branch": "master",
+      "pre_status_count": 8,
+      "docs_found": 7,
+      "docs_archived": 6,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/amici-fb.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/amici-fb",
+      "metadata": "/home/daniele/codex-workspace/scripts/amici_fb/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "surface-recovery-hardening",
+      "slug": "surface-recovery-hardening",
+      "path": "/home/daniele/codex-workspace/surface-recovery-hardening",
+      "remote": "git@github.com:gernalix/surface-recovery-hardening.git",
+      "branch": "main",
+      "pre_status_count": 10,
+      "docs_found": 21,
+      "docs_archived": 21,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/surface-recovery-hardening.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/surface-recovery-hardening",
+      "metadata": "/home/daniele/codex-workspace/surface-recovery-hardening/dev/project.metadata.json",
+      "has_dev": true
+    },
+    {
+      "name": "system_watchdog",
+      "slug": "system-watchdog",
+      "path": "/home/daniele/codex-workspace/system_watchdog",
+      "remote": "",
+      "branch": "master",
+      "pre_status_count": 7,
+      "docs_found": 6,
+      "docs_archived": 5,
+      "docs_skipped": 0,
+      "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/system-watchdog.md",
+      "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/system-watchdog",
+      "metadata": "/home/daniele/codex-workspace/system_watchdog/dev/project.metadata.json",
+      "has_dev": true
+    }
+  ],
+  "manifest": [
+    {
+      "project": {
+        "name": "SuperContacts",
+        "slug": "supercontacts",
+        "path": "/home/daniele/codex-workspace/SuperContacts",
+        "remote": "https://github.com/gernalix/SuperContacts.git",
+        "branch": "codex/prompt-xxx",
+        "pre_status_count": 8,
+        "docs_found": 4,
+        "docs_archived": 3,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/supercontacts.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/supercontacts",
+        "metadata": "/home/daniele/codex-workspace/SuperContacts/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "apps_installate_mint.txt",
+          "to": "dev/legacy/apps_installate_mint.txt",
+          "sha256": "99a07925eeae02a526e960c04fe85fd6f5231bfe012a86dc6be8a11791dd362a",
+          "verified": true
+        },
+        {
+          "from": "dev/INDEX.md",
+          "to": "dev/legacy/dev/INDEX.md",
+          "sha256": "d0190701061c5f1e6b70d691a8963a88c6dc4eba4e5f5df06823de3cef1bd418",
+          "verified": true
+        },
+        {
+          "from": "dev/NEODOC.md",
+          "to": "dev/legacy/dev/NEODOC.md",
+          "sha256": "1e3c9b507f8ca0dc58d4478fbf2fe8d1a62d98f44b92a0c0da30ed2927fb1575",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "WindowTabNotes",
+        "slug": "windowtabnotes",
+        "path": "/home/daniele/codex-workspace/WindowTabNotes",
+        "remote": "git@github.com:gernalix/WindowTabNotes.git",
+        "branch": "codex/prompt-581472",
+        "pre_status_count": 7,
+        "docs_found": 13,
+        "docs_archived": 13,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/windowtabnotes.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/windowtabnotes",
+        "metadata": "/home/daniele/codex-workspace/WindowTabNotes/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "b63e47150c0541f3d279062c9b10ce8586b67a6c76fea7fc3e5867e3b14957b7",
+          "verified": true
+        },
+        {
+          "from": "dev/AGENT_RULES.md",
+          "to": "dev/legacy/dev/AGENT_RULES.md",
+          "sha256": "583769386533f45db14afad760ff43945bea02c410345d9857d3938036fbc14d",
+          "verified": true
+        },
+        {
+          "from": "dev/ARCHITECTURE.md",
+          "to": "dev/legacy/dev/ARCHITECTURE.md",
+          "sha256": "49a8a313089dbf3e7a4c503c1ff13677307d546827c0089463113440c5175867",
+          "verified": true
+        },
+        {
+          "from": "dev/BUG_REGISTRY.md",
+          "to": "dev/legacy/dev/BUG_REGISTRY.md",
+          "sha256": "f9582de55b808ea907758e71c264c95bc630830eac9d2afd818bba736c307ab6",
+          "verified": true
+        },
+        {
+          "from": "dev/INDEX.md",
+          "to": "dev/legacy/dev/INDEX.md",
+          "sha256": "1e3ccf196c0fccd2cc4ea9e035e6957f8243164a71c7614dcd31be82b5b82f7d",
+          "verified": true
+        },
+        {
+          "from": "dev/ROADMAP.md",
+          "to": "dev/legacy/dev/ROADMAP.md",
+          "sha256": "795c452480d485b84d89e2c85973b16e79305c072e03b07f9e49df6e89880ac3",
+          "verified": true
+        },
+        {
+          "from": "dev/TEST_PLAN.md",
+          "to": "dev/legacy/dev/TEST_PLAN.md",
+          "sha256": "e468df9a30b03ea80553e070e6901fbc05b0cd7b43b778d7f79cd3006543aaeb",
+          "verified": true
+        },
+        {
+          "from": "dev/VERSIONING.md",
+          "to": "dev/legacy/dev/VERSIONING.md",
+          "sha256": "1f6cce440a52a8af36a97fce1d982dc3f17bfda0c4da92340d5808dc3bfa5661",
+          "verified": true
+        },
+        {
+          "from": "docs/INSTALLAZIONE.md",
+          "to": "dev/legacy/docs/INSTALLAZIONE.md",
+          "sha256": "6700ba7f2324e88534feee8fc3a9ff01c7959dcfcca50e9b9792e553ba482c95",
+          "verified": true
+        },
+        {
+          "from": "docs/README_UTENTE.md",
+          "to": "dev/legacy/docs/README_UTENTE.md",
+          "sha256": "b736d988193022b713cf8c59e4ec48cedff4f76c9c4803281b2de1b452d09440",
+          "verified": true
+        },
+        {
+          "from": "docs/TROUBLESHOOTING.md",
+          "to": "dev/legacy/docs/TROUBLESHOOTING.md",
+          "sha256": "07205fdc407b9692ce93c26c76b17bc2678606a9bda663be782222c7333ea44b",
+          "verified": true
+        },
+        {
+          "from": "docs/USO_QUOTIDIANO.md",
+          "to": "dev/legacy/docs/USO_QUOTIDIANO.md",
+          "sha256": "ebec2f74a5e83f92082f1a78e4f52a8cbe4d1e4ca7c747e025c06483f9792319",
+          "verified": true
+        },
+        {
+          "from": "system/migrations/001_schema.md",
+          "to": "dev/legacy/system/migrations/001_schema.md",
+          "sha256": "514a8d5e09f7f18fb6b704d447ac63841198049f6de68b78d8289d3597b401f3",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "android-sdk-auto-update",
+        "slug": "android-sdk-auto-update",
+        "path": "/home/daniele/codex-workspace/android-sdk-auto-update",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 7,
+        "docs_found": 5,
+        "docs_archived": 5,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/android-sdk-auto-update.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/android-sdk-auto-update",
+        "metadata": "/home/daniele/codex-workspace/android-sdk-auto-update/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "OPERATIONS.md",
+          "to": "dev/legacy/OPERATIONS.md",
+          "sha256": "fb43fcaf4d8c9f16b04a00db548d5923b46d044daeef52ba3cce97bb5f47a387",
+          "verified": true
+        },
+        {
+          "from": "README_ANDROID_SDK_AUTO_UPDATE.md",
+          "to": "dev/legacy/README_ANDROID_SDK_AUTO_UPDATE.md",
+          "sha256": "3ddae322890c8c11985678e22f81279b16f4decf8e365ac7ca0911b3f811db7e",
+          "verified": true
+        },
+        {
+          "from": "TROUBLESHOOTING.md",
+          "to": "dev/legacy/TROUBLESHOOTING.md",
+          "sha256": "470482180b39937df05cdd02fcf4dedd18e290d993668fd606caaadf4df0f242",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/ANDROID_SDK_UPDATE_TOOL.md",
+          "to": "dev/legacy/dev/ai/ANDROID_SDK_UPDATE_TOOL.md",
+          "sha256": "94555ec43d9a3f6d227a07b19263d401bfbdbc3762770daf17490d978987fdde",
+          "verified": true
+        },
+        {
+          "from": "dev/human/ANDROID_SDK_UPDATE_TOOL.md",
+          "to": "dev/legacy/dev/human/ANDROID_SDK_UPDATE_TOOL.md",
+          "sha256": "f24a8bdcbaac8d704ee85e81f43771c318dbebb354b2bfd71583e1ae364da90a",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "aw-converter",
+        "slug": "aw-converter",
+        "path": "/home/daniele/codex-workspace/aw-converter",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 0,
+        "docs_found": 0,
+        "docs_archived": 0,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/aw-converter.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/aw-converter",
+        "metadata": "/home/daniele/codex-workspace/aw-converter/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "chatgpt-chrome-debug",
+        "slug": "chatgpt-chrome-debug",
+        "path": "/home/daniele/codex-workspace/chatgpt-chrome-debug",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 7,
+        "docs_found": 7,
+        "docs_archived": 7,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/chatgpt-chrome-debug.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/chatgpt-chrome-debug",
+        "metadata": "/home/daniele/codex-workspace/chatgpt-chrome-debug/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "KNOWN_PATTERNS.md",
+          "to": "dev/legacy/KNOWN_PATTERNS.md",
+          "sha256": "da085373ab5230cb81c6400fc1e782a69763f9ed5c613fa251e6fb1d66df57b5",
+          "verified": true
+        },
+        {
+          "from": "QUICK_FIXES.md",
+          "to": "dev/legacy/QUICK_FIXES.md",
+          "sha256": "20edcc7e5b3e3b5a2010450099b031fe76f7af1fea4c49a94f3e1d6992626b31",
+          "verified": true
+        },
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "32809d673ae4fc1d35ab3b40bfb8592306b5c8e2221b8a5e3e888363f0e055ba",
+          "verified": true
+        },
+        {
+          "from": "ROOT_CAUSE_ANALYSIS.md",
+          "to": "dev/legacy/ROOT_CAUSE_ANALYSIS.md",
+          "sha256": "7780242161d879bb4d1bc151b33d92b1ad21cd17843398f111db0a231d20a9cd",
+          "verified": true
+        },
+        {
+          "from": "diagnostics/environment/snapshot_20260510_223934/chrome_version.txt",
+          "to": "dev/legacy/diagnostics/environment/snapshot_20260510_223934/chrome_version.txt",
+          "sha256": "a922378d73d0ea560ef03635ca772284df58266108e8c5e1a44a00f74b1962b7",
+          "verified": true
+        },
+        {
+          "from": "diagnostics/environment/snapshot_20260510_224516/chrome_version.txt",
+          "to": "dev/legacy/diagnostics/environment/snapshot_20260510_224516/chrome_version.txt",
+          "sha256": "a922378d73d0ea560ef03635ca772284df58266108e8c5e1a44a00f74b1962b7",
+          "verified": true
+        },
+        {
+          "from": "diagnostics/environment/snapshot_20260510_224657/chrome_version.txt",
+          "to": "dev/legacy/diagnostics/environment/snapshot_20260510_224657/chrome_version.txt",
+          "sha256": "a922378d73d0ea560ef03635ca772284df58266108e8c5e1a44a00f74b1962b7",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "codex-html-live",
+        "slug": "codex-html-live",
+        "path": "/home/daniele/codex-workspace/codex-html-live",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 7,
+        "docs_found": 5,
+        "docs_archived": 5,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/codex-html-live.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/codex-html-live",
+        "metadata": "/home/daniele/codex-workspace/codex-html-live/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "87c813fc28fc2d012a98f4a51271a3d1ffb9c3b0896d9f2f0bad89cc55a0071e",
+          "verified": true
+        },
+        {
+          "from": "dev/AGENT_RULES.md",
+          "to": "dev/legacy/dev/AGENT_RULES.md",
+          "sha256": "c4fcd51fd96067a500e8c6ad440de9fa7f5cbe6e1cfcbc9153e785c90c0b859d",
+          "verified": true
+        },
+        {
+          "from": "dev/ARCHITECTURE.md",
+          "to": "dev/legacy/dev/ARCHITECTURE.md",
+          "sha256": "7aa29e440fca79c7e11a360741a36cb744c8851e93057ac129cb9f2bb908ddac",
+          "verified": true
+        },
+        {
+          "from": "dev/CHANGELOG.md",
+          "to": "dev/legacy/dev/CHANGELOG.md",
+          "sha256": "944604f98d85217a818be7fb66a0098becb7c8e46eefcdabc38f0c0e481baadf",
+          "verified": true
+        },
+        {
+          "from": "dev/TEST_PLAN.md",
+          "to": "dev/legacy/dev/TEST_PLAN.md",
+          "sha256": "520f50563a0e4765f5e42c77d2a669ee85f09246ba8a4bdc25fec45372939130",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "codex-token-watcher",
+        "slug": "codex-token-watcher",
+        "path": "/home/daniele/codex-workspace/codex-token-watcher",
+        "remote": "",
+        "branch": "codex/prompt-384921",
+        "pre_status_count": 0,
+        "docs_found": 0,
+        "docs_archived": 0,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/codex-token-watcher.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/codex-token-watcher",
+        "metadata": "/home/daniele/codex-workspace/codex-token-watcher/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "codex-wrapper",
+        "slug": "codex-wrapper",
+        "path": "/home/daniele/codex-workspace/codex-wrapper",
+        "remote": "",
+        "branch": "codex/prompt-582746",
+        "pre_status_count": 0,
+        "docs_found": 0,
+        "docs_archived": 0,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/codex-wrapper.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/codex-wrapper",
+        "metadata": "/home/daniele/codex-workspace/codex-wrapper/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "facebook-video-archiver",
+        "slug": "facebook-video-archiver",
+        "path": "/home/daniele/codex-workspace/facebook-video-archiver",
+        "remote": "",
+        "branch": "work/v4-deep-discovery",
+        "pre_status_count": 16,
+        "docs_found": 8,
+        "docs_archived": 8,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/facebook-video-archiver.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/facebook-video-archiver",
+        "metadata": "/home/daniele/codex-workspace/facebook-video-archiver/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "dev/AGENT_RULES.md",
+          "to": "dev/legacy/dev/AGENT_RULES.md",
+          "sha256": "8620b0deeeefc52651d86061558f71c0864897a5bb90b9d4813c86333363e0f1",
+          "verified": true
+        },
+        {
+          "from": "dev/ARCHITECTURE.md",
+          "to": "dev/legacy/dev/ARCHITECTURE.md",
+          "sha256": "36998d30a675cd330eaed320096affd47d359848897d9924ef4d321bb751cb51",
+          "verified": true
+        },
+        {
+          "from": "dev/CHANGELOG.md",
+          "to": "dev/legacy/dev/CHANGELOG.md",
+          "sha256": "16b52313c79f5ba05b9a8236194a0219f34684a2d47db4673cd4d9438cbf27ac",
+          "verified": true
+        },
+        {
+          "from": "dev/INDEX.md",
+          "to": "dev/legacy/dev/INDEX.md",
+          "sha256": "6eca78fbb14ae1bd9996da00bd2774ff78d7276877d5c97657e73f9c267ff6f9",
+          "verified": true
+        },
+        {
+          "from": "dev/LEGAL_AND_SAFETY.md",
+          "to": "dev/legacy/dev/LEGAL_AND_SAFETY.md",
+          "sha256": "88af73fce560d65f9dd3216a8156cff63a7737ce16a46558213e64236b7391c3",
+          "verified": true
+        },
+        {
+          "from": "dev/TEST_PLAN.md",
+          "to": "dev/legacy/dev/TEST_PLAN.md",
+          "sha256": "ebba3edab15e2e6240df3b1736e2978a55d128bdcd6adb91f916b8167c0a7ab4",
+          "verified": true
+        },
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "5b6450566417401159b1196046e89f2910e20c2d2cf308b8c943e2f0539ab10a",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/OPERATIONS.md",
+          "to": "dev/legacy/dev/OPERATIONS.md",
+          "sha256": "8c0251085ac041964e52ff4d8a3b7180c6a8bf8ed91e22b98fcd996f103e2ce1",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "installa-app",
+        "slug": "installa-app",
+        "path": "/home/daniele/codex-workspace/installa-app",
+        "remote": "",
+        "branch": "codex/prompt-582746",
+        "pre_status_count": 0,
+        "docs_found": 0,
+        "docs_archived": 0,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/installa-app.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/installa-app",
+        "metadata": "/home/daniele/codex-workspace/installa-app/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "linux-mint-service-dashboard",
+        "slug": "linux-mint-service-dashboard",
+        "path": "/home/daniele/codex-workspace/linux-mint-service-dashboard",
+        "remote": "",
+        "branch": "prompt-816-local-dashboard",
+        "pre_status_count": 21,
+        "docs_found": 12,
+        "docs_archived": 12,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/linux-mint-service-dashboard.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/linux-mint-service-dashboard",
+        "metadata": "/home/daniele/codex-workspace/linux-mint-service-dashboard/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "dev/AGENT_RULES.md",
+          "to": "dev/legacy/dev/AGENT_RULES.md",
+          "sha256": "593bed50e08be21896a2de710f28890a438b5329fff5e6281dd2eb4b684bfe53",
+          "verified": true
+        },
+        {
+          "from": "docs/OPERATIONS_HUMAN.md",
+          "to": "dev/legacy/docs/OPERATIONS_HUMAN.md",
+          "sha256": "cce7936b79845d407365c063bb3fc9be65bfe565caca974cf9b878549e3f4844",
+          "verified": true
+        },
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "6e3ca020520dfb364199ae0e4fbe678c652c513ec90e221efefcb9af94f4829b",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/neodocs/CHANGELOG.neodoc",
+          "to": "dev/legacy/dev/neodocs/CHANGELOG.neodoc",
+          "sha256": "50c11785ea91677c87b35f61a614f204a9699f996c00326fc43f78ea43f028cf",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/neodocs/INDEX.neodoc",
+          "to": "dev/legacy/dev/neodocs/INDEX.neodoc",
+          "sha256": "b2d51c840a7ba23d1257b7e2eb2155957ac12c0c67566169bcc1bb666cc1adf0",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/neodocs/METRICS.neodoc",
+          "to": "dev/legacy/dev/neodocs/METRICS.neodoc",
+          "sha256": "87d0f5c0cc4618a642f2c32e2ba21b77dd9928a33a62a9e5c166544c740b3750",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/neodocs/PROJECT.neodoc",
+          "to": "dev/legacy/dev/neodocs/PROJECT.neodoc",
+          "sha256": "e5885a92d223440bd3fe463df50dd44bee9b183f266da6f00f6f3a3d2553b2f6",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/neodocs/SERVICES.neodoc",
+          "to": "dev/legacy/dev/neodocs/SERVICES.neodoc",
+          "sha256": "70060639f4d9d8fccdcd028c2fb36ce51f5583f6b891743b62b193023fba1010",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/neodocs/SYSTEMD.neodoc",
+          "to": "dev/legacy/dev/neodocs/SYSTEMD.neodoc",
+          "sha256": "f7a17ad970290ff31b09ebf953eb591175625e5c56e76f02c8f01fb477d40823",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/neodocs/TESTS.neodoc",
+          "to": "dev/legacy/dev/neodocs/TESTS.neodoc",
+          "sha256": "505c76e870e6fe6f3da6b343d420ca4bdb07a2976d0297c29caa38c700b2ee56",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/neodocs/UI.neodoc",
+          "to": "dev/legacy/dev/neodocs/UI.neodoc",
+          "sha256": "5c2f4c4ff71ebf1ebd258faaabde33a95ac6646c2851182e2630fb991ed7d42d",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "docs/ARCHITECTURE_HUMAN.md",
+          "to": "dev/legacy/docs/ARCHITECTURE_HUMAN.md",
+          "sha256": "17ea09636a96cb0f142f1c0acf19f653b0ff7f8f3e3a441e76133b545ae06ae2",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "mint-manual-updates",
+        "slug": "mint-manual-updates",
+        "path": "/home/daniele/codex-workspace/mint-manual-updates",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 0,
+        "docs_found": 4,
+        "docs_archived": 4,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/mint-manual-updates.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/mint-manual-updates",
+        "metadata": "/home/daniele/codex-workspace/mint-manual-updates/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "223202a2e5e71d21273b8981b74a6bc40267a12f6c64a8a74fdb0d064b1bd083",
+          "verified": true
+        },
+        {
+          "from": "dev/AGENT_RULES.md",
+          "to": "dev/legacy/dev/AGENT_RULES.md",
+          "sha256": "eab1827c7e76ae6ef104c88a912094a6b6f7655f65ddedff2e18b8104157bec6",
+          "verified": true
+        },
+        {
+          "from": "dev/INDEX.md",
+          "to": "dev/legacy/dev/INDEX.md",
+          "sha256": "35d9ce6e8b8104fc390d54a034181ba13831367c0af868c2d3bac98c2419c7f7",
+          "verified": true
+        },
+        {
+          "from": "dev/TEST_PLAN.md",
+          "to": "dev/legacy/dev/TEST_PLAN.md",
+          "sha256": "5fc666e47ccccd1677f9131a100c69a5b32a81e7406307dc4a3a4d154828ba67",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "os-observer",
+        "slug": "os-observer",
+        "path": "/home/daniele/codex-workspace/os-observer",
+        "remote": "",
+        "branch": "codex/prompt-914582",
+        "pre_status_count": 12,
+        "docs_found": 25,
+        "docs_archived": 25,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/os-observer.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/os-observer",
+        "metadata": "/home/daniele/codex-workspace/os-observer/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "AGENTS.md",
+          "to": "dev/legacy/AGENTS.md",
+          "sha256": "61147400ee6819cb7c6f7fdd121139723564b419643bfbdb86b47355c0fe8183",
+          "verified": true
+        },
+        {
+          "from": "ARCHITECTURE.md",
+          "to": "dev/legacy/ARCHITECTURE.md",
+          "sha256": "6e20f872f2eccc19415abc7d814daf2e15dbbb78d15dd2d226a685a1f81a0d7a",
+          "verified": true
+        },
+        {
+          "from": "OPERATIONS.md",
+          "to": "dev/legacy/OPERATIONS.md",
+          "sha256": "87b198539c50e4332bd2d6e87fbd7aa7dc1647fbcd5e97be0c1f2c4d5c567d8b",
+          "verified": true
+        },
+        {
+          "from": "PATCH_WORKFLOW.md",
+          "to": "dev/legacy/PATCH_WORKFLOW.md",
+          "sha256": "3eba72dded9c75c29b6c2f6ca09217ef6ec4cf92f461f02db5be722a937276eb",
+          "verified": true
+        },
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "23f767a369981956cf1119d4d442ffd35e8a5389ecfe280417975d9c277aaccc",
+          "verified": true
+        },
+        {
+          "from": "RETENTION_POLICY.md",
+          "to": "dev/legacy/RETENTION_POLICY.md",
+          "sha256": "a2f221ebd002cba44b0aec424b4d009c656cc5c42b9e469d67c6cf365d084d5c",
+          "verified": true
+        },
+        {
+          "from": "TROUBLESHOOTING.md",
+          "to": "dev/legacy/TROUBLESHOOTING.md",
+          "sha256": "d14142a0ac365160ec91f18965a6229bf88611c99ef1e6c29ab39d28226f136e",
+          "verified": true
+        },
+        {
+          "from": "dev/AGENT_RULES.md",
+          "to": "dev/legacy/dev/AGENT_RULES.md",
+          "sha256": "577a2acb15261e81ee3f3747f321a734790f1c1e411ec35883334401debce2f1",
+          "verified": true
+        },
+        {
+          "from": "dev/ARCHITECTURE.md",
+          "to": "dev/legacy/dev/ARCHITECTURE.md",
+          "sha256": "981c1631902e259c7ca8795aacd336c9fcc7cefbb7aab7e412b7a0d1726b1b7e",
+          "verified": true
+        },
+        {
+          "from": "dev/AUTOFIX_ALLOWLIST.md",
+          "to": "dev/legacy/dev/AUTOFIX_ALLOWLIST.md",
+          "sha256": "5c561d68944f0bd20d31509e56e153e254feb3f6470fab26bcbfc0a0aa2b509f",
+          "verified": true
+        },
+        {
+          "from": "dev/BOOT_SEQUENCE.md",
+          "to": "dev/legacy/dev/BOOT_SEQUENCE.md",
+          "sha256": "b8dfaea6fa6c2372ef5582ba75915eabaa6916b2b4508d770355f189abb4bff1",
+          "verified": true
+        },
+        {
+          "from": "dev/CHANGELOG.md",
+          "to": "dev/legacy/dev/CHANGELOG.md",
+          "sha256": "dceb8afb2f3af1ac8ddc3fe4d4ece8e2be8cf36ce899d6ed1dcb428e89018a88",
+          "verified": true
+        },
+        {
+          "from": "dev/FALSE_POSITIVE_STRATEGY.md",
+          "to": "dev/legacy/dev/FALSE_POSITIVE_STRATEGY.md",
+          "sha256": "baa2dc60e44e5b7e8cc969046b4b5c3ead51f27a78237692cdead0bfdf4f70d9",
+          "verified": true
+        },
+        {
+          "from": "dev/MONITOR_MAPPING.md",
+          "to": "dev/legacy/dev/MONITOR_MAPPING.md",
+          "sha256": "5ca1482291e990467314578b5df3fba49ec9ef3f27c0c2d7d666084dfef0b130",
+          "verified": true
+        },
+        {
+          "from": "dev/RECOVERY_POLICY.md",
+          "to": "dev/legacy/dev/RECOVERY_POLICY.md",
+          "sha256": "e9fc30657374ef1aeceaf9d8705ecdee2131df44ec961db68f65e8b9fad4a410",
+          "verified": true
+        },
+        {
+          "from": "dev/ROLLBACK.md",
+          "to": "dev/legacy/dev/ROLLBACK.md",
+          "sha256": "5513689a49e543113dc56bbd1f603668d9ee7041365beaba9b24dd7878bec326",
+          "verified": true
+        },
+        {
+          "from": "dev/SAFETY.md",
+          "to": "dev/legacy/dev/SAFETY.md",
+          "sha256": "f59e820595b1f560fd3a74f94a1fc9ec062bf203595e8bffe6105bead5dbdd68",
+          "verified": true
+        },
+        {
+          "from": "dev/SQLITE_SCHEMA_NOTES.md",
+          "to": "dev/legacy/dev/SQLITE_SCHEMA_NOTES.md",
+          "sha256": "e0c657d904c79f8f52481bc19857362f7008531c57d9e584ff4ca1b6b8ea3ef5",
+          "verified": true
+        },
+        {
+          "from": "dev/ai-diagnostics/SCHEMA.md",
+          "to": "dev/legacy/dev/ai-diagnostics/SCHEMA.md",
+          "sha256": "30f51f9f1e56f7b01ded0dd88854befb48ce222a68ef287b1854195fbf50cbf3",
+          "verified": true
+        },
+        {
+          "from": "docs/prompt_731_seagate_usb_diagnosis.md",
+          "to": "dev/legacy/docs/prompt_731_seagate_usb_diagnosis.md",
+          "sha256": "01eb22526125d710aefb1f531ea8136dd505a969dee5887273a8fa4d13ebfe94",
+          "verified": true
+        },
+        {
+          "from": "docs/prompt_734_seagate_recovery_report.md",
+          "to": "dev/legacy/docs/prompt_734_seagate_recovery_report.md",
+          "sha256": "57a72765fe4238e324852d704cad4d418ca14836593a9c85434719f0779e7840",
+          "verified": true
+        },
+        {
+          "from": "docs/prompt_735_recovery_and_v7_report.md",
+          "to": "dev/legacy/docs/prompt_735_recovery_and_v7_report.md",
+          "sha256": "860dce2dbd73d6c1e1daa3336e9974a0daa3e9a9afbf6026560b0f020c9d64b1",
+          "verified": true
+        },
+        {
+          "from": "docs/registro_soluzioni.md",
+          "to": "dev/legacy/docs/registro_soluzioni.md",
+          "sha256": "d748f2377cab57f7a86439ecddf1d88a4d03bca44129b4ce2f3d78f46c04d5de",
+          "verified": true
+        },
+        {
+          "from": "dev/INDEX.md",
+          "to": "dev/legacy/dev/INDEX.md",
+          "sha256": "68b6dc896b894209ebdd47d4b7b559b73e55fe53325f84045a4ef5edfce8c257",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        },
+        {
+          "from": "dev/TEST_PLAN.md",
+          "to": "dev/legacy/dev/TEST_PLAN.md",
+          "sha256": "feda5d722c43b1d1475056a2cbd15d37bede778f4d692252e9836ac0cc34aa11",
+          "verified": true,
+          "preexisting_status": "preexisting git status  M"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "owntracks-watcher",
+        "slug": "owntracks-watcher",
+        "path": "/home/daniele/codex-workspace/owntracks-watcher",
+        "remote": "",
+        "branch": "codex/prompt-384917",
+        "pre_status_count": 0,
+        "docs_found": 0,
+        "docs_archived": 0,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/owntracks-watcher.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/owntracks-watcher",
+        "metadata": "/home/daniele/codex-workspace/owntracks-watcher/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "parcel-tracker",
+        "slug": "parcel-tracker",
+        "path": "/home/daniele/codex-workspace/parcel-tracker",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 7,
+        "docs_found": 4,
+        "docs_archived": 4,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/parcel-tracker.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/parcel-tracker",
+        "metadata": "/home/daniele/codex-workspace/parcel-tracker/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "dev/CHANGELOG.md",
+          "to": "dev/legacy/dev/CHANGELOG.md",
+          "sha256": "8fa3331988bc62e3c993ad31139a8fe6474db953893a6a1a7c8a6687e7229f71",
+          "verified": true
+        },
+        {
+          "from": "dev/INDEX.md",
+          "to": "dev/legacy/dev/INDEX.md",
+          "sha256": "11dd6a5a076ddf8401a08c587bea81dff4174dd86aba5aff8ada78ed84472c20",
+          "verified": true
+        },
+        {
+          "from": "dev/OPERATIONS.md",
+          "to": "dev/legacy/dev/OPERATIONS.md",
+          "sha256": "cda0a7b454baafe4e413ee007caafa954d0efced47cfb8079b8de479a4c7a5c1",
+          "verified": true
+        },
+        {
+          "from": "dev/TROUBLESHOOTING.md",
+          "to": "dev/legacy/dev/TROUBLESHOOTING.md",
+          "sha256": "39d048052ac72141fe5af040f4b11bf3c2f1c92c4fdb71bdd18822097f2cf90c",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "MultiTimeTracker",
+        "slug": "multitimetracker",
+        "path": "/home/daniele/codex-workspace/projects/MultiTimeTracker",
+        "remote": "https://github.com/gernalix/MultiTimeTracker.git",
+        "branch": "codex/v488-release-safe-ui-lockdown",
+        "pre_status_count": 9,
+        "docs_found": 98,
+        "docs_archived": 97,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/multitimetracker.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/multitimetracker",
+        "metadata": "/home/daniele/codex-workspace/projects/MultiTimeTracker/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": ".codex_patch_current_v474/dev/ROADMAP_ACTIVE.md",
+          "to": "dev/legacy/.codex_patch_current_v474/dev/ROADMAP_ACTIVE.md",
+          "sha256": "cfcab73b4f4b5d5831f3cf2e7b9bdb9708517ba4c8a7afaf652fb7891988eda8",
+          "verified": true
+        },
+        {
+          "from": ".codex_patch_current_v474/dev/ROADMAP_HISTORY.md",
+          "to": "dev/legacy/.codex_patch_current_v474/dev/ROADMAP_HISTORY.md",
+          "sha256": "6fecb392792b3d19f762fca783eff50dae66464253d0d15f781086bdcd549d9f",
+          "verified": true
+        },
+        {
+          "from": ".codex_patch_snapshot_v474/dev/ROADMAP_ACTIVE.md",
+          "to": "dev/legacy/.codex_patch_snapshot_v474/dev/ROADMAP_ACTIVE.md",
+          "sha256": "27e305431f4652717fb1bd96a8e110c834295c3d3c20ed612ac83011e7cc6304",
+          "verified": true
+        },
+        {
+          "from": ".codex_patch_snapshot_v474/dev/ROADMAP_HISTORY.md",
+          "to": "dev/legacy/.codex_patch_snapshot_v474/dev/ROADMAP_HISTORY.md",
+          "sha256": "4978bcc3a9dbf63dbd21bf9cdfcc2b6dede21a20e5293db1237a736f6be564bc",
+          "verified": true
+        },
+        {
+          "from": "dev/AGENT_RULES.md",
+          "to": "dev/legacy/dev/AGENT_RULES.md",
+          "sha256": "d1f253452a8a53dc4063f49333fd3337e6d224a3b2a43e7adc285d661af8821c",
+          "verified": true
+        },
+        {
+          "from": "dev/ARCHITECTURE_LOCK.md",
+          "to": "dev/legacy/dev/ARCHITECTURE_LOCK.md",
+          "sha256": "00c4f0b17566b3793e22223bb151bf9b5e988aa349db0c596c02968bd7e3a5e4",
+          "verified": true
+        },
+        {
+          "from": "dev/BUG_REGISTRY.md",
+          "to": "dev/legacy/dev/BUG_REGISTRY.md",
+          "sha256": "b85470766f4237950802e61478a79a4b68d83cbadf8cbb8368dfe3415037029a",
+          "verified": true
+        },
+        {
+          "from": "dev/CAPSULE_INDEX.md",
+          "to": "dev/legacy/dev/CAPSULE_INDEX.md",
+          "sha256": "30869815366cb48658a40589554086773ebdd209f4f01c4a361101b01ab908dd",
+          "verified": true
+        },
+        {
+          "from": "dev/CODEBASE_MAP.md",
+          "to": "dev/legacy/dev/CODEBASE_MAP.md",
+          "sha256": "93be752ceb69f2b83f599f287f93f89530aec284b482693134011b32deffa210",
+          "verified": true
+        },
+        {
+          "from": "dev/CONTRACT.md",
+          "to": "dev/legacy/dev/CONTRACT.md",
+          "sha256": "0e1459c8f8997eaa19494bf0b07ac6e0794b7c31bb37e5e923e9d2604fa3b1d4",
+          "verified": true
+        },
+        {
+          "from": "dev/ROADMAP_ACTIVE.md",
+          "to": "dev/legacy/dev/ROADMAP_ACTIVE.md",
+          "sha256": "9e33008053f63453bd93debdd7d430d2733c08cefa7b2d7e60e24d304d9f5c38",
+          "verified": true
+        },
+        {
+          "from": "dev/ROADMAP_HISTORY.md",
+          "to": "dev/legacy/dev/ROADMAP_HISTORY.md",
+          "sha256": "83daf3b906a85f4af2ffae157d87f8373a09aeb0384f8caf07030b6301797b65",
+          "verified": true
+        },
+        {
+          "from": "dev/WORKFLOW.md",
+          "to": "dev/legacy/dev/WORKFLOW.md",
+          "sha256": "f039a4b811f37900825a4e6bc1e2d4b26cf7fa5826ffa2b5d9dead388c90a3d3",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/AGENT_RULES.md",
+          "to": "dev/legacy/dev/ai/AGENT_RULES.md",
+          "sha256": "c466ec84e9cb8d24767965998d28d886bf98f32ead1c2282dfa5c03b00fd54a5",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/ARCHITECTURE_LOCK.md",
+          "to": "dev/legacy/dev/ai/ARCHITECTURE_LOCK.md",
+          "sha256": "7f7b65b84a9ba01d2c4f8d5b583ef393cb11e41832aa1c4b2dd04c653b345ae1",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/BUG_REGISTRY.md",
+          "to": "dev/legacy/dev/ai/BUG_REGISTRY.md",
+          "sha256": "e11ff5ce9a4ec733a6f73eac11d724d3859d68327599b6656bee28571301b33b",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/CAPSULES.md",
+          "to": "dev/legacy/dev/ai/CAPSULES.md",
+          "sha256": "c6705fceccd6c03efc07fe48ceb1ab8bc2ee1e7f100c94e62b610286aa81f443",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/CAPSULE_INDEX.md",
+          "to": "dev/legacy/dev/ai/CAPSULE_INDEX.md",
+          "sha256": "08d116b472f61a69c8d04c40d4898673e4b29d9db81231b43e33a674e51feef1",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/DB_SCHEMA.md",
+          "to": "dev/legacy/dev/ai/DB_SCHEMA.md",
+          "sha256": "ee89041cecc9428758468f09615ee1c5fc31473cae49595a7b41c9fbc7c0e2e6",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/INDEX.md",
+          "to": "dev/legacy/dev/ai/INDEX.md",
+          "sha256": "418430a6a3bbd28b7ad8250c7bb0c6e3d397892259da504c92da3f0c02c10862",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/OPERATING_RULES.md",
+          "to": "dev/legacy/dev/ai/OPERATING_RULES.md",
+          "sha256": "1608d1c18af483194b317f5a3186e38c83601690feaf8feecf7da3491768fcf2",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/PLAYSTORE_GATEKEEPER.md",
+          "to": "dev/legacy/dev/ai/PLAYSTORE_GATEKEEPER.md",
+          "sha256": "e60a1f4cce7e2c6ce0616b983c17f241509d7f331baad4d90cb38b77e07b0c00",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/RELEASE_PROTOCOL.md",
+          "to": "dev/legacy/dev/ai/RELEASE_PROTOCOL.md",
+          "sha256": "5293769ab9340516fcb37fd84ef860d918e56986b1495da354d2fc0a7aa9c2de",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/RISK_REGISTER.md",
+          "to": "dev/legacy/dev/ai/RISK_REGISTER.md",
+          "sha256": "8fbfb7e2888751503b4730ac2354cd0e665fd4cb84b0b9d80066d766f3a525ce",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/ROADMAP_ACTIVE.md",
+          "to": "dev/legacy/dev/ai/ROADMAP_ACTIVE.md",
+          "sha256": "ce3494a4d7a058bcafb69186abc57f6b48ce5650b713f173d29e7585246e1300",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/ROADMAP_HISTORY.md",
+          "to": "dev/legacy/dev/ai/ROADMAP_HISTORY.md",
+          "sha256": "a57c56b1e2f84faeb5fa0ed4722f53329f42b70e42a8ede88dc0819d89f3bacc",
+          "verified": true
+        },
+        {
+          "from": "dev/ai/TEST_GATES.md",
+          "to": "dev/legacy/dev/ai/TEST_GATES.md",
+          "sha256": "d874d50ea24c9d55d95265d7ce9b0ede6c6150fab57d115d93d35dc7b4518d5a",
+          "verified": true
+        },
+        {
+          "from": "dev/archive/AGENTS.md",
+          "to": "dev/legacy/dev/archive/AGENTS.md",
+          "sha256": "cee77a92fdc94c9968d09fd858e3a16b572ecf158874aeb2fcdb68692dd90371",
+          "verified": true
+        },
+        {
+          "from": "dev/archive/FUTURE_PATCHES.md",
+          "to": "dev/legacy/dev/archive/FUTURE_PATCHES.md",
+          "sha256": "e711a67cb2c45828762e4c6fc58a5a4e17af1ccfb0ab1879f25a63b1a9c6593f",
+          "verified": true
+        },
+        {
+          "from": "dev/archive/INDEX.md",
+          "to": "dev/legacy/dev/archive/INDEX.md",
+          "sha256": "968610571353ac69c504646a4a85db4a019984d31eea8cef8a35ad28eb921f5d",
+          "verified": true
+        },
+        {
+          "from": "dev/archive/UI_CONTRACT.md",
+          "to": "dev/legacy/dev/archive/UI_CONTRACT.md",
+          "sha256": "7764ded3bd7e88928fdd88b4b7da1a67b81e64143058548b51d697405bc12572",
+          "verified": true
+        },
+        {
+          "from": "dev/human/CHANGELOG.md",
+          "to": "dev/legacy/dev/human/CHANGELOG.md",
+          "sha256": "ee024e14e2eaaa3ca5eb26da2a9191adb06a828ed7ff5eacad67808d73e7436b",
+          "verified": true
+        },
+        {
+          "from": "dev/human/FEATURES.md",
+          "to": "dev/legacy/dev/human/FEATURES.md",
+          "sha256": "4b3a8ef44f24d35200da106ca4c5b2f96207fd53e40b47cac68f18bf0b4ad670",
+          "verified": true
+        },
+        {
+          "from": "dev/human/INDEX.md",
+          "to": "dev/legacy/dev/human/INDEX.md",
+          "sha256": "e78e0570c3315ca6e078d2d7fea58b4771119fc6686d2f1086e126b7d67f8f24",
+          "verified": true
+        },
+        {
+          "from": "dev/human/PLAYSTORE_READINESS_REPORT.md",
+          "to": "dev/legacy/dev/human/PLAYSTORE_READINESS_REPORT.md",
+          "sha256": "2f28be625cdeeaa8f38b518a52b4519be09fb92d5bb4e877ace7cfc85d98975c",
+          "verified": true
+        },
+        {
+          "from": "dev/human/PROJECT_OVERVIEW.md",
+          "to": "dev/legacy/dev/human/PROJECT_OVERVIEW.md",
+          "sha256": "22a89f35cd03b896f16128a7892aa52908f26c5a8b13e8e9663e61c8149f0b70",
+          "verified": true
+        },
+        {
+          "from": "dev/human/ROADMAP.md",
+          "to": "dev/legacy/dev/human/ROADMAP.md",
+          "sha256": "4986de1e621242eebdef32a50ee4ca0571a54eb0607634df5e44f9827d775b7a",
+          "verified": true
+        },
+        {
+          "from": "dev/human/ROADMAP_EXPLAINED.md",
+          "to": "dev/legacy/dev/human/ROADMAP_EXPLAINED.md",
+          "sha256": "9c0ed18ff667ba9042dbb97a820303e11707413722523996ccfd26fb1e9bcbc3",
+          "verified": true
+        },
+        {
+          "from": "dev/human/TROUBLESHOOTING.md",
+          "to": "dev/legacy/dev/human/TROUBLESHOOTING.md",
+          "sha256": "7f90a7a4ed37aa19e4491645d0cce4cab0b9896dea4e2a07c14f0626b9809937",
+          "verified": true
+        },
+        {
+          "from": "en/Core Concepts/Continuity.md",
+          "to": "dev/legacy/en/Core Concepts/Continuity.md",
+          "sha256": "73c970d5ad21ee0184301e3bf57eeabdb4a1cb081b71e86facda97f9384eb12b",
+          "verified": true
+        },
+        {
+          "from": "en/Core Concepts/Core Concepts.md",
+          "to": "dev/legacy/en/Core Concepts/Core Concepts.md",
+          "sha256": "e6d8bcbab9738f6889a756762d08da208a28d296e6b044b12b486fa113ddf8fe",
+          "verified": true
+        },
+        {
+          "from": "en/Core Concepts/Session.md",
+          "to": "dev/legacy/en/Core Concepts/Session.md",
+          "sha256": "aec1c4ce847ea1b8a7e3456b56fd09e154c94fe2f441df040a68ad6cdcd4c78e",
+          "verified": true
+        },
+        {
+          "from": "en/Core Concepts/Tag.md",
+          "to": "dev/legacy/en/Core Concepts/Tag.md",
+          "sha256": "50f72442f0d55a688e7f2bdf86aa06944296b12d9b013f6c4b674a5d56be3ea2",
+          "verified": true
+        },
+        {
+          "from": "en/Core Concepts/Time Machine.md",
+          "to": "dev/legacy/en/Core Concepts/Time Machine.md",
+          "sha256": "9b54434bcbf5ed19d1b8a87a641aa0af27d34508a9cc49af826240e4be92ba19",
+          "verified": true
+        },
+        {
+          "from": "en/Core Concepts/Time Reconstruction.md",
+          "to": "dev/legacy/en/Core Concepts/Time Reconstruction.md",
+          "sha256": "07dffb4a2fe470f06edb47d44a161aa0f7b6890984d9681412f38365cb05f4c4",
+          "verified": true
+        },
+        {
+          "from": "en/FAQ/FAQ.md",
+          "to": "dev/legacy/en/FAQ/FAQ.md",
+          "sha256": "3ae1345516c800dae28fda63d206c2aebaa43c6c4eff96086acf744e5aad59cd",
+          "verified": true
+        },
+        {
+          "from": "en/Features/Chains.md",
+          "to": "dev/legacy/en/Features/Chains.md",
+          "sha256": "f4fb16c31538a93db22ee27fb1df53c5ac867a25d3c23d176b4a1e13df0f488a",
+          "verified": true
+        },
+        {
+          "from": "en/Features/Features.md",
+          "to": "dev/legacy/en/Features/Features.md",
+          "sha256": "160ec248036aa0d3116dd51f646f4623e582c1ed7dc5fbe4b2025343a7114fc6",
+          "verified": true
+        },
+        {
+          "from": "en/Features/Home Screen Widget.md",
+          "to": "dev/legacy/en/Features/Home Screen Widget.md",
+          "sha256": "a97d463d7027c39a1f4b96554cfcee7cd1c63038162139dd0a1fb8a84dbc9787",
+          "verified": true
+        },
+        {
+          "from": "en/Features/Import, Export, and Vaults.md",
+          "to": "dev/legacy/en/Features/Import, Export, and Vaults.md",
+          "sha256": "86eff8cf7ad5c420f318d75ac641ca560b5b2b02865f30f2feedc4ad75208c24",
+          "verified": true
+        },
+        {
+          "from": "en/Features/Life Periods.md",
+          "to": "dev/legacy/en/Features/Life Periods.md",
+          "sha256": "3d2923e80852b111e93262014aea514d8a6f2f206d1dc71f52a0cae50f057f60",
+          "verified": true
+        },
+        {
+          "from": "en/Features/Timed Sessions and Alerts.md",
+          "to": "dev/legacy/en/Features/Timed Sessions and Alerts.md",
+          "sha256": "2f2e5efbcdc828de9bc49a5dd16cc3db38cacf6f6caa20575f4a0cc513af8f98",
+          "verified": true
+        },
+        {
+          "from": "en/Getting Started/First Launch and Setup.md",
+          "to": "dev/legacy/en/Getting Started/First Launch and Setup.md",
+          "sha256": "80ebff32901ea611387d4d327bbb3485459b023f9cd0018e9081bd113f4d12c3",
+          "verified": true
+        },
+        {
+          "from": "en/Getting Started/Start Here.md",
+          "to": "dev/legacy/en/Getting Started/Start Here.md",
+          "sha256": "c1c5589456e0712d6772159f4e1c67fa92a9705b5eaf4dbd7514a86fbfb03552",
+          "verified": true
+        },
+        {
+          "from": "en/Getting Started/Your First Session.md",
+          "to": "dev/legacy/en/Getting Started/Your First Session.md",
+          "sha256": "b5888a382a69e86c6b97839f9a5ba1317f0358734e66cc5ea08e55343df9de48",
+          "verified": true
+        },
+        {
+          "from": "en/Home.md",
+          "to": "dev/legacy/en/Home.md",
+          "sha256": "90369ce26c54c9b56c44ea47bd203a7444be98085262361d61e608f6eb2b3b0a",
+          "verified": true
+        },
+        {
+          "from": "en/Interface/Chronology.md",
+          "to": "dev/legacy/en/Interface/Chronology.md",
+          "sha256": "9eebe73320e65cac322b7ed8677f883daf32dec3e58832fc104c6b24364c9960",
+          "verified": true
+        },
+        {
+          "from": "en/Interface/Interface.md",
+          "to": "dev/legacy/en/Interface/Interface.md",
+          "sha256": "b9e5a1bbc9308f8b7e7f38348a8fdc21922d58448df255f2e6ed5e0530b921fa",
+          "verified": true
+        },
+        {
+          "from": "en/Interface/Now.md",
+          "to": "dev/legacy/en/Interface/Now.md",
+          "sha256": "b1e2e2d0efd08539bde8ee6d14dfbfcf94d3d70e50d0d50475610192b882100c",
+          "verified": true
+        },
+        {
+          "from": "en/Interface/Secondary Areas and Settings.md",
+          "to": "dev/legacy/en/Interface/Secondary Areas and Settings.md",
+          "sha256": "7a9214fa05f99f788b2099123095d054c05f29772408252260229715ef003466",
+          "verified": true
+        },
+        {
+          "from": "en/Interface/Tags.md",
+          "to": "dev/legacy/en/Interface/Tags.md",
+          "sha256": "d843b5e949bd33fb58b95db00467e628ac2369228c5fe32f0cfa6b36080ec55b",
+          "verified": true
+        },
+        {
+          "from": "en/Philosophy/Philosophy.md",
+          "to": "dev/legacy/en/Philosophy/Philosophy.md",
+          "sha256": "762e9f3dc1260d1326d8630e8e24673e1f2a688b005ff0dfa9e5e5f200dad6df",
+          "verified": true
+        },
+        {
+          "from": "en/Troubleshooting/Troubleshooting.md",
+          "to": "dev/legacy/en/Troubleshooting/Troubleshooting.md",
+          "sha256": "6c48d09875ff97b13dee4c5d93c8b296b1b64afdbfb2513e2c3c3a96be632a93",
+          "verified": true
+        },
+        {
+          "from": "en/Use Cases/Real-World Scenarios.md",
+          "to": "dev/legacy/en/Use Cases/Real-World Scenarios.md",
+          "sha256": "af553dedc3634191902fbc6c5bd044a98b38ed3ed574009157bf8c5a9a2117b4",
+          "verified": true
+        },
+        {
+          "from": "en/Use Cases/Use Cases.md",
+          "to": "dev/legacy/en/Use Cases/Use Cases.md",
+          "sha256": "6b5dec2d512a15c2215e81ecf30dfc088415602cc603541509626e8a45878762",
+          "verified": true
+        },
+        {
+          "from": "en/Workflows/Common Tracking Workflows.md",
+          "to": "dev/legacy/en/Workflows/Common Tracking Workflows.md",
+          "sha256": "5bf36dfb883d61d05eabfb3074a0f9ffa8c2159ffda112aae6e98ab401f04557",
+          "verified": true
+        },
+        {
+          "from": "en/Workflows/Workflows.md",
+          "to": "dev/legacy/en/Workflows/Workflows.md",
+          "sha256": "6c5a1985a89ab8c927d2aa84218672bed25bd8f3ac1da2fe767fd22ffcdd3b9d",
+          "verified": true
+        },
+        {
+          "from": "forensic/914683_20260529_154033/db_report.md",
+          "to": "dev/legacy/forensic/914683_20260529_154033/db_report.md",
+          "sha256": "15dfad93f58980c33ef0950c746673ce336892831e5b550f59db9d1e5d62b87f",
+          "verified": true
+        },
+        {
+          "from": "it/Casi d'Uso/Casi d'Uso.md",
+          "to": "dev/legacy/it/Casi d'Uso/Casi d'Uso.md",
+          "sha256": "17f27acaec69923e98bc51b91345a96d9b12eee2e235a0cdc18e41e0cedf064d",
+          "verified": true
+        },
+        {
+          "from": "it/Casi d'Uso/Scenari Reali.md",
+          "to": "dev/legacy/it/Casi d'Uso/Scenari Reali.md",
+          "sha256": "feccd16adf0e2e5f0a5ddb8715bae32acce009e6477e08b4e60ca6dfa0c8ffab",
+          "verified": true
+        },
+        {
+          "from": "it/Concetti Base/Concetti Base.md",
+          "to": "dev/legacy/it/Concetti Base/Concetti Base.md",
+          "sha256": "8c12497a94fb0be7dc00c5be1ee4baded986326ac81ae92f78bf508a482025da",
+          "verified": true
+        },
+        {
+          "from": "it/Concetti Base/Continuita.md",
+          "to": "dev/legacy/it/Concetti Base/Continuita.md",
+          "sha256": "2d16189a6f4a0e801e44f940d489350c53171ce092c76f56e16dbeb2d2f14eae",
+          "verified": true
+        },
+        {
+          "from": "it/Concetti Base/Macchina del Tempo.md",
+          "to": "dev/legacy/it/Concetti Base/Macchina del Tempo.md",
+          "sha256": "3e3aaf493008d93e9fc2308af5b5fd175aefe7bb23e9205aa0e95e85537f3d10",
+          "verified": true
+        },
+        {
+          "from": "it/Concetti Base/Ricostruzione del Tempo.md",
+          "to": "dev/legacy/it/Concetti Base/Ricostruzione del Tempo.md",
+          "sha256": "370f97bfb76b3668573bc20b888a1ed4d402b3fd67605f937d76a93fca997983",
+          "verified": true
+        },
+        {
+          "from": "it/Concetti Base/Sessione.md",
+          "to": "dev/legacy/it/Concetti Base/Sessione.md",
+          "sha256": "711029d3fa04913ae2a4e5a76d59513d26710a6e2b5178bc37c8c56f19f6659c",
+          "verified": true
+        },
+        {
+          "from": "it/Concetti Base/Tag.md",
+          "to": "dev/legacy/it/Concetti Base/Tag.md",
+          "sha256": "b7cfdf391d671031bf7c2ad60afbd0dfc6e9579c484589d445a2278a1879f1ee",
+          "verified": true
+        },
+        {
+          "from": "it/FAQ/Domande Frequenti.md",
+          "to": "dev/legacy/it/FAQ/Domande Frequenti.md",
+          "sha256": "aa9f7fd897e52b03a34ea4dd44307eb9d79454a8c59abe996e65aba1bc7cc330",
+          "verified": true
+        },
+        {
+          "from": "it/Filosofia/Filosofia.md",
+          "to": "dev/legacy/it/Filosofia/Filosofia.md",
+          "sha256": "5a476efc34cd9e67c0b26999e55e0ccba8bccc12d54e2e19762be81f2f44605d",
+          "verified": true
+        },
+        {
+          "from": "it/Flussi di Lavoro/Flussi di Lavoro.md",
+          "to": "dev/legacy/it/Flussi di Lavoro/Flussi di Lavoro.md",
+          "sha256": "7ed7bfe329388a38571a0919d2c6707260f21ca061ca50501b822d70cb6ebda9",
+          "verified": true
+        },
+        {
+          "from": "it/Flussi di Lavoro/Flussi di Tracciamento Comuni.md",
+          "to": "dev/legacy/it/Flussi di Lavoro/Flussi di Tracciamento Comuni.md",
+          "sha256": "4c0d6aa1c39d85d925383ce5f7d993773d6c27b9e9b3b098a5b08eff25b34977",
+          "verified": true
+        },
+        {
+          "from": "it/Funzioni/Catene.md",
+          "to": "dev/legacy/it/Funzioni/Catene.md",
+          "sha256": "1b54ad0c27d7c66f94543c1603ae1b9822f9b578a212e69328de81247bda69e8",
+          "verified": true
+        },
+        {
+          "from": "it/Funzioni/Funzioni.md",
+          "to": "dev/legacy/it/Funzioni/Funzioni.md",
+          "sha256": "762d04e140f145dcdd75aee7e69fa3bb421929c700576299704127da637dd7b3",
+          "verified": true
+        },
+        {
+          "from": "it/Funzioni/Importazione, Esportazione e Vault.md",
+          "to": "dev/legacy/it/Funzioni/Importazione, Esportazione e Vault.md",
+          "sha256": "846cf3f3d1adf634edad146e098d94f801e60337978a4fd57f2264c3b63e6cc5",
+          "verified": true
+        },
+        {
+          "from": "it/Funzioni/Periodi di Vita.md",
+          "to": "dev/legacy/it/Funzioni/Periodi di Vita.md",
+          "sha256": "a42ab89a74f013f41dc3ab7a6f8bbd51e289f0ae7681b3a9be159882ff13cd70",
+          "verified": true
+        },
+        {
+          "from": "it/Funzioni/Sessioni Temporizzate e Alert.md",
+          "to": "dev/legacy/it/Funzioni/Sessioni Temporizzate e Alert.md",
+          "sha256": "cf73d37547d8e65f754a331bcf91471f35962f94229d92e90e405b13598dcfe0",
+          "verified": true
+        },
+        {
+          "from": "it/Funzioni/Widget Schermata Home.md",
+          "to": "dev/legacy/it/Funzioni/Widget Schermata Home.md",
+          "sha256": "d0590f9a104729db1db1c8a938a324df0935f25e1acd754bca95e958da1b67dc",
+          "verified": true
+        },
+        {
+          "from": "it/Guida Introduttiva/Inizia da Qui.md",
+          "to": "dev/legacy/it/Guida Introduttiva/Inizia da Qui.md",
+          "sha256": "da773419c36b4d058e0a1d204b62c638afd68ed24e0148417c6097fa36cc063d",
+          "verified": true
+        },
+        {
+          "from": "it/Guida Introduttiva/La Prima Sessione.md",
+          "to": "dev/legacy/it/Guida Introduttiva/La Prima Sessione.md",
+          "sha256": "a4fafc7368e2f5b66ddb723df1e5a4dbb0bed064d518e8d92c431e12f7d5b9a1",
+          "verified": true
+        },
+        {
+          "from": "it/Guida Introduttiva/Primo Avvio e Configurazione.md",
+          "to": "dev/legacy/it/Guida Introduttiva/Primo Avvio e Configurazione.md",
+          "sha256": "0dfaf1a218fa96919c0320d8f16bce02df19c540dbe1d26a4ace196bee493140",
+          "verified": true
+        },
+        {
+          "from": "it/Home.md",
+          "to": "dev/legacy/it/Home.md",
+          "sha256": "0ed4c2add448df60d4bed1885006a1aabe7068c7c6f22a510f59bf0e66fb1f7b",
+          "verified": true
+        },
+        {
+          "from": "it/Interfaccia/Adesso.md",
+          "to": "dev/legacy/it/Interfaccia/Adesso.md",
+          "sha256": "cf93daea32240e041295327d0636e238fd83e5bfabbe34d18dfe41e560371096",
+          "verified": true
+        },
+        {
+          "from": "it/Interfaccia/Aree Secondarie e Impostazioni.md",
+          "to": "dev/legacy/it/Interfaccia/Aree Secondarie e Impostazioni.md",
+          "sha256": "827dbd5be3f15bd73b0ffa7a3123c01bc19330744563070fe433be728e640810",
+          "verified": true
+        },
+        {
+          "from": "it/Interfaccia/Cronologia.md",
+          "to": "dev/legacy/it/Interfaccia/Cronologia.md",
+          "sha256": "318b38eceaeae2b63bac4a98b905f0214798d0d51afaccb4e28c80a21a7c0b05",
+          "verified": true
+        },
+        {
+          "from": "it/Interfaccia/Interfaccia.md",
+          "to": "dev/legacy/it/Interfaccia/Interfaccia.md",
+          "sha256": "d33f6a76ab04b64c104a3ac3d417a7db26230449f75570315679af57562ce79a",
+          "verified": true
+        },
+        {
+          "from": "it/Interfaccia/Tag.md",
+          "to": "dev/legacy/it/Interfaccia/Tag.md",
+          "sha256": "95597c29e98fa3f9f3fee387c83c59b9e5fcc8a4597e8124c3e8021e387b18a6",
+          "verified": true
+        },
+        {
+          "from": "it/Risoluzione Problemi/Risoluzione Problemi.md",
+          "to": "dev/legacy/it/Risoluzione Problemi/Risoluzione Problemi.md",
+          "sha256": "90ce80f57759b28f2abe2311f92f518babb7b3042cff7d74482036fb715df3eb",
+          "verified": true
+        },
+        {
+          "from": "submission/v493_submission_checklist.md",
+          "to": "dev/legacy/submission/v493_submission_checklist.md",
+          "sha256": "1b525d9bfaaf348c7e0c5d2d03f1e9ad3a09d63b2ac267cb2b7d0d08d35dcc66",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "maintenance-486",
+        "slug": "maintenance-486",
+        "path": "/home/daniele/codex-workspace/projects/vm_oracle/maintenance-486",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 1,
+        "docs_found": 1,
+        "docs_archived": 1,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/maintenance-486.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/maintenance-486",
+        "metadata": "/home/daniele/codex-workspace/projects/vm_oracle/maintenance-486/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "reports/prompt-486-report.md",
+          "to": "dev/legacy/reports/prompt-486-report.md",
+          "sha256": "2c61a42b52c083007b52633d43bbafabdbd354c1189779f2b80cd58a0194d4cb",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "oracle-backup-service",
+        "slug": "oracle-backup-service",
+        "path": "/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service",
+        "remote": "https://github.com/gernalix/oracle-backup-service.git",
+        "branch": "fix/degraded-healthcheck-state",
+        "pre_status_count": 15,
+        "docs_found": 4,
+        "docs_archived": 4,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/oracle-backup-service.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/oracle-backup-service",
+        "metadata": "/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "0e93821ff1122fa832a372c9259bb34cc673cb19188f5fa5e5f1d6166a143e72",
+          "verified": true
+        },
+        {
+          "from": "docs/CHANGELOG.md",
+          "to": "dev/legacy/docs/CHANGELOG.md",
+          "sha256": "33acfc04c46b857fe0c55475081695ad401743bc814c9b65e0ed47bcbaffe7ce",
+          "verified": true
+        },
+        {
+          "from": "docs/OPERATIONS.md",
+          "to": "dev/legacy/docs/OPERATIONS.md",
+          "sha256": "6d2b1d2b8ddd796faf6a79d2509dba655af0795fdec47f31aaf18903517297f1",
+          "verified": true
+        },
+        {
+          "from": "docs/TROUBLESHOOTING.md",
+          "to": "dev/legacy/docs/TROUBLESHOOTING.md",
+          "sha256": "b6f3c76bc847046a0a3185f5253539364b71bd84aed5924b83d2c524c581d61c",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "remote_opt_oracle_backup",
+        "slug": "remote-opt-oracle-backup",
+        "path": "/home/daniele/codex-workspace/projects/vm_oracle/remote_opt_oracle_backup",
+        "remote": "",
+        "branch": "main",
+        "pre_status_count": 10,
+        "docs_found": 1,
+        "docs_archived": 1,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/remote-opt-oracle-backup.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/remote-opt-oracle-backup",
+        "metadata": "/home/daniele/codex-workspace/projects/vm_oracle/remote_opt_oracle_backup/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "lib/README.txt",
+          "to": "dev/legacy/lib/README.txt",
+          "sha256": "b5d339509d565a7f00b5ed458baf9c4ba12747cbae151ebf53d0112082b3d28c",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "remote-codex-phone",
+        "slug": "remote-codex-phone",
+        "path": "/home/daniele/codex-workspace/remote-codex-phone",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 7,
+        "docs_found": 3,
+        "docs_archived": 3,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/remote-codex-phone.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/remote-codex-phone",
+        "metadata": "/home/daniele/codex-workspace/remote-codex-phone/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "OPERATIONS.md",
+          "to": "dev/legacy/OPERATIONS.md",
+          "sha256": "6928fda4f466a6d5ee104342489ebf0aebbfec747ec99327d71e9f2f6ae89a76",
+          "verified": true
+        },
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "2c52e961b768c2269cfbb0c26321da53434aec20568bb809e42faade2261000f",
+          "verified": true
+        },
+        {
+          "from": "TROUBLESHOOTING.md",
+          "to": "dev/legacy/TROUBLESHOOTING.md",
+          "sha256": "805d7c72ca2c2d3b26c0fc630da3dc19b5f51074a32fdb6429f58cdf60fb69d2",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "amici_fb",
+        "slug": "amici-fb",
+        "path": "/home/daniele/codex-workspace/scripts/amici_fb",
+        "remote": "https://github.com/gernalix/amici_fb.git",
+        "branch": "master",
+        "pre_status_count": 8,
+        "docs_found": 7,
+        "docs_archived": 6,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/amici-fb.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/amici-fb",
+        "metadata": "/home/daniele/codex-workspace/scripts/amici_fb/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "AGENTS.md",
+          "to": "dev/legacy/AGENTS.md",
+          "sha256": "a43871afe56506cf5ba0fd8cd55b9381b2a05b0912dc8318e7b850d87fd1035e",
+          "verified": true
+        },
+        {
+          "from": "CHANGELOG.md",
+          "to": "dev/legacy/CHANGELOG.md",
+          "sha256": "9a03fc503cb2213d36cc0af7040f22743d11c244983f60d19ed4794ee4633e9a",
+          "verified": true
+        },
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "c95c3758bc0525a2bb7d2824598328892b539a6dd888e2987201a2cda97bfc4b",
+          "verified": true
+        },
+        {
+          "from": "docs/ARCHITECTURE.md",
+          "to": "dev/legacy/docs/ARCHITECTURE.md",
+          "sha256": "1909b7af47db553b7502a98ea56c3fc9da92d414248fd1e68436abbc014308f1",
+          "verified": true
+        },
+        {
+          "from": "docs/OPERATIONS.md",
+          "to": "dev/legacy/docs/OPERATIONS.md",
+          "sha256": "ca7af9a25bf8e1d69efd9456a8f42ae64392c1d0abd7233ede0e1ce851712ff9",
+          "verified": true
+        },
+        {
+          "from": "docs/TROUBLESHOOTING.md",
+          "to": "dev/legacy/docs/TROUBLESHOOTING.md",
+          "sha256": "0140554d721da03ccb5481303f84e78ff30ea100ff1786c19236c394fb11e2d7",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "surface-recovery-hardening",
+        "slug": "surface-recovery-hardening",
+        "path": "/home/daniele/codex-workspace/surface-recovery-hardening",
+        "remote": "git@github.com:gernalix/surface-recovery-hardening.git",
+        "branch": "main",
+        "pre_status_count": 10,
+        "docs_found": 21,
+        "docs_archived": 21,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/surface-recovery-hardening.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/surface-recovery-hardening",
+        "metadata": "/home/daniele/codex-workspace/surface-recovery-hardening/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "CHANGELOG.md",
+          "to": "dev/legacy/CHANGELOG.md",
+          "sha256": "ee35f160387b633686b3b560f305938780d59591f07da1cb9d97302997b11fa6",
+          "verified": true
+        },
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "bdb97ee0de77ed90011494f7b58b118d6942cd4267ffcb92a6b2a57c3bd4a56e",
+          "verified": true
+        },
+        {
+          "from": "docs/ARCHITECTURE.md",
+          "to": "dev/legacy/docs/ARCHITECTURE.md",
+          "sha256": "6a96434eb64dcc57ca34d409d70f3df01dd33b32b289ac812ac845c1531eab47",
+          "verified": true
+        },
+        {
+          "from": "docs/OPERATIONS.md",
+          "to": "dev/legacy/docs/OPERATIONS.md",
+          "sha256": "9cf2c09ebe590ddf33c6b7e86c0628b705f0b88b68f96f3bd3a3f77e63c5ccb3",
+          "verified": true
+        },
+        {
+          "from": "docs/TROUBLESHOOTING.md",
+          "to": "dev/legacy/docs/TROUBLESHOOTING.md",
+          "sha256": "0fe3d93abb0d6332f02ed824e9207eefd56d0e571a5218898cbd456b90b5add9",
+          "verified": true
+        },
+        {
+          "from": "reports/REPORT_v1.md",
+          "to": "dev/legacy/reports/REPORT_v1.md",
+          "sha256": "049ed4bec330d0288a91ce7c7d0acb17306ecaf1512c6f7264e9baaf49755c33",
+          "verified": true
+        },
+        {
+          "from": "reports/REPORT_v2_display_theme_scaling.md",
+          "to": "dev/legacy/reports/REPORT_v2_display_theme_scaling.md",
+          "sha256": "1e8b09be4cd61ce9ad4b65d150758e2e6b11e0573e0de166d9cd0d42cde4512e",
+          "verified": true
+        },
+        {
+          "from": "reports/REPORT_v4_usb_io_hardening.md",
+          "to": "dev/legacy/reports/REPORT_v4_usb_io_hardening.md",
+          "sha256": "63554ea5f98db32c88c35fc4353a96dbea738e1edf09826e9f766f84056a3b92",
+          "verified": true
+        },
+        {
+          "from": "reports/REPORT_v5_source_cleanup_analyzer.md",
+          "to": "dev/legacy/reports/REPORT_v5_source_cleanup_analyzer.md",
+          "sha256": "0c9237b332e8147c58aa08a162c3681154feec5ae2f8191e58c9dd7c3ba00ba3",
+          "verified": true
+        },
+        {
+          "from": "reports/display_theme_scaling_report_v2.txt",
+          "to": "dev/legacy/reports/display_theme_scaling_report_v2.txt",
+          "sha256": "6bdf031074297f448af8065f17bb9cca491b446455226a7961ed6901e79b04af",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt418_recovery_restart_20260510_224929/pre_start_pgrep_af_rsync_required.txt",
+          "to": "dev/legacy/reports/prompt418_recovery_restart_20260510_224929/pre_start_pgrep_af_rsync_required.txt",
+          "sha256": "ce73d828399e5f9ada17601167a1fbe7b572f0537845e3194399c625f2fedb48",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt418_recovery_restart_20260510_224929/pre_start_pgrep_x_rsync_required.txt",
+          "to": "dev/legacy/reports/prompt418_recovery_restart_20260510_224929/pre_start_pgrep_x_rsync_required.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt418_recovery_restart_20260510_224929/source_cryptsetup_status_after_open.txt",
+          "to": "dev/legacy/reports/prompt418_recovery_restart_20260510_224929/source_cryptsetup_status_after_open.txt",
+          "sha256": "1cef19e0d81be59f23f0d9bc597553e7b067f735089839aece1a7f4e47030ab7",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt418_recovery_restart_20260510_224929/source_cryptsetup_status_after_open_sudo.txt",
+          "to": "dev/legacy/reports/prompt418_recovery_restart_20260510_224929/source_cryptsetup_status_after_open_sudo.txt",
+          "sha256": "d5c06fbfbe21c923e38e73f596a55523fb121cfa52eb342e051b65ff85762a55",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt418_recovery_restart_20260510_224929/source_mapper_lsblk_after_open.txt",
+          "to": "dev/legacy/reports/prompt418_recovery_restart_20260510_224929/source_mapper_lsblk_after_open.txt",
+          "sha256": "a999c14f3086adb328001258270e9e2f06355b0272381c2de89b669ff5dde95e",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt684_did_error_20260514_070407/FINAL_REPORT.md",
+          "to": "dev/legacy/reports/prompt684_did_error_20260514_070407/FINAL_REPORT.md",
+          "sha256": "194412fb3634903bcf7c8ea27d8dd31288181d52fb683423029c7bc6d3ff14f3",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt684_did_error_20260514_070407/user_services_status.txt",
+          "to": "dev/legacy/reports/prompt684_did_error_20260514_070407/user_services_status.txt",
+          "sha256": "51d67cbd880fbcebc4c6a84db0f6978c4174a9d488b28ce49e18f40296b12da6",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt734_post_crash_20260510_222255/dmesg_filtered_usb_io_before_quirk.txt",
+          "to": "dev/legacy/reports/prompt734_post_crash_20260510_222255/dmesg_filtered_usb_io_before_quirk.txt",
+          "sha256": "1b973f867b83171c3fb8f5f81b07b9f4fa11aa9cc170dc0c6af6caa200ea0609",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt734_post_crash_20260510_222255/pre_second_reboot_pgrep.txt",
+          "to": "dev/legacy/reports/prompt734_post_crash_20260510_222255/pre_second_reboot_pgrep.txt",
+          "sha256": "aee04d3c7558f0569c6ade6809f921f93b024b20229ac8ab432c269f5e12c250",
+          "verified": true
+        },
+        {
+          "from": "reports/prompt734_post_crash_20260510_222255/previous_boot_kernel_filtered_usb_io.txt",
+          "to": "dev/legacy/reports/prompt734_post_crash_20260510_222255/previous_boot_kernel_filtered_usb_io.txt",
+          "sha256": "7b60f27c28258907d101edbe235167f525e47e45a88976b92d73830043ff68f2",
+          "verified": true
+        },
+        {
+          "from": "reports/xfce_layout_guard_systemd_path_selftest_v2.txt",
+          "to": "dev/legacy/reports/xfce_layout_guard_systemd_path_selftest_v2.txt",
+          "sha256": "653c3ea804f21c50767be54ca456fdde8bcb90e3641164626d8ee140c6485332",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "project": {
+        "name": "system_watchdog",
+        "slug": "system-watchdog",
+        "path": "/home/daniele/codex-workspace/system_watchdog",
+        "remote": "",
+        "branch": "master",
+        "pre_status_count": 7,
+        "docs_found": 6,
+        "docs_archived": 5,
+        "docs_skipped": 0,
+        "ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/system-watchdog.md",
+        "human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/system-watchdog",
+        "metadata": "/home/daniele/codex-workspace/system_watchdog/dev/project.metadata.json",
+        "has_dev": true
+      },
+      "moved": [
+        {
+          "from": "README.md",
+          "to": "dev/legacy/README.md",
+          "sha256": "6bd64fa02537bd22a506c47d3d951e67da9f87235778fa5bafa2656a712e0566",
+          "verified": true
+        },
+        {
+          "from": "docs/ARCHITECTURE.md",
+          "to": "dev/legacy/docs/ARCHITECTURE.md",
+          "sha256": "9398a036f46089d752dbc4cee9149fbd8a53efadd0bf61acc482ccae9850d5f3",
+          "verified": true
+        },
+        {
+          "from": "docs/CODEX_CONTEXT.md",
+          "to": "dev/legacy/docs/CODEX_CONTEXT.md",
+          "sha256": "676b235fb79943a10b6d2c907cef8249e5f3daa4285773e0e23d8097c805e6de",
+          "verified": true
+        },
+        {
+          "from": "docs/TROUBLESHOOTING.md",
+          "to": "dev/legacy/docs/TROUBLESHOOTING.md",
+          "sha256": "0c0c903a1c396f68b932573743c8ed890a7c1037d45527e13a8cc9e329ecc87e",
+          "verified": true
+        },
+        {
+          "from": "docs/UPDATE_PROCEDURE.md",
+          "to": "dev/legacy/docs/UPDATE_PROCEDURE.md",
+          "sha256": "ad06371038d9f1189a616c3052d445bde3f5396a4beafdf4fee4fda67fb86f40",
+          "verified": true
+        }
+      ],
+      "skipped": []
+    }
+  ],
+  "validation_errors": [],
+  "non_doc_restored": [
+    {
+      "slug": "supercontacts",
+      "from": "app/src/main/assets/patch-version.txt",
+      "to": "dev/legacy/app/src/main/assets/patch-version.txt",
+      "sha256": "a9742eb8ee320e006666aef25ae9aeed948247f3125c9cafa7cf97b7e7467dd5",
+      "verified": true,
+      "restored_ok": true
+    },
+    {
+      "slug": "multitimetracker",
+      "from": "app/src/main/assets/patch-version.txt",
+      "to": "dev/legacy/app/src/main/assets/patch-version.txt",
+      "sha256": "262c6f6d5d49c67c79529b862ea879846ff949f64e6c3da901437a326a9484d4",
+      "verified": true,
+      "restored_ok": true
+    },
+    {
+      "slug": "amici-fb",
+      "from": "requirements.txt",
+      "to": "dev/legacy/requirements.txt",
+      "sha256": "4a90ca1b06ae4e1c0998cb73243f1c84ff814862c576cc90d8558ed667ec4aa4",
+      "verified": true,
+      "restored_ok": true
+    },
+    {
+      "slug": "system-watchdog",
+      "from": "requirements.txt",
+      "to": "dev/legacy/requirements.txt",
+      "sha256": "4e5b1f869c8f3ee1f2d2cc2e480ae957b23d8f8540ac481623e4a3c2d0ab0ecc",
+      "verified": true,
+      "restored_ok": true
+    }
+  ],
+  "git_results": [
+    {
+      "slug": "supercontacts",
+      "path": "/home/daniele/codex-workspace/SuperContacts",
+      "commit": "3aa6287",
+      "push": "pushed",
+      "details": "branch 'codex/prompt-xxx' set up to track 'origin/codex/prompt-xxx'.\nTo https://github.com/gernalix/SuperContacts.git\n   13c66bb..3aa6287  HEAD -> codex/prompt-xxx"
+    },
+    {
+      "slug": "windowtabnotes",
+      "path": "/home/daniele/codex-workspace/WindowTabNotes",
+      "commit": "68e0170",
+      "push": "pushed",
+      "details": "branch 'codex/prompt-581472' set up to track 'origin/codex/prompt-581472'."
+    },
+    {
+      "slug": "android-sdk-auto-update",
+      "path": "/home/daniele/codex-workspace/android-sdk-auto-update",
+      "commit": "7d6a23b",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "aw-converter",
+      "path": "/home/daniele/codex-workspace/aw-converter",
+      "commit": "c9fd300",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "chatgpt-chrome-debug",
+      "path": "/home/daniele/codex-workspace/chatgpt-chrome-debug",
+      "commit": "fdd3773",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "codex-html-live",
+      "path": "/home/daniele/codex-workspace/codex-html-live",
+      "commit": "1e8ecaa",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "codex-token-watcher",
+      "path": "/home/daniele/codex-workspace/codex-token-watcher",
+      "commit": "e8f36f5",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "codex-wrapper",
+      "path": "/home/daniele/codex-workspace/codex-wrapper",
+      "commit": "6d34d48",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "facebook-video-archiver",
+      "path": "/home/daniele/codex-workspace/facebook-video-archiver",
+      "commit": "ab0e526",
+      "push": "skipped-no-origin",
+      "details": "amended to include preexisting modified docs"
+    },
+    {
+      "slug": "installa-app",
+      "path": "/home/daniele/codex-workspace/installa-app",
+      "commit": "d1c8645",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "path": "/home/daniele/codex-workspace/linux-mint-service-dashboard",
+      "commit": "487ca7e",
+      "push": "skipped-no-origin",
+      "details": "amended to include preexisting modified docs"
+    },
+    {
+      "slug": "mint-manual-updates",
+      "path": "/home/daniele/codex-workspace/mint-manual-updates",
+      "commit": "6bbe32e",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "os-observer",
+      "path": "/home/daniele/codex-workspace/os-observer",
+      "commit": "b1ed3b0",
+      "push": "skipped-no-origin",
+      "details": "amended to include preexisting modified docs"
+    },
+    {
+      "slug": "owntracks-watcher",
+      "path": "/home/daniele/codex-workspace/owntracks-watcher",
+      "commit": "eaac5bc",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "parcel-tracker",
+      "path": "/home/daniele/codex-workspace/parcel-tracker",
+      "commit": "0fea1eb",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "multitimetracker",
+      "path": "/home/daniele/codex-workspace/projects/MultiTimeTracker",
+      "commit": "80f88c0",
+      "push": "pushed",
+      "details": "branch 'codex/v488-release-safe-ui-lockdown' set up to track 'origin/codex/v488-release-safe-ui-lockdown'.\nTo https://github.com/gernalix/MultiTimeTracker.git\n   59ca4f3..80f88c0  HEAD -> codex/v488-release-safe-ui-lockdown"
+    },
+    {
+      "slug": "maintenance-486",
+      "path": "/home/daniele/codex-workspace/projects/vm_oracle/maintenance-486",
+      "commit": "ed9de94",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "oracle-backup-service",
+      "path": "/home/daniele/codex-workspace/projects/vm_oracle/oracle-backup-service",
+      "commit": "058c59b",
+      "push": "pushed",
+      "details": "branch 'fix/degraded-healthcheck-state' set up to track 'origin/fix/degraded-healthcheck-state'."
+    },
+    {
+      "slug": "remote-opt-oracle-backup",
+      "path": "/home/daniele/codex-workspace/projects/vm_oracle/remote_opt_oracle_backup",
+      "commit": "62254c3",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "remote-codex-phone",
+      "path": "/home/daniele/codex-workspace/remote-codex-phone",
+      "commit": "e1280bc",
+      "push": "skipped-no-origin",
+      "details": ""
+    },
+    {
+      "slug": "amici-fb",
+      "path": "/home/daniele/codex-workspace/scripts/amici_fb",
+      "commit": "0e021f6",
+      "push": "pushed",
+      "details": "branch 'master' set up to track 'origin/master'."
+    },
+    {
+      "slug": "surface-recovery-hardening",
+      "path": "/home/daniele/codex-workspace/surface-recovery-hardening",
+      "commit": "0868849",
+      "push": "pushed",
+      "details": "branch 'main' set up to track 'origin/main'.\nTo github.com:gernalix/surface-recovery-hardening.git\n   8f90327..0868849  HEAD -> main"
+    },
+    {
+      "slug": "system-watchdog",
+      "path": "/home/daniele/codex-workspace/system_watchdog",
+      "commit": "d93002d",
+      "push": "skipped-no-origin",
+      "details": ""
+    }
+  ],
+  "dirty_docs_archived_after_initial_commit": [
+    {
+      "slug": "facebook-video-archiver",
+      "from": "README.md",
+      "to": "dev/legacy/README.md",
+      "sha256": "5b6450566417401159b1196046e89f2910e20c2d2cf308b8c943e2f0539ab10a",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "facebook-video-archiver",
+      "from": "dev/OPERATIONS.md",
+      "to": "dev/legacy/dev/OPERATIONS.md",
+      "sha256": "8c0251085ac041964e52ff4d8a3b7180c6a8bf8ed91e22b98fcd996f103e2ce1",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "README.md",
+      "to": "dev/legacy/README.md",
+      "sha256": "6e3ca020520dfb364199ae0e4fbe678c652c513ec90e221efefcb9af94f4829b",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "dev/neodocs/CHANGELOG.neodoc",
+      "to": "dev/legacy/dev/neodocs/CHANGELOG.neodoc",
+      "sha256": "50c11785ea91677c87b35f61a614f204a9699f996c00326fc43f78ea43f028cf",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "dev/neodocs/INDEX.neodoc",
+      "to": "dev/legacy/dev/neodocs/INDEX.neodoc",
+      "sha256": "b2d51c840a7ba23d1257b7e2eb2155957ac12c0c67566169bcc1bb666cc1adf0",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "dev/neodocs/METRICS.neodoc",
+      "to": "dev/legacy/dev/neodocs/METRICS.neodoc",
+      "sha256": "87d0f5c0cc4618a642f2c32e2ba21b77dd9928a33a62a9e5c166544c740b3750",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "dev/neodocs/PROJECT.neodoc",
+      "to": "dev/legacy/dev/neodocs/PROJECT.neodoc",
+      "sha256": "e5885a92d223440bd3fe463df50dd44bee9b183f266da6f00f6f3a3d2553b2f6",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "dev/neodocs/SERVICES.neodoc",
+      "to": "dev/legacy/dev/neodocs/SERVICES.neodoc",
+      "sha256": "70060639f4d9d8fccdcd028c2fb36ce51f5583f6b891743b62b193023fba1010",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "dev/neodocs/SYSTEMD.neodoc",
+      "to": "dev/legacy/dev/neodocs/SYSTEMD.neodoc",
+      "sha256": "f7a17ad970290ff31b09ebf953eb591175625e5c56e76f02c8f01fb477d40823",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "dev/neodocs/TESTS.neodoc",
+      "to": "dev/legacy/dev/neodocs/TESTS.neodoc",
+      "sha256": "505c76e870e6fe6f3da6b343d420ca4bdb07a2976d0297c29caa38c700b2ee56",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "dev/neodocs/UI.neodoc",
+      "to": "dev/legacy/dev/neodocs/UI.neodoc",
+      "sha256": "5c2f4c4ff71ebf1ebd258faaabde33a95ac6646c2851182e2630fb991ed7d42d",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "linux-mint-service-dashboard",
+      "from": "docs/ARCHITECTURE_HUMAN.md",
+      "to": "dev/legacy/docs/ARCHITECTURE_HUMAN.md",
+      "sha256": "17ea09636a96cb0f142f1c0acf19f653b0ff7f8f3e3a441e76133b545ae06ae2",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "os-observer",
+      "from": "dev/INDEX.md",
+      "to": "dev/legacy/dev/INDEX.md",
+      "sha256": "68b6dc896b894209ebdd47d4b7b559b73e55fe53325f84045a4ef5edfce8c257",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    },
+    {
+      "slug": "os-observer",
+      "from": "dev/TEST_PLAN.md",
+      "to": "dev/legacy/dev/TEST_PLAN.md",
+      "sha256": "feda5d722c43b1d1475056a2cbd15d37bede778f4d692252e9836ac0cc34aa11",
+      "verified": true,
+      "preexisting_status": "preexisting git status  M"
+    }
+  ]
+}
