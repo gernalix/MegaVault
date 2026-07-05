@@ -112,7 +112,7 @@ INCIDENT_SIGNIFICANT_BUG=must_register
 # VERSIONING
 VERSIONING_DOC_REQUIRED=yes
 VERSION_SKIP=forbidden
-ANDROID_VERSIONING_SEE=ai/global/ANDROID_PROTOCOL.md
+ANDROID_VERSIONING_SEE=ai/ANDROID_PROTOCOL.md
 
 # FINAL_REPORT
 FINAL_REPORT_REQ=files_changed,tests,test_result,docs,repo_status,commit,push,sync_state

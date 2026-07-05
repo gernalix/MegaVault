@@ -17,6 +17,8 @@ Timestamp was not used for choosing content. File size was used only as a warnin
 
 ## Inventory
 
+Post-merge quality audit correction 2026-07-05: the original report was regenerated after the merge and some inventory counters below reflected the merged tree instead of the pre-merge comparison. Authoritative comparison counters for the merge are: Local Markdown files 258, GitHub Markdown files 186, byte-identical files 0, same after line-ending normalization 95, true content-different same-path files 66, local-only Markdown files 97, GitHub-only Markdown files 25. Decision totals remain: 146 files chosen from local MegaVault, 126 files chosen from GitHub branch, 11 conservative merges, 0 double-version keeps, 0 residual conflicts.
+
 - Initial unique non-`.git` paths across both sources: 304
 - Unique Markdown paths compared after the `.md`-only constraint: 283
 - Local Markdown files: 258
@@ -149,4 +151,4 @@ git push -u origin codex/merge-surface-with-supercontacts-content-aware
 
 ## Final Commit
 
-- Final commit hash: see final response / `git rev-parse HEAD` after final amend. A tracked report cannot contain its own final Git SHA because writing that SHA changes the commit. Pre-note content commit: `79b7930e2abd603c668d08397a1ce0caca773b93`.
+- Merge commit hash before this post-merge quality audit: `9a6bf61ebfc6171cf984bcb564b2025cb98cc648`.
