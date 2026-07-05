@@ -7,10 +7,10 @@ This file is an operator-readable routing summary. Canonical mandatory rules liv
 1. Open `ai/MEGAVAULT_PROTOCOL.md`.
 2. Open `ai/global/HOST_PROFILE.md`.
 3. Open the current repo's `dev/project.metadata.json`.
-4. Follow `ai_doc` and open the matching MegaVault AI project file.
+4. Follow `ai_doc` and open the matching project-local `docs/ai/` entry.
 5. Use HOST_PROFILE as hardware/system constraint authority.
-6. Use the AI doc as the primary project operational source for Codex work.
-7. Use Human docs for user-facing explanation only; they are not operational authority.
+6. Use project-local `docs/ai/` as the primary project operational source for Codex work.
+7. Use project-local `docs/human/` for user-facing explanation only; they are not operational authority.
 8. Use `dev/legacy/` only for historical context, missing detail recovery, or audit trails.
 9. If architecture, build, tests, safety rules, release rules, data rules, or roadmap change, update the AI doc in the same change.
 10. If UX, functionality, user workflows, troubleshooting, or changelog change, update Human docs from the AI doc.
@@ -30,17 +30,23 @@ This file is an operator-readable routing summary. Canonical mandatory rules liv
 - NETWORK_TOPOLOGY_AI: [global/NETWORK_TOPOLOGY.md](global/NETWORK_TOPOLOGY.md)
 - STORAGE_TOPOLOGY_AI: [global/STORAGE_TOPOLOGY.md](global/STORAGE_TOPOLOGY.md)
 - ALERT_REGISTRY_AI: [global/ALERT_REGISTRY.md](global/ALERT_REGISTRY.md)
+- INCIDENT_REGISTRY_AI: [global/INCIDENT_REGISTRY.md](global/INCIDENT_REGISTRY.md)
 - SOFTWARE_INVENTORY_AI: [global/SOFTWARE_INVENTORY.md](global/SOFTWARE_INVENTORY.md)
 - PROJECT_INDEX_EXTENDED_AI: [global/PROJECT_INDEX_EXTENDED.md](global/PROJECT_INDEX_EXTENDED.md)
+- PROJECT_DOCS_MIGRATION_PLAN_AI: [PROJECT_DOCS_MIGRATION_PLAN.md](PROJECT_DOCS_MIGRATION_PLAN.md)
 
 ## Write Policy
 - Do not delete legacy docs casually.
 - Do not modify application code or databases for documentation-only tasks.
 - Prefer `UNKNOWN`, `TODO`, or `OPEN QUESTION` over invented facts.
-- Keep one AI file per project under `ai/projects/<slug>.md`.
-- Keep Human docs readable under `human/projects/<slug>/`.
+- MegaVault stores global/aspecific documentation only: protocols, registries, indices, host profile, topology, service/data/network/storage registries, and global guides.
+- Keep project-specific AI/project-operational docs under the project repo's `docs/ai/`.
+- Keep project-specific readable docs under the project repo's `docs/human/`.
+- Keep AI docs ai-friendly and ultra-compressed: key=value, high density, one fact per line, no filler prose.
+- Derive Human docs from AI docs, code, and real state; never use Human docs as the primary operational source.
+- Do not accumulate project-specific docs in MegaVault except global indices/registries pointing to projects.
 
 ## Next-Prompt Rule
-For every future Codex prompt inside an indexed repo: `ai/MEGAVAULT_PROTOCOL.md` -> `ai/global/HOST_PROFILE.md` -> `dev/project.metadata.json` -> `ai_doc` -> task files -> legacy only if the AI doc lacks required history.
+For every future Codex prompt inside an indexed repo: `ai/MEGAVAULT_PROTOCOL.md` -> `ai/global/HOST_PROFILE.md` -> `dev/project.metadata.json` -> project-local `docs/ai/` -> task files -> legacy only if the AI docs lack required history.
 
 LAST_UPDATED: 2026-07-05T00:00:00+02:00 by global_docs_windows_update

@@ -1,6 +1,8 @@
 # Incident Registry
 
-Ogni progetto MegaVault deve avere un registro incidenti leggibile da AI e persone, piu' un archivio SQLite aggiornato automaticamente da monitor, healthcheck o tool operativi.
+Ogni progetto deve avere un registro incidenti locale in `docs/ai/INCIDENT_REGISTRY.md` e `docs/human/INCIDENT_REGISTRY.md`, piu' un archivio SQLite aggiornato automaticamente da monitor, healthcheck o tool operativi.
+
+Questo file resta in MegaVault solo come schema/indice globale. Le voci project-specific gia' presenti sono debito premigrazione e vanno migrate nei repo proprietari dopo verifica di metadata e git clean.
 
 ## Formato obbligatorio
 - Incident ID

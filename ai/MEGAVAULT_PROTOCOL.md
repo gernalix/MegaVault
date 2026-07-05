@@ -1,4 +1,4 @@
-VERSION=11
+VERSION=12
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -11,7 +11,7 @@ AUTHORITY=mandatory
 P1=ai_authoritative
 P2=human_derived
 P3=legacy_historical
-P4=1_ai_doc_per_project
+P4=project_docs_local
 P5=max_info_density
 P6=no_duplicate_truth
 P7=no_invented_knowledge
@@ -31,11 +31,12 @@ P20=sync_state_required
 P21=host_profile_required
 P22=remote_clean_pushed_required
 P23=incident_registry_required
+P24=megavault_global_only
 
 # HOST_PROFILE
 HOST_PROFILE=mandatory
 HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
-READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>ai_doc
+READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>docs/ai
 HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux
 UNKNOWN_RULE=mark_UNKNOWN
 
@@ -48,25 +49,32 @@ CANONICAL_DATA=ai/global/DATA_REGISTRY.md
 CANONICAL_NETWORK=ai/global/NETWORK_TOPOLOGY.md
 CANONICAL_STORAGE=ai/global/STORAGE_TOPOLOGY.md
 CANONICAL_ALERT=ai/global/ALERT_REGISTRY.md
+CANONICAL_INCIDENT=ai/global/INCIDENT_REGISTRY.md
 CANONICAL_PROJECT_INDEX=ai/PROJECT_INDEX.md+ai/global/PROJECT_INDEX_EXTENDED.md
-PROJECT_DOC_RULE=reference_global_rules;keep_project_specific_facts_tests_exceptions
+MEGAVAULT_CONTENT=global_protocols,global_registries,global_indices,host_profile,topology,service_registry,data_registry,network_registry,storage_registry,global_guides
+MEGAVAULT_FORBID=project_specific_docs_accumulation
+PROJECT_DOC_ROOT=project_repo/docs
+PROJECT_AI_DOCS=docs/ai/
+PROJECT_HUMAN_DOCS=docs/human/
+PROJECT_DOC_RULE=project_specific_docs_live_in_project_repo_docs
 DUPLICATION_RULE=do_not_repeat_global_rules_in_project_docs_unless_project_specific
-HISTORICAL_EXCEPTION=reports,changelogs,incident_registries,state_snapshots_preserve_context
+GLOBAL_INDEX_EXCEPTION=megavault_may_keep_global_indices_registries_pointing_to_project_docs
+HISTORICAL_EXCEPTION=reports,changelogs,state_snapshots,premigration_docs_preserve_context
 
 # ANDROID
 ANDROID_PROTOCOL=ai/ANDROID_PROTOCOL.md
 ANDROID_AUTHORITY=mandatory
 ANDROID_REQUIRED_FOR=android_projects,android_builds,android_releases,android_tooling
-ANDROID_READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>ANDROID_PROTOCOL>metadata>ai_doc
+ANDROID_READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>ANDROID_PROTOCOL>metadata>docs/ai
 
 # SOURCE_PRIORITY
-SRC_ORDER=HOST_PROFILE>metadata>ai_doc>code>human>legacy
+SRC_ORDER=HOST_PROFILE>metadata>code_reality>docs_ai>docs_human>legacy
 IF_CONFLICT=prefer_higher_priority
 IF_STALE=update_from_code
 INVENT_FACTS=forbidden
 
 # ENTRY
-ENTRY_ORDER=clean_check>protocol>host_profile>metadata>ai_doc>targeted_inspection>reuse>implementation
+ENTRY_ORDER=clean_check>protocol>host_profile>metadata>docs_ai>targeted_inspection>reuse>implementation
 ENTRY_FORBID=repo_wide_scan,human_as_source,blind_copy
 
 # GIT
@@ -77,11 +85,14 @@ PUSH_REQUIRED=yes
 DIRTY_STATE=protocol_violation
 
 # DOCS
-AI_DOCS=dev/ai/*
-HUMAN_DOCS=dev/human/*
+AI_DOCS=docs/ai/*
+HUMAN_DOCS=docs/human/*
 AI_SOURCE=authoritative
 HUMAN_SOURCE=derived
-PROJECT_REQ=metadata,ai_doc,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
+HUMAN_SOURCE_FORBID=primary_operational_source
+PROJECT_REQ=metadata,docs_ai,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
+PROJECT_DOCS_IN_MEGAVAULT=forbidden_except_global_index_registry_pointer
+PREMIGRATION_PROJECT_DOCS_IN_MEGAVAULT=migration_debt_do_not_move_without_plan
 
 # AI_DOC
 AI_DOC_REQ=META,PURPOSE,STACK,MAP,ARCH,FLOW,INV,BUILD,TEST,DATA,DNB,BUG,RISK,ROAD,LINK,OPEN
@@ -113,8 +124,9 @@ DB_DOC_REQUIRED=yes
 
 # INCIDENT_REGISTRY
 INCIDENT_REGISTRY=mandatory_all_projects
-INCIDENT_AI=dev/ai/INCIDENT_REGISTRY.md
-INCIDENT_HUMAN=dev/human/INCIDENT_REGISTRY.md
+INCIDENT_AI=docs/ai/INCIDENT_REGISTRY.md
+INCIDENT_HUMAN=docs/human/INCIDENT_REGISTRY.md
+INCIDENT_GLOBAL=ai/global/INCIDENT_REGISTRY.md;only_if_global_aspecific_or_cross_project_index
 INCIDENT_SQLITE_DEFAULT=/home/ubuntu/sync_root/db/incident_registry.sqlite
 INCIDENT_SCHEMA=incidents+incident_events
 INCIDENT_ID_RULE=root_cause_stable_slug
@@ -133,7 +145,7 @@ FINAL_REPORT_REQ=files_changed,tests,test_result,docs,repo_status,commit,push,sy
 FINAL_REPORT_FORBID=silent_failure,false_success
 
 # VALIDATION
-VALIDATE=metadata,ai_doc,human_docs,links,git_clean,remote_sync
+VALIDATE=metadata,docs_ai,docs_human,links,git_clean,remote_sync
 
 # SUCCESS
-SUCCESS=modify_project_from_metadata+ai_doc_without_repo_wide_scan
+SUCCESS=modify_project_from_metadata+docs_ai_without_repo_wide_scan

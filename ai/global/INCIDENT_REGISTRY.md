@@ -6,10 +6,14 @@ AUTHORITY=global_incident_registry
 
 META:
 scope=all MegaVault projects
-ai_doc=dev/ai/INCIDENT_REGISTRY.md
-human_doc=dev/human/INCIDENT_REGISTRY.md
+ai_doc=ai/global/INCIDENT_REGISTRY.md
+human_doc=human/global/INCIDENT_REGISTRY.md
 sqlite_default=/home/ubuntu/sync_root/db/incident_registry.sqlite
 override=INCIDENT_REGISTRY_DB
+global_rule=keep_global_schema_and_cross_project_index_here
+project_incident_ai=docs/ai/INCIDENT_REGISTRY.md
+project_incident_human=docs/human/INCIDENT_REGISTRY.md
+project_specific_existing_entries=premigration_debt;migrate_to_owner_project_docs_after_repo_verified
 
 PURPOSE:
 purpose=single structured timeline for operational incidents, symptoms, root causes, attempts, final state.
