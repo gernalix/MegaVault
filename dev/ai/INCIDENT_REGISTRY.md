@@ -118,3 +118,21 @@ Commit_correlati=894b880
 Prompt_correlati=codex_weekly_limit_monitor_vm_fix_20260705
 Tempo_totale_di_impatto=At least 2026-06-11T06:27:26Z to 2026-07-05T14:25:21Z based on journal/log evidence
 Note=Post-fix live state: service enabled+active, weekly_left=64.0, five_hour_left=94.0, last_error empty, Telegram notification sent. Security scan in monitor perimeter found zero email/user_id/telegram_bot_url/literal_bot_token matches after redaction. Residual out-of-scope risk: other VM Telegram helper copies may still be hardcoded and require separate migration.
+
+INCIDENT:
+Incident_ID=CODEX_WEEKLY_LIMIT_MONITOR_WRONG_5H_SOURCE
+Titolo=Oracle VM Codex quota monitor used Spark 5h limit instead of main shared 5h limit
+Data_prima_comparsa_UTC=2026-07-05T16:02:07Z
+Data_ultima_comparsa_UTC=2026-07-05T16:13:00Z
+Numero_occorrenze=1_confirmed_runtime_window
+Gravita_massima=MEDIUM
+Stato=RESOLVED
+Root_cause=The 5h parser selected rateLimitsByLimitId.codex_bengalfox.primary, which is the separate GPT-5.3-Codex-Spark limit shown at 100 percent in Codex Analytics, instead of the main shared Codex 5h limit exposed as rateLimits.primary.
+Sistemi_coinvolti=Oracle VM instance-20260201-1126; codex-weekly-limit-monitor.service; /home/ubuntu/codex/automazione/codex_weekly_limit_monitor; Codex Analytics; Telegram quota notifications
+Alert_coinvolti=Codex weekly left changed Telegram notification with incorrect 5h field; codex_weekly_limit_monitor runtime logs/state
+Tentativi_effettuati=Compared user Codex Analytics screenshot against live app-server payload, systemd journal, state JSON, and parser tests; verified weekly at 57 percent and main 5h at 49 percent while codex_bengalfox/Spark stayed at 100 percent.
+Soluzione_finale=Mapped main 5h to rateLimits.primary (or normalized wham rate_limit.primary_window), removed codex_bengalfox as source for main 5h, kept telegram_notify.py as sole Telegram helper, ignored previous 5h state when source changes, added anti-Spark parser test, deployed with backups, restarted service.
+Commit_correlati=this_MegaVault_report_commit
+Prompt_correlati=codex_weekly_limit_monitor_wrong_5h_source_20260705
+Tempo_totale_di_impatto=about 11 minutes for the confirmed Spark-source runtime window; earlier user-observed 5h mismatch triggered the investigation and is covered by the same final parser correction.
+Note=Post-fix evidence: dry-run and real service run both read five_hour_left=49 percent and weekly_left=57 percent from rateLimits.primary/rateLimits.secondary; user screenshot after fix showed the same values. First post-fix notification marks previous 5h as unavailable because the stored previous source was Spark and must not be compared to the main quota.

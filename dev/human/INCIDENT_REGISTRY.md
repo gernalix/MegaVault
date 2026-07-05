@@ -64,3 +64,12 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Sicurezza: log/stato/helper del perimetro monitor redatti; scan finale `email_matches=0`, `user_id_matches=0`, `telegram_bot_url_matches=0`, `literal_bot_token_matches=0`.
 - Report: `ai/reports/codex_weekly_limit_monitor_vm_fix_20260705.md`.
 - Note: altre copie legacy VM di `telegram_notify.py` fuori scope possono ancora contenere hardcoding e vanno migrate in prompt dedicato.
+
+## CODEX_WEEKLY_LIMIT_MONITOR_WRONG_5H_SOURCE
+- Timestamp UTC: 2026-07-05T16:13:00Z.
+- Sintomo: la notifica Telegram del monitor Codex mostrava una quota 5h diversa dalla UI Codex Analytics.
+- Root cause: il parser usava `rateLimitsByLimitId.codex_bengalfox.primary`, cioe' la quota separata `GPT-5.3-Codex-Spark` mostrata al 100%, invece della quota 5h principale esposta da `rateLimits.primary`.
+- Fix: la 5h principale viene letta da `rateLimits.primary`; `codex_bengalfox` non viene piu' usato come fallback per la quota principale. Se il campo manca, la notifica mostra `5h left: unavailable`.
+- Verifica: dry-run e run reale systemd hanno letto `weekly_left=57%`, `five_hour_left=49%`, `five_hour_source=rateLimits.primary (codex)`, allineati allo screenshot utente.
+- Telegram: resta usato solo `/home/ubuntu/telegram_notify.py`; nessun token o chat id stampato.
+- Report: `ai/reports/codex_weekly_limit_real_5h_source_fix_20260705.md`.
