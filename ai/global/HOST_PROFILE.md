@@ -16,6 +16,7 @@ read_after=ai/MEGAVAULT_PROTOCOL.md
 human=../../human/global/HOST_PROFILE.md
 protocol=../MEGAVAULT_PROTOCOL.md
 global_rules=../GLOBAL_RULES.md
+centralization=host/system/storage/Android_tooling_constraints_are_authoritative_here;project_docs_reference_this_file_and_keep_only_project_specific_evidence_or_exceptions
 
 OS:
 distro=Linux Mint 22.3 Zena

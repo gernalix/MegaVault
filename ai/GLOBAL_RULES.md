@@ -1,5 +1,8 @@
 # MegaVault Global Rules
 
+## Authority
+This file is an operator-readable routing summary. Canonical mandatory rules live in `ai/MEGAVAULT_PROTOCOL.md`; Android-wide rules live in `ai/ANDROID_PROTOCOL.md`; host and system constraints live in `ai/global/HOST_PROFILE.md`. Add new mandatory rules to the canonical protocol first, then keep this file as a navigation layer.
+
 ## Resolution Order
 1. Open `ai/MEGAVAULT_PROTOCOL.md`.
 2. Open `ai/global/HOST_PROFILE.md`.

@@ -10,6 +10,11 @@ READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>ANDROID_PROTOCOL>metadata>ai_doc
 HOST_PROFILE_REQUIRED=yes
 ANDROID_WORK_REQUIRES_THIS_DOC=yes
 
+# CENTRALIZATION
+ANDROID_RULE_SOURCE=ai/ANDROID_PROTOCOL.md
+PROJECT_DOC_RULE=reference_this_file_for_versioning_dates_i18n_saf_sqlite;keep_app_specific_schema_tests_exceptions
+DUPLICATION_RULE=do_not_repeat_android_wide_rules_in_project_docs_unless_project_specific
+
 # PROJECT
 ANDROID_PROJECT_REQ=metadata,ai_doc,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
 ANDROID_DOCS_REQ=features,ui,package,app,storage,db,export,dates,i18n,build,test_strategy,limits,next

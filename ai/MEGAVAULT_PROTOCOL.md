@@ -39,6 +39,20 @@ READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>ai_doc
 HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux
 UNKNOWN_RULE=mark_UNKNOWN
 
+# CENTRALIZATION
+CANONICAL_GENERAL=ai/MEGAVAULT_PROTOCOL.md
+CANONICAL_ANDROID=ai/ANDROID_PROTOCOL.md
+CANONICAL_HOST=ai/global/HOST_PROFILE.md
+CANONICAL_SERVICE=ai/global/SERVICE_REGISTRY.md
+CANONICAL_DATA=ai/global/DATA_REGISTRY.md
+CANONICAL_NETWORK=ai/global/NETWORK_TOPOLOGY.md
+CANONICAL_STORAGE=ai/global/STORAGE_TOPOLOGY.md
+CANONICAL_ALERT=ai/global/ALERT_REGISTRY.md
+CANONICAL_PROJECT_INDEX=ai/PROJECT_INDEX.md+ai/global/PROJECT_INDEX_EXTENDED.md
+PROJECT_DOC_RULE=reference_global_rules;keep_project_specific_facts_tests_exceptions
+DUPLICATION_RULE=do_not_repeat_global_rules_in_project_docs_unless_project_specific
+HISTORICAL_EXCEPTION=reports,changelogs,incident_registries,state_snapshots_preserve_context
+
 # ANDROID
 ANDROID_PROTOCOL=ai/ANDROID_PROTOCOL.md
 ANDROID_AUTHORITY=mandatory
