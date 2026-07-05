@@ -26,8 +26,8 @@ build=UNKNOWN
 avoid=dev/legacy,build,.gradle,node_modules,*.db,*.sqlite,secrets,tokens,cookies,generated
 ARCH:
 entry=app/server.py:DashboardHandler,parse_args,main
-core=app/collectors.py:CommandResult,now_local,iso_now,display_now,version,redact_text
-ui=app/static/app.js:escapeHtml,statusClass,scalar,renderOverview,statCard,renderTabs
+core=app/collectors.py:CommandResult,now_local,iso_now,display_now,version,redact_text,collect_freeze_forensics,freeze_forensics_service_from_payload
+ui=app/static/app.js:escapeHtml,statusClass,scalar,renderOverview,statCard,renderTabs,renderFreezePanel
 test=tests/playwright-smoke.js:URL,VIEWPORTS,browser,errors,page,tabs
 test=tests/test_dashboard.py:DashboardTests
 FLOW:
@@ -35,10 +35,12 @@ flow=entry->app/server.py=>app/__init__.py
 flow=app/server.py:10:from http import HTTPStatus
 flow=launchers/linux-mint-service-dashboard.desktop:9:StartupNotify=false
 flow=systemd/system-service-dashboard.service:9:ExecStart=/usr/bin/python3 /home/daniele/codex-workspace/linux-mint-service-dashboard/app/server.py --host 127.0.0.1 --port 8788
+flow_freeze=collect_all->collect_freeze_forensics->mint-freeze-forensics dashboard-json->renderFreezePanel
+flow_transfer=collect_rsync_transfer->unit_show(transfer-vecchio-disco-adaptive-throttle.service user)->mount_info filters root/autofs wrappers->SERVICE STATUS separate from METRICS STATUS; throughput is live only when target rsync is alive
 INV:
 arch=app/server.py:DashboardHandler,parse_args,main; app/collectors.py:CommandResult,now_local,iso_now,display_now,version; app/static/app.js:escapeHtml,statusClass,scalar,renderOverview,statCard; tests/playwright-smoke.js:URL,VIEWPORTS,brows...
 data=app/server.py:80:self.send_json({"status": "ok", "version": version(), "refresh_display": display_now(), "read_only": True}); dev/project.metadata.json:9:"metadata_version": 1,
-ux=app/server.py:26:server_version = f"LinuxMintServiceDashboard/{version()}"; app/server.py:116:parser = argparse.ArgumentParser(description="Linux Mint local read-only service dashboard")
+ux=app/server.py:26:server_version = f"LinuxMintServiceDashboard/{version()}"; app/server.py:116:parser = argparse.ArgumentParser(description="Linux Mint local read-only service dashboard"); freeze tab plain-language state/24h/7d/explanation/safe command-copy buttons
 backup=UNKNOWN
 migration=UNKNOWN
 version=app/server.py:18:from app.collectors import collect_all, display_now, redact_text, version; app/server.py:26:server_version = f"LinuxMintServiceDashboard/{version()}"
@@ -68,11 +70,16 @@ dnb=app/collectors.py:44:r"error|failed|fail|warning|warn|critical|blocked|stall
 dnb=app/collectors.py:45:r"storage|lock|TRUE_PRE_EMERGENCY|PRE_EMERGENCY|abort|skipped",
 dnb=app/collectors.py:77:for pattern in SECRET_PATTERNS:
 dnb=preserve=dev/project.metadata.json,dev/legacy,AI/Human links; docs-only tasks must not touch app code/DB
+dnb=freeze tab reads mint-freeze-forensics dashboard-json; must not duplicate freeze scoring or execute kill/restart/remediation
+dnb=rsync tab must not report root mount or systemd-1 autofs wrapper as real source/destination; must not display stale progress speed as current throughput
 BUG:
 issue=app/collectors.py:44:r"error|failed|fail|warning|warn|critical|blocked|stalled|corrupt|I/O|input/output|timeout|degraded|"
 issue=tests/test_dashboard.py:104:last_error: Exception | None = None
 issue=tests/test_dashboard.py:112:last_error = exc
 issue=tests/test_dashboard.py:114:raise AssertionError(f"server did not answer: {last_error}")
+issue=2026-06-10 transfer tab showed logical rsync-transfer as if it were systemd unit and reused stale throughput; fix=card id/name changed to transfer-vecchio-disco-adaptive-throttle, systemd_unit field added, SERVICE STATUS separated from METRICS STATUS
+issue=2026-06-10 service active plus script alive but rsync absent could still mark metrics live
+fix=app/collectors.py now treats live transfer as target rsync alive only; script_alive remains visible metric; warning text says service alive, rsync absent
 RISK:
 risk=app/server.py:58:"trace": redact_text(traceback.format_exc(limit=3)),
 risk=app/collectors.py:24:SECRET_PATTERNS = [
@@ -80,9 +87,12 @@ risk=app/collectors.py:26:re.compile(r"((?:token|secret|password|passwd|api[_-]?
 risk=app/collectors.py:44:r"error|failed|fail|warning|warn|critical|blocked|stalled|corrupt|I/O|input/output|timeout|degraded|"
 risk=app/collectors.py:45:r"storage|lock|TRUE_PRE_EMERGENCY|PRE_EMERGENCY|abort|skipped",
 risk=app/collectors.py:77:for pattern in SECRET_PATTERNS:
+ops=dashboard service system-service-dashboard.service user ExecStart=/usr/bin/python3 /home/daniele/codex-workspace/linux-mint-service-dashboard/app/server.py --host 127.0.0.1 --port 8788
+ops_transfer=dashboard transfer tab id/name=transfer-vecchio-disco-adaptive-throttle; systemd_unit=transfer-vecchio-disco-adaptive-throttle.service; manual_start=/home/daniele/.local/bin/rsync-transfer-start; manual_status=/home/daniele/.local/bin/rsync-transfer-status
+test_2026-06-10=python3 -m unittest tests.test_dashboard -v OK; API transfer card after dashboard restart shows status ok, summary in esecuzione, systemd_unit transfer-vecchio-disco-adaptive-throttle.service, SERVICE STATUS active/running, METRICS STATUS live, process_alive true, script_alive true, current_throughput 2.89 MB/s
 ROAD:
-now=UNKNOWN
-next=UNKNOWN
+now=Freeze / Rallentamenti tab integrated with mint-freeze-forensics
+next=review wording after >=3 real freeze events
 later=UNKNOWN
 LINK:
 meta=../../../linux-mint-service-dashboard/dev/project.metadata.json

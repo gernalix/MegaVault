@@ -1,20 +1,26 @@
 # mint-manual-updates Overview
 
-Servizio user systemd v4 per controllare e applicare aggiornamenti prudenti su Linux Mint 22.3 / Ubuntu noble.
+Servizio user systemd v9 con un solo updater ufficiale per Linux Mint: sistema, venv Python locali, tool di sviluppo, Android Studio e Android SDK.
 
 ## Stato e codice
+
 - Repository: `/home/daniele/codex-workspace/mint-manual-updates`
-- Branch/commit verificati: `master` / `bd9d452`
-- File codice/config/test/script analizzati: 5 su 5
-- Stack rilevato: UNKNOWN, UNKNOWN, UNKNOWN
+- Branch/commit verificati: `master` / `pending prompt #618472`
+- Comando ufficiale unico: `bin/mint-manual-updates --run`
+- Guardrail v9: default balanced; `rsync`, load alto e PSI CPU alta sono consentiti/non bloccanti; memoria/swap/PSI memoria/PSI I/O estrema/root disk/freeze/apt/batteria critica restano bloccanti.
+- Script duplicato rimosso: `removed duplicate script`
+- Unit duplicate rimosse: `removed duplicate service`, `removed duplicate timer`
 
 ## Orientamento rapido
-- Entrypoint: `UNKNOWN`
-- Core/data: `dev/project.metadata.json,systemd/user/mint-extra-updater.service,systemd/user/mint-extra-updater.timer`
-- Test: `UNKNOWN`
-- Script/build: `UNKNOWN`
+
+- Entrypoint: `bin/mint-manual-updates`
+- Stato: `~/.local/state/mint-manual-updates/`
+- Log venv: `~/.local/state/mint-manual-updates/venv-logs/`
+- Storico Android: `~/.local/state/mint-manual-updates/android-sdk-history/`
+- Test: `bash -n bin/mint-manual-updates`, `shellcheck bin/mint-manual-updates` se disponibile
 
 ## Link
+
 - AI doc: [AI doc](../../../ai/projects/mint-manual-updates.md)
 - Metadata: [dev/project.metadata.json](../../../../mint-manual-updates/dev/project.metadata.json)
 - Legacy docs: [dev/legacy](../../../../mint-manual-updates/dev/legacy)

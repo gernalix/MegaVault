@@ -21,3 +21,8 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - scripts/backup.sh:5:STATE_DIR="/var/lib/oracle_backup"
 - scripts/backup.sh:6:LOG_DIR="/var/log/oracle_backup"
 - scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
+
+## Fallback locale con quota
+- Il fallback locale resta `/var/lib/oracle_backup/emergency_repo`, ma `backup.sh` controlla la quota prima della scrittura locale.
+- Default live dopo `#847261`: `LOCAL_FALLBACK_MAX_GB=7`, `LOCAL_FALLBACK_SOFT_PCT=80`, `LOCAL_FALLBACK_PREWRITE_RESERVE_GB=1`, `LOCAL_FALLBACK_ROOT_MIN_FREE_GB=1`.
+- Se la quota e' superata, lo stato diventa `BACKUP_BLOCKED_FALLBACK_QUOTA`; restic non parte sul fallback locale e il monitor/healthcheck espone CRITICAL. Quando OCI non e' scrivibile, il backup forza stream-to-restic e non crea snapshot SQLite on-disk trattenuti.

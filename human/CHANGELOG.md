@@ -1,3 +1,21 @@
 # MegaVault Changelog
 
+- 2026-06-13: `#729184` disk-usage-monitor: aggiunta notifica Telegram aggregata per delta spazio usato >=1 GiB binario, con baseline separata `delta_notification_state` e test asciutti `delta-test-plus/minus`.
+- 2026-06-13: `#384729` disk-usage-monitor: chiarito che il monitor e' timer 24/7 + service oneshot, aggiunti `status`/`dry-run`, rinforzate unit systemd e logging per disco.
+- 2026-06-13: `#628451` home-incremental-backup baseline post-run: servizio terminato in `failed/timeout` dopo circa 7h, snapshot incompleto `13G` lasciato intatto; baseline senza backup ancora critica con PSI I/O/memoria molto alte, zram piena a meta' campione e T7/root saturo a burst. `HOME_BACKUP_BWLIMIT_KB` lasciato a `1024`; `2048-5120` non raccomandati.
+- 2026-06-13: `#914672` home-incremental-backup bwlimit safety check: run ancora attivo a `--bwlimit=512`, config futura rimasta `HOME_BACKUP_BWLIMIT_KB=1024`; non alzato a `2048-5120` per PSI I/O/CPU alti, zram >2GiB, T7/root USB occupato e hub SABRENT condiviso con Seagate6TB2.
+- 2026-06-13: `#739284` home-incremental-backup follow-up: verificato run attivo/non bloccato, installato `sysstat` per `iostat`/`pidstat`, alzato `HOME_BACKUP_BWLIMIT_KB` live `512` -> `1024` KiB/s solo per prossimi run; backup corrente lasciato a `--bwlimit=512`.
+- 2026-06-13: `#483920` diagnosi I/O dischi esterni: causa principale `home-incremental-backup.service` con `rsync` verso Seagate6TB2; transfer BitLocker presente ma stale/fermato, non sorgente I/O nel campione.
+- 2026-06-13: `#918472` oracle-backup-service: cleanup sicuro del fallback locale restic gia' oltre quota; `emergency_repo` 14G/82 snapshot -> 3.9G/11 snapshot, `/` 98% -> 75%, nessun repo remoto toccato, healthcheck finale WARNING/`REMOTE_DEGRADED`.
+- 2026-06-12: `#458217` Oracle Uptime Kuma: admin UI rimossa dall'HTTP pubblico; accesso via tunnel SSH a `127.0.0.1:3002`; Nginx conserva solo `/api/push/` su `150.230.148.128:3001` per compatibilita' con i push esistenti; backup e rollback documentati.
+- 2026-06-11: `#836204` disk-usage-monitor: limitato ai 3 dischi canonici (`T7 sistema`, `Seagate 4TB`, `Seagate 6TB`), Telegram pulito a 3 righe, heartbeat Kuma compatto `OK T7=N% free SG4=N% free SG6=N% free`.
+- 2026-06-11: `#748263` disk-usage-monitor: reso esplicito il monitoraggio multi-disco (`/` T7, Seagate 4TB readonly, Seagate6TB2), aggiunto inventory, heartbeat Kuma `checked=N alerts=M` e dashboard solo sul run corrente.
+- 2026-06-11: `#492817` chiarita e corretta la catena `disk-usage-monitor` -> Kuma -> Telegram. Kuma resta heartbeat/state-change; il monitor locale ora invia delta >= 500 MiB e digest OK giornaliero non rumoroso.
+- 2026-06-10: `#731845` Oracle Uptime Kuma: audit live read-only e runbook operativo completo per runtime, monitor, notifiche, SQLite, backup, restore, pusher e anti-drift; nessuna modifica runtime.
+- 2026-06-10: `#428691` Oracle Uptime Kuma: confermato progetto canonico esistente e aggiunte procedure docs-only per backup, monitor push, disattivazione obsoleti, noise reduction, verifica push e registri globali.
+- 2026-06-07_prompt_731845=git_completeness_protocol;remote=origin_required;final=push+sync+clean;scope=MegaVault+project_repos.
+- 2026-06-07: `#847261` creato profilo host globale AI/Human e reso obbligatorio nel protocollo dopo `MEGAVAULT_PROTOCOL.md`.
+- 2026-06-07: `#847261` Mint freeze forensics: removed legacy anti-freeze/watchdog artifacts, created `mint-freeze-forensics`, documented Oracle VM Kuma, and added `Mint Freeze Analysis` push monitors.
+- 2026-06-06: `#618903` mint-home-backup follow-up: diagnosed `rsync_exit=137` as runtime guard `ABORTED_SAFE` load abort, hardened script/Kuma classification, reduced bwlimit, and documented residual semantics.
+- 2026-06-06: `#482917` Uptime Kuma noise reduction: inventoried active push monitors, hardened monitor windows, disabled obsolete generic/rsync/token watchers, removed `os-observer` from live MegaVault project indexes, and added cross-project report docs.
 - 2026-06-01T07:23:54+02:00: Initial MegaVault migration for 23 projects; archived 214 legacy docs.

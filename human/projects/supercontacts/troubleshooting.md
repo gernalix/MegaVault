@@ -1,5 +1,17 @@
 # SuperContacts Troubleshooting
 
+## SAF root contract
+- Stato atteso v29: nella root SAF devono esistere solo `photos/` e `super_contacts_backup.sqlite`.
+- Se compaiono `photos (1)`, `photos (2)`, `super_contacts_backup (1).sqlite` o `.tmp`, verificare `SafRootContract` e `SuperContactsBackupManager`: il codice deve cercare e riusare i documenti esistenti prima di creare.
+- Se una foto non compare in Home o nel dettaglio, controllare il valore DB `contact_fields.field_type='photo'`: il riferimento atteso e `photos/<file>.jpg`; il resolver deve cercare anche nelle cartelle legacy `photos (N)` e migrare il file in `photos/`.
+- Non cancellare manualmente foto dai duplicati prima della migrazione: le cartelle duplicate vanno eliminate solo quando risultano vuote dopo trasferimento verificato.
+
+## Overlay chiamata
+- Stato atteso v33: l'overlay chiamata deve essere una finestra di sistema sopra Dialer/altre app, non un banner visibile solo dentro SuperContacts.
+- Permesso necessario: Android deve consentire `Display over other apps` / `SYSTEM_ALERT_WINDOW` per SuperContacts.
+- Se l'overlay non compare durante una chiamata reale, verificare `appops get <package> SYSTEM_ALERT_WINDOW`, permessi `READ_PHONE_STATE`/`READ_CALL_LOG`, logcat tag `SC_CallOverlay`, e che `CallStateReceiver` riceva `PHONE_STATE`.
+- Il receiver diagnostico `CallOverlayDebugReceiver` serve solo per QA adb delle build debug: deve restare disabilitato fuori debug e non sostituisce il percorso reale da chiamata.
+
 ## Problemi e sintomi rilevati nel codice
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:180:import kotlinx.coroutines.withTimeoutOrNull
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:348:viewModel.clearError()

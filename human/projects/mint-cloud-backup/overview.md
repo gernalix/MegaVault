@@ -12,6 +12,11 @@ Linux Mint root backup to Backblaze B2 through restic, with monitor, localhost d
 - Kuma push: `mint-cloud-backup-kuma-push.service` / `mint-cloud-backup-kuma-push.timer`
 - Stato/log principali: `/var/lib/mint-cloud-backup`, `/var/log/mint-cloud-backup`
 
+## Situazione #482917
+- Kuma monitor `cloud backup` attivo con finestra piu larga: interval `180s`, timeout `60s`, retries `2`.
+- Il pusher usa lock `flock`, timer ogni 2 minuti, messaggi espliciti anche se il dashboard restituisce JSON inatteso.
+- Stato verificato 2026-06-06: `backup=idle last_snapshot=cbba8d42 monitor=ok timer=active`.
+
 ## Situazione #739284
 - Root cause: falso auth da classificazione su JSONL restic; path `authentication.md`/`authorization...` dentro `current_files` venivano scambiati per errore credenziali.
 - Errore reale: restic aveva creato snapshot valido ma usciva `3` per sorgente non leggibile `/home/daniele/.gvfs`; era rimasto un lock restic remoto stale.

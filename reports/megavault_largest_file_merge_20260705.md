@@ -1,0 +1,252 @@
+# MegaVault largest-file branch merge - 2026-07-05
+
+## Riepilogo
+- Repository utilizzato: `https://github.com/gernalix/MegaVault.git`
+- Branch sorgente A: `codex/prompt-483920-thinkpad-windows11-host-profile`
+- Branch sorgente B: `codex/prompt-729604-supercontacts-capsule-audit`
+- Branch creato: `codex/merge-largest-files`
+- Base del nuovo branch: `codex/prompt-729604-supercontacts-capsule-audit`
+- Regola adottata: per ogni percorso relativo, scegliere il blob con dimensione maggiore in byte; in caso di dimensione uguale e hash diverso, mantenere il blob del branch B.
+- Data di modifica: non usata come criterio.
+
+## Conteggi
+- Numero totale di file valutati: 299
+- File presi dal branch A: 155
+- File mantenuti dal branch B: 144
+- File presenti solo nel branch A: 95
+- File presenti solo nel branch B: 40
+- File sostituiti perche il branch A era piu grande: 60
+- File in entrambi con branch B piu grande: 8
+- File con stessa dimensione e stesso hash: 96
+- File con stessa dimensione ma hash differente: 0
+
+## File con dimensione uguale ma hash differente
+- Nessuno
+
+## File sostituiti perche piu grandi nel branch A
+- `ai/GLOBAL_RULES.md` (2507 byte da primo branch vs 1375 byte da secondo branch)
+- `ai/PROJECT_INDEX.md` (12735 byte da primo branch vs 10233 byte da secondo branch)
+- `ai/PROJECT_INVENTORY.md` (5503 byte da primo branch vs 4329 byte da secondo branch)
+- `ai/projects/amici-fb.md` (7308 byte da primo branch vs 5963 byte da secondo branch)
+- `ai/projects/linux-mint-service-dashboard.md` (7598 byte da primo branch vs 5412 byte da secondo branch)
+- `ai/projects/mint-cloud-backup.md` (7490 byte da primo branch vs 6599 byte da secondo branch)
+- `ai/projects/mint-manual-updates.md` (7222 byte da primo branch vs 5924 byte da secondo branch)
+- `ai/projects/mint-update-tracker.md` (6956 byte da primo branch vs 6151 byte da secondo branch)
+- `ai/projects/multitimetracker.md` (29951 byte da primo branch vs 21389 byte da secondo branch)
+- `ai/projects/oracle-backup-service.md` (15650 byte da primo branch vs 7229 byte da secondo branch)
+- `ai/projects/owntracks-watcher.md` (10814 byte da primo branch vs 1653 byte da secondo branch)
+- `ai/projects/soldi.md` (6488 byte da primo branch vs 1541 byte da secondo branch)
+- `ai/projects/supercontacts.md` (28508 byte da primo branch vs 21196 byte da secondo branch)
+- `ai/projects/surface-recovery-hardening.md` (11259 byte da primo branch vs 7597 byte da secondo branch)
+- `ai/projects/windowtabnotes.md` (20166 byte da primo branch vs 7990 byte da secondo branch)
+- `human/CHANGELOG.md` (4126 byte da primo branch vs 123 byte da secondo branch)
+- `human/INDEX.md` (912 byte da primo branch vs 292 byte da secondo branch)
+- `human/PROJECTS.md` (10001 byte da primo branch vs 7960 byte da secondo branch)
+- `human/projects/amici-fb/features.md` (1602 byte da primo branch vs 1302 byte da secondo branch)
+- `human/projects/amici-fb/roadmap.md` (1498 byte da primo branch vs 934 byte da secondo branch)
+- `human/projects/amici-fb/troubleshooting.md` (4048 byte da primo branch vs 2109 byte da secondo branch)
+- `human/projects/codex-token-watcher/changelog.md` (1592 byte da primo branch vs 844 byte da secondo branch)
+- `human/projects/codex-token-watcher/features.md` (1072 byte da primo branch vs 1024 byte da secondo branch)
+- `human/projects/codex-token-watcher/overview.md` (1411 byte da primo branch vs 1240 byte da secondo branch)
+- `human/projects/codex-token-watcher/troubleshooting.md` (3759 byte da primo branch vs 2191 byte da secondo branch)
+- `human/projects/linux-mint-service-dashboard/changelog.md` (650 byte da primo branch vs 495 byte da secondo branch)
+- `human/projects/linux-mint-service-dashboard/features.md` (1977 byte da primo branch vs 1566 byte da secondo branch)
+- `human/projects/linux-mint-service-dashboard/overview.md` (1451 byte da primo branch vs 959 byte da secondo branch)
+- `human/projects/linux-mint-service-dashboard/troubleshooting.md` (3005 byte da primo branch vs 2521 byte da secondo branch)
+- `human/projects/mint-cloud-backup/changelog.md` (486 byte da primo branch vs 310 byte da secondo branch)
+- `human/projects/mint-cloud-backup/overview.md` (1935 byte da primo branch vs 1594 byte da secondo branch)
+- `human/projects/mint-manual-updates/changelog.md` (1480 byte da primo branch vs 480 byte da secondo branch)
+- `human/projects/mint-manual-updates/features.md` (1617 byte da primo branch vs 479 byte da secondo branch)
+- `human/projects/mint-manual-updates/overview.md` (1370 byte da primo branch vs 887 byte da secondo branch)
+- `human/projects/mint-manual-updates/roadmap.md` (941 byte da primo branch vs 299 byte da secondo branch)
+- `human/projects/mint-manual-updates/troubleshooting.md` (1797 byte da primo branch vs 656 byte da secondo branch)
+- `human/projects/mint-update-tracker/overview.md` (5799 byte da primo branch vs 5401 byte da secondo branch)
+- `human/projects/multitimetracker/architecture-audit.md` (13708 byte da primo branch vs 7268 byte da secondo branch)
+- `human/projects/multitimetracker/changelog.md` (17238 byte da primo branch vs 12388 byte da secondo branch)
+- `human/projects/multitimetracker/features.md` (11273 byte da primo branch vs 7608 byte da secondo branch)
+- `human/projects/multitimetracker/roadmap.md` (7425 byte da primo branch vs 6183 byte da secondo branch)
+- `human/projects/multitimetracker/troubleshooting.md` (10391 byte da primo branch vs 3975 byte da secondo branch)
+- `human/projects/oracle-backup-service/changelog.md` (2774 byte da primo branch vs 488 byte da secondo branch)
+- `human/projects/oracle-backup-service/features.md` (2129 byte da primo branch vs 1536 byte da secondo branch)
+- `human/projects/oracle-backup-service/overview.md` (2124 byte da primo branch vs 1124 byte da secondo branch)
+- `human/projects/oracle-backup-service/roadmap.md` (1754 byte da primo branch vs 1288 byte da secondo branch)
+- `human/projects/oracle-backup-service/troubleshooting.md` (6376 byte da primo branch vs 3965 byte da secondo branch)
+- `human/projects/owntracks-watcher/changelog.md` (1376 byte da primo branch vs 478 byte da secondo branch)
+- `human/projects/owntracks-watcher/overview.md` (1316 byte da primo branch vs 750 byte da secondo branch)
+- `human/projects/owntracks-watcher/troubleshooting.md` (3353 byte da primo branch vs 377 byte da secondo branch)
+- `human/projects/soldi/changelog.md` (1469 byte da primo branch vs 381 byte da secondo branch)
+- `human/projects/soldi/overview.md` (932 byte da primo branch vs 729 byte da secondo branch)
+- `human/projects/supercontacts/changelog.md` (3856 byte da primo branch vs 2684 byte da secondo branch)
+- `human/projects/supercontacts/features.md` (7407 byte da primo branch vs 5649 byte da secondo branch)
+- `human/projects/supercontacts/troubleshooting.md` (5865 byte da primo branch vs 4398 byte da secondo branch)
+- `human/projects/surface-recovery-hardening/changelog.md` (1995 byte da primo branch vs 1822 byte da secondo branch)
+- `human/projects/surface-recovery-hardening/overview.md` (3247 byte da primo branch vs 1916 byte da secondo branch)
+- `human/projects/windowtabnotes/changelog.md` (4023 byte da primo branch vs 860 byte da secondo branch)
+- `human/projects/windowtabnotes/overview.md` (4317 byte da primo branch vs 1328 byte da secondo branch)
+- `human/projects/windowtabnotes/troubleshooting.md` (9788 byte da primo branch vs 3538 byte da secondo branch)
+
+## File presenti solo nel branch A e aggiunti
+- `ai/ANDROID_PROTOCOL.md`
+- `ai/archive/ARCHIVE_INDEX.md`
+- `ai/global/ALERT_REGISTRY.md`
+- `ai/global/DATA_REGISTRY.md`
+- `ai/global/HOST_PROFILE.md`
+- `ai/global/NETWORK_TOPOLOGY.md`
+- `ai/global/PROJECT_INDEX_EXTENDED.md`
+- `ai/global/SERVICE_REGISTRY.md`
+- `ai/global/SOFTWARE_INVENTORY.md`
+- `ai/global/STORAGE_TOPOLOGY.md`
+- `ai/projects/android-app-template.md`
+- `ai/projects/disk-usage-monitor.md`
+- `ai/projects/facedownassup-downloader.md`
+- `ai/projects/git-change-ledger.md`
+- `ai/projects/grindr-web-exporter.md`
+- `ai/projects/luoghi.md`
+- `ai/projects/mint-freeze-forensics.md`
+- `ai/projects/oracle-uptime-kuma.md`
+- `ai/projects/sostanze.md`
+- `ai/reports/prompt_391684_activitywatch_autostart.md`
+- `ai/reports/prompt_428691_kuma_docs_normalization.md`
+- `ai/reports/prompt_458217_kuma_hardening.md`
+- `ai/reports/prompt_482917_kuma_noise_reduction.md`
+- `ai/reports/prompt_483920_external_disk_io_diagnosis.md`
+- `ai/reports/prompt_486219_oracle_backup_fallback_quota.md`
+- `ai/reports/prompt_492837_backups_20260610T184700Z/changelog.md`
+- `ai/reports/prompt_492837_backups_20260610T184700Z/MANIFEST.txt`
+- `ai/reports/prompt_492837_backups_20260610T184700Z/oracle-backup-service.md`
+- `ai/reports/prompt_492837_oracle_backup_healthcheck_20260610.md`
+- `ai/reports/prompt_582941_activitywatch_reboot_after.md`
+- `ai/reports/prompt_582941_activitywatch_reboot_before.md`
+- `ai/reports/prompt_618903_mint_home_backup_rsync137.md`
+- `ai/reports/prompt_628451_home_backup_post_run_baseline.md`
+- `ai/reports/prompt_672184_kuma_oci_exec_fix.md`
+- `ai/reports/prompt_731845_kuma_operational_audit.md`
+- `ai/reports/prompt_739284_home_backup_bwlimit_followup.md`
+- `ai/reports/prompt_739482_xfce_window_tiling_backup_20260610T142633+0200.txt`
+- `ai/reports/prompt_739482_xfce_window_tiling_report_20260610.md`
+- `ai/reports/prompt_847261_oracle_backup_incident_registry.md`
+- `ai/reports/prompt_914672_home_backup_bwlimit_safety.md`
+- `ai/reports/prompt_914721_oracle_backup_space_recovery.md`
+- `ai/reports/prompt_918472_oracle_backup_fallback_cleanup.md`
+- `dev/ai/INCIDENT_REGISTRY.md`
+- `dev/ai/infrastructure/telegram_notify_audit.md`
+- `dev/ai/infrastructure/telegram_projects_chat_id.csv`
+- `dev/human/INCIDENT_REGISTRY.md`
+- `dev/human/infrastructure/telegram_notify_audit.md`
+- `human/archive/ARCHIVE_INDEX.md`
+- `human/global/ALERT_REGISTRY.md`
+- `human/global/DATA_REGISTRY.md`
+- `human/global/HOST_PROFILE.md`
+- `human/global/NETWORK_TOPOLOGY.md`
+- `human/global/PROJECT_INDEX_EXTENDED.md`
+- `human/global/SERVICE_REGISTRY.md`
+- `human/global/SOFTWARE_INVENTORY.md`
+- `human/global/STORAGE_TOPOLOGY.md`
+- `human/projects/android-app-template/changelog.md`
+- `human/projects/android-app-template/overview.md`
+- `human/projects/android-app-template/roadmap.md`
+- `human/projects/android-app-template/troubleshooting.md`
+- `human/projects/facedownassup-downloader/changelog.md`
+- `human/projects/facedownassup-downloader/overview.md`
+- `human/projects/facedownassup-downloader/roadmap.md`
+- `human/projects/facedownassup-downloader/troubleshooting.md`
+- `human/projects/git-change-ledger/changelog.md`
+- `human/projects/git-change-ledger/overview.md`
+- `human/projects/git-change-ledger/roadmap.md`
+- `human/projects/git-change-ledger/troubleshooting.md`
+- `human/projects/grindr-web-exporter/changelog.md`
+- `human/projects/grindr-web-exporter/overview.md`
+- `human/projects/grindr-web-exporter/troubleshooting.md`
+- `human/projects/luoghi/changelog.md`
+- `human/projects/luoghi/overview.md`
+- `human/projects/luoghi/roadmap.md`
+- `human/projects/luoghi/troubleshooting.md`
+- `human/projects/mint-freeze-forensics/changelog.md`
+- `human/projects/mint-freeze-forensics/features.md`
+- `human/projects/mint-freeze-forensics/overview.md`
+- `human/projects/mint-freeze-forensics/roadmap.md`
+- `human/projects/mint-freeze-forensics/troubleshooting.md`
+- `human/projects/oracle-uptime-kuma/changelog.md`
+- `human/projects/oracle-uptime-kuma/features.md`
+- `human/projects/oracle-uptime-kuma/overview.md`
+- `human/projects/oracle-uptime-kuma/roadmap.md`
+- `human/projects/oracle-uptime-kuma/troubleshooting.md`
+- `human/projects/soldi/roadmap.md`
+- `human/projects/soldi/troubleshooting.md`
+- `human/projects/sostanze/changelog.md`
+- `human/projects/sostanze/overview.md`
+- `human/projects/sostanze/roadmap.md`
+- `human/projects/sostanze/troubleshooting.md`
+- `human/system/external-disk-io-diagnosis-483920.md`
+- `human/system/home-backup-baseline-628451.md`
+- `human/system/home-backup-bwlimit-914672.md`
+- `human/system/uptime-kuma-482917.md`
+
+## File presenti solo nel branch B e mantenuti
+- `ai/projects/os-observer.md`
+- `ai/projects/system-watchdog.md`
+- `ai/projects/windows-flight-recorder.md`
+- `ai/projects/windows-winget-daily-update.md`
+- `ai/reports/pixel_buds_audio_windows11_20260628T005406Z.md`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/autostart-files-found.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/crontab-root.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/crontab-user.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/grep-candidates-targeted.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/manifest.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/moved-unit-files/home-daniele-config-systemd-user/codex-freeze-runner@.service`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/moved-unit-files/home-daniele-config-systemd-user/codex-freeze-runner@.service.moved-from-live`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/path-candidates.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/systemctl-system-list-timers.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/systemctl-system-list-unit-files.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/systemctl-system-list-units.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/systemctl-user-list-timers.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/systemctl-user-list-unit-files.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/systemctl-user-list-units.txt`
+- `ai/reports/prompt_584731_antifreeze_snapshot_20260605T074354+0200/unit-files-found.txt`
+- `human/projects/os-observer/changelog.md`
+- `human/projects/os-observer/features.md`
+- `human/projects/os-observer/overview.md`
+- `human/projects/os-observer/roadmap.md`
+- `human/projects/os-observer/troubleshooting.md`
+- `human/projects/system-watchdog/changelog.md`
+- `human/projects/system-watchdog/features.md`
+- `human/projects/system-watchdog/overview.md`
+- `human/projects/system-watchdog/roadmap.md`
+- `human/projects/system-watchdog/troubleshooting.md`
+- `human/projects/windows-flight-recorder/changelog.md`
+- `human/projects/windows-flight-recorder/features.md`
+- `human/projects/windows-flight-recorder/overview.md`
+- `human/projects/windows-flight-recorder/roadmap.md`
+- `human/projects/windows-flight-recorder/troubleshooting.md`
+- `human/projects/windows-winget-daily-update/changelog.md`
+- `human/projects/windows-winget-daily-update/features.md`
+- `human/projects/windows-winget-daily-update/overview.md`
+- `human/projects/windows-winget-daily-update/roadmap.md`
+- `human/projects/windows-winget-daily-update/troubleshooting.md`
+
+## Validazione
+- Tutti i path della union dei due branch sono stati valutati: SI.
+- Verifica dell'indice Git contro gli hash selezionati: PASS.
+- Il nuovo branch e stato creato da `codex/prompt-729604-supercontacts-capsule-audit`; la verifica finale con `git merge-base --is-ancestor` viene rieseguita prima del commit/push.
+
+## Anomalie
+- `Il campo commit hash finale non puo essere incorporato stabilmente nel report committato: inserirlo nel file cambierebbe il commit hash. Il valore esatto e riportato nell output finale del task.`
+
+## Comandi Git eseguiti o pianificati
+- `git clone https://github.com/gernalix/MegaVault.git C:\Users\seste\Documents\megavault_largest_files_20260705\MegaVault`
+- `git fetch origin codex/prompt-483920-thinkpad-windows11-host-profile:refs/remotes/origin/codex/prompt-483920-thinkpad-windows11-host-profile`
+- `git fetch origin codex/prompt-729604-supercontacts-capsule-audit:refs/remotes/origin/codex/prompt-729604-supercontacts-capsule-audit`
+- `git checkout -b codex/merge-largest-files origin/codex/prompt-729604-supercontacts-capsule-audit`
+- `git ls-tree -r -l -z origin/codex/prompt-483920-thinkpad-windows11-host-profile`
+- `git ls-tree -r -l -z origin/codex/prompt-729604-supercontacts-capsule-audit`
+- `git restore --source origin/codex/prompt-483920-thinkpad-windows11-host-profile --pathspec-from-file <temp-nul-pathspec> --pathspec-file-nul`
+- `git add -A`
+- `git status`
+- `git diff --stat`
+- `git diff --cached --stat`
+- `git merge-base --is-ancestor origin/codex/prompt-729604-supercontacts-capsule-audit HEAD`
+- `git commit -m "merge: select largest files across branches"`
+- `git push -u origin codex/merge-largest-files`
+
+## Commit hash finale
+- Non incorporabile stabilmente nello stesso file committato senza cambiare l'hash del commit. Il valore finale esatto e riportato nell'output conclusivo del task.

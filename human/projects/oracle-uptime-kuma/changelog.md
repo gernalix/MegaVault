@@ -1,0 +1,7 @@
+# Changelog
+
+- 2026-06-12 `#672184`: risolto `OCI runtime exec failed`/`runc exit status 255` per `docker exec uptime-kuma`. Causa reale: `/run` tmpfs saturo da journald volatile; applicato limite runtime journald, liberato `/run`, verificati `docker exec`, `ctr exec`, DB, proxy push, hardening pubblico e tunnel SSH.
+- 2026-06-12 `#458217`: hardening runtime Kuma. Admin UI rimossa dall'esposizione pubblica HTTP; accesso corretto via tunnel SSH a `127.0.0.1:3002`; Nginx mantiene su `150.230.148.128:3001` solo il proxy `/api/push/` per compatibilita' con i push esistenti. Backup completo in `/opt/uptime-kuma/backups/prompt-458217-20260612T191449Z`.
+- 2026-06-10 `#731845`: audit live read-only della VM Kuma e trasformazione docs in runbook operativo completo; inventariati runtime, monitor, notifiche, SQLite, backup, log, pusher locali e anti-drift; nessuna modifica runtime.
+- 2026-06-10 `#428691`: normalizzata documentazione Kuma esistente con procedure per backup, aggiunta/disattivazione monitor push, riduzione rumore, verifica push e registri globali; nessuna modifica runtime.
+- 2026-06-07 `#847261`: creato gruppo `Mint Freeze Analysis`, monitor push 13-17, backup DB e verifica HTTP 200 dai pusher Mint.

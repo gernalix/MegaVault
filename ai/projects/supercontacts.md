@@ -4,9 +4,9 @@ slug=supercontacts
 path=/home/daniele/codex-workspace/SuperContacts
 remote=https://github.com/gernalix/SuperContacts.git
 branch=codex/prompt-729604-capsule-audit
-verified_commit=working_tree_prompt_messaging_links_v27_ux
-verified_at=2026-06-02T14:28:28+02:00
-protocol=MEGAVAULT_PROTOCOL.md:v2
+verified_commit=b968d9d
+verified_at=2026-06-08T19:30:00+02:00
+protocol=MEGAVAULT_PROTOCOL.md:v3
 PURPOSE:
 purpose=Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-d
 STACK:
@@ -30,6 +30,8 @@ entry=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:SuperCo
 data=app/src/main/java/com/supercontacts/app/data/backup/BackupModels.kt:BackupState
 data=app/src/main/java/com/supercontacts/app/data/backup/BackupPreferencesStore.kt:BackupPreferencesStore,readFolderUri,writeFolderUri,clearFolderUri,readAutoExportEnabled,writeAutoExportEnabled
 data=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:PreparedImport,SuperContactsBackupManager,notifyDatabaseChanged,setBackupFolder,setAutoExportEnabled,exportNow
+data=app/src/main/java/com/supercontacts/app/data/storage/SafRootContract.kt:saf_root_contract_photos_plus_single_backup_only
+data=app/src/main/java/com/supercontacts/app/data/repository/ContactPhotoResolver.kt:shared_photo_resolver,canonical_photos_dir,duplicate_photos_merge,legacy_backup_file_resolution
 data=app/src/main/java/com/supercontacts/app/data/local/BackupMetadataEntity.kt:BackupMetadataEntity
 data=app/src/main/java/com/supercontacts/app/data/local/ContactEntity.kt:ContactEntity
 data=app/src/main/java/com/supercontacts/app/data/local/ContactEventEntity.kt:ContactEventEntity
@@ -48,7 +50,7 @@ arch=app/src/main/java/com/supercontacts/app/MainActivity.kt:MainActivity,onCrea
 data=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialV...
 ux=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialV...
 backup=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:193:backupManager = AppContainer.backupManager(context),
-migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/12.json:2:"formatVersion": 1,; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/12.json:4:"version": 12,
+migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/13.json:2:"formatVersion": 1,; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/13.json:4:"version": 13,
 version=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:199:val patchVersion by produceState(initialValue = "", context) {; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:200:value = loadPatchVersion(context)
 i18n=app/src/main/java/com/supercontacts/app/ui/app/BackupSettingsScreen.kt:191:text = stringResource(R.string.backup_last_error, lastError),; app/src/main/res/values-it/strings.xml:88:<string name="distance_geocoding_failed">Indirizzo non lo...
 security=app/src/main/AndroidManifest.xml:5:<uses-permission android:name="android.permission.INTERNET" />; app/src/main/AndroidManifest.xml:6:<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -66,7 +68,7 @@ backup=app/src/main/AndroidManifest.xml:10:android:allowBackup="false"; app/sche
 restore=app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager.kt:46:private const val ROLLBACK_DB_NAME = "super_contacts_pre_restore.sqlite"; app/src/main/java/com/supercontacts/app/data/backup/SuperContactsBackupManager...
 import=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:9:"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_...
 export=app/src/main/AndroidManifest.xml:21:android:exported="true"; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/10.json:8:"tableName": "backup_metadata",
-migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/12.json:8:"tableName": "contact_messaging_links",; app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/12.json:9:"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_...
+migration=app/schemas/com.supercontacts.app.data.local.SuperContactsDatabase/13.json:8:"tableName": "contact_messaging_links",; schema_v13_noop_migration_adds_address_2_as_contact_fields_field_type_not_new_table
 retention=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,; app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::de...
 DNB:
 dnb=app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
@@ -130,12 +132,12 @@ rule=future_audits_must_treat_100_percent_capsulization_as_minimum_baseline
 
 CAPSULE_OWNERS:
 owner=ContactHomeCapsule
-owns=home_search_query,active_tag_filters,home_sort,available_home_tags,contact_list,show_added_edited,saved_searches,home_filter_reset
+owns=home_search_query,active_tag_filters,home_sort,available_home_tags,contact_list,show_added_edited,saved_searches,home_filter_reset,home_bulk_selection,home_bulk_tag,home_bulk_archive
 api=ContactHomeOwner
 access=ContactsViewModel_facade_only
 
 owner=ContactDetailCapsule
-owns=selected_contact_detail,contact_stats,contact_crud,field_description_mutation,contact_open_events,field_open_events,photo_save_preview_cleanup,legacy_photo_migration
+owns=selected_contact_detail,contact_stats,contact_crud,field_description_mutation,contact_open_events,field_open_events,photo_save_preview_cleanup,legacy_photo_migration,phone_number_contact_lookup_for_call_overlay
 api=ContactDetailOwner
 access=ContactsViewModel_facade_only
 
@@ -150,7 +152,7 @@ api=ContactHistoryOwner
 access=ContactsViewModel_facade_only
 
 owner=ContactInitiativeCapsule
-owns=home_initiatives,contact_initiatives,global_initiatives,initiative_sort,initiative_calendar,initiative_day,initiative_record,initiative_undo
+owns=home_initiatives,contact_initiatives,global_initiatives,initiative_sort,initiative_calendar,initiative_day,initiative_record,initiative_undo,initiative_delete
 api=ContactInitiativeOwner
 access=ContactsViewModel_facade_only
 
@@ -216,8 +218,20 @@ age=field_type_age_source_birth_date_or_manual_age_timestamped
 saved_searches=stored_in_sqlite_deeplink_host_search_filters_query_and_tags; v25_home_shows_single_saved_searches_entry_not_inline_list; delete_requires_confirm_and_updates_flow
 home_sort=v25_any_criterion_or_ASC_DESC_change_requests_contacts_list_top_scroll; direction_indicator_single_toggle_only
 search_results=v25_name_match_highlighted_in_title_no_duplicate_Name_row_when_same_as_card_title
-backup=whole_sqlite_db_exported_to_saf_photos_only_allowed_external_data
+backup=whole_sqlite_db_exported_to_saf_root_contract_only_photos_dir_plus_super_contacts_backup_sqlite
+photo_storage=v29_saf_root_contract; photos_(N)_detected_transferred_to_photos_then_duplicate_dirs_deleted_only_after_safe_transfer; collisions_renamed_stably_without_photo_loss; Home+Detail_share_ContactPhotoStore_resolver_path
+tag_detail=v30_plus_opens_add_flow; chip_body_applies_home_global_tag_filter_and_never_removes; trailing_X_only_remove_action; detail_chip_text_28sp; add_remove_touch_contact_for_flow_refresh
+home_cards=v30_long_name_flag_in_left_column_and_initiative_buttons_fixed_right_no_overlap
 messaging_links=v27_local_only_generation_from_saved_phone_numbers; no_scraping_no_upload_no_registration_check; statuses=link_generated,unverified,manually_confirmed,manually_rejected,last_scan_at; trigger=ContactsRepository_create_update_phone_incremental; ui_unverified_only_cards; confirmed_quick_action_icon_only; rejected_hidden; manager_dialog_nonpersistent
+address_2=v28_simple_contact_field_type_address_2; complements_Address_like_nickname_style_free_text; stored_in_contact_fields; included_in_form_detail_search_history_backup_export_import_via_db_snapshot; not_geocoded_not_duplicate_address_matching
+history_timestamp=v28_dialog_uses_full_width_adaptive_dialog_compact_DatePicker_and_UTC_date_markers_for_Material3_selectedDateMillis
+android_back=v28_internal_screens_install_BackHandler_matching_internal_Back_or_Cancel
+archived_contacts=v31_archived_at_non_null_means_hidden_from_home_search_tag_filters_phone_lookup_duplicates_suggestions_and_home_tags; archive_always_adds_exact_tag_archivio; archive_event_type_CONTACT_ARCHIVE
+home_bulk=v31_home_supports_multi_select_select_all_deselect_all_bulk_add_tag_bulk_archive; bulk_archive_uses_confirmation_and_clears_home_visibility
+call_overlay=v33_CallStateReceiver_and_MainActivity_phone_state_listener_must_use_SYSTEM_ALERT_WINDOW_WindowManager_TYPE_APPLICATION_OVERLAY_not_Compose_in_app_banner; permission_Display_over_other_apps_required; overlay_persistent_until_X_or_call_idle; matching_number_opens_contact_via_public_deep_link; debug_receiver_only_for_adb_system_overlay_QA_and_disabled_outside_debug
+detail_read_empty_fields=v31_read_mode_completely_hides_blank_fields_without_empty_labels_separators_or_placeholder_rows
+initiative_delete=v31_contact_initiative_history_rows_have_delete_with_confirmation; delete_uses_existing_undo/delete_repository_path
+home_scroll_top=v31_scrolled_home_shows_up_button; button_scrolls_to_top_and_disappears_near_top; any_sort_direction_or_criterion_change_scrolls_contact_list_top
 
 CHANGELOG:
 2026-06-01_prompt_184926=v20; split ContactsViewModel feature state into explicit owner capsules; ContactsViewModel now facade/wiring; reading mode no longer exposes field description controls/values; added capsulization enforcement tests; bridge_residue=none_feature_bridge
@@ -229,13 +243,37 @@ CHANGELOG:
 2026-06-02_prompt_384729=v25; saved_searches_moved_to_home_entry_dialog_with_apply_copy_delete_confirm; repository_delete_saved_search_test; sort_change_scroll_top_for_criterion_and_direction; search_name_match_title_highlight_no_duplicate_name_row; single_ASC_DESC_toggle_indicator
 2026-06-02_prompt_620622=v26; messaging_links_auto_generated_for_international_phone_numbers; schema_v12_contact_messaging_links; platforms=whatsapp_telegram_signal_best_effort; no_registration_certification; manual_confirm_reject_preserved_on_identical_scan; ContactMessagingCapsule_owner; repository_incremental_trigger
 2026-06-02_prompt_messaging_links_v27_ux=v27; messaging_links_section_visible_only_for_unverified_decisions; manually_confirmed_moves_to_detail_quick_action_icon; manually_rejected_hidden; manage_messaging_links_dialog_nonpersistent; scanner_db_deeplinks_unchanged
+2026-06-06_prompt_739516=v28; schema_v13; address_2_simple_complement_field; whatsapp_telegram_signal_quick_actions_moved_from_top_bar_to_phone_row_with_recognizable_vector_icons; email_mailto_clickable_without_visibility_false_negative; history_timestamp_dialog_adaptive_and_UTC_date_marker_fixed; Android_Back_matches_internal_Back_on_internal_screens; contact_stats_removed_added_by; nationality_asset_expanded_to_all_249_ISO_alpha2_codes
+2026-06-08_prompt_739284=v29; SAF_ROOT_CONTRACT=root_contains_only_photos_dir_and_super_contacts_backup_sqlite; SafRootContract uses DocumentsContract to find existing documents before create; duplicate photos_(1..N) migrated into photos with stable conflict renames and empty duplicate dirs removed; backup export overwrites canonical sqlite without root tmp or numbered backup; Home+Detail share ContactPhotoStore_to_ContactPhotoResolver path; Pixel tests cover backup root contract and photo resolver
+2026-06-10_prompt_739614=v30; contact_detail_tags_plus_flow_refresh_fixed_by_touching_contact_on_tag_crossref_changes; tag_chip_body_filters_home_by_tag; trailing_X_only_removes; detail_chips_enlarged_28sp; home_long_name_flag_and_initiative_buttons_no_overlap; TCL_only_device_validation_after_user_instruction
+2026-06-21_prompt_918406_continues_742913=v31; schema_v14_contacts_archived_at; Home_bulk_select_all_tag_archive; archive_invariant_exact_tag_archivio_and_CONTACT_ARCHIVE_event; archived_contacts_excluded_from_home_search_tag_filter_phone_lookup_duplicates_suggestions_home_tags; persistent_call_overlay_best_effort_phone_state_plus_manual_Call_test; detail_read_mode_hides_empty_fields; initiative_delete_confirm; home_header_compact; scroll_top_button_and_sort_scroll_top; devices=TCL_6102H_and_Pixel_8a_emulator
+2026-06-22_prompt_604827=v33; real_call_overlay_fixed_from_in_app_Compose_banner_to_system_WindowManager_TYPE_APPLICATION_OVERLAY; SYSTEM_ALERT_WINDOW_permission_request_added; CallStateReceiver_and_foreground_phone_listener_show_system_overlay; overlay_X_dismisses; Open_contact_uses_public_deep_link; Pixel_8a_observed_overlay_over_Dialer_and_user_confirmed_self_call_real_overlay_works; emulator_package_manager_install_blocked
+
+SAF_ROOT_CONTRACT:
+root_allowed=photos/,super_contacts_backup.sqlite
+root_forbidden=photos_N,super_contacts_backup_N_sqlite,super_contacts_backup_sqlite_tmp,automatic_root_legacy_files
+rule=any_automatic_root_entry_outside_contract_is_bug
+owner=SafRootContract
+backup_export=overwrite_super_contacts_backup_sqlite_via_existing_document_no_root_tmp_no_numbered_copy
+photo_storage=single_canonical_photos_dir_migrates_photos_N_before_missing_photo
+photo_lookup=home_and_detail_share_ContactPhotoStore_to_ContactPhotoResolver_to_SafRootContract
+data_loss_policy=never_delete_photo; duplicate_dirs_deleted_only_when_empty_after_verified_transfer
+version=29
+prompt=739284
 
 VERIFICATION:
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:compileDebugKotlin
 result=PASS
+scope=prompt_739516_final
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:testDeviceTestUnitTest
-result=PASS
-cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:connectedDeviceTestAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.supercontacts.app.ContactsRepositoryMessagingLinkTest
 result=PASS
 cmd=./gradlew --console=plain --no-daemon --max-workers=2 :app:assembleDebug
 result=PASS
+apk=app/build/outputs/apk/debug/app-debug.apk
+device_tcl=ANDROID_SERIAL=192.168.1.200:34125; model=TCL_6102H; ro.serialno=QCGADUVOSSEYFES4
+manual_tcl=PASS_pre_final_reinstall:phone_row_shows_call_sms_whatsapp_telegram_signal; icons_recognizable; email_mailto_opened_Gmail_ComposeActivityGmailExternal_with_recipient_tcl.qa@example.com; address_2_saved_and_visible_as_Door_code_2468; stats_dialog_no_added_by; history_timestamp_dialog_showed_Jun_6_2026_not_day_before_and_not_right_clipped
+manual_tcl_blocker=after_final_DatePicker_compaction_patch_TCL_ADB_endpoint_192.168.1.200:34125_disconnected_and_IP_ping_failed; final_APK_built_but_reinstall/manual_rerun_blocked_until_TCL_returns_online; Android_Back_specific_manual_rerun_blocked_after_code_implementation
+prompt_918406_continues_742913=compileDebugKotlin_PASS; testDeviceTestUnitTest_PASS; assembleDebug_PASS; git_diff_check_PASS; manual_TCL_PASS_bulk_select_select_all_bulk_tag_bulk_archive_archivio_db_check_empty_fields_header_compact; manual_Pixel_8a_emulator_PASS_call_overlay_manual_path_open_contact_initiative_delete_confirm_scroll_top_button_sort_scroll_top; real_call_simulation_NOT_PERFORMED_ANDROID_LIMIT_background_call_state_number_delivery_device_dependent
+prompt_604827=v33; compileDebugKotlin_PASS; testDeviceTestUnitTest_PASS; assembleDebug_PASS; git_diff_check_PASS; Pixel_8a_physical_PASS_install_v33_overlay_permission_appops_allow_dialer_plus_system_overlay_screenshot_X_dismiss_Open_contact; user_real_self_call_PASS_overlay_appears_over_call_screen; emulator_FAIL_install_upgrade_hung_even_after_reboot_so_adb_emu_gsm_call_not_used
+root_cause_nationality_missing=countries-v1.csv_was_a_curated_partial_seed_asset_49_lines_not_full_ISO_catalog; autocomplete_only_loaded_that_asset_so_missing_nationalities_were_absent_by_data_coverage_not_UI_filtering
+root_cause_history_calendar=Material3_DatePicker_selectedDateMillis_is_a_UTC_day_marker_but_old_initialization_used_local_midnight_epoch; Europe_Copenhagen_positive_offset_mapped_local_midnight_to_previous_UTC_day; old_platform_default_width_dialog_also_clipped_DatePicker_on_TCL_width

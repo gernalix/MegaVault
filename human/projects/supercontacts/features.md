@@ -27,9 +27,18 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - `app/src/main/java/com/supercontacts/app/data/repository/ContactsRepository.kt`: DuplicateLinkValue, ContactsRepository, EventEntityType, EventActionType, listContacts, searchContacts, filterContacts, getContactsByTag
 
 ## Confini operativi
+- SAF root v29: la cartella scelta per backup/sync deve restare minimale e contenere solo `photos/` e `super_contacts_backup.sqlite`. Qualsiasi `photos (N)`, `super_contacts_backup (N).sqlite`, `.tmp` o altro artefatto automatico nella root e un bug da correggere.
+- Foto v29: Home e scheda contatto usano lo stesso percorso `ContactPhotoStore -> ContactPhotoResolver -> SafRootContract`; prima di dichiarare assente una foto, il resolver cerca anche nelle cartelle `photos (N)` e migra i file recuperabili in `photos/`.
+- Backup v29: l'autoexport sovrascrive il documento `super_contacts_backup.sqlite` esistente; non usa un file temporaneo nella root SAF e non crea copie numerate.
 - Home v25: `ContactHomeCapsule` possiede anche delete saved-search; `ContactsViewModel` resta facade; `SuperContactsApp` mostra solo entry `Saved searches` in Home e delega apply/copy/delete tramite callback.
 - Home v25: cambio criterio sort e toggle ASC/DESC richiedono scroll immediato in cima; la riga `Sorted by` non include la direzione, che resta nel solo toggle a destra.
 - Home v25: nei risultati ricerca, se il match Name coincide con il titolo card, il titolo viene evidenziato e la riga `Name: ...` non viene ripetuta; altri campi matchati diversi restano visibili.
+- Home v31: la lista contatti supporta selezione multipla, seleziona/deseleziona tutti, aggiunta tag in blocco e archiviazione in blocco con conferma. Ogni archiviazione deve aggiungere anche il tag esatto `archivio`.
+- Archivio v31: un contatto archiviato ha `contacts.archived_at` valorizzato, sparisce da Home/search/tag filter/lookup telefono/suggerimenti/duplicati e produce evento `CONTACT_ARCHIVE`.
+- Chiamate v31: l'app richiede `READ_PHONE_STATE` e `READ_CALL_LOG` dove disponibili e mostra un overlay persistente chiudibile con X; se il numero corrisponde a un contatto attivo, l'overlay offre `Open contact`. Il percorso `Call test` in Home serve per verifica manuale quando una chiamata reale non e simulabile.
+- Dettaglio v31: in modalita lettura i campi vuoti non mostrano label, separatori o spazi residui.
+- Iniziative v31: la history iniziative permette eliminazione con conferma distruttiva.
+- Scroll v31: il cambio ordinamento riporta la lista contatti in cima; quando la lista e scesa compare un pulsante su che torna alla cima e sparisce vicino al top.
 - app/src/main/java/com/supercontacts/app/MainActivity.kt:15:private var latestIntent by mutableStateOf<Intent?>(null)
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:439:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:487:onDeleteUnusedPhoto = viewModel::deleteUnusedContactPhoto,

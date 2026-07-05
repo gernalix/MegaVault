@@ -6,17 +6,32 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 - Verificato: 2026-06-03 01:37 CEST, prompt `#847392`.
 - Repository: `/home/daniele/codex-workspace/surface-recovery-hardening`
 - Commit verificato: `a7d791d`
-- Transfer attivo: `rsync-transfer.service` transient user unit, ripreso sullo stesso albero rsync dopo `SIGCONT`.
+- Transfer storico: workflow `rsync-transfer`; la unit systemd visibile oggi e `transfer-vecchio-disco-adaptive-throttle.service`.
 - Sorgente: `/dev/sdb2` aperta come `/dev/mapper/source_bitlocker`, montata read-only su `/media/daniele/Seagate Expansion Drive`.
 - Destinazione: `/dev/sdc1`, UUID `75e5363d-6736-4a7e-84be-5242f4735a27`, ext4 rw su `/media/daniele/Seagate6TB2`.
 - Destinazione dati: `/media/daniele/Seagate6TB2/vecchio disco`.
 
 ## Servizi
-- `rsync-transfer.service`: transient, avviato con `systemd-run --user`, non persistente per evitare duplicati.
+- Nessuna unit `rsync-transfer.service` installata: il nome era storico/logico e non va usato come systemd truth.
 - `transfer-usb-io-watchdog.service`: system-wide, enabled, monitora eventi USB/I/O storage del transfer e mette in pausa rsync solo su eventi critici rilevanti.
-- `rsync-uptime-kuma-push.service`: user, enabled, invia stato a Kuma usando match sul vero comando rsync e mantiene green durante scansione attiva anche se il log progress e temporaneamente fermo.
+- `rsync-uptime-kuma-push.service`: user, disabilitato in `#482917` perche non risultava un transfer live sicuro da monitorare; riabilitarlo solo insieme a un nuovo `rsync-transfer` verificato.
 - `transfer-vecchio-disco-adaptive-throttle.service`: user, enabled, mantiene profilo I/O conservativo.
 - `media-daniele-Seagate6TB2.automount`: system-wide, enabled, monta la destinazione per UUID.
+
+## Comando manuale
+- Comando globale: `rsync-transfer-start`
+- Script: `/home/daniele/.local/bin/rsync-transfer-start`
+- Servizio controllato: `transfer-vecchio-disco-adaptive-throttle.service`
+- Script reale copia: `/home/daniele/transfer_vecchio_disco_phase2_limited.sh`
+- Unit throttle: `/home/daniele/.config/systemd/user/transfer-vecchio-disco-adaptive-throttle.service`, ExecStart `/home/daniele/transfer_vecchio_disco_adaptive_throttle.sh`
+- Comando stato: `/home/daniele/.local/bin/rsync-transfer-status`
+- Stato dashboard: card `transfer-vecchio-disco-adaptive-throttle`, campo `systemd_unit=transfer-vecchio-disco-adaptive-throttle.service`, SERVICE STATUS separato da METRICS STATUS.
+- Test 2026-06-10: `rsync-transfer-start` mantiene la unit throttle active/running; `rsync-transfer-status` segnala `process=absent` e `metrics_status=stale/no live rsync process`; nessun rsync avviato; nessun enable automatico.
+- Log: `journalctl --user -u transfer-vecchio-disco-adaptive-throttle.service -f` e `tail -F /home/daniele/transfer_vecchio_disco_adaptive_throttle.log`
+
+## Kuma #482917
+- Monitor Kuma `rsync-transfer` disattivato come obsoleto/no live runner.
+- Non usare il rosso storico di Kuma come evidenza di transfer fallito; verificare sempre processi, mount e log live prima di riattivare il pusher.
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/surface-recovery-hardening.md)
