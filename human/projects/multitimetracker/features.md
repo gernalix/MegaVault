@@ -14,7 +14,11 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - `app/src/test/java/com/example/multitimetracker/capsules/CapsuleBoundaryOwnershipTest.kt`: source-level guard for TAGS, ALERTS, session owner, CHAINS, QUICK_EVENTS, CSV ImportExport, AUDIT_LOG and SINCE_WHEN ownership boundaries.
 - `app/src/test/java/com/example/multitimetracker/capsules/auditlog/AuditLogCapsuleViewModelTest.kt`: JVM guard for AUDIT_LOG category mapping, filters, undo flag and time-machine projection.
 - `app/src/test/java/com/example/multitimetracker/capsules/sincewhen/SinceWhenCapsuleViewModelTest.kt`: JVM guard for SINCE_WHEN LifePeriod mutation, write guard and tag filtering.
-- `app/src/main/java/com/example/multitimetracker/persistence/SqliteVault.kt`: stable vault export con nomi esatti per database primario, temporaneo ed emergency copy.
+- `app/src/main/java/com/example/multitimetracker/persistence/SqliteVault.kt`: stable vault export con nomi esatti per database primario, temporaneo ed emergency copy; v528 valida tmp/promoted DB con integrity/schema/conteggi critici e non promuove candidati con perdita N>0->0.
+- `app/src/main/java/com/example/multitimetracker/persistence/PersistentMutationTracker.kt`: coda autoexport single-flight con debounce 1200 ms, coalescing richieste ravvicinate e follow-up export per mutazioni arrivate durante export.
+- `app/src/main/java/com/example/multitimetracker/persistence/SyncStatusStore.kt`: stato sync persistito in UTC/Z (`last_database_mutation_at`, `last_successful_export_at`, `last_export_attempt_at`, status, errore, file SAF, integrity_check) per indicatore UI ✅/⟳/❌/⚠.
+- `app/src/main/java/com/example/multitimetracker/persistence/CriticalDataGuard.kt`: guardia conteggi critici per tasks, sessions, tags, tagParents, lifePeriods, quick events, chains e settings.
+- `app/src/main/java/com/example/multitimetracker/persistence/ForensicLog.kt`: log persistente JSONL per export/import/recovery/critical drop con timestamp UTC, file coinvolti, conteggi e stacktrace.
 - `app/src/main/java/com/example/multitimetracker/FirstRunRestoreContract.kt`: BackupFolderInspection, FolderChosenEmpty, ExistingDataFound, RestoreSucceeded, RestoreFailed, FallbackToContinuation, FirstRunContinuationMode, BackupFolderInspectionKind
 - `app/src/main/java/com/example/multitimetracker/MainViewModelSnapshotCoordinator.kt`: PreparedSnapshotRuntimeState, AppliedSnapshotState, MainViewModelSnapshotCoordinator, SnapshotLoadMode, InstallAtMsPolicy, reconcileSnapshotTagsForPersistence, unionTotalMs
 - `app/src/main/java/com/example/multitimetracker/capsules/importexport/ImportExportCapsuleViewModel.kt`: FinalizedImport, ImportExportCapsuleViewModel, ImportRollbackOutcome, createImportExportCapsule, showLongToast, setBackupRootFolder, inspectBackupFolder, exportBackup, exportCsv, importCsv
@@ -49,4 +53,25 @@ Questa pagina deriva dal codice attivo auditato con `#604927`.
 - app/src/main/AndroidManifest.xml:15:android:allowBackup="false"
 - app/src/main/AndroidManifest.xml:17:android:fullBackupContent="@xml/backup_rules"
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:39:import com.example.multitimetracker.export.BackupFolderStore
+- app/src/main/java/com/example/multitimetracker/MainActivity.kt: `onCreate` resta leggero; lo schema ensure v527 gira in IO tramite `ensureStartupSchemasForLaunch`.
+
+## Parita DB interno <-> SAF v530 (`#742913`)
+- Il file SAF stabile `multitimer.db` e' una copia SQLite validata del DB interno dopo checkpoint WAL; non e' un export parziale.
+- Tabelle utente analizzate e reimportabili: `snapshot`, `snapshot_history`, `snapshot_payloads`, `audit_events`, `ui_prefs_mirror`, `integrity_stats`, `sessions`, `session_tags`, `quick_event_templates`, `quick_event_template_tags`, `quick_event_entries`, `quick_event_entry_tags`, `quick_event_template_fields`, `quick_event_entry_field_values`, `quick_event_macros`, `quick_event_macro_tags`, `quick_event_macro_actions`.
+- Matrice copertura: sessioni -> `sessions`/`session_tags` e snapshot JSON `closedSessions`/`tagSessions`; eventi -> `quick_event_*` e snapshot JSON Quick Events; Since When/life periods -> snapshot JSON `lifePeriods`; tag -> snapshot JSON `tags` piu join tables; parent tag -> snapshot JSON `tagParents`; impostazioni -> `ui_prefs_mirror`; archivi/soft-delete -> `isArchived`/`isDeleted`/`deletedAtMs` e colonne `is_archived`/`deleted_at_ms`; capsule/state -> snapshot JSON runtime state, `audit_events`, `integrity_stats`, history tables.
+- Location/luoghi: nessuna entita location/geofence geografica e' presente nel modello attivo; `TimeFenceRule` e' temporale/tag-driven, non location-driven.
+- Timestamp: le colonne autorevoli restano epoch ms UTC per compatibilita runtime/import; il DB esportato contiene viste `export_*_utc_z` per ispezione UTC/Z di snapshot, history, audit, settings, integrity, sessions e Quick Events.
+- Test aggiunto: `PersistenceImportExportTest#sqliteVaultExportCoversAllInternalUserTablesAndImportsBackIdentically` crea fixture con sessioni, eventi, Since When, tag, parent tag, archivi/soft-delete, settings e capsule state; esporta SAF; confronta schema+righe di tutte le tabelle; cancella DB interno; importa dal SAF; ricontrolla snapshot, settings e tabelle.
+
+## Autoexport/restore SQLite SAF v531 (`#947381`)
+- Export obbligatorio: checkpoint WAL riuscito o abort; `integrity_check` del DB sorgente prima di toccare SAF; copia temporanea `multitimer.db.tmp`; validazione tmp; aggiornamento e validazione `multitimer.db.bak`; promozione primaria; `integrity_check` finale.
+- Restore automatico: prova `multitimer.db`, poi `multitimer.db.bak`; ogni candidato deve esistere, aprirsi come SQLite e passare `integrity_check`; `multitimer.db.tmp` e' solo file temporaneo e viene ignorato.
+- UI sync: top bar sempre visibile; ✅ solo se l'ultimo export riuscito copre l'ultima mutazione DB con tolleranza massima 3 secondi, ❌ per modifiche ancora non esportate, ⚠ per ultimo export fallito, ⟳ durante export.
+
+---
+
+## Merged GitHub Branch Details 20260705
+
+- `app/src/main/java/com/example/multitimetracker/persistence/SqliteVault.kt`: stable vault export con nomi esatti per database primario, temporaneo ed emergency copy.
+
 - app/src/main/java/com/example/multitimetracker/MainActivity.kt:71:// v67: Defensive hardening for session-only schema (some DBs may miss tables despite user_version).

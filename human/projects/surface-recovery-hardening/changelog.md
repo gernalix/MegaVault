@@ -1,6 +1,7 @@
 # surface-recovery-hardening Changelog
 
 ## Eventi MegaVault
+- 2026-06-06: `#482917` disabilita `rsync-uptime-kuma-push.service` e il monitor Kuma `rsync-transfer` per evitare falsi DOWN quando non esiste un transfer live verificato.
 - 2026-06-01: `#739482` ha migrato docs locali in `dev/legacy` e creato metadata/MegaVault.
 - 2026-06-01: `#842915` ha arricchito AI/Human docs da legacy e repo structure.
 - 2026-06-01T13:39:31+02:00: `#604927` ha auditato codice attivo, arricchito Human docs e compresso AI doc.

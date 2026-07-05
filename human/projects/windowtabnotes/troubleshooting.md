@@ -1,5 +1,48 @@
 # WindowTabNotes Troubleshooting
 
+## Browser bridge Chrome/Firefox
+- Installazione Chrome: `system/scripts/install.sh --extension-id <chrome_extension_id>`, poi ricaricare `browser-extension/` in `chrome://extensions`.
+- Installazione Firefox: `system/scripts/install-firefox.sh`, poi aprire `about:debugging#/runtime/this-firefox` e caricare `browser-extension-firefox/manifest.json`.
+- Installazione persistente Firefox Developer Edition: `system/scripts/install-firefox-developer-edition.sh`.
+- Verifica Chrome: `system/bin/windowtabnotes native-debug --extension-id <chrome_extension_id> --json`.
+- Verifica Firefox: `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json`.
+- Stato Firefox reale: `system/bin/windowtabnotes firefox-status --json`.
+- Smoke Firefox reale: `WTN_FIREFOX_TEST_SECONDS=75 system/scripts/test-firefox-extension.sh`.
+- Lo smoke Firefox usa Selenium/WebDriver con add-on temporaneo: installa `windowtabnotes@local`, apre tre tab reali con URL univoci, passa tra le tab, controlla native metrics, DB e overlay, salva tre testi tramite service worker Firefox -> Native Messaging -> SQLite, riavvia `windowtabnotes.service`, poi riapre Firefox e verifica persistenza + overlay su tre contesti.
+- E2E persistente Developer Edition: `WTN_FIREFOX_BINARY=/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes WTN_FIREFOX_PROFILE=/home/daniele/.config/windowtabnotes/firefox-developer-profile WTN_FIREFOX_ADDON_TEMPORARY=0 WTN_FIREFOX_TEST_SECONDS=120 system/scripts/test-firefox-extension.sh`.
+- Se `pipx` e disponibile, lo smoke usa `pipx run --spec selenium` e puo scaricare Selenium/driver alla prima esecuzione; altrimenti serve un Python con Selenium funzionante.
+- Stato globale: `system/bin/windowtabnotes-status --json` oppure `system/bin/windowtabnotes check --json`.
+
+## Servizio systemd --user
+- Unit file: `~/.config/systemd/user/windowtabnotes.service`.
+- ExecStart: `/home/daniele/codex-workspace/WindowTabNotes/system/bin/windowtabnotes daemon`.
+- WorkingDirectory: `/home/daniele/codex-workspace/WindowTabNotes`.
+- Stato: `systemctl --user status windowtabnotes.service --no-pager`.
+- Log: `journalctl --user -u windowtabnotes.service -n 80 --no-pager`.
+- Riavvio: `systemctl --user restart windowtabnotes.service`.
+- Persistenza: `systemctl --user is-enabled windowtabnotes.service` deve essere `enabled`; `loginctl show-user daniele -p Linger` deve essere `Linger=yes`.
+- Crash test #739284: SIGTERM su `MainPID` ha prodotto nuovo `MainPID` e `NRestarts=1` con stato `active`.
+- Nota: `system/bin/windowtabnotes check --json` puo riportare `window_sync: skipped: database is locked` durante attivita del daemon; se `database: ok` e `windowtabnotes-status --json` e ok, il DB non va resettato.
+
+## Se le note browser non compaiono
+- Controllare che `system/bin/windowtabnotes status --json` riporti DB ok, servizio attivo e `chrome_bridge`/`firefox_bridge` configurato secondo il browser usato.
+- Chrome: il manifest native deve esistere sotto `~/.config/google-chrome/NativeMessagingHosts/` o `~/.config/chromium/NativeMessagingHosts/` e contenere `allowed_origins`.
+- Firefox: il manifest native deve esistere in `~/.mozilla/native-messaging-hosts/com.windowtabnotes.host.json` e contenere `allowed_extensions: ["windowtabnotes@local"]`.
+- Firefox attuale su Mint usa profili sotto `~/.config/mozilla/firefox/`; `firefox-status --json` deve mostrare il profilo attivo e se `windowtabnotes@local` e caricato in `extensions.json`.
+- Se `firefox-status` mostra `extension_uuid_exists_but_addon_not_loaded` o `temporary_addon_path_seen_but_not_loaded`, il profilo conserva stato di un temporaneo precedente ma l'add-on non e caricato: ricaricare il manifest temporaneo da `browser-extension-firefox/manifest.json`.
+- Durante i test automatici e normale vedere `location: webdriver-temporary-runtime` o `web-ext-temporary-runtime`: indica che l'add-on unsigned e stato caricato temporaneamente per verifica reale.
+- Le tab Firefox usano `profileKey` `firefox:default` e id interni negativi nei report DB. E intenzionale: evita collisioni con Chrome e con vecchie righe che usavano id tab positivi piccoli.
+- `browser-extension-firefox/` deve essere self-contained. I symlink verso `browser-extension/` fanno fallire `web-ext lint`/packaging con file background/content/icon mancanti.
+- Se il popup dice host non pronto, rieseguire il comando `native-debug ... --fix`, ricaricare l'estensione nel browser e riprovare su una pagina `http`, `https` o `file`.
+- Firefox Snap/Flatpak puo non vedere il manifest o il binario host del filesystem host; usare Firefox non confinato o verificare i permessi del portale native messaging.
+- Firefox standard non installa permanentemente estensioni locali non firmate; per permanenza serve pacchetto firmato oppure Developer/Nightly/ESR con `xpinstall.signatures.required=false`. Su Firefox release, `firefox-status --json` puo quindi essere `ok=false` per `extension_not_loaded_in_active_profile` anche se i manifest native sono corretti e l'E2E temporaneo passa.
+- Stato persistente verificato: Firefox Developer Edition `Mozilla Firefox 152.0b10`, binario `/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes`, profilo `/home/daniele/.config/windowtabnotes/firefox-developer-profile`, add-on `/home/daniele/.config/windowtabnotes/firefox-developer-profile/extensions/windowtabnotes@local.xpi`, `xpinstall.signatures.required=false`.
+- Comandi verificati per separare i casi:
+  - `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json` deve essere `ok=true` per manifest/native host.
+  - `system/bin/windowtabnotes firefox-status --json` su profilo reale release puo restare `ok=false` finche l'add-on unsigned non e caricato temporaneamente.
+  - `WTN_FIREFOX_TEST_SECONDS=75 system/scripts/test-firefox-extension.sh` deve essere `ok=true` per il comportamento end-to-end temporaneo.
+  - `WTN_FIREFOX_BINARY=/home/daniele/.local/bin/firefox-developer-edition-windowtabnotes WTN_FIREFOX_PROFILE=/home/daniele/.config/windowtabnotes/firefox-developer-profile system/bin/windowtabnotes firefox-status --json` deve essere `ok=true` per il profilo Developer Edition persistente.
+
 ## Problemi e sintomi rilevati nel codice
 - system/windowtabnotes/cli.py:9:from .active_watch import active_note_for_current_context, active_window_watch_debug, sync_open_windows
 - system/windowtabnotes/cli.py:12:from .gtk_ui import dashboard_debug, open_dashboard, open_note_window, overlay_debug

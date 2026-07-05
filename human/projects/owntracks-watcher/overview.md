@@ -1,18 +1,22 @@
 # owntracks-watcher Overview
 
-UNKNOWN: source docs do not state a clear purpose.
+OwnTracks Android invia posizioni via HTTP a un ricevitore Flask sulla VM Oracle. Il percorso pubblico verificato e' Cloudflare Tunnel, non la porta Oracle diretta.
 
 ## Stato e codice
-- Repository: `/home/daniele/codex-workspace/owntracks-watcher`
-- Branch/commit verificati: `codex/prompt-384917` / `eaac5bc`
-- File codice/config/test/script analizzati: 1 su 1
-- Stack rilevato: UNKNOWN, UNKNOWN, UNKNOWN
+- Repository placeholder: `/home/daniele/codex-workspace/owntracks-watcher`
+- Runtime VM: `ubuntu@150.230.148.128:/home/ubuntu/bots/owntracks_http_server`
+- Branch/commit placeholder verificati: `codex/prompt-384917` / `eaac5bc`
+- Stack runtime: Python 3.10, Flask, systemd, Cloudflare Tunnel, SQLite WAL
 
-## Orientamento rapido
-- Entrypoint: `UNKNOWN`
-- Core/data: `dev/project.metadata.json`
-- Test: `UNKNOWN`
-- Script/build: `UNKNOWN`
+## Configurazione Android
+- Modalita': HTTP
+- URL: `https://owntracks.danielegalati.com/owntracks`
+- Username/password/token: vuoti/non richiesti
+- Tracker ID consigliato: `ta`
+- Device ID consigliato: `ta` o nome telefono; il server salva soprattutto `tid`
+- Monitoring: Significant Changes per uso normale; Move solo per test breve
+- Permessi: posizione sempre consentita, posizione precisa, background location, notifiche consentite
+- Batteria: disattivare ottimizzazione/restrizioni per OwnTracks
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/owntracks-watcher.md)

@@ -35,6 +35,7 @@ timer=mint-cloud-backup.timer daily randomized delay
 monitor=/usr/local/bin/mint-cloud-backup-monitor; long-running system service; writes health.json
 dashboard=/usr/local/bin/mint-cloud-backup-dashboard; localhost 127.0.0.1:8765; read-only status surface
 kuma_push=/usr/local/bin/mint-cloud-backup-kuma-push; oneshot timer; reads dashboard/status JSON; never starts backups
+kuma_push_482917=single-run flock lock; dashboard JSON must be object; empty/null message becomes explicit status_json_unexpected_shape; system timer every 2min; Kuma monitor id=3 interval=180 timeout=60 maxretries=2 tags=482917-reviewed,push-monitor
 lock_local=/run/lock/mint-cloud-backup.lock via flock
 lock_remote=restic repo locks; diagnostic only; unlock only after no live restic backup
 
@@ -55,6 +56,7 @@ security=env files must remain root-only mode 600
 data=state JSON/logs are diagnostic; backup data lives in remote restic repository
 ops=storage cap/auth/remote lock are not retry-by-reflex conditions
 ops=Kuma outage must not block/restart/duplicate backup
+ops=Kuma monitor id 3 is active; expected heartbeat is idle/running/degraded/critical from the dedicated pusher, not from the backup runner
 version=verified_commit 8f0fe06 includes #739284 hardening
 
 BUILD:
@@ -102,6 +104,10 @@ issue=#739284 cloud backup DOWN / KUMA cloud backup FAILED
 root_cause=false auth classification from restic JSONL current_files path containing authentication/authorization text; actual unread source was /home/daniele/.gvfs; remote stale restic lock remained after failed run
 fix=exclude /home/*/.gvfs; classify restic exit 3 with valid snapshot as DEGRADED; filter status/summary JSON before auth regex; count only restic backup / as active backup; robust Kuma env parsing and heartbeat messages
 status=post-fix backup restarted controlled; Kuma heartbeat running/up verified; no credentials changed
+issue=#482917 cloud backup Kuma flapping
+root_cause=push timer and monitor window were too tight for dashboard/status collection; overlapping oneshots and non-object dashboard JSON could emit blank/noisy messages
+fix=flock around pusher, object-only dashboard JSON, explicit fallback message, timer set to 2min, Kuma monitor interval 180s timeout 60s retries 2
+status=2026-06-06 active/up; dry-run shows backup=idle last_snapshot=cbba8d42 monitor=ok timer=active
 
 RISK:
 risk=restic unlock/prune/forget/check can damage or heavily mutate backup repo if run casually
@@ -111,7 +117,7 @@ risk=service active state can be activating/start for long oneshot backups
 risk=source virtual paths such as .gvfs can cause restic exit 3 even with snapshot created
 
 ROAD:
-now=registered in MegaVault after #739284
+now=registered in MegaVault after #739284; #482917 Kuma noise hardening active
 next=keep docs aligned when runtime scripts/systemd units change
 later=define reviewed retention/prune policy if operator requests it
 

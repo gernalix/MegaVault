@@ -44,7 +44,7 @@ systemctl --user enable --now mint-update-tracker.service mint-update-tracker.ti
 
 ## Mint Live State
 
-Verified on 2026-06-04:
+Verified on 2026-06-04, updated on 2026-06-06 for `#482917`:
 
 - DB existed and was not recreated: `/home/ubuntu/sync_root/db/software_audit.db`
 - DB files present: main DB, `software_audit.db-wal`, `software_audit.db-shm`
@@ -55,6 +55,8 @@ Verified on 2026-06-04:
 - Timer: `mint-update-tracker.timer`, enabled, active/waiting
 - User linger: `yes`
 - Uptime Kuma: last push HTTP `200`, `OK events=6441 inventory=2344`
+- Uptime Kuma hardening: monitor `software audit mint` interval `120s`, timeout `60s`, retries `2`; temporary SQLite busy/locked now sends UP `DB_BUSY retrying`.
+- User unit secret handling: Kuma URL moved to local `%h/.config/mint-update-tracker/kuma.env` mode `0600`; the tracked systemd unit only references `EnvironmentFile`.
 
 The reported missing DB was not actually absent during the 2026-06-04 recovery.
 The path was present on local ext4 storage under `/home/ubuntu/sync_root/db`.
@@ -122,5 +124,5 @@ Verified on 2026-06-02:
   bounded retry.
 - If logs were rotated, run `./mint_update_tracker.py backfill`; imports are
   idempotent.
-- If Kuma is red, check `state/kuma_push.json` and the user unit environment
-  `SOFTWARE_AUDIT_KUMA_PUSH_URL`.
+- If Kuma is red, check `state/kuma_push.json` and the local env file
+  `%h/.config/mint-update-tracker/kuma.env` without printing the token.

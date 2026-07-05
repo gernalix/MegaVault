@@ -1,15 +1,71 @@
 # Custom Services Status
 
+Aggiornamento operativo: 2026-06-07 07:40 CEST.
+
+Prompt: `#847261`.
+
+## Anti-Freeze Legacy Rimossi
+
+Eliminati da systemd/disko e rimossi dal routing MegaVault vivo:
+
+- `freeze-reboot-monitor.service`
+- `freeze-zram-swap.service`
+- `screen-watchdog.service`
+- `system-watchdog.service`
+- `/home/daniele/freeze_reboot_monitor`
+- `/home/daniele/codex-workspace/mint_freeze_diag`
+- `/home/daniele/codex-workspace/system_watchdog`
+- `/home/daniele/bin/kuma-auto-healer`
+- `/home/daniele/.config/kuma-auto-healer`
+- `/etc/sysctl.d/99-codex-mint-freeze.conf`
+- `/etc/sysctl.d/99-z-freeze-anti-freeze.conf`
+
+Verifica:
+
+```bash
+systemctl list-unit-files --no-pager | rg -i 'freeze-reboot|freeze-zram|screen-watchdog|system-watchdog'
+systemctl --user list-unit-files --no-pager | rg -i 'freeze|autofix|os-observer|system-watchdog|screen-watchdog'
+```
+
+Risultato 2026-06-07: nessuna unità legacy trovata.
+
+## Nuovi Servizi Osservativi
+
+| Nome | Scope | Stato atteso | Script | Note |
+|---|---|---|---|---|
+| `mint-freeze-forensics.service` | user | enabled/running | `~/.local/bin/mint-freeze-forensics daemon` | sampler 5s; no remediation |
+| `mint-resource-guardian.timer` | user | enabled/running | `mint-resource-guardian.service` | early warning; cooldown; no kill automatico |
+| `mint-resource-guardian.service` | user | oneshot | `mint-freeze-forensics guardian --once --non-interactive` | CLI manuale supporta prompt `[K] [I] [W] [D]` |
+
+## Servizi Lasciati Fuori Dalla Rimozione
+
+- `transfer-usb-io-watchdog.service`: non è anti-freeze generico; guardrail dati per transfer rsync.
+- `rsync-uptime-kuma-push.service`: pusher Kuma specifico transfer.
+- `home-backup-kuma-push*`, `mint-cloud-backup-kuma-push*`, `mint-update-tracker*`: monitor/pusher specifici, non remediation freeze.
+
+## Kuma
+
+- Kuma runtime: Oracle VM `150.230.148.128`, container `uptime-kuma`.
+- Nuovo gruppo: `Mint Freeze Analysis`, id `12`.
+- Monitor: `Freeze Gaps` id `13`, `PSI Memory` id `14`, `PSI IO` id `15`, `Guardian Alerts` id `16`, `Forensics Alive` id `17`.
+
+## Fonti
+
+- `systemctl list-unit-files`
+- `systemctl --user list-unit-files`
+- `systemctl --user status mint-freeze-forensics.service`
+- `ssh ubuntu@150.230.148.128 sudo sqlite3 /opt/uptime-kuma/data/kuma.db`
+
+---
+
+## Merged Detailed Snapshot From GitHub Branch 20260705
+
 ## Prompt #584731 Operative Update
 
 Aggiornamento: 2026-06-05 07:50 CEST.
 
 Anti-freeze/watchdog residui disattivati operativamente:
 
-- `system-watchdog.service`
-- `freeze-reboot-monitor.service`
-- `freeze-zram-swap.service`
-- `screen-watchdog.service`
 - `user:codex-freeze-runner@.service` rimosso dal path live e spostato nello snapshot del prompt.
 
 Servizi utili lasciati attivi:
@@ -97,13 +153,11 @@ Nota protocollo MegaVault: il report human è la fonte dello snapshot; AI doc ag
 ## Path Custom
 
 | Nome | Scope | Progetto associato | Stato | Servizio attivato |
-|---|---|---|---|---|
 | `mint-xfce-layout-guard.path` | user | dedotta/incerta | attivo | `mint-xfce-layout-guard.service` |
 
 ## Servizi esclusi perché appartenenti a software terzi
 
 | Nome | Scope | Stato rilevato | Percorso unit | Motivazione esclusione |
-|---|---|---|---|---|
 | `aw-watcher-media-player.service` | user | activating | `/home/daniele/.config/systemd/user/aw-watcher-media-player.service` | Servizio del software terzo ActivityWatch; unit user-local ma non creato per un progetto/automazione Codex/personale autonoma. |
 
 ## Unit Sospette O Da Verificare
@@ -115,18 +169,14 @@ Nota protocollo MegaVault: il report human è la fonte dello snapshot; AI doc ag
 
 ## Comandi Rapidi
 
-```bash
 sed -n "1,220p" /home/daniele/codex-workspace/MegaVault/human/system/custom-services-status.md
 systemctl --user status terminal-logger-maintenance.service --no-pager --lines=30
 systemctl --user list-units --all --no-pager --plain
 systemctl list-units --all --no-pager --plain
-```
 
 ## Fonti Lette
 
-- `systemctl --user list-unit-files`
 - `systemctl --user list-units --all`
-- `systemctl list-unit-files`
 - `systemctl list-units --all`
 - `find ~/.config/systemd/user /etc/systemd/system`
 - `systemctl show/cat sui candidati custom`

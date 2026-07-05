@@ -36,6 +36,33 @@
 - Fallback locale valido: `/var/lib/oracle_backup/emergency_repo`, 27 snapshot, circa 9.572 GiB raw-data. Non cancellare finche' il remoto e' degradato.
 - Pulizia `/` applicata senza toccare backup/DB: `apt-get clean`, `journalctl --vacuum-size=300M`, compressione `/var/log/syslog.1` in `/var/log/syslog.1.gz`; spazio passato da 6.6G liberi/86% a 7.5G liberi/84%.
 
+## Stato 2026-06-13
+- Prima del cleanup `#918472`: `/` era 98% con circa 1.2G liberi; `/var/lib/oracle_backup/emergency_repo` era 14G fisici, 82 snapshot locali, 13.337GiB raw-data.
+- Cleanup applicato solo al repo fallback locale: `restic -r /var/lib/oracle_backup/emergency_repo forget ...` seguito da `prune`; nessun repo remoto e' stato toccato.
+- Dopo il cleanup: `emergency_repo` e' 3.9G fisici, 11 snapshot locali, 3.805GiB raw-data; `/` e' 75% con circa 12G liberi.
+- Preflight quota finale `#918472`: `local_fallback_quota_status=OK`, dettaglio `repo 3.81 GiB < soft 4.00 GiB, hard 5.00 GiB; root free 11.30 GiB`. Valore operativo superato da `#847261`: hard quota 7G, soft 5.6G.
+- Stato healthcheck finale: WARNING/`REMOTE_DEGRADED`, non CRITICAL quota. OCI remoto resta `StorageLimitExceeded`, quindi il sistema resta degradato ma controllato.
+- Docker/Kuma non impattato: `sudo docker exec uptime-kuma true` passa.
+
+## Stato dopo `#847261`
+- Root cause remota: `oci:bucket-20260206-0730` resta CRITICAL a `22.262 GBytes` / `23903533548` bytes; `oraclevm/data` usa `22.222 GBytes`.
+- Repo remoto non affidabile: `oraclevm/index` ha 0 oggetti; `restic check --no-lock` riporta pack non referenziati e tree mancanti. Senza quota/headroom non si puo' rebuildare/prunare in modo standard; il reset distruttivo del prefisso remoto richiede decisione esplicita di perdita dati.
+- Fix locale applicato: preflight destinazioni prima degli snapshot SQLite; se OCI non e' scrivibile, fallback in streaming e niente snapshot on-disk trattenuti.
+- Parametri correnti: `LOCAL_FALLBACK_KEEP_LAST=11`, `LOCAL_FALLBACK_MAX_GB=7`, `SQLITE_SNAPSHOTS_RETENTION_COUNT=0`, `SQLITE_SNAPSHOTS_MIN_KEEP=0`.
+- Validazione: backup manuale rc=0 `REMOTE_DEGRADED`; healthcheck dry-run rc=0 WARNING; monitor dry-run rc=0 WARNING; quota fallback OK; nessuna unità `oracle-backup*` failed.
+- Incident DB: `/home/ubuntu/sync_root/db/incident_registry.sqlite`.
+
+Comandi utili:
+
+```bash
+sudo cat /var/lib/oracle_backup/local_fallback_quota_status
+sudo cat /var/lib/oracle_backup/local_fallback_quota_last_error
+sudo python3 -m json.tool /var/lib/oracle_backup/local_fallback_quota_state.json
+sudo ORACLE_BACKUP_HEALTHCHECK_DRY_RUN=1 /usr/local/bin/oracle-backup-healthcheck.sh
+sudo BACKUP_MONITOR_DRY_RUN=1 /opt/oracle_backup/check_backup_health.py
+sudo restic -r /var/lib/oracle_backup/emergency_repo snapshots --tag oracle-vm
+```
+
 ## Safety prima di correggere
 - scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
 - Non cancellare `/var/lib/oracle_backup/emergency_repo`, `/var/lib/oracle_backup/sqlite_snapshots`, DB SQLite, WAL/SHM o repo restic per liberare spazio senza snapshot/verifica e policy documentata.

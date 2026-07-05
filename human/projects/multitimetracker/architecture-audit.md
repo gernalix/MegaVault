@@ -1,5 +1,50 @@
 # MultiTimeTracker Architecture Audit
 
+## Prompt #947381
+- Scope: hardening definitivo autoexport/import SQLite SAF, copertura totale write path, sync status UI e coda anti-storm.
+- Found: la pipeline export aveva gia' tmp/bak/primario stabile, ma non aveva una coda single-flight globale per autoexport; una mutazione arrivata durante export poteva essere coperta da una richiesta successiva saltata dal throttle legacy.
+- Fixed: `PersistentMutationTracker` serializza gli autoexport, coalesca richieste ravvicinate con debounce 1200 ms, segna pending durante export e forza i follow-up finche' l'ultimo export riuscito copre l'ultima mutazione DB.
+- Fixed: `SyncStatusStore` registra mutazioni DB ed export in UTC/Z e non retriggera autoexport quando aggiorna metadati sync.
+- Fixed: `SqliteVault` richiede checkpoint WAL e `integrity_check` prima di modificare SAF, valida tmp/bak/primario finale e usa restore automatico da `.bak` quando il primario non e' valido.
+- Fixed: `MultiDbVaults` usa la stessa pipeline stabile tmp -> bak -> primario validato; percorsi alternativi non promuovono database senza `integrity_check`.
+- Guard: write path persistenti in SnapshotSqlite/SnapshotStore, SessionRepository, QuickEventRepository, AuditLogSqlite, UiPrefsStore e import/restore/clear DB marcano la mutazione e accodano autoexport; metadati sync esclusi per evitare loop.
+- Validation: `compileDebugKotlin`, `compileDebugAndroidTestKotlin`, `testDebugUnitTest`, hardcoded-string gate e `assembleDebug` PASS. TCL connectedDeviceTestAndroidTest mirato PASS 7/7 su `6102H - 12`; install/launch finale APK v531 PASS su TCL e Pixel 8a senza crash/ANR immediato.
+
+## Prompt #418762
+- Scope: P0 v528 app bloccata da `Save failed` / `Critical persistent data loss blocked: tasks: 1 -> 0`, piu verifica Parent Tag autoexport SAF.
+- Code commit: `90da4c72d0f224f74741ff28fd97d12a69a34169` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Found: il punto di throw era `CriticalDataGuard.requireNoCriticalDrop`; la call chain reale era UI capsule write -> `MainViewModel.persist` -> `MainViewModelSnapshotCoordinator.persistCurrentSnapshotOrThrow` -> `SnapshotStore.save` -> `CriticalDataGuard` -> restore last persisted snapshot/dialog.
+- Found: `tasks` e' campo legacy/compat derivato dalle sessioni in esecuzione; in uno snapshot runtime valido puo passare a 0 senza perdita persistente se le tabelle/sessioni autorevoli restano integre.
+- Found: il primario SAF `multitimer.db` poteva restare 0 byte mentre `multitimer.db.bak` conteneva il DB completo; quindi il test corretto per Parent Tag deve verificare il file SAF primario, non solo stato interno.
+- Fixed: runtime snapshot save e integrity gate usano `includeLegacyTasks=false`; import/replace DB completi mantengono `includeLegacyTasks=true` e bloccano veri `tasks` N>0->0.
+- Fixed: `ForensicLog` registra before/after counts e dettagli fase/includeLegacyTasks per i drop critici.
+- Fixed: export SAF stabile scrive tmp validato, `.bak` validata e primario validato tramite copia esplicita; non dipende piu da `DocumentFile.renameTo` per la promozione.
+- Fixed: export manuale e' spostato su `Dispatchers.IO` con guard anti doppio tap per evitare ANR durante copia/hash/ZIP.
+- Validation: build/unit/hardcoded-string gate PASS; targeted TCL deviceTest del vault stabile PASS; Pixel main v529 installato, UI create session/event/Since When/Parent Tag, manual export SAF, restart persistence e logcat finale PASS.
+
+## Prompt #739284
+- Scope: incidente P0 integrita dati Since When/Parent Tag, export/backup SAF e accumulo tmp/bak.
+- Code commit: `8061d232e4afbf0e80e2cebbbf76233f7fa2fa18` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Found: nessun Room/DAO/migration/fallbackToDestructiveMigration; la persistenza autorevole e' SQLite custom `SnapshotStore`/`SnapshotSqlite`.
+- Found: un DB importato valido ha passato integrity e conteggi con `lifePeriods=7` e `tagParents=6`, poi `activation-signature` runtime ha causato rollback automatico al backup pre-import vuoto.
+- Found: `SqliteVault.exportToUserFolderIfConfigured` ingoiava eccezioni; export/tmp/promozione non verificavano conteggi critici prima di sostituire lo stable SAF DB.
+- Fixed: `CriticalDataGuard` confronta conteggi critici da snapshot/DB/file e blocca drop N>0->0 prima di snapshot overwrite, import/restore promotion e export promotion.
+- Fixed: `ForensicLog` scrive JSONL interno e best-effort SAF per export/import/recovery/critical drop con timestamp UTC, file sorgente/destinazione, conteggi e stacktrace.
+- Fixed: import DB validato non viene piu rollbackato per fallimento runtime activation; il DB resta, il report indica attivazione runtime rinviata.
+- Fixed: restore interno confronta current->candidate prima del move, preserva settings mirror nei backup storici e lascia il DB corrente se il candidato causerebbe perdita.
+- Validation: `testDebugUnitTest` PASS; targeted `connectedDeviceTestAndroidTest` TCL su recovery/import/export PASS 26 test, 1 skip fixture, 0 failure; `assembleDebug` PASS.
+
+## Prompt #817463
+- Scope: audit performance/stabilita completo con policy test automatici solo su TCL.
+- Code commit: `2548034f6c4fc7e4950f45600b41101faae7d764` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.
+- Found: `MainActivity.onCreate` eseguiva ancora hardening schema SQLite; `MainViewModel.initialize` caricava integrity/snapshot sul percorso startup UI.
+- Fixed: onCreate resta sottile; schema ensure, integrity gate, snapshot load e vault auto-restore girano su `Dispatchers.IO`.
+- Fixed: `SnapshotSqlite.ensureStartupSchemas` usa cache per DB version e invalidazione su import/restore/vault switch/fresh clear.
+- Fixed: Events evita sort recent entries quando collassato e sort macro actions ripetuto; Since When evita map tag per card.
+- Evidence TCL: real DB v526 onCreate medio 79.25 ms, ensure schema medio 50.73 ms; v527 finale onCreate medio circa 30.8 ms, ensure schema steady circa 2.3 ms; `#294816` TCL sbloccato clone cold medio 669 ms e warm medio 10.2 ms.
+- Stability: log finali TCL senza `AndroidRuntime`, `FATAL EXCEPTION`, ANR, lmkd o `am_proc_died` app; clear-data/reinstall non crea dati utente (`sessions=0`, `session_tags=0`, `snapshot=0`).
+- UI validation: `#294816` completa su TCL sbloccato; tap sessione, long press edit, Active tags, Eventi, Timeline, Since When, Settings, scroll rapido e background/foreground PASS. Pixel solo install/smoke finale v527 PASS.
+
 ## Prompt #847261
 - Scope: capsule boundary audit and partial decomposition of legacy MainViewModel bridges.
 - Code commit: `6ddeebb` in `/home/daniele/codex-workspace/projects/MultiTimeTracker`.

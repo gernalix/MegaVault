@@ -1,5 +1,11 @@
 # SuperContacts Troubleshooting
 
+## SAF root contract
+- Stato atteso v29: nella root SAF devono esistere solo `photos/` e `super_contacts_backup.sqlite`.
+- Se compaiono `photos (1)`, `photos (2)`, `super_contacts_backup (1).sqlite` o `.tmp`, verificare `SafRootContract` e `SuperContactsBackupManager`: il codice deve cercare e riusare i documenti esistenti prima di creare.
+- Se una foto non compare in Home o nel dettaglio, controllare il valore DB `contact_fields.field_type='photo'`: il riferimento atteso e `photos/<file>.jpg`; il resolver deve cercare anche nelle cartelle legacy `photos (N)` e migrare il file in `photos/`.
+- Non cancellare manualmente foto dai duplicati prima della migrazione: le cartelle duplicate vanno eliminate solo quando risultano vuote dopo trasferimento verificato.
+
 ## Problemi e sintomi rilevati nel codice
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:180:import kotlinx.coroutines.withTimeoutOrNull
 - app/src/main/java/com/supercontacts/app/ui/app/SuperContactsApp.kt:348:viewModel.clearError()
