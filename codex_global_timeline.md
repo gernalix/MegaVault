@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-06T06:40:03+02:00
+Generated: 2026-07-06T07:28:32+02:00
 SQLite canonical source: `C:\Users\seste\Documents\megavault_content_aware_merge_20260705\codex_global_timeline.sqlite`
-Total events: 2719
+Total events: 2755
 
 ## Source Roots
 - `C:\Users\seste\Documents\megavault_content_aware_merge_20260705`
@@ -14,23 +14,25 @@ Total events: 2719
 - `C:\Users\seste\Documents\megavault_protocol_global_docs_20260705`
 - `C:\Users\seste\.codex\memories`
 - `C:\Users\seste\.codex\sessions`
+- `C:\Users\seste\Documents\Luoghi - App`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| multitimetracker | 628 |
+| multitimetracker | 629 |
 | mtt | 560 |
 | megavault | 471 |
 | megavault-surface | 131 |
-| supercontacts | 84 |
-| megavault-content-aware-merge-20260705 | 68 |
+| supercontacts | 87 |
+| megavault-content-aware-merge-20260705 | 71 |
 | megavault-protocol-global-docs-20260705 | 60 |
 | pixel-8a | 55 |
 | 2026 | 51 |
 | windows | 32 |
 | oracle-backup-service | 29 |
+| luoghi | 28 |
 | windows-winget-daily-update | 22 |
 | amici-fb | 18 |
 | aw-converter | 18 |
@@ -39,14 +41,15 @@ Total events: 2719
 | installa-app | 18 |
 | parcel-tracker | 18 |
 | remote-codex-phone | 18 |
+| soldi | 18 |
 | facebook-video-archiver | 17 |
 | linux-mint-service-dashboard | 17 |
 | mint-manual-updates | 17 |
 | oracle-uptime-kuma | 17 |
 | owntracks-watcher | 17 |
 | chatgpt-chrome-debug | 16 |
+| luoghi-app | 16 |
 | remote-opt-oracle-backup | 16 |
-| soldi | 16 |
 | windowtabnotes | 16 |
 | maintenance-486 | 15 |
 | android | 14 |
@@ -63,8 +66,6 @@ Total events: 2719
 | grindr-web-exporter | 10 |
 | mint-freeze-forensics | 10 |
 | git-change-ledger | 9 |
-| luoghi | 9 |
-| luoghi-app | 8 |
 | tasker-pixel-device-monitor | 8 |
 | facedownassup-downloader | 7 |
 | soldi-2 | 7 |
@@ -87,66 +88,71 @@ Total events: 2719
 
 | Value | Events |
 |---|---:|
-| docs | 728 |
+| docs | 730 |
 | testing | 679 |
-| security | 456 |
-| backup | 292 |
-| migration | 189 |
-| bugfix | 140 |
-| release | 118 |
+| security | 469 |
+| backup | 302 |
+| migration | 191 |
+| bugfix | 141 |
+| release | 125 |
 | automation | 54 |
-| infra | 45 |
+| infra | 46 |
 | performance | 18 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P2 | 1420 |
-| P1 | 744 |
-| P0 | 532 |
+| P2 | 1422 |
+| P1 | 769 |
+| P0 | 541 |
 | P3 | 23 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| PASS | 1829 |
-| UNKNOWN | 345 |
-| WARN | 215 |
-| FAIL | 168 |
-| OPEN | 162 |
+| PASS | 1840 |
+| UNKNOWN | 357 |
+| WARN | 222 |
+| FAIL | 172 |
+| OPEN | 164 |
 
 
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-06 | android-studio | Git PATH | backup | WARN | P1 | report | markdown | Android dev optimization follow-up: device policy, emulator-only test diagnosis, cleanup hardening, and report refresh |
+| 2026-07-06 | luoghi | Luoghi v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
+| 2026-07-06 | luoghi | Luoghi v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
+| 2026-07-06 | luoghi | Luoghi 1.apk | security | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
+| 2026-07-06 | luoghi | Luoghi 2 | release | UNKNOWN | P1 | release | json | 2 |
+| 2026-07-06 | luoghi | Luoghi 3 | release | UNKNOWN | P1 | release | json | 3 |
+| 2026-07-06 | luoghi | Luoghi errors 1783314374232 | backup | FAIL | P1 | backup | log | errors 1783314374232 |
+| 2026-07-06 | luoghi | Luoghi SAF | backup | UNKNOWN | P1 | backup | json | tcl saf after checkout luoghi manifest |
+| 2026-07-06 | luoghi | Luoghi SAF | backup | UNKNOWN | P1 | backup | json | luoghi manifest |
+| 2026-07-06 | luoghi | Luoghi v5 | security | UNKNOWN | P1 | doc_event | markdown | Luoghi Roadmap |
+| 2026-07-06 | luoghi | Luoghi version | release | UNKNOWN | P1 | release | txt | version |
 | 2026-07-06 | luoghi-app | Android Tests | security | WARN | P1 | report | markdown | Verified Google Cloud Maps API key/billing state in Chrome for My First Project |
+| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | PASS | P1 | release | markdown | Telegram APK send fix - Luoghi v5 |
+| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | WARN | P1 | release | markdown | Luoghi v5 check-in/out capsules full product |
+| 2026-07-06 | luoghi-app | luoghi-app 7.apk | release | WARN | P1 | release | markdown | Luoghi v7 persistent place/global statistics |
+| 2026-07-06 | luoghi-app | luoghi-app Document Luoghi GitHub | infra | PASS | P1 | git_commit | git_log | Document Luoghi GitHub remote |
+| 2026-07-06 | luoghi-app | luoghi-app errors 1783292128694 | backup | FAIL | P1 | backup | log | errors 1783292128694 |
+| 2026-07-06 | luoghi-app | luoghi-app errors 1783292129219 | backup | FAIL | P1 | backup | log | errors 1783292129219 |
+| 2026-07-06 | luoghi-app | luoghi-app errors 1783314372195 | backup | FAIL | P1 | backup | log | errors 1783314372195 |
 | 2026-07-06 | luoghi-app | Telegram APK | release | PASS | P1 | git_commit | git_log | Document Telegram APK send fix |
-| 2026-07-06 | luoghi-app | luoghi-app Expose Luoghi places | docs | PASS | P2 | git_commit | git_log | Expose Luoghi places provider contract for SuperContacts |
-| 2026-07-06 | luoghi-app | luoghi-app v5 | docs | PASS | P2 | git_commit | git_log | Luoghi v5 check-in-out product layer |
-| 2026-07-06 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
-| 2026-07-06 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
-| 2026-07-06 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
-| 2026-07-06 | megavault | Veeam T7 | security | WARN | P1 | report | markdown | Veeam T7 retention and space diagnosis - 2026-07-06 |
-| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MTT v536 fast path verification |
-| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MultiTimeTracker startup v536 |
-| 2026-07-06 | mtt | MTT Test startup fast | backup | PASS | P1 | git_commit | git_log | Test startup fast path snapshot convergence |
-| 2026-07-06 | mtt | MTT Speed up startup | docs | PASS | P2 | git_commit | git_log | Speed up startup home readiness |
-| 2026-07-06 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
-| 2026-07-06 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
-| 2026-07-06 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
-| 2026-07-06 | pixel | Git PATH | security | WARN | P1 | report | markdown | End-to-end validation of the Pixel Tasker monitor, with Tasker UI verification, repeated manual runs, automatic schedule proof, reboot persistence,... |
-| 2026-07-06 | pixel-8a | Git PATH | security | PASS | P1 | report | markdown | WhatsApp notification triage on a Pixel 8a found two separate root causes and fixed both without destructive actions |
-| 2026-07-06 | soldi-2 | soldi-2 Enable optimized release | release | PASS | P1 | git_commit | git_log | Enable optimized release builds |
-| 2026-07-06 | soldi-2 | soldi-2 Add receipt app | docs | PASS | P2 | git_commit | git_log | Add receipt app dependencies |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-06 | luoghi | Luoghi v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
+| 2026-07-06 | luoghi | Luoghi v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
 | 2026-07-06 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-06 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | Codex Timeline | migration | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 Aggiorna protocollo MegaVault | migration | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
+| 2026-07-06 | multitimetracker | MTT 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-06 | supercontacts | SC v34 | security | WARN | P0 | protocol_update | markdown | SuperContacts capsulization audit and local AI capsule bootstrap |
 | 2026-07-06 | unknown | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
@@ -205,6 +211,7 @@ Total events: 2719
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Overview | automation | OPEN | P0 | doc_event | markdown | linux-mint-service-dashboard Overview |
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Roadmap | security | FAIL | P0 | doc_event | markdown | linux-mint-service-dashboard Roadmap |
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting | security | FAIL | P0 | report | markdown | linux-mint-service-dashboard Troubleshooting |
+| 2026-07-05 | luoghi | Luoghi 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
 | 2026-07-05 | luoghi | Luoghi app-debug.apk | release | UNKNOWN | P0 | release | markdown | Luoghi |
 | 2026-07-05 | luoghi | Luoghi Luoghi Roadmap | backup | UNKNOWN | P0 | backup | markdown | Luoghi Roadmap |
 | 2026-07-05 | luoghi | Luoghi Luoghi Troubleshooting | release | UNKNOWN | P0 | release | markdown | Luoghi Troubleshooting |
@@ -232,6 +239,7 @@ Total events: 2719
 | 2026-07-05 | megavault-and-similar-megavault-global-doc-checkouts | megavault-and-similar-megavault-global-doc-checkouts aapt dump permissions | security | WARN | P0 | protocol_update | markdown | Task Group: MegaVault global-only documentation rules and project-local docs routing |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | WARN | P0 | protocol_update | markdown | Strano Anello Decommission Report |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | OPEN | P0 | protocol_update | markdown | MegaVault Post-Merge Quality Audit 2026-07-05 |
+| 2026-07-05 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v2 | security | WARN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | UNKNOWN | P0 | backup | markdown | Topologia storage globale |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
@@ -311,6 +319,7 @@ Total events: 2719
 | 2026-07-05 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Troubleshooting | security | FAIL | P0 | doc_event | markdown | remote_opt_oracle_backup Troubleshooting |
 | 2026-07-05 | remote-opt-oracle-backup | remote-opt-oracle-backup v2 | security | OPEN | P0 | protocol_update | markdown | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remot... |
 | 2026-07-05 | soldi | Android Tests | backup | PASS | P0 | backup | markdown | soldi |
+| 2026-07-05 | soldi | Soldi 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
 | 2026-07-05 | soldi | Soldi 2.apk | backup | UNKNOWN | P0 | release | markdown | Soldi |
 | 2026-07-05 | soldi | Soldi Soldi Roadmap | bugfix | UNKNOWN | P0 | doc_event | markdown | Soldi Roadmap |
 | 2026-07-05 | sostanze | Sostanze 4.apk | release | UNKNOWN | P0 | release | markdown | Sostanze |
@@ -370,6 +379,7 @@ Total events: 2719
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\android studio |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\parole create |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3533-8a0f-7c82-bb04-c4fe3d884dfc |
+| 2026-07-02 | luoghi | Luoghi v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\Luoghi - App |
 | 2026-07-02 | megavault | Android Tests | security | WARN | P0 | protocol_update | log | emulator Pixel 8a stdout 20260702 093426 |
 | 2026-07-02 | megavault | Android Tests | security | WARN | P0 | protocol_update | log | emulator Pixel 8a stdout 20260702 093807 |
 | 2026-07-02 | megavault | Android Tests | security | WARN | P0 | protocol_update | log | emulator Pixel 8a stdout 20260702 092212 |
@@ -679,17 +689,18 @@ Total events: 2719
 | 2025-11-24 | amici-fb | Amici FB v2 | security | WARN | P0 | protocol_update | markdown | Linux Mint user-level Facebook automation that opens Facebook with a browser profile, processes friends/URLs, and records local state in SQLite; tr... |
 
 ## Projects
-- `multitimetracker`: 628 events; latest=2026-07-06; label=MTT v4
+- `multitimetracker`: 629 events; latest=2026-07-06; label=MTT 7.apk
 - `mtt`: 560 events; latest=2026-07-06; label=MTT Test startup fast
 - `megavault`: 471 events; latest=2026-07-06; label=Codex Timeline
 - `megavault-surface`: 131 events; latest=2026-07-05; label=Git PATH
-- `supercontacts`: 84 events; latest=2026-07-06; label=SC v34
-- `megavault-content-aware-merge-20260705`: 68 events; latest=2026-07-06; label=megavault-content-aware-merge-20260705 v536
+- `supercontacts`: 87 events; latest=2026-07-06; label=SC v34
+- `megavault-content-aware-merge-20260705`: 71 events; latest=2026-07-06; label=Codex Timeline
 - `megavault-protocol-global-docs-20260705`: 60 events; latest=2026-07-05; label=megavault-protocol-global-docs-20260705 Codify project-local docs
 - `pixel-8a`: 55 events; latest=2026-07-06; label=Git PATH
 - `2026`: 51 events; latest=2026-07-03; label=2026 0mapp-debug.apk
 - `windows`: 32 events; latest=2026-07-06; label=Git PATH
 - `oracle-backup-service`: 29 events; latest=2026-07-06; label=Codex Timeline
+- `luoghi`: 28 events; latest=2026-07-06; label=Luoghi v11
 - `windows-winget-daily-update`: 22 events; latest=2026-07-05; label=Winget Windows Winget Daily
 - `amici-fb`: 18 events; latest=2026-07-05; label=Amici FB amici_fb Features
 - `aw-converter`: 18 events; latest=2026-07-05; label=aw-converter aw-converter Features
@@ -698,14 +709,15 @@ Total events: 2719
 - `installa-app`: 18 events; latest=2026-07-05; label=installa-app installa-app Features
 - `parcel-tracker`: 18 events; latest=2026-07-05; label=parcel-tracker parcel-tracker Features
 - `remote-codex-phone`: 18 events; latest=2026-07-05; label=Android Tests
+- `soldi`: 18 events; latest=2026-07-05; label=Android Tests
 - `facebook-video-archiver`: 17 events; latest=2026-07-05; label=facebook-video-archiver facebook-video-archiver Features
 - `linux-mint-service-dashboard`: 17 events; latest=2026-07-05; label=linux-mint-service-dashboard linux-mint-service-dashboard Features
 - `mint-manual-updates`: 17 events; latest=2026-07-05; label=mint-manual-updates mint-manual-updates Roadmap
 - `oracle-uptime-kuma`: 17 events; latest=2026-07-05; label=Kuma Features
 - `owntracks-watcher`: 17 events; latest=2026-07-05; label=Android Tests
 - `chatgpt-chrome-debug`: 16 events; latest=2026-07-05; label=chatgpt-chrome-debug chatgpt-chrome-debug Features
+- `luoghi-app`: 16 events; latest=2026-07-06; label=Android Tests
 - `remote-opt-oracle-backup`: 16 events; latest=2026-07-05; label=remote-opt-oracle-backup remote_opt_oracle_backup Features
-- `soldi`: 16 events; latest=2026-07-05; label=Android Tests
 - `windowtabnotes`: 16 events; latest=2026-07-05; label=windowtabnotes v20
 - `maintenance-486`: 15 events; latest=2026-07-05; label=maintenance-486 maintenance-486 Features
 - `android`: 14 events; latest=2026-07-05; label=android android Overview
@@ -722,8 +734,6 @@ Total events: 2719
 - `grindr-web-exporter`: 10 events; latest=2026-07-05; label=grindr-web-exporter Grindr Web Exporter
 - `mint-freeze-forensics`: 10 events; latest=2026-07-05; label=mint-freeze-forensics Features
 - `git-change-ledger`: 9 events; latest=2026-07-05; label=Git PATH
-- `luoghi`: 9 events; latest=2026-07-05; label=Luoghi app-debug.apk
-- `luoghi-app`: 8 events; latest=2026-07-06; label=Android Tests
 - `tasker-pixel-device-monitor`: 8 events; latest=2026-07-03; label=Git PATH
 - `facedownassup-downloader`: 7 events; latest=2026-07-05; label=facedownassup-downloader facedownassup-downloader
 - `soldi-2`: 7 events; latest=2026-07-06; label=soldi-2 Enable optimized release
@@ -746,18 +756,39 @@ Total events: 2719
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-06 | android-studio | Git PATH | backup | WARN | P1 | report | markdown | Android dev optimization follow-up: device policy, emulator-only test diagnosis, cleanup hardening, and report refresh |
+| 2026-07-06 | luoghi | Luoghi v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
+| 2026-07-06 | luoghi | Luoghi v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
+| 2026-07-06 | luoghi | Luoghi 1.apk | security | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
+| 2026-07-06 | luoghi | Luoghi 2 | release | UNKNOWN | P1 | release | json | 2 |
+| 2026-07-06 | luoghi | Luoghi 3 | release | UNKNOWN | P1 | release | json | 3 |
+| 2026-07-06 | luoghi | Luoghi errors 1783314374232 | backup | FAIL | P1 | backup | log | errors 1783314374232 |
+| 2026-07-06 | luoghi | Luoghi SAF | backup | UNKNOWN | P1 | backup | json | tcl saf after checkout luoghi manifest |
+| 2026-07-06 | luoghi | Luoghi SAF | backup | UNKNOWN | P1 | backup | json | luoghi manifest |
+| 2026-07-06 | luoghi | Luoghi v5 | security | UNKNOWN | P1 | doc_event | markdown | Luoghi Roadmap |
+| 2026-07-06 | luoghi | Luoghi version | release | UNKNOWN | P1 | release | txt | version |
 | 2026-07-06 | luoghi-app | Android Tests | security | WARN | P1 | report | markdown | Verified Google Cloud Maps API key/billing state in Chrome for My First Project |
+| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | PASS | P1 | release | markdown | Telegram APK send fix - Luoghi v5 |
+| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | WARN | P1 | release | markdown | Luoghi v5 check-in/out capsules full product |
+| 2026-07-06 | luoghi-app | luoghi-app 7.apk | release | WARN | P1 | release | markdown | Luoghi v7 persistent place/global statistics |
+| 2026-07-06 | luoghi-app | luoghi-app Document Luoghi GitHub | infra | PASS | P1 | git_commit | git_log | Document Luoghi GitHub remote |
+| 2026-07-06 | luoghi-app | luoghi-app errors 1783292128694 | backup | FAIL | P1 | backup | log | errors 1783292128694 |
+| 2026-07-06 | luoghi-app | luoghi-app errors 1783292129219 | backup | FAIL | P1 | backup | log | errors 1783292129219 |
+| 2026-07-06 | luoghi-app | luoghi-app errors 1783314372195 | backup | FAIL | P1 | backup | log | errors 1783314372195 |
 | 2026-07-06 | luoghi-app | Telegram APK | release | PASS | P1 | git_commit | git_log | Document Telegram APK send fix |
 | 2026-07-06 | luoghi-app | luoghi-app Expose Luoghi places | docs | PASS | P2 | git_commit | git_log | Expose Luoghi places provider contract for SuperContacts |
 | 2026-07-06 | luoghi-app | luoghi-app v5 | docs | PASS | P2 | git_commit | git_log | Luoghi v5 check-in-out product layer |
+| 2026-07-06 | luoghi-app | luoghi-app v7 | docs | PASS | P2 | git_commit | git_log | Luoghi v7 persistent stats |
 | 2026-07-06 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-06 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-07-06 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-06 | megavault | Veeam T7 | security | WARN | P1 | report | markdown | Veeam T7 retention and space diagnosis - 2026-07-06 |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | Codex Timeline | migration | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 Aggiorna protocollo MegaVault | migration | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MTT v536 fast path verification |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MultiTimeTracker startup v536 |
 | 2026-07-06 | mtt | MTT Test startup fast | backup | PASS | P1 | git_commit | git_log | Test startup fast path snapshot convergence |
 | 2026-07-06 | mtt | MTT Speed up startup | docs | PASS | P2 | git_commit | git_log | Speed up startup home readiness |
+| 2026-07-06 | multitimetracker | MTT 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
 | 2026-07-06 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
 | 2026-07-06 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
@@ -768,6 +799,9 @@ Total events: 2719
 | 2026-07-06 | soldi-2 | soldi-2 Add receipt device | docs | PASS | P2 | git_commit | git_log | Add receipt device verification |
 | 2026-07-06 | soldi-2 | soldi-2 Implement home receipt | docs | PASS | P2 | git_commit | git_log | Implement home and receipt OCR workflow |
 | 2026-07-06 | supercontacts | SC v34 | security | WARN | P0 | protocol_update | markdown | SuperContacts capsulization audit and local AI capsule bootstrap |
+| 2026-07-06 | supercontacts | SC v5 | security | PASS | P1 | doc_event | markdown | Luoghi Overview |
+| 2026-07-06 | supercontacts | SC v6 | security | OPEN | P1 | doc_event | markdown | Luoghi Provider API v6 |
+| 2026-07-06 | supercontacts | SC v7 | security | PASS | P1 | changelog | markdown | Luoghi Changelog |
 | 2026-07-06 | supercontacts | SC Address | docs | PASS | P2 | git_commit | git_log | Link contact addresses to Luoghi places |
 | 2026-07-06 | supercontacts | SC Commit remaining SuperContacts | docs | PASS | P2 | git_commit | git_log | Commit remaining SuperContacts local artifacts |
 | 2026-07-06 | unknown | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
@@ -853,9 +887,17 @@ Total events: 2719
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Roadmap | security | FAIL | P0 | doc_event | markdown | linux-mint-service-dashboard Roadmap |
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting | security | FAIL | P0 | report | markdown | linux-mint-service-dashboard Troubleshooting |
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Overview | migration | OPEN | P2 | migration | markdown | linux-mint-service-dashboard Overview |
+| 2026-07-05 | luoghi | Luoghi 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
 | 2026-07-05 | luoghi | Luoghi app-debug.apk | release | UNKNOWN | P0 | release | markdown | Luoghi |
 | 2026-07-05 | luoghi | Luoghi Luoghi Roadmap | backup | UNKNOWN | P0 | backup | markdown | Luoghi Roadmap |
 | 2026-07-05 | luoghi | Luoghi Luoghi Troubleshooting | release | UNKNOWN | P0 | release | markdown | Luoghi Troubleshooting |
+| 2026-07-05 | luoghi | Luoghi 1 | release | UNKNOWN | P1 | release | json | 1 |
+| 2026-07-05 | luoghi | Luoghi base.apk | security | PASS | P1 | release | txt | tcl logcat filtered |
+| 2026-07-05 | luoghi | Luoghi base.apk | security | PASS | P1 | release | txt | tcl v1 logcat final filtered |
+| 2026-07-05 | luoghi | Luoghi tcl luoghi manifest | backup | UNKNOWN | P1 | backup | json | tcl luoghi manifest |
+| 2026-07-05 | luoghi | Luoghi v1 | release | UNKNOWN | P1 | release | markdown | Luoghi Incident Registry |
+| 2026-07-05 | luoghi | Luoghi v1 | bugfix | PASS | P1 | doc_event | txt | tcl v1 logcat filtered |
+| 2026-07-05 | luoghi | Luoghi v3 | docs | UNKNOWN | P2 | report | markdown | Luoghi Links |
 | 2026-07-05 | luoghi-app | luoghi-app v3 | bugfix | PASS | P1 | git_commit | git_log | Luoghi v3 map consumer freeze fix |
 | 2026-07-05 | luoghi-app | luoghi-app v4 | bugfix | PASS | P1 | git_commit | git_log | Luoghi v4 autocomplete keyboard freeze fix |
 | 2026-07-05 | luoghi-app | luoghi-app Initial Luoghi app | docs | PASS | P2 | git_commit | git_log | Initial Luoghi app provider |
@@ -900,6 +942,7 @@ Total events: 2719
 | 2026-07-05 | megavault-and-similar-megavault-global-doc-checkouts | megavault-and-similar-megavault-global-doc-checkouts aapt dump permissions | security | WARN | P0 | protocol_update | markdown | Task Group: MegaVault global-only documentation rules and project-local docs routing |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | WARN | P0 | protocol_update | markdown | Strano Anello Decommission Report |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | OPEN | P0 | protocol_update | markdown | MegaVault Post-Merge Quality Audit 2026-07-05 |
+| 2026-07-05 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v2 | security | WARN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | UNKNOWN | P0 | backup | markdown | Topologia storage globale |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
@@ -1000,8 +1043,10 @@ Total events: 2719
 | 2026-07-05 | remote-opt-oracle-backup | remote-opt-oracle-backup v2 | security | OPEN | P0 | protocol_update | markdown | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remot... |
 | 2026-07-05 | sesso-app | sesso-app Create Sesso Android | docs | PASS | P2 | git_commit | git_log | Create Sesso Android app |
 | 2026-07-05 | soldi | Android Tests | backup | PASS | P0 | backup | markdown | soldi |
+| 2026-07-05 | soldi | Soldi 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
 | 2026-07-05 | soldi | Soldi 2.apk | backup | UNKNOWN | P0 | release | markdown | Soldi |
 | 2026-07-05 | soldi | Soldi Soldi Roadmap | bugfix | UNKNOWN | P0 | doc_event | markdown | Soldi Roadmap |
+| 2026-07-05 | soldi | Soldi 3.apk | backup | WARN | P1 | release | markdown | Luoghi v3 - mappa, consumer API e freeze autocomplete |
 | 2026-07-05 | sostanze | Sostanze 4.apk | release | UNKNOWN | P0 | release | markdown | Sostanze |
 | 2026-07-05 | sostanze | Sostanze app-debug.apk | security | WARN | P0 | release | markdown | Sostanze Troubleshooting |
 | 2026-07-05 | sostanze | Sostanze Sostanze Roadmap | migration | UNKNOWN | P0 | migration | markdown | Sostanze Roadmap |
@@ -1090,6 +1135,7 @@ Total events: 2719
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P1 | changelog | codex_log | 019f241d-e60f-7153-bb6c-16a0cd4455b0 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P1 | changelog | codex_log | 019f2178-8c27-7552-9cec-dc55ff9a6b78 |
 | 2026-07-02 | extensions | extensions Ad-hoc notes | performance | WARN | P2 | doc_event | markdown | Ad-hoc notes |
+| 2026-07-02 | luoghi | Luoghi v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\Luoghi - App |
 | 2026-07-02 | megavault | Android Tests | security | WARN | P0 | protocol_update | log | emulator Pixel 8a stdout 20260702 093426 |
 | 2026-07-02 | megavault | Android Tests | security | WARN | P0 | protocol_update | log | emulator Pixel 8a stdout 20260702 093807 |
 | 2026-07-02 | megavault | Android Tests | security | WARN | P0 | protocol_update | log | emulator Pixel 8a stdout 20260702 092212 |

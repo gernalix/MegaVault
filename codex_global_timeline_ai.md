@@ -1,20 +1,41 @@
 # Global Codex Timeline AI
-generated_at=2026-07-06T06:40:03+02:00
-total_events=2719
+generated_at=2026-07-06T07:28:32+02:00
+total_events=2755
 format=event_date|project|label_short|category|status|importance
 2026-07-06|android-studio|Git PATH|backup|WARN|P1
+2026-07-06|luoghi|Luoghi v11|release|UNKNOWN|P0
+2026-07-06|luoghi|Luoghi v5|backup|OPEN|P0
+2026-07-06|luoghi|Luoghi 1.apk|security|UNKNOWN|P1
+2026-07-06|luoghi|Luoghi 2|release|UNKNOWN|P1
+2026-07-06|luoghi|Luoghi 3|release|UNKNOWN|P1
+2026-07-06|luoghi|Luoghi errors 1783314374232|backup|FAIL|P1
+2026-07-06|luoghi|Luoghi SAF|backup|UNKNOWN|P1
+2026-07-06|luoghi|Luoghi SAF|backup|UNKNOWN|P1
+2026-07-06|luoghi|Luoghi v5|security|UNKNOWN|P1
+2026-07-06|luoghi|Luoghi version|release|UNKNOWN|P1
 2026-07-06|luoghi-app|Android Tests|security|WARN|P1
+2026-07-06|luoghi-app|luoghi-app 5.apk|security|PASS|P1
+2026-07-06|luoghi-app|luoghi-app 5.apk|security|WARN|P1
+2026-07-06|luoghi-app|luoghi-app 7.apk|release|WARN|P1
+2026-07-06|luoghi-app|luoghi-app Document Luoghi GitHub|infra|PASS|P1
+2026-07-06|luoghi-app|luoghi-app errors 1783292128694|backup|FAIL|P1
+2026-07-06|luoghi-app|luoghi-app errors 1783292129219|backup|FAIL|P1
+2026-07-06|luoghi-app|luoghi-app errors 1783314372195|backup|FAIL|P1
 2026-07-06|luoghi-app|Telegram APK|release|PASS|P1
 2026-07-06|luoghi-app|luoghi-app Expose Luoghi places|docs|PASS|P2
 2026-07-06|luoghi-app|luoghi-app v5|docs|PASS|P2
+2026-07-06|luoghi-app|luoghi-app v7|docs|PASS|P2
 2026-07-06|megavault|Codex Timeline|security|PASS|P0
 2026-07-06|megavault|MegaVault 1.apk|backup|PASS|P0
 2026-07-06|megavault|MegaVault Incident Registry|security|PASS|P1
 2026-07-06|megavault|Veeam T7|security|WARN|P1
+2026-07-06|megavault-content-aware-merge-20260705|Codex Timeline|migration|PASS|P0
+2026-07-06|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 Aggiorna protocollo MegaVault|migration|PASS|P0
 2026-07-06|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 v536|migration|PASS|P1
 2026-07-06|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 v536|migration|PASS|P1
 2026-07-06|mtt|MTT Test startup fast|backup|PASS|P1
 2026-07-06|mtt|MTT Speed up startup|docs|PASS|P2
+2026-07-06|multitimetracker|MTT 7.apk|security|WARN|P0
 2026-07-06|multitimetracker|MTT v4|security|PASS|P1
 2026-07-06|multitimetracker|MTT v4|security|PASS|P1
 2026-07-06|oracle-backup-service|Codex Timeline|security|FAIL|P0
@@ -25,6 +46,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-06|soldi-2|soldi-2 Add receipt device|docs|PASS|P2
 2026-07-06|soldi-2|soldi-2 Implement home receipt|docs|PASS|P2
 2026-07-06|supercontacts|SC v34|security|WARN|P0
+2026-07-06|supercontacts|SC v5|security|PASS|P1
+2026-07-06|supercontacts|SC v6|security|OPEN|P1
+2026-07-06|supercontacts|SC v7|security|PASS|P1
 2026-07-06|supercontacts|SC Address|docs|PASS|P2
 2026-07-06|supercontacts|SC Commit remaining SuperContacts|docs|PASS|P2
 2026-07-06|unknown|Codex Timeline|migration|UNKNOWN|P0
@@ -110,9 +134,17 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Roadmap|security|FAIL|P0
 2026-07-05|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting|security|FAIL|P0
 2026-07-05|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Overview|migration|OPEN|P2
+2026-07-05|luoghi|Luoghi 4.apk|backup|PASS|P0
 2026-07-05|luoghi|Luoghi app-debug.apk|release|UNKNOWN|P0
 2026-07-05|luoghi|Luoghi Luoghi Roadmap|backup|UNKNOWN|P0
 2026-07-05|luoghi|Luoghi Luoghi Troubleshooting|release|UNKNOWN|P0
+2026-07-05|luoghi|Luoghi 1|release|UNKNOWN|P1
+2026-07-05|luoghi|Luoghi base.apk|security|PASS|P1
+2026-07-05|luoghi|Luoghi base.apk|security|PASS|P1
+2026-07-05|luoghi|Luoghi tcl luoghi manifest|backup|UNKNOWN|P1
+2026-07-05|luoghi|Luoghi v1|release|UNKNOWN|P1
+2026-07-05|luoghi|Luoghi v1|bugfix|PASS|P1
+2026-07-05|luoghi|Luoghi v3|docs|UNKNOWN|P2
 2026-07-05|luoghi-app|luoghi-app v3|bugfix|PASS|P1
 2026-07-05|luoghi-app|luoghi-app v4|bugfix|PASS|P1
 2026-07-05|luoghi-app|luoghi-app Initial Luoghi app|docs|PASS|P2
@@ -157,6 +189,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|megavault-and-similar-megavault-global-doc-checkouts|megavault-and-similar-megavault-global-doc-checkouts aapt dump permissions|security|WARN|P0
 2026-07-05|megavault-content-aware-merge-20260705|Git PATH|security|WARN|P0
 2026-07-05|megavault-content-aware-merge-20260705|Git PATH|security|OPEN|P0
+2026-07-05|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 2.apk|security|WARN|P0
 2026-07-05|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 v2|security|WARN|P0
 2026-07-05|megavault-content-aware-merge-20260705|Veeam T7|backup|UNKNOWN|P0
 2026-07-05|megavault-content-aware-merge-20260705|Veeam T7|backup|OPEN|P0
@@ -257,8 +290,10 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|remote-opt-oracle-backup|remote-opt-oracle-backup v2|security|OPEN|P0
 2026-07-05|sesso-app|sesso-app Create Sesso Android|docs|PASS|P2
 2026-07-05|soldi|Android Tests|backup|PASS|P0
+2026-07-05|soldi|Soldi 1.apk|security|WARN|P0
 2026-07-05|soldi|Soldi 2.apk|backup|UNKNOWN|P0
 2026-07-05|soldi|Soldi Soldi Roadmap|bugfix|UNKNOWN|P0
+2026-07-05|soldi|Soldi 3.apk|backup|WARN|P1
 2026-07-05|sostanze|Sostanze 4.apk|release|UNKNOWN|P0
 2026-07-05|sostanze|Sostanze app-debug.apk|security|WARN|P0
 2026-07-05|sostanze|Sostanze Sostanze Roadmap|migration|UNKNOWN|P0
@@ -347,6 +382,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-02|2026|2026 v1|security|WARN|P1
 2026-07-02|2026|2026 v1|security|WARN|P1
 2026-07-02|extensions|extensions Ad-hoc notes|performance|WARN|P2
+2026-07-02|luoghi|Luoghi v1|security|WARN|P0
 2026-07-02|megavault|Android Tests|security|WARN|P0
 2026-07-02|megavault|Android Tests|security|WARN|P0
 2026-07-02|megavault|Android Tests|security|WARN|P0
