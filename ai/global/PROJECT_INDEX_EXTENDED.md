@@ -1,9 +1,15 @@
 # PROJECT_INDEX_EXTENDED
 VERSION=1
-STATUS=ACTIVE
+STATUS=ACTIVE_REFERENCE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=PROJECT_INDEX+PROJECT_INVENTORY+live_systemd+DATA_REGISTRY+ALERT_REGISTRY
+DOC_CLASS=index
+LIFECYCLE=REFERENCE
+AUTHORITY_LEVEL=L2
+SOURCE_OF_TRUTH=no
+ROLE=extended_cross_project_relation_reference
+CANONICAL_NAVIGATION=../PROJECT_INDEX.md
+SOURCE=PROJECT_INDEX+../archive/inventory/PROJECT_INVENTORY.md+live_systemd+DATA_REGISTRY+ALERT_REGISTRY
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/PROJECT_INDEX_EXTENDED.md
@@ -17,6 +23,7 @@ project_path_refresh=TODO_per_project_from_metadata_when_project_is_touched
 RULES:
 rule=PROJECT_INDEX.md remains canonical project list
 rule=this_file_maps_cross_project_infra_relations_only
+rule=this_file_must_not_override_PROJECT_INDEX_or_project_repo_docs
 rule=UNKNOWN_when_runtime_relation_not_verified
 rule=PROJECT_VIEW is inverse AI-first relation map
 

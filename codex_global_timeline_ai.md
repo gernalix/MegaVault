@@ -1,59 +1,181 @@
 # Global Codex Timeline AI
-generated_at=2026-07-06T07:28:32+02:00
-total_events=2755
+generated_at=2026-07-06T07:40:27+02:00
+total_events=2899
 format=event_date|project|label_short|category|status|importance
+2026-07-06|amici-fb|Amici FB amici_fb Features|security|UNKNOWN|P1
+2026-07-06|amici-fb|Amici FB amici_fb Roadmap|security|UNKNOWN|P1
+2026-07-06|amici-fb|Amici FB amici_fb Troubleshooting|backup|UNKNOWN|P1
+2026-07-06|android|android v0|bugfix|OPEN|P0
+2026-07-06|android|android android Overview|security|UNKNOWN|P1
+2026-07-06|android|android android Roadmap|automation|WARN|P1
+2026-07-06|android-app-template|android-app-template Android App Template|backup|UNKNOWN|P1
+2026-07-06|android-app-template|Android Tests|testing|UNKNOWN|P2
+2026-07-06|android-app-template|android-app-template Android App Template|bugfix|UNKNOWN|P2
 2026-07-06|android-studio|Git PATH|backup|WARN|P1
-2026-07-06|luoghi|Luoghi v11|release|UNKNOWN|P0
-2026-07-06|luoghi|Luoghi v5|backup|OPEN|P0
-2026-07-06|luoghi|Luoghi 1.apk|security|UNKNOWN|P1
-2026-07-06|luoghi|Luoghi 2|release|UNKNOWN|P1
-2026-07-06|luoghi|Luoghi 3|release|UNKNOWN|P1
-2026-07-06|luoghi|Luoghi errors 1783314374232|backup|FAIL|P1
-2026-07-06|luoghi|Luoghi SAF|backup|UNKNOWN|P1
-2026-07-06|luoghi|Luoghi SAF|backup|UNKNOWN|P1
-2026-07-06|luoghi|Luoghi v5|security|UNKNOWN|P1
-2026-07-06|luoghi|Luoghi version|release|UNKNOWN|P1
+2026-07-06|aw-converter|aw-converter aw-converter Features|release|OPEN|P1
+2026-07-06|aw-converter|aw-converter aw-converter Troubleshooting|release|OPEN|P1
+2026-07-06|aw-converter|aw-converter aw-converter Roadmap|testing|UNKNOWN|P2
+2026-07-06|aw-converter|aw-converter aw-converter Overview|testing|OPEN|P3
+2026-07-06|chatgpt-chrome-debug|chatgpt-chrome-debug chatgpt-chrome-debug Features|security|UNKNOWN|P1
+2026-07-06|chatgpt-chrome-debug|chatgpt-chrome-debug chatgpt-chrome-debug Overview|backup|OPEN|P1
+2026-07-06|chatgpt-chrome-debug|chatgpt-chrome-debug chatgpt-chrome-debug Roadmap|security|UNKNOWN|P1
+2026-07-06|chatgpt-chrome-debug|chatgpt-chrome-debug chatgpt-chrome-debug Troubleshooting|security|UNKNOWN|P1
+2026-07-06|codex-html-live|codex-html-live codex-html-live Features|release|UNKNOWN|P1
+2026-07-06|codex-html-live|codex-html-live codex-html-live Roadmap|infra|FAIL|P1
+2026-07-06|codex-html-live|codex-html-live codex-html-live Troubleshooting|release|FAIL|P1
+2026-07-06|codex-html-live|codex-html-live codex-html-live Overview|testing|OPEN|P3
+2026-07-06|codex-token-watcher|codex-token-watcher codex-token-watcher Overview|security|UNKNOWN|P1
+2026-07-06|codex-token-watcher|codex-token-watcher v3|security|UNKNOWN|P1
+2026-07-06|codex-wrapper|codex-wrapper codex-wrapper Features|release|OPEN|P1
+2026-07-06|codex-wrapper|codex-wrapper codex-wrapper Troubleshooting|release|OPEN|P1
+2026-07-06|codex-wrapper|codex-wrapper codex-wrapper Roadmap|testing|UNKNOWN|P2
+2026-07-06|codex-wrapper|codex-wrapper codex-wrapper Overview|testing|OPEN|P3
+2026-07-06|facebook-video-archiver|facebook-video-archiver facebook-video-archiver Features|security|FAIL|P1
+2026-07-06|facebook-video-archiver|facebook-video-archiver facebook-video-archiver Roadmap|security|FAIL|P1
+2026-07-06|facebook-video-archiver|facebook-video-archiver facebook-video-archiver Troubleshooting|security|FAIL|P1
+2026-07-06|facebook-video-archiver|facebook-video-archiver v4|testing|OPEN|P3
+2026-07-06|facedownassup-downloader|facedownassup-downloader facedownassup-downloader|security|OPEN|P1
+2026-07-06|facedownassup-downloader|facedownassup-downloader facedownassup-downloader Roadmap|testing|OPEN|P2
+2026-07-06|git-change-ledger|Git PATH|security|UNKNOWN|P1
+2026-07-06|git-change-ledger|Git PATH|security|UNKNOWN|P1
+2026-07-06|git-change-ledger|git-change-ledger git-change-ledger Troubleshooting|infra|UNKNOWN|P2
+2026-07-06|grindr-web-exporter|grindr-web-exporter Grindr Web Exporter|testing|UNKNOWN|P2
+2026-07-06|grindr-web-exporter|grindr-web-exporter Troubleshooting|infra|UNKNOWN|P2
+2026-07-06|installa-app|installa-app installa-app Features|release|OPEN|P1
+2026-07-06|installa-app|installa-app installa-app Troubleshooting|release|OPEN|P1
+2026-07-06|installa-app|installa-app installa-app Roadmap|testing|UNKNOWN|P2
+2026-07-06|installa-app|installa-app installa-app Overview|testing|OPEN|P3
+2026-07-06|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Features|security|FAIL|P1
+2026-07-06|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Roadmap|security|FAIL|P1
+2026-07-06|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting|security|FAIL|P1
+2026-07-06|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Overview|automation|OPEN|P2
+2026-07-06|luoghi|Luoghi app-debug.apk|release|UNKNOWN|P1
+2026-07-06|luoghi|Luoghi Luoghi Roadmap|backup|UNKNOWN|P1
+2026-07-06|luoghi|Luoghi Luoghi Troubleshooting|release|UNKNOWN|P1
 2026-07-06|luoghi-app|Android Tests|security|WARN|P1
-2026-07-06|luoghi-app|luoghi-app 5.apk|security|PASS|P1
-2026-07-06|luoghi-app|luoghi-app 5.apk|security|WARN|P1
-2026-07-06|luoghi-app|luoghi-app 7.apk|release|WARN|P1
 2026-07-06|luoghi-app|luoghi-app Document Luoghi GitHub|infra|PASS|P1
-2026-07-06|luoghi-app|luoghi-app errors 1783292128694|backup|FAIL|P1
-2026-07-06|luoghi-app|luoghi-app errors 1783292129219|backup|FAIL|P1
-2026-07-06|luoghi-app|luoghi-app errors 1783314372195|backup|FAIL|P1
 2026-07-06|luoghi-app|Telegram APK|release|PASS|P1
 2026-07-06|luoghi-app|luoghi-app Expose Luoghi places|docs|PASS|P2
 2026-07-06|luoghi-app|luoghi-app v5|docs|PASS|P2
 2026-07-06|luoghi-app|luoghi-app v7|docs|PASS|P2
+2026-07-06|maintenance-486|maintenance-486 maintenance-486 Features|release|OPEN|P1
+2026-07-06|maintenance-486|maintenance-486 maintenance-486 Roadmap|testing|UNKNOWN|P2
+2026-07-06|maintenance-486|maintenance-486 maintenance-486 Overview|testing|OPEN|P3
 2026-07-06|megavault|Codex Timeline|security|PASS|P0
+2026-07-06|megavault|Codex Timeline|infra|UNKNOWN|P0
 2026-07-06|megavault|MegaVault 1.apk|backup|PASS|P0
+2026-07-06|megavault|MegaVault ARCHIVE_INDEX|migration|UNKNOWN|P0
+2026-07-06|megavault|MegaVault PROJECTS_LEGACY|migration|UNKNOWN|P0
+2026-07-06|megavault|MegaVault v2|security|OPEN|P0
+2026-07-06|megavault|MegaVault v2|security|OPEN|P0
+2026-07-06|megavault|MegaVault v2|security|OPEN|P0
+2026-07-06|megavault|MegaVault v2|security|OPEN|P0
+2026-07-06|megavault|MegaVault v2|security|OPEN|P0
+2026-07-06|megavault|MegaVault v3|security|FAIL|P0
+2026-07-06|megavault|MegaVault v4|security|FAIL|P0
+2026-07-06|megavault|MegaVault v8|security|PASS|P0
 2026-07-06|megavault|MegaVault Incident Registry|security|PASS|P1
+2026-07-06|megavault|MegaVault v0|backup|UNKNOWN|P1
+2026-07-06|megavault|MegaVault XFCE window tiling|backup|UNKNOWN|P1
 2026-07-06|megavault|Veeam T7|security|WARN|P1
+2026-07-06|megavault|MegaVault Archive Index|docs|UNKNOWN|P3
 2026-07-06|megavault-content-aware-merge-20260705|Codex Timeline|migration|PASS|P0
 2026-07-06|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 Aggiorna protocollo MegaVault|migration|PASS|P0
+2026-07-06|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 v2|security|WARN|P0
+2026-07-06|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 v7|migration|PASS|P0
+2026-07-06|megavault-content-aware-merge-20260705|Veeam T7|backup|OPEN|P0
 2026-07-06|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 v536|migration|PASS|P1
 2026-07-06|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 v536|migration|PASS|P1
+2026-07-06|megavault-project-exporter|megavault-project-exporter v3|bugfix|UNKNOWN|P0
+2026-07-06|megavault-project-exporter|Git PATH|security|WARN|P1
+2026-07-06|megavault-project-exporter|Git PATH|backup|UNKNOWN|P1
+2026-07-06|megavault-project-exporter|Git PATH|backup|UNKNOWN|P1
+2026-07-06|mint-freeze-forensics|mint-freeze-forensics Features|backup|UNKNOWN|P1
+2026-07-06|mint-freeze-forensics|mint-freeze-forensics mint-freeze-forensics|backup|WARN|P1
+2026-07-06|mint-freeze-forensics|mint-freeze-forensics v1|backup|UNKNOWN|P1
+2026-07-06|mint-freeze-forensics|mint-freeze-forensics v1|bugfix|UNKNOWN|P2
+2026-07-06|mint-manual-updates|mint-manual-updates mint-manual-updates Roadmap|backup|UNKNOWN|P1
+2026-07-06|mint-manual-updates|mint-manual-updates mint-manual-updates Troubleshooting|backup|WARN|P1
+2026-07-06|mint-manual-updates|mint-manual-updates v9|backup|WARN|P1
+2026-07-06|mint-manual-updates|mint-manual-updates v9|backup|OPEN|P1
 2026-07-06|mtt|MTT Test startup fast|backup|PASS|P1
 2026-07-06|mtt|MTT Speed up startup|docs|PASS|P2
-2026-07-06|multitimetracker|MTT 7.apk|security|WARN|P0
+2026-07-06|multitimetracker|Android Tests|security|PASS|P0
+2026-07-06|multitimetracker|Android Tests|security|PASS|P0
+2026-07-06|multitimetracker|Android Tests|security|PASS|P0
+2026-07-06|multitimetracker|MTT v2|security|OPEN|P0
+2026-07-06|multitimetracker|MTT v4|security|PASS|P0
+2026-07-06|multitimetracker|MTT v4|security|WARN|P0
+2026-07-06|multitimetracker|MTT v531|backup|WARN|P0
+2026-07-06|multitimetracker|MTT ENRICHMENT_REPORT|security|PASS|P1
+2026-07-06|multitimetracker|MTT MegaVault Human Enrichment|security|PASS|P1
 2026-07-06|multitimetracker|MTT v4|security|PASS|P1
+2026-07-06|multitimetracker|MTT v4|security|WARN|P1
 2026-07-06|multitimetracker|MTT v4|security|PASS|P1
+2026-07-06|multitimetracker|MTT v488|security|WARN|P1
+2026-07-06|multitimetracker|MTT v488|security|WARN|P1
+2026-07-06|multitimetracker|MTT v534|backup|WARN|P1
 2026-07-06|oracle-backup-service|Codex Timeline|security|FAIL|P0
+2026-07-06|oracle-backup-service|Oracle Backup v2|security|OPEN|P0
+2026-07-06|oracle-backup-service|Oracle Backup oracle-backup-service Features|security|FAIL|P1
+2026-07-06|oracle-backup-service|Oracle Backup oracle-backup-service Roadmap|security|WARN|P1
+2026-07-06|oracle-uptime-kuma|Kuma v2|security|OPEN|P0
+2026-07-06|oracle-uptime-kuma|Kuma v2|security|FAIL|P0
+2026-07-06|oracle-uptime-kuma|Kuma v2|security|OPEN|P0
+2026-07-06|oracle-uptime-kuma|Kuma Features|backup|UNKNOWN|P1
+2026-07-06|os-observer|os-observer os-observer Features|backup|UNKNOWN|P1
+2026-07-06|os-observer|os-observer os-observer Overview|backup|OPEN|P1
+2026-07-06|os-observer|os-observer os-observer Roadmap|backup|WARN|P1
+2026-07-06|os-observer|os-observer os-observer Troubleshooting|backup|FAIL|P1
+2026-07-06|owntracks-watcher|Android Tests|security|FAIL|P1
+2026-07-06|owntracks-watcher|Android Tests|security|UNKNOWN|P1
+2026-07-06|owntracks-watcher|owntracks-watcher owntracks-watcher Features|release|OPEN|P1
+2026-07-06|owntracks-watcher|owntracks-watcher owntracks-watcher Roadmap|testing|UNKNOWN|P2
+2026-07-06|parcel-tracker|parcel-tracker parcel-tracker Features|backup|UNKNOWN|P1
+2026-07-06|parcel-tracker|parcel-tracker parcel-tracker Troubleshooting|release|FAIL|P1
+2026-07-06|parcel-tracker|parcel-tracker parcel-tracker Overview|automation|OPEN|P2
+2026-07-06|parcel-tracker|parcel-tracker parcel-tracker Roadmap|docs|FAIL|P2
 2026-07-06|pixel|Git PATH|security|WARN|P1
 2026-07-06|pixel-8a|Git PATH|security|PASS|P1
+2026-07-06|remote-codex-phone|remote-codex-phone remote-codex-phone Features|release|OPEN|P1
+2026-07-06|remote-codex-phone|remote-codex-phone remote-codex-phone Troubleshooting|release|OPEN|P1
+2026-07-06|remote-codex-phone|remote-codex-phone remote-codex-phone Roadmap|testing|UNKNOWN|P2
+2026-07-06|remote-codex-phone|Android Tests|testing|OPEN|P3
+2026-07-06|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Features|security|UNKNOWN|P1
+2026-07-06|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Overview|backup|OPEN|P1
+2026-07-06|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Roadmap|security|FAIL|P1
+2026-07-06|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Troubleshooting|security|FAIL|P1
+2026-07-06|soldi|Android Tests|backup|PASS|P1
+2026-07-06|soldi|Soldi 2.apk|backup|UNKNOWN|P1
+2026-07-06|soldi|Soldi Soldi Roadmap|bugfix|UNKNOWN|P2
 2026-07-06|soldi-2|soldi-2 Enable optimized release|release|PASS|P1
 2026-07-06|soldi-2|soldi-2 Add receipt app|docs|PASS|P2
 2026-07-06|soldi-2|soldi-2 Add receipt device|docs|PASS|P2
 2026-07-06|soldi-2|soldi-2 Implement home receipt|docs|PASS|P2
+2026-07-06|sostanze|Sostanze 4.apk|release|UNKNOWN|P1
+2026-07-06|sostanze|Sostanze app-debug.apk|security|WARN|P1
+2026-07-06|sostanze|Sostanze Sostanze Roadmap|migration|UNKNOWN|P2
+2026-07-06|supercontacts|SC app-debug.apk|security|PASS|P0
 2026-07-06|supercontacts|SC v34|security|WARN|P0
-2026-07-06|supercontacts|SC v5|security|PASS|P1
-2026-07-06|supercontacts|SC v6|security|OPEN|P1
-2026-07-06|supercontacts|SC v7|security|PASS|P1
+2026-07-06|supercontacts|SC SuperContacts Roadmap|backup|UNKNOWN|P1
+2026-07-06|supercontacts|SC v1|security|FAIL|P1
+2026-07-06|supercontacts|SC v23|backup|UNKNOWN|P1
+2026-07-06|supercontacts|SC v29|backup|FAIL|P1
+2026-07-06|supercontacts|SC v29|security|UNKNOWN|P1
 2026-07-06|supercontacts|SC Address|docs|PASS|P2
 2026-07-06|supercontacts|SC Commit remaining SuperContacts|docs|PASS|P2
+2026-07-06|surface-recovery-hardening|surface-recovery-hardening surface-recovery-hardening Features|backup|WARN|P1
+2026-07-06|surface-recovery-hardening|surface-recovery-hardening surface-recovery-hardening Roadmap|backup|UNKNOWN|P1
+2026-07-06|system-watchdog|system-watchdog system_watchdog Features|release|UNKNOWN|P1
+2026-07-06|system-watchdog|system-watchdog system_watchdog Roadmap|automation|FAIL|P1
+2026-07-06|system-watchdog|system-watchdog system_watchdog Troubleshooting|release|FAIL|P1
+2026-07-06|system-watchdog|system-watchdog system_watchdog Overview|automation|OPEN|P2
 2026-07-06|unknown|Codex Timeline|migration|UNKNOWN|P0
 2026-07-06|unknown|Codex Timeline|security|OPEN|P0
 2026-07-06|vm-oracle|Git PATH|security|WARN|P0
+2026-07-06|windows|Veeam T7|backup|FAIL|P0
+2026-07-06|windows|Veeam T7|security|FAIL|P0
+2026-07-06|windows|windows Windows 11 autonomous|security|FAIL|P0
 2026-07-06|windows|Git PATH|bugfix|PASS|P1
 2026-07-06|windows|Git PATH|security|PASS|P1
 2026-07-06|windows|Git PATH|backup|WARN|P1
@@ -64,6 +186,19 @@ format=event_date|project|label_short|category|status|importance
 2026-07-06|windows|Veeam T7|security|WARN|P1
 2026-07-06|windows|windows Diagnostic investigation of|backup|PASS|P1
 2026-07-06|windows|windows v1|backup|FAIL|P1
+2026-07-06|windows-flight-recorder|WFR Windows Flight Recorder|backup|UNKNOWN|P1
+2026-07-06|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
+2026-07-06|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
+2026-07-06|windows-flight-recorder|WFR v2|bugfix|UNKNOWN|P2
+2026-07-06|windows-flight-recorder|WFR Windows Flight Recorder|bugfix|UNKNOWN|P2
+2026-07-06|windows-winget-daily-update|Winget Windows Winget Daily|infra|UNKNOWN|P2
+2026-07-06|windows-winget-daily-update|Winget Windows Winget Daily|automation|UNKNOWN|P2
+2026-07-06|windows-winget-daily-update|Winget Windows Winget Daily|automation|UNKNOWN|P2
+2026-07-06|windows-winget-daily-update|Winget Windows Winget Daily|automation|UNKNOWN|P2
+2026-07-06|windowtabnotes|windowtabnotes v20|backup|UNKNOWN|P1
+2026-07-06|windowtabnotes|windowtabnotes v20|backup|FAIL|P1
+2026-07-06|windowtabnotes|windowtabnotes v23|release|WARN|P1
+2026-07-06|windowtabnotes|windowtabnotes WindowTabNotes Roadmap|backup|UNKNOWN|P1
 2026-07-05|amici-fb|Amici FB amici_fb Features|security|UNKNOWN|P0
 2026-07-05|amici-fb|Amici FB amici_fb Roadmap|security|UNKNOWN|P0
 2026-07-05|amici-fb|Amici FB amici_fb Troubleshooting|backup|UNKNOWN|P0
@@ -134,17 +269,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Roadmap|security|FAIL|P0
 2026-07-05|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting|security|FAIL|P0
 2026-07-05|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Overview|migration|OPEN|P2
-2026-07-05|luoghi|Luoghi 4.apk|backup|PASS|P0
 2026-07-05|luoghi|Luoghi app-debug.apk|release|UNKNOWN|P0
 2026-07-05|luoghi|Luoghi Luoghi Roadmap|backup|UNKNOWN|P0
 2026-07-05|luoghi|Luoghi Luoghi Troubleshooting|release|UNKNOWN|P0
-2026-07-05|luoghi|Luoghi 1|release|UNKNOWN|P1
-2026-07-05|luoghi|Luoghi base.apk|security|PASS|P1
-2026-07-05|luoghi|Luoghi base.apk|security|PASS|P1
-2026-07-05|luoghi|Luoghi tcl luoghi manifest|backup|UNKNOWN|P1
-2026-07-05|luoghi|Luoghi v1|release|UNKNOWN|P1
-2026-07-05|luoghi|Luoghi v1|bugfix|PASS|P1
-2026-07-05|luoghi|Luoghi v3|docs|UNKNOWN|P2
 2026-07-05|luoghi-app|luoghi-app v3|bugfix|PASS|P1
 2026-07-05|luoghi-app|luoghi-app v4|bugfix|PASS|P1
 2026-07-05|luoghi-app|luoghi-app Initial Luoghi app|docs|PASS|P2
@@ -189,7 +316,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|megavault-and-similar-megavault-global-doc-checkouts|megavault-and-similar-megavault-global-doc-checkouts aapt dump permissions|security|WARN|P0
 2026-07-05|megavault-content-aware-merge-20260705|Git PATH|security|WARN|P0
 2026-07-05|megavault-content-aware-merge-20260705|Git PATH|security|OPEN|P0
-2026-07-05|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 2.apk|security|WARN|P0
 2026-07-05|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 v2|security|WARN|P0
 2026-07-05|megavault-content-aware-merge-20260705|Veeam T7|backup|UNKNOWN|P0
 2026-07-05|megavault-content-aware-merge-20260705|Veeam T7|backup|OPEN|P0
@@ -290,10 +416,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|remote-opt-oracle-backup|remote-opt-oracle-backup v2|security|OPEN|P0
 2026-07-05|sesso-app|sesso-app Create Sesso Android|docs|PASS|P2
 2026-07-05|soldi|Android Tests|backup|PASS|P0
-2026-07-05|soldi|Soldi 1.apk|security|WARN|P0
 2026-07-05|soldi|Soldi 2.apk|backup|UNKNOWN|P0
 2026-07-05|soldi|Soldi Soldi Roadmap|bugfix|UNKNOWN|P0
-2026-07-05|soldi|Soldi 3.apk|backup|WARN|P1
 2026-07-05|sostanze|Sostanze 4.apk|release|UNKNOWN|P0
 2026-07-05|sostanze|Sostanze app-debug.apk|security|WARN|P0
 2026-07-05|sostanze|Sostanze Sostanze Roadmap|migration|UNKNOWN|P0
@@ -370,6 +494,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-03|tasker-pixel-device-monitor|Tasker Pixel|backup|PASS|P1
 2026-07-03|tasker-pixel-device-monitor|Tasker Pixel|automation|PASS|P1
 2026-07-02|2026|2026 nSoldi 4.apk|security|WARN|P0
+2026-07-02|2026|2026 v1|security|WARN|P0
 2026-07-02|2026|2026 v1|security|WARN|P0
 2026-07-02|2026|2026 v1|security|WARN|P0
 2026-07-02|2026|2026 v1|security|WARN|P0
@@ -630,6 +755,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-27|multitimetracker|MTT v4|security|PASS|P1
 2026-06-27|supercontacts|SC v34|security|PASS|P1
 2026-06-27|windows|windows aapt dump permissions|security|WARN|P0
+2026-06-27|windows|windows v3|backup|PASS|P0
 2026-06-27|windows|Git PATH|security|WARN|P1
 2026-06-27|windows-flight-recorder|WFR Windows 11 autonomous|security|FAIL|P0
 2026-06-27|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
@@ -655,6 +781,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-25|megavault|MegaVault Update amici_fb Windows|infra|PASS|P1
 2026-06-25|megavault-content-aware-merge-20260705|megavault-content-aware-merge-20260705 Update amici_fb Windows|migration|PASS|P1
 2026-06-25|megavault-protocol-global-docs-20260705|megavault-protocol-global-docs-20260705 Update amici_fb Windows|infra|PASS|P0
+2026-06-25|oracle-uptime-kuma|Kuma v3|security|FAIL|P0
 2026-06-23|2026|2026 v1|security|WARN|P0
 2026-06-23|2026|2026 v1|security|WARN|P0
 2026-06-23|2026|2026 v1|security|WARN|P0
@@ -845,6 +972,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-18|grindr-web-exporter|grindr-web-exporter Troubleshooting|migration|UNKNOWN|P2
 2026-06-18|megavault|MegaVault Document Soldi finance|migration|PASS|P1
 2026-06-18|megavault|MegaVault Register Grindr Web|migration|PASS|P1
+2026-06-18|megavault|MegaVault v1|security|PASS|P1
 2026-06-18|megavault|Android Tests|testing|PASS|P2
 2026-06-18|megavault|Android Tests|testing|PASS|P2
 2026-06-18|megavault-surface|megavault-surface Document Soldi finance|docs|PASS|P2
@@ -928,6 +1056,8 @@ format=event_date|project|label_short|category|status|importance
 2026-06-13|megavault|MegaVault protocol add android|migration|PASS|P0
 2026-06-13|megavault|MegaVault protocol split Android|release|PASS|P0
 2026-06-13|megavault|MegaVault protocol update android|migration|PASS|P0
+2026-06-13|megavault|MegaVault v0|security|WARN|P0
+2026-06-13|megavault|MegaVault v9|security|WARN|P0
 2026-06-13|megavault|Android Tests|backup|PASS|P1
 2026-06-13|megavault|Android Tests|backup|PASS|P1
 2026-06-13|megavault|Android Tests|backup|PASS|P1
@@ -1008,6 +1138,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-13|multitimetracker|MTT Audit Telegram MegaVault|security|FAIL|P0
 2026-06-13|multitimetracker|MTT v13|security|PASS|P0
 2026-06-13|multitimetracker|Android Tests|bugfix|PASS|P1
+2026-06-13|multitimetracker|MTT 4.apk|backup|WARN|P1
 2026-06-13|multitimetracker|MTT telegram projects chat|security|FAIL|P1
 2026-06-13|multitimetracker|MTT v488|backup|FAIL|P1
 2026-06-13|oracle-backup-service|Oracle Backup MegaVault Changelog|security|FAIL|P0
@@ -1018,10 +1149,13 @@ format=event_date|project|label_short|category|status|importance
 2026-06-13|oracle-backup-service|Oracle Backup oracle-backup-service Overview|backup|WARN|P0
 2026-06-13|oracle-backup-service|Oracle Backup oracle-backup-service Features|security|FAIL|P1
 2026-06-13|oracle-backup-service|Oracle Backup oracle-backup-service Roadmap|security|WARN|P1
+2026-06-13|oracle-uptime-kuma|Kuma v8|security|PASS|P0
 2026-06-13|owntracks-watcher|Android Tests|automation|FAIL|P0
 2026-06-13|owntracks-watcher|owntracks-watcher v9|security|WARN|P0
 2026-06-13|owntracks-watcher|Android Tests|security|FAIL|P1
 2026-06-13|owntracks-watcher|Android Tests|security|UNKNOWN|P1
+2026-06-13|soldi|Soldi app-debug.apk|security|WARN|P1
+2026-06-13|soldi|Soldi app-debug.apk|backup|WARN|P1
 2026-06-13|soldi|Android Tests|testing|PASS|P2
 2026-06-13|soldi|Android Tests|testing|PASS|P2
 2026-06-13|soldi|Android Tests|testing|PASS|P2
@@ -1090,6 +1224,8 @@ format=event_date|project|label_short|category|status|importance
 2026-06-10|linux-mint-service-dashboard|linux-mint-service-dashboard v2|security|FAIL|P0
 2026-06-10|megavault|MegaVault v2|backup|FAIL|P0
 2026-06-10|megavault|MegaVault v8|security|UNKNOWN|P0
+2026-06-10|megavault|MegaVault v8|security|WARN|P0
+2026-06-10|megavault|MegaVault v8|security|WARN|P0
 2026-06-10|megavault|MegaVault v8|security|FAIL|P0
 2026-06-10|megavault|MegaVault v9|migration|PASS|P0
 2026-06-10|megavault|Android Tests|backup|PASS|P1
@@ -1181,6 +1317,8 @@ format=event_date|project|label_short|category|status|importance
 2026-06-10|oracle-backup-service|Oracle Backup v2|security|WARN|P0
 2026-06-10|oracle-backup-service|Oracle Backup MegaVault files|backup|UNKNOWN|P1
 2026-06-10|oracle-uptime-kuma|Kuma Roadmap|performance|WARN|P0
+2026-06-10|oracle-uptime-kuma|Kuma v2|security|FAIL|P0
+2026-06-10|oracle-uptime-kuma|Kuma v2|security|PASS|P0
 2026-06-10|oracle-uptime-kuma|Kuma Features|backup|UNKNOWN|P1
 2026-06-10|supercontacts|SC app-debug.apk|security|PASS|P0
 2026-06-10|supercontacts|SC v2|release|WARN|P0
@@ -1269,6 +1407,8 @@ format=event_date|project|label_short|category|status|importance
 2026-06-07|megavault-surface|megavault-surface Document USB storage|docs|PASS|P2
 2026-06-07|megavault-surface|megavault-surface Tune Mint freeze|docs|PASS|P2
 2026-06-07|mint-freeze-forensics|mint-freeze-forensics v4|security|FAIL|P0
+2026-06-07|oracle-backup-service|Oracle Backup v8|security|WARN|P0
+2026-06-07|oracle-uptime-kuma|Kuma v4|security|FAIL|P0
 2026-06-07|oracle-uptime-kuma|Kuma v8|security|WARN|P0
 2026-06-06|megavault|MegaVault prompt_618903 mint-home-backup rsync_exit|security|WARN|P0
 2026-06-06|megavault|Android Tests|backup|PASS|P1
@@ -1297,6 +1437,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-06|mint-cloud-backup|mint-cloud-backup v2|security|WARN|P0
 2026-06-06|oracle-uptime-kuma|Kuma Uptime Kuma cleanup|security|WARN|P0
 2026-06-06|oracle-uptime-kuma|Kuma v2|security|FAIL|P0
+2026-06-06|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-06-06|supercontacts|SC Implement 739516 contact|bugfix|PASS|P1
 2026-06-06|surface-recovery-hardening|surface-recovery-hardening surface-recovery-hardening Changelog|backup|PASS|P0
 2026-06-05|android|android android Features|automation|OPEN|P0
@@ -1312,6 +1453,8 @@ format=event_date|project|label_short|category|status|importance
 2026-06-05|megavault|Android Tests|security|PASS|P0
 2026-06-05|megavault|Git PATH|backup|PASS|P0
 2026-06-05|megavault|MegaVault Custom Services Status|security|PASS|P0
+2026-06-05|megavault|MegaVault v3|security|FAIL|P0
+2026-06-05|megavault|MegaVault v3|backup|WARN|P0
 2026-06-05|megavault|Android Tests|backup|PASS|P1
 2026-06-05|megavault|Android Tests|automation|PASS|P1
 2026-06-05|megavault|Android Tests|backup|PASS|P1
@@ -1410,6 +1553,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-03|surface-recovery-hardening|surface-recovery-hardening surface-recovery-hardening Roadmap|backup|UNKNOWN|P1
 2026-06-02|codex-token-watcher|codex-token-watcher v3|security|FAIL|P1
 2026-06-02|codex-token-watcher|codex-token-watcher v3|security|UNKNOWN|P1
+2026-06-02|megavault|MegaVault v2|security|FAIL|P0
 2026-06-02|megavault|Android Tests|backup|PASS|P1
 2026-06-02|megavault|MegaVault Clarify SuperContacts capsulization|migration|PASS|P1
 2026-06-02|megavault|MegaVault Improve messaging links|migration|PASS|P1

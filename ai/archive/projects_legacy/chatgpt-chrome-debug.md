@@ -73,7 +73,7 @@ BUG:
 issue=dev/project.metadata.json:2:"project_name": "chatgpt-chrome-debug",
 issue=dev/project.metadata.json:3:"project_slug": "chatgpt-chrome-debug",
 issue=dev/project.metadata.json:4:"project_root": "/home/daniele/codex-workspace/chatgpt-chrome-debug",
-issue=dev/project.metadata.json:6:"ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/projects/chatgpt-chrome-debug.md",
+issue=dev/project.metadata.json:6:"ai_doc": "/home/daniele/codex-workspace/MegaVault/ai/archive/projects_legacy/chatgpt-chrome-debug.md",
 issue=dev/project.metadata.json:7:"human_doc": "/home/daniele/codex-workspace/MegaVault/human/projects/chatgpt-chrome-debug",
 RISK:
 risk=scripts/snapshot_environment.sh:117:((((.value.granted_permissions.api // []) + (.value.manifest.permissions // [])) | tostring) | test("tabs|webRequest|webNavigation|scripting|storage|cookies"))

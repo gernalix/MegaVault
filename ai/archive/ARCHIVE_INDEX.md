@@ -1,5 +1,24 @@
 # ARCHIVE_INDEX
 
-status=active
-entries=none_currently_verified
-note=created 2026-06-13 because MEGAVAULT_PROTOCOL VERSION=9 requires archive discovery before new project registration
+DOC_CLASS=index
+LIFECYCLE=ACTIVE
+AUTHORITY_LEVEL=L6
+SOURCE_OF_TRUTH=yes_for_archive_navigation
+STATUS=ACTIVE
+FORMAT=ultracompressed
+PURPOSE=archive_navigation_preserve_not_operational
+RULE=archive_files_are_not_active_sources_of_truth
+READ_DEFAULT=no
+USE=audit,migration,historical_context_when_relevant
+PROJECTS_LEGACY=projects_legacy/README.md
+REPORTS=reports/
+SOURCES=sources/
+INVENTORY=inventory/
+ENTRY=projects_legacy/*;DOC_CLASS=legacy;LIFECYCLE=ARCHIVE;SOURCE_OF_TRUTH=no
+ENTRY=reports/CODE_AUDIT_COMPRESSION_REPORT.md;DOC_CLASS=report;LIFECYCLE=HISTORICAL;SOURCE_OF_TRUTH=no
+ENTRY=reports/ENRICHMENT_REPORT.md;DOC_CLASS=report;LIFECYCLE=HISTORICAL;SOURCE_OF_TRUTH=no
+ENTRY=reports/MIGRATION_REPORT.md;DOC_CLASS=report;LIFECYCLE=HISTORICAL;SOURCE_OF_TRUTH=no
+ENTRY=reports/PROTOCOL_V2_NORMALIZATION_REPORT.md;DOC_CLASS=report;LIFECYCLE=HISTORICAL;SOURCE_OF_TRUTH=no
+ENTRY=inventory/PROJECT_INVENTORY.md;DOC_CLASS=inventory;LIFECYCLE=HISTORICAL;SOURCE_OF_TRUTH=no
+ENTRY=sources/*.json;DOC_CLASS=archive;LIFECYCLE=ARCHIVE;SOURCE_OF_TRUTH=no
+NOTE=created_2026-06-13;updated_2026-07-06_for_global_AI_hierarchy_cleanup

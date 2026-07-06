@@ -128,8 +128,8 @@ features=../../human/projects/megavault-project-exporter/features.md
 roadmap=../../human/projects/megavault-project-exporter/roadmap.md
 troubleshooting=../../human/projects/megavault-project-exporter/troubleshooting.md
 repo=../../../megavault-project-exporter
-index=../PROJECT_INDEX.md
-inventory=../PROJECT_INVENTORY.md
+index=../../PROJECT_INDEX.md
+inventory=../inventory/PROJECT_INVENTORY.md
 
 OPEN:
 open=remote VM verification requires configured MINT_HOST and SSH desktop session

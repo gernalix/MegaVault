@@ -1,8 +1,17 @@
 # PROJECT_INDEX
-
-Updated: 2026-07-05T00:00:00+02:00
-
-Host note: current primary host is Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 AMD; project rows may still describe legacy Linux Mint or remote VM runtime and must not override `ai/global/HOST_PROFILE.md`.
+DOC_CLASS=index
+LIFECYCLE=ACTIVE
+AUTHORITY_LEVEL=L2
+SOURCE_OF_TRUTH=yes_for_navigation_only
+STATUS=CANONICAL_PROJECT_NAVIGATION
+FORMAT=markdown_table
+UPDATED=2026-07-06T00:00:00+02:00
+PROTOCOL=MEGAVAULT_PROTOCOL.md
+HOST_PROFILE=global/HOST_PROFILE.md
+EXTENDED_REFERENCE=global/PROJECT_INDEX_EXTENDED.md
+RULE=global_pointer_map_only;project_specific_docs_live_in_owner_repo_docs
+HOST_NOTE=current_primary_host=Windows_11_Pro Lenovo_ThinkPad_P14s_Gen_5_AMD
+ROW_NOTE=legacy_Linux_Mint_or_remote_VM_runtime_rows_do_not_override_HOST_PROFILE
 
 | name | slug | purpose | AI docs target | Human docs target | metadata | repo |
 |---|---|---|---|---|---|---|

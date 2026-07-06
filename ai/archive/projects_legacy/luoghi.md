@@ -103,8 +103,8 @@ later=add domain screens,validation,backup/export if needed
 LINK:
 repo=/home/daniele/AndroidStudioProjects/Luoghi
 metadata=/home/daniele/AndroidStudioProjects/Luoghi/dev/project.metadata.json
-template_ai=/home/daniele/codex-workspace/MegaVault/ai/projects/android-app-template.md
-soldi_ai=/home/daniele/codex-workspace/MegaVault/ai/projects/soldi.md
+template_ai=/home/daniele/codex-workspace/MegaVault/ai/archive/projects_legacy/android-app-template.md
+soldi_ai=/home/daniele/codex-workspace/MegaVault/ai/archive/projects_legacy/soldi.md
 human_overview=/home/daniele/codex-workspace/MegaVault/human/projects/luoghi/overview.md
 human_roadmap=/home/daniele/codex-workspace/MegaVault/human/projects/luoghi/roadmap.md
 human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/luoghi/changelog.md

@@ -3,6 +3,10 @@ STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompact
 AUTHORITY=global_incident_registry
+DOC_CLASS=registry
+LIFECYCLE=ACTIVE
+AUTHORITY_LEVEL=L2
+SOURCE_OF_TRUTH=yes
 
 META:
 scope=all MegaVault projects

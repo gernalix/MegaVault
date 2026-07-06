@@ -1,73 +1,73 @@
 # Global Codex Timeline
 
-Generated: 2026-07-06T07:28:32+02:00
-SQLite canonical source: `C:\Users\seste\Documents\megavault_content_aware_merge_20260705\codex_global_timeline.sqlite`
-Total events: 2755
+Generated: 2026-07-06T07:40:27+02:00
+SQLite canonical source: `C:\Users\seste\Documents\megavault_global_docs_hierarchy_cleanup\codex_global_timeline.sqlite`
+Total events: 2899
 
 ## Source Roots
-- `C:\Users\seste\Documents\megavault_content_aware_merge_20260705`
+- `C:\Users\seste\Documents\megavault_global_docs_hierarchy_cleanup`
 - `C:\Users\seste\Documents\MegaVault`
 - `C:\Users\seste\Documents\Megavault 2`
+- `C:\Users\seste\Documents\megavault_content_aware_merge_20260705`
 - `C:\Users\seste\Documents\MegaVault-surface`
 - `C:\Users\seste\Documents\megavault_largest_files_20260705`
 - `C:\Users\seste\Documents\megavault_merge_surface_20260705`
 - `C:\Users\seste\Documents\megavault_protocol_global_docs_20260705`
 - `C:\Users\seste\.codex\memories`
 - `C:\Users\seste\.codex\sessions`
-- `C:\Users\seste\Documents\Luoghi - App`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| multitimetracker | 629 |
+| multitimetracker | 642 |
 | mtt | 560 |
-| megavault | 471 |
+| megavault | 493 |
 | megavault-surface | 131 |
-| supercontacts | 87 |
-| megavault-content-aware-merge-20260705 | 71 |
+| supercontacts | 90 |
+| megavault-content-aware-merge-20260705 | 73 |
 | megavault-protocol-global-docs-20260705 | 60 |
 | pixel-8a | 55 |
-| 2026 | 51 |
-| windows | 32 |
-| oracle-backup-service | 29 |
-| luoghi | 28 |
-| windows-winget-daily-update | 22 |
-| amici-fb | 18 |
-| aw-converter | 18 |
-| codex-html-live | 18 |
-| codex-wrapper | 18 |
-| installa-app | 18 |
-| parcel-tracker | 18 |
-| remote-codex-phone | 18 |
-| soldi | 18 |
-| facebook-video-archiver | 17 |
-| linux-mint-service-dashboard | 17 |
-| mint-manual-updates | 17 |
-| oracle-uptime-kuma | 17 |
-| owntracks-watcher | 17 |
-| chatgpt-chrome-debug | 16 |
-| luoghi-app | 16 |
-| remote-opt-oracle-backup | 16 |
-| windowtabnotes | 16 |
-| maintenance-486 | 15 |
-| android | 14 |
-| megavault-project-exporter | 14 |
-| sostanze | 14 |
-| windows-flight-recorder | 14 |
-| codex-token-watcher | 13 |
-| system-watchdog | 13 |
+| 2026 | 52 |
+| windows | 36 |
+| oracle-backup-service | 33 |
+| oracle-uptime-kuma | 27 |
+| windows-winget-daily-update | 26 |
+| aw-converter | 22 |
+| codex-html-live | 22 |
+| codex-wrapper | 22 |
+| installa-app | 22 |
+| parcel-tracker | 22 |
+| remote-codex-phone | 22 |
+| amici-fb | 21 |
+| facebook-video-archiver | 21 |
+| linux-mint-service-dashboard | 21 |
+| mint-manual-updates | 21 |
+| owntracks-watcher | 21 |
+| soldi | 21 |
+| chatgpt-chrome-debug | 20 |
+| remote-opt-oracle-backup | 20 |
+| windowtabnotes | 20 |
+| windows-flight-recorder | 19 |
+| maintenance-486 | 18 |
+| megavault-project-exporter | 18 |
+| android | 17 |
+| sostanze | 17 |
+| system-watchdog | 17 |
+| codex-token-watcher | 15 |
+| os-observer | 15 |
+| mint-freeze-forensics | 14 |
+| surface-recovery-hardening | 14 |
+| android-app-template | 13 |
+| luoghi | 13 |
 | tasker | 13 |
+| git-change-ledger | 12 |
+| grindr-web-exporter | 12 |
 | strano-anello | 12 |
-| surface-recovery-hardening | 12 |
-| os-observer | 11 |
-| android-app-template | 10 |
-| grindr-web-exporter | 10 |
-| mint-freeze-forensics | 10 |
-| git-change-ledger | 9 |
+| luoghi-app | 10 |
+| facedownassup-downloader | 9 |
 | tasker-pixel-device-monitor | 8 |
-| facedownassup-downloader | 7 |
 | soldi-2 | 7 |
 | mint-cloud-backup | 6 |
 | unknown | 5 |
@@ -88,76 +88,104 @@ Total events: 2755
 
 | Value | Events |
 |---|---:|
-| docs | 730 |
-| testing | 679 |
-| security | 469 |
-| backup | 302 |
-| migration | 191 |
-| bugfix | 141 |
-| release | 125 |
-| automation | 54 |
-| infra | 46 |
+| docs | 731 |
+| testing | 695 |
+| security | 530 |
+| backup | 333 |
+| migration | 195 |
+| bugfix | 147 |
+| release | 137 |
+| automation | 62 |
+| infra | 51 |
 | performance | 18 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P2 | 1422 |
-| P1 | 769 |
-| P0 | 541 |
-| P3 | 23 |
+| P2 | 1446 |
+| P1 | 840 |
+| P0 | 582 |
+| P3 | 31 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| PASS | 1840 |
-| UNKNOWN | 357 |
-| WARN | 222 |
-| FAIL | 172 |
-| OPEN | 164 |
+| PASS | 1847 |
+| UNKNOWN | 410 |
+| WARN | 244 |
+| FAIL | 199 |
+| OPEN | 199 |
 
 
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-06 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
+| 2026-07-06 | amici-fb | Amici FB amici_fb Roadmap | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Roadmap |
+| 2026-07-06 | amici-fb | Amici FB amici_fb Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | amici_fb Troubleshooting |
+| 2026-07-06 | android | android v0 | bugfix | OPEN | P0 | protocol_update | markdown | android Troubleshooting |
+| 2026-07-06 | android | android android Overview | security | UNKNOWN | P1 | doc_event | markdown | android Overview |
+| 2026-07-06 | android | android android Roadmap | automation | WARN | P1 | doc_event | markdown | android Roadmap |
+| 2026-07-06 | android-app-template | android-app-template Android App Template | backup | UNKNOWN | P1 | backup | markdown | Android App Template |
+| 2026-07-06 | android-app-template | Android Tests | testing | UNKNOWN | P2 | qa | markdown | Android App Template Roadmap |
+| 2026-07-06 | android-app-template | android-app-template Android App Template | bugfix | UNKNOWN | P2 | doc_event | markdown | Android App Template Troubleshooting |
 | 2026-07-06 | android-studio | Git PATH | backup | WARN | P1 | report | markdown | Android dev optimization follow-up: device policy, emulator-only test diagnosis, cleanup hardening, and report refresh |
-| 2026-07-06 | luoghi | Luoghi v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
-| 2026-07-06 | luoghi | Luoghi v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
-| 2026-07-06 | luoghi | Luoghi 1.apk | security | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
-| 2026-07-06 | luoghi | Luoghi 2 | release | UNKNOWN | P1 | release | json | 2 |
-| 2026-07-06 | luoghi | Luoghi 3 | release | UNKNOWN | P1 | release | json | 3 |
-| 2026-07-06 | luoghi | Luoghi errors 1783314374232 | backup | FAIL | P1 | backup | log | errors 1783314374232 |
-| 2026-07-06 | luoghi | Luoghi SAF | backup | UNKNOWN | P1 | backup | json | tcl saf after checkout luoghi manifest |
-| 2026-07-06 | luoghi | Luoghi SAF | backup | UNKNOWN | P1 | backup | json | luoghi manifest |
-| 2026-07-06 | luoghi | Luoghi v5 | security | UNKNOWN | P1 | doc_event | markdown | Luoghi Roadmap |
-| 2026-07-06 | luoghi | Luoghi version | release | UNKNOWN | P1 | release | txt | version |
-| 2026-07-06 | luoghi-app | Android Tests | security | WARN | P1 | report | markdown | Verified Google Cloud Maps API key/billing state in Chrome for My First Project |
-| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | PASS | P1 | release | markdown | Telegram APK send fix - Luoghi v5 |
-| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | WARN | P1 | release | markdown | Luoghi v5 check-in/out capsules full product |
-| 2026-07-06 | luoghi-app | luoghi-app 7.apk | release | WARN | P1 | release | markdown | Luoghi v7 persistent place/global statistics |
-| 2026-07-06 | luoghi-app | luoghi-app Document Luoghi GitHub | infra | PASS | P1 | git_commit | git_log | Document Luoghi GitHub remote |
-| 2026-07-06 | luoghi-app | luoghi-app errors 1783292128694 | backup | FAIL | P1 | backup | log | errors 1783292128694 |
-| 2026-07-06 | luoghi-app | luoghi-app errors 1783292129219 | backup | FAIL | P1 | backup | log | errors 1783292129219 |
-| 2026-07-06 | luoghi-app | luoghi-app errors 1783314372195 | backup | FAIL | P1 | backup | log | errors 1783314372195 |
-| 2026-07-06 | luoghi-app | Telegram APK | release | PASS | P1 | git_commit | git_log | Document Telegram APK send fix |
+| 2026-07-06 | aw-converter | aw-converter aw-converter Features | release | OPEN | P1 | release | markdown | aw-converter Features |
+| 2026-07-06 | aw-converter | aw-converter aw-converter Troubleshooting | release | OPEN | P1 | release | markdown | aw-converter Troubleshooting |
+| 2026-07-06 | aw-converter | aw-converter aw-converter Roadmap | testing | UNKNOWN | P2 | qa | markdown | aw-converter Roadmap |
+| 2026-07-06 | aw-converter | aw-converter aw-converter Overview | testing | OPEN | P3 | qa | markdown | aw-converter Overview |
+| 2026-07-06 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Features | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Features |
+| 2026-07-06 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Overview | backup | OPEN | P1 | backup | markdown | chatgpt-chrome-debug Overview |
+| 2026-07-06 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Roadmap | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Roadmap |
+| 2026-07-06 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Troubleshooting | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Troubleshooting |
+| 2026-07-06 | codex-html-live | codex-html-live codex-html-live Features | release | UNKNOWN | P1 | release | markdown | codex-html-live Features |
+| 2026-07-06 | codex-html-live | codex-html-live codex-html-live Roadmap | infra | FAIL | P1 | doc_event | markdown | codex-html-live Roadmap |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
-| 2026-07-06 | luoghi | Luoghi v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
-| 2026-07-06 | luoghi | Luoghi v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
+| 2026-07-06 | android | android v0 | bugfix | OPEN | P0 | protocol_update | markdown | android Troubleshooting |
 | 2026-07-06 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
+| 2026-07-06 | megavault | Codex Timeline | infra | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-06 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
+| 2026-07-06 | megavault | MegaVault ARCHIVE_INDEX | migration | UNKNOWN | P0 | protocol_update | markdown | ARCHIVE_INDEX |
+| 2026-07-06 | megavault | MegaVault PROJECTS_LEGACY | migration | UNKNOWN | P0 | protocol_update | markdown | PROJECTS_LEGACY |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | Prompt #438 setup for controlling Codex from an Android phone through: |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | ChatGPT Chrome Redirect Debug Toolkit |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | Live HTML archive for Codex JSONL sessions: watches session files and renders browser-readable chat archives without relying on tmux |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
+| 2026-07-06 | megavault | MegaVault v3 | security | FAIL | P0 | changelog | markdown | Single user-systemd Linux Mint updater for system packages, local Python venvs, dev tools, Android Studio, and Android SDK |
+| 2026-07-06 | megavault | MegaVault v4 | security | FAIL | P0 | protocol_update | markdown | Start here for Codex/operator work on `facebook-video-archiver` |
+| 2026-07-06 | megavault | MegaVault v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | Codex Timeline | migration | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 Aggiorna protocollo MegaVault | migration | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
-| 2026-07-06 | multitimetracker | MTT 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v2 | security | WARN | P0 | protocol_update | markdown | DATA_REGISTRY |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v7 | migration | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi v7 |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
+| 2026-07-06 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
+| 2026-07-06 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | CODE_AUDIT_COMPRESSION_REPORT |
+| 2026-07-06 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | Code Audit Enrichment Report |
+| 2026-07-06 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | PROTOCOL_V2_NORMALIZATION_REPORT |
+| 2026-07-06 | multitimetracker | MTT v2 | security | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-06 | multitimetracker | MTT v4 | security | PASS | P0 | protocol_update | markdown | PROJECT_INDEX |
+| 2026-07-06 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
+| 2026-07-06 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
 | 2026-07-06 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
+| 2026-07-06 | oracle-backup-service | Oracle Backup v2 | security | OPEN | P0 | protocol_update | markdown | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remot... |
+| 2026-07-06 | oracle-uptime-kuma | Kuma v2 | security | OPEN | P0 | protocol_update | markdown | Persistent heartbeat sender for a Uptime Kuma push monitor |
+| 2026-07-06 | oracle-uptime-kuma | Kuma v2 | security | FAIL | P0 | protocol_update | markdown | Linux Mint black-box recorder: user-systemd timer records read-only telemetry into SQLite, maintains diagnostic knowledge, exports bounded context... |
+| 2026-07-06 | oracle-uptime-kuma | Kuma v2 | security | OPEN | P0 | protocol_update | markdown | Servizio leggero user-level per monitorare la spedizione `XT329499807TS` |
+| 2026-07-06 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-07-06 | supercontacts | SC v34 | security | WARN | P0 | protocol_update | markdown | SuperContacts capsulization audit and local AI capsule bootstrap |
 | 2026-07-06 | unknown | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-07-06 | unknown | Codex Timeline | security | OPEN | P0 | changelog | markdown | MegaVault Global Rules |
 | 2026-07-06 | vm-oracle | Git PATH | security | WARN | P0 | protocol_update | markdown | Strano Anello DB bloat was root-caused, fixed structurally, and documented in MegaVault. |
+| 2026-07-06 | windows | Veeam T7 | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-06 | windows | Veeam T7 | security | FAIL | P0 | protocol_update | markdown | ALERT_REGISTRY |
+| 2026-07-06 | windows | windows Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
 | 2026-07-05 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P0 | doc_event | markdown | amici_fb Features |
 | 2026-07-05 | amici-fb | Amici FB amici_fb Roadmap | security | UNKNOWN | P0 | doc_event | markdown | amici_fb Roadmap |
 | 2026-07-05 | amici-fb | Amici FB amici_fb Troubleshooting | backup | UNKNOWN | P0 | backup | markdown | amici_fb Troubleshooting |
@@ -211,7 +239,6 @@ Total events: 2755
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Overview | automation | OPEN | P0 | doc_event | markdown | linux-mint-service-dashboard Overview |
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Roadmap | security | FAIL | P0 | doc_event | markdown | linux-mint-service-dashboard Roadmap |
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting | security | FAIL | P0 | report | markdown | linux-mint-service-dashboard Troubleshooting |
-| 2026-07-05 | luoghi | Luoghi 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
 | 2026-07-05 | luoghi | Luoghi app-debug.apk | release | UNKNOWN | P0 | release | markdown | Luoghi |
 | 2026-07-05 | luoghi | Luoghi Luoghi Roadmap | backup | UNKNOWN | P0 | backup | markdown | Luoghi Roadmap |
 | 2026-07-05 | luoghi | Luoghi Luoghi Troubleshooting | release | UNKNOWN | P0 | release | markdown | Luoghi Troubleshooting |
@@ -239,7 +266,6 @@ Total events: 2755
 | 2026-07-05 | megavault-and-similar-megavault-global-doc-checkouts | megavault-and-similar-megavault-global-doc-checkouts aapt dump permissions | security | WARN | P0 | protocol_update | markdown | Task Group: MegaVault global-only documentation rules and project-local docs routing |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | WARN | P0 | protocol_update | markdown | Strano Anello Decommission Report |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | OPEN | P0 | protocol_update | markdown | MegaVault Post-Merge Quality Audit 2026-07-05 |
-| 2026-07-05 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v2 | security | WARN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | UNKNOWN | P0 | backup | markdown | Topologia storage globale |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
@@ -319,7 +345,6 @@ Total events: 2755
 | 2026-07-05 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Troubleshooting | security | FAIL | P0 | doc_event | markdown | remote_opt_oracle_backup Troubleshooting |
 | 2026-07-05 | remote-opt-oracle-backup | remote-opt-oracle-backup v2 | security | OPEN | P0 | protocol_update | markdown | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remot... |
 | 2026-07-05 | soldi | Android Tests | backup | PASS | P0 | backup | markdown | soldi |
-| 2026-07-05 | soldi | Soldi 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
 | 2026-07-05 | soldi | Soldi 2.apk | backup | UNKNOWN | P0 | release | markdown | Soldi |
 | 2026-07-05 | soldi | Soldi Soldi Roadmap | bugfix | UNKNOWN | P0 | doc_event | markdown | Soldi Roadmap |
 | 2026-07-05 | sostanze | Sostanze 4.apk | release | UNKNOWN | P0 | release | markdown | Sostanze |
@@ -376,6 +401,7 @@ Total events: 2755
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f34b3-4836-7913-9f50-fc36b6a184f3 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f20ec-ca94-71f3-b9c4-b50b733653c3 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f351b-9bb0-71e0-b4a0-fc6b48f609e8 |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\Megavault 2 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\android studio |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\parole create |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3533-8a0f-7c82-bb04-c4fe3d884dfc |
@@ -420,6 +446,7 @@ Total events: 2755
 | 2026-06-27 | megavault-protocol-global-docs-20260705 | megavault-protocol-global-docs-20260705 Document Windows winget | infra | PASS | P0 | git_commit | git_log | Document Windows winget daily update |
 | 2026-06-27 | megavault-protocol-global-docs-20260705 | megavault-protocol-global-docs-20260705 Update Windows Flight | infra | PASS | P0 | git_commit | git_log | Update Windows Flight Recorder runtime docs |
 | 2026-06-27 | windows | windows aapt dump permissions | security | WARN | P0 | changelog | markdown | Raw Memories |
+| 2026-06-27 | windows | windows v3 | backup | PASS | P0 | protocol_update | markdown | Daily Windows package source refresh and upgrade automation via winget |
 | 2026-06-27 | windows-flight-recorder | WFR Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
 | 2026-06-27 | windows-winget-daily-update | Winget v3 | backup | PASS | P0 | protocol_update | markdown | Daily Windows package source refresh and upgrade automation via winget |
 | 2026-06-25 | 2026 | 2026 0m.android.appsearch.apk | security | WARN | P0 | changelog | codex_log | 019efc73-25de-7fb3-9cb0-b2fbbbba83fb |
@@ -429,6 +456,7 @@ Total events: 2755
 | 2026-06-25 | amici-fb | Amici FB v3 | security | FAIL | P0 | protocol_update | markdown | Added precise profile_chooser detection, removed generic cookie/consent false positives, added bounded profile chooser click attempts, added --logi... |
 | 2026-06-25 | megavault | MegaVault Pixel Buds Pro | backup | FAIL | P0 | protocol_update | markdown | Pixel Buds Pro 2 Windows 11 audio routing bug |
 | 2026-06-25 | megavault-protocol-global-docs-20260705 | megavault-protocol-global-docs-20260705 Update amici_fb Windows | infra | PASS | P0 | git_commit | git_log | Update amici_fb Windows scheduler docs |
+| 2026-06-25 | oracle-uptime-kuma | Kuma v3 | security | FAIL | P0 | protocol_update | markdown | Added precise profile_chooser detection, removed generic cookie/consent false positives, added bounded profile chooser click attempts, added --logi... |
 | 2026-06-23 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019ef536-ee6a-7271-8ba6-f0df28e617f7 |
 | 2026-06-23 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019ef33a-1af5-7882-aac4-9a872d729249 |
 | 2026-06-23 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019ef288-982c-7be0-8495-a069f5374372 |
@@ -521,6 +549,8 @@ Total events: 2755
 | 2026-06-13 | megavault | MegaVault protocol add android | migration | PASS | P0 | git_commit | git_log | protocol: add android template initialization rules |
 | 2026-06-13 | megavault | MegaVault protocol split Android | release | PASS | P0 | git_commit | git_log | protocol: split Android rules into ANDROID_PROTOCOL and add versioning standard |
 | 2026-06-13 | megavault | MegaVault protocol update android | migration | PASS | P0 | git_commit | git_log | protocol: update android protocol |
+| 2026-06-13 | megavault | MegaVault v0 | security | WARN | P0 | protocol_update | markdown | Local authorized downloader for facedownassup.com member gallery pages using existing legitimate Firefox login via yt-dlp cookies by default. |
+| 2026-06-13 | megavault | MegaVault v9 | security | WARN | P0 | protocol_update | markdown | Private OwnTracks Android HTTP receiver on Oracle VM; stores location payloads in SQLite for Datasette/history views. |
 | 2026-06-13 | megavault-surface | megavault-surface protocol add android | docs | PASS | P0 | git_commit | git_log | protocol: add android template initialization rules |
 | 2026-06-13 | megavault-surface | megavault-surface protocol split Android | release | PASS | P0 | git_commit | git_log | protocol: split Android rules into ANDROID_PROTOCOL and add versioning standard |
 | 2026-06-13 | megavault-surface | megavault-surface protocol update android | docs | PASS | P0 | git_commit | git_log | protocol: update android protocol |
@@ -534,6 +564,7 @@ Total events: 2755
 | 2026-06-13 | oracle-backup-service | Oracle Backup Oracle Backup | backup | WARN | P0 | report | markdown | Prompt 918472 Oracle Backup Fallback Cleanup |
 | 2026-06-13 | oracle-backup-service | Oracle Backup oracle-backup-service Changelog | backup | WARN | P0 | changelog | markdown | oracle-backup-service Changelog |
 | 2026-06-13 | oracle-backup-service | Oracle Backup oracle-backup-service Overview | backup | WARN | P0 | report | markdown | oracle-backup-service Overview |
+| 2026-06-13 | oracle-uptime-kuma | Kuma v8 | security | PASS | P0 | protocol_update | markdown | Linux Mint canonical 3-disk monitor with SQLite state, clean Telegram alerts, and Oracle Uptime Kuma push heartbeat. |
 | 2026-06-13 | owntracks-watcher | Android Tests | automation | FAIL | P0 | changelog | markdown | owntracks-watcher Changelog |
 | 2026-06-13 | owntracks-watcher | owntracks-watcher v9 | security | WARN | P0 | protocol_update | markdown | Private OwnTracks Android HTTP receiver on Oracle VM; stores location payloads in SQLite for Datasette/history views. |
 | 2026-06-13 | sostanze | Sostanze 4.apk | backup | WARN | P0 | release | markdown | sostanze |
@@ -550,6 +581,8 @@ Total events: 2755
 | 2026-06-10 | linux-mint-service-dashboard | linux-mint-service-dashboard v2 | security | FAIL | P0 | protocol_update | markdown | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE |
 | 2026-06-10 | megavault | MegaVault v2 | backup | FAIL | P0 | backup | markdown | PROMPT_391684_ACTIVITYWATCH_AUTOSTART |
 | 2026-06-10 | megavault | MegaVault v8 | security | UNKNOWN | P0 | changelog | markdown | Prompt 428691 Kuma Docs Normalization |
+| 2026-06-10 | megavault | MegaVault v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
+| 2026-06-10 | megavault | MegaVault v8 | security | WARN | P0 | protocol_update | markdown | Monitor Codex CLI health/status and local Codex session quota cache from Linux Mint; persist redacted logs and SQLite observations; push health to... |
 | 2026-06-10 | megavault | MegaVault v8 | security | FAIL | P0 | changelog | markdown | Prompt 731845 Kuma Operational Audit |
 | 2026-06-10 | megavault | MegaVault v9 | migration | PASS | P0 | git_commit | git_log | Update MEGAVAULT_PROTOCOL v9: dependency autonomy |
 | 2026-06-10 | megavault-surface | megavault-surface v9 | docs | PASS | P0 | git_commit | git_log | Update MEGAVAULT_PROTOCOL v9: dependency autonomy |
@@ -557,6 +590,8 @@ Total events: 2755
 | 2026-06-10 | oracle-backup-service | Oracle Backup oracle-backup healthcheck | backup | WARN | P0 | changelog | markdown | Prompt 492837 - oracle-backup healthcheck CRITICAL |
 | 2026-06-10 | oracle-backup-service | Oracle Backup v2 | security | WARN | P0 | protocol_update | markdown | Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, an... |
 | 2026-06-10 | oracle-uptime-kuma | Kuma Roadmap | performance | WARN | P0 | doc_event | markdown | Roadmap |
+| 2026-06-10 | oracle-uptime-kuma | Kuma v2 | security | FAIL | P0 | protocol_update | markdown | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE |
+| 2026-06-10 | oracle-uptime-kuma | Kuma v2 | security | PASS | P0 | protocol_update | markdown | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. |
 | 2026-06-10 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-06-10 | supercontacts | SC v2 | release | WARN | P0 | release | markdown | PROMPT_582941_ACTIVITYWATCH_REBOOT_AFTER |
 | 2026-06-10 | surface-recovery-hardening | surface-recovery-hardening v2 | security | PASS | P0 | protocol_update | markdown | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. |
@@ -572,6 +607,8 @@ Total events: 2755
 | 2026-06-07 | megavault | MegaVault Update MEGAVAULT_PROTOCOL | migration | PASS | P0 | git_commit | git_log | Update MEGAVAULT_PROTOCOL |
 | 2026-06-07 | megavault-surface | megavault-surface Update MEGAVAULT_PROTOCOL | docs | PASS | P0 | git_commit | git_log | Update MEGAVAULT_PROTOCOL |
 | 2026-06-07 | mint-freeze-forensics | mint-freeze-forensics v4 | security | FAIL | P0 | protocol_update | markdown | Linux Mint freeze forensics + early warning + Kuma telemetry |
+| 2026-06-07 | oracle-backup-service | Oracle Backup v8 | security | WARN | P0 | changelog | markdown | Uptime Kuma instance on Oracle VM for Mint/Oracle black-box history, alerting, and visualization. |
+| 2026-06-07 | oracle-uptime-kuma | Kuma v4 | security | FAIL | P0 | protocol_update | markdown | Linux Mint freeze forensics + early warning + Kuma telemetry |
 | 2026-06-07 | oracle-uptime-kuma | Kuma v8 | security | WARN | P0 | changelog | markdown | Uptime Kuma instance on Oracle VM for Mint/Oracle black-box history, alerting, and visualization. |
 | 2026-06-06 | megavault | MegaVault prompt_618903 mint-home-backup rsync_exit | security | WARN | P0 | report | markdown | prompt_618903 mint-home-backup rsync_exit 137 |
 | 2026-06-06 | mint-cloud-backup | mint-cloud-backup mint-cloud-backup Changelog | backup | UNKNOWN | P0 | changelog | markdown | mint-cloud-backup Changelog |
@@ -579,6 +616,7 @@ Total events: 2755
 | 2026-06-06 | mint-cloud-backup | mint-cloud-backup v2 | security | WARN | P0 | changelog | markdown | Linux Mint root filesystem backup to Backblaze B2 via restic, with local health monitor, localhost dashboard, and Uptime Kuma push heartbeat. |
 | 2026-06-06 | oracle-uptime-kuma | Kuma Uptime Kuma cleanup | security | WARN | P0 | report | markdown | Uptime Kuma cleanup prompt 482917 |
 | 2026-06-06 | oracle-uptime-kuma | Kuma v2 | security | FAIL | P0 | protocol_update | markdown | Prompt 482917 Uptime Kuma Noise Reduction |
+| 2026-06-06 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | markdown | Linux Mint root filesystem backup to Backblaze B2 via restic, with local health monitor, localhost dashboard, and Uptime Kuma push heartbeat. |
 | 2026-06-06 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Changelog | backup | PASS | P0 | changelog | markdown | surface-recovery-hardening Changelog |
 | 2026-06-05 | android | android android Features | automation | OPEN | P0 | doc_event | markdown | android Features |
 | 2026-06-05 | android | android v0 | bugfix | OPEN | P0 | protocol_update | markdown | android Troubleshooting |
@@ -589,6 +627,8 @@ Total events: 2755
 | 2026-06-05 | megavault | Android Tests | security | PASS | P0 | report | markdown | Prompt 739482 - initial incident report |
 | 2026-06-05 | megavault | Git PATH | backup | PASS | P0 | report | markdown | Prompt 584731 - anti-freeze disable report |
 | 2026-06-05 | megavault | MegaVault Custom Services Status | security | PASS | P0 | protocol_update | markdown | Custom Services Status |
+| 2026-06-05 | megavault | MegaVault v3 | security | FAIL | P0 | protocol_update | markdown | Host-local Android helper project; currently owns Linux Mint user service for ADB Wi-Fi Debug auto-connect. |
+| 2026-06-05 | megavault | MegaVault v3 | backup | WARN | P0 | changelog | markdown | Ultra-fast cached ZIP bundler for sharing any MegaVault-registered project plus MegaVault docs with ChatGPT. |
 | 2026-06-05 | megavault-project-exporter | megavault-project-exporter megavault-project-exporter Changelog | bugfix | UNKNOWN | P0 | changelog | markdown | megavault-project-exporter Changelog |
 | 2026-06-05 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
 | 2026-06-05 | megavault-project-exporter | megavault-project-exporter v3 | backup | WARN | P0 | changelog | markdown | Ultra-fast cached ZIP bundler for sharing any MegaVault-registered project plus MegaVault docs with ChatGPT. |
@@ -615,6 +655,7 @@ Total events: 2755
 | 2026-06-03 | megavault-protocol-global-docs-20260705 | megavault-protocol-global-docs-20260705 Update rsync transfer | backup | PASS | P0 | git_commit | git_log | Update rsync transfer recovery docs |
 | 2026-06-03 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Overview | backup | UNKNOWN | P0 | backup | markdown | surface-recovery-hardening Overview |
 | 2026-06-03 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Troubleshooting | backup | FAIL | P0 | backup | markdown | surface-recovery-hardening Troubleshooting |
+| 2026-06-02 | megavault | MegaVault v2 | security | FAIL | P0 | protocol_update | markdown | Read-only software black-box recorder for Linux Mint desktop and Oracle Ubuntu Server; records installs, updates, downgrades, removals, snapshots a... |
 | 2026-06-02 | megavault-protocol-global-docs-20260705 | megavault-protocol-global-docs-20260705 Clarify SuperContacts capsulization | docs | PASS | P0 | git_commit | git_log | Clarify SuperContacts capsulization baseline |
 | 2026-06-02 | megavault-protocol-global-docs-20260705 | megavault-protocol-global-docs-20260705 Document mint update | docs | PASS | P0 | git_commit | git_log | Document mint update tracker |
 | 2026-06-02 | megavault-protocol-global-docs-20260705 | megavault-protocol-global-docs-20260705 Improve messaging links | docs | PASS | P0 | git_commit | git_log | Improve messaging links decided-state UX |
@@ -689,53 +730,53 @@ Total events: 2755
 | 2025-11-24 | amici-fb | Amici FB v2 | security | WARN | P0 | protocol_update | markdown | Linux Mint user-level Facebook automation that opens Facebook with a browser profile, processes friends/URLs, and records local state in SQLite; tr... |
 
 ## Projects
-- `multitimetracker`: 629 events; latest=2026-07-06; label=MTT 7.apk
+- `multitimetracker`: 642 events; latest=2026-07-06; label=Android Tests
 - `mtt`: 560 events; latest=2026-07-06; label=MTT Test startup fast
-- `megavault`: 471 events; latest=2026-07-06; label=Codex Timeline
+- `megavault`: 493 events; latest=2026-07-06; label=Codex Timeline
 - `megavault-surface`: 131 events; latest=2026-07-05; label=Git PATH
-- `supercontacts`: 87 events; latest=2026-07-06; label=SC v34
-- `megavault-content-aware-merge-20260705`: 71 events; latest=2026-07-06; label=Codex Timeline
+- `supercontacts`: 90 events; latest=2026-07-06; label=SC app-debug.apk
+- `megavault-content-aware-merge-20260705`: 73 events; latest=2026-07-06; label=Codex Timeline
 - `megavault-protocol-global-docs-20260705`: 60 events; latest=2026-07-05; label=megavault-protocol-global-docs-20260705 Codify project-local docs
 - `pixel-8a`: 55 events; latest=2026-07-06; label=Git PATH
-- `2026`: 51 events; latest=2026-07-03; label=2026 0mapp-debug.apk
-- `windows`: 32 events; latest=2026-07-06; label=Git PATH
-- `oracle-backup-service`: 29 events; latest=2026-07-06; label=Codex Timeline
-- `luoghi`: 28 events; latest=2026-07-06; label=Luoghi v11
-- `windows-winget-daily-update`: 22 events; latest=2026-07-05; label=Winget Windows Winget Daily
-- `amici-fb`: 18 events; latest=2026-07-05; label=Amici FB amici_fb Features
-- `aw-converter`: 18 events; latest=2026-07-05; label=aw-converter aw-converter Features
-- `codex-html-live`: 18 events; latest=2026-07-05; label=codex-html-live codex-html-live Features
-- `codex-wrapper`: 18 events; latest=2026-07-05; label=codex-wrapper codex-wrapper Features
-- `installa-app`: 18 events; latest=2026-07-05; label=installa-app installa-app Features
-- `parcel-tracker`: 18 events; latest=2026-07-05; label=parcel-tracker parcel-tracker Features
-- `remote-codex-phone`: 18 events; latest=2026-07-05; label=Android Tests
-- `soldi`: 18 events; latest=2026-07-05; label=Android Tests
-- `facebook-video-archiver`: 17 events; latest=2026-07-05; label=facebook-video-archiver facebook-video-archiver Features
-- `linux-mint-service-dashboard`: 17 events; latest=2026-07-05; label=linux-mint-service-dashboard linux-mint-service-dashboard Features
-- `mint-manual-updates`: 17 events; latest=2026-07-05; label=mint-manual-updates mint-manual-updates Roadmap
-- `oracle-uptime-kuma`: 17 events; latest=2026-07-05; label=Kuma Features
-- `owntracks-watcher`: 17 events; latest=2026-07-05; label=Android Tests
-- `chatgpt-chrome-debug`: 16 events; latest=2026-07-05; label=chatgpt-chrome-debug chatgpt-chrome-debug Features
-- `luoghi-app`: 16 events; latest=2026-07-06; label=Android Tests
-- `remote-opt-oracle-backup`: 16 events; latest=2026-07-05; label=remote-opt-oracle-backup remote_opt_oracle_backup Features
-- `windowtabnotes`: 16 events; latest=2026-07-05; label=windowtabnotes v20
-- `maintenance-486`: 15 events; latest=2026-07-05; label=maintenance-486 maintenance-486 Features
-- `android`: 14 events; latest=2026-07-05; label=android android Overview
-- `megavault-project-exporter`: 14 events; latest=2026-07-05; label=Git PATH
-- `sostanze`: 14 events; latest=2026-07-05; label=Sostanze 4.apk
-- `windows-flight-recorder`: 14 events; latest=2026-07-05; label=WFR v2
-- `codex-token-watcher`: 13 events; latest=2026-07-05; label=codex-token-watcher codex-token-watcher Overview
-- `system-watchdog`: 13 events; latest=2026-07-05; label=system-watchdog system_watchdog Features
+- `2026`: 52 events; latest=2026-07-03; label=2026 0mapp-debug.apk
+- `windows`: 36 events; latest=2026-07-06; label=Veeam T7
+- `oracle-backup-service`: 33 events; latest=2026-07-06; label=Codex Timeline
+- `oracle-uptime-kuma`: 27 events; latest=2026-07-06; label=Kuma v2
+- `windows-winget-daily-update`: 26 events; latest=2026-07-06; label=Winget Windows Winget Daily
+- `aw-converter`: 22 events; latest=2026-07-06; label=aw-converter aw-converter Features
+- `codex-html-live`: 22 events; latest=2026-07-06; label=codex-html-live codex-html-live Features
+- `codex-wrapper`: 22 events; latest=2026-07-06; label=codex-wrapper codex-wrapper Features
+- `installa-app`: 22 events; latest=2026-07-06; label=installa-app installa-app Features
+- `parcel-tracker`: 22 events; latest=2026-07-06; label=parcel-tracker parcel-tracker Features
+- `remote-codex-phone`: 22 events; latest=2026-07-06; label=remote-codex-phone remote-codex-phone Features
+- `amici-fb`: 21 events; latest=2026-07-06; label=Amici FB amici_fb Features
+- `facebook-video-archiver`: 21 events; latest=2026-07-06; label=facebook-video-archiver facebook-video-archiver Features
+- `linux-mint-service-dashboard`: 21 events; latest=2026-07-06; label=linux-mint-service-dashboard linux-mint-service-dashboard Features
+- `mint-manual-updates`: 21 events; latest=2026-07-06; label=mint-manual-updates mint-manual-updates Roadmap
+- `owntracks-watcher`: 21 events; latest=2026-07-06; label=Android Tests
+- `soldi`: 21 events; latest=2026-07-06; label=Android Tests
+- `chatgpt-chrome-debug`: 20 events; latest=2026-07-06; label=chatgpt-chrome-debug chatgpt-chrome-debug Features
+- `remote-opt-oracle-backup`: 20 events; latest=2026-07-06; label=remote-opt-oracle-backup remote_opt_oracle_backup Features
+- `windowtabnotes`: 20 events; latest=2026-07-06; label=windowtabnotes v20
+- `windows-flight-recorder`: 19 events; latest=2026-07-06; label=WFR Windows Flight Recorder
+- `maintenance-486`: 18 events; latest=2026-07-06; label=maintenance-486 maintenance-486 Features
+- `megavault-project-exporter`: 18 events; latest=2026-07-06; label=megavault-project-exporter v3
+- `android`: 17 events; latest=2026-07-06; label=android v0
+- `sostanze`: 17 events; latest=2026-07-06; label=Sostanze 4.apk
+- `system-watchdog`: 17 events; latest=2026-07-06; label=system-watchdog system_watchdog Features
+- `codex-token-watcher`: 15 events; latest=2026-07-06; label=codex-token-watcher codex-token-watcher Overview
+- `os-observer`: 15 events; latest=2026-07-06; label=os-observer os-observer Features
+- `mint-freeze-forensics`: 14 events; latest=2026-07-06; label=mint-freeze-forensics Features
+- `surface-recovery-hardening`: 14 events; latest=2026-07-06; label=surface-recovery-hardening surface-recovery-hardening Features
+- `android-app-template`: 13 events; latest=2026-07-06; label=android-app-template Android App Template
+- `luoghi`: 13 events; latest=2026-07-06; label=Luoghi app-debug.apk
 - `tasker`: 13 events; latest=2026-07-03; label=Tasker Pixel
+- `git-change-ledger`: 12 events; latest=2026-07-06; label=Git PATH
+- `grindr-web-exporter`: 12 events; latest=2026-07-06; label=grindr-web-exporter Grindr Web Exporter
 - `strano-anello`: 12 events; latest=2026-06-29; label=strano-anello v3
-- `surface-recovery-hardening`: 12 events; latest=2026-07-05; label=surface-recovery-hardening surface-recovery-hardening Features
-- `os-observer`: 11 events; latest=2026-07-05; label=os-observer os-observer Features
-- `android-app-template`: 10 events; latest=2026-07-05; label=Android Tests
-- `grindr-web-exporter`: 10 events; latest=2026-07-05; label=grindr-web-exporter Grindr Web Exporter
-- `mint-freeze-forensics`: 10 events; latest=2026-07-05; label=mint-freeze-forensics Features
-- `git-change-ledger`: 9 events; latest=2026-07-05; label=Git PATH
+- `luoghi-app`: 10 events; latest=2026-07-06; label=Android Tests
+- `facedownassup-downloader`: 9 events; latest=2026-07-06; label=facedownassup-downloader facedownassup-downloader
 - `tasker-pixel-device-monitor`: 8 events; latest=2026-07-03; label=Git PATH
-- `facedownassup-downloader`: 7 events; latest=2026-07-05; label=facedownassup-downloader facedownassup-downloader
 - `soldi-2`: 7 events; latest=2026-07-06; label=soldi-2 Enable optimized release
 - `mint-cloud-backup`: 6 events; latest=2026-06-21; label=mint-cloud-backup v2
 - `unknown`: 5 events; latest=2026-07-06; label=Codex Timeline
@@ -755,58 +796,180 @@ Total events: 2755
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-06 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
+| 2026-07-06 | amici-fb | Amici FB amici_fb Roadmap | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Roadmap |
+| 2026-07-06 | amici-fb | Amici FB amici_fb Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | amici_fb Troubleshooting |
+| 2026-07-06 | android | android v0 | bugfix | OPEN | P0 | protocol_update | markdown | android Troubleshooting |
+| 2026-07-06 | android | android android Overview | security | UNKNOWN | P1 | doc_event | markdown | android Overview |
+| 2026-07-06 | android | android android Roadmap | automation | WARN | P1 | doc_event | markdown | android Roadmap |
+| 2026-07-06 | android-app-template | android-app-template Android App Template | backup | UNKNOWN | P1 | backup | markdown | Android App Template |
+| 2026-07-06 | android-app-template | Android Tests | testing | UNKNOWN | P2 | qa | markdown | Android App Template Roadmap |
+| 2026-07-06 | android-app-template | android-app-template Android App Template | bugfix | UNKNOWN | P2 | doc_event | markdown | Android App Template Troubleshooting |
 | 2026-07-06 | android-studio | Git PATH | backup | WARN | P1 | report | markdown | Android dev optimization follow-up: device policy, emulator-only test diagnosis, cleanup hardening, and report refresh |
-| 2026-07-06 | luoghi | Luoghi v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
-| 2026-07-06 | luoghi | Luoghi v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
-| 2026-07-06 | luoghi | Luoghi 1.apk | security | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
-| 2026-07-06 | luoghi | Luoghi 2 | release | UNKNOWN | P1 | release | json | 2 |
-| 2026-07-06 | luoghi | Luoghi 3 | release | UNKNOWN | P1 | release | json | 3 |
-| 2026-07-06 | luoghi | Luoghi errors 1783314374232 | backup | FAIL | P1 | backup | log | errors 1783314374232 |
-| 2026-07-06 | luoghi | Luoghi SAF | backup | UNKNOWN | P1 | backup | json | tcl saf after checkout luoghi manifest |
-| 2026-07-06 | luoghi | Luoghi SAF | backup | UNKNOWN | P1 | backup | json | luoghi manifest |
-| 2026-07-06 | luoghi | Luoghi v5 | security | UNKNOWN | P1 | doc_event | markdown | Luoghi Roadmap |
-| 2026-07-06 | luoghi | Luoghi version | release | UNKNOWN | P1 | release | txt | version |
+| 2026-07-06 | aw-converter | aw-converter aw-converter Features | release | OPEN | P1 | release | markdown | aw-converter Features |
+| 2026-07-06 | aw-converter | aw-converter aw-converter Troubleshooting | release | OPEN | P1 | release | markdown | aw-converter Troubleshooting |
+| 2026-07-06 | aw-converter | aw-converter aw-converter Roadmap | testing | UNKNOWN | P2 | qa | markdown | aw-converter Roadmap |
+| 2026-07-06 | aw-converter | aw-converter aw-converter Overview | testing | OPEN | P3 | qa | markdown | aw-converter Overview |
+| 2026-07-06 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Features | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Features |
+| 2026-07-06 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Overview | backup | OPEN | P1 | backup | markdown | chatgpt-chrome-debug Overview |
+| 2026-07-06 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Roadmap | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Roadmap |
+| 2026-07-06 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Troubleshooting | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Troubleshooting |
+| 2026-07-06 | codex-html-live | codex-html-live codex-html-live Features | release | UNKNOWN | P1 | release | markdown | codex-html-live Features |
+| 2026-07-06 | codex-html-live | codex-html-live codex-html-live Roadmap | infra | FAIL | P1 | doc_event | markdown | codex-html-live Roadmap |
+| 2026-07-06 | codex-html-live | codex-html-live codex-html-live Troubleshooting | release | FAIL | P1 | release | markdown | codex-html-live Troubleshooting |
+| 2026-07-06 | codex-html-live | codex-html-live codex-html-live Overview | testing | OPEN | P3 | qa | markdown | codex-html-live Overview |
+| 2026-07-06 | codex-token-watcher | codex-token-watcher codex-token-watcher Overview | security | UNKNOWN | P1 | doc_event | markdown | codex-token-watcher Overview |
+| 2026-07-06 | codex-token-watcher | codex-token-watcher v3 | security | UNKNOWN | P1 | doc_event | markdown | codex-token-watcher Roadmap |
+| 2026-07-06 | codex-wrapper | codex-wrapper codex-wrapper Features | release | OPEN | P1 | release | markdown | codex-wrapper Features |
+| 2026-07-06 | codex-wrapper | codex-wrapper codex-wrapper Troubleshooting | release | OPEN | P1 | release | markdown | codex-wrapper Troubleshooting |
+| 2026-07-06 | codex-wrapper | codex-wrapper codex-wrapper Roadmap | testing | UNKNOWN | P2 | qa | markdown | codex-wrapper Roadmap |
+| 2026-07-06 | codex-wrapper | codex-wrapper codex-wrapper Overview | testing | OPEN | P3 | qa | markdown | codex-wrapper Overview |
+| 2026-07-06 | facebook-video-archiver | facebook-video-archiver facebook-video-archiver Features | security | FAIL | P1 | doc_event | markdown | facebook-video-archiver Features |
+| 2026-07-06 | facebook-video-archiver | facebook-video-archiver facebook-video-archiver Roadmap | security | FAIL | P1 | doc_event | markdown | facebook-video-archiver Roadmap |
+| 2026-07-06 | facebook-video-archiver | facebook-video-archiver facebook-video-archiver Troubleshooting | security | FAIL | P1 | doc_event | markdown | facebook-video-archiver Troubleshooting |
+| 2026-07-06 | facebook-video-archiver | facebook-video-archiver v4 | testing | OPEN | P3 | qa | markdown | facebook-video-archiver Overview |
+| 2026-07-06 | facedownassup-downloader | facedownassup-downloader facedownassup-downloader | security | OPEN | P1 | report | markdown | facedownassup-downloader |
+| 2026-07-06 | facedownassup-downloader | facedownassup-downloader facedownassup-downloader Roadmap | testing | OPEN | P2 | report | markdown | facedownassup-downloader Roadmap |
+| 2026-07-06 | git-change-ledger | Git PATH | security | UNKNOWN | P1 | report | markdown | git-change-ledger Roadmap |
+| 2026-07-06 | git-change-ledger | Git PATH | security | UNKNOWN | P1 | report | markdown | git-change-ledger |
+| 2026-07-06 | git-change-ledger | git-change-ledger git-change-ledger Troubleshooting | infra | UNKNOWN | P2 | report | markdown | git-change-ledger Troubleshooting |
+| 2026-07-06 | grindr-web-exporter | grindr-web-exporter Grindr Web Exporter | testing | UNKNOWN | P2 | qa | markdown | Grindr Web Exporter |
+| 2026-07-06 | grindr-web-exporter | grindr-web-exporter Troubleshooting | infra | UNKNOWN | P2 | doc_event | markdown | Troubleshooting |
+| 2026-07-06 | installa-app | installa-app installa-app Features | release | OPEN | P1 | release | markdown | installa-app Features |
+| 2026-07-06 | installa-app | installa-app installa-app Troubleshooting | release | OPEN | P1 | release | markdown | installa-app Troubleshooting |
+| 2026-07-06 | installa-app | installa-app installa-app Roadmap | testing | UNKNOWN | P2 | qa | markdown | installa-app Roadmap |
+| 2026-07-06 | installa-app | installa-app installa-app Overview | testing | OPEN | P3 | qa | markdown | installa-app Overview |
+| 2026-07-06 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Features | security | FAIL | P1 | report | markdown | linux-mint-service-dashboard Features |
+| 2026-07-06 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Roadmap | security | FAIL | P1 | doc_event | markdown | linux-mint-service-dashboard Roadmap |
+| 2026-07-06 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting | security | FAIL | P1 | report | markdown | linux-mint-service-dashboard Troubleshooting |
+| 2026-07-06 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Overview | automation | OPEN | P2 | doc_event | markdown | linux-mint-service-dashboard Overview |
+| 2026-07-06 | luoghi | Luoghi app-debug.apk | release | UNKNOWN | P1 | release | markdown | Luoghi |
+| 2026-07-06 | luoghi | Luoghi Luoghi Roadmap | backup | UNKNOWN | P1 | backup | markdown | Luoghi Roadmap |
+| 2026-07-06 | luoghi | Luoghi Luoghi Troubleshooting | release | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
 | 2026-07-06 | luoghi-app | Android Tests | security | WARN | P1 | report | markdown | Verified Google Cloud Maps API key/billing state in Chrome for My First Project |
-| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | PASS | P1 | release | markdown | Telegram APK send fix - Luoghi v5 |
-| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | WARN | P1 | release | markdown | Luoghi v5 check-in/out capsules full product |
-| 2026-07-06 | luoghi-app | luoghi-app 7.apk | release | WARN | P1 | release | markdown | Luoghi v7 persistent place/global statistics |
 | 2026-07-06 | luoghi-app | luoghi-app Document Luoghi GitHub | infra | PASS | P1 | git_commit | git_log | Document Luoghi GitHub remote |
-| 2026-07-06 | luoghi-app | luoghi-app errors 1783292128694 | backup | FAIL | P1 | backup | log | errors 1783292128694 |
-| 2026-07-06 | luoghi-app | luoghi-app errors 1783292129219 | backup | FAIL | P1 | backup | log | errors 1783292129219 |
-| 2026-07-06 | luoghi-app | luoghi-app errors 1783314372195 | backup | FAIL | P1 | backup | log | errors 1783314372195 |
 | 2026-07-06 | luoghi-app | Telegram APK | release | PASS | P1 | git_commit | git_log | Document Telegram APK send fix |
 | 2026-07-06 | luoghi-app | luoghi-app Expose Luoghi places | docs | PASS | P2 | git_commit | git_log | Expose Luoghi places provider contract for SuperContacts |
 | 2026-07-06 | luoghi-app | luoghi-app v5 | docs | PASS | P2 | git_commit | git_log | Luoghi v5 check-in-out product layer |
 | 2026-07-06 | luoghi-app | luoghi-app v7 | docs | PASS | P2 | git_commit | git_log | Luoghi v7 persistent stats |
+| 2026-07-06 | maintenance-486 | maintenance-486 maintenance-486 Features | release | OPEN | P1 | release | markdown | maintenance-486 Features |
+| 2026-07-06 | maintenance-486 | maintenance-486 maintenance-486 Roadmap | testing | UNKNOWN | P2 | qa | markdown | maintenance-486 Roadmap |
+| 2026-07-06 | maintenance-486 | maintenance-486 maintenance-486 Overview | testing | OPEN | P3 | report | markdown | maintenance-486 Overview |
 | 2026-07-06 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
+| 2026-07-06 | megavault | Codex Timeline | infra | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-06 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
+| 2026-07-06 | megavault | MegaVault ARCHIVE_INDEX | migration | UNKNOWN | P0 | protocol_update | markdown | ARCHIVE_INDEX |
+| 2026-07-06 | megavault | MegaVault PROJECTS_LEGACY | migration | UNKNOWN | P0 | protocol_update | markdown | PROJECTS_LEGACY |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | Prompt #438 setup for controlling Codex from an Android phone through: |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | ChatGPT Chrome Redirect Debug Toolkit |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | Live HTML archive for Codex JSONL sessions: watches session files and renders browser-readable chat archives without relying on tmux |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
+| 2026-07-06 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
+| 2026-07-06 | megavault | MegaVault v3 | security | FAIL | P0 | changelog | markdown | Single user-systemd Linux Mint updater for system packages, local Python venvs, dev tools, Android Studio, and Android SDK |
+| 2026-07-06 | megavault | MegaVault v4 | security | FAIL | P0 | protocol_update | markdown | Start here for Codex/operator work on `facebook-video-archiver` |
+| 2026-07-06 | megavault | MegaVault v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-06 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
+| 2026-07-06 | megavault | MegaVault v0 | backup | UNKNOWN | P1 | report | markdown | PROMPT_582941_ACTIVITYWATCH_REBOOT_BEFORE |
+| 2026-07-06 | megavault | MegaVault XFCE window tiling | backup | UNKNOWN | P1 | report | markdown | Prompt 739482 - XFCE window tiling repair |
 | 2026-07-06 | megavault | Veeam T7 | security | WARN | P1 | report | markdown | Veeam T7 retention and space diagnosis - 2026-07-06 |
+| 2026-07-06 | megavault | MegaVault Archive Index | docs | UNKNOWN | P3 | doc_event | markdown | Archive Index |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | Codex Timeline | migration | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 Aggiorna protocollo MegaVault | migration | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v2 | security | WARN | P0 | protocol_update | markdown | DATA_REGISTRY |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v7 | migration | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi v7 |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MTT v536 fast path verification |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MultiTimeTracker startup v536 |
+| 2026-07-06 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
+| 2026-07-06 | megavault-project-exporter | Git PATH | security | WARN | P1 | doc_event | markdown | megavault-project-exporter Troubleshooting |
+| 2026-07-06 | megavault-project-exporter | Git PATH | backup | UNKNOWN | P1 | backup | markdown | megavault-project-exporter Overview |
+| 2026-07-06 | megavault-project-exporter | Git PATH | backup | UNKNOWN | P1 | backup | markdown | megavault-project-exporter Features |
+| 2026-07-06 | mint-freeze-forensics | mint-freeze-forensics Features | backup | UNKNOWN | P1 | report | markdown | Features |
+| 2026-07-06 | mint-freeze-forensics | mint-freeze-forensics mint-freeze-forensics | backup | WARN | P1 | report | markdown | mint-freeze-forensics |
+| 2026-07-06 | mint-freeze-forensics | mint-freeze-forensics v1 | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
+| 2026-07-06 | mint-freeze-forensics | mint-freeze-forensics v1 | bugfix | UNKNOWN | P2 | report | markdown | Troubleshooting |
+| 2026-07-06 | mint-manual-updates | mint-manual-updates mint-manual-updates Roadmap | backup | UNKNOWN | P1 | backup | markdown | mint-manual-updates Roadmap |
+| 2026-07-06 | mint-manual-updates | mint-manual-updates mint-manual-updates Troubleshooting | backup | WARN | P1 | report | markdown | mint-manual-updates Troubleshooting |
+| 2026-07-06 | mint-manual-updates | mint-manual-updates v9 | backup | WARN | P1 | report | markdown | mint-manual-updates Features |
+| 2026-07-06 | mint-manual-updates | mint-manual-updates v9 | backup | OPEN | P1 | backup | markdown | mint-manual-updates Overview |
 | 2026-07-06 | mtt | MTT Test startup fast | backup | PASS | P1 | git_commit | git_log | Test startup fast path snapshot convergence |
 | 2026-07-06 | mtt | MTT Speed up startup | docs | PASS | P2 | git_commit | git_log | Speed up startup home readiness |
-| 2026-07-06 | multitimetracker | MTT 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
+| 2026-07-06 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | CODE_AUDIT_COMPRESSION_REPORT |
+| 2026-07-06 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | Code Audit Enrichment Report |
+| 2026-07-06 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | PROTOCOL_V2_NORMALIZATION_REPORT |
+| 2026-07-06 | multitimetracker | MTT v2 | security | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-06 | multitimetracker | MTT v4 | security | PASS | P0 | protocol_update | markdown | PROJECT_INDEX |
+| 2026-07-06 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
+| 2026-07-06 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
+| 2026-07-06 | multitimetracker | MTT ENRICHMENT_REPORT | security | PASS | P1 | changelog | markdown | ENRICHMENT_REPORT |
+| 2026-07-06 | multitimetracker | MTT MegaVault Human Enrichment | security | PASS | P1 | changelog | markdown | MegaVault Human Enrichment Report |
 | 2026-07-06 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
+| 2026-07-06 | multitimetracker | MTT v4 | security | WARN | P1 | doc_event | markdown | PROJECT_INVENTORY |
 | 2026-07-06 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
+| 2026-07-06 | multitimetracker | MTT v488 | security | WARN | P1 | changelog | markdown | MegaVault Migration Report |
+| 2026-07-06 | multitimetracker | MTT v488 | security | WARN | P1 | changelog | markdown | MIGRATION_REPORT |
+| 2026-07-06 | multitimetracker | MTT v534 | backup | WARN | P1 | report | markdown | MultiTimeTracker Troubleshooting |
 | 2026-07-06 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
+| 2026-07-06 | oracle-backup-service | Oracle Backup v2 | security | OPEN | P0 | protocol_update | markdown | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remot... |
+| 2026-07-06 | oracle-backup-service | Oracle Backup oracle-backup-service Features | security | FAIL | P1 | doc_event | markdown | oracle-backup-service Features |
+| 2026-07-06 | oracle-backup-service | Oracle Backup oracle-backup-service Roadmap | security | WARN | P1 | report | markdown | oracle-backup-service Roadmap |
+| 2026-07-06 | oracle-uptime-kuma | Kuma v2 | security | OPEN | P0 | protocol_update | markdown | Persistent heartbeat sender for a Uptime Kuma push monitor |
+| 2026-07-06 | oracle-uptime-kuma | Kuma v2 | security | FAIL | P0 | protocol_update | markdown | Linux Mint black-box recorder: user-systemd timer records read-only telemetry into SQLite, maintains diagnostic knowledge, exports bounded context... |
+| 2026-07-06 | oracle-uptime-kuma | Kuma v2 | security | OPEN | P0 | protocol_update | markdown | Servizio leggero user-level per monitorare la spedizione `XT329499807TS` |
+| 2026-07-06 | oracle-uptime-kuma | Kuma Features | backup | UNKNOWN | P1 | backup | markdown | Features |
+| 2026-07-06 | os-observer | os-observer os-observer Features | backup | UNKNOWN | P1 | backup | markdown | os-observer Features |
+| 2026-07-06 | os-observer | os-observer os-observer Overview | backup | OPEN | P1 | backup | markdown | os-observer Overview |
+| 2026-07-06 | os-observer | os-observer os-observer Roadmap | backup | WARN | P1 | backup | markdown | os-observer Roadmap |
+| 2026-07-06 | os-observer | os-observer os-observer Troubleshooting | backup | FAIL | P1 | backup | markdown | os-observer Troubleshooting |
+| 2026-07-06 | owntracks-watcher | Android Tests | security | FAIL | P1 | doc_event | markdown | owntracks-watcher Troubleshooting |
+| 2026-07-06 | owntracks-watcher | Android Tests | security | UNKNOWN | P1 | doc_event | markdown | owntracks-watcher Overview |
+| 2026-07-06 | owntracks-watcher | owntracks-watcher owntracks-watcher Features | release | OPEN | P1 | release | markdown | owntracks-watcher Features |
+| 2026-07-06 | owntracks-watcher | owntracks-watcher owntracks-watcher Roadmap | testing | UNKNOWN | P2 | qa | markdown | owntracks-watcher Roadmap |
+| 2026-07-06 | parcel-tracker | parcel-tracker parcel-tracker Features | backup | UNKNOWN | P1 | backup | markdown | parcel-tracker Features |
+| 2026-07-06 | parcel-tracker | parcel-tracker parcel-tracker Troubleshooting | release | FAIL | P1 | release | markdown | parcel-tracker Troubleshooting |
+| 2026-07-06 | parcel-tracker | parcel-tracker parcel-tracker Overview | automation | OPEN | P2 | doc_event | markdown | parcel-tracker Overview |
+| 2026-07-06 | parcel-tracker | parcel-tracker parcel-tracker Roadmap | docs | FAIL | P2 | doc_event | markdown | parcel-tracker Roadmap |
 | 2026-07-06 | pixel | Git PATH | security | WARN | P1 | report | markdown | End-to-end validation of the Pixel Tasker monitor, with Tasker UI verification, repeated manual runs, automatic schedule proof, reboot persistence,... |
 | 2026-07-06 | pixel-8a | Git PATH | security | PASS | P1 | report | markdown | WhatsApp notification triage on a Pixel 8a found two separate root causes and fixed both without destructive actions |
+| 2026-07-06 | remote-codex-phone | remote-codex-phone remote-codex-phone Features | release | OPEN | P1 | release | markdown | remote-codex-phone Features |
+| 2026-07-06 | remote-codex-phone | remote-codex-phone remote-codex-phone Troubleshooting | release | OPEN | P1 | release | markdown | remote-codex-phone Troubleshooting |
+| 2026-07-06 | remote-codex-phone | remote-codex-phone remote-codex-phone Roadmap | testing | UNKNOWN | P2 | qa | markdown | remote-codex-phone Roadmap |
+| 2026-07-06 | remote-codex-phone | Android Tests | testing | OPEN | P3 | qa | markdown | remote-codex-phone Overview |
+| 2026-07-06 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Features | security | UNKNOWN | P1 | doc_event | markdown | remote_opt_oracle_backup Features |
+| 2026-07-06 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Overview | backup | OPEN | P1 | backup | markdown | remote_opt_oracle_backup Overview |
+| 2026-07-06 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Roadmap | security | FAIL | P1 | doc_event | markdown | remote_opt_oracle_backup Roadmap |
+| 2026-07-06 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Troubleshooting | security | FAIL | P1 | doc_event | markdown | remote_opt_oracle_backup Troubleshooting |
+| 2026-07-06 | soldi | Android Tests | backup | PASS | P1 | backup | markdown | soldi |
+| 2026-07-06 | soldi | Soldi 2.apk | backup | UNKNOWN | P1 | release | markdown | Soldi |
+| 2026-07-06 | soldi | Soldi Soldi Roadmap | bugfix | UNKNOWN | P2 | doc_event | markdown | Soldi Roadmap |
 | 2026-07-06 | soldi-2 | soldi-2 Enable optimized release | release | PASS | P1 | git_commit | git_log | Enable optimized release builds |
 | 2026-07-06 | soldi-2 | soldi-2 Add receipt app | docs | PASS | P2 | git_commit | git_log | Add receipt app dependencies |
 | 2026-07-06 | soldi-2 | soldi-2 Add receipt device | docs | PASS | P2 | git_commit | git_log | Add receipt device verification |
 | 2026-07-06 | soldi-2 | soldi-2 Implement home receipt | docs | PASS | P2 | git_commit | git_log | Implement home and receipt OCR workflow |
+| 2026-07-06 | sostanze | Sostanze 4.apk | release | UNKNOWN | P1 | release | markdown | Sostanze |
+| 2026-07-06 | sostanze | Sostanze app-debug.apk | security | WARN | P1 | release | markdown | Sostanze Troubleshooting |
+| 2026-07-06 | sostanze | Sostanze Sostanze Roadmap | migration | UNKNOWN | P2 | migration | markdown | Sostanze Roadmap |
+| 2026-07-06 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-07-06 | supercontacts | SC v34 | security | WARN | P0 | protocol_update | markdown | SuperContacts capsulization audit and local AI capsule bootstrap |
-| 2026-07-06 | supercontacts | SC v5 | security | PASS | P1 | doc_event | markdown | Luoghi Overview |
-| 2026-07-06 | supercontacts | SC v6 | security | OPEN | P1 | doc_event | markdown | Luoghi Provider API v6 |
-| 2026-07-06 | supercontacts | SC v7 | security | PASS | P1 | changelog | markdown | Luoghi Changelog |
+| 2026-07-06 | supercontacts | SC SuperContacts Roadmap | backup | UNKNOWN | P1 | backup | markdown | SuperContacts Roadmap |
+| 2026-07-06 | supercontacts | SC v1 | security | FAIL | P1 | report | json | CODE AUDIT SOURCES |
+| 2026-07-06 | supercontacts | SC v23 | backup | UNKNOWN | P1 | backup | markdown | SuperContacts Overview |
+| 2026-07-06 | supercontacts | SC v29 | backup | FAIL | P1 | backup | markdown | SuperContacts Troubleshooting |
+| 2026-07-06 | supercontacts | SC v29 | security | UNKNOWN | P1 | doc_event | markdown | SuperContacts Features |
 | 2026-07-06 | supercontacts | SC Address | docs | PASS | P2 | git_commit | git_log | Link contact addresses to Luoghi places |
 | 2026-07-06 | supercontacts | SC Commit remaining SuperContacts | docs | PASS | P2 | git_commit | git_log | Commit remaining SuperContacts local artifacts |
+| 2026-07-06 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Features | backup | WARN | P1 | backup | markdown | surface-recovery-hardening Features |
+| 2026-07-06 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Roadmap | backup | UNKNOWN | P1 | report | markdown | surface-recovery-hardening Roadmap |
+| 2026-07-06 | system-watchdog | system-watchdog system_watchdog Features | release | UNKNOWN | P1 | release | markdown | system_watchdog Features |
+| 2026-07-06 | system-watchdog | system-watchdog system_watchdog Roadmap | automation | FAIL | P1 | doc_event | markdown | system_watchdog Roadmap |
+| 2026-07-06 | system-watchdog | system-watchdog system_watchdog Troubleshooting | release | FAIL | P1 | release | markdown | system_watchdog Troubleshooting |
+| 2026-07-06 | system-watchdog | system-watchdog system_watchdog Overview | automation | OPEN | P2 | doc_event | markdown | system_watchdog Overview |
 | 2026-07-06 | unknown | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-07-06 | unknown | Codex Timeline | security | OPEN | P0 | changelog | markdown | MegaVault Global Rules |
 | 2026-07-06 | vm-oracle | Git PATH | security | WARN | P0 | protocol_update | markdown | Strano Anello DB bloat was root-caused, fixed structurally, and documented in MegaVault. |
+| 2026-07-06 | windows | Veeam T7 | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-06 | windows | Veeam T7 | security | FAIL | P0 | protocol_update | markdown | ALERT_REGISTRY |
+| 2026-07-06 | windows | windows Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
 | 2026-07-06 | windows | Git PATH | bugfix | PASS | P1 | report | markdown | Windows Flight Recorder runtime hardening continuation |
 | 2026-07-06 | windows | Git PATH | security | PASS | P1 | report | markdown | Git/GitHub CLI on Windows: first embedded-Git fallback, then standalone Git for Windows install and PATH normalization |
 | 2026-07-06 | windows | Git PATH | backup | WARN | P1 | report | markdown | Installazione e misurazione termica su ThinkPad P14s Gen 5 AMD in Windows 11 |
@@ -817,6 +980,19 @@ Total events: 2755
 | 2026-07-06 | windows | Veeam T7 | security | WARN | P1 | report | markdown | Veeam T7 destination persistence fix - 2026-07-06 |
 | 2026-07-06 | windows | windows Diagnostic investigation of | backup | PASS | P1 | report | markdown | Diagnostic investigation of a PNY USB 16 GB drive not appearing in File Explorer or Disk Management |
 | 2026-07-06 | windows | windows v1 | backup | FAIL | P1 | report | markdown | Windows debloat audit + attempted OneDrive removal on Windows 11 Pro ThinkPad P14s |
+| 2026-07-06 | windows-flight-recorder | WFR Windows Flight Recorder | backup | UNKNOWN | P1 | changelog | markdown | Windows Flight Recorder |
+| 2026-07-06 | windows-flight-recorder | WFR Windows Flight Recorder | security | UNKNOWN | P1 | doc_event | markdown | Windows Flight Recorder Troubleshooting |
+| 2026-07-06 | windows-flight-recorder | WFR Windows Flight Recorder | security | UNKNOWN | P1 | doc_event | markdown | Windows Flight Recorder Features |
+| 2026-07-06 | windows-flight-recorder | WFR v2 | bugfix | UNKNOWN | P2 | changelog | markdown | Windows Flight Recorder Changelog |
+| 2026-07-06 | windows-flight-recorder | WFR Windows Flight Recorder | bugfix | UNKNOWN | P2 | doc_event | markdown | Windows Flight Recorder Roadmap |
+| 2026-07-06 | windows-winget-daily-update | Winget Windows Winget Daily | infra | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Roadmap |
+| 2026-07-06 | windows-winget-daily-update | Winget Windows Winget Daily | automation | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Features |
+| 2026-07-06 | windows-winget-daily-update | Winget Windows Winget Daily | automation | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Troubleshooting |
+| 2026-07-06 | windows-winget-daily-update | Winget Windows Winget Daily | automation | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Overview |
+| 2026-07-06 | windowtabnotes | windowtabnotes v20 | backup | UNKNOWN | P1 | report | markdown | WindowTabNotes Features |
+| 2026-07-06 | windowtabnotes | windowtabnotes v20 | backup | FAIL | P1 | report | markdown | WindowTabNotes Troubleshooting |
+| 2026-07-06 | windowtabnotes | windowtabnotes v23 | release | WARN | P1 | release | markdown | WindowTabNotes Overview |
+| 2026-07-06 | windowtabnotes | windowtabnotes WindowTabNotes Roadmap | backup | UNKNOWN | P1 | backup | markdown | WindowTabNotes Roadmap |
 | 2026-07-05 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P0 | doc_event | markdown | amici_fb Features |
 | 2026-07-05 | amici-fb | Amici FB amici_fb Roadmap | security | UNKNOWN | P0 | doc_event | markdown | amici_fb Roadmap |
 | 2026-07-05 | amici-fb | Amici FB amici_fb Troubleshooting | backup | UNKNOWN | P0 | backup | markdown | amici_fb Troubleshooting |
@@ -887,17 +1063,9 @@ Total events: 2755
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Roadmap | security | FAIL | P0 | doc_event | markdown | linux-mint-service-dashboard Roadmap |
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting | security | FAIL | P0 | report | markdown | linux-mint-service-dashboard Troubleshooting |
 | 2026-07-05 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Overview | migration | OPEN | P2 | migration | markdown | linux-mint-service-dashboard Overview |
-| 2026-07-05 | luoghi | Luoghi 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
 | 2026-07-05 | luoghi | Luoghi app-debug.apk | release | UNKNOWN | P0 | release | markdown | Luoghi |
 | 2026-07-05 | luoghi | Luoghi Luoghi Roadmap | backup | UNKNOWN | P0 | backup | markdown | Luoghi Roadmap |
 | 2026-07-05 | luoghi | Luoghi Luoghi Troubleshooting | release | UNKNOWN | P0 | release | markdown | Luoghi Troubleshooting |
-| 2026-07-05 | luoghi | Luoghi 1 | release | UNKNOWN | P1 | release | json | 1 |
-| 2026-07-05 | luoghi | Luoghi base.apk | security | PASS | P1 | release | txt | tcl logcat filtered |
-| 2026-07-05 | luoghi | Luoghi base.apk | security | PASS | P1 | release | txt | tcl v1 logcat final filtered |
-| 2026-07-05 | luoghi | Luoghi tcl luoghi manifest | backup | UNKNOWN | P1 | backup | json | tcl luoghi manifest |
-| 2026-07-05 | luoghi | Luoghi v1 | release | UNKNOWN | P1 | release | markdown | Luoghi Incident Registry |
-| 2026-07-05 | luoghi | Luoghi v1 | bugfix | PASS | P1 | doc_event | txt | tcl v1 logcat filtered |
-| 2026-07-05 | luoghi | Luoghi v3 | docs | UNKNOWN | P2 | report | markdown | Luoghi Links |
 | 2026-07-05 | luoghi-app | luoghi-app v3 | bugfix | PASS | P1 | git_commit | git_log | Luoghi v3 map consumer freeze fix |
 | 2026-07-05 | luoghi-app | luoghi-app v4 | bugfix | PASS | P1 | git_commit | git_log | Luoghi v4 autocomplete keyboard freeze fix |
 | 2026-07-05 | luoghi-app | luoghi-app Initial Luoghi app | docs | PASS | P2 | git_commit | git_log | Initial Luoghi app provider |
@@ -942,7 +1110,6 @@ Total events: 2755
 | 2026-07-05 | megavault-and-similar-megavault-global-doc-checkouts | megavault-and-similar-megavault-global-doc-checkouts aapt dump permissions | security | WARN | P0 | protocol_update | markdown | Task Group: MegaVault global-only documentation rules and project-local docs routing |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | WARN | P0 | protocol_update | markdown | Strano Anello Decommission Report |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | OPEN | P0 | protocol_update | markdown | MegaVault Post-Merge Quality Audit 2026-07-05 |
-| 2026-07-05 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v2 | security | WARN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | UNKNOWN | P0 | backup | markdown | Topologia storage globale |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
@@ -1043,10 +1210,8 @@ Total events: 2755
 | 2026-07-05 | remote-opt-oracle-backup | remote-opt-oracle-backup v2 | security | OPEN | P0 | protocol_update | markdown | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remot... |
 | 2026-07-05 | sesso-app | sesso-app Create Sesso Android | docs | PASS | P2 | git_commit | git_log | Create Sesso Android app |
 | 2026-07-05 | soldi | Android Tests | backup | PASS | P0 | backup | markdown | soldi |
-| 2026-07-05 | soldi | Soldi 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
 | 2026-07-05 | soldi | Soldi 2.apk | backup | UNKNOWN | P0 | release | markdown | Soldi |
 | 2026-07-05 | soldi | Soldi Soldi Roadmap | bugfix | UNKNOWN | P0 | doc_event | markdown | Soldi Roadmap |
-| 2026-07-05 | soldi | Soldi 3.apk | backup | WARN | P1 | release | markdown | Luoghi v3 - mappa, consumer API e freeze autocomplete |
 | 2026-07-05 | sostanze | Sostanze 4.apk | release | UNKNOWN | P0 | release | markdown | Sostanze |
 | 2026-07-05 | sostanze | Sostanze app-debug.apk | security | WARN | P0 | release | markdown | Sostanze Troubleshooting |
 | 2026-07-05 | sostanze | Sostanze Sostanze Roadmap | migration | UNKNOWN | P0 | migration | markdown | Sostanze Roadmap |
@@ -1126,6 +1291,7 @@ Total events: 2755
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f34b3-4836-7913-9f50-fc36b6a184f3 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f20ec-ca94-71f3-b9c4-b50b733653c3 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f351b-9bb0-71e0-b4a0-fc6b48f609e8 |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\Megavault 2 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\android studio |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\parole create |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3533-8a0f-7c82-bb04-c4fe3d884dfc |
@@ -1383,6 +1549,7 @@ Total events: 2755
 | 2026-06-27 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
 | 2026-06-27 | supercontacts | SC v34 | security | PASS | P1 | report | txt | androidx.work.systemjobscheduler:u0a380/5656 from u0a380 active, exempted: com.a0soft.gphone.uninstaller [RUN_ANY_IN_BACKGROUND allowed] RUNNABLE |
 | 2026-06-27 | windows | windows aapt dump permissions | security | WARN | P0 | changelog | markdown | Raw Memories |
+| 2026-06-27 | windows | windows v3 | backup | PASS | P0 | protocol_update | markdown | Daily Windows package source refresh and upgrade automation via winget |
 | 2026-06-27 | windows | Git PATH | security | WARN | P1 | report | markdown | Uptime Kuma migration cleanup on Oracle VM: UI bulk-delete attempt followed by full database reset |
 | 2026-06-27 | windows-flight-recorder | WFR Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
 | 2026-06-27 | windows-flight-recorder | WFR Windows Flight Recorder | security | UNKNOWN | P1 | doc_event | markdown | Windows Flight Recorder Features |
@@ -1408,6 +1575,7 @@ Total events: 2755
 | 2026-06-25 | megavault | MegaVault Update amici_fb Windows | infra | PASS | P1 | git_commit | git_log | Update amici_fb Windows scheduler docs |
 | 2026-06-25 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 Update amici_fb Windows | migration | PASS | P1 | git_commit | git_log | Update amici_fb Windows scheduler docs |
 | 2026-06-25 | megavault-protocol-global-docs-20260705 | megavault-protocol-global-docs-20260705 Update amici_fb Windows | infra | PASS | P0 | git_commit | git_log | Update amici_fb Windows scheduler docs |
+| 2026-06-25 | oracle-uptime-kuma | Kuma v3 | security | FAIL | P0 | protocol_update | markdown | Added precise profile_chooser detection, removed generic cookie/consent false positives, added bounded profile chooser click attempts, added --logi... |
 | 2026-06-23 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019ef536-ee6a-7271-8ba6-f0df28e617f7 |
 | 2026-06-23 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019ef33a-1af5-7882-aac4-9a872d729249 |
 | 2026-06-23 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019ef288-982c-7be0-8495-a069f5374372 |
@@ -1598,6 +1766,7 @@ Total events: 2755
 | 2026-06-18 | grindr-web-exporter | grindr-web-exporter Troubleshooting | migration | UNKNOWN | P2 | migration | markdown | Troubleshooting |
 | 2026-06-18 | megavault | MegaVault Document Soldi finance | migration | PASS | P1 | git_commit | git_log | Document Soldi finance capsule |
 | 2026-06-18 | megavault | MegaVault Register Grindr Web | migration | PASS | P1 | git_commit | git_log | Register Grindr Web exporter |
+| 2026-06-18 | megavault | MegaVault v1 | security | PASS | P1 | doc_event | markdown | grindr-web-exporter |
 | 2026-06-18 | megavault | Android Tests | testing | PASS | P2 | git_commit | git_log | Register Grindr Web exporter |
 | 2026-06-18 | megavault | Android Tests | testing | PASS | P2 | git_commit | git_log | Document Soldi finance capsule |
 | 2026-06-18 | megavault-surface | megavault-surface Document Soldi finance | docs | PASS | P2 | git_commit | git_log | Document Soldi finance capsule |
@@ -1681,6 +1850,8 @@ Total events: 2755
 | 2026-06-13 | megavault | MegaVault protocol add android | migration | PASS | P0 | git_commit | git_log | protocol: add android template initialization rules |
 | 2026-06-13 | megavault | MegaVault protocol split Android | release | PASS | P0 | git_commit | git_log | protocol: split Android rules into ANDROID_PROTOCOL and add versioning standard |
 | 2026-06-13 | megavault | MegaVault protocol update android | migration | PASS | P0 | git_commit | git_log | protocol: update android protocol |
+| 2026-06-13 | megavault | MegaVault v0 | security | WARN | P0 | protocol_update | markdown | Local authorized downloader for facedownassup.com member gallery pages using existing legitimate Firefox login via yt-dlp cookies by default. |
+| 2026-06-13 | megavault | MegaVault v9 | security | WARN | P0 | protocol_update | markdown | Private OwnTracks Android HTTP receiver on Oracle VM; stores location payloads in SQLite for Datasette/history views. |
 | 2026-06-13 | megavault | Android Tests | backup | PASS | P1 | git_commit | git_log | Document oracle backup fallback quota |
 | 2026-06-13 | megavault | Android Tests | backup | PASS | P1 | git_commit | git_log | Document home backup bwlimit safety check |
 | 2026-06-13 | megavault | Android Tests | backup | PASS | P1 | git_commit | git_log | Document oracle backup fallback cleanup |
@@ -1761,6 +1932,7 @@ Total events: 2755
 | 2026-06-13 | multitimetracker | MTT Audit Telegram MegaVault | security | FAIL | P0 | doc_event | markdown | Audit Telegram MegaVault |
 | 2026-06-13 | multitimetracker | MTT v13 | security | PASS | P0 | protocol_update | markdown | audit_only_no_migration |
 | 2026-06-13 | multitimetracker | Android Tests | bugfix | PASS | P1 | git_commit | git_log | Fix verified import and export data-loss guards |
+| 2026-06-13 | multitimetracker | MTT 4.apk | backup | WARN | P1 | release | markdown | sostanze |
 | 2026-06-13 | multitimetracker | MTT telegram projects chat | security | FAIL | P1 | doc_event | csv | telegram projects chat id |
 | 2026-06-13 | multitimetracker | MTT v488 | backup | FAIL | P1 | backup | markdown | MultiTimeTracker Overview |
 | 2026-06-13 | oracle-backup-service | Oracle Backup MegaVault Changelog | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
@@ -1771,10 +1943,13 @@ Total events: 2755
 | 2026-06-13 | oracle-backup-service | Oracle Backup oracle-backup-service Overview | backup | WARN | P0 | report | markdown | oracle-backup-service Overview |
 | 2026-06-13 | oracle-backup-service | Oracle Backup oracle-backup-service Features | security | FAIL | P1 | doc_event | markdown | oracle-backup-service Features |
 | 2026-06-13 | oracle-backup-service | Oracle Backup oracle-backup-service Roadmap | security | WARN | P1 | report | markdown | oracle-backup-service Roadmap |
+| 2026-06-13 | oracle-uptime-kuma | Kuma v8 | security | PASS | P0 | protocol_update | markdown | Linux Mint canonical 3-disk monitor with SQLite state, clean Telegram alerts, and Oracle Uptime Kuma push heartbeat. |
 | 2026-06-13 | owntracks-watcher | Android Tests | automation | FAIL | P0 | changelog | markdown | owntracks-watcher Changelog |
 | 2026-06-13 | owntracks-watcher | owntracks-watcher v9 | security | WARN | P0 | protocol_update | markdown | Private OwnTracks Android HTTP receiver on Oracle VM; stores location payloads in SQLite for Datasette/history views. |
 | 2026-06-13 | owntracks-watcher | Android Tests | security | FAIL | P1 | doc_event | markdown | owntracks-watcher Troubleshooting |
 | 2026-06-13 | owntracks-watcher | Android Tests | security | UNKNOWN | P1 | doc_event | markdown | owntracks-watcher Overview |
+| 2026-06-13 | soldi | Soldi app-debug.apk | security | WARN | P1 | release | markdown | android-app-template |
+| 2026-06-13 | soldi | Soldi app-debug.apk | backup | WARN | P1 | release | markdown | luoghi |
 | 2026-06-13 | soldi | Android Tests | testing | PASS | P2 | git_commit | git_log | Document Soldi remote |
 | 2026-06-13 | soldi | Android Tests | testing | PASS | P2 | git_commit | git_log | Initialize Soldi from Android template |
 | 2026-06-13 | soldi | Android Tests | testing | PASS | P2 | git_commit | git_log | Document Soldi template boundary |
@@ -1843,6 +2018,8 @@ Total events: 2755
 | 2026-06-10 | linux-mint-service-dashboard | linux-mint-service-dashboard v2 | security | FAIL | P0 | protocol_update | markdown | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE |
 | 2026-06-10 | megavault | MegaVault v2 | backup | FAIL | P0 | backup | markdown | PROMPT_391684_ACTIVITYWATCH_AUTOSTART |
 | 2026-06-10 | megavault | MegaVault v8 | security | UNKNOWN | P0 | changelog | markdown | Prompt 428691 Kuma Docs Normalization |
+| 2026-06-10 | megavault | MegaVault v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
+| 2026-06-10 | megavault | MegaVault v8 | security | WARN | P0 | protocol_update | markdown | Monitor Codex CLI health/status and local Codex session quota cache from Linux Mint; persist redacted logs and SQLite observations; push health to... |
 | 2026-06-10 | megavault | MegaVault v8 | security | FAIL | P0 | changelog | markdown | Prompt 731845 Kuma Operational Audit |
 | 2026-06-10 | megavault | MegaVault v9 | migration | PASS | P0 | git_commit | git_log | Update MEGAVAULT_PROTOCOL v9: dependency autonomy |
 | 2026-06-10 | megavault | Android Tests | backup | PASS | P1 | git_commit | git_log | Document Codex quota notification format |
@@ -1934,6 +2111,8 @@ Total events: 2755
 | 2026-06-10 | oracle-backup-service | Oracle Backup v2 | security | WARN | P0 | protocol_update | markdown | Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, an... |
 | 2026-06-10 | oracle-backup-service | Oracle Backup MegaVault files | backup | UNKNOWN | P1 | changelog | txt | MegaVault files touched for prompt 492837 documentation/report update |
 | 2026-06-10 | oracle-uptime-kuma | Kuma Roadmap | performance | WARN | P0 | doc_event | markdown | Roadmap |
+| 2026-06-10 | oracle-uptime-kuma | Kuma v2 | security | FAIL | P0 | protocol_update | markdown | Dashboard locale read-only per i servizi operativi importanti di questo host Linux Mint/XFCE |
+| 2026-06-10 | oracle-uptime-kuma | Kuma v2 | security | PASS | P0 | protocol_update | markdown | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. |
 | 2026-06-10 | oracle-uptime-kuma | Kuma Features | backup | UNKNOWN | P1 | backup | markdown | Features |
 | 2026-06-10 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-06-10 | supercontacts | SC v2 | release | WARN | P0 | release | markdown | PROMPT_582941_ACTIVITYWATCH_REBOOT_AFTER |
@@ -2022,6 +2201,8 @@ Total events: 2755
 | 2026-06-07 | megavault-surface | megavault-surface Document USB storage | docs | PASS | P2 | git_commit | git_log | Document USB storage hub topology |
 | 2026-06-07 | megavault-surface | megavault-surface Tune Mint freeze | docs | PASS | P2 | git_commit | git_log | Tune Mint freeze forensics sampler docs |
 | 2026-06-07 | mint-freeze-forensics | mint-freeze-forensics v4 | security | FAIL | P0 | protocol_update | markdown | Linux Mint freeze forensics + early warning + Kuma telemetry |
+| 2026-06-07 | oracle-backup-service | Oracle Backup v8 | security | WARN | P0 | changelog | markdown | Uptime Kuma instance on Oracle VM for Mint/Oracle black-box history, alerting, and visualization. |
+| 2026-06-07 | oracle-uptime-kuma | Kuma v4 | security | FAIL | P0 | protocol_update | markdown | Linux Mint freeze forensics + early warning + Kuma telemetry |
 | 2026-06-07 | oracle-uptime-kuma | Kuma v8 | security | WARN | P0 | changelog | markdown | Uptime Kuma instance on Oracle VM for Mint/Oracle black-box history, alerting, and visualization. |
 | 2026-06-06 | megavault | MegaVault prompt_618903 mint-home-backup rsync_exit | security | WARN | P0 | report | markdown | prompt_618903 mint-home-backup rsync_exit 137 |
 | 2026-06-06 | megavault | Android Tests | backup | PASS | P1 | git_commit | git_log | Document mint home backup rsync 137 fix |
@@ -2050,6 +2231,7 @@ Total events: 2755
 | 2026-06-06 | mint-cloud-backup | mint-cloud-backup v2 | security | WARN | P0 | changelog | markdown | Linux Mint root filesystem backup to Backblaze B2 via restic, with local health monitor, localhost dashboard, and Uptime Kuma push heartbeat. |
 | 2026-06-06 | oracle-uptime-kuma | Kuma Uptime Kuma cleanup | security | WARN | P0 | report | markdown | Uptime Kuma cleanup prompt 482917 |
 | 2026-06-06 | oracle-uptime-kuma | Kuma v2 | security | FAIL | P0 | protocol_update | markdown | Prompt 482917 Uptime Kuma Noise Reduction |
+| 2026-06-06 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | markdown | Linux Mint root filesystem backup to Backblaze B2 via restic, with local health monitor, localhost dashboard, and Uptime Kuma push heartbeat. |
 | 2026-06-06 | supercontacts | SC Implement 739516 contact | bugfix | PASS | P1 | git_commit | git_log | Implement prompt 739516 contact UX fixes |
 | 2026-06-06 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Changelog | backup | PASS | P0 | changelog | markdown | surface-recovery-hardening Changelog |
 | 2026-06-05 | android | android android Features | automation | OPEN | P0 | doc_event | markdown | android Features |
@@ -2065,6 +2247,8 @@ Total events: 2755
 | 2026-06-05 | megavault | Android Tests | security | PASS | P0 | report | markdown | Prompt 739482 - initial incident report |
 | 2026-06-05 | megavault | Git PATH | backup | PASS | P0 | report | markdown | Prompt 584731 - anti-freeze disable report |
 | 2026-06-05 | megavault | MegaVault Custom Services Status | security | PASS | P0 | protocol_update | markdown | Custom Services Status |
+| 2026-06-05 | megavault | MegaVault v3 | security | FAIL | P0 | protocol_update | markdown | Host-local Android helper project; currently owns Linux Mint user service for ADB Wi-Fi Debug auto-connect. |
+| 2026-06-05 | megavault | MegaVault v3 | backup | WARN | P0 | changelog | markdown | Ultra-fast cached ZIP bundler for sharing any MegaVault-registered project plus MegaVault docs with ChatGPT. |
 | 2026-06-05 | megavault | Android Tests | backup | PASS | P1 | git_commit | git_log | Document human Codex quota status command |
 | 2026-06-05 | megavault | Android Tests | automation | PASS | P1 | git_commit | git_log | Document Android ADB Wi-Fi service and sync vault |
 | 2026-06-05 | megavault | Android Tests | backup | PASS | P1 | git_commit | git_log | Document Codex quota cache investigation |
@@ -2163,6 +2347,7 @@ Total events: 2755
 | 2026-06-03 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Roadmap | backup | UNKNOWN | P1 | report | markdown | surface-recovery-hardening Roadmap |
 | 2026-06-02 | codex-token-watcher | codex-token-watcher v3 | security | FAIL | P1 | doc_event | markdown | codex-token-watcher Features |
 | 2026-06-02 | codex-token-watcher | codex-token-watcher v3 | security | UNKNOWN | P1 | doc_event | markdown | codex-token-watcher Roadmap |
+| 2026-06-02 | megavault | MegaVault v2 | security | FAIL | P0 | protocol_update | markdown | Read-only software black-box recorder for Linux Mint desktop and Oracle Ubuntu Server; records installs, updates, downgrades, removals, snapshots a... |
 | 2026-06-02 | megavault | Android Tests | backup | PASS | P1 | git_commit | git_log | Register mint-cloud-backup docs |
 | 2026-06-02 | megavault | MegaVault Clarify SuperContacts capsulization | migration | PASS | P1 | git_commit | git_log | Clarify SuperContacts capsulization baseline |
 | 2026-06-02 | megavault | MegaVault Improve messaging links | migration | PASS | P1 | git_commit | git_log | Improve messaging links decided-state UX |

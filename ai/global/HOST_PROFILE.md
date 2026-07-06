@@ -4,6 +4,10 @@ STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
+DOC_CLASS=reference
+LIFECYCLE=ACTIVE
+AUTHORITY_LEVEL=L1
+SOURCE_OF_TRUTH=yes
 UPDATED=2026-07-05T00:00:00+02:00
 SOURCE=local_Windows_CIM+Get-Volume+Get-Disk+tool_versions+user_context
 

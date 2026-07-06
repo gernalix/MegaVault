@@ -142,7 +142,7 @@ LINK:
 repo=/home/daniele/AndroidStudioProjects/Sostanze
 metadata=/home/daniele/AndroidStudioProjects/Sostanze/dev/project.metadata.json
 local_ai=/home/daniele/AndroidStudioProjects/Sostanze/dev/ai/INDEX.md
-template_ai=/home/daniele/codex-workspace/MegaVault/ai/projects/android-app-template.md
+template_ai=/home/daniele/codex-workspace/MegaVault/ai/archive/projects_legacy/android-app-template.md
 human_overview=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/overview.md
 human_roadmap=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/roadmap.md
 human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/changelog.md

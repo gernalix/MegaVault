@@ -1,4 +1,4 @@
-VERSION=13
+VERSION=14
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -6,6 +6,10 @@ AUDIENCE=codex
 PURPOSE=global_doc_constitution
 SCOPE=all_projects,all_tasks,all_docs
 AUTHORITY=mandatory
+DOC_CLASS=protocol
+LIFECYCLE=ACTIVE
+AUTHORITY_LEVEL=L0
+SOURCE_OF_TRUTH=yes
 
 # CORE
 P1=ai_authoritative
@@ -35,6 +39,54 @@ P24=megavault_global_only
 P25=global_codex_timeline_required
 P26=execution_insights_required
 
+# DOC_AUTHORITY
+AUTHORITY_L0=ai/MEGAVAULT_PROTOCOL.md
+AUTHORITY_L1=ai/global/HOST_PROFILE.md,ai/ANDROID_PROTOCOL.md
+AUTHORITY_L2=ai/PROJECT_INDEX.md,ai/global/*REGISTRY.md,ai/global/*TOPOLOGY.md,ai/global/*INVENTORY.md,ai/global/*INDEX*.md
+AUTHORITY_L3=project.metadata.json
+AUTHORITY_L4=project_repo/docs/ai/*
+AUTHORITY_L5=project_repo/docs/human/*
+AUTHORITY_L6=ai/reports/*,ai/archive/*,legacy,archive
+AUTHORITY_RULE=higher_level_wins
+AUTHORITY_FORBID=lower_level_overrides_higher_level
+
+# DOC_CLASS
+DOC_CLASS_SET=protocol,registry,topology,index,inventory,report,guide,reference,legacy,archive
+DOC_CLASS_REQUIRED=yes
+DOC_METADATA_REQUIRED=DOC_CLASS,LIFECYCLE,AUTHORITY_LEVEL,SOURCE_OF_TRUTH
+CLASS_PROTOCOL=normative_rules
+CLASS_REGISTRY=live_state
+CLASS_TOPOLOGY=live_infrastructure_map
+CLASS_INDEX=navigation_pointer
+CLASS_INVENTORY=enumerated_assets
+CLASS_REPORT=historical_snapshot
+CLASS_GUIDE=operational_howto
+CLASS_REFERENCE=stable_background
+CLASS_LEGACY=noncanonical_historical
+CLASS_ARCHIVE=preserved_not_operational
+
+# DOC_LIFECYCLE
+ACTIVE=normative_or_live_operational
+REFERENCE=stable_supporting_context
+HISTORICAL=snapshot_not_source_of_truth
+ARCHIVE=preserve_only
+LIFECYCLE_REQUIRED=yes
+ACTIVE_READ_DEFAULT=yes
+HISTORICAL_READ_DEFAULT=no
+ARCHIVE_READ_DEFAULT=no
+HISTORICAL_USE=only_for_context_when_relevant
+ARCHIVE_USE=only_for_audit_or_migration
+
+# DOC_KIND_DEFS
+REGISTRY=live_state_source_of_truth
+INDEX=navigation_or_pointer_map
+REPORT=historical_snapshot_not_source_of_truth
+INVENTORY=asset_enumeration;live_only_if_LIFECYCLE_ACTIVE+SOURCE_OF_TRUTH_yes
+REGISTRY_FORBID=historical_snapshot
+INDEX_FORBID=operational_truth_duplication
+REPORT_FORBID=live_state_authority
+INVENTORY_FORBID=normative_override
+
 # CAPSULES
 CAPSULIZATION=mandatory_all_projects
 CAPSULE_TARGET=100_percent
@@ -49,6 +101,15 @@ FINAL_GATE=verify_capsulization_before_final
 HOST_PROFILE=mandatory
 HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
 READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>docs/ai
+READ_ORDER_STATUS=legacy_summary;READ_STEP_*_canonical
+READ_STEP_1=MEGAVAULT_PROTOCOL
+READ_STEP_2=HOST_PROFILE
+READ_STEP_3=ANDROID_PROTOCOL_if_android
+READ_STEP_4=project.metadata.json
+READ_STEP_5=project_repo/docs/ai
+READ_STEP_6=targeted_code_inspection
+READ_STEP_7=project_repo/docs/human_optional
+READ_FORBID=repo_wide_scan,human_as_primary_source,blind_copy
 HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux
 UNKNOWN_RULE=mark_UNKNOWN
 
@@ -62,12 +123,19 @@ CANONICAL_NETWORK=ai/global/NETWORK_TOPOLOGY.md
 CANONICAL_STORAGE=ai/global/STORAGE_TOPOLOGY.md
 CANONICAL_ALERT=ai/global/ALERT_REGISTRY.md
 CANONICAL_INCIDENT=ai/global/INCIDENT_REGISTRY.md
-CANONICAL_PROJECT_INDEX=ai/PROJECT_INDEX.md+ai/global/PROJECT_INDEX_EXTENDED.md
+CANONICAL_PROJECT_INDEX=ai/PROJECT_INDEX.md
+PROJECT_INDEX_EXTENDED=ai/global/PROJECT_INDEX_EXTENDED.md;extended_reference_not_canonical_navigation
 CANONICAL_CODEX_TIMELINE_DB=codex_global_timeline.sqlite
 CANONICAL_CODEX_TIMELINE_REPORT=codex_global_timeline.md
 CANONICAL_CODEX_TIMELINE_AI=codex_global_timeline_ai.md
 MEGAVAULT_CONTENT=global_protocols,global_registries,global_indices,host_profile,topology,service_registry,data_registry,network_registry,storage_registry,global_guides
 MEGAVAULT_FORBID=project_specific_docs_accumulation
+ACTIVE_GLOBAL_AI_ROOT=ai/MEGAVAULT_PROTOCOL.md,ai/ANDROID_PROTOCOL.md,ai/PROJECT_INDEX.md
+REFERENCE_GLOBAL_AI_ROOT=ai/GLOBAL_RULES.md,ai/PROJECT_DOCS_MIGRATION_PLAN.md
+PROJECT_LEGACY_ARCHIVE=ai/archive/projects_legacy/*
+HISTORICAL_REPORT_PATHS=ai/reports/*,ai/archive/reports/*
+HISTORICAL_SOURCE_ARCHIVE=ai/archive/sources/*
+HISTORICAL_INVENTORY_ARCHIVE=ai/archive/inventory/*
 PROJECT_DOC_ROOT=project_repo/docs
 PROJECT_AI_DOCS=docs/ai/
 PROJECT_HUMAN_DOCS=docs/human/
@@ -107,7 +175,7 @@ HUMAN_SOURCE=derived
 HUMAN_SOURCE_FORBID=primary_operational_source
 PROJECT_REQ=metadata,docs_ai,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
 PROJECT_DOCS_IN_MEGAVAULT=forbidden_except_global_index_registry_pointer
-PREMIGRATION_PROJECT_DOCS_IN_MEGAVAULT=migration_debt_do_not_move_without_plan
+PREMIGRATION_PROJECT_DOCS_IN_MEGAVAULT=ai/archive/projects_legacy/*;migration_debt_only;not_active
 
 # AI_DOC
 AI_DOC_REQ=META,PURPOSE,STACK,MAP,ARCH,FLOW,INV,BUILD,TEST,DATA,DNB,BUG,RISK,ROAD,LINK,OPEN
@@ -190,11 +258,11 @@ BLOCKER_FORBID=silent_workaround,silent_retry,silent_skip
 BLOCKER_PURPOSE=identify_global_improvements
 
 # FINAL_REPORT
-FINAL_REPORT_REQ=files_changed,tests,test_result,docs,global_timeline,repo_status,commit,push,sync_state,execution_insights
+FINAL_REPORT_REQ=files_changed,moved_archived_files,broken_fixed_links,tests,test_result,docs,global_timeline,execution_insights,repo_status,git_state,commit,push,sync_state
 FINAL_REPORT_FORBID=silent_failure,false_success,silent_workaround,silent_retry,silent_skip
 
 # VALIDATION
-VALIDATE=metadata,docs_ai,docs_human,links,global_timeline_updated,git_clean,remote_sync
+VALIDATE=metadata,docs_ai,docs_human,links,doc_class_headers,active_global_no_project_specific_docs,global_timeline_updated,git_clean,remote_sync,secrets
 
 # FINAL_CHECKLIST
 CHECK_GLOBAL_TIMELINE_BOX=[ ] Timeline globale aggiornata
