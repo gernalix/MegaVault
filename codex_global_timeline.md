@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-06T08:37:36+02:00
+Generated: 2026-07-06T08:44:48+02:00
 SQLite canonical source: `C:\Users\seste\Documents\megavault_content_aware_merge_20260705\codex_global_timeline.sqlite`
-Total events: 2901
+Total events: 2903
 
 ## Source Roots
 - `C:\Users\seste\Documents\megavault_content_aware_merge_20260705`
@@ -26,7 +26,7 @@ Total events: 2901
 | megavault | 493 |
 | megavault-surface | 131 |
 | supercontacts | 90 |
-| megavault-content-aware-merge-20260705 | 73 |
+| megavault-content-aware-merge-20260705 | 74 |
 | megavault-protocol-global-docs-20260705 | 60 |
 | pixel-8a | 55 |
 | 2026 | 54 |
@@ -67,8 +67,8 @@ Total events: 2901
 | strano-anello | 12 |
 | luoghi-app | 10 |
 | facedownassup-downloader | 9 |
+| soldi-2 | 8 |
 | tasker-pixel-device-monitor | 8 |
-| soldi-2 | 7 |
 | mint-cloud-backup | 6 |
 | unknown | 5 |
 | parole-create | 4 |
@@ -94,7 +94,7 @@ Total events: 2901
 | backup | 333 |
 | migration | 195 |
 | bugfix | 147 |
-| release | 137 |
+| release | 139 |
 | automation | 62 |
 | infra | 51 |
 | performance | 18 |
@@ -104,7 +104,7 @@ Total events: 2901
 | Value | Events |
 |---|---:|
 | P2 | 1445 |
-| P1 | 841 |
+| P1 | 843 |
 | P0 | 584 |
 | P3 | 31 |
 
@@ -112,7 +112,7 @@ Total events: 2901
 
 | Value | Events |
 |---|---:|
-| PASS | 1847 |
+| PASS | 1849 |
 | UNKNOWN | 409 |
 | WARN | 247 |
 | FAIL | 199 |
@@ -737,7 +737,7 @@ Total events: 2901
 - `megavault`: 493 events; latest=2026-07-06; label=Codex Timeline
 - `megavault-surface`: 131 events; latest=2026-07-05; label=Git PATH
 - `supercontacts`: 90 events; latest=2026-07-06; label=SC app-debug.apk
-- `megavault-content-aware-merge-20260705`: 73 events; latest=2026-07-06; label=Codex Timeline
+- `megavault-content-aware-merge-20260705`: 74 events; latest=2026-07-06; label=Codex Timeline
 - `megavault-protocol-global-docs-20260705`: 60 events; latest=2026-07-05; label=megavault-protocol-global-docs-20260705 Codify project-local docs
 - `pixel-8a`: 55 events; latest=2026-07-06; label=Git PATH
 - `2026`: 54 events; latest=2026-07-03; label=2026 0mapp-debug.apk
@@ -778,8 +778,8 @@ Total events: 2901
 - `strano-anello`: 12 events; latest=2026-06-29; label=strano-anello v3
 - `luoghi-app`: 10 events; latest=2026-07-06; label=Android Tests
 - `facedownassup-downloader`: 9 events; latest=2026-07-06; label=facedownassup-downloader facedownassup-downloader
+- `soldi-2`: 8 events; latest=2026-07-06; label=soldi-2 Enable optimized release
 - `tasker-pixel-device-monitor`: 8 events; latest=2026-07-03; label=Git PATH
-- `soldi-2`: 7 events; latest=2026-07-06; label=soldi-2 Enable optimized release
 - `mint-cloud-backup`: 6 events; latest=2026-06-21; label=mint-cloud-backup v2
 - `unknown`: 5 events; latest=2026-07-06; label=Codex Timeline
 - `parole-create`: 4 events; latest=2026-07-03; label=parole-create aapt dump permissions
@@ -880,6 +880,7 @@ Total events: 2901
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v2 | security | WARN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v7 | migration | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi v7 |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 Update global timeline | release | PASS | P1 | git_commit | git_log | Update global timeline for Soldi APK install fix |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MTT v536 fast path verification |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MultiTimeTracker startup v536 |
 | 2026-07-06 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
@@ -945,6 +946,7 @@ Total events: 2901
 | 2026-07-06 | soldi | Soldi 2.apk | backup | UNKNOWN | P1 | release | markdown | Soldi |
 | 2026-07-06 | soldi | Soldi Soldi Roadmap | bugfix | UNKNOWN | P2 | doc_event | markdown | Soldi Roadmap |
 | 2026-07-06 | soldi-2 | soldi-2 Enable optimized release | release | PASS | P1 | git_commit | git_log | Enable optimized release builds |
+| 2026-07-06 | soldi-2 | Telegram APK | release | PASS | P1 | git_commit | git_log | Fix Telegram debug APK install |
 | 2026-07-06 | soldi-2 | soldi-2 Add receipt app | docs | PASS | P2 | git_commit | git_log | Add receipt app dependencies |
 | 2026-07-06 | soldi-2 | soldi-2 Add receipt device | docs | PASS | P2 | git_commit | git_log | Add receipt device verification |
 | 2026-07-06 | soldi-2 | soldi-2 Implement home receipt | docs | PASS | P2 | git_commit | git_log | Implement home and receipt OCR workflow |
