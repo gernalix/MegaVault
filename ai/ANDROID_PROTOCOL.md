@@ -1,4 +1,4 @@
-VERSION=2
+VERSION=3
 STATUS=FINAL_PERMANENT
 FORMAT=ultracompressed
 AUDIENCE=codex
@@ -9,6 +9,7 @@ AUTHORITY=mandatory
 READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>ANDROID_PROTOCOL>metadata>ai_doc
 HOST_PROFILE_REQUIRED=yes
 ANDROID_WORK_REQUIRES_THIS_DOC=yes
+GLOBAL_TIMELINE_REQUIRED=yes
 
 # CENTRALIZATION
 ANDROID_RULE_SOURCE=ai/ANDROID_PROTOCOL.md
@@ -139,5 +140,6 @@ I18N_DOC_REQUIRED=yes
 INV_I18N=no_hardcoded_user_visible_strings+en_it_complete
 
 # FINAL_REPORT
-FINAL_REPORT_REQ=version_old_new,version_file,apk_name,apk_path,tests,docs,commit,push,sync_state
-SUCCESS_REQ=version_incremented+home_version_visible+apk_renamed+build_passed+export_rule_preserved+dates_rule_preserved+i18n_complete+pushed
+GLOBAL_TIMELINE_UPDATE=run_MegaVault_build_codex_global_timeline.py_before_final
+FINAL_REPORT_REQ=version_old_new,version_file,apk_name,apk_path,tests,docs,global_timeline,commit,push,sync_state
+SUCCESS_REQ=version_incremented+home_version_visible+apk_renamed+build_passed+export_rule_preserved+dates_rule_preserved+i18n_complete+global_timeline_updated+pushed

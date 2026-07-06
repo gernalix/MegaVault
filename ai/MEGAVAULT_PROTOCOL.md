@@ -1,4 +1,4 @@
-VERSION=12
+VERSION=13
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -32,6 +32,7 @@ P21=host_profile_required
 P22=remote_clean_pushed_required
 P23=incident_registry_required
 P24=megavault_global_only
+P25=global_codex_timeline_required
 
 # HOST_PROFILE
 HOST_PROFILE=mandatory
@@ -51,6 +52,9 @@ CANONICAL_STORAGE=ai/global/STORAGE_TOPOLOGY.md
 CANONICAL_ALERT=ai/global/ALERT_REGISTRY.md
 CANONICAL_INCIDENT=ai/global/INCIDENT_REGISTRY.md
 CANONICAL_PROJECT_INDEX=ai/PROJECT_INDEX.md+ai/global/PROJECT_INDEX_EXTENDED.md
+CANONICAL_CODEX_TIMELINE_DB=codex_global_timeline.sqlite
+CANONICAL_CODEX_TIMELINE_REPORT=codex_global_timeline.md
+CANONICAL_CODEX_TIMELINE_AI=codex_global_timeline_ai.md
 MEGAVAULT_CONTENT=global_protocols,global_registries,global_indices,host_profile,topology,service_registry,data_registry,network_registry,storage_registry,global_guides
 MEGAVAULT_FORBID=project_specific_docs_accumulation
 PROJECT_DOC_ROOT=project_repo/docs
@@ -102,6 +106,7 @@ LINE_RULE=1_line=1_fact
 # UPDATE
 UPDATE_AI_WHEN=arch,db,build,test,import_export,backup,versioning,release,ops,security,incident_registry
 UPDATE_HUMAN_WHEN=ux,workflow,roadmap,changelog
+UPDATE_GLOBAL_TIMELINE_WHEN=every_codex_task_before_final
 DOC_CHECK_REQUIRED=yes
 
 # REUSE
@@ -121,6 +126,7 @@ DESTRUCTIVE_ACTION=require_explicit_user_intent
 # DB
 SQLITE_DEFAULT=/home/ubuntu/sync_root/db/
 DB_DOC_REQUIRED=yes
+GLOBAL_TIMELINE_SQLITE_DEFAULT=codex_global_timeline.sqlite
 
 # INCIDENT_REGISTRY
 INCIDENT_REGISTRY=mandatory_all_projects
@@ -135,17 +141,40 @@ INCIDENT_UPDATE=automatic_healthcheck_monitor_fix
 INCIDENT_BOOTSTRAP=required_new_project
 INCIDENT_SIGNIFICANT_BUG=must_register
 
+# GLOBAL_CODEX_TIMELINE
+GLOBAL_TIMELINE=mandatory_all_codex_tasks
+TIMELINE_SCOPE=all_projects,all_tasks,all_completed_codex_work
+TIMELINE_DB=codex_global_timeline.sqlite;canonical_source
+TIMELINE_REPORT=codex_global_timeline.md;generated_from_db
+TIMELINE_AI_REPORT=codex_global_timeline_ai.md;generated_from_db
+TIMELINE_JSON_JSONL=optional_export_only
+TIMELINE_EVENT_REQUIRED=every_completed_codex_work
+TIMELINE_PROJECT_RULE=integrates_project_docs;does_not_replace_project_docs
+TIMELINE_PROJECT_DOCS=project_specific_docs_remain_in_project_repo_docs
+TIMELINE_CONTENT=synthetic_metadata_only
+TIMELINE_SOURCE_REF=required
+TIMELINE_DEDUP=required_no_duplicate_events
+TIMELINE_SCRIPT=build_codex_global_timeline.py
+TIMELINE_SCRIPT_REQ=idempotent,rerunnable,no_internet,no_admin,redact_secrets
+TIMELINE_LABEL_RULE=max_4_words
+TIMELINE_CATEGORY_SET=feature,bugfix,performance,release,infra,docs,qa,migration,automation,security,backup,testing
+TIMELINE_IMPORTANCE_SET=P0,P1,P2,P3
+TIMELINE_FINAL_GATE=run_before_final_response
+
 # VERSIONING
 VERSIONING_DOC_REQUIRED=yes
 VERSION_SKIP=forbidden
 ANDROID_VERSIONING_SEE=ai/ANDROID_PROTOCOL.md
 
 # FINAL_REPORT
-FINAL_REPORT_REQ=files_changed,tests,test_result,docs,repo_status,commit,push,sync_state
+FINAL_REPORT_REQ=files_changed,tests,test_result,docs,global_timeline,repo_status,commit,push,sync_state
 FINAL_REPORT_FORBID=silent_failure,false_success
 
 # VALIDATION
-VALIDATE=metadata,docs_ai,docs_human,links,git_clean,remote_sync
+VALIDATE=metadata,docs_ai,docs_human,links,global_timeline_updated,git_clean,remote_sync
+
+# FINAL_CHECKLIST
+CHECK_GLOBAL_TIMELINE_BOX=[ ] Timeline globale aggiornata
 
 # SUCCESS
-SUCCESS=modify_project_from_metadata+docs_ai_without_repo_wide_scan
+SUCCESS=modify_project_from_metadata+docs_ai_without_repo_wide_scan+global_timeline_updated
