@@ -18,6 +18,20 @@
 - 2026-06-15: `#518204` v530: sbloccato TCL via ADB `192.168.1.200:33771`; installazione pulita deviceTest, test Gradle connected mirato e run manuale `am instrument` PASS; DB SAF reale estratto e ispezionato, 17 tabelle SAF == 17 interne post-import, nessuna differenza schema/righe, import dopo clear PASS.
 - 2026-06-15: `#947381` v531: hardening export/import SQLite SAF con checkpoint WAL obbligatorio, integrity_check sorgente/tmp/bak/finale, restore automatico primario->`.bak`, stato sync UI, copertura autoexport dei write path persistenti e coda single-flight anti-storm con debounce 1200 ms.
 - 2026-06-17: `#582941` v534: il dialog condiviso di modifica timestamp conferma con Invio/Enter del tastierino numerico Android dai campi ora/minuti quando il valore e' valido.
+- 2026-07-06: v536 startup Pixel: eliminato il falso stato "nessuna sessione" all'avvio, aggiunto tracing leggero e caricamento prioritario delle sessioni attive da SQLite prima del caricamento snapshot completo; test reale obbligatorio su Pixel 8a PASS.
+
+## v536 startup Pixel
+- Causa reale: la Home poteva essere composta prima che il primo caricamento reale fosse terminato; inoltre il percorso utile per vedere le sessioni attive aspettava gate/snapshot completi anche se le righe aperte erano gia disponibili in `sessions`/`session_tags`.
+- Fix UI: introdotti stati espliciti `Loading`, `ReadyWithData`, `ReadyEmpty`, `Error`; la schermata Now non mostra piu lo stato vuoto finche il caricamento iniziale non e' risolto.
+- Fix startup: `Application.onCreate`, `MainActivity`, first frame, prefetch sessioni, gate, snapshot e Home ready sono tracciati con `MTT_STARTUP`; le sessioni attive vengono lette subito dalle tabelle SQLite e il resto del modello viene arricchito dopo.
+- Lavoro rimandato fuori dal percorso critico: snapshot completo, integrity gate completo, quick-event schema deferred e flag vault auto-restore non bloccano piu la prima proiezione utile delle sessioni attive.
+- Background: nessun workaround anti-kill non conforme; Android puo ancora terminare processi in background. La mitigazione v536 e' rendere il ripristino da process death rapido e persistente usando SQLite/snapshot, non tenere artificialmente vivo il processo.
+- Foreground service: non introdotto; al momento non e' tecnicamente giustificato solo per evitare kill, e richiederebbe notifica/uso policy-conforme per un'attivita continua visibile all'utente.
+- Benchmark Pixel 8a fisico, Android 17/API 37, APK debug v536: 5 cold start reali con `am force-stop` + `am start -W`; process start -> first frame medio 180.66 ms; process start -> sessioni attive visibili medio 680.63 ms; ActivityManager TotalTime medio 560.4 ms.
+- Launcher-event via `monkey` 5 run: process start -> sessioni visibili medio 1012.47 ms; ricostruzione logcat launcher-event -> Home utilizzabile medio 1528.4 ms. Il cronometro host con polling adb e' stato salvato ma non usato come metrica primaria.
+- Screenshot e log confermano Home reale con sessione `Luoghi app`, Active tags visibili, `home_ready state=ReadyWithData running_sessions=1`, nessun falso empty state.
+- Test: `python dev/tools/check_hardcoded_ui_strings.py`, `./gradlew.bat :app:testDebugUnitTest --console=plain --no-daemon`, `./gradlew.bat :app:assembleDebug --console=plain --no-daemon` PASS.
+- Artifact: `C:\Users\seste\Documents\MTT\artifacts\536.apk`; benchmark/log/screenshot: `C:\Users\seste\Documents\MTT\artifacts\startup_v536_pixel_20260706`.
 
 ## v534 prompt #582941
 - Fix: il picker timestamp condiviso usa campi ora/minuti Compose controllati con azione IME `Done` e gestione Enter/NumpadEnter hardware collegata allo stesso commit del pulsante OK/Confirm.
