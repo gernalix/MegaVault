@@ -33,6 +33,17 @@ P22=remote_clean_pushed_required
 P23=incident_registry_required
 P24=megavault_global_only
 P25=global_codex_timeline_required
+P26=execution_insights_required
+
+# CAPSULES
+CAPSULIZATION=mandatory_all_projects
+CAPSULE_TARGET=100_percent
+NEW_CODE=capsule_only
+SHARED_LOGIC=capsule_only
+UI_DIRECT_DEPENDENCY=forbidden
+CROSS_MODULE_ACCESS=through_capsules_only
+LEGACY_REFACTOR=progressively_until_100_percent
+FINAL_GATE=verify_capsulization_before_final
 
 # HOST_PROFILE
 HOST_PROFILE=mandatory
@@ -166,9 +177,21 @@ VERSIONING_DOC_REQUIRED=yes
 VERSION_SKIP=forbidden
 ANDROID_VERSIONING_SEE=ai/ANDROID_PROTOCOL.md
 
+# EXECUTION_INSIGHTS
+EXECUTION_INSIGHTS=mandatory
+REPORT_ALL_BLOCKERS=yes
+REPORT_ALL_WORKAROUNDS=yes
+REPORT_RESOLVED_BLOCKERS=yes
+REPORT_UNRESOLVED_BLOCKERS=yes
+REPORT_GENERIC_BLOCKERS=mandatory
+GENERIC_BLOCKER=any_issue_likely_to_affect_future_tasks
+BLOCKER_INCLUDE=root_cause,impact,workaround,resolution,status
+BLOCKER_FORBID=silent_workaround,silent_retry,silent_skip
+BLOCKER_PURPOSE=identify_global_improvements
+
 # FINAL_REPORT
-FINAL_REPORT_REQ=files_changed,tests,test_result,docs,global_timeline,repo_status,commit,push,sync_state
-FINAL_REPORT_FORBID=silent_failure,false_success
+FINAL_REPORT_REQ=files_changed,tests,test_result,docs,global_timeline,repo_status,commit,push,sync_state,execution_insights
+FINAL_REPORT_FORBID=silent_failure,false_success,silent_workaround,silent_retry,silent_skip
 
 # VALIDATION
 VALIDATE=metadata,docs_ai,docs_human,links,global_timeline_updated,git_clean,remote_sync
