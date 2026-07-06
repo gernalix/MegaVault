@@ -19,6 +19,18 @@
 - 2026-06-15: `#947381` v531: hardening export/import SQLite SAF con checkpoint WAL obbligatorio, integrity_check sorgente/tmp/bak/finale, restore automatico primario->`.bak`, stato sync UI, copertura autoexport dei write path persistenti e coda single-flight anti-storm con debounce 1200 ms.
 - 2026-06-17: `#582941` v534: il dialog condiviso di modifica timestamp conferma con Invio/Enter del tastierino numerico Android dai campi ora/minuti quando il valore e' valido.
 - 2026-07-06: v536 startup Pixel: eliminato il falso stato "nessuna sessione" all'avvio, aggiunto tracing leggero e caricamento prioritario delle sessioni attive da SQLite prima del caricamento snapshot completo; test reale obbligatorio su Pixel 8a PASS.
+- 2026-07-06: v537 capsulizzazione verificabile: nessun ref v546 trovato, scelta linea v536 `codex/sesso-app-mtt-api`, bump lineare v537, hardening SAF/startup/restore, rimozione artifact/secret config da HEAD, test host e TCL PASS.
+
+## v537 capsulizzazione verificabile
+- Branch scelto: `codex/sesso-app-mtt-api`, perche non esisteva nessun branch/tag/ref locale o remoto con `MTT_VERSION=546`; la linea piu alta verificata era v536. Versione aggiornata linearmente a v537.
+- Score: iniziale 86/100; HEAD finale 100/100. Score whole-history 96/100 finche non vengono ruotati i token storici e ripuliti i ref git che contengono la vecchia config rimossa.
+- Fix: rimossi dal tracking log/patch/xml/png/etl e `tools/mtt_helper.ini` con segreto; aggiunto `tools/mtt_helper.example.ini` senza segreti; aggiornati `.gitignore`, metadata Windows e `AGENTS.md`.
+- Fix SAF: `BackupFolderStore` ora accetta solo root salvate directory/leggibili/scrivibili e cancella URI stale/non-directory.
+- Fix startup/export: aggiunti test per errore storage senza falso empty state e per auto-restore startup che non sovrascrive un DB interno valido quando il vault SAF differisce.
+- Verifica host: `check_hardcoded_ui_strings`, `testDebugUnitTest`, `lintDebug`, `assembleDebug`, `git diff --check` PASS.
+- Verifica device: TCL/6102H Android 12, variante `deviceTest`, targeted `PersistenceImportExportTest` + `BackupFolderStoreTest`: 27 test, 1 fixture skip, 0 failure. Smoke APK debug sul TCL: install e cold launch `MainActivity` PASS.
+- Artifact: `C:\Users\seste\Documents\MTT\artifacts\537.apk`, SHA-256 `EB35A8DEA363AA77001674840EB28DAD5FED8401DF299E181B1D6038B5B727DF`.
+- Residuo operativo: ruotare il token esposto storicamente e fare history rewrite/branch cleanup coordinato se si vuole garantire anche la storia git a zero segreti.
 
 ## v536 startup Pixel
 - Causa reale: la Home poteva essere composta prima che il primo caricamento reale fosse terminato; inoltre il percorso utile per vedere le sessioni attive aspettava gate/snapshot completi anche se le righe aperte erano gia disponibili in `sessions`/`session_tags`.

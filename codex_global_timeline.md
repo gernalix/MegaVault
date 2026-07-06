@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-06T08:44:48+02:00
+Generated: 2026-07-06T11:34:00+02:00
 SQLite canonical source: `C:\Users\seste\Documents\megavault_content_aware_merge_20260705\codex_global_timeline.sqlite`
-Total events: 2903
+Total events: 2917
 
 ## Source Roots
 - `C:\Users\seste\Documents\megavault_content_aware_merge_20260705`
@@ -21,19 +21,20 @@ Total events: 2903
 
 | Value | Events |
 |---|---:|
-| multitimetracker | 642 |
+| multitimetracker | 644 |
 | mtt | 560 |
 | megavault | 493 |
 | megavault-surface | 131 |
 | supercontacts | 90 |
-| megavault-content-aware-merge-20260705 | 74 |
+| megavault-content-aware-merge-20260705 | 75 |
 | megavault-protocol-global-docs-20260705 | 60 |
+| 2026 | 58 |
 | pixel-8a | 55 |
-| 2026 | 54 |
-| windows | 36 |
+| windows | 37 |
 | oracle-backup-service | 33 |
 | oracle-uptime-kuma | 27 |
 | windows-winget-daily-update | 26 |
+| soldi | 24 |
 | aw-converter | 22 |
 | codex-html-live | 22 |
 | codex-wrapper | 22 |
@@ -45,7 +46,6 @@ Total events: 2903
 | linux-mint-service-dashboard | 21 |
 | mint-manual-updates | 21 |
 | owntracks-watcher | 21 |
-| soldi | 21 |
 | chatgpt-chrome-debug | 20 |
 | remote-opt-oracle-backup | 20 |
 | windowtabnotes | 20 |
@@ -65,9 +65,9 @@ Total events: 2903
 | git-change-ledger | 12 |
 | grindr-web-exporter | 12 |
 | strano-anello | 12 |
+| soldi-2 | 11 |
 | luoghi-app | 10 |
 | facedownassup-downloader | 9 |
-| soldi-2 | 8 |
 | tasker-pixel-device-monitor | 8 |
 | mint-cloud-backup | 6 |
 | unknown | 5 |
@@ -90,11 +90,11 @@ Total events: 2903
 |---|---:|
 | docs | 731 |
 | testing | 695 |
-| security | 532 |
+| security | 542 |
 | backup | 333 |
 | migration | 195 |
-| bugfix | 147 |
-| release | 139 |
+| bugfix | 149 |
+| release | 141 |
 | automation | 62 |
 | infra | 51 |
 | performance | 18 |
@@ -104,17 +104,17 @@ Total events: 2903
 | Value | Events |
 |---|---:|
 | P2 | 1445 |
-| P1 | 843 |
-| P0 | 584 |
+| P1 | 848 |
+| P0 | 593 |
 | P3 | 31 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| PASS | 1849 |
+| PASS | 1854 |
 | UNKNOWN | 409 |
-| WARN | 247 |
+| WARN | 256 |
 | FAIL | 199 |
 | OPEN | 199 |
 
@@ -401,10 +401,14 @@ Total events: 2903
 | 2026-07-02 | 2026 | 2026 nSoldi 4.apk | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\Megavault 2 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f34b3-4836-7913-9f50-fc36b6a184f3 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3624-351a-74b0-abc3-a8640b6f9e6a |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f369a-4ade-7eb2-ad79-100d7e80efa1 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f20ec-ca94-71f3-b9c4-b50b733653c3 |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f36b0-4777-7ce3-8609-937d37b65de3 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f351b-9bb0-71e0-b4a0-fc6b48f609e8 |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3658-2011-74a2-8c66-18ea70f532b2 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\Megavault 2 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\android studio |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3695-b1ce-7992-9cc4-ebd3223189f6 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\parole create |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f35f7-d80f-7332-a7e5-9afaf8f156a8 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3533-8a0f-7c82-bb04-c4fe3d884dfc |
@@ -425,6 +429,9 @@ Total events: 2903
 | 2026-07-02 | multitimetracker | MTT no metadata property | security | WARN | P0 | release | txt | logcat after single test |
 | 2026-07-02 | pixel-8a | pixel-8a v2 | security | WARN | P0 | report | txt | 21 validation sound logcat live raw |
 | 2026-07-02 | pixel-8a | pixel-8a v2 | security | WARN | P0 | report | txt | 44 validation after sound fix logcat live raw |
+| 2026-07-02 | soldi | Soldi v1 | security | WARN | P0 | changelog | codex_log | 019f362d-1e9d-7413-b2e4-5a1a68c1a889 |
+| 2026-07-02 | soldi | Soldi v1 | security | WARN | P0 | changelog | codex_log | 019f3661-d45c-7e80-97f3-8b9b6661745f |
+| 2026-07-02 | soldi | Soldi v1 | security | WARN | P0 | changelog | codex_log | 019f36aa-f336-7751-bc7a-6a5423a4c845 |
 | 2026-07-02 | soldi | Soldi v1 | security | WARN | P0 | changelog | codex_log | 019f355c-b739-7cc0-ba2b-3e5bcb0bb7d1 |
 | 2026-07-02 | supercontacts | SC v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\SuperContacts |
 | 2026-07-02 | windows | windows v4 | security | FAIL | P0 | protocol_update | csv | services before |
@@ -517,6 +524,7 @@ Total events: 2903
 | 2026-06-18 | soldi | Soldi 2.apk | backup | OPEN | P0 | release | markdown | Soldi Changelog |
 | 2026-06-18 | soldi | Soldi Soldi Troubleshooting | release | FAIL | P0 | release | markdown | Soldi Troubleshooting |
 | 2026-06-17 | multitimetracker | MTT 536.apk | security | WARN | P0 | release | markdown | MERGED_GITHUB_BRANCH_20260705 |
+| 2026-06-17 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MERGED_GITHUB_BRANCH_20260705 |
 | 2026-06-17 | multitimetracker | MTT v488 | security | WARN | P0 | protocol_update | markdown | local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model |
 | 2026-06-17 | multitimetracker | MTT v535 | security | WARN | P0 | protocol_update | markdown | MERGED_GITHUB_BRANCH_20260705 |
 | 2026-06-15 | multitimetracker | Android Tests | security | PASS | P0 | report | markdown | MANDATORY_STANDARD |
@@ -705,6 +713,7 @@ Total events: 2903
 | 2026-06-01 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | Code Audit Enrichment Report |
 | 2026-06-01 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | PROTOCOL_V2_NORMALIZATION_REPORT |
 | 2026-06-01 | multitimetracker | MTT 536.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
+| 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 | 2026-06-01 | multitimetracker | MTT app-release-unsigned.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 | 2026-06-01 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-06-01 | multitimetracker | MTT v525 | backup | WARN | P0 | changelog | markdown | MultiTimeTracker Changelog |
@@ -732,19 +741,20 @@ Total events: 2903
 | 2025-11-24 | amici-fb | Amici FB v2 | security | WARN | P0 | protocol_update | markdown | Linux Mint user-level Facebook automation that opens Facebook with a browser profile, processes friends/URLs, and records local state in SQLite; tr... |
 
 ## Projects
-- `multitimetracker`: 642 events; latest=2026-07-06; label=Android Tests
+- `multitimetracker`: 644 events; latest=2026-07-06; label=Android Tests
 - `mtt`: 560 events; latest=2026-07-06; label=MTT Test startup fast
 - `megavault`: 493 events; latest=2026-07-06; label=Codex Timeline
 - `megavault-surface`: 131 events; latest=2026-07-05; label=Git PATH
 - `supercontacts`: 90 events; latest=2026-07-06; label=SC app-debug.apk
-- `megavault-content-aware-merge-20260705`: 74 events; latest=2026-07-06; label=Codex Timeline
+- `megavault-content-aware-merge-20260705`: 75 events; latest=2026-07-06; label=Codex Timeline
 - `megavault-protocol-global-docs-20260705`: 60 events; latest=2026-07-05; label=megavault-protocol-global-docs-20260705 Codify project-local docs
+- `2026`: 58 events; latest=2026-07-03; label=2026 0mapp-debug.apk
 - `pixel-8a`: 55 events; latest=2026-07-06; label=Git PATH
-- `2026`: 54 events; latest=2026-07-03; label=2026 0mapp-debug.apk
-- `windows`: 36 events; latest=2026-07-06; label=Veeam T7
+- `windows`: 37 events; latest=2026-07-06; label=Veeam T7
 - `oracle-backup-service`: 33 events; latest=2026-07-06; label=Codex Timeline
 - `oracle-uptime-kuma`: 27 events; latest=2026-07-06; label=Kuma v2
 - `windows-winget-daily-update`: 26 events; latest=2026-07-06; label=Winget Windows Winget Daily
+- `soldi`: 24 events; latest=2026-07-06; label=Android Tests
 - `aw-converter`: 22 events; latest=2026-07-06; label=aw-converter aw-converter Features
 - `codex-html-live`: 22 events; latest=2026-07-06; label=codex-html-live codex-html-live Features
 - `codex-wrapper`: 22 events; latest=2026-07-06; label=codex-wrapper codex-wrapper Features
@@ -756,7 +766,6 @@ Total events: 2903
 - `linux-mint-service-dashboard`: 21 events; latest=2026-07-06; label=linux-mint-service-dashboard linux-mint-service-dashboard Features
 - `mint-manual-updates`: 21 events; latest=2026-07-06; label=mint-manual-updates mint-manual-updates Roadmap
 - `owntracks-watcher`: 21 events; latest=2026-07-06; label=Android Tests
-- `soldi`: 21 events; latest=2026-07-06; label=Android Tests
 - `chatgpt-chrome-debug`: 20 events; latest=2026-07-06; label=chatgpt-chrome-debug chatgpt-chrome-debug Features
 - `remote-opt-oracle-backup`: 20 events; latest=2026-07-06; label=remote-opt-oracle-backup remote_opt_oracle_backup Features
 - `windowtabnotes`: 20 events; latest=2026-07-06; label=windowtabnotes v20
@@ -776,9 +785,9 @@ Total events: 2903
 - `git-change-ledger`: 12 events; latest=2026-07-06; label=Git PATH
 - `grindr-web-exporter`: 12 events; latest=2026-07-06; label=grindr-web-exporter Grindr Web Exporter
 - `strano-anello`: 12 events; latest=2026-06-29; label=strano-anello v3
+- `soldi-2`: 11 events; latest=2026-07-06; label=soldi-2 Add Pixel optimized
 - `luoghi-app`: 10 events; latest=2026-07-06; label=Android Tests
 - `facedownassup-downloader`: 9 events; latest=2026-07-06; label=facedownassup-downloader facedownassup-downloader
-- `soldi-2`: 8 events; latest=2026-07-06; label=soldi-2 Enable optimized release
 - `tasker-pixel-device-monitor`: 8 events; latest=2026-07-03; label=Git PATH
 - `mint-cloud-backup`: 6 events; latest=2026-06-21; label=mint-cloud-backup v2
 - `unknown`: 5 events; latest=2026-07-06; label=Codex Timeline
@@ -881,6 +890,7 @@ Total events: 2903
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v7 | migration | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi v7 |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 Update global timeline | release | PASS | P1 | git_commit | git_log | Update global timeline for Soldi APK install fix |
+| 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 Update global timeline | release | PASS | P1 | git_commit | git_log | Update global timeline for Soldi Pixel APK |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MTT v536 fast path verification |
 | 2026-07-06 | megavault-content-aware-merge-20260705 | megavault-content-aware-merge-20260705 v536 | migration | PASS | P1 | git_commit | git_log | Document MultiTimeTracker startup v536 |
 | 2026-07-06 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
@@ -945,7 +955,10 @@ Total events: 2903
 | 2026-07-06 | soldi | Android Tests | backup | PASS | P1 | backup | markdown | soldi |
 | 2026-07-06 | soldi | Soldi 2.apk | backup | UNKNOWN | P1 | release | markdown | Soldi |
 | 2026-07-06 | soldi | Soldi Soldi Roadmap | bugfix | UNKNOWN | P2 | doc_event | markdown | Soldi Roadmap |
+| 2026-07-06 | soldi-2 | soldi-2 Add Pixel optimized | release | PASS | P1 | git_commit | git_log | Add Pixel optimized debug APK flavor |
 | 2026-07-06 | soldi-2 | soldi-2 Enable optimized release | release | PASS | P1 | git_commit | git_log | Enable optimized release builds |
+| 2026-07-06 | soldi-2 | soldi-2 Fix receipt OCR | bugfix | PASS | P1 | git_commit | git_log | Fix receipt OCR import and R8 test runtime |
+| 2026-07-06 | soldi-2 | soldi-2 Fix receipt OCR | bugfix | PASS | P1 | git_commit | git_log | Fix receipt OCR product transaction fanout |
 | 2026-07-06 | soldi-2 | Telegram APK | release | PASS | P1 | git_commit | git_log | Fix Telegram debug APK install |
 | 2026-07-06 | soldi-2 | soldi-2 Add receipt app | docs | PASS | P2 | git_commit | git_log | Add receipt app dependencies |
 | 2026-07-06 | soldi-2 | soldi-2 Add receipt device | docs | PASS | P2 | git_commit | git_log | Add receipt device verification |
@@ -974,6 +987,7 @@ Total events: 2903
 | 2026-07-06 | windows | Veeam T7 | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-06 | windows | Veeam T7 | security | FAIL | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-06 | windows | windows Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
+| 2026-07-06 | windows | Codex Timeline | security | PASS | P1 | doc_event | markdown | Telegram Insert Bot Repair - 2026-07-06 |
 | 2026-07-06 | windows | Git PATH | bugfix | PASS | P1 | report | markdown | Windows Flight Recorder runtime hardening continuation |
 | 2026-07-06 | windows | Git PATH | security | PASS | P1 | report | markdown | Git/GitHub CLI on Windows: first embedded-Git fallback, then standalone Git for Windows install and PATH normalization |
 | 2026-07-06 | windows | Git PATH | backup | WARN | P1 | report | markdown | Installazione e misurazione termica su ThinkPad P14s Gen 5 AMD in Windows 11 |
@@ -1296,10 +1310,14 @@ Total events: 2903
 | 2026-07-02 | 2026 | 2026 nSoldi 4.apk | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\Megavault 2 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f34b3-4836-7913-9f50-fc36b6a184f3 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3624-351a-74b0-abc3-a8640b6f9e6a |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f369a-4ade-7eb2-ad79-100d7e80efa1 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f20ec-ca94-71f3-b9c4-b50b733653c3 |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f36b0-4777-7ce3-8609-937d37b65de3 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f351b-9bb0-71e0-b4a0-fc6b48f609e8 |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3658-2011-74a2-8c66-18ea70f532b2 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\Megavault 2 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\android studio |
+| 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3695-b1ce-7992-9cc4-ebd3223189f6 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\parole create |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f35f7-d80f-7332-a7e5-9afaf8f156a8 |
 | 2026-07-02 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3533-8a0f-7c82-bb04-c4fe3d884dfc |
@@ -1461,6 +1479,9 @@ Total events: 2903
 | 2026-07-02 | pixel-8a | pixel-8a Parcel | automation | UNKNOWN | P2 | doc_event | txt | Parcel( |
 | 2026-07-02 | pixel-8a | pixel-8a Pixel WhatsApp Sound | bugfix | UNKNOWN | P2 | doc_event | markdown | Pixel WhatsApp Sound Evidence - Redacted Summary |
 | 2026-07-02 | pixel-8a | pixel-8a Volume events | docs | UNKNOWN | P3 | doc_event | txt | Volume events |
+| 2026-07-02 | soldi | Soldi v1 | security | WARN | P0 | changelog | codex_log | 019f362d-1e9d-7413-b2e4-5a1a68c1a889 |
+| 2026-07-02 | soldi | Soldi v1 | security | WARN | P0 | changelog | codex_log | 019f3661-d45c-7e80-97f3-8b9b6661745f |
+| 2026-07-02 | soldi | Soldi v1 | security | WARN | P0 | changelog | codex_log | 019f36aa-f336-7751-bc7a-6a5423a4c845 |
 | 2026-07-02 | soldi | Soldi v1 | security | WARN | P0 | changelog | codex_log | 019f355c-b739-7cc0-ba2b-3e5bcb0bb7d1 |
 | 2026-07-02 | supercontacts | SC v1 | security | WARN | P0 | changelog | codex_log | C:\Users\seste\Documents\SuperContacts |
 | 2026-07-02 | supercontacts | SC 06 notification whatsapp | security | FAIL | P1 | doc_event | txt | 06 notification whatsapp context |
@@ -1791,6 +1812,7 @@ Total events: 2903
 | 2026-06-17 | megavault-surface | megavault-surface v534 | bugfix | PASS | P1 | git_commit | git_log | Document MultiTimeTracker v534 picker fix |
 | 2026-06-17 | mtt | MTT Fix timestamp picker | bugfix | PASS | P1 | git_commit | git_log | Fix timestamp picker numpad enter |
 | 2026-06-17 | multitimetracker | MTT 536.apk | security | WARN | P0 | release | markdown | MERGED_GITHUB_BRANCH_20260705 |
+| 2026-06-17 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MERGED_GITHUB_BRANCH_20260705 |
 | 2026-06-17 | multitimetracker | MTT v488 | security | WARN | P0 | protocol_update | markdown | local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model |
 | 2026-06-17 | multitimetracker | MTT v535 | security | WARN | P0 | protocol_update | markdown | MERGED_GITHUB_BRANCH_20260705 |
 | 2026-06-17 | multitimetracker | Android Tests | bugfix | PASS | P1 | git_commit | git_log | Fix timestamp picker numpad enter |
@@ -2529,6 +2551,7 @@ Total events: 2903
 | 2026-06-01 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | Code Audit Enrichment Report |
 | 2026-06-01 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | PROTOCOL_V2_NORMALIZATION_REPORT |
 | 2026-06-01 | multitimetracker | MTT 536.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
+| 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 | 2026-06-01 | multitimetracker | MTT app-release-unsigned.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 | 2026-06-01 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-06-01 | multitimetracker | MTT v525 | backup | WARN | P0 | changelog | markdown | MultiTimeTracker Changelog |
