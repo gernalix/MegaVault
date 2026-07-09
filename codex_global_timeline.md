@@ -1,22 +1,24 @@
 # Global Codex Timeline
 
-Generated: 2026-07-09T22:56:53+02:00
+Generated: 2026-07-09T22:57:15+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 461
+Total events: 478
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
+- `/home/daniele/projects/WindowTabNotes`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 117 |
+| megavault | 118 |
 | amici-fb | 84 |
 | multitimetracker | 23 |
+| windowtabnotes | 22 |
 | oracle-backup-service | 18 |
 | oracle-uptime-kuma | 10 |
 | supercontacts | 10 |
@@ -44,7 +46,6 @@ Total events: 461
 | windows | 6 |
 | windows-flight-recorder | 6 |
 | windows-winget-daily-update | 6 |
-| windowtabnotes | 6 |
 | android-app-template | 5 |
 | facedownassup-downloader | 5 |
 | git-change-ledger | 5 |
@@ -66,34 +67,34 @@ Total events: 461
 
 | Value | Events |
 |---|---:|
-| backup | 154 |
-| security | 143 |
-| docs | 46 |
-| release | 29 |
-| bugfix | 26 |
-| testing | 18 |
+| backup | 155 |
+| security | 144 |
+| docs | 47 |
+| release | 35 |
+| bugfix | 30 |
+| testing | 19 |
+| infra | 17 |
 | automation | 16 |
-| infra | 15 |
-| migration | 12 |
+| migration | 13 |
 | performance | 2 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 271 |
-| P2 | 92 |
-| P0 | 89 |
-| P3 | 9 |
+| P1 | 278 |
+| P2 | 99 |
+| P0 | 91 |
+| P3 | 10 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 180 |
-| PASS | 105 |
-| WARN | 66 |
-| OPEN | 56 |
+| UNKNOWN | 191 |
+| PASS | 106 |
+| WARN | 67 |
+| OPEN | 60 |
 | FAIL | 54 |
 
 
@@ -168,6 +169,8 @@ Total events: 461
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
 | 2026-07-09 | windows-flight-recorder | WFR Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
+| 2026-07-09 | windowtabnotes | windowtabnotes v1 | release | OPEN | P0 | release | markdown | Architecture |
+| 2026-07-09 | windowtabnotes | windowtabnotes WindowTabNotes Dev Index | backup | UNKNOWN | P0 | protocol_update | markdown | WindowTabNotes Dev Index |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3f90-7f5f-7361-b0de-19a9db8a74c9 |
 | 2026-07-06 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault | MegaVault Aggiorna protocollo MegaVault | docs | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
@@ -215,9 +218,10 @@ Total events: 461
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 117 events; latest=2026-07-09; label=Codex Timeline
+- `megavault`: 118 events; latest=2026-07-09; label=Codex Timeline
 - `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
 - `multitimetracker`: 23 events; latest=2026-07-09; label=Android Tests
+- `windowtabnotes`: 22 events; latest=2026-07-09; label=windowtabnotes v1
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
 - `oracle-uptime-kuma`: 10 events; latest=2026-07-09; label=Kuma Features
 - `supercontacts`: 10 events; latest=2026-07-09; label=SC app-debug.apk
@@ -245,7 +249,6 @@ Total events: 461
 - `windows`: 6 events; latest=2026-07-09; label=Veeam T7
 - `windows-flight-recorder`: 6 events; latest=2026-07-09; label=WFR Windows 11 autonomous
 - `windows-winget-daily-update`: 6 events; latest=2026-07-09; label=Winget Windows Winget Daily
-- `windowtabnotes`: 6 events; latest=2026-07-09; label=windowtabnotes v20
 - `android-app-template`: 5 events; latest=2026-07-09; label=android-app-template Android App Template
 - `facedownassup-downloader`: 5 events; latest=2026-07-09; label=facedownassup-downloader facedownassup-downloader
 - `git-change-ledger`: 5 events; latest=2026-07-09; label=git-change-ledger v8
@@ -406,6 +409,7 @@ Total events: 461
 | 2026-07-09 | megavault | MegaVault docs update global | docs | PASS | P2 | git_commit | git_log | docs: update global timeline for MultiTimeTracker Fedora setup |
 | 2026-07-09 | megavault | MegaVault docs update global | docs | PASS | P2 | git_commit | git_log | docs: update global timeline for MultiTimeTracker device smoke |
 | 2026-07-09 | megavault | MegaVault Topologia rete globale | testing | UNKNOWN | P2 | qa | markdown | Topologia rete globale |
+| 2026-07-09 | megavault | MegaVault Update global timeline | docs | PASS | P2 | git_commit | git_log | Update global timeline for amici_fb Playwright audit |
 | 2026-07-09 | megavault | MegaVault Update global timeline | docs | PASS | P2 | git_commit | git_log | Update global timeline for amici_fb runtime refinement |
 | 2026-07-09 | megavault | MegaVault Archive Index | docs | UNKNOWN | P3 | doc_event | markdown | Archive Index |
 | 2026-07-09 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
@@ -498,10 +502,26 @@ Total events: 461
 | 2026-07-09 | windows-winget-daily-update | Winget Windows Winget Daily | automation | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Features |
 | 2026-07-09 | windows-winget-daily-update | Winget Windows Winget Daily | automation | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Troubleshooting |
 | 2026-07-09 | windows-winget-daily-update | Winget Windows Winget Daily | automation | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Overview |
+| 2026-07-09 | windowtabnotes | windowtabnotes v1 | release | OPEN | P0 | release | markdown | Architecture |
+| 2026-07-09 | windowtabnotes | windowtabnotes WindowTabNotes Dev Index | backup | UNKNOWN | P0 | protocol_update | markdown | WindowTabNotes Dev Index |
+| 2026-07-09 | windowtabnotes | windowtabnotes Agent Rules | release | UNKNOWN | P1 | release | markdown | Agent Rules |
+| 2026-07-09 | windowtabnotes | windowtabnotes Fedora install | release | UNKNOWN | P1 | release | markdown | Fedora install |
+| 2026-07-09 | windowtabnotes | windowtabnotes Test Plan | release | OPEN | P1 | release | markdown | Test Plan |
+| 2026-07-09 | windowtabnotes | windowtabnotes Troubleshooting | bugfix | WARN | P1 | doc_event | markdown | Troubleshooting |
+| 2026-07-09 | windowtabnotes | windowtabnotes v1 | release | UNKNOWN | P1 | release | markdown | Versioning |
+| 2026-07-09 | windowtabnotes | windowtabnotes v13 | security | OPEN | P1 | doc_event | json | manifest |
 | 2026-07-09 | windowtabnotes | windowtabnotes v20 | backup | FAIL | P1 | report | markdown | WindowTabNotes Troubleshooting |
 | 2026-07-09 | windowtabnotes | windowtabnotes v20 | backup | UNKNOWN | P1 | report | markdown | WindowTabNotes Features |
 | 2026-07-09 | windowtabnotes | windowtabnotes v23 | release | WARN | P1 | release | markdown | WindowTabNotes Overview |
+| 2026-07-09 | windowtabnotes | windowtabnotes WindowTabNotes | release | UNKNOWN | P1 | release | markdown | WindowTabNotes |
 | 2026-07-09 | windowtabnotes | windowtabnotes WindowTabNotes Roadmap | backup | UNKNOWN | P1 | backup | markdown | WindowTabNotes Roadmap |
+| 2026-07-09 | windowtabnotes | windowtabnotes Bug Registry | bugfix | OPEN | P2 | doc_event | markdown | Bug Registry |
+| 2026-07-09 | windowtabnotes | windowtabnotes com.windowtabnotes.host.example | infra | UNKNOWN | P2 | doc_event | json | com.windowtabnotes.host.example |
+| 2026-07-09 | windowtabnotes | windowtabnotes Installazione | infra | UNKNOWN | P2 | doc_event | markdown | Installazione |
+| 2026-07-09 | windowtabnotes | windowtabnotes Uso Quotidiano | bugfix | UNKNOWN | P2 | doc_event | markdown | Uso Quotidiano |
+| 2026-07-09 | windowtabnotes | windowtabnotes v1 | bugfix | UNKNOWN | P2 | doc_event | markdown | Fedora install uses system packages, a systemd system service, Chromium/Chrome Native Messaging, and a stable unpacked extension ID. |
+| 2026-07-09 | windowtabnotes | windowtabnotes v1 | migration | UNKNOWN | P2 | migration | markdown | Migration 001 |
+| 2026-07-09 | windowtabnotes | windowtabnotes v1 | testing | UNKNOWN | P3 | qa | markdown | Roadmap |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3f90-7f5f-7361-b0de-19a9db8a74c9 |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P1 | changelog | codex_log | 019f3faa-5c00-7dd1-bbb5-ed3cbc5129c7 |
 | 2026-07-08 | raw-memories-md | raw-memories-md Raw Memories | security | WARN | P1 | report | markdown | Raw Memories |
