@@ -1,15 +1,20 @@
 # Global Codex Timeline AI
-generated_at=2026-07-09T21:55:02+02:00
-total_events=432
+generated_at=2026-07-09T22:10:42+02:00
+total_events=445
 format=event_date|project|label_short|category|status|importance
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB amici_fb|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Features|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Roadmap|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Troubleshooting|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB daily Facebook|security|OPEN|P1
 2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
@@ -18,6 +23,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|OPEN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
@@ -28,9 +36,16 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|amici-fb|Amici FB Legacy Operations|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB Legacy Troubleshooting|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB project.metadata|release|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB trace|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB trace|backup|FAIL|P1
+2026-07-09|amici-fb|Amici FB amici_fb Fedora|automation|UNKNOWN|P2
+2026-07-09|amici-fb|Amici FB facebook friends|docs|UNKNOWN|P2
+2026-07-09|amici-fb|Amici FB facebook me|docs|UNKNOWN|P2
 2026-07-09|amici-fb|Amici FB Legacy Agent|migration|UNKNOWN|P2
 2026-07-09|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-07-09|amici-fb|Amici FB Project documentation|automation|UNKNOWN|P2
 2026-07-09|amici-fb|Amici FB requirements|docs|UNKNOWN|P2
+2026-07-09|amici-fb|Git PATH|bugfix|UNKNOWN|P2
 2026-07-09|android|android v0|bugfix|OPEN|P0
 2026-07-09|android|android android Overview|security|UNKNOWN|P1
 2026-07-09|android|android android Roadmap|automation|WARN|P1
@@ -90,6 +105,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Roadmap|testing|UNKNOWN|P2
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Overview|testing|OPEN|P3
 2026-07-09|megavault|Codex Timeline|release|OPEN|P0
+2026-07-09|megavault|Codex Timeline|backup|PASS|P0
 2026-07-09|megavault|Codex Timeline|migration|UNKNOWN|P0
 2026-07-09|megavault|Codex Timeline|security|UNKNOWN|P0
 2026-07-09|megavault|Codex Timeline|security|PASS|P0
@@ -192,7 +208,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
 2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
-2026-07-09|windows|windows Veeam Windows Restore|backup|UNKNOWN|P1
 2026-07-09|windows-flight-recorder|WFR Windows 11 autonomous|security|FAIL|P0
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
@@ -249,13 +264,11 @@ format=event_date|project|label_short|category|status|importance
 2026-06-27|windows-winget-daily-update|Winget v3|backup|PASS|P0
 2026-06-27|windows-winget-daily-update|Winget Windows Winget Daily|infra|UNKNOWN|P2
 2026-06-25|amici-fb|Amici FB v3|security|FAIL|P0
-2026-06-25|amici-fb|Amici FB amici_fb|security|UNKNOWN|P1
 2026-06-25|amici-fb|Amici FB amici_fb Changelog|backup|UNKNOWN|P1
 2026-06-25|amici-fb|Amici FB amici_fb Overview|backup|UNKNOWN|P1
 2026-06-25|amici-fb|Amici FB Legacy Architecture|backup|UNKNOWN|P1
 2026-06-25|amici-fb|Amici FB Legacy Changelog|backup|UNKNOWN|P1
 2026-06-25|amici-fb|Amici FB Legacy Notes|migration|UNKNOWN|P2
-2026-06-25|amici-fb|Amici FB Project documentation|migration|UNKNOWN|P2
 2026-06-25|megavault|MegaVault Pixel Buds Pro|backup|FAIL|P0
 2026-06-25|megavault|MegaVault Update amici_fb Windows|infra|PASS|P1
 2026-06-22|megavault|MegaVault prompt_481926 oracle-vm-offloads home-backup|backup|WARN|P0
