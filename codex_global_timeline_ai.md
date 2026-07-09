@@ -1,12 +1,36 @@
 # Global Codex Timeline AI
-generated_at=2026-07-09T21:44:26+02:00
-total_events=501
+generated_at=2026-07-09T21:55:02+02:00
+total_events=432
 format=event_date|project|label_short|category|status|importance
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
+2026-07-09|2026|2026 v1|security|WARN|P0
+2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Features|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Roadmap|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Troubleshooting|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2025|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB fb storage|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB Legacy Operations|backup|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB Legacy Troubleshooting|security|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB project.metadata|release|UNKNOWN|P1
+2026-07-09|amici-fb|Amici FB Legacy Agent|migration|UNKNOWN|P2
+2026-07-09|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-07-09|amici-fb|Amici FB requirements|docs|UNKNOWN|P2
 2026-07-09|android|android v0|bugfix|OPEN|P0
 2026-07-09|android|android android Overview|security|UNKNOWN|P1
 2026-07-09|android|android android Roadmap|automation|WARN|P1
@@ -85,6 +109,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|megavault|MegaVault v0|backup|UNKNOWN|P1
 2026-07-09|megavault|MegaVault XFCE window tiling|backup|UNKNOWN|P1
 2026-07-09|megavault|Codex Timeline|automation|UNKNOWN|P2
+2026-07-09|megavault|MegaVault docs update global|docs|PASS|P2
 2026-07-09|megavault|MegaVault Topologia rete globale|testing|UNKNOWN|P2
 2026-07-09|megavault|MegaVault Archive Index|docs|UNKNOWN|P3
 2026-07-09|megavault-project-exporter|megavault-project-exporter v3|bugfix|UNKNOWN|P0
@@ -101,130 +126,19 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|mint-manual-updates|mint-manual-updates v9|backup|OPEN|P1
 2026-07-09|mint-manual-updates|mint-manual-updates v9|backup|WARN|P1
 2026-07-09|multitimetracker|Android Tests|security|PASS|P0
-2026-07-09|multitimetracker|Android Tests|security|UNKNOWN|P0
 2026-07-09|multitimetracker|Android Tests|security|PASS|P0
-2026-07-09|multitimetracker|Android Tests|backup|UNKNOWN|P0
 2026-07-09|multitimetracker|Android Tests|security|PASS|P0
 2026-07-09|multitimetracker|MTT 1.apk|security|WARN|P0
-2026-07-09|multitimetracker|MTT AI_INDEX|backup|PASS|P0
-2026-07-09|multitimetracker|MTT app-debug.apk|release|UNKNOWN|P0
-2026-07-09|multitimetracker|MTT app-release.apk|security|PASS|P0
-2026-07-09|multitimetracker|MTT MultiTimeTracker|testing|UNKNOWN|P0
-2026-07-09|multitimetracker|MTT project.metadata|release|UNKNOWN|P0
 2026-07-09|multitimetracker|MTT v4|security|WARN|P0
 2026-07-09|multitimetracker|MTT v531|backup|WARN|P0
-2026-07-09|multitimetracker|Android Tests|security|PASS|P1
-2026-07-09|multitimetracker|MTT AGENT_RULES|backup|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT app-debug.apk|security|WARN|P1
-2026-07-09|multitimetracker|MTT app-debug.apk|security|WARN|P1
-2026-07-09|multitimetracker|MTT app-debug.apk|backup|WARN|P1
-2026-07-09|multitimetracker|MTT app-release.apk|security|WARN|P1
-2026-07-09|multitimetracker|MTT Aree Secondarie e|backup|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT CAPSULE_INDEX|backup|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Common Tracking Workflows|release|PASS|P1
-2026-07-09|multitimetracker|MTT Continuity|bugfix|FAIL|P1
-2026-07-09|multitimetracker|MTT DB_SCHEMA|backup|PASS|P1
 2026-07-09|multitimetracker|MTT ENRICHMENT_REPORT|security|PASS|P1
-2026-07-09|multitimetracker|MTT Features|backup|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT First Launch Setup|security|OPEN|P1
-2026-07-09|multitimetracker|MTT Flussi Tracciamento Comuni|release|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Google Play Data|backup|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Human Docs Index|backup|OPEN|P1
-2026-07-09|multitimetracker|MTT Import Export Vaults|backup|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Importazione Esportazione e|backup|UNKNOWN|P1
 2026-07-09|multitimetracker|MTT MegaVault Human Enrichment|security|PASS|P1
-2026-07-09|multitimetracker|MTT MOVED OPERATING RULES|release|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT OPERATING_RULES|release|PASS|P1
-2026-07-09|multitimetracker|MTT patch version|release|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Permissions Audit|security|PASS|P1
-2026-07-09|multitimetracker|MTT Primo Avvio e|backup|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Privacy Policy Template|security|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Secondary Areas Settings|backup|OPEN|P1
-2026-07-09|multitimetracker|MTT Session|bugfix|FAIL|P1
-2026-07-09|multitimetracker|MTT Store Listing Template|security|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Time Machine|backup|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT Troubleshooting|bugfix|FAIL|P1
-2026-07-09|multitimetracker|MTT Troubleshooting|backup|OPEN|P1
-2026-07-09|multitimetracker|MTT v296|bugfix|FAIL|P1
-2026-07-09|multitimetracker|MTT v296|backup|FAIL|P1
-2026-07-09|multitimetracker|MTT v296|bugfix|FAIL|P1
 2026-07-09|multitimetracker|MTT v4|security|WARN|P1
 2026-07-09|multitimetracker|MTT v4|security|PASS|P1
 2026-07-09|multitimetracker|MTT v4|security|PASS|P1
-2026-07-09|multitimetracker|MTT v4|release|UNKNOWN|P1
-2026-07-09|multitimetracker|MTT v473|backup|FAIL|P1
-2026-07-09|multitimetracker|MTT v473|security|PASS|P1
-2026-07-09|multitimetracker|MTT v474|security|PASS|P1
-2026-07-09|multitimetracker|MTT v474|backup|FAIL|P1
 2026-07-09|multitimetracker|MTT v488|security|WARN|P1
 2026-07-09|multitimetracker|MTT v488|security|WARN|P1
-2026-07-09|multitimetracker|MTT v517|security|OPEN|P1
-2026-07-09|multitimetracker|MTT v521|security|WARN|P1
-2026-07-09|multitimetracker|MTT v523|backup|FAIL|P1
-2026-07-09|multitimetracker|MTT v525|backup|WARN|P1
-2026-07-09|multitimetracker|MTT v527|security|WARN|P1
-2026-07-09|multitimetracker|MTT v527|backup|PASS|P1
-2026-07-09|multitimetracker|MTT v532|backup|OPEN|P1
-2026-07-09|multitimetracker|MTT v532|backup|PASS|P1
-2026-07-09|multitimetracker|MTT v533|security|PASS|P1
 2026-07-09|multitimetracker|MTT v534|backup|WARN|P1
-2026-07-09|multitimetracker|MTT Chains|infra|UNKNOWN|P2
-2026-07-09|multitimetracker|MTT Chronology|bugfix|OPEN|P2
-2026-07-09|multitimetracker|MTT db|automation|UNKNOWN|P2
-2026-07-09|multitimetracker|MTT MOVED RISK REGISTER|bugfix|UNKNOWN|P2
-2026-07-09|multitimetracker|MTT MultiTimeTracker|bugfix|UNKNOWN|P2
-2026-07-09|multitimetracker|MTT MultiTimeTracker Public API|infra|UNKNOWN|P2
-2026-07-09|multitimetracker|MTT Project documentation entrypoint|infra|UNKNOWN|P2
-2026-07-09|multitimetracker|MTT Project Overview|infra|UNKNOWN|P2
-2026-07-09|multitimetracker|MTT Risoluzione Problemi|bugfix|UNKNOWN|P2
-2026-07-09|multitimetracker|MTT Timed Sessions Alerts|automation|UNKNOWN|P2
-2026-07-09|multitimetracker|Android Tests|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|Android Tests|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Adesso|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT ARCHIVE INDEX|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT ARCHIVED AGENT NOTES|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT ARCHIVED FUTURE PATCHES|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT ARCHIVED UI CONTRACT|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Casi d'Uso|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Catene|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Concetti Base|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Continuita|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Core Concepts|performance|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Cronologia|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Domande Frequenti|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT FAQ|performance|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Features|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Filosofia|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Flussi di Lavoro|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Funzioni|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Inizia da Qui|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Interfaccia|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Interface|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT La Prima Sessione|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Life Periods|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Macchina del Tempo|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT MOVED AI DOCS|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT MOVED ARCHITECTURE LOCK|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT MOVED CAPSULES|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT MOVED HUMAN CHANGELOG|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT MOVED ROADMAP ACTIVE|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT MultiTimeTracker|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Now|performance|OPEN|P3
-2026-07-09|multitimetracker|MTT Periodi di Vita|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Philosophy|performance|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Real-World Scenarios|performance|PASS|P3
-2026-07-09|multitimetracker|MTT Ricostruzione del Tempo|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Scenari Reali|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Sessione|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Sessioni Temporizzate e|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Start Here|testing|PASS|P3
-2026-07-09|multitimetracker|MTT SUPERSEDED SUBMISSION CHECKLIST|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Tag|testing|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Tags|docs|OPEN|P3
-2026-07-09|multitimetracker|MTT Time Reconstruction|performance|WARN|P3
-2026-07-09|multitimetracker|MTT Use Cases|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Workflows|docs|UNKNOWN|P3
-2026-07-09|multitimetracker|MTT Your First Session|docs|OPEN|P3
 2026-07-09|oracle-backup-service|Codex Timeline|security|FAIL|P0
 2026-07-09|oracle-backup-service|Oracle Backup oracle-backup-service Features|security|FAIL|P1
 2026-07-09|oracle-backup-service|Oracle Backup oracle-backup-service Roadmap|security|WARN|P1
@@ -278,6 +192,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
 2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
+2026-07-09|windows|windows Veeam Windows Restore|backup|UNKNOWN|P1
 2026-07-09|windows-flight-recorder|WFR Windows 11 autonomous|security|FAIL|P0
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
@@ -304,8 +219,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-06|megavault|MegaVault v536|infra|PASS|P1
 2026-07-06|megavault|MegaVault v536|docs|PASS|P2
 2026-07-06|megavault|MegaVault v537|docs|PASS|P2
-2026-07-06|multitimetracker|MTT 537.apk|security|PASS|P0
-2026-07-06|multitimetracker|MTT MultiTimeTracker Incident Registry|security|UNKNOWN|P1
 2026-07-05|megavault|Git PATH|security|PASS|P0
 2026-07-05|megavault|MegaVault Codex weekly limit|security|PASS|P1
 2026-07-05|megavault|MegaVault Codex weekly limit|security|PASS|P1
@@ -336,8 +249,13 @@ format=event_date|project|label_short|category|status|importance
 2026-06-27|windows-winget-daily-update|Winget v3|backup|PASS|P0
 2026-06-27|windows-winget-daily-update|Winget Windows Winget Daily|infra|UNKNOWN|P2
 2026-06-25|amici-fb|Amici FB v3|security|FAIL|P0
+2026-06-25|amici-fb|Amici FB amici_fb|security|UNKNOWN|P1
 2026-06-25|amici-fb|Amici FB amici_fb Changelog|backup|UNKNOWN|P1
 2026-06-25|amici-fb|Amici FB amici_fb Overview|backup|UNKNOWN|P1
+2026-06-25|amici-fb|Amici FB Legacy Architecture|backup|UNKNOWN|P1
+2026-06-25|amici-fb|Amici FB Legacy Changelog|backup|UNKNOWN|P1
+2026-06-25|amici-fb|Amici FB Legacy Notes|migration|UNKNOWN|P2
+2026-06-25|amici-fb|Amici FB Project documentation|migration|UNKNOWN|P2
 2026-06-25|megavault|MegaVault Pixel Buds Pro|backup|FAIL|P0
 2026-06-25|megavault|MegaVault Update amici_fb Windows|infra|PASS|P1
 2026-06-22|megavault|MegaVault prompt_481926 oracle-vm-offloads home-backup|backup|WARN|P0
@@ -349,17 +267,6 @@ format=event_date|project|label_short|category|status|importance
 2026-06-22|megavault|MegaVault Document MultiTimeTracker Play|docs|PASS|P2
 2026-06-22|megavault|MegaVault Document MultiTimeTracker signed|docs|PASS|P2
 2026-06-22|megavault|MegaVault v535|docs|PASS|P2
-2026-06-22|multitimetracker|Android Tests|security|UNKNOWN|P0
-2026-06-22|multitimetracker|MTT app-release.apk|security|PASS|P0
-2026-06-22|multitimetracker|MTT app-release.apk|security|PASS|P0
-2026-06-22|multitimetracker|MTT app-release.apk|security|PASS|P0
-2026-06-22|multitimetracker|MTT Release Notes|security|PASS|P0
-2026-06-22|multitimetracker|Android Tests|security|PASS|P1
-2026-06-22|multitimetracker|MTT app-release.apk|backup|UNKNOWN|P1
-2026-06-22|multitimetracker|MTT app-release.apk|security|PASS|P1
-2026-06-22|multitimetracker|MTT Google Play Data|security|UNKNOWN|P1
-2026-06-22|multitimetracker|MTT Google Play Store|backup|UNKNOWN|P1
-2026-06-22|multitimetracker|MTT MultiTimeTracker Privacy Policy|security|UNKNOWN|P1
 2026-06-18|grindr-web-exporter|grindr-web-exporter v1|security|PASS|P1
 2026-06-18|grindr-web-exporter|grindr-web-exporter Changelog|bugfix|UNKNOWN|P2
 2026-06-18|soldi|Soldi 2.apk|backup|OPEN|P1
@@ -502,4 +409,28 @@ format=event_date|project|label_short|category|status|importance
 2026-05-10|supercontacts|SC v1|security|WARN|P1
 2026-02-01|maintenance-486|maintenance-486 maintenance-486 Troubleshooting|release|UNKNOWN|P1
 2026-02-01|oracle-uptime-kuma|Kuma Troubleshooting|security|FAIL|P1
-2025-12-24|multitimetracker|MTT v5|bugfix|UNKNOWN|P2
+2026-01-13|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-01-11|amici-fb|Amici FB diff 2026|backup|OPEN|P1
+2026-01-10|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-01-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-01-08|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-01-07|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-01-06|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-01-05|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-01-02|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-01-02|amici-fb|Amici FB diff 2026|backup|OPEN|P1
+2026-01-01|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2025-12-31|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-12-30|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-12-28|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-12-27|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-12-24|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-12-21|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-12-21|amici-fb|Amici FB diff 2025|backup|OPEN|P1
+2025-12-16|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-12-16|amici-fb|Amici FB diff 2025|backup|OPEN|P1
+2025-11-30|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-11-29|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-11-28|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
+2025-11-28|amici-fb|Amici FB diff 2025|backup|OPEN|P1
+2025-11-24|amici-fb|Amici FB amici 2025|backup|UNKNOWN|P1
