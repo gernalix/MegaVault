@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-09T22:10:42+02:00
+Generated: 2026-07-09T22:25:20+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 445
+Total events: 450
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,8 +14,8 @@ Total events: 445
 
 | Value | Events |
 |---|---:|
-| megavault | 114 |
-| amici-fb | 72 |
+| megavault | 115 |
+| amici-fb | 76 |
 | multitimetracker | 23 |
 | oracle-backup-service | 18 |
 | oracle-uptime-kuma | 10 |
@@ -66,7 +66,7 @@ Total events: 445
 
 | Value | Events |
 |---|---:|
-| backup | 142 |
+| backup | 146 |
 | security | 142 |
 | docs | 44 |
 | release | 29 |
@@ -74,14 +74,14 @@ Total events: 445
 | testing | 18 |
 | automation | 16 |
 | infra | 15 |
-| migration | 11 |
+| migration | 12 |
 | performance | 2 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 258 |
+| P1 | 263 |
 | P2 | 90 |
 | P0 | 88 |
 | P3 | 9 |
@@ -90,8 +90,8 @@ Total events: 445
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 168 |
-| PASS | 102 |
+| UNKNOWN | 172 |
+| PASS | 103 |
 | WARN | 65 |
 | OPEN | 56 |
 | FAIL | 54 |
@@ -106,7 +106,9 @@ Total events: 445
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T200843Z |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 01 11 |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T200742Z |
+| 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T202317Z |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 01 12 |
+| 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T202226Z |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T200412Z |
 | 2026-07-09 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | doc_event | markdown | amici_fb |
 | 2026-07-09 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
@@ -118,8 +120,6 @@ Total events: 445
 | 2026-07-09 | amici-fb | Amici FB diff 2025 | backup | UNKNOWN | P1 | backup | csv | diff 2025 12 30 vs 2025 12 31 |
 | 2026-07-09 | amici-fb | Amici FB diff 2025 | backup | UNKNOWN | P1 | backup | csv | diff 2025 12 28 vs 2025 12 30 |
 | 2026-07-09 | amici-fb | Amici FB diff 2025 | backup | UNKNOWN | P1 | backup | csv | diff 2025 12 31 vs 2026 01 01 |
-| 2026-07-09 | amici-fb | Amici FB diff 2025 | backup | UNKNOWN | P1 | backup | csv | diff 2025 12 24 vs 2025 12 27 |
-| 2026-07-09 | amici-fb | Amici FB diff 2025 | backup | UNKNOWN | P1 | backup | csv | diff 2025 11 29 vs 2025 11 30 |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -214,8 +214,8 @@ Total events: 445
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 114 events; latest=2026-07-09; label=Codex Timeline
-- `amici-fb`: 72 events; latest=2026-07-09; label=Amici FB amici 2026
+- `megavault`: 115 events; latest=2026-07-09; label=Codex Timeline
+- `amici-fb`: 76 events; latest=2026-07-09; label=Amici FB amici 2026
 - `multitimetracker`: 23 events; latest=2026-07-09; label=Android Tests
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
 - `oracle-uptime-kuma`: 10 events; latest=2026-07-09; label=Kuma Features
@@ -271,7 +271,9 @@ Total events: 445
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T200843Z |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 01 11 |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T200742Z |
+| 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T202317Z |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 01 12 |
+| 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T202226Z |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T200412Z |
 | 2026-07-09 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | doc_event | markdown | amici_fb |
 | 2026-07-09 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
@@ -289,12 +291,14 @@ Total events: 445
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 01 13 vs 2026 07 09T200412Z |
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 01 05 vs 2026 01 06 |
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 01 08 vs 2026 01 09 |
+| 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T200843Z vs 2026 07 09T202226Z |
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T200412Z vs 2026 07 09T200742Z |
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 01 09 vs 2026 01 10 |
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T200742Z vs 2026 07 09T200843Z |
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 01 02 vs 2026 01 05 |
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 01 07 vs 2026 01 08 |
 | 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 01 06 vs 2026 01 07 |
+| 2026-07-09 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T202226Z vs 2026 07 09T202317Z |
 | 2026-07-09 | amici-fb | Amici FB fb storage | backup | UNKNOWN | P1 | backup | json | fb storage state |
 | 2026-07-09 | amici-fb | Amici FB Legacy Operations | backup | UNKNOWN | P1 | backup | markdown | Legacy Operations Note |
 | 2026-07-09 | amici-fb | Amici FB Legacy Troubleshooting | security | UNKNOWN | P1 | doc_event | markdown | Legacy Troubleshooting Note |
@@ -385,6 +389,7 @@ Total events: 445
 | 2026-07-09 | megavault | MegaVault docs verify Fedora | migration | PASS | P1 | git_commit | git_log | docs: verify Fedora documentation migration |
 | 2026-07-09 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-09 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
+| 2026-07-09 | megavault | MegaVault Update global timeline | migration | PASS | P1 | git_commit | git_log | Update global timeline for amici_fb Fedora migration |
 | 2026-07-09 | megavault | MegaVault v0 | backup | UNKNOWN | P1 | report | markdown | PROMPT_582941_ACTIVITYWATCH_REBOOT_BEFORE |
 | 2026-07-09 | megavault | MegaVault XFCE window tiling | backup | UNKNOWN | P1 | report | markdown | Prompt 739482 - XFCE window tiling repair |
 | 2026-07-09 | megavault | Codex Timeline | automation | UNKNOWN | P2 | doc_event | markdown | Project Index Extended |
