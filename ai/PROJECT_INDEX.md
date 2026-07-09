@@ -1,12 +1,16 @@
 # PROJECT_INDEX
-
-Updated: 2026-07-05T00:00:00+02:00
-
-Host note: current primary host is Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 AMD; project rows may still describe legacy Linux Mint or remote VM runtime and must not override `ai/global/HOST_PROFILE.md`.
+VERSION=2
+STATUS=ACTIVE_GLOBAL_CATALOG
+MODE=codex_first
+FORMAT=ultracompressed
+UPDATED=2026-07-09T00:00:00+02:00
+HOST=Fedora_Linux_44_Workstation
+HOST_ROOT=/home/daniele
+ROW_RULE=catalog_only;local_runtime_paths_require_Fedora_revalidation;HOST_PROFILE_wins
 
 | name | slug | purpose | AI docs target | Human docs target | metadata | repo |
 |---|---|---|---|---|---|---|
-| amici_fb | amici-fb | Windows 11 Facebook friends snapshot automation using Playwright, Task Scheduler, SQLite, CSV diff output, scheduler logs, and optional Telegram/Uptime Kuma reporting; runtime state and secrets stay outside Git. | [AI](C:/codex_clean_repos/amici_fb/docs/ai/) | [Human](C:/codex_clean_repos/amici_fb/docs/human/) | metadata in C:/codex_clean_repos/amici_fb/dev/project.metadata.json | repo C:/codex_clean_repos/amici_fb |
+| amici_fb | amici-fb | Facebook friends snapshot automation; Fedora runtime and local path not yet revalidated. | Fedora AI path UNKNOWN | Fedora Human path UNKNOWN | Fedora metadata path UNKNOWN | Fedora repo path UNKNOWN |
 | android | android | Host-local Android helper project; currently owns the Linux Mint user service for ADB Wi-Fi Debug auto-connect across Pixel and TCL. | [AI](../../projects/android/docs/ai/) | [Human](../../projects/android/docs/human/) | [metadata](../../projects/android/dev/project.metadata.json) | [repo](../../projects/android) |
 | Android App Template | android-app-template | Official frozen Android Studio starter template; extracted once from clean Soldi, but Soldi is now a real app and not a generation source. | [AI](../../android-app-template/docs/ai/) | [Human](../../android-app-template/docs/human/) | [metadata](../../android-app-template/dev/project.metadata.json) | [repo](../../android-app-template) |
 | android-sdk-auto-update | android-sdk-auto-update | Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu. | [AI](../../android-sdk-auto-update/docs/ai/) | [Human](../../android-sdk-auto-update/docs/human/) | [metadata](../../android-sdk-auto-update/dev/project.metadata.json) | [repo](../../android-sdk-auto-update) |
@@ -42,6 +46,4 @@ Host note: current primary host is Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 
 | SuperContacts | supercontacts | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-device validation. | [AI](../../SuperContacts/docs/ai/) | [Human](../../SuperContacts/docs/human/) | [metadata](../../SuperContacts/dev/project.metadata.json) | [repo](../../SuperContacts) |
 | surface-recovery-hardening | surface-recovery-hardening | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. | [AI](../../surface-recovery-hardening/docs/ai/) | [Human](../../surface-recovery-hardening/docs/human/) | [metadata](../../surface-recovery-hardening/dev/project.metadata.json) | [repo](../../surface-recovery-hardening) |
 | system_watchdog | system-watchdog | Persistent heartbeat sender for a Uptime Kuma push monitor. | [AI](../../system_watchdog/docs/ai/) | [Human](../../system_watchdog/docs/human/) | [metadata](../../system_watchdog/dev/project.metadata.json) | [repo](../../system_watchdog) |
-| Windows Flight Recorder | windows-flight-recorder | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local dashboard | local AI docs unknown | local Human docs unknown | metadata unknown | repo unknown |
-| Windows Winget Daily Update | windows-winget-daily-update | Daily Windows package source refresh and upgrade automation via winget. | [AI](../../windows/maintenance/docs/ai/) | [Human](../../windows/maintenance/docs/human/) | metadata absent | [repo](../../windows/maintenance) |
 | WindowTabNotes | windowtabnotes | Root repository: `WindowTabNotes/`. | [AI](../../WindowTabNotes/docs/ai/) | [Human](../../WindowTabNotes/docs/human/) | [metadata](../../WindowTabNotes/dev/project.metadata.json) | [repo](../../WindowTabNotes) |

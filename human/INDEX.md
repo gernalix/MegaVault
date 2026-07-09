@@ -2,7 +2,7 @@
 
 Readable global navigation derived from the AI Vault. Project-specific readable docs live in each project repo under `docs/human/`.
 
-Current host note: Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 AMD; canonical local paths use `C:\Users\seste\Documents\...`.
+Current host note: Fedora Linux 44 Workstation on Lenovo ThinkPad P14s Gen 5 AMD; canonical local paths use `/home/daniele/...`. Indexed project runtime paths require Fedora revalidation.
 
 - Global host profile: [global/HOST_PROFILE.md](global/HOST_PROFILE.md)
 - Service registry: [global/SERVICE_REGISTRY.md](global/SERVICE_REGISTRY.md)
@@ -20,4 +20,4 @@ Current host note: Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 AMD; canonical l
 - Enrichment report: [ENRICHMENT_REPORT.md](ENRICHMENT_REPORT.md)
 - Migration report: [MIGRATION_REPORT.md](MIGRATION_REPORT.md)
 
-Updated: 2026-07-06T00:00:00+02:00
+Updated: 2026-07-09T00:00:00+02:00

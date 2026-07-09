@@ -1,34 +1,36 @@
 # HOST_PROFILE
-VERSION=3
+VERSION=4
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-05T00:00:00+02:00
-SOURCE=local_Windows_CIM+Get-Volume+Get-Disk+tool_versions+user_context
+UPDATED=2026-07-09T00:00:00+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context
 
 META:
-host=DANIELE_PC
-user=seste
+host=fedora
+user=daniele
 primary_machine=Lenovo_ThinkPad_P14s_Gen_5_AMD
 model=LENOVO_21ME003SFR
-role=primary_Windows_11_Pro_workstation_for_Codex,Android,backup,monitoring,automation
-path_root=C:\Users\seste\Documents
-workspace_current=C:\Users\seste\Documents\megavault_content_aware_merge_20260705
+role=primary_Fedora_workstation_for_Codex,Android,development,monitoring,automation
+path_root=/home/daniele
+workspace_current=/home/daniele/MegaVault
 read_after=ai/MEGAVAULT_PROTOCOL.md
 human=../../human/global/HOST_PROFILE.md
 protocol=../MEGAVAULT_PROTOCOL.md
-centralization=host/system/storage/Android_tooling_constraints_authoritative_here;project_docs_keep_project_specific_evidence_only
+centralization=host/system/storage/Android_tooling_constraints_authoritative_here
 
-OS:
-os=Microsoft_Windows_11_Pro
-version=10.0.26200
-build=26200
-arch=64-bit
-shell=PowerShell/pwsh_on_Windows
-pwsh=C:\Program Files\PowerShell\7\pwsh.exe version=7.6.3
-git=C:\Program Files\Git\cmd\git.exe version=2.55.0.windows.2
-github_desktop=UNKNOWN_not_required_when_git_cli_available
+HOST_SYSTEM_CURRENT:
+os=Fedora_Linux_44_Workstation
+kernel=7.1.3-200.fc44.x86_64
+arch=x86_64
+hostname=fedora
+user_home=/home/daniele
+megavault_root=/home/daniele/MegaVault
+shell=/bin/bash version=5.3.9
+package_manager=/usr/bin/dnf
+path_style=/home/daniele/...
+local_rule=use_bash+Fedora_paths+dnf;verify_live_state_before_system_or_storage_changes
 
 HARDWARE:
 cpu=AMD_Ryzen_7_PRO_8840HS_w_Radeon_780M_Graphics
@@ -36,61 +38,51 @@ cpu_topology=8c/16t
 ram=27.7GiB
 bios=R2LET40W_1.21
 gpu=Radeon_780M_integrated
-constraints=laptop_power/thermal_profile,verify_elevation_for_admin_tasks,do_not_assume_Linux_systemd_or_paths_on_host
+constraints=laptop_power/thermal_profile,verify_sudo_requirement,use_Fedora_commands_and_mounts
 
-STORAGE_CURRENT:
-disk0=KXG8AZNV1T02_LA_KIOXIA NVMe serial=8CE3_8E05_0310_B2D3 size=953.9GB online healthy
-volume_C=Windows NTFS fixed size=951.5GB free=804.0GB
-disk1=Seagate_Expansion USB serial=NAA37NFE size=3726.0GB online healthy
-volume_D=Seagate_Expansion_Drive NTFS fixed size=3570.0GB free=32.3GB
-volume_E=NTFS fixed size=155.9GB free=116.5GB
-t7_current=not_connected_in_2026-07-05_scan
-storage_rule=verify_Get-Disk+Get-Volume_before_backup_or_large_IO;drive_letters_can_change;do_not_reuse_Linux_mount_assumptions
+STORAGE_CURRENT_FEDORA:
+root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=935.9GiB mounts=/,/home
+nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
+external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs size=3.5TiB source=BitLocker_mapping
+external_ntfs=/run/media/daniele/09FA16D309FA16D3 size=155.9GiB role=UNKNOWN
+t7=/run/media/daniele/Ventoy exfat size=931.5GiB connected=2026-07-09
+recovery_media=/run/media/daniele/VEEAMRE vfat size=14.6GiB connected=2026-07-09
+storage_rule=verify_findmnt+lsblk+df_before_backup_or_large_IO;removable_mounts_can_drift
 
-ANDROID_WINDOWS:
-android_studio=C:\Program Files\Android\Android Studio\bin\studio64.exe version=261.23567.138.0-AI
-android_sdk=C:\Users\seste\AppData\Local\Android\Sdk
-adb=C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe version=1.0.41/37.0.0-14910828
-adb_os=Windows_10.0.26200
-adb_rule=verify_with_adb_devices_-l;device_IPs_and_pairing_drift;do_not_assume_old_Mint_adb_service_exists
+TOOLING_CURRENT_FEDORA:
+git=/usr/bin/git version=2.55.0
+python=/usr/bin/python3 version=3.14.6
+java=/usr/bin/java OpenJDK=25.0.3
+JAVA_HOME=/usr/lib/jvm/java-25-openjdk
+rg=Codex_bundle version=15.1.0
 
-BACKUP_WINDOWS:
-veeam_service=VeeamEndpointBackupSvc running automatic
-veeam_config=not_exported_this_run;admin/service_permissions_may_apply
-veeam_target=UNKNOWN_current;verify_Veeam_DB/logs_and_current_drive_letters_before_action
-t7_backup_context=rotated/backup_media_possible;current_scan_no_T7;verify_physical_mount
-backblaze_windows=not_detected_by_bzbui_or_default_dir_in_this_scan
-backblaze_b2=legacy_or_remote_project_context_until_reverified
-backup_rule=never_prune/delete/unlock/format_without_explicit_intent;diagnose_first;report_evidence_paths
+ANDROID_CURRENT_FEDORA:
+android_studio=Flatpak_com.google.AndroidStudio version=2026.1.1.10 launch="flatpak run com.google.AndroidStudio"
+android_sdk=/home/daniele/Android/Sdk
+ANDROID_HOME=/home/daniele/Android/Sdk
+ANDROID_SDK_ROOT=/home/daniele/Android/Sdk
+adb=/home/daniele/Android/Sdk/platform-tools/adb version=1.0.41/37.0.0-14910828
+sdkmanager=/home/daniele/Android/Sdk/cmdline-tools/latest/bin/sdkmanager
+adb_os=Linux_7.1.3-200.fc44.x86_64
+adb_rule=verify_with_adb_devices_-l;device_IPs_and_pairing_drift
 
-REMOTE_ORACLE:
-host=ubuntu@150.230.148.128
-roles=uptime_kuma,oracle_backup,remote_monitoring
-ssh_key_windows=UNKNOWN
-ssh_key_legacy_linux=/home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key
-kuma_db=/opt/uptime-kuma/data/kuma.db
-remote_rule=remote_Linux_paths_valid_only_on_VM_or_legacy_docs;do_not_commit_tokens;backup_DB_before_direct_Kuma_SQLite
-
-LEGACY_2026-06_SURFACE_MINT:
-status=historical_not_primary
-legacy_host=daniele-Surface-Pro
-os=Linux_Mint_22.3_Zena kernel=6.19.8-surface-3 desktop=XFCE_X11
-hardware=Microsoft_Surface_Pro Intel_i5-7300U 2c/4t 7.7GiB_RAM
-legacy_root=/dev/sda2 ext4 on Samsung_PSSD_T7_Shield USB via SABRENT_HB-BUP7
-legacy_backup=/media/daniele/Seagate6TB2/home-backups;cloud=mint-cloud-backup restic Backblaze_B2
-legacy_android=/home/daniele/Android/Sdk;adb_service=adb-wifi-autoconnect.service
-services=mint-freeze-forensics,mint-update-tracker,system-service-dashboard,transfer-vecchio-disco-adaptive-throttle,windowtabnotes
-rule=all_Surface/Linux_Mint/systemd/ext4/restic_only/home_or_media_paths_here_are_legacy_or_remote;do_not_treat_as_current_Windows_host
+CODEX_CURRENT_FEDORA:
+working_root=/home/daniele
+megavault=/home/daniele/MegaVault
+shell_commands=bash
+package_commands=dnf
+service_commands=systemctl+systemctl_--user
+storage_commands=findmnt+lsblk+df
+path_rule=current_local_paths_must_resolve_under_Fedora_mounts
+project_rule=project_or_remote_paths_never_override_HOST_SYSTEM_CURRENT
 
 DNB:
-dnb=do_not_treat_Surface_or_Linux_Mint_as_primary_host
-dnb=do_not_convert_remote_VM_Linux_paths_to_Windows_paths
+dnb=do_not_treat_non_Fedora_snapshots_as_current_host
+dnb=do_not_treat_remote_paths_as_local_Fedora_paths
 dnb=do_not_treat_mDNS_as_Android_device_proof
 dnb=do_not_run_destructive_storage/backup/remediation_commands_without_explicit_user_intent
 dnb=do_not_use_human_docs_as_operational_authority_when_AI_doc/protocol/profile_disagree
 
 OPEN:
-open=exact_GitHub_Desktop_install_state_UNKNOWN
-open=current_Veeam_job_target_UNKNOWN_without_DB/log_review
-open=current_Backblaze_policy_UNKNOWN;local_client_not_detected
-open=current_Oracle_SSH_key_Windows_path_UNKNOWN
+open=current_backup_policy_and_targets_UNKNOWN_on_Fedora
+open=project_specific_services_and_data_paths_require_live_revalidation_on_Fedora

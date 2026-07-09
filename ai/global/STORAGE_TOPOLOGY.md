@@ -1,46 +1,37 @@
 # STORAGE_TOPOLOGY
-VERSION=2
+VERSION=3
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+Get-Disk+Get-Volume_2026-07-05
+SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-09
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/STORAGE_TOPOLOGY.md
 
-CURRENT_WINDOWS:
-host=DANIELE_PC
+CURRENT_FEDORA:
+host=fedora
 machine=Lenovo_ThinkPad_P14s_Gen_5_AMD
-root_volume=C:\ NTFS Windows size=951.5GB free=804.0GB disk=KXG8AZNV1T02_LA_KIOXIA_NVMe_953.9GB
-documents_root=C:\Users\seste\Documents
-repo=C:\Users\seste\Documents\megavault_content_aware_merge_20260705
-external_D=D:\ Seagate_Expansion_Drive NTFS USB size=3570.0GB free=32.3GB serial=NAA37NFE
-volume_E=E:\ NTFS fixed size=155.9GB free=116.5GB role=UNKNOWN
-t7=not_connected_current_scan
-storage_health=current_disks_online_healthy
+root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=935.9GiB mounts=/,/home
+home=/home/daniele
+repo=/home/daniele/MegaVault
+nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
+external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs source=BitLocker_mapping size=3.5TiB
+external_ntfs=/run/media/daniele/09FA16D309FA16D3 ntfs size=155.9GiB role=UNKNOWN
+t7=/run/media/daniele/Ventoy exfat device=/dev/sdb1 size=931.5GiB
+recovery_media=/run/media/daniele/VEEAMRE vfat device=/dev/sdc1 size=14.6GiB
+storage_health=mounted_filesystems_readable_at_2026-07-09_scan;full_backup_health_not_tested
 
 BACKUP_STORAGE:
-veeam=VeeamEndpointBackupSvc_running;target_UNKNOWN;use_ProgramData_Veeam_DB/logs_if_diagnosing
-rotated_media_rule=drive_letters_can_change;re-enumerate_before_conclusion
-t7_rule=do_not_assume_T7_mounted;current_scan_absent;verify_before_use
-backblaze=Windows_client_not_detected;Backblaze_B2_mentions_may_be_legacy_or_remote_until_reverified
+current_backup_policy=UNKNOWN_after_Fedora_migration
+rotated_media_rule=mount_paths_and_device_names_can_change;re-enumerate_before_conclusion
+t7_rule=currently_Ventoy;do_not_assume_backup_role_without_live_verification
 
 CONSTRAINTS:
-constraint=Windows_paths_use_C:\Users\seste\Documents\...
+constraint=current_local_paths_use_/home/daniele_and_/run/media/daniele
 constraint=large_artifacts_outside_MegaVault
-constraint=backup/cleanup_requires_current_Get-Disk+Get-Volume
-constraint=do_not_apply_Linux_ext4_mount_rules_to_current_host
-constraint=do_not_prune/delete/format_without_explicit_user_intent
-
-LEGACY_2026-06_SURFACE_MINT:
-status=historical_not_primary
-legacy_host=daniele-Surface-Pro
-legacy_root=/dev/sda2 ext4 on Samsung_PSSD_T7_Shield USB
-hub=SABRENT_HB-BUP7 powered_USB_hub;single_Surface_USB_path
-legacy_backup=/media/daniele/Seagate6TB2/home-backups
-legacy_transfer=/media/daniele/Seagate6TB2/vecchio disco
-projects=mint-cloud-backup(restic_Backblaze_B2),backup_docs(home_rsync),surface-recovery-hardening(BitLocker_readonly_transfer)
+constraint=backup/cleanup_requires_current_findmnt+lsblk+df
+constraint=do_not_prune/delete/format/unlock_without_explicit_user_intent
 
 OPEN:
-open=current_Veeam_repository_letter_and_retention_UNKNOWN
-open=current_T7_role_UNKNOWN_until_connected
+open=current_Fedora_backup_repository_and_retention_UNKNOWN
+open=external_NTFS_and_T7_current_operational_roles_UNKNOWN

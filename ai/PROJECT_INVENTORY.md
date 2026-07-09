@@ -1,6 +1,10 @@
 # PROJECT_INVENTORY
-
-Generated: 2026-07-05T00:00:00+02:00
+VERSION=2
+STATUS=SNAPSHOT_REQUIRES_FEDORA_REVALIDATION
+MODE=codex_first
+FORMAT=ultracompressed
+GENERATED=2026-07-05T00:00:00+02:00
+HOST_REVALIDATION=required_before_operational_use
 
 | name | slug | path | remote | branch | git_status_count | docs_found | docs_archived | docs_skipped | dev |
 |---|---|---|---|---|---:|---:|---:|---:|---|

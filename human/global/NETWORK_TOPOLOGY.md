@@ -1,25 +1,16 @@
 # Topologia rete globale
 
-Aggiornato: 2026-07-05. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/global/NETWORK_TOPOLOGY.md).
+Aggiornato: 2026-07-09. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/global/NETWORK_TOPOLOGY.md).
 
-## Host corrente
+## Fedora corrente
 
-- Host primario: `DANIELE_PC`, Windows 11 Pro su ThinkPad P14s Gen 5 AMD.
-- IP LAN/Tailscale correnti: non verificati in questo passaggio.
-- Non usare il vecchio IP Surface `192.168.1.97` come stato corrente senza `ipconfig`/verifica live.
-
-## Oracle VM/Kuma
-
-- Nodo remoto: `ubuntu@150.230.148.128`.
-- Ruoli: Uptime Kuma, backup Oracle, monitoraggio remoto.
-- DB Kuma: `/opt/uptime-kuma/data/kuma.db` sul runtime remoto Linux.
-- Path chiave SSH Windows: unknown; vecchio path Linux solo storico.
+- Host `fedora`, Fedora Linux 44 Workstation sul ThinkPad P14s Gen 5 AMD.
+- Wi-Fi `wlp2s0` attivo con IPv4 `192.168.1.231/24`; gateway predefinito `192.168.1.1`.
+- Ethernet `enp1s0f0` down; Tailscale non rilevato nel PATH.
+- Loopback `127.0.0.1`.
 
 ## Android
 
-- ADB Windows: `C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe`.
-- Pixel 8a/TCL: indirizzi correnti unknown; verificare con `adb devices -l`.
+ADB usa `/home/daniele/Android/Sdk/platform-tools/adb`. Il daemon e' stato avviato, ma `adb devices -l` non mostra device connessi.
 
-## Storico
-
-Surface/Linux Mint, Tailscale `100.68.141.10`, servizi push Mint e monitor Kuma Mint sono snapshot storici o specifici di progetto.
+Gli indirizzi di rete cambiano: verificarli live prima dell'uso. Nomi mDNS e IP in cache non provano che un device Android sia raggiungibile.

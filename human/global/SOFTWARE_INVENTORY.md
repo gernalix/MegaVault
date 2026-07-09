@@ -1,21 +1,17 @@
 # Inventario software globale
 
-Aggiornato: 2026-07-05. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
+Aggiornato: 2026-07-09. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
 
-## Tool Windows verificati
+## Tool Fedora verificati
 
-- PowerShell 7: `C:\Program Files\PowerShell\7\pwsh.exe`, versione `7.6.3`.
-- Git: `C:\Program Files\Git\cmd\git.exe`, versione `2.55.0.windows.2`.
-- Android Studio: `C:\Program Files\Android\Android Studio\bin\studio64.exe`.
-- Android SDK/ADB: `C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe`, ADB `1.0.41 / 37.0.0-14910828`.
-- Veeam Agent: servizio Windows `VeeamEndpointBackupSvc` running/automatic.
+- Bash 5.3.9, DNF, Git 2.55.0 e Python 3.14.6 dai path di sistema.
+- OpenJDK 25.0.3 con `JAVA_HOME=/usr/lib/jvm/java-25-openjdk`.
+- Android Studio Flatpak `com.google.AndroidStudio` 2026.1.1.10; avvio con `flatpak run com.google.AndroidStudio`.
+- Android SDK: `/home/daniele/Android/Sdk`; ADB `1.0.41 / 37.0.0-14910828`; `sdkmanager` sotto `cmdline-tools/latest/bin`.
+- Per Gradle usare il wrapper del progetto.
 
-## Unknown/TODO
+Per il Fedora corrente usare Bash, `dnf`, `systemctl`, `findmnt`, `lsblk` e `df`. Tool e path remoti non descrivono il runtime locale.
 
-- Java e Gradle globali non riverificati; preferire wrapper Gradle dei progetti.
-- GitHub Desktop non verificato; fallback Git CLI disponibile.
-- Backblaze Windows client non rilevato nel controllo default.
+## TODO
 
-## Storico
-
-Tool Linux come `systemctl`, `/usr/bin/git`, `/home/daniele/Android/Sdk`, `restic` locale Mint e path `/home/...` sono legacy, remoti o project-specific.
+La policy backup Fedora, il client backup corrente e lo stato locale di restic non sono stati verificati in questa migrazione documentale.

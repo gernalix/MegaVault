@@ -1,43 +1,34 @@
 # Profilo host globale
 
-Aggiornato: 2026-07-05. Autorita' operativa: [HOST_PROFILE AI](../../ai/global/HOST_PROFILE.md).
+Aggiornato: 2026-07-09. Autorita' operativa: [HOST_PROFILE AI](../../ai/global/HOST_PROFILE.md).
 
 ## Host corrente
 
-- Macchina primaria: Lenovo ThinkPad P14s Gen 5 AMD, host `DANIELE_PC`.
-- Sistema: Microsoft Windows 11 Pro, build `26200`, 64 bit.
-- Utente/path base: `seste`, `C:\Users\seste\Documents`.
-- Shell: PowerShell/pwsh; `pwsh.exe` verificato in `C:\Program Files\PowerShell\7\pwsh.exe`, versione `7.6.3`.
-- Git: `C:\Program Files\Git\cmd\git.exe`, versione `2.55.0.windows.2`; nella shell corrente non era nel PATH, quindi usare path completo se serve.
+- Macchina primaria: Lenovo ThinkPad P14s Gen 5 AMD, host `fedora`.
+- Sistema: Fedora Linux 44 Workstation, kernel `7.1.3-200.fc44.x86_64`, architettura x86-64.
+- Utente/home: `daniele`, `/home/daniele`; MegaVault: `/home/daniele/MegaVault`.
+- Shell: Bash 5.3.9; package manager: `dnf`.
+- Git: `/usr/bin/git` 2.55.0; Python: `/usr/bin/python3` 3.14.6.
 
-## Hardware
+Per operazioni locali Codex deve usare path Fedora `/home/daniele/...`, comandi Bash e pacchetti DNF. Path di progetto o remoti non descrivono il filesystem locale.
 
-- CPU: AMD Ryzen 7 PRO 8840HS con Radeon 780M, 8 core / 16 thread.
-- RAM: circa 27.7 GiB.
-- BIOS: `R2LET40W (1.21)`.
+## Hardware e storage
 
-## Storage verificato
+- CPU AMD Ryzen 7 PRO 8840HS con Radeon 780M, 8 core / 16 thread; RAM circa 27.7 GiB; BIOS `R2LET40W (1.21)`.
+- Root e home: Btrfs su volume LUKS Kioxia NVMe da circa 951 GiB, circa 936 GiB disponibili al controllo.
+- Seagate 3.5 TiB montato in `/run/media/daniele/Seagate Expansion Drive`; volume NTFS 155.9 GiB montato in `/run/media/daniele/09FA16D309FA16D3`.
+- Samsung T7 collegato in `/run/media/daniele/Ventoy`; supporto recovery in `/run/media/daniele/VEEAMRE`.
 
-- `C:` Windows NTFS su Kioxia NVMe da circa 953.9 GB; volume `Windows`, circa 804 GB liberi al controllo.
-- `D:` Seagate Expansion Drive USB NTFS, circa 3.57 TB, circa 32 GB liberi al controllo.
-- `E:` NTFS, circa 155.9 GB, ruolo non verificato.
-- Samsung T7: non connesso nel controllo del 2026-07-05.
+Prima di backup o I/O pesante verificare `findmnt`, `lsblk` e `df`; i mount rimovibili possono cambiare.
 
-Regola: prima di backup o I/O pesante verificare sempre `Get-Disk` e `Get-Volume`; le lettere disco possono cambiare.
+## Android e Java
 
-## Android
-
-- Android Studio: `C:\Program Files\Android\Android Studio\bin\studio64.exe`.
-- Android SDK: `C:\Users\seste\AppData\Local\Android\Sdk`.
-- ADB: `C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe`, versione `1.0.41 / 37.0.0-14910828`.
+- Android Studio: Flatpak `com.google.AndroidStudio` 2026.1.1.10, avvio con `flatpak run com.google.AndroidStudio`.
+- Android SDK, `ANDROID_HOME` e `ANDROID_SDK_ROOT`: `/home/daniele/Android/Sdk`.
+- ADB: `/home/daniele/Android/Sdk/platform-tools/adb`, versione `1.0.41 / 37.0.0-14910828`.
+- `JAVA_HOME`: `/usr/lib/jvm/java-25-openjdk`; OpenJDK 25.0.3.
 - Non dichiarare un device connesso senza `adb devices -l`.
 
-## Backup
+## Stato da verificare
 
-- Veeam Agent: servizio `VeeamEndpointBackupSvc` verificato running/automatic.
-- Target Veeam corrente: non verificato in questo passaggio; controllare DB/log Veeam e lettere disco prima di agire.
-- Backblaze Windows: client non rilevato nei path default del controllo; riferimenti Backblaze B2 possono essere legacy o remoti finche' non riverificati.
-
-## Storico Surface/Linux Mint
-
-Il vecchio profilo Surface/Linux Mint e' storico, non host primario: `daniele-Surface-Pro`, Linux Mint 22.3, root ext4 su Samsung T7 via hub SABRENT, servizi systemd Mint, restic/Backblaze B2. Usarlo solo per contesto storico, progetti Mint, o runtime remoti Linux esplicitamente marcati.
+Policy e target backup Fedora non sono stati verificati. Servizi e path specifici di progetto richiedono una verifica live prima dell'uso sul nuovo host.

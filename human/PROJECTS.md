@@ -1,12 +1,12 @@
 # MegaVault Projects
 
-Updated: 2026-07-05T00:00:00+02:00
+Updated: 2026-07-09T00:00:00+02:00
 
-Host note: current primary host is Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 AMD; project rows may describe legacy Linux Mint or remote VM runtime and must not override `ai/global/HOST_PROFILE.md`.
+Host note: current primary host is Fedora Linux 44 Workstation on Lenovo ThinkPad P14s Gen 5 AMD, with local root `/home/daniele`. Project rows are catalog records only; every local runtime path must be revalidated on Fedora and must not override `ai/global/HOST_PROFILE.md`.
 
 | Project | What it is | Human docs target | AI docs target | metadata |
 |---|---|---|---|---|
-| amici_fb | Windows 11 Facebook friends snapshot automation using Playwright, Task Scheduler, SQLite, CSV diff output, scheduler logs, and optional Telegram/Uptime Kuma reporting; runtime state and secrets stay outside Git. | [Human](C:/codex_clean_repos/amici_fb/docs/human/) | [AI](C:/codex_clean_repos/amici_fb/docs/ai/) | metadata in C:/codex_clean_repos/amici_fb/dev/project.metadata.json |
+| amici_fb | Facebook friends snapshot automation; Fedora runtime and local path not yet revalidated. | Fedora Human path UNKNOWN | Fedora AI path UNKNOWN | Fedora metadata path UNKNOWN |
 | android | Host-local Android helper project; currently owns Linux Mint user service for ADB Wi-Fi Debug auto-connect. | [Human](../../projects/android/docs/human/) | [AI](../../projects/android/docs/ai/) | metadata unknown |
 | Android App Template | Official frozen Android Studio starter template; extracted once from clean Soldi, but Soldi is now a real app and not a generation source. | [Human](../../android-app-template/docs/human/) | [AI](../../android-app-template/docs/ai/) | [metadata](../../android-app-template/dev/project.metadata.json) |
 | android-sdk-auto-update | Servizio giornaliero per aggiornare i pacchetti Android SDK gestiti da `sdkmanager` su Linux Mint/Ubuntu. | [Human](../../android-sdk-auto-update/docs/human/) | [AI](../../android-sdk-auto-update/docs/ai/) | [metadata](../../android-sdk-auto-update/dev/project.metadata.json) |
@@ -42,6 +42,4 @@ Host note: current primary host is Windows 11 Pro on Lenovo ThinkPad P14s Gen 5 
 | SuperContacts | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-device validation. | [Human](../../SuperContacts/docs/human/) | [AI](../../SuperContacts/docs/ai/) | [metadata](../../SuperContacts/dev/project.metadata.json) |
 | surface-recovery-hardening | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. | [Human](../../surface-recovery-hardening/docs/human/) | [AI](../../surface-recovery-hardening/docs/ai/) | [metadata](../../surface-recovery-hardening/dev/project.metadata.json) |
 | system_watchdog | Persistent heartbeat sender for a Uptime Kuma push monitor. | [Human](../../system_watchdog/docs/human/) | [AI](../../system_watchdog/docs/ai/) | [metadata](../../system_watchdog/dev/project.metadata.json) |
-| Windows Flight Recorder | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local dashboard | local Human docs unknown | local AI docs unknown | metadata unknown |
-| Windows Winget Daily Update | Daily Windows package source refresh and upgrade automation via winget. | [Human](../../windows/maintenance/docs/human/) | [AI](../../windows/maintenance/docs/ai/) | metadata absent |
 | WindowTabNotes | Root repository: `WindowTabNotes/`. | [Human](../../WindowTabNotes/docs/human/) | [AI](../../WindowTabNotes/docs/ai/) | [metadata](../../WindowTabNotes/dev/project.metadata.json) |

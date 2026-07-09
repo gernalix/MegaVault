@@ -1,4 +1,4 @@
-VERSION=13
+VERSION=14
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -49,8 +49,21 @@ FINAL_GATE=verify_capsulization_before_final
 HOST_PROFILE=mandatory
 HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
 READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>docs/ai
-HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux
+HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux,android
 UNKNOWN_RULE=mark_UNKNOWN
+
+# HOST_SYSTEM_CURRENT
+CURRENT_OS=Fedora_Linux_44_Workstation
+CURRENT_HOST=fedora
+CURRENT_USER=daniele
+CURRENT_HOME=/home/daniele
+CURRENT_MEGAVAULT_ROOT=/home/daniele/MegaVault
+CURRENT_SHELL=bash
+CURRENT_PACKAGE_MANAGER=dnf
+CURRENT_PATH_STYLE=/home/daniele/...
+CURRENT_CODEX_RULE=use_Fedora_paths+bash+dnf_for_local_host_operations
+NON_FEDORA_LOCAL_PATH_RULE=never_use_as_current_local_path
+REMOTE_PATH_RULE=keep_remote_host_paths_bound_to_their_named_host
 
 # CENTRALIZATION
 CANONICAL_GENERAL=ai/MEGAVAULT_PROTOCOL.md
@@ -98,6 +111,7 @@ REMOTE_REQUIRED=yes
 SYNC_REQUIRED=yes
 PUSH_REQUIRED=yes
 DIRTY_STATE=protocol_violation
+USER_PUSH_OVERRIDE=explicit_no_push_request_must_be_honored_and_reported_as_local_only
 
 # DOCS
 AI_DOCS=docs/ai/*
@@ -135,7 +149,7 @@ SECRET_COMMIT=forbidden
 DESTRUCTIVE_ACTION=require_explicit_user_intent
 
 # DB
-SQLITE_DEFAULT=/home/ubuntu/sync_root/db/
+SQLITE_DEFAULT=/home/daniele/sync_root/db/
 DB_DOC_REQUIRED=yes
 GLOBAL_TIMELINE_SQLITE_DEFAULT=codex_global_timeline.sqlite
 
@@ -144,7 +158,7 @@ INCIDENT_REGISTRY=mandatory_all_projects
 INCIDENT_AI=docs/ai/INCIDENT_REGISTRY.md
 INCIDENT_HUMAN=docs/human/INCIDENT_REGISTRY.md
 INCIDENT_GLOBAL=ai/global/INCIDENT_REGISTRY.md;only_if_global_aspecific_or_cross_project_index
-INCIDENT_SQLITE_DEFAULT=/home/ubuntu/sync_root/db/incident_registry.sqlite
+INCIDENT_SQLITE_DEFAULT=/home/daniele/sync_root/db/incident_registry.sqlite
 INCIDENT_SCHEMA=incidents+incident_events
 INCIDENT_ID_RULE=root_cause_stable_slug
 INCIDENT_FORBID=symptom_spam_ids

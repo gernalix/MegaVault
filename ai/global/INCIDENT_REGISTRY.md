@@ -1,14 +1,14 @@
 VERSION=1
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
-FORMAT=ultracompact
+FORMAT=ultracompressed
 AUTHORITY=global_incident_registry
 
 META:
 scope=all MegaVault projects
 ai_doc=ai/global/INCIDENT_REGISTRY.md
 human_doc=human/global/INCIDENT_REGISTRY.md
-sqlite_default=/home/ubuntu/sync_root/db/incident_registry.sqlite
+sqlite_default=/home/daniele/sync_root/db/incident_registry.sqlite
 override=INCIDENT_REGISTRY_DB
 global_rule=keep_global_schema_and_cross_project_index_here
 project_incident_ai=docs/ai/INCIDENT_REGISTRY.md
