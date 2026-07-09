@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-09T23:04:25+02:00
-total_events=479
+generated_at=2026-07-09T23:05:34+02:00
+total_events=465
 format=event_date|project|label_short|category|status|importance
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
@@ -123,6 +123,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|megavault|Codex Timeline|migration|UNKNOWN|P0
 2026-07-09|megavault|Codex Timeline|security|UNKNOWN|P0
 2026-07-09|megavault|Codex Timeline|security|PASS|P0
+2026-07-09|megavault|Codex Timeline|docs|PASS|P0
 2026-07-09|megavault|Git PATH|backup|FAIL|P0
 2026-07-09|megavault|MegaVault 1.apk|backup|PASS|P0
 2026-07-09|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
@@ -226,6 +227,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
 2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
+2026-07-09|windows|windows Veeam Recovery diagnosis|backup|FAIL|P1
 2026-07-09|windows-flight-recorder|WFR Windows 11 autonomous|security|FAIL|P0
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
@@ -236,26 +238,10 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|windows-winget-daily-update|Winget Windows Winget Daily|automation|UNKNOWN|P2
 2026-07-09|windows-winget-daily-update|Winget Windows Winget Daily|automation|UNKNOWN|P2
 2026-07-09|windows-winget-daily-update|Winget Windows Winget Daily|automation|UNKNOWN|P2
-2026-07-09|windowtabnotes|windowtabnotes v1|release|OPEN|P0
-2026-07-09|windowtabnotes|windowtabnotes WindowTabNotes Dev Index|backup|UNKNOWN|P0
-2026-07-09|windowtabnotes|windowtabnotes Agent Rules|release|UNKNOWN|P1
-2026-07-09|windowtabnotes|windowtabnotes Fedora install|release|UNKNOWN|P1
-2026-07-09|windowtabnotes|windowtabnotes Test Plan|release|OPEN|P1
-2026-07-09|windowtabnotes|windowtabnotes Troubleshooting|bugfix|WARN|P1
-2026-07-09|windowtabnotes|windowtabnotes v1|release|UNKNOWN|P1
-2026-07-09|windowtabnotes|windowtabnotes v13|security|OPEN|P1
 2026-07-09|windowtabnotes|windowtabnotes v20|backup|FAIL|P1
 2026-07-09|windowtabnotes|windowtabnotes v20|backup|UNKNOWN|P1
 2026-07-09|windowtabnotes|windowtabnotes v23|release|WARN|P1
-2026-07-09|windowtabnotes|windowtabnotes WindowTabNotes|release|UNKNOWN|P1
 2026-07-09|windowtabnotes|windowtabnotes WindowTabNotes Roadmap|backup|UNKNOWN|P1
-2026-07-09|windowtabnotes|windowtabnotes Bug Registry|bugfix|OPEN|P2
-2026-07-09|windowtabnotes|windowtabnotes com.windowtabnotes.host.example|infra|UNKNOWN|P2
-2026-07-09|windowtabnotes|windowtabnotes Installazione|infra|UNKNOWN|P2
-2026-07-09|windowtabnotes|windowtabnotes Uso Quotidiano|bugfix|UNKNOWN|P2
-2026-07-09|windowtabnotes|windowtabnotes v1|bugfix|UNKNOWN|P2
-2026-07-09|windowtabnotes|windowtabnotes v1|migration|UNKNOWN|P2
-2026-07-09|windowtabnotes|windowtabnotes v1|testing|UNKNOWN|P3
 2026-07-08|2026|2026 v1|security|WARN|P0
 2026-07-08|2026|2026 v1|security|WARN|P1
 2026-07-08|raw-memories-md|raw-memories-md Raw Memories|security|WARN|P1
