@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-09T23:05:34+02:00
-total_events=465
+generated_at=2026-07-10T00:00:24+02:00
+total_events=488
 format=event_date|project|label_short|category|status|importance
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
@@ -113,6 +113,17 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|luoghi|Luoghi app-debug.apk|release|UNKNOWN|P1
 2026-07-09|luoghi|Luoghi Luoghi Roadmap|backup|UNKNOWN|P1
 2026-07-09|luoghi|Luoghi Luoghi Troubleshooting|release|UNKNOWN|P1
+2026-07-09|luoghi-app|luoghi-app v11|release|UNKNOWN|P0
+2026-07-09|luoghi-app|luoghi-app v5|backup|OPEN|P0
+2026-07-09|luoghi-app|luoghi-app 1|release|UNKNOWN|P1
+2026-07-09|luoghi-app|luoghi-app 1.apk|security|UNKNOWN|P1
+2026-07-09|luoghi-app|luoghi-app 2|release|UNKNOWN|P1
+2026-07-09|luoghi-app|luoghi-app 3|release|UNKNOWN|P1
+2026-07-09|luoghi-app|luoghi-app v1|release|UNKNOWN|P1
+2026-07-09|luoghi-app|luoghi-app v5|security|UNKNOWN|P1
+2026-07-09|luoghi-app|luoghi-app v5|security|PASS|P1
+2026-07-09|luoghi-app|luoghi-app v6|security|OPEN|P1
+2026-07-09|luoghi-app|luoghi-app version|release|UNKNOWN|P1
 2026-07-09|maintenance-486|maintenance-486 v2|security|OPEN|P0
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Features|release|OPEN|P1
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Roadmap|testing|UNKNOWN|P2
@@ -121,6 +132,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|megavault|Codex Timeline|docs|PASS|P0
 2026-07-09|megavault|Codex Timeline|backup|PASS|P0
 2026-07-09|megavault|Codex Timeline|migration|UNKNOWN|P0
+2026-07-09|megavault|Codex Timeline|backup|PASS|P0
 2026-07-09|megavault|Codex Timeline|security|UNKNOWN|P0
 2026-07-09|megavault|Codex Timeline|security|PASS|P0
 2026-07-09|megavault|Codex Timeline|docs|PASS|P0
@@ -208,6 +220,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|sostanze|Sostanze 4.apk|release|UNKNOWN|P1
 2026-07-09|sostanze|Sostanze app-debug.apk|security|WARN|P1
 2026-07-09|sostanze|Sostanze Sostanze Roadmap|migration|UNKNOWN|P2
+2026-07-09|supercontacts|SC 1.apk|security|WARN|P0
 2026-07-09|supercontacts|SC app-debug.apk|security|PASS|P0
 2026-07-09|supercontacts|SC SuperContacts Roadmap|backup|UNKNOWN|P1
 2026-07-09|supercontacts|SC v1|security|FAIL|P1
@@ -225,9 +238,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|windows|Veeam T7|backup|OPEN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
+2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
 2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
-2026-07-09|windows|windows Veeam Recovery diagnosis|backup|FAIL|P1
 2026-07-09|windows-flight-recorder|WFR Windows 11 autonomous|security|FAIL|P0
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
@@ -246,6 +259,11 @@ format=event_date|project|label_short|category|status|importance
 2026-07-08|2026|2026 v1|security|WARN|P1
 2026-07-08|raw-memories-md|raw-memories-md Raw Memories|security|WARN|P1
 2026-07-08|rollout-summaries|rollout-summaries Fedora/Android Emulator KVM|security|FAIL|P1
+2026-07-06|luoghi-app|luoghi-app 7.apk|security|WARN|P0
+2026-07-06|luoghi-app|luoghi-app 5.apk|security|PASS|P1
+2026-07-06|luoghi-app|luoghi-app 5.apk|security|WARN|P1
+2026-07-06|luoghi-app|luoghi-app 7.apk|release|WARN|P1
+2026-07-06|luoghi-app|luoghi-app v7|security|PASS|P1
 2026-07-06|megavault|Codex Timeline|docs|PASS|P0
 2026-07-06|megavault|MegaVault Aggiorna protocollo MegaVault|docs|PASS|P0
 2026-07-06|megavault|MegaVault v7|docs|PASS|P0
@@ -254,6 +272,11 @@ format=event_date|project|label_short|category|status|importance
 2026-07-06|megavault|MegaVault v536|infra|PASS|P1
 2026-07-06|megavault|MegaVault v536|docs|PASS|P2
 2026-07-06|megavault|MegaVault v537|docs|PASS|P2
+2026-07-05|luoghi-app|luoghi-app 1.apk|security|WARN|P0
+2026-07-05|luoghi-app|luoghi-app 2.apk|security|WARN|P0
+2026-07-05|luoghi-app|luoghi-app 4.apk|backup|PASS|P0
+2026-07-05|luoghi-app|luoghi-app 3.apk|backup|WARN|P1
+2026-07-05|luoghi-app|luoghi-app v3|docs|UNKNOWN|P2
 2026-07-05|megavault|Git PATH|security|PASS|P0
 2026-07-05|megavault|MegaVault Codex weekly limit|security|PASS|P1
 2026-07-05|megavault|MegaVault Codex weekly limit|security|PASS|P1

@@ -1,26 +1,27 @@
 # Global Codex Timeline
 
-Generated: 2026-07-09T23:05:34+02:00
+Generated: 2026-07-10T00:00:24+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 465
+Total events: 488
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/run/media/daniele/Ventoy/VMs/veeam-windows-restore/logs/diagnostics-384917/timeline-source`
+- `/home/daniele/MegaVault/projects/luoghi-app`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 120 |
+| megavault | 121 |
 | amici-fb | 84 |
 | multitimetracker | 23 |
+| luoghi-app | 21 |
 | oracle-backup-service | 18 |
+| supercontacts | 11 |
 | oracle-uptime-kuma | 10 |
-| supercontacts | 10 |
 | windows | 7 |
 | 2026 | 6 |
 | android | 6 |
@@ -67,10 +68,10 @@ Total events: 465
 
 | Value | Events |
 |---|---:|
-| backup | 155 |
-| security | 143 |
-| docs | 49 |
-| release | 29 |
+| backup | 158 |
+| security | 155 |
+| docs | 50 |
+| release | 36 |
 | bugfix | 26 |
 | testing | 18 |
 | automation | 16 |
@@ -82,20 +83,20 @@ Total events: 465
 
 | Value | Events |
 |---|---:|
-| P1 | 272 |
-| P2 | 93 |
-| P0 | 91 |
+| P1 | 285 |
+| P0 | 100 |
+| P2 | 94 |
 | P3 | 9 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 180 |
-| PASS | 108 |
-| WARN | 66 |
-| OPEN | 56 |
-| FAIL | 55 |
+| UNKNOWN | 189 |
+| PASS | 113 |
+| WARN | 74 |
+| OPEN | 58 |
+| FAIL | 54 |
 
 
 ## Recent Events
@@ -137,11 +138,14 @@ Total events: 465
 | 2026-07-09 | facebook-video-archiver | facebook-video-archiver v4 | security | FAIL | P0 | protocol_update | markdown | Start here for Codex/operator work on `facebook-video-archiver` |
 | 2026-07-09 | git-change-ledger | git-change-ledger v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-09 | installa-app | installa-app v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
+| 2026-07-09 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
+| 2026-07-09 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
 | 2026-07-09 | maintenance-486 | maintenance-486 v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
 | 2026-07-09 | megavault | Codex Timeline | release | OPEN | P0 | release | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
 | 2026-07-09 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
+| 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam diagnosis 384917 |
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-09 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
@@ -164,17 +168,23 @@ Total events: 465
 | 2026-07-09 | parcel-tracker | parcel-tracker v2 | security | OPEN | P0 | protocol_update | markdown | Servizio leggero user-level per monitorare la spedizione `XT329499807TS` |
 | 2026-07-09 | remote-codex-phone | remote-codex-phone v2 | security | OPEN | P0 | protocol_update | markdown | Prompt #438 setup for controlling Codex from an Android phone through: |
 | 2026-07-09 | remote-opt-oracle-backup | remote-opt-oracle-backup v2 | security | OPEN | P0 | protocol_update | markdown | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remot... |
+| 2026-07-09 | supercontacts | SC 1.apk | security | WARN | P0 | changelog | codex_log | 019f48dd-a960-71d2-b4ab-89c66557f26f |
 | 2026-07-09 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-07-09 | system-watchdog | system-watchdog v2 | security | OPEN | P0 | protocol_update | markdown | Persistent heartbeat sender for a Uptime Kuma push monitor |
 | 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
 | 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
+| 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f48d9-f422-7f61-b220-fa34bd086950 |
 | 2026-07-09 | windows-flight-recorder | WFR Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3f90-7f5f-7361-b0de-19a9db8a74c9 |
+| 2026-07-06 | luoghi-app | luoghi-app 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault | MegaVault Aggiorna protocollo MegaVault | docs | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
 | 2026-07-06 | megavault | MegaVault v7 | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi v7 |
+| 2026-07-05 | luoghi-app | luoghi-app 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
+| 2026-07-05 | luoghi-app | luoghi-app 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
+| 2026-07-05 | luoghi-app | luoghi-app 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
 | 2026-07-05 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | Codex weekly limit monitor VM fix - 2026-07-05 |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | WARN | P0 | protocol_update | markdown | Strano Anello Decommission Report |
 | 2026-07-05 | megavault-content-aware-merge-20260705 | Git PATH | security | OPEN | P0 | protocol_update | markdown | MegaVault Post-Merge Quality Audit 2026-07-05 |
@@ -218,12 +228,13 @@ Total events: 465
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 120 events; latest=2026-07-09; label=Codex Timeline
+- `megavault`: 121 events; latest=2026-07-09; label=Codex Timeline
 - `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
 - `multitimetracker`: 23 events; latest=2026-07-09; label=Android Tests
+- `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
+- `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
 - `oracle-uptime-kuma`: 10 events; latest=2026-07-09; label=Kuma Features
-- `supercontacts`: 10 events; latest=2026-07-09; label=SC app-debug.apk
 - `windows`: 7 events; latest=2026-07-09; label=Veeam T7
 - `2026`: 6 events; latest=2026-07-09; label=2026 v1
 - `android`: 6 events; latest=2026-07-09; label=android v0
@@ -380,6 +391,17 @@ Total events: 465
 | 2026-07-09 | luoghi | Luoghi app-debug.apk | release | UNKNOWN | P1 | release | markdown | Luoghi |
 | 2026-07-09 | luoghi | Luoghi Luoghi Roadmap | backup | UNKNOWN | P1 | backup | markdown | Luoghi Roadmap |
 | 2026-07-09 | luoghi | Luoghi Luoghi Troubleshooting | release | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
+| 2026-07-09 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
+| 2026-07-09 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
+| 2026-07-09 | luoghi-app | luoghi-app 1 | release | UNKNOWN | P1 | release | json | 1 |
+| 2026-07-09 | luoghi-app | luoghi-app 1.apk | security | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
+| 2026-07-09 | luoghi-app | luoghi-app 2 | release | UNKNOWN | P1 | release | json | 2 |
+| 2026-07-09 | luoghi-app | luoghi-app 3 | release | UNKNOWN | P1 | release | json | 3 |
+| 2026-07-09 | luoghi-app | luoghi-app v1 | release | UNKNOWN | P1 | release | markdown | Luoghi Incident Registry |
+| 2026-07-09 | luoghi-app | luoghi-app v5 | security | UNKNOWN | P1 | doc_event | markdown | Luoghi Roadmap |
+| 2026-07-09 | luoghi-app | luoghi-app v5 | security | PASS | P1 | doc_event | markdown | Luoghi Overview |
+| 2026-07-09 | luoghi-app | luoghi-app v6 | security | OPEN | P1 | doc_event | markdown | Luoghi Provider API v6 |
+| 2026-07-09 | luoghi-app | luoghi-app version | release | UNKNOWN | P1 | release | txt | version |
 | 2026-07-09 | maintenance-486 | maintenance-486 v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Features | release | OPEN | P1 | release | markdown | maintenance-486 Features |
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Roadmap | testing | UNKNOWN | P2 | qa | markdown | maintenance-486 Roadmap |
@@ -388,6 +410,7 @@ Total events: 465
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
 | 2026-07-09 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
+| 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam diagnosis 384917 |
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-09 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
@@ -475,6 +498,7 @@ Total events: 465
 | 2026-07-09 | sostanze | Sostanze 4.apk | release | UNKNOWN | P1 | release | markdown | Sostanze |
 | 2026-07-09 | sostanze | Sostanze app-debug.apk | security | WARN | P1 | release | markdown | Sostanze Troubleshooting |
 | 2026-07-09 | sostanze | Sostanze Sostanze Roadmap | migration | UNKNOWN | P2 | migration | markdown | Sostanze Roadmap |
+| 2026-07-09 | supercontacts | SC 1.apk | security | WARN | P0 | changelog | codex_log | 019f48dd-a960-71d2-b4ab-89c66557f26f |
 | 2026-07-09 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-07-09 | supercontacts | SC SuperContacts Roadmap | backup | UNKNOWN | P1 | backup | markdown | SuperContacts Roadmap |
 | 2026-07-09 | supercontacts | SC v1 | security | FAIL | P1 | report | json | CODE AUDIT SOURCES |
@@ -492,9 +516,9 @@ Total events: 465
 | 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
+| 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f48d9-f422-7f61-b220-fa34bd086950 |
 | 2026-07-09 | windows | Veeam T7 | backup | UNKNOWN | P1 | backup | markdown | Topologia storage globale |
 | 2026-07-09 | windows | Veeam T7 | backup | UNKNOWN | P1 | backup | markdown | Profilo host globale |
-| 2026-07-09 | windows | windows Veeam Recovery diagnosis | backup | FAIL | P1 | backup | markdown | Veeam Recovery diagnosis 384917 |
 | 2026-07-09 | windows-flight-recorder | WFR Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
 | 2026-07-09 | windows-flight-recorder | WFR Windows Flight Recorder | security | UNKNOWN | P1 | doc_event | markdown | Windows Flight Recorder Features |
 | 2026-07-09 | windows-flight-recorder | WFR Windows Flight Recorder | security | UNKNOWN | P1 | doc_event | markdown | Windows Flight Recorder Troubleshooting |
@@ -513,6 +537,11 @@ Total events: 465
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P1 | changelog | codex_log | 019f3faa-5c00-7dd1-bbb5-ed3cbc5129c7 |
 | 2026-07-08 | raw-memories-md | raw-memories-md Raw Memories | security | WARN | P1 | report | markdown | Raw Memories |
 | 2026-07-08 | rollout-summaries | rollout-summaries Fedora/Android Emulator KVM | security | FAIL | P1 | report | markdown | Fedora/Android Emulator KVM check on ThinkPad; system stack was mostly prepared, but emulator binary was not found and the current session had not... |
+| 2026-07-06 | luoghi-app | luoghi-app 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
+| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | PASS | P1 | release | markdown | Telegram APK send fix - Luoghi v5 |
+| 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | WARN | P1 | release | markdown | Luoghi v5 check-in/out capsules full product |
+| 2026-07-06 | luoghi-app | luoghi-app 7.apk | release | WARN | P1 | release | markdown | Luoghi v7 persistent place/global statistics |
+| 2026-07-06 | luoghi-app | luoghi-app v7 | security | PASS | P1 | changelog | markdown | Luoghi Changelog |
 | 2026-07-06 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault | MegaVault Aggiorna protocollo MegaVault | docs | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
 | 2026-07-06 | megavault | MegaVault v7 | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi v7 |
@@ -521,6 +550,11 @@ Total events: 465
 | 2026-07-06 | megavault | MegaVault v536 | infra | PASS | P1 | git_commit | git_log | Document MTT v536 fast path verification |
 | 2026-07-06 | megavault | MegaVault v536 | docs | PASS | P2 | git_commit | git_log | Document MultiTimeTracker startup v536 |
 | 2026-07-06 | megavault | MegaVault v537 | docs | PASS | P2 | git_commit | git_log | docs: document MTT capsulization v537 |
+| 2026-07-05 | luoghi-app | luoghi-app 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
+| 2026-07-05 | luoghi-app | luoghi-app 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
+| 2026-07-05 | luoghi-app | luoghi-app 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
+| 2026-07-05 | luoghi-app | luoghi-app 3.apk | backup | WARN | P1 | release | markdown | Luoghi v3 - mappa, consumer API e freeze autocomplete |
+| 2026-07-05 | luoghi-app | luoghi-app v3 | docs | UNKNOWN | P2 | report | markdown | Luoghi Links |
 | 2026-07-05 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | Codex weekly limit monitor VM fix - 2026-07-05 |
 | 2026-07-05 | megavault | MegaVault Codex weekly limit | security | PASS | P1 | report | markdown | Codex weekly limit notification format - 2026-07-05 |
 | 2026-07-05 | megavault | MegaVault Codex weekly limit | security | PASS | P1 | report | markdown | Codex weekly limit monitor real 5h source fix - 2026-07-05 |
