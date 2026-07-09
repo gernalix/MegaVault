@@ -1,5 +1,5 @@
 # PROJECT_INDEX
-VERSION=2
+VERSION=3
 STATUS=ACTIVE_GLOBAL_CATALOG
 MODE=codex_first
 FORMAT=ultracompressed
@@ -44,6 +44,6 @@ ROW_RULE=catalog_only;local_runtime_paths_require_Fedora_revalidation;HOST_PROFI
 | Soldi | soldi | Local-first Android finance app with Room/SQLite, SAF export/import, fast transactions, receipts/OCR confirmation, products, places, tags/chains, links, price memory and wealth analytics. | [AI](../../../AndroidStudioProjects/Soldi/docs/ai/) | [Human](../../../AndroidStudioProjects/Soldi/docs/human/) | [metadata](../../../AndroidStudioProjects/Soldi/dev/project.metadata.json) | [repo](../../../AndroidStudioProjects/Soldi) |
 | Sostanze | sostanze | Local-first Android app for medications, supplements, stock, prescriptions, interactions, and intake tracking; Room SQLite; Home reuses MultiTimeTracker Events-style action grid. | [AI](../../../AndroidStudioProjects/Sostanze/docs/ai/) | [Human](../../../AndroidStudioProjects/Sostanze/docs/human/) | [metadata](../../../AndroidStudioProjects/Sostanze/dev/project.metadata.json) | [repo](../../../AndroidStudioProjects/Sostanze) |
 | SuperContacts | supercontacts | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/export, and debug-device validation. | [AI](../../SuperContacts/docs/ai/) | [Human](../../SuperContacts/docs/human/) | [metadata](../../SuperContacts/dev/project.metadata.json) | [repo](../../SuperContacts) |
-| surface-recovery-hardening | surface-recovery-hardening | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. | [AI](../../surface-recovery-hardening/docs/ai/) | [Human](../../surface-recovery-hardening/docs/human/) | [metadata](../../surface-recovery-hardening/dev/project.metadata.json) | [repo](../../surface-recovery-hardening) |
+| surface-recovery-hardening | surface-recovery-hardening | LEGACY_PROJECT_RECORD: Linux Mint Surface recovery + rsync transfer from Seagate 4TB BitLocker media to Seagate6TB2 ext4; not current Fedora runtime. | [AI](../../surface-recovery-hardening/docs/ai/) | [Human](../../surface-recovery-hardening/docs/human/) | [metadata](../../surface-recovery-hardening/dev/project.metadata.json) | [repo](../../surface-recovery-hardening) |
 | system_watchdog | system-watchdog | Persistent heartbeat sender for a Uptime Kuma push monitor. | [AI](../../system_watchdog/docs/ai/) | [Human](../../system_watchdog/docs/human/) | [metadata](../../system_watchdog/dev/project.metadata.json) | [repo](../../system_watchdog) |
 | WindowTabNotes | windowtabnotes | Root repository: `WindowTabNotes/`. | [AI](../../WindowTabNotes/docs/ai/) | [Human](../../WindowTabNotes/docs/human/) | [metadata](../../WindowTabNotes/dev/project.metadata.json) | [repo](../../WindowTabNotes) |

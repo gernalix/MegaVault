@@ -1,5 +1,5 @@
 # HOST_PROFILE
-VERSION=4
+VERSION=5
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -43,7 +43,7 @@ constraints=laptop_power/thermal_profile,verify_sudo_requirement,use_Fedora_comm
 STORAGE_CURRENT_FEDORA:
 root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=935.9GiB mounts=/,/home
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
-external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs size=3.5TiB source=BitLocker_mapping
+external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs size=3.5TiB source=udisks_encrypted_volume_mapping
 external_ntfs=/run/media/daniele/09FA16D309FA16D3 size=155.9GiB role=UNKNOWN
 t7=/run/media/daniele/Ventoy exfat size=931.5GiB connected=2026-07-09
 recovery_media=/run/media/daniele/VEEAMRE vfat size=14.6GiB connected=2026-07-09
@@ -51,10 +51,19 @@ storage_rule=verify_findmnt+lsblk+df_before_backup_or_large_IO;removable_mounts_
 
 TOOLING_CURRENT_FEDORA:
 git=/usr/bin/git version=2.55.0
+gh=/usr/bin/gh version=2.94.0
+codex=/usr/local/bin/codex version=0.144.0
 python=/usr/bin/python3 version=3.14.6
+pip=/usr/bin/pip version=26.0.1
+pipx=/usr/bin/pipx version=1.15.0
+uv=/usr/bin/uv version=0.11.26
 java=/usr/bin/java OpenJDK=25.0.3
 JAVA_HOME=/usr/lib/jvm/java-25-openjdk
 rg=Codex_bundle version=15.1.0
+ssh=/usr/bin/ssh version=OpenSSH_10.2p1
+ssh_dir=~/.ssh resolved=/home/daniele/.ssh status=absent
+docker=not_installed service=absent
+podman=/usr/bin/podman version=5.8.4 role=optional_container_runtime
 
 ANDROID_CURRENT_FEDORA:
 android_studio=Flatpak_com.google.AndroidStudio version=2026.1.1.10 launch="flatpak run com.google.AndroidStudio"
@@ -72,6 +81,7 @@ megavault=/home/daniele/MegaVault
 shell_commands=bash
 package_commands=dnf
 service_commands=systemctl+systemctl_--user
+service_manager=systemd version=259
 storage_commands=findmnt+lsblk+df
 path_rule=current_local_paths_must_resolve_under_Fedora_mounts
 project_rule=project_or_remote_paths_never_override_HOST_SYSTEM_CURRENT

@@ -1,5 +1,6 @@
 # MegaVault Changelog
 
+- 2026-07-09: verifica finale migrazione Fedora: certificati protocollo/host profile e toolchain live (`codex`, `gh`, Python/pip/pipx/uv, OpenSSH, systemd, Podman); Docker marcato non installato; mapping storage reso Fedora-native e record Surface marcato legacy.
 - 2026-07-09: documentazione globale adattata al nuovo host Fedora 44; introdotto `HOST_SYSTEM_CURRENT`, allineati path `/home/daniele`, Bash/DNF, Android SDK/OpenJDK, storage/rete/systemd live e registri AI ultracompressi; dati host non Fedora rimossi dalle viste canoniche correnti e lasciati alla cronologia Git.
 - 2026-07-06: Global Codex Timeline resa obbligatoria nel protocollo; aggiunti SQLite canonico, builder idempotente, viste Markdown generate e gate finale `Timeline globale aggiornata`.
 - 2026-06-13: `#729184` disk-usage-monitor: aggiunta notifica Telegram aggregata per delta spazio usato >=1 GiB binario, con baseline separata `delta_notification_state` e test asciutti `delta-test-plus/minus`.

@@ -1,5 +1,5 @@
 # SOFTWARE_INVENTORY
-VERSION=3
+VERSION=4
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
@@ -10,12 +10,21 @@ HUMAN=../../human/global/SOFTWARE_INVENTORY.md
 
 FEDORA_RUNTIME_CURRENT:
 tool=bash;path=/usr/bin/bash;version=5.3.9;critical=yes
-tool=dnf;path=/usr/bin/dnf;version=system_current;critical=yes
+tool=dnf;path=/usr/bin/dnf;version=5.4.2.1;critical=yes
+tool=systemd;path=/usr/bin/systemctl;version=259;critical=yes
 tool=git;path=/usr/bin/git;version=2.55.0;critical=yes
+tool=gh;path=/usr/bin/gh;version=2.94.0;critical=yes
+tool=Codex_CLI;path=/usr/local/bin/codex;version=0.144.0;critical=yes
 tool=python;path=/usr/bin/python3;version=3.14.6;critical=yes
+tool=pip;path=/usr/bin/pip;version=26.0.1;critical=yes
+tool=pipx;path=/usr/bin/pipx;version=1.15.0;critical=yes
+tool=uv;path=/usr/bin/uv;version=0.11.26;critical=yes
 tool=java;path=/usr/bin/java;JAVA_HOME=/usr/lib/jvm/java-25-openjdk;version=OpenJDK_25.0.3;critical=yes
 tool=rg;path=Codex_bundle;version=15.1.0;critical=yes
 tool=flatpak;path=PATH;critical=yes_for_Android_Studio
+tool=OpenSSH;path=/usr/bin/ssh;version=10.2p1;config_dir=/home/daniele/.ssh;config_dir_status=absent;critical=yes
+tool=Docker;path=missing;service=absent;version=not_installed;critical=no
+tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_container_runtime
 
 ANDROID_TOOLS_CURRENT:
 tool=Android_Studio;install=Flatpak_com.google.AndroidStudio;version=2026.1.1.10;launch=flatpak_run_com.google.AndroidStudio;critical=yes

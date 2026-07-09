@@ -1,5 +1,5 @@
 # GLOBAL_RULES
-VERSION=2
+VERSION=3
 STATUS=ACTIVE_ROUTING_SUMMARY
 MODE=codex_first
 FORMAT=ultracompressed
@@ -19,6 +19,7 @@ home=/home/daniele
 megavault=/home/daniele/MegaVault
 shell=bash
 package_manager=dnf
+service_manager=systemd
 local_rule=Fedora_paths_and_commands_only
 
 GLOBAL_DOCS:
@@ -53,4 +54,9 @@ packages=dnf
 services=systemctl+systemctl_--user
 storage=findmnt+lsblk+df
 android=flatpak+adb+sdkmanager+java+project_Gradle_wrapper
+codex=/usr/local/bin/codex
+github=/usr/bin/gh
+python=/usr/bin/python3+/usr/bin/pip+/usr/bin/pipx+/usr/bin/uv
+ssh=/usr/bin/ssh;config_dir=/home/daniele/.ssh;dir_status=absent
+containers=podman_optional;docker_not_installed
 non_Fedora_local_assumptions=forbidden

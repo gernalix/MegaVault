@@ -1,4 +1,4 @@
-VERSION=14
+VERSION=15
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -60,7 +60,21 @@ CURRENT_HOME=/home/daniele
 CURRENT_MEGAVAULT_ROOT=/home/daniele/MegaVault
 CURRENT_SHELL=bash
 CURRENT_PACKAGE_MANAGER=dnf
+CURRENT_SERVICE_MANAGER=systemd
 CURRENT_PATH_STYLE=/home/daniele/...
+CURRENT_ANDROID_STUDIO=Flatpak_com.google.AndroidStudio;version=2026.1.1.10
+CURRENT_ANDROID_SDK=/home/daniele/Android/Sdk
+CURRENT_JAVA_HOME=/usr/lib/jvm/java-25-openjdk
+CURRENT_CODEX_CLI=/usr/local/bin/codex;version=0.144.0
+CURRENT_GH_CLI=/usr/bin/gh;version=2.94.0
+CURRENT_PYTHON=/usr/bin/python3;version=3.14.6
+CURRENT_PIP=/usr/bin/pip;version=26.0.1
+CURRENT_PIPX=/usr/bin/pipx;version=1.15.0
+CURRENT_UV=/usr/bin/uv;version=0.11.26
+CURRENT_SSH=/usr/bin/ssh;version=OpenSSH_10.2p1
+CURRENT_SSH_DIR=~/.ssh;resolved=/home/daniele/.ssh;status=absent
+CURRENT_DOCKER=not_installed
+CURRENT_CONTAINER_RUNTIME=/usr/bin/podman;version=5.8.4;role=optional
 CURRENT_CODEX_RULE=use_Fedora_paths+bash+dnf_for_local_host_operations
 NON_FEDORA_LOCAL_PATH_RULE=never_use_as_current_local_path
 REMOTE_PATH_RULE=keep_remote_host_paths_bound_to_their_named_host

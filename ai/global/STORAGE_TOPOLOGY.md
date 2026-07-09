@@ -1,5 +1,5 @@
 # STORAGE_TOPOLOGY
-VERSION=3
+VERSION=4
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
@@ -15,7 +15,7 @@ root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=
 home=/home/daniele
 repo=/home/daniele/MegaVault
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
-external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs source=BitLocker_mapping size=3.5TiB
+external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs source=udisks_encrypted_volume_mapping size=3.5TiB
 external_ntfs=/run/media/daniele/09FA16D309FA16D3 ntfs size=155.9GiB role=UNKNOWN
 t7=/run/media/daniele/Ventoy exfat device=/dev/sdb1 size=931.5GiB
 recovery_media=/run/media/daniele/VEEAMRE vfat device=/dev/sdc1 size=14.6GiB
