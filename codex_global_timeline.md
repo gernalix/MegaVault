@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-09T22:57:15+02:00
+Generated: 2026-07-09T23:04:25+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 478
+Total events: 479
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,7 +15,7 @@ Total events: 478
 
 | Value | Events |
 |---|---:|
-| megavault | 118 |
+| megavault | 119 |
 | amici-fb | 84 |
 | multitimetracker | 23 |
 | windowtabnotes | 22 |
@@ -69,7 +69,7 @@ Total events: 478
 |---|---:|
 | backup | 155 |
 | security | 144 |
-| docs | 47 |
+| docs | 48 |
 | release | 35 |
 | bugfix | 30 |
 | testing | 19 |
@@ -84,7 +84,7 @@ Total events: 478
 |---|---:|
 | P1 | 278 |
 | P2 | 99 |
-| P0 | 91 |
+| P0 | 92 |
 | P3 | 10 |
 
 ### Events by status
@@ -92,7 +92,7 @@ Total events: 478
 | Value | Events |
 |---|---:|
 | UNKNOWN | 191 |
-| PASS | 106 |
+| PASS | 107 |
 | WARN | 67 |
 | OPEN | 60 |
 | FAIL | 54 |
@@ -139,6 +139,7 @@ Total events: 478
 | 2026-07-09 | installa-app | installa-app v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
 | 2026-07-09 | maintenance-486 | maintenance-486 v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
 | 2026-07-09 | megavault | Codex Timeline | release | OPEN | P0 | release | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
 | 2026-07-09 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
@@ -218,7 +219,7 @@ Total events: 478
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 118 events; latest=2026-07-09; label=Codex Timeline
+- `megavault`: 119 events; latest=2026-07-09; label=Codex Timeline
 - `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
 - `multitimetracker`: 23 events; latest=2026-07-09; label=Android Tests
 - `windowtabnotes`: 22 events; latest=2026-07-09; label=windowtabnotes v1
@@ -385,6 +386,7 @@ Total events: 478
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Roadmap | testing | UNKNOWN | P2 | qa | markdown | maintenance-486 Roadmap |
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Overview | testing | OPEN | P3 | report | markdown | maintenance-486 Overview |
 | 2026-07-09 | megavault | Codex Timeline | release | OPEN | P0 | release | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
 | 2026-07-09 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
