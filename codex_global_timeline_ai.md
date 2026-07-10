@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T20:30:08+02:00
-total_events=602
+generated_at=2026-07-10T20:31:14+02:00
+total_events=606
 format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
@@ -56,6 +56,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app INCIDENT_REGISTRY|bugfix|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app Registro incidenti|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
@@ -78,6 +80,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v9|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v9|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|Git PATH|performance|OPEN|P3
 2026-07-10|megavault|Android Tests|security|OPEN|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|backup|UNKNOWN|P0
@@ -110,6 +113,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault Document live Codex|docs|PASS|P2
 2026-07-10|megavault|MegaVault Document Obsidian Fedora|docs|PASS|P2
 2026-07-10|megavault|MegaVault Record WindowTabNotes Fedora|docs|PASS|P2
+2026-07-10|megavault|MegaVault Remove Codex session|docs|PASS|P2
 2026-07-10|megavault|MegaVault Task 714283 Codex|docs|UNKNOWN|P2
 2026-07-10|megavault|MegaVault v10|docs|PASS|P2
 2026-07-10|multitimetracker|MTT 1.apk|security|WARN|P0

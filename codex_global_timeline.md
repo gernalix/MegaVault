@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T20:30:08+02:00
+Generated: 2026-07-10T20:31:14+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 602
+Total events: 606
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,9 +14,9 @@ Total events: 602
 
 | Value | Events |
 |---|---:|
-| megavault | 142 |
+| megavault | 143 |
 | amici-fb | 87 |
-| luoghi-app | 64 |
+| luoghi-app | 67 |
 | multitimetracker | 29 |
 | oracle-backup-service | 18 |
 | fedora-system-monitor | 14 |
@@ -70,14 +70,14 @@ Total events: 602
 |---|---:|
 | security | 198 |
 | backup | 172 |
-| docs | 59 |
-| testing | 47 |
+| docs | 60 |
+| testing | 48 |
 | release | 45 |
-| bugfix | 31 |
+| bugfix | 32 |
 | automation | 20 |
 | infra | 15 |
 | migration | 12 |
-| performance | 3 |
+| performance | 4 |
 
 ### Events by importance
 
@@ -85,17 +85,17 @@ Total events: 602
 |---|---:|
 | P1 | 319 |
 | P0 | 144 |
-| P2 | 130 |
-| P3 | 9 |
+| P2 | 133 |
+| P3 | 10 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 235 |
-| PASS | 147 |
+| UNKNOWN | 237 |
+| PASS | 148 |
 | WARN | 102 |
-| OPEN | 60 |
+| OPEN | 61 |
 | FAIL | 58 |
 
 
@@ -272,9 +272,9 @@ Total events: 602
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 142 events; latest=2026-07-10; label=Android Tests
+- `megavault`: 143 events; latest=2026-07-10; label=Android Tests
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
-- `luoghi-app`: 64 events; latest=2026-07-10; label=luoghi-app v10
+- `luoghi-app`: 67 events; latest=2026-07-10; label=luoghi-app v10
 - `multitimetracker`: 29 events; latest=2026-07-10; label=MTT 1.apk
 - `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
 - `fedora-system-monitor`: 14 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
@@ -379,6 +379,8 @@ Total events: 602
 | 2026-07-10 | luoghi-app | Android Tests | testing | UNKNOWN | P2 | qa | txt | tcl saf picker summary |
 | 2026-07-10 | luoghi-app | Android Tests | testing | UNKNOWN | P2 | qa | txt | tcl history place current summary |
 | 2026-07-10 | luoghi-app | Android Tests | testing | UNKNOWN | P2 | qa | txt | tcl saf confirm summary |
+| 2026-07-10 | luoghi-app | luoghi-app INCIDENT_REGISTRY | bugfix | UNKNOWN | P2 | doc_event | markdown | INCIDENT_REGISTRY |
+| 2026-07-10 | luoghi-app | luoghi-app Registro incidenti | testing | UNKNOWN | P2 | qa | markdown | Registro incidenti |
 | 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 history summary |
 | 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 dark home summary |
 | 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 font200 history final summary |
@@ -401,6 +403,7 @@ Total events: 602
 | 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 font200 history summary |
 | 2026-07-10 | luoghi-app | luoghi-app v9 | testing | UNKNOWN | P2 | qa | txt | tcl home current summary |
 | 2026-07-10 | luoghi-app | luoghi-app v9 | testing | UNKNOWN | P2 | qa | txt | tcl home v9 summary |
+| 2026-07-10 | luoghi-app | Git PATH | performance | OPEN | P3 | doc_event | markdown | RECOVERY_638204 |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | backup | UNKNOWN | P0 | protocol_update | markdown | Data Registry |
@@ -433,6 +436,7 @@ Total events: 602
 | 2026-07-10 | megavault | MegaVault Document live Codex | docs | PASS | P2 | git_commit | git_log | Document live Codex session logging |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
 | 2026-07-10 | megavault | MegaVault Record WindowTabNotes Fedora | docs | PASS | P2 | git_commit | git_log | Record WindowTabNotes Fedora uninstall |
+| 2026-07-10 | megavault | MegaVault Remove Codex session | docs | PASS | P2 | git_commit | git_log | Remove Codex session logger integration |
 | 2026-07-10 | megavault | MegaVault Task 714283 Codex | docs | UNKNOWN | P2 | doc_event | markdown | Task 714283 Codex live logging historical |
 | 2026-07-10 | megavault | MegaVault v10 | docs | PASS | P2 | git_commit | git_log | Update Luoghi v10 timeline |
 | 2026-07-10 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
