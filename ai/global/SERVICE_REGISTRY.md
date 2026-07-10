@@ -1,5 +1,5 @@
 # SERVICE_REGISTRY
-VERSION=5
+VERSION=6
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
@@ -35,6 +35,7 @@ service=fedora-system-monitor-collect@.service;state=static_template;purpose=iso
 service=fedora-system-monitor-device-add@.service;state=static_template;purpose=udev_device_add;activity=593184
 service=fedora-system-monitor-device-change@.service;state=static_template;purpose=udev_device_change;activity=593184
 service=fedora-system-monitor-device-remove@.service;state=static_template;purpose=udev_device_remove;activity=593184
+audit=fedora-system-monitor_1.0.1;udev=verify+real_device_test_PASS;hardening=systemd_analyze_verify_PASS;security_scores=3.4_to_4.5_OK;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent
 
 USER_SERVICES_RELEVANT:
 service=gnome-session-manager@gnome.service;state=active/running;purpose=GNOME_session

@@ -1,9 +1,9 @@
 # SOFTWARE_INVENTORY
-VERSION=8
+VERSION=9
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-10T11:27:00+02:00
+UPDATED=2026-07-10T12:50:00+02:00
 SOURCE=tool_versions_live_2026-07-09+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+task_714283+activity_593184
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
@@ -27,7 +27,7 @@ tool=flatpak;path=PATH;critical=yes_for_Android_Studio
 tool=OpenSSH;path=/usr/bin/ssh;version=10.2p1;config_dir=/home/daniele/.ssh;config_dir_status=absent;critical=yes
 tool=Docker;path=missing;service=absent;version=not_installed;critical=no
 tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_container_runtime
-tool=Fedora_System_Monitor;version=1.0.0;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;status=installed+enabled+tested;activity=593184
+tool=Fedora_System_Monitor;version=1.0.1;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;status=installed+enabled+audited;activity=593184
 package=smartmontools;version=7.5-6.fc44;role=storage_health;preexisting=yes
 package=nvme-cli;version=2.16-2.fc44;role=NVMe_health;preexisting=yes
 package=lm_sensors;version=3.6.0-24.fc44;role=temperature;preexisting=yes

@@ -8,7 +8,7 @@ Il system manager e lo user manager systemd risultano `running`. Tra i servizi r
 
 Timer di sistema rilevanti: `dnf-makecache`, `fstrim`, `logrotate` e `systemd-tmpfiles-clean`.
 
-Fedora System Monitor è verificato e attivo: `fedora-system-monitor-events.service` segue il journal, `fedora-system-monitor-lifecycle.service` registra boot e shutdown, mentre il template collector è attivato dai timer ogni minuto, ogni ora, ogni giorno e ogni settimana. La path unit software e i template udev sono attivi. Tutte le unità passano `systemd-analyze verify`.
+Fedora System Monitor è verificato e attivo: `fedora-system-monitor-events.service` segue il journal, `fedora-system-monitor-lifecycle.service` registra boot e shutdown, mentre il template collector è attivato dai timer ogni minuto, ogni ora, ogni giorno e ogni settimana. La path unit software e i template udev sono attivi. Tutte le unità passano `systemd-analyze verify`; i punteggi security sono `OK` da 3,4 a 4,5. Da versione 1.0.1 soltanto il collector giornaliero conserva `CAP_SYS_ADMIN` per NVMe, mentre daemon, lifecycle e device hook non hanno capability.
 
 Il servizio utente `adb-device-keeper.service` e' abilitato e attivo per mantenere disponibili via ADB Wi-Fi il Pixel 8a e il TCL 6102H. Il linger di `daniele` e' attivo per eseguirlo anche senza sessione grafica. Dettagli e comandi: [ADB Device Keeper](ADB_DEVICE_KEEPER.md).
 

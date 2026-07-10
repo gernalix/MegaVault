@@ -1,5 +1,5 @@
 # DATA_REGISTRY
-VERSION=4
+VERSION=5
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
@@ -16,7 +16,7 @@ project_data_migration=not_revalidated
 
 SQLITE_CURRENT:
 db=codex_global_timeline.sqlite;owner=MegaVault;path=/home/daniele/MegaVault/codex_global_timeline.sqlite;size=live_dynamic;canonical=yes;integrity=ok_task_714283_final_builder_gate
-db=monitor.sqlite3;owner=fedora-system-monitor;path=/var/lib/fedora-system-monitor/monitor.sqlite3;schema=2;mode=WAL;owner_mode=root:daniele_0640;size_2026-07-10=4136960;integrity=ok;backup=/var/lib/fedora-system-monitor/backups;retention=aggregated;activity=593184
+db=monitor.sqlite3;owner=fedora-system-monitor;path=/var/lib/fedora-system-monitor/monitor.sqlite3;schema=2;mode=WAL;owner_mode=root:daniele_0640;size_2026-07-10_audit=14032896;integrity=ok;foreign_keys=ok;backup=/var/lib/fedora-system-monitor/backups;retention=complete_UTC_daily_aggregates;projection_14d=484835328;projection_60d=942552152;projection_180d=1075346602;projection_365d=1155609353;backup_365d_upper=39290718002;activity=593184
 db=incident_registry.sqlite;owner=MegaVault_global_incidents;path=/home/daniele/sync_root/db/incident_registry.sqlite;mode=WAL;owner_mode=daniele:daniele_0600;tables=incidents+incident_events;integrity=ok;bootstrap_activity=593184
 
 EXPECTED_PROJECT_DBS_CHECKED:

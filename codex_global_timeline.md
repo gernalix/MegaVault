@@ -1,27 +1,28 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T11:33:48+02:00
+Generated: 2026-07-10T12:46:30+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 538
+Total events: 541
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
+- `/home/daniele/MegaVault/projects/fedora-system-monitor`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 138 |
+| megavault | 139 |
 | amici-fb | 87 |
 | multitimetracker | 26 |
 | luoghi-app | 21 |
 | oracle-backup-service | 18 |
+| fedora-system-monitor | 14 |
 | 2026 | 13 |
 | oracle-uptime-kuma | 13 |
-| fedora-system-monitor | 12 |
 | supercontacts | 11 |
 | windows | 8 |
 | windows-winget-daily-update | 7 |
@@ -68,12 +69,12 @@ Total events: 538
 | Value | Events |
 |---|---:|
 | security | 178 |
-| backup | 166 |
+| backup | 168 |
 | docs | 57 |
 | release | 39 |
 | bugfix | 30 |
 | testing | 21 |
-| automation | 17 |
+| automation | 18 |
 | infra | 15 |
 | migration | 12 |
 | performance | 3 |
@@ -82,7 +83,7 @@ Total events: 538
 
 | Value | Events |
 |---|---:|
-| P1 | 300 |
+| P1 | 303 |
 | P0 | 127 |
 | P2 | 102 |
 | P3 | 9 |
@@ -91,9 +92,9 @@ Total events: 538
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 197 |
-| PASS | 136 |
-| WARN | 88 |
+| UNKNOWN | 198 |
+| PASS | 137 |
+| WARN | 89 |
 | OPEN | 59 |
 | FAIL | 58 |
 
@@ -113,14 +114,14 @@ Total events: 538
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-10 | fedora-system-monitor | Android Tests | security | FAIL | P1 | report | markdown | OPERATIONS |
+| 2026-07-10 | fedora-system-monitor | Android Tests | backup | FAIL | P1 | backup | markdown | SCHEMA |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor AUDIT 593184 | backup | WARN | P1 | backup | markdown | AUDIT 593184 |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Audit tecnico 593184 | backup | UNKNOWN | P1 | report | markdown | Audit tecnico 593184 |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | release | FAIL | P1 | release | markdown | INCIDENT REGISTRY |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor OPERATIONS | security | FAIL | P1 | report | markdown | OPERATIONS |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor SCHEMA | backup | FAIL | P1 | backup | markdown | SCHEMA |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
-| 2026-07-10 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -254,14 +255,14 @@ Total events: 538
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 138 events; latest=2026-07-10; label=Android Tests
+- `megavault`: 139 events; latest=2026-07-10; label=Android Tests
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
 - `multitimetracker`: 26 events; latest=2026-07-10; label=MTT v4
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
+- `fedora-system-monitor`: 14 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
 - `oracle-uptime-kuma`: 13 events; latest=2026-07-10; label=Kuma v2
-- `fedora-system-monitor`: 12 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
 - `windows`: 8 events; latest=2026-07-10; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
@@ -318,12 +319,14 @@ Total events: 538
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-10 | fedora-system-monitor | Android Tests | security | FAIL | P1 | report | markdown | OPERATIONS |
+| 2026-07-10 | fedora-system-monitor | Android Tests | backup | FAIL | P1 | backup | markdown | SCHEMA |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor AUDIT 593184 | backup | WARN | P1 | backup | markdown | AUDIT 593184 |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Audit tecnico 593184 | backup | UNKNOWN | P1 | report | markdown | Audit tecnico 593184 |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | release | FAIL | P1 | release | markdown | INCIDENT REGISTRY |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor OPERATIONS | security | FAIL | P1 | report | markdown | OPERATIONS |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor SCHEMA | backup | FAIL | P1 | backup | markdown | SCHEMA |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-10 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | performance | FAIL | P2 | doc_event | markdown | Integrazione Uptime Kuma |
@@ -344,6 +347,7 @@ Total events: 538
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-10 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
+| 2026-07-10 | megavault | MegaVault docs register Fedora | automation | PASS | P1 | git_commit | git_log | docs: register Fedora host monitor activity 593184 |
 | 2026-07-10 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |

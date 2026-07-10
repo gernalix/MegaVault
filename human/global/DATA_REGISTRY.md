@@ -6,7 +6,7 @@ Aggiornato: 2026-07-09. Autorita' operativa: [DATA_REGISTRY AI](../../ai/global/
 
 Il database globale verificato e' `/home/daniele/MegaVault/codex_global_timeline.sqlite`, sorgente canonica della timeline Codex.
 
-Fedora System Monitor usa `/var/lib/fedora-system-monitor/monitor.sqlite3`, schema 2 in WAL, con integrita' verificata e backup online sotto `/var/lib/fedora-system-monitor/backups`. Dopo il primo inventario completo misurava 4.136.960 byte. Le metriche scadute sono aggregate prima della cancellazione; gli eventi software restano permanenti.
+Fedora System Monitor usa `/var/lib/fedora-system-monitor/monitor.sqlite3`, schema 2 in WAL, con integrita' e foreign key verificate e backup online sotto `/var/lib/fedora-system-monitor/backups`. Al gate dell'audit 593184 misurava 14.032.896 byte. La retention aggrega soltanto giorni UTC completi prima della cancellazione e conserva permanentemente gli eventi software. Il benchmark sintetico proietta circa 485 MB a 14 giorni, 943 MB a 60, 1,08 GB a 180 e 1,16 GB a un anno; l'upper bound dei backup completi configurati è 39,3 GB prima della compressione filesystem.
 
 Il registro incidenti globale previsto dal protocollo e' inizializzato in `/home/daniele/sync_root/db/incident_registry.sqlite`, modo `0600`, con tabelle `incidents` e `incident_events` e integrita' verificata.
 

@@ -1,5 +1,5 @@
 # ALERT_REGISTRY
-VERSION=3
+VERSION=4
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
@@ -23,6 +23,7 @@ monitor=Fedora_Storage;id=40;heartbeat=480s;mapping=filesystem+SMART+IO+mount+de
 monitor=Fedora_Network;id=41;heartbeat=180s;mapping=Internet+gateway+WiFi+VPN+NetworkManager
 monitor=Fedora_Services;id=42;heartbeat=180s;mapping=failed_units+restart+restart_loop
 monitor=Fedora_Software;id=43;heartbeat=5400s;mapping=updates+transactions+inventory
+delivery_audit_1.0.1=atomic_alert_transition+endpoint_flock+post_delivery_reconciliation;slow_DOWN_recovery_order=DOWN_then_UP_PASS;real_current_health_heartbeat=delivered;false_transition_final_gate=none
 anti_spam=persistent_dedup+duration_gate+hysteresis+cooldown+aggregation+single_recovery
 verification=all_five_real_UP_delivered+Software_controlled_DOWN_HTTP_200+recovery_UP_HTTP_200
 security=push_URLs_not_in_repo_or_logs;HTTP_transport_risk_documented
