@@ -1,6 +1,6 @@
 # Profilo host globale
 
-Aggiornato: 2026-07-09. Autorita' operativa: [HOST_PROFILE AI](../../ai/global/HOST_PROFILE.md).
+Aggiornato: 2026-07-10. Autorita' operativa: [HOST_PROFILE AI](../../ai/global/HOST_PROFILE.md).
 
 ## Host corrente
 
@@ -13,6 +13,7 @@ Aggiornato: 2026-07-09. Autorita' operativa: [HOST_PROFILE AI](../../ai/global/H
 - Servizi: systemd 259 tramite `systemctl` e `systemctl --user`.
 - SSH: `/usr/bin/ssh` OpenSSH 10.2p1; directory standard `~/.ssh` (`/home/daniele/.ssh`) non ancora presente.
 - Container: Docker non installato e unit assente; Podman 5.8.4 disponibile come runtime opzionale.
+- Accesso remoto: RustDesk 1.4.9 RPM ufficiale in `/usr/bin/rustdesk`; servizio di sistema abilitato e attivo. Su GNOME Wayland il controllo e' sperimentale e la schermata GDM pre-login non e' raggiungibile; password permanente e test fisico Android restano manuali.
 
 Per operazioni locali Codex deve usare path Fedora `/home/daniele/...`, comandi Bash e pacchetti DNF. Path di progetto o remoti non descrivono il filesystem locale.
 

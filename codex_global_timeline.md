@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T08:47:40+02:00
+Generated: 2026-07-10T09:30:38+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 502
+Total events: 508
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,14 +14,14 @@ Total events: 502
 
 | Value | Events |
 |---|---:|
-| megavault | 130 |
-| amici-fb | 84 |
+| megavault | 132 |
+| amici-fb | 87 |
 | multitimetracker | 25 |
 | luoghi-app | 21 |
 | oracle-backup-service | 18 |
 | supercontacts | 11 |
+| 2026 | 10 |
 | oracle-uptime-kuma | 10 |
-| 2026 | 9 |
 | windows | 7 |
 | windows-winget-daily-update | 7 |
 | android | 6 |
@@ -66,9 +66,9 @@ Total events: 502
 
 | Value | Events |
 |---|---:|
-| backup | 160 |
-| security | 160 |
-| docs | 53 |
+| security | 166 |
+| backup | 159 |
+| docs | 54 |
 | release | 35 |
 | bugfix | 29 |
 | testing | 19 |
@@ -81,20 +81,20 @@ Total events: 502
 
 | Value | Events |
 |---|---:|
-| P1 | 285 |
-| P0 | 111 |
-| P2 | 97 |
+| P1 | 289 |
+| P0 | 112 |
+| P2 | 98 |
 | P3 | 9 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 190 |
-| PASS | 123 |
-| WARN | 77 |
+| UNKNOWN | 193 |
+| PASS | 126 |
+| WARN | 78 |
 | OPEN | 58 |
-| FAIL | 54 |
+| FAIL | 53 |
 
 
 ## Recent Events
@@ -102,40 +102,41 @@ Total events: 502
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 10T070005Z |
+| 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
+| 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
+| 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
-| 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
-| 2026-07-10 | megavault | MegaVault SERVICE_REGISTRY | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
-| 2026-07-10 | megavault | Git PATH | backup | OPEN | P1 | backup | markdown | Inventario software globale |
-| 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
-| 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
-| 2026-07-10 | megavault | Android Tests | bugfix | UNKNOWN | P2 | doc_event | markdown | ADB Device Keeper |
-| 2026-07-10 | megavault | MegaVault Document Fedora ADB | testing | PASS | P2 | git_commit | git_log | Document Fedora ADB device keeper |
-| 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
-| 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
+| 2026-07-10 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
+| 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
-| 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
-| 2026-07-10 | megavault | MegaVault SERVICE_REGISTRY | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
@@ -179,7 +180,7 @@ Total events: 502
 | 2026-07-09 | supercontacts | SC 1.apk | security | WARN | P0 | changelog | codex_log | 019f48dd-a960-71d2-b4ab-89c66557f26f |
 | 2026-07-09 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-07-09 | system-watchdog | system-watchdog v2 | security | OPEN | P0 | protocol_update | markdown | Persistent heartbeat sender for a Uptime Kuma push monitor |
-| 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
+| 2026-07-09 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
 | 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
@@ -237,15 +238,15 @@ Total events: 502
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 130 events; latest=2026-07-10; label=Codex Timeline
-- `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
+- `megavault`: 132 events; latest=2026-07-10; label=Android Tests
+- `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
 - `multitimetracker`: 25 events; latest=2026-07-10; label=MTT v4
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
+- `2026`: 10 events; latest=2026-07-10; label=2026 1.apk
 - `oracle-uptime-kuma`: 10 events; latest=2026-07-09; label=Kuma Features
-- `2026`: 9 events; latest=2026-07-10; label=2026 1.apk
-- `windows`: 7 events; latest=2026-07-09; label=Veeam T7
+- `windows`: 7 events; latest=2026-07-10; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
 - `aw-converter`: 6 events; latest=2026-07-09; label=aw-converter v2
@@ -290,25 +291,33 @@ Total events: 502
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 10T070005Z |
+| 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
+| 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
+| 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
-| 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
-| 2026-07-10 | megavault | MegaVault SERVICE_REGISTRY | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
-| 2026-07-10 | megavault | Git PATH | backup | OPEN | P1 | backup | markdown | Inventario software globale |
+| 2026-07-10 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
+| 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-10 | megavault | Android Tests | bugfix | UNKNOWN | P2 | doc_event | markdown | ADB Device Keeper |
 | 2026-07-10 | megavault | MegaVault Document Fedora ADB | testing | PASS | P2 | git_commit | git_log | Document Fedora ADB device keeper |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
+| 2026-07-10 | megavault | MegaVault Record WindowTabNotes Fedora | docs | PASS | P2 | git_commit | git_log | Record WindowTabNotes Fedora uninstall |
 | 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
 | 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
+| 2026-07-10 | windows | Veeam T7 | security | UNKNOWN | P1 | doc_event | markdown | Profilo host globale |
 | 2026-07-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
@@ -363,7 +372,6 @@ Total events: 502
 | 2026-07-09 | amici-fb | Amici FB facebook friends | docs | UNKNOWN | P2 | doc_event | txt | facebook friends consent.state |
 | 2026-07-09 | amici-fb | Amici FB facebook me | docs | UNKNOWN | P2 | doc_event | txt | facebook me consent.state |
 | 2026-07-09 | amici-fb | Amici FB Legacy Agent | migration | UNKNOWN | P2 | migration | markdown | Legacy Agent Notes |
-| 2026-07-09 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-09 | amici-fb | Amici FB Project documentation | automation | UNKNOWN | P2 | doc_event | markdown | Project documentation entrypoint |
 | 2026-07-09 | amici-fb | Amici FB requirements | docs | UNKNOWN | P2 | doc_event | txt | requirements |
 | 2026-07-09 | amici-fb | Git PATH | bugfix | UNKNOWN | P2 | doc_event | markdown | INCIDENT REGISTRY |
@@ -534,13 +542,12 @@ Total events: 502
 | 2026-07-09 | system-watchdog | system-watchdog system_watchdog Roadmap | automation | FAIL | P1 | doc_event | markdown | system_watchdog Roadmap |
 | 2026-07-09 | system-watchdog | system-watchdog system_watchdog Troubleshooting | release | FAIL | P1 | release | markdown | system_watchdog Troubleshooting |
 | 2026-07-09 | system-watchdog | system-watchdog system_watchdog Overview | automation | OPEN | P2 | doc_event | markdown | system_watchdog Overview |
-| 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
+| 2026-07-09 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
 | 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f48d9-f422-7f61-b220-fa34bd086950 |
 | 2026-07-09 | windows | Veeam T7 | backup | UNKNOWN | P1 | backup | markdown | Topologia storage globale |
-| 2026-07-09 | windows | Veeam T7 | backup | UNKNOWN | P1 | backup | markdown | Profilo host globale |
 | 2026-07-09 | windows-flight-recorder | WFR Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
 | 2026-07-09 | windows-flight-recorder | WFR Windows Flight Recorder | security | UNKNOWN | P1 | doc_event | markdown | Windows Flight Recorder Features |
 | 2026-07-09 | windows-flight-recorder | WFR Windows Flight Recorder | security | UNKNOWN | P1 | doc_event | markdown | Windows Flight Recorder Troubleshooting |

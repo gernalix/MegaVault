@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=5
+VERSION=6
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-09T00:00:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context
+UPDATED=2026-07-10T09:27:55+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263
 
 META:
 host=fedora
@@ -85,6 +85,11 @@ service_manager=systemd version=259
 storage_commands=findmnt+lsblk+df
 path_rule=current_local_paths_must_resolve_under_Fedora_mounts
 project_rule=project_or_remote_paths_never_override_HOST_SYSTEM_CURRENT
+
+REMOTE_ACCESS_CURRENT:
+client=RustDesk;version=1.4.9;install=official_x86_64_RPM_via_DNF;path=/usr/bin/rustdesk
+runtime=rustdesk.service;scope=system;state=enabled+active;session=GNOME_Wayland;docs=SOFTWARE_INVENTORY.md+SERVICE_REGISTRY.md+../reports/prompt_847263_rustdesk_fedora.md
+constraint=Wayland_control_experimental;Wayland_GDM_pre-login_unsupported;permanent_password+Android_physical_test_pending_user
 
 DNB:
 dnb=do_not_treat_non_Fedora_snapshots_as_current_host
