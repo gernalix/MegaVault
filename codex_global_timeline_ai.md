@@ -1,17 +1,20 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T08:44:50+02:00
-total_events=501
+generated_at=2026-07-10T08:47:40+02:00
+total_events=502
 format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
+2026-07-10|megavault|Codex Timeline|testing|PASS|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|bugfix|PASS|P0
+2026-07-10|megavault|Codex Timeline|backup|OPEN|P0
 2026-07-10|megavault|Git PATH|security|PASS|P0
 2026-07-10|megavault|Git PATH|backup|FAIL|P0
 2026-07-10|megavault|MegaVault NETWORK_TOPOLOGY|security|OPEN|P0
 2026-07-10|megavault|MegaVault SERVICE_REGISTRY|security|OPEN|P0
+2026-07-10|megavault|MegaVault v2|security|OPEN|P0
 2026-07-10|megavault|Git PATH|backup|OPEN|P1
 2026-07-10|megavault|MegaVault Record Fedora Chrome|bugfix|PASS|P1
 2026-07-10|megavault|MegaVault Service Registry|security|UNKNOWN|P1
@@ -19,6 +22,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault Document Fedora ADB|testing|PASS|P2
 2026-07-10|megavault|MegaVault Document Obsidian Fedora|docs|PASS|P2
 2026-07-10|megavault|MegaVault Topologia rete globale|automation|UNKNOWN|P2
+2026-07-10|multitimetracker|MTT v4|security|PASS|P1
+2026-07-10|windowtabnotes|windowtabnotes v8|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
@@ -145,7 +150,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Features|release|OPEN|P1
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Roadmap|testing|UNKNOWN|P2
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Overview|testing|OPEN|P3
-2026-07-09|megavault|Codex Timeline|release|OPEN|P0
 2026-07-09|megavault|Codex Timeline|docs|PASS|P0
 2026-07-09|megavault|Codex Timeline|backup|PASS|P0
 2026-07-09|megavault|Codex Timeline|migration|UNKNOWN|P0
@@ -155,7 +159,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|megavault|Codex Timeline|docs|PASS|P0
 2026-07-09|megavault|MegaVault 1.apk|backup|PASS|P0
 2026-07-09|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
-2026-07-09|megavault|MegaVault v2|security|OPEN|P0
 2026-07-09|megavault|Codex Timeline|backup|UNKNOWN|P1
 2026-07-09|megavault|MegaVault Alert Registry|security|UNKNOWN|P1
 2026-07-09|megavault|MegaVault docs adapt MegaVault|infra|PASS|P1
@@ -193,7 +196,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|multitimetracker|MTT ENRICHMENT_REPORT|security|PASS|P1
 2026-07-09|multitimetracker|MTT MegaVault Human Enrichment|security|PASS|P1
 2026-07-09|multitimetracker|MTT v4|security|WARN|P1
-2026-07-09|multitimetracker|MTT v4|security|PASS|P1
 2026-07-09|multitimetracker|MTT v4|security|PASS|P1
 2026-07-09|multitimetracker|MTT v488|security|WARN|P1
 2026-07-09|multitimetracker|MTT v488|security|WARN|P1
@@ -391,7 +393,6 @@ format=event_date|project|label_short|category|status|importance
 2026-06-10|oracle-uptime-kuma|Kuma Roadmap|performance|WARN|P2
 2026-06-10|supercontacts|SC v2|release|WARN|P1
 2026-06-10|surface-recovery-hardening|surface-recovery-hardening v2|security|PASS|P0
-2026-06-10|windowtabnotes|windowtabnotes v8|security|WARN|P0
 2026-06-10|windowtabnotes|windowtabnotes v22|backup|UNKNOWN|P1
 2026-06-07|megavault|Git PATH|security|WARN|P0
 2026-06-07|mint-freeze-forensics|mint-freeze-forensics v4|security|FAIL|P0

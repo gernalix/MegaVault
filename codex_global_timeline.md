@@ -1,21 +1,20 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T08:44:50+02:00
+Generated: 2026-07-10T08:47:40+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 501
+Total events: 502
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/MegaVault/projects/luoghi-app`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 129 |
+| megavault | 130 |
 | amici-fb | 84 |
 | multitimetracker | 25 |
 | luoghi-app | 21 |
@@ -67,12 +66,12 @@ Total events: 501
 
 | Value | Events |
 |---|---:|
+| backup | 160 |
 | security | 160 |
-| backup | 159 |
 | docs | 53 |
-| release | 36 |
+| release | 35 |
 | bugfix | 29 |
-| testing | 18 |
+| testing | 19 |
 | automation | 17 |
 | infra | 15 |
 | migration | 12 |
@@ -83,7 +82,7 @@ Total events: 501
 | Value | Events |
 |---|---:|
 | P1 | 285 |
-| P0 | 110 |
+| P0 | 111 |
 | P2 | 97 |
 | P3 | 9 |
 
@@ -92,7 +91,7 @@ Total events: 501
 | Value | Events |
 |---|---:|
 | UNKNOWN | 190 |
-| PASS | 122 |
+| PASS | 123 |
 | WARN | 77 |
 | OPEN | 58 |
 | FAIL | 54 |
@@ -105,12 +104,15 @@ Total events: 501
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
+| 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
+| 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | MegaVault SERVICE_REGISTRY | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
+| 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-10 | megavault | Git PATH | backup | OPEN | P1 | backup | markdown | Inventario software globale |
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
@@ -118,9 +120,6 @@ Total events: 501
 | 2026-07-10 | megavault | MegaVault Document Fedora ADB | testing | PASS | P2 | git_commit | git_log | Document Fedora ADB device keeper |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
 | 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
-| 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
-| 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
-| 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -129,12 +128,16 @@ Total events: 501
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
+| 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
+| 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | MegaVault SERVICE_REGISTRY | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
+| 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
+| 2026-07-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -150,7 +153,6 @@ Total events: 501
 | 2026-07-09 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
 | 2026-07-09 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
 | 2026-07-09 | maintenance-486 | maintenance-486 v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
-| 2026-07-09 | megavault | Codex Timeline | release | OPEN | P0 | release | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
 | 2026-07-09 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
@@ -160,7 +162,6 @@ Total events: 501
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
 | 2026-07-09 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-07-09 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
-| 2026-07-09 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-09 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
 | 2026-07-09 | mint-manual-updates | mint-manual-updates v3 | security | FAIL | P0 | changelog | markdown | Single user-systemd Linux Mint updater for system packages, local Python venvs, dev tools, Android Studio, and Android SDK |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | Code Audit Enrichment Report |
@@ -223,7 +224,6 @@ Total events: 501
 | 2026-06-10 | megavault | MegaVault v8 | security | FAIL | P0 | changelog | markdown | Prompt 731845 Kuma Operational Audit |
 | 2026-06-10 | oracle-backup-service | Oracle Backup v2 | security | WARN | P0 | protocol_update | markdown | Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, an... |
 | 2026-06-10 | surface-recovery-hardening | surface-recovery-hardening v2 | security | PASS | P0 | protocol_update | markdown | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. |
-| 2026-06-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-06-07 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | Custom Services Status |
 | 2026-06-07 | mint-freeze-forensics | mint-freeze-forensics v4 | security | FAIL | P0 | protocol_update | markdown | Linux Mint freeze forensics + early warning + Kuma telemetry |
 | 2026-06-07 | oracle-uptime-kuma | Kuma v8 | security | WARN | P0 | changelog | markdown | Uptime Kuma instance on Oracle VM for Mint/Oracle black-box history, alerting, and visualization. |
@@ -237,9 +237,9 @@ Total events: 501
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 129 events; latest=2026-07-10; label=Codex Timeline
+- `megavault`: 130 events; latest=2026-07-10; label=Codex Timeline
 - `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
-- `multitimetracker`: 25 events; latest=2026-07-09; label=Android Tests
+- `multitimetracker`: 25 events; latest=2026-07-10; label=MTT v4
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
@@ -268,7 +268,7 @@ Total events: 501
 - `surface-recovery-hardening`: 6 events; latest=2026-07-09; label=surface-recovery-hardening surface-recovery-hardening Features
 - `system-watchdog`: 6 events; latest=2026-07-09; label=system-watchdog v2
 - `windows-flight-recorder`: 6 events; latest=2026-07-09; label=WFR Windows 11 autonomous
-- `windowtabnotes`: 6 events; latest=2026-07-09; label=windowtabnotes v20
+- `windowtabnotes`: 6 events; latest=2026-07-10; label=windowtabnotes v8
 - `android-app-template`: 5 events; latest=2026-07-09; label=android-app-template Android App Template
 - `facedownassup-downloader`: 5 events; latest=2026-07-09; label=facedownassup-downloader facedownassup-downloader
 - `git-change-ledger`: 5 events; latest=2026-07-09; label=git-change-ledger v8
@@ -292,12 +292,15 @@ Total events: 501
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
+| 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
+| 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | MegaVault SERVICE_REGISTRY | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
+| 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-10 | megavault | Git PATH | backup | OPEN | P1 | backup | markdown | Inventario software globale |
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
@@ -305,6 +308,8 @@ Total events: 501
 | 2026-07-10 | megavault | MegaVault Document Fedora ADB | testing | PASS | P2 | git_commit | git_log | Document Fedora ADB device keeper |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
 | 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
+| 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
+| 2026-07-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -431,7 +436,6 @@ Total events: 501
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Features | release | OPEN | P1 | release | markdown | maintenance-486 Features |
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Roadmap | testing | UNKNOWN | P2 | qa | markdown | maintenance-486 Roadmap |
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Overview | testing | OPEN | P3 | report | markdown | maintenance-486 Overview |
-| 2026-07-09 | megavault | Codex Timeline | release | OPEN | P0 | release | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
 | 2026-07-09 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
@@ -441,7 +445,6 @@ Total events: 501
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
 | 2026-07-09 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-07-09 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
-| 2026-07-09 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-09 | megavault | Codex Timeline | backup | UNKNOWN | P1 | backup | markdown | Data Registry |
 | 2026-07-09 | megavault | MegaVault Alert Registry | security | UNKNOWN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-09 | megavault | MegaVault docs adapt MegaVault | infra | PASS | P1 | git_commit | git_log | docs: adapt MegaVault global documentation for Fedora host |
@@ -479,7 +482,6 @@ Total events: 501
 | 2026-07-09 | multitimetracker | MTT ENRICHMENT_REPORT | security | PASS | P1 | changelog | markdown | ENRICHMENT_REPORT |
 | 2026-07-09 | multitimetracker | MTT MegaVault Human Enrichment | security | PASS | P1 | changelog | markdown | MegaVault Human Enrichment Report |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P1 | doc_event | markdown | PROJECT_INVENTORY |
-| 2026-07-09 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
 | 2026-07-09 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
 | 2026-07-09 | multitimetracker | MTT v488 | security | WARN | P1 | changelog | markdown | MegaVault Migration Report |
 | 2026-07-09 | multitimetracker | MTT v488 | security | WARN | P1 | changelog | markdown | MIGRATION_REPORT |
@@ -677,7 +679,6 @@ Total events: 501
 | 2026-06-10 | oracle-uptime-kuma | Kuma Roadmap | performance | WARN | P2 | doc_event | markdown | Roadmap |
 | 2026-06-10 | supercontacts | SC v2 | release | WARN | P1 | release | markdown | PROMPT_582941_ACTIVITYWATCH_REBOOT_AFTER |
 | 2026-06-10 | surface-recovery-hardening | surface-recovery-hardening v2 | security | PASS | P0 | protocol_update | markdown | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. |
-| 2026-06-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-06-10 | windowtabnotes | windowtabnotes v22 | backup | UNKNOWN | P1 | changelog | markdown | WindowTabNotes Changelog |
 | 2026-06-07 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | Custom Services Status |
 | 2026-06-07 | mint-freeze-forensics | mint-freeze-forensics v4 | security | FAIL | P0 | protocol_update | markdown | Linux Mint freeze forensics + early warning + Kuma telemetry |

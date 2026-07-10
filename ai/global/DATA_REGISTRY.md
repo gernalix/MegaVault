@@ -21,6 +21,7 @@ EXPECTED_PROJECT_DBS_CHECKED:
 status=missing_on_current_Fedora
 paths=/home/daniele/.local/share/codex-usage-monitor/codex_usage.sqlite3,/home/daniele/.local/share/terminal-logger/db/terminal_logger.sqlite,/home/daniele/.local/share/windowtabnotes/windowtabnotes.sqlite3,/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db,/home/daniele/sync_root/db/disk_usage_monitor.sqlite,/home/daniele/sync_root/db/git_change_ledger.sqlite3
 meaning=not_migrated_or_not_installed;never_infer_data_loss_without_source_host_or_backup_evidence
+windowtabnotes_2026_07_10=original_path_removed_after_backup;backup=/home/daniele/WindowTabNotes-backup-351806;size=132K;notes_total=19;notes_nonempty=0;config_included=yes
 
 RULES:
 rule=do_not_modify_project_databases_for_docs_tasks

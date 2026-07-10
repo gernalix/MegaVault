@@ -22,6 +22,7 @@ rule=project_paths+services+DBs+alerts_require_live_Fedora_evidence
 
 RELATIONS_CURRENT:
 project=MegaVault;repo=/home/daniele/MegaVault;db=/home/daniele/MegaVault/codex_global_timeline.sqlite;builder=/home/daniele/MegaVault/build_codex_global_timeline.py;service=none;timer=none
+project=WindowTabNotes;repo_local=removed;/home/daniele/projects/WindowTabNotes=absent;remote=https://github.com/gernalix/WindowTabNotes;branch=fedora-current-session-window-detection-927514;commit=40421981911c6d92111e9062eb20c506003d4d97;service=removed;data_backup=/home/daniele/WindowTabNotes-backup-351806
 
 NO_RUNTIME_RELATION_VERIFIED:
 scope=all_other_indexed_projects

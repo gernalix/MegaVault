@@ -3,14 +3,18 @@ name=WindowTabNotes
 slug=windowtabnotes
 path=/home/daniele/codex-workspace/WindowTabNotes
 remote=git@github.com:gernalix/WindowTabNotes.git
-branch=codex/prompt-581472
-verified_commit=19979db
-verified_at=2026-06-10T23:43:52+02:00
+branch=fedora-current-session-window-detection-927514
+verified_commit=40421981911c6d92111e9062eb20c506003d4d97
+verified_at=2026-07-10T08:47:13+02:00
+fedora_local_status=abandoned_uninstalled_local_repo_removed
+fedora_remote_preserved=https://github.com/gernalix/WindowTabNotes branch=fedora-current-session-window-detection-927514 commit=40421981911c6d92111e9062eb20c506003d4d97 previous_branch=fedora-system-service-integration-684219 commit=16bca04650e974070f12bfd99b19268787983d08
 megavault_branch=codex/prompt-731845-kuma-operational-runbook
 protocol=MEGAVAULT_PROTOCOL.md:v8
 
 PURPOSE:
 purpose=Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context.
+fedora_status=local Fedora install removed on 2026-07-10 after GNOME Wayland validation; remote code preserved only.
+fedora_abandon_reason=GNOME Wayland blocks robust global active-window autoshow for native Wayland apps without GNOME Shell extension/unsafe introspection/granted portal API; X11/XWayland autoshow worked but native Wayland remained inventory-only.
 
 STACK:
 lang=Python,JavaScript,Shell
@@ -18,6 +22,7 @@ ui=GTK via PyGObject,Chrome MV3 extension,Firefox MV3 extension,rofi
 db=SQLite WAL
 service=systemd --user windowtabnotes.service
 platform=Linux Mint/XFCE/X11,Chrome/Chromium Native Messaging,Firefox Native Messaging
+fedora_install=removed; no /etc/systemd/system/windowtabnotes.service, no /usr/local/lib/windowtabnotes, no native messaging manifests, no local repo /home/daniele/projects/WindowTabNotes
 
 MAP:
 entry=system/bin/windowtabnotes -> python3 -m windowtabnotes.cli
@@ -60,6 +65,7 @@ service_prompt_739284=enabled+active; MainPID restarts after SIGTERM; linger=yes
 INV:
 data=do_not_delete_real_notes_during_tests_or_repair
 data=DB path default ~/.local/share/windowtabnotes/windowtabnotes.sqlite3; override WTN_DB
+data_fedora_2026_07_10=original Fedora DB/config removed after backup; backup=/home/daniele/WindowTabNotes-backup-351806 size=132K notes_total=19 notes_nonempty=0
 data=notes table owns text, created_at, updated_at, context_type, context_id, geometry, visibility, context_app, context_title, context_window_id, context_workspace, context_url, context_browser_tab_id, context_browser_window_id, context_key
 data=window_contexts owns window_id,app_class,title,workspace,pid,wm_name,last_seen_at
 data=browser_tabs owns browser_tab_id,browser_window_id,url,title,fav_icon_url,active,incognito,index,profile_key,normalized_url,note_key,last_seen_at
@@ -163,9 +169,11 @@ risk=Killing native-host or Chrome processes can interrupt active browser bridge
 risk=Deleting orphan browser notes would destroy user data; do not clean automatically.
 risk=`journalctl -n 80` can include older Jun 01 crash traces; current status command uses recent error scan and reports last_service_error empty after Jun 07 restart/kill tests.
 risk=Firefox standard release blocks permanent unsigned local extensions; real default-release can show stale UUID/tmpExtDir without loaded add-on. Persistent local success currently belongs to Firefox Developer Edition real profile `/home/daniele/.config/mozilla/firefox/98228g06.dev-edition-default`; do not claim standard Firefox permanent support unless a signed package is installed there.
+risk=Fedora GNOME Wayland native active-window autoshow is structurally unavailable through standard xdotool/wmctrl/xprop and GNOME Shell Introspect returned AccessDenied on 50.3; project was uninstalled locally instead of pursuing a GNOME Shell extension.
 
 ROAD:
 now=v23 Firefox tab overlays pass temporary-add-on E2E and persistent Firefox Developer Edition E2E on the real dev-edition-default profile; daemon polls less aggressively; status/native diagnostics tolerate transient DB locks
+fedora_2026_07_10=local Fedora branch preserved remotely then uninstalled; no active local runtime remains.
 next=reduce Native Messaging GET_FOCUS_REQUEST process churn if Chrome/Firefox bridge remains noisy
 later=explicit backup/export/restore commands
 

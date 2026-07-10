@@ -27,6 +27,7 @@ service=smartd.service;state=active/running;purpose=storage_health
 service=systemd-oomd.service;state=active/running;purpose=memory_pressure_control
 service=udisks2.service;state=active/running;purpose=removable_storage
 service=gdm.service;state=active/running;purpose=GNOME_display_manager
+service=windowtabnotes.service;state=removed/not-found;scope=system;removed_at=2026-07-10;reason=WindowTabNotes Fedora uninstall after GNOME Wayland limitation validation
 
 USER_SERVICES_RELEVANT:
 service=gnome-session-manager@gnome.service;state=active/running;purpose=GNOME_session
