@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=2
+VERSION=3
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-09+HOST_PROFILE
+SOURCE=systemctl_live_2026-07-10+HOST_PROFILE+activity_638214
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -16,6 +16,7 @@ system_state=running
 user_state=running
 project_services_verified=none
 project_service_migration=not_revalidated
+user_linger_daniele=yes
 
 SYSTEM_SERVICES_RELEVANT:
 service=NetworkManager.service;state=active/running;purpose=network
@@ -33,6 +34,7 @@ service=flatpak-portal.service;state=active/running;purpose=Flatpak_portal
 service=pipewire.service;state=active/running;purpose=audio_video
 service=wireplumber.service;state=active/running;purpose=media_session
 service=xdg-desktop-portal.service;state=active/running;purpose=desktop_portal
+service=adb-device-keeper.service;scope=user;state=enabled+active/running;purpose=allowlisted_Pixel_8a+TCL_6102H_ADB_WiFi_availability;exec=/home/daniele/.local/bin/adb-device-keeper_--daemon;docs=ADB_DEVICE_KEEPER.md
 
 TIMERS_RELEVANT:
 timer=dnf-makecache.timer;scope=system;state=active;purpose=package_metadata
@@ -45,6 +47,7 @@ rule=use_systemctl_for_system_units
 rule=use_systemctl_--user_for_user_units
 rule=verify_unit_live_before_documenting_project_runtime
 rule=do_not_assume_pre_migration_project_units_exist
+rule=ADB_keeper_is_user_scoped+linger_required_for_logout_and_boot
 
 OPEN:
 open=project_specific_services_and_timers_not_migrated_or_revalidated

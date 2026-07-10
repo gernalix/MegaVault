@@ -1,6 +1,6 @@
 # Topologia rete globale
 
-Aggiornato: 2026-07-09. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/global/NETWORK_TOPOLOGY.md).
+Aggiornato: 2026-07-10. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/global/NETWORK_TOPOLOGY.md).
 
 ## Fedora corrente
 
@@ -11,6 +11,8 @@ Aggiornato: 2026-07-09. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/glob
 
 ## Android
 
-ADB usa `/home/daniele/Android/Sdk/platform-tools/adb`. Il daemon e' stato avviato, ma `adb devices -l` non mostra device connessi.
+ADB usa `/home/daniele/Android/Sdk/platform-tools/adb`. Il server utente condiviso ascolta solo su `127.0.0.1:5037`; `adb-device-keeper.service` e' abilitato e attivo e gestisce Pixel 8a e TCL 6102H senza dipendere da Android Studio.
+
+Il Pixel Android 17 pubblica regolarmente il servizio mDNS dinamico. Il TCL Android 12 non lo ha pubblicato durante le verifiche, quindi il servizio conserva anche l'ultimo endpoint con identita' verificata. Vedere [ADB Device Keeper](ADB_DEVICE_KEEPER.md).
 
 Gli indirizzi di rete cambiano: verificarli live prima dell'uso. Nomi mDNS e IP in cache non provano che un device Android sia raggiungibile.
