@@ -1,5 +1,5 @@
 # DATA_REGISTRY
-VERSION=2
+VERSION=3
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
@@ -15,7 +15,7 @@ megavault=/home/daniele/MegaVault
 project_data_migration=not_revalidated
 
 SQLITE_CURRENT:
-db=codex_global_timeline.sqlite;owner=MegaVault;path=/home/daniele/MegaVault/codex_global_timeline.sqlite;size=1671168;canonical=yes;integrity=pending_final_builder_gate
+db=codex_global_timeline.sqlite;owner=MegaVault;path=/home/daniele/MegaVault/codex_global_timeline.sqlite;size=live_dynamic;canonical=yes;integrity=ok_task_714283_final_builder_gate
 
 EXPECTED_PROJECT_DBS_CHECKED:
 status=missing_on_current_Fedora
@@ -33,3 +33,6 @@ rule=Fedora_current_paths_only
 OPEN:
 open=project_database_migration_state_UNKNOWN
 open=backup_status_for_MegaVault_timeline_DB_UNKNOWN
+
+FILE_DATA_CURRENT:
+dataset=Codex_session_logs;owner=codex-session-logger;path=/home/daniele/.local/state/codex-session-logger/sessions;layout=YYYY/MM/DD/session;permissions=0700_dirs+0600_files;retention=manual;canonical_raw=terminal.raw;live_text=transcript.log;live_screen=screen.txt;registered=task_714283

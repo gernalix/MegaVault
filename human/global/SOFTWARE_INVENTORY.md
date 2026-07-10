@@ -6,6 +6,7 @@ Aggiornato: 2026-07-10. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/gl
 
 - Bash 5.3.9, DNF 5.4.2.1, systemd 259 e Git 2.55.0 dai path di sistema.
 - GitHub CLI 2.94.0 in `/usr/bin/gh`; Codex CLI 0.144.0 in `/usr/local/bin/codex`.
+- Codex session logger 1.0.0 usa tmux per salvare live raw, transcript e vista leggibile; guida: [Log live Codex](CODEX_SESSION_LOGGING.md).
 - Python 3.14.6, pip 26.0.1, pipx 1.15.0 e uv 0.11.26.
 - OpenJDK 25.0.3 con `JAVA_HOME=/usr/lib/jvm/java-25-openjdk`.
 - OpenSSH 10.2p1 in `/usr/bin/ssh`; il path standard `~/.ssh` (`/home/daniele/.ssh`) non e' ancora presente.

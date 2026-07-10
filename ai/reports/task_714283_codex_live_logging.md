@@ -1,0 +1,17 @@
+# Task 714283 Codex live logging
+
+date=2026-07-10
+status=PASS
+project=/home/daniele/projects/codex-session-logger
+remote=https://github.com/gernalix/codex-session-logger.git
+branch=main
+project_commit=bf05615
+summary=Permanent_tmux_pipe-pane_Codex_launcher_installed_with_timestamped_live_raw+text+screen_logs_and_recovery/export_commands
+architecture=Codex_--no-alt-screen_inside_tmux;pipe-pane_output_capture_does_not_modify_Codex_stdio_or_require_interruption
+tests=real_Codex_exec_marker+exit_0;read_while_status_running;raw+transcript+screen_present;250000_lines_byte_exact;final_fsync_handshake;Bash_function+aliases_loaded
+services=none
+logs=/home/daniele/.local/state/codex-session-logger/sessions
+limitations=VS_Code_absent;less+Obsidian_available;screen_snapshot_bounded_2000000_lines;raw_unbounded
+blocker_resolved=test_harness_initially_read_stale_latest_symlink;fixed_by_waiting_for_new_session_ID;product_unaffected
+blocker_resolved=timeline_validation_query_assumed_events_table;actual_schema=timeline_events;integrity+536_rows_verified;product_unaffected
+source_ref=task_714283

@@ -1,28 +1,29 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T11:18:59+02:00
+Generated: 2026-07-10T11:24:12+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 647
+Total events: 536
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/projects/MultiTimeTracker`
+- `/home/daniele/projects/codex-session-logger`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| multitimetracker | 151 |
-| megavault | 134 |
+| megavault | 138 |
 | amici-fb | 87 |
+| multitimetracker | 26 |
 | luoghi-app | 21 |
 | oracle-backup-service | 18 |
 | 2026 | 13 |
 | oracle-uptime-kuma | 12 |
 | supercontacts | 11 |
+| codex-session-logger | 10 |
 | windows | 8 |
 | windows-winget-daily-update | 7 |
 | android | 6 |
@@ -68,35 +69,35 @@ Total events: 647
 
 | Value | Events |
 |---|---:|
-| security | 202 |
-| backup | 185 |
-| docs | 82 |
-| release | 45 |
-| bugfix | 40 |
-| testing | 35 |
-| automation | 19 |
-| infra | 19 |
+| security | 175 |
+| backup | 163 |
+| docs | 59 |
+| release | 40 |
+| bugfix | 31 |
+| testing | 22 |
+| automation | 17 |
+| infra | 15 |
 | migration | 12 |
-| performance | 8 |
+| performance | 2 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 345 |
-| P0 | 136 |
-| P2 | 110 |
-| P3 | 56 |
+| P1 | 296 |
+| P0 | 127 |
+| P2 | 104 |
+| P3 | 9 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 271 |
-| PASS | 152 |
-| WARN | 94 |
-| OPEN | 68 |
-| FAIL | 62 |
+| UNKNOWN | 201 |
+| PASS | 134 |
+| WARN | 86 |
+| OPEN | 62 |
+| FAIL | 53 |
 
 
 ## Recent Events
@@ -113,15 +114,15 @@ Total events: 647
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
-| 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
-| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
-| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
-| 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
-| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
-| 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
-| 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
-| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
+| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
+| 2026-07-10 | codex-session-logger | codex-session-logger Changelog | backup | OPEN | P1 | changelog | markdown | Changelog |
+| 2026-07-10 | codex-session-logger | codex-session-logger Incident Registry | release | UNKNOWN | P1 | release | markdown | Incident Registry |
+| 2026-07-10 | codex-session-logger | codex-session-logger Roadmap | release | UNKNOWN | P1 | release | markdown | Roadmap |
+| 2026-07-10 | codex-session-logger | Git PATH | release | UNKNOWN | P1 | release | json | project.metadata |
+| 2026-07-10 | codex-session-logger | codex-session-logger ACTIVE_EMPTY | bugfix | UNKNOWN | P2 | doc_event | markdown | ACTIVE_EMPTY |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex Session Logger | docs | UNKNOWN | P2 | doc_event | markdown | Codex Session Logger |
+| 2026-07-10 | codex-session-logger | codex-session-logger Overview | docs | UNKNOWN | P2 | doc_event | markdown | Overview |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -133,6 +134,8 @@ Total events: 647
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | report | codex_log | 019f4b52-7285-7c42-8426-2120b3579fe1 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
+| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
@@ -140,9 +143,11 @@ Total events: 647
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
+| 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT notification QA |
 | 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | MegaVault CODEX_SESSION_LOGGING | backup | PASS | P0 | protocol_update | markdown | CODEX_SESSION_LOGGING |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4b20-625f-7b82-b449-3344d0f62c4a |
@@ -176,17 +181,10 @@ Total events: 647
 | 2026-07-09 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
 | 2026-07-09 | mint-manual-updates | mint-manual-updates v3 | security | FAIL | P0 | changelog | markdown | Single user-systemd Linux Mint updater for system packages, local Python venvs, dev tools, Android Studio, and Android SDK |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | Code Audit Enrichment Report |
-| 2026-07-09 | multitimetracker | Android Tests | security | UNKNOWN | P0 | protocol_update | markdown | Fedora Setup |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | PROTOCOL_V2_NORMALIZATION_REPORT |
-| 2026-07-09 | multitimetracker | Android Tests | backup | UNKNOWN | P0 | protocol_update | txt | codex log |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | CODE_AUDIT_COMPRESSION_REPORT |
 | 2026-07-09 | multitimetracker | MTT 1.apk | security | WARN | P0 | changelog | codex_log | 019f485e-d56f-7842-91c9-55d8b6add531 |
-| 2026-07-09 | multitimetracker | MTT AI_INDEX | backup | PASS | P0 | protocol_update | markdown | AI_INDEX |
-| 2026-07-09 | multitimetracker | MTT app-debug.apk | release | UNKNOWN | P0 | release | markdown | RELEASE_PROTOCOL |
 | 2026-07-09 | multitimetracker | MTT app-debug.apk | security | PASS | P0 | release | markdown | Fedora migration and clone-safe device smoke for MultiTimeTracker |
-| 2026-07-09 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Active Roadmap |
-| 2026-07-09 | multitimetracker | MTT MultiTimeTracker | testing | UNKNOWN | P0 | protocol_update | markdown | MultiTimeTracker |
-| 2026-07-09 | multitimetracker | MTT project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-09 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | markdown | Fedora/Wayland integration and extension testing for WindowTabNotes |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-07-09 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
@@ -213,7 +211,6 @@ Total events: 647
 | 2026-07-06 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault | MegaVault Aggiorna protocollo MegaVault | docs | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
 | 2026-07-06 | megavault | MegaVault v7 | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi v7 |
-| 2026-07-06 | multitimetracker | MTT 537.apk | security | PASS | P0 | release | markdown | MultiTimeTracker Capsulization v537 |
 | 2026-07-05 | luoghi-app | luoghi-app 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
 | 2026-07-05 | luoghi-app | luoghi-app 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
 | 2026-07-05 | luoghi-app | luoghi-app 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
@@ -228,11 +225,6 @@ Total events: 647
 | 2026-06-25 | amici-fb | Amici FB v3 | security | FAIL | P0 | protocol_update | markdown | Added precise profile_chooser detection, removed generic cookie/consent false positives, added bounded profile chooser click attempts, added --logi... |
 | 2026-06-25 | megavault | MegaVault Pixel Buds Pro | backup | FAIL | P0 | protocol_update | markdown | Pixel Buds Pro 2 Windows 11 audio routing bug |
 | 2026-06-22 | megavault | MegaVault prompt_481926 oracle-vm-offloads home-backup | backup | WARN | P0 | changelog | markdown | prompt_481926 oracle-vm-offloads home-backup inclusion |
-| 2026-06-22 | multitimetracker | Android Tests | security | UNKNOWN | P0 | doc_event | markdown | Play Console Copy Paste Pack |
-| 2026-06-22 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Play Store Readiness - Prompt 395842 |
-| 2026-06-22 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Play Store Readiness Changelog |
-| 2026-06-22 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Play Store Release Checklist |
-| 2026-06-22 | multitimetracker | MTT Release Notes | security | PASS | P0 | doc_event | markdown | Release Notes |
 | 2026-06-17 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MERGED_GITHUB_BRANCH_20260705 |
 | 2026-06-15 | oracle-uptime-kuma | Kuma v11 | security | PASS | P0 | protocol_update | markdown | Prompt 847261 Kuma Dashboard Restore |
 | 2026-06-13 | disk-usage-monitor | disk-usage-monitor v8 | security | PASS | P0 | protocol_update | markdown | Linux Mint canonical 3-disk monitor with SQLite state, clean Telegram alerts, and Oracle Uptime Kuma push heartbeat. |
@@ -264,14 +256,15 @@ Total events: 647
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `multitimetracker`: 151 events; latest=2026-07-10; label=MTT v4
-- `megavault`: 134 events; latest=2026-07-10; label=Android Tests
+- `megavault`: 138 events; latest=2026-07-10; label=Android Tests
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
+- `multitimetracker`: 26 events; latest=2026-07-10; label=MTT v4
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
 - `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
 - `oracle-uptime-kuma`: 12 events; latest=2026-07-10; label=Kuma v2
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
+- `codex-session-logger`: 10 events; latest=2026-07-10; label=codex-session-logger Codex session logger
 - `windows`: 8 events; latest=2026-07-10; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
@@ -327,6 +320,16 @@ Total events: 647
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
+| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
+| 2026-07-10 | codex-session-logger | codex-session-logger Changelog | backup | OPEN | P1 | changelog | markdown | Changelog |
+| 2026-07-10 | codex-session-logger | codex-session-logger Incident Registry | release | UNKNOWN | P1 | release | markdown | Incident Registry |
+| 2026-07-10 | codex-session-logger | codex-session-logger Roadmap | release | UNKNOWN | P1 | release | markdown | Roadmap |
+| 2026-07-10 | codex-session-logger | Git PATH | release | UNKNOWN | P1 | release | json | project.metadata |
+| 2026-07-10 | codex-session-logger | codex-session-logger ACTIVE_EMPTY | bugfix | UNKNOWN | P2 | doc_event | markdown | ACTIVE_EMPTY |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex Session Logger | docs | UNKNOWN | P2 | doc_event | markdown | Codex Session Logger |
+| 2026-07-10 | codex-session-logger | codex-session-logger Overview | docs | UNKNOWN | P2 | doc_event | markdown | Overview |
+| 2026-07-10 | codex-session-logger | codex-session-logger Troubleshooting | docs | UNKNOWN | P2 | doc_event | markdown | Troubleshooting |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
@@ -334,19 +337,24 @@ Total events: 647
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
+| 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT notification QA |
 | 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | MegaVault CODEX_SESSION_LOGGING | backup | PASS | P0 | protocol_update | markdown | CODEX_SESSION_LOGGING |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-10 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
+| 2026-07-10 | megavault | MegaVault Task 714283 Codex | backup | PASS | P1 | backup | markdown | Task 714283 Codex live logging |
 | 2026-07-10 | megavault | Android Tests | bugfix | UNKNOWN | P2 | doc_event | markdown | ADB Device Keeper |
+| 2026-07-10 | megavault | Codex Timeline | automation | UNKNOWN | P2 | doc_event | markdown | Project Index Extended |
 | 2026-07-10 | megavault | MegaVault Document Fedora ADB | testing | PASS | P2 | git_commit | git_log | Document Fedora ADB device keeper |
 | 2026-07-10 | megavault | MegaVault Document Fedora RustDesk | docs | PASS | P2 | git_commit | git_log | Document Fedora RustDesk setup |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
+| 2026-07-10 | megavault | MegaVault Log live delle | testing | OPEN | P2 | qa | markdown | Log live delle sessioni Codex |
 | 2026-07-10 | megavault | MegaVault Record WindowTabNotes Fedora | docs | PASS | P2 | git_commit | git_log | Record WindowTabNotes Fedora uninstall |
 | 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
 | 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
@@ -497,7 +505,6 @@ Total events: 647
 | 2026-07-09 | megavault | MegaVault Update global timeline | migration | PASS | P1 | git_commit | git_log | Update global timeline for amici_fb Fedora migration |
 | 2026-07-09 | megavault | MegaVault v0 | backup | UNKNOWN | P1 | report | markdown | PROMPT_582941_ACTIVITYWATCH_REBOOT_BEFORE |
 | 2026-07-09 | megavault | MegaVault XFCE window tiling | backup | UNKNOWN | P1 | report | markdown | Prompt 739482 - XFCE window tiling repair |
-| 2026-07-09 | megavault | Codex Timeline | automation | UNKNOWN | P2 | doc_event | markdown | Project Index Extended |
 | 2026-07-09 | megavault | MegaVault docs update global | docs | PASS | P2 | git_commit | git_log | docs: update global timeline for MultiTimeTracker Fedora setup |
 | 2026-07-09 | megavault | MegaVault docs update global | docs | PASS | P2 | git_commit | git_log | docs: update global timeline for MultiTimeTracker device smoke |
 | 2026-07-09 | megavault | MegaVault Update global timeline | docs | PASS | P2 | git_commit | git_log | Update global timeline for amici_fb Playwright audit |
@@ -517,131 +524,20 @@ Total events: 647
 | 2026-07-09 | mint-manual-updates | mint-manual-updates v9 | backup | OPEN | P1 | backup | markdown | mint-manual-updates Overview |
 | 2026-07-09 | mint-manual-updates | mint-manual-updates v9 | backup | WARN | P1 | report | markdown | mint-manual-updates Features |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | Code Audit Enrichment Report |
-| 2026-07-09 | multitimetracker | Android Tests | security | UNKNOWN | P0 | protocol_update | markdown | Fedora Setup |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | PROTOCOL_V2_NORMALIZATION_REPORT |
-| 2026-07-09 | multitimetracker | Android Tests | backup | UNKNOWN | P0 | protocol_update | txt | codex log |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | CODE_AUDIT_COMPRESSION_REPORT |
 | 2026-07-09 | multitimetracker | MTT 1.apk | security | WARN | P0 | changelog | codex_log | 019f485e-d56f-7842-91c9-55d8b6add531 |
-| 2026-07-09 | multitimetracker | MTT AI_INDEX | backup | PASS | P0 | protocol_update | markdown | AI_INDEX |
-| 2026-07-09 | multitimetracker | MTT app-debug.apk | release | UNKNOWN | P0 | release | markdown | RELEASE_PROTOCOL |
 | 2026-07-09 | multitimetracker | MTT app-debug.apk | security | PASS | P0 | release | markdown | Fedora migration and clone-safe device smoke for MultiTimeTracker |
-| 2026-07-09 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Active Roadmap |
-| 2026-07-09 | multitimetracker | MTT MultiTimeTracker | testing | UNKNOWN | P0 | protocol_update | markdown | MultiTimeTracker |
-| 2026-07-09 | multitimetracker | MTT project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-09 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | markdown | Fedora/Wayland integration and extension testing for WindowTabNotes |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-07-09 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
-| 2026-07-09 | multitimetracker | Android Tests | security | PASS | P1 | report | markdown | ARCHITECTURE LOCK |
-| 2026-07-09 | multitimetracker | MTT AGENT_RULES | backup | UNKNOWN | P1 | report | markdown | AGENT_RULES |
-| 2026-07-09 | multitimetracker | MTT app-debug.apk | security | WARN | P1 | release | markdown | PLAYSTORE_GATEKEEPER |
-| 2026-07-09 | multitimetracker | MTT app-debug.apk | security | WARN | P1 | release | markdown | ROADMAP_ACTIVE |
-| 2026-07-09 | multitimetracker | MTT app-debug.apk | backup | WARN | P1 | release | markdown | TEST_GATES |
-| 2026-07-09 | multitimetracker | MTT app-release.apk | security | WARN | P1 | release | markdown | Roadmap History |
-| 2026-07-09 | multitimetracker | MTT Aree Secondarie e | backup | UNKNOWN | P1 | backup | markdown | Aree Secondarie e Impostazioni |
-| 2026-07-09 | multitimetracker | MTT CAPSULE_INDEX | backup | UNKNOWN | P1 | backup | markdown | CAPSULE_INDEX |
-| 2026-07-09 | multitimetracker | MTT Common Tracking Workflows | release | PASS | P1 | release | markdown | Common Tracking Workflows |
-| 2026-07-09 | multitimetracker | MTT Continuity | bugfix | FAIL | P1 | doc_event | markdown | Continuity |
-| 2026-07-09 | multitimetracker | MTT DB_SCHEMA | backup | PASS | P1 | backup | markdown | DB_SCHEMA |
 | 2026-07-09 | multitimetracker | MTT ENRICHMENT_REPORT | security | PASS | P1 | changelog | markdown | ENRICHMENT_REPORT |
-| 2026-07-09 | multitimetracker | MTT Features | backup | UNKNOWN | P1 | report | markdown | Features |
-| 2026-07-09 | multitimetracker | MTT First Launch Setup | security | OPEN | P1 | doc_event | markdown | First Launch and Setup |
-| 2026-07-09 | multitimetracker | MTT Flussi Tracciamento Comuni | release | UNKNOWN | P1 | release | markdown | Flussi di Tracciamento Comuni |
-| 2026-07-09 | multitimetracker | MTT Google Play Data | backup | UNKNOWN | P1 | report | markdown | Google Play Data Safety Template |
-| 2026-07-09 | multitimetracker | MTT Human Docs Index | backup | OPEN | P1 | changelog | markdown | Human Docs Index |
-| 2026-07-09 | multitimetracker | MTT Import Export Vaults | backup | UNKNOWN | P1 | report | markdown | Import, Export, and Vaults |
-| 2026-07-09 | multitimetracker | MTT Importazione Esportazione e | backup | UNKNOWN | P1 | backup | markdown | Importazione, Esportazione e Vault |
 | 2026-07-09 | multitimetracker | MTT MegaVault Human Enrichment | security | PASS | P1 | changelog | markdown | MegaVault Human Enrichment Report |
-| 2026-07-09 | multitimetracker | MTT MOVED OPERATING RULES | release | UNKNOWN | P1 | release | markdown | MOVED: OPERATING RULES |
-| 2026-07-09 | multitimetracker | MTT OPERATING_RULES | release | PASS | P1 | release | markdown | OPERATING_RULES |
-| 2026-07-09 | multitimetracker | MTT patch version | release | UNKNOWN | P1 | release | txt | patch version |
-| 2026-07-09 | multitimetracker | MTT Permissions Audit | security | PASS | P1 | doc_event | markdown | Permissions Audit |
-| 2026-07-09 | multitimetracker | MTT Primo Avvio e | backup | UNKNOWN | P1 | backup | markdown | Primo Avvio e Configurazione |
-| 2026-07-09 | multitimetracker | MTT Privacy Policy Template | security | UNKNOWN | P1 | doc_event | markdown | Privacy Policy Template |
-| 2026-07-09 | multitimetracker | MTT Secondary Areas Settings | backup | OPEN | P1 | backup | markdown | Secondary Areas and Settings |
-| 2026-07-09 | multitimetracker | MTT Session | bugfix | FAIL | P1 | doc_event | markdown | Session |
-| 2026-07-09 | multitimetracker | MTT Store Listing Template | security | UNKNOWN | P1 | doc_event | markdown | Store Listing Template |
-| 2026-07-09 | multitimetracker | MTT Time Machine | backup | UNKNOWN | P1 | backup | markdown | Time Machine |
-| 2026-07-09 | multitimetracker | MTT Troubleshooting | bugfix | FAIL | P1 | doc_event | markdown | Troubleshooting |
-| 2026-07-09 | multitimetracker | MTT Troubleshooting | backup | OPEN | P1 | report | markdown | Troubleshooting |
-| 2026-07-09 | multitimetracker | MTT v296 | bugfix | FAIL | P1 | doc_event | txt | replace gradle.buildFinished(...) with gradle.addBuildListener(BuildAdapter.buildFinished) to avoid Kotlin DSL/Closure mismatch on Gradle 9.x. |
-| 2026-07-09 | multitimetracker | MTT v296 | backup | FAIL | P1 | report | log | replace gradle.buildFinished(...) with gradle.addBuildListener(BuildAdapter.buildFinished) to avoid Kotlin DSL/Closure mismatch on Gradle 9.x. |
-| 2026-07-09 | multitimetracker | MTT v296 | bugfix | FAIL | P1 | doc_event | jsonl | Execution failed for task ':app:mergeDebugResources'. |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P1 | doc_event | markdown | PROJECT_INVENTORY |
 | 2026-07-09 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
-| 2026-07-09 | multitimetracker | MTT v4 | release | UNKNOWN | P1 | release | yml | android |
-| 2026-07-09 | multitimetracker | MTT v473 | backup | FAIL | P1 | backup | markdown | Active Roadmap |
-| 2026-07-09 | multitimetracker | MTT v473 | security | PASS | P1 | doc_event | markdown | Roadmap History |
-| 2026-07-09 | multitimetracker | MTT v474 | security | PASS | P1 | doc_event | markdown | Roadmap History |
-| 2026-07-09 | multitimetracker | MTT v474 | backup | FAIL | P1 | backup | markdown | Active Roadmap |
 | 2026-07-09 | multitimetracker | MTT v488 | security | WARN | P1 | changelog | markdown | MegaVault Migration Report |
 | 2026-07-09 | multitimetracker | MTT v488 | security | WARN | P1 | changelog | markdown | MIGRATION_REPORT |
-| 2026-07-09 | multitimetracker | MTT v517 | security | OPEN | P1 | doc_event | markdown | Roadmap Explained |
-| 2026-07-09 | multitimetracker | MTT v521 | security | WARN | P1 | report | markdown | Play Store Readiness Report |
-| 2026-07-09 | multitimetracker | MTT v523 | backup | FAIL | P1 | backup | markdown | CAPSULES |
-| 2026-07-09 | multitimetracker | MTT v525 | backup | WARN | P1 | backup | markdown | BUG_REGISTRY |
-| 2026-07-09 | multitimetracker | MTT v527 | security | WARN | P1 | doc_event | markdown | RISK_REGISTER |
-| 2026-07-09 | multitimetracker | MTT v527 | backup | PASS | P1 | backup | markdown | ROADMAP_HISTORY |
-| 2026-07-09 | multitimetracker | MTT v532 | backup | OPEN | P1 | backup | markdown | INCIDENT_REGISTRY |
-| 2026-07-09 | multitimetracker | MTT v532 | backup | PASS | P1 | backup | markdown | Roadmap |
-| 2026-07-09 | multitimetracker | MTT v533 | security | PASS | P1 | changelog | markdown | Changelog |
 | 2026-07-09 | multitimetracker | MTT v534 | backup | WARN | P1 | report | markdown | MultiTimeTracker Troubleshooting |
-| 2026-07-09 | multitimetracker | MTT Chains | infra | UNKNOWN | P2 | doc_event | markdown | Chains |
-| 2026-07-09 | multitimetracker | MTT Chronology | bugfix | OPEN | P2 | doc_event | markdown | Chronology |
-| 2026-07-09 | multitimetracker | MTT db | automation | UNKNOWN | P2 | report | markdown | db report |
-| 2026-07-09 | multitimetracker | MTT MOVED RISK REGISTER | bugfix | UNKNOWN | P2 | doc_event | markdown | MOVED: RISK REGISTER |
-| 2026-07-09 | multitimetracker | MTT MultiTimeTracker | bugfix | UNKNOWN | P2 | doc_event | markdown | MultiTimeTracker |
-| 2026-07-09 | multitimetracker | MTT MultiTimeTracker Public API | infra | UNKNOWN | P2 | doc_event | markdown | MultiTimeTracker Public API |
-| 2026-07-09 | multitimetracker | MTT Project documentation entrypoint | infra | UNKNOWN | P2 | doc_event | markdown | Project documentation entrypoint |
-| 2026-07-09 | multitimetracker | MTT Project Overview | infra | UNKNOWN | P2 | doc_event | markdown | Project Overview |
-| 2026-07-09 | multitimetracker | MTT Risoluzione Problemi | bugfix | UNKNOWN | P2 | doc_event | markdown | Risoluzione Problemi |
-| 2026-07-09 | multitimetracker | MTT Timed Sessions Alerts | automation | UNKNOWN | P2 | doc_event | markdown | Timed Sessions and Alerts |
-| 2026-07-09 | multitimetracker | Android Tests | testing | UNKNOWN | P3 | qa | markdown | Widget Schermata Home |
-| 2026-07-09 | multitimetracker | Android Tests | testing | UNKNOWN | P3 | qa | markdown | Home Screen Widget |
-| 2026-07-09 | multitimetracker | MTT Adesso | docs | UNKNOWN | P3 | doc_event | markdown | Adesso |
-| 2026-07-09 | multitimetracker | MTT ARCHIVE INDEX | docs | UNKNOWN | P3 | doc_event | markdown | ARCHIVE INDEX |
-| 2026-07-09 | multitimetracker | MTT ARCHIVED AGENT NOTES | docs | UNKNOWN | P3 | doc_event | markdown | ARCHIVED AGENT NOTES |
-| 2026-07-09 | multitimetracker | MTT ARCHIVED FUTURE PATCHES | docs | UNKNOWN | P3 | doc_event | markdown | ARCHIVED FUTURE PATCHES |
-| 2026-07-09 | multitimetracker | MTT ARCHIVED UI CONTRACT | docs | UNKNOWN | P3 | doc_event | markdown | ARCHIVED UI CONTRACT |
-| 2026-07-09 | multitimetracker | MTT Casi d'Uso | docs | UNKNOWN | P3 | doc_event | markdown | Casi d'Uso |
-| 2026-07-09 | multitimetracker | MTT Catene | docs | UNKNOWN | P3 | doc_event | markdown | Catene |
-| 2026-07-09 | multitimetracker | MTT Concetti Base | docs | UNKNOWN | P3 | doc_event | markdown | Concetti Base |
-| 2026-07-09 | multitimetracker | MTT Continuita | docs | UNKNOWN | P3 | doc_event | markdown | Continuita |
-| 2026-07-09 | multitimetracker | MTT Core Concepts | performance | UNKNOWN | P3 | doc_event | markdown | Core Concepts |
-| 2026-07-09 | multitimetracker | MTT Cronologia | testing | UNKNOWN | P3 | qa | markdown | Cronologia |
-| 2026-07-09 | multitimetracker | MTT Domande Frequenti | testing | UNKNOWN | P3 | qa | markdown | Domande Frequenti |
-| 2026-07-09 | multitimetracker | MTT FAQ | performance | UNKNOWN | P3 | doc_event | markdown | FAQ |
-| 2026-07-09 | multitimetracker | MTT Features | docs | UNKNOWN | P3 | doc_event | markdown | Features |
-| 2026-07-09 | multitimetracker | MTT Filosofia | docs | UNKNOWN | P3 | doc_event | markdown | Filosofia |
-| 2026-07-09 | multitimetracker | MTT Flussi di Lavoro | docs | UNKNOWN | P3 | doc_event | markdown | Flussi di Lavoro |
-| 2026-07-09 | multitimetracker | MTT Funzioni | testing | UNKNOWN | P3 | qa | markdown | Funzioni |
-| 2026-07-09 | multitimetracker | MTT Inizia da Qui | testing | UNKNOWN | P3 | qa | markdown | Inizia da Qui |
-| 2026-07-09 | multitimetracker | MTT Interfaccia | docs | UNKNOWN | P3 | doc_event | markdown | Interfaccia |
-| 2026-07-09 | multitimetracker | MTT Interface | docs | UNKNOWN | P3 | doc_event | markdown | Interface |
-| 2026-07-09 | multitimetracker | MTT La Prima Sessione | testing | UNKNOWN | P3 | qa | markdown | La Prima Sessione |
-| 2026-07-09 | multitimetracker | MTT Life Periods | testing | UNKNOWN | P3 | qa | markdown | Life Periods |
-| 2026-07-09 | multitimetracker | MTT Macchina del Tempo | docs | UNKNOWN | P3 | doc_event | markdown | Macchina del Tempo |
-| 2026-07-09 | multitimetracker | MTT MOVED AI DOCS | docs | UNKNOWN | P3 | doc_event | markdown | MOVED: AI DOCS ENTRYPOINT |
-| 2026-07-09 | multitimetracker | MTT MOVED ARCHITECTURE LOCK | docs | UNKNOWN | P3 | doc_event | markdown | MOVED: ARCHITECTURE LOCK |
-| 2026-07-09 | multitimetracker | MTT MOVED CAPSULES | docs | UNKNOWN | P3 | doc_event | markdown | MOVED: CAPSULES |
-| 2026-07-09 | multitimetracker | MTT MOVED HUMAN CHANGELOG | docs | UNKNOWN | P3 | changelog | markdown | MOVED: HUMAN CHANGELOG |
-| 2026-07-09 | multitimetracker | MTT MOVED ROADMAP ACTIVE | docs | UNKNOWN | P3 | doc_event | markdown | MOVED: ROADMAP ACTIVE |
-| 2026-07-09 | multitimetracker | MTT MultiTimeTracker | testing | UNKNOWN | P3 | qa | markdown | MultiTimeTracker |
-| 2026-07-09 | multitimetracker | MTT Now | performance | OPEN | P3 | doc_event | markdown | Now |
-| 2026-07-09 | multitimetracker | MTT Periodi di Vita | testing | UNKNOWN | P3 | qa | markdown | Periodi di Vita |
-| 2026-07-09 | multitimetracker | MTT Philosophy | performance | UNKNOWN | P3 | doc_event | markdown | Philosophy |
-| 2026-07-09 | multitimetracker | MTT Real-World Scenarios | performance | PASS | P3 | doc_event | markdown | Real-World Scenarios |
-| 2026-07-09 | multitimetracker | MTT Ricostruzione del Tempo | testing | UNKNOWN | P3 | qa | markdown | Ricostruzione del Tempo |
-| 2026-07-09 | multitimetracker | MTT Scenari Reali | docs | UNKNOWN | P3 | doc_event | markdown | Scenari Reali |
-| 2026-07-09 | multitimetracker | MTT Sessione | testing | UNKNOWN | P3 | qa | markdown | Sessione |
-| 2026-07-09 | multitimetracker | MTT Sessioni Temporizzate e | testing | UNKNOWN | P3 | qa | markdown | Sessioni Temporizzate e Alert |
-| 2026-07-09 | multitimetracker | MTT Start Here | testing | PASS | P3 | qa | markdown | Start Here |
-| 2026-07-09 | multitimetracker | MTT SUPERSEDED SUBMISSION CHECKLIST | docs | UNKNOWN | P3 | report | markdown | SUPERSEDED: SUBMISSION CHECKLIST |
-| 2026-07-09 | multitimetracker | MTT Tag | testing | UNKNOWN | P3 | qa | markdown | Tag |
-| 2026-07-09 | multitimetracker | MTT Tags | docs | OPEN | P3 | doc_event | markdown | Tags |
-| 2026-07-09 | multitimetracker | MTT Time Reconstruction | performance | WARN | P3 | doc_event | markdown | Time Reconstruction |
-| 2026-07-09 | multitimetracker | MTT Use Cases | docs | UNKNOWN | P3 | doc_event | markdown | Use Cases |
-| 2026-07-09 | multitimetracker | MTT Workflows | docs | UNKNOWN | P3 | doc_event | markdown | Workflows |
-| 2026-07-09 | multitimetracker | MTT Your First Session | docs | OPEN | P3 | doc_event | markdown | Your First Session |
 | 2026-07-09 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-09 | oracle-backup-service | Oracle Backup oracle-backup-service Features | security | FAIL | P1 | doc_event | markdown | oracle-backup-service Features |
 | 2026-07-09 | oracle-backup-service | Oracle Backup oracle-backup-service Roadmap | security | WARN | P1 | report | markdown | oracle-backup-service Roadmap |
@@ -732,8 +628,6 @@ Total events: 647
 | 2026-07-06 | megavault | MegaVault v536 | infra | PASS | P1 | git_commit | git_log | Document MTT v536 fast path verification |
 | 2026-07-06 | megavault | MegaVault v536 | docs | PASS | P2 | git_commit | git_log | Document MultiTimeTracker startup v536 |
 | 2026-07-06 | megavault | MegaVault v537 | docs | PASS | P2 | git_commit | git_log | docs: document MTT capsulization v537 |
-| 2026-07-06 | multitimetracker | MTT 537.apk | security | PASS | P0 | release | markdown | MultiTimeTracker Capsulization v537 |
-| 2026-07-06 | multitimetracker | MTT MultiTimeTracker Incident Registry | security | UNKNOWN | P1 | doc_event | markdown | MultiTimeTracker Incident Registry |
 | 2026-07-05 | luoghi-app | luoghi-app 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
 | 2026-07-05 | luoghi-app | luoghi-app 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
 | 2026-07-05 | luoghi-app | luoghi-app 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
@@ -785,17 +679,6 @@ Total events: 647
 | 2026-06-22 | megavault | MegaVault Document MultiTimeTracker Play | docs | PASS | P2 | git_commit | git_log | Document MultiTimeTracker Play Store handoff |
 | 2026-06-22 | megavault | MegaVault Document MultiTimeTracker signed | docs | PASS | P2 | git_commit | git_log | Document MultiTimeTracker signed Play candidate |
 | 2026-06-22 | megavault | MegaVault v535 | docs | PASS | P2 | git_commit | git_log | Record MTT v535 Play Store port |
-| 2026-06-22 | multitimetracker | Android Tests | security | UNKNOWN | P0 | doc_event | markdown | Play Console Copy Paste Pack |
-| 2026-06-22 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Play Store Readiness - Prompt 395842 |
-| 2026-06-22 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Play Store Readiness Changelog |
-| 2026-06-22 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Play Store Release Checklist |
-| 2026-06-22 | multitimetracker | MTT Release Notes | security | PASS | P0 | doc_event | markdown | Release Notes |
-| 2026-06-22 | multitimetracker | Android Tests | security | PASS | P1 | doc_event | markdown | Closed Testing Steps |
-| 2026-06-22 | multitimetracker | MTT app-release.apk | backup | UNKNOWN | P1 | release | markdown | Google Play Assets Checklist |
-| 2026-06-22 | multitimetracker | MTT app-release.apk | security | PASS | P1 | release | markdown | Release Signing Handoff |
-| 2026-06-22 | multitimetracker | MTT Google Play Data | security | UNKNOWN | P1 | report | markdown | Google Play Data Safety Draft |
-| 2026-06-22 | multitimetracker | MTT Google Play Store | backup | UNKNOWN | P1 | backup | markdown | Google Play Store Listing Draft |
-| 2026-06-22 | multitimetracker | MTT MultiTimeTracker Privacy Policy | security | UNKNOWN | P1 | report | markdown | MultiTimeTracker Privacy Policy Draft |
 | 2026-06-18 | grindr-web-exporter | grindr-web-exporter v1 | security | PASS | P1 | doc_event | markdown | grindr-web-exporter |
 | 2026-06-18 | grindr-web-exporter | grindr-web-exporter Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | Changelog |
 | 2026-06-18 | soldi | Soldi 2.apk | backup | OPEN | P1 | release | markdown | Soldi Changelog |
@@ -953,7 +836,6 @@ Total events: 647
 | 2025-12-28 | amici-fb | Amici FB amici 2025 | backup | UNKNOWN | P1 | backup | csv | amici 2025 12 28 |
 | 2025-12-27 | amici-fb | Amici FB amici 2025 | backup | UNKNOWN | P1 | backup | csv | amici 2025 12 27 |
 | 2025-12-24 | amici-fb | Amici FB amici 2025 | backup | UNKNOWN | P1 | backup | csv | amici 2025 12 24 |
-| 2025-12-24 | multitimetracker | MTT v5 | bugfix | UNKNOWN | P2 | doc_event | txt | .multitimer import touch |
 | 2025-12-21 | amici-fb | Amici FB amici 2025 | backup | UNKNOWN | P1 | backup | csv | amici 2025 12 21 |
 | 2025-12-21 | amici-fb | Amici FB diff 2025 | backup | OPEN | P1 | backup | csv | diff 2025 12 16 vs 2025 12 21 |
 | 2025-12-16 | amici-fb | Amici FB amici 2025 | backup | UNKNOWN | P1 | backup | csv | amici 2025 12 16 |

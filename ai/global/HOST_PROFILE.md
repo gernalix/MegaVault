@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=6
+VERSION=7
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-10T09:27:55+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263
+UPDATED=2026-07-10T11:24:00+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+task_714283
 
 META:
 host=fedora
@@ -78,6 +78,8 @@ adb_rule=verify_with_adb_devices_-l;device_IPs_and_pairing_drift
 CODEX_CURRENT_FEDORA:
 working_root=/home/daniele
 megavault=/home/daniele/MegaVault
+interactive_launcher=/home/daniele/.local/bin/codex-live;bash_function=codex;tmux_default=yes
+session_logger=/home/daniele/projects/codex-session-logger;logs=/home/daniele/.local/state/codex-session-logger/sessions;docs=CODEX_SESSION_LOGGING.md
 shell_commands=bash
 package_commands=dnf
 service_commands=systemctl+systemctl_--user
