@@ -1,21 +1,21 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T16:12:54+02:00
+Generated: 2026-07-10T16:30:18+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 588
+Total events: 601
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/MegaVault/projects/luoghi-app`
+- `/home/daniele/projects/codex-session-logger`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 141 |
+| megavault | 142 |
 | amici-fb | 87 |
 | luoghi-app | 63 |
 | multitimetracker | 26 |
@@ -23,8 +23,9 @@ Total events: 588
 | fedora-system-monitor | 14 |
 | 2026 | 13 |
 | oracle-uptime-kuma | 13 |
+| codex-session-logger | 11 |
 | supercontacts | 11 |
-| luoghi | 9 |
+| luoghi | 10 |
 | windows | 8 |
 | windows-winget-daily-update | 7 |
 | android | 6 |
@@ -68,12 +69,12 @@ Total events: 588
 
 | Value | Events |
 |---|---:|
-| security | 187 |
-| backup | 172 |
-| docs | 57 |
-| testing | 48 |
-| release | 44 |
-| bugfix | 30 |
+| security | 188 |
+| backup | 175 |
+| docs | 59 |
+| testing | 49 |
+| release | 46 |
+| bugfix | 34 |
 | automation | 20 |
 | infra | 15 |
 | migration | 12 |
@@ -83,19 +84,19 @@ Total events: 588
 
 | Value | Events |
 |---|---:|
-| P1 | 317 |
-| P0 | 133 |
-| P2 | 129 |
+| P1 | 321 |
+| P0 | 136 |
+| P2 | 135 |
 | P3 | 9 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 233 |
-| PASS | 143 |
-| WARN | 94 |
-| OPEN | 60 |
+| UNKNOWN | 241 |
+| PASS | 144 |
+| WARN | 95 |
+| OPEN | 63 |
 | FAIL | 58 |
 
 
@@ -113,15 +114,15 @@ Total events: 588
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
-| 2026-07-10 | fedora-system-monitor | Android Tests | security | FAIL | P1 | report | markdown | OPERATIONS |
-| 2026-07-10 | fedora-system-monitor | Android Tests | backup | FAIL | P1 | backup | markdown | SCHEMA |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor AUDIT 593184 | backup | WARN | P1 | backup | markdown | AUDIT 593184 |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Audit tecnico 593184 | backup | UNKNOWN | P1 | report | markdown | Audit tecnico 593184 |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | release | FAIL | P1 | release | markdown | INCIDENT REGISTRY |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
+| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
+| 2026-07-10 | codex-session-logger | codex-session-logger ACTIVE | backup | UNKNOWN | P1 | backup | markdown | ACTIVE |
+| 2026-07-10 | codex-session-logger | codex-session-logger Changelog | backup | OPEN | P1 | changelog | markdown | Changelog |
+| 2026-07-10 | codex-session-logger | codex-session-logger Roadmap | release | UNKNOWN | P1 | release | markdown | Roadmap |
+| 2026-07-10 | codex-session-logger | Git PATH | release | UNKNOWN | P1 | release | json | project.metadata |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex Session Logger | bugfix | UNKNOWN | P2 | report | markdown | Codex Session Logger |
+| 2026-07-10 | codex-session-logger | codex-session-logger Incident Registry | bugfix | UNKNOWN | P2 | report | markdown | Incident Registry |
+| 2026-07-10 | codex-session-logger | codex-session-logger Overview | docs | UNKNOWN | P2 | doc_event | markdown | Overview |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -133,9 +134,12 @@ Total events: 588
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | report | codex_log | 019f4b52-7285-7c42-8426-2120b3579fe1 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
+| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | changelog | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | luoghi | Luoghi v2 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | luoghi | Luoghi v5 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | luoghi-app | luoghi-app v10 | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
@@ -261,7 +265,7 @@ Total events: 588
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 141 events; latest=2026-07-10; label=Android Tests
+- `megavault`: 142 events; latest=2026-07-10; label=Android Tests
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
 - `luoghi-app`: 63 events; latest=2026-07-10; label=luoghi-app v10
 - `multitimetracker`: 26 events; latest=2026-07-10; label=MTT v4
@@ -269,8 +273,9 @@ Total events: 588
 - `fedora-system-monitor`: 14 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
 - `oracle-uptime-kuma`: 13 events; latest=2026-07-10; label=Kuma v2
+- `codex-session-logger`: 11 events; latest=2026-07-10; label=codex-session-logger Codex session logger
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
-- `luoghi`: 9 events; latest=2026-07-10; label=Luoghi v10
+- `luoghi`: 10 events; latest=2026-07-10; label=Luoghi v10
 - `windows`: 8 events; latest=2026-07-10; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
@@ -324,6 +329,17 @@ Total events: 588
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
+| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
+| 2026-07-10 | codex-session-logger | codex-session-logger ACTIVE | backup | UNKNOWN | P1 | backup | markdown | ACTIVE |
+| 2026-07-10 | codex-session-logger | codex-session-logger Changelog | backup | OPEN | P1 | changelog | markdown | Changelog |
+| 2026-07-10 | codex-session-logger | codex-session-logger Roadmap | release | UNKNOWN | P1 | release | markdown | Roadmap |
+| 2026-07-10 | codex-session-logger | Git PATH | release | UNKNOWN | P1 | release | json | project.metadata |
+| 2026-07-10 | codex-session-logger | codex-session-logger Codex Session Logger | bugfix | UNKNOWN | P2 | report | markdown | Codex Session Logger |
+| 2026-07-10 | codex-session-logger | codex-session-logger Incident Registry | bugfix | UNKNOWN | P2 | report | markdown | Incident Registry |
+| 2026-07-10 | codex-session-logger | codex-session-logger Overview | docs | UNKNOWN | P2 | doc_event | markdown | Overview |
+| 2026-07-10 | codex-session-logger | codex-session-logger Regressione scrolling tmux/Ptyxis | bugfix | UNKNOWN | P2 | doc_event | markdown | Regressione scrolling tmux/Ptyxis attivita 519445 |
+| 2026-07-10 | codex-session-logger | codex-session-logger Troubleshooting | bugfix | UNKNOWN | P2 | report | markdown | Troubleshooting |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | fedora-system-monitor | Android Tests | security | FAIL | P1 | report | markdown | OPERATIONS |
 | 2026-07-10 | fedora-system-monitor | Android Tests | backup | FAIL | P1 | backup | markdown | SCHEMA |
@@ -339,6 +355,7 @@ Total events: 588
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Registro incidenti | automation | UNKNOWN | P2 | doc_event | markdown | Registro incidenti |
 | 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | changelog | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | luoghi | Luoghi v2 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | luoghi | Luoghi v5 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | luoghi-app | luoghi-app v10 | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
@@ -417,6 +434,7 @@ Total events: 588
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
 | 2026-07-10 | megavault | MegaVault Log live delle | testing | OPEN | P2 | qa | markdown | Log live delle sessioni Codex |
 | 2026-07-10 | megavault | MegaVault Record WindowTabNotes Fedora | docs | PASS | P2 | git_commit | git_log | Record WindowTabNotes Fedora uninstall |
+| 2026-07-10 | megavault | MegaVault v10 | docs | PASS | P2 | git_commit | git_log | Update Luoghi v10 timeline |
 | 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
 | 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
 | 2026-07-10 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |

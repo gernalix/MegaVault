@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T16:12:54+02:00
-total_events=588
+generated_at=2026-07-10T16:30:18+02:00
+total_events=601
 format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
@@ -13,6 +13,17 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB trace|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-07-10|codex-session-logger|codex-session-logger Codex session logger|testing|OPEN|P0
+2026-07-10|codex-session-logger|Git PATH|backup|OPEN|P0
+2026-07-10|codex-session-logger|codex-session-logger ACTIVE|backup|UNKNOWN|P1
+2026-07-10|codex-session-logger|codex-session-logger Changelog|backup|OPEN|P1
+2026-07-10|codex-session-logger|codex-session-logger Roadmap|release|UNKNOWN|P1
+2026-07-10|codex-session-logger|Git PATH|release|UNKNOWN|P1
+2026-07-10|codex-session-logger|codex-session-logger Codex Session Logger|bugfix|UNKNOWN|P2
+2026-07-10|codex-session-logger|codex-session-logger Incident Registry|bugfix|UNKNOWN|P2
+2026-07-10|codex-session-logger|codex-session-logger Overview|docs|UNKNOWN|P2
+2026-07-10|codex-session-logger|codex-session-logger Regressione scrolling tmux/Ptyxis|bugfix|UNKNOWN|P2
+2026-07-10|codex-session-logger|codex-session-logger Troubleshooting|bugfix|UNKNOWN|P2
 2026-07-10|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
 2026-07-10|fedora-system-monitor|Android Tests|security|FAIL|P1
 2026-07-10|fedora-system-monitor|Android Tests|backup|FAIL|P1
@@ -28,6 +39,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|fedora-system-monitor|fedora-system-monitor Registro incidenti|automation|UNKNOWN|P2
 2026-07-10|luoghi|Luoghi v10|security|WARN|P0
 2026-07-10|luoghi|Luoghi v10|security|WARN|P0
+2026-07-10|luoghi|Luoghi v2|security|WARN|P0
 2026-07-10|luoghi|Luoghi v5|security|WARN|P0
 2026-07-10|luoghi-app|luoghi-app v10|release|UNKNOWN|P0
 2026-07-10|luoghi-app|luoghi-app v11|release|UNKNOWN|P0
@@ -106,6 +118,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault Document Obsidian Fedora|docs|PASS|P2
 2026-07-10|megavault|MegaVault Log live delle|testing|OPEN|P2
 2026-07-10|megavault|MegaVault Record WindowTabNotes Fedora|docs|PASS|P2
+2026-07-10|megavault|MegaVault v10|docs|PASS|P2
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
 2026-07-10|oracle-backup-service|Codex Timeline|security|FAIL|P0
