@@ -1,29 +1,30 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T12:48:00+02:00
+Generated: 2026-07-10T16:12:54+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 542
+Total events: 588
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/MegaVault/projects/fedora-system-monitor`
+- `/home/daniele/MegaVault/projects/luoghi-app`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 140 |
+| megavault | 141 |
 | amici-fb | 87 |
+| luoghi-app | 63 |
 | multitimetracker | 26 |
-| luoghi-app | 21 |
 | oracle-backup-service | 18 |
 | fedora-system-monitor | 14 |
 | 2026 | 13 |
 | oracle-uptime-kuma | 13 |
 | supercontacts | 11 |
+| luoghi | 9 |
 | windows | 8 |
 | windows-winget-daily-update | 7 |
 | android | 6 |
@@ -35,7 +36,6 @@ Total events: 542
 | facebook-video-archiver | 6 |
 | installa-app | 6 |
 | linux-mint-service-dashboard | 6 |
-| luoghi | 6 |
 | maintenance-486 | 6 |
 | megavault-project-exporter | 6 |
 | mint-freeze-forensics | 6 |
@@ -68,13 +68,13 @@ Total events: 542
 
 | Value | Events |
 |---|---:|
-| security | 178 |
-| backup | 168 |
+| security | 187 |
+| backup | 172 |
 | docs | 57 |
-| release | 39 |
+| testing | 48 |
+| release | 44 |
 | bugfix | 30 |
-| testing | 21 |
-| automation | 19 |
+| automation | 20 |
 | infra | 15 |
 | migration | 12 |
 | performance | 3 |
@@ -83,19 +83,19 @@ Total events: 542
 
 | Value | Events |
 |---|---:|
-| P1 | 304 |
-| P0 | 127 |
-| P2 | 102 |
+| P1 | 317 |
+| P0 | 133 |
+| P2 | 129 |
 | P3 | 9 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 198 |
-| PASS | 138 |
-| WARN | 89 |
-| OPEN | 59 |
+| UNKNOWN | 233 |
+| PASS | 143 |
+| WARN | 94 |
+| OPEN | 60 |
 | FAIL | 58 |
 
 
@@ -134,6 +134,13 @@ Total events: 542
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | changelog | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | luoghi | Luoghi v5 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-10 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
+| 2026-07-10 | luoghi-app | luoghi-app v11 | backup | UNKNOWN | P0 | protocol_update | markdown | bootstrap |
+| 2026-07-10 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
@@ -167,8 +174,6 @@ Total events: 542
 | 2026-07-09 | git-change-ledger | git-change-ledger v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-09 | installa-app | installa-app v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
 | 2026-07-09 | luoghi | Luoghi app-debug.apk | security | PASS | P0 | release | markdown | Cloned Luoghi on Fedora, validated the debug Android build, and documented the local Fedora/JDK workaround. |
-| 2026-07-09 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
-| 2026-07-09 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
 | 2026-07-09 | maintenance-486 | maintenance-486 v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
@@ -206,6 +211,7 @@ Total events: 542
 | 2026-07-09 | windows-winget-daily-update | Git PATH | backup | PASS | P0 | changelog | markdown | Fedora migration of MegaVault global docs and final verification |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3f90-7f5f-7361-b0de-19a9db8a74c9 |
 | 2026-07-08 | multitimetracker | MTT app-debug.apk | security | WARN | P0 | release | markdown | Raw Memories |
+| 2026-07-06 | luoghi-app | luoghi-app 10.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | luoghi-app | luoghi-app 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault | MegaVault Aggiorna protocollo MegaVault | docs | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
@@ -255,15 +261,16 @@ Total events: 542
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 140 events; latest=2026-07-10; label=Android Tests
+- `megavault`: 141 events; latest=2026-07-10; label=Android Tests
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
+- `luoghi-app`: 63 events; latest=2026-07-10; label=luoghi-app v10
 - `multitimetracker`: 26 events; latest=2026-07-10; label=MTT v4
-- `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
 - `fedora-system-monitor`: 14 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
 - `oracle-uptime-kuma`: 13 events; latest=2026-07-10; label=Kuma v2
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
+- `luoghi`: 9 events; latest=2026-07-10; label=Luoghi v10
 - `windows`: 8 events; latest=2026-07-10; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
@@ -275,7 +282,6 @@ Total events: 542
 - `facebook-video-archiver`: 6 events; latest=2026-07-09; label=facebook-video-archiver v4
 - `installa-app`: 6 events; latest=2026-07-09; label=installa-app v2
 - `linux-mint-service-dashboard`: 6 events; latest=2026-07-09; label=linux-mint-service-dashboard linux-mint-service-dashboard Features
-- `luoghi`: 6 events; latest=2026-07-09; label=Luoghi app-debug.apk
 - `maintenance-486`: 6 events; latest=2026-07-09; label=maintenance-486 v2
 - `megavault-project-exporter`: 6 events; latest=2026-07-09; label=megavault-project-exporter v3
 - `mint-freeze-forensics`: 6 events; latest=2026-07-09; label=mint-freeze-forensics Features
@@ -331,6 +337,55 @@ Total events: 542
 | 2026-07-10 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | performance | FAIL | P2 | doc_event | markdown | Integrazione Uptime Kuma |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Registro incidenti | automation | UNKNOWN | P2 | doc_event | markdown | Registro incidenti |
+| 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | changelog | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | luoghi | Luoghi v5 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-10 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
+| 2026-07-10 | luoghi-app | luoghi-app v11 | backup | UNKNOWN | P0 | protocol_update | markdown | bootstrap |
+| 2026-07-10 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
+| 2026-07-10 | luoghi-app | Git PATH | backup | UNKNOWN | P1 | backup | json | 4 |
+| 2026-07-10 | luoghi-app | Git PATH | backup | UNKNOWN | P1 | backup | json | 5 |
+| 2026-07-10 | luoghi-app | luoghi-app 1 | release | UNKNOWN | P1 | release | json | 1 |
+| 2026-07-10 | luoghi-app | luoghi-app 1.apk | security | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
+| 2026-07-10 | luoghi-app | luoghi-app 1.apk | security | PASS | P1 | release | markdown | Luoghi Troubleshooting |
+| 2026-07-10 | luoghi-app | luoghi-app 10.apk | release | PASS | P1 | release | markdown | Luoghi v10 compact places and visit timeline |
+| 2026-07-10 | luoghi-app | luoghi-app 2 | release | UNKNOWN | P1 | release | json | 2 |
+| 2026-07-10 | luoghi-app | luoghi-app 3 | release | UNKNOWN | P1 | release | json | 3 |
+| 2026-07-10 | luoghi-app | luoghi-app v1 | release | UNKNOWN | P1 | release | markdown | Luoghi Incident Registry |
+| 2026-07-10 | luoghi-app | luoghi-app v1 | security | UNKNOWN | P1 | doc_event | markdown | Luoghi Incident Registry |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | security | UNKNOWN | P1 | doc_event | txt | tcl v10 first launch summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | security | PASS | P1 | changelog | markdown | Luoghi Changelog |
+| 2026-07-10 | luoghi-app | luoghi-app v5 | security | UNKNOWN | P1 | doc_event | markdown | Luoghi Roadmap |
+| 2026-07-10 | luoghi-app | luoghi-app v5 | security | PASS | P1 | doc_event | markdown | Luoghi Overview |
+| 2026-07-10 | luoghi-app | luoghi-app v6 | security | OPEN | P1 | doc_event | markdown | Luoghi Provider API v6 |
+| 2026-07-10 | luoghi-app | luoghi-app version | release | UNKNOWN | P1 | release | txt | version |
+| 2026-07-10 | luoghi-app | Android Tests | testing | UNKNOWN | P2 | qa | txt | tcl home bottom current summary |
+| 2026-07-10 | luoghi-app | Android Tests | testing | UNKNOWN | P2 | qa | txt | tcl saf picker summary |
+| 2026-07-10 | luoghi-app | Android Tests | testing | UNKNOWN | P2 | qa | txt | tcl history place current summary |
+| 2026-07-10 | luoghi-app | Android Tests | testing | UNKNOWN | P2 | qa | txt | tcl saf confirm summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 history summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 dark home summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 font200 history final summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 font200 bottom summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 overflow summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 history final normal summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 home final normal summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 home summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 saf picker summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 delete confirm summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 place detail summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 home final summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 visit detail final summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | OPEN | P2 | qa | txt | tcl v10 visit detail summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 place history empty summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 edit event dialog summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 font200 home summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 home bottom summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 font200 home final summary |
+| 2026-07-10 | luoghi-app | luoghi-app v10 | testing | UNKNOWN | P2 | qa | txt | tcl v10 font200 history summary |
+| 2026-07-10 | luoghi-app | luoghi-app v9 | testing | UNKNOWN | P2 | qa | txt | tcl home current summary |
+| 2026-07-10 | luoghi-app | luoghi-app v9 | testing | UNKNOWN | P2 | qa | txt | tcl home v9 summary |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
@@ -348,6 +403,7 @@ Total events: 542
 | 2026-07-10 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
 | 2026-07-10 | megavault | MegaVault docs record Fedora | automation | PASS | P1 | git_commit | git_log | docs: record Fedora monitor residual risk audit |
+| 2026-07-10 | megavault | MegaVault docs refresh timeline | automation | PASS | P1 | git_commit | git_log | docs: refresh timeline after monitor audit |
 | 2026-07-10 | megavault | MegaVault docs register Fedora | automation | PASS | P1 | git_commit | git_log | docs: register Fedora host monitor activity 593184 |
 | 2026-07-10 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
@@ -482,17 +538,9 @@ Total events: 542
 | 2026-07-09 | luoghi | Luoghi app-debug.apk | release | UNKNOWN | P1 | release | markdown | Luoghi |
 | 2026-07-09 | luoghi | Luoghi Luoghi Roadmap | backup | UNKNOWN | P1 | backup | markdown | Luoghi Roadmap |
 | 2026-07-09 | luoghi | Luoghi Luoghi Troubleshooting | release | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
-| 2026-07-09 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
-| 2026-07-09 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
 | 2026-07-09 | luoghi-app | luoghi-app 1 | release | UNKNOWN | P1 | release | json | 1 |
-| 2026-07-09 | luoghi-app | luoghi-app 1.apk | security | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
 | 2026-07-09 | luoghi-app | luoghi-app 2 | release | UNKNOWN | P1 | release | json | 2 |
 | 2026-07-09 | luoghi-app | luoghi-app 3 | release | UNKNOWN | P1 | release | json | 3 |
-| 2026-07-09 | luoghi-app | luoghi-app v1 | release | UNKNOWN | P1 | release | markdown | Luoghi Incident Registry |
-| 2026-07-09 | luoghi-app | luoghi-app v5 | security | UNKNOWN | P1 | doc_event | markdown | Luoghi Roadmap |
-| 2026-07-09 | luoghi-app | luoghi-app v5 | security | PASS | P1 | doc_event | markdown | Luoghi Overview |
-| 2026-07-09 | luoghi-app | luoghi-app v6 | security | OPEN | P1 | doc_event | markdown | Luoghi Provider API v6 |
-| 2026-07-09 | luoghi-app | luoghi-app version | release | UNKNOWN | P1 | release | txt | version |
 | 2026-07-09 | maintenance-486 | maintenance-486 v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Features | release | OPEN | P1 | release | markdown | maintenance-486 Features |
 | 2026-07-09 | maintenance-486 | maintenance-486 maintenance-486 Roadmap | testing | UNKNOWN | P2 | qa | markdown | maintenance-486 Roadmap |
@@ -619,10 +667,13 @@ Total events: 542
 | 2026-07-08 | multitimetracker | MTT app-debug.apk | security | WARN | P0 | release | markdown | Raw Memories |
 | 2026-07-08 | rollout-summaries | Git PATH | release | WARN | P1 | release | markdown | Fedora audit/update/prep for Android development with Markdown reports under `system-docs/` |
 | 2026-07-08 | rollout-summaries | rollout-summaries Fedora/Android Emulator KVM | security | FAIL | P1 | report | markdown | Fedora/Android Emulator KVM check on ThinkPad; system stack was mostly prepared, but emulator binary was not found and the current session had not... |
+| 2026-07-06 | luoghi-app | luoghi-app 10.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | luoghi-app | luoghi-app 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | PASS | P1 | release | markdown | Telegram APK send fix - Luoghi v5 |
 | 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | WARN | P1 | release | markdown | Luoghi v5 check-in/out capsules full product |
 | 2026-07-06 | luoghi-app | luoghi-app 7.apk | release | WARN | P1 | release | markdown | Luoghi v7 persistent place/global statistics |
+| 2026-07-06 | luoghi-app | luoghi-app 9.apk | security | WARN | P1 | release | markdown | PASS_build_test_device |
+| 2026-07-06 | luoghi-app | luoghi-app PASS app-debug.apk app-debug-androidTest.apk | backup | PASS | P1 | release | markdown | Luoghi v8 Route Distance Cache Report |
 | 2026-07-06 | luoghi-app | luoghi-app v7 | security | PASS | P1 | changelog | markdown | Luoghi Changelog |
 | 2026-07-06 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault | MegaVault Aggiorna protocollo MegaVault | docs | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
@@ -637,6 +688,7 @@ Total events: 542
 | 2026-07-05 | luoghi-app | luoghi-app 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
 | 2026-07-05 | luoghi-app | luoghi-app 3.apk | backup | WARN | P1 | release | markdown | Luoghi v3 - mappa, consumer API e freeze autocomplete |
 | 2026-07-05 | luoghi-app | luoghi-app v3 | docs | UNKNOWN | P2 | report | markdown | Luoghi Links |
+| 2026-07-05 | luoghi-app | luoghi-app v5 | testing | UNKNOWN | P2 | report | markdown | Luoghi Links |
 | 2026-07-05 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | Codex weekly limit monitor VM fix - 2026-07-05 |
 | 2026-07-05 | megavault | MegaVault Codex weekly limit | security | PASS | P1 | report | markdown | Codex weekly limit notification format - 2026-07-05 |
 | 2026-07-05 | megavault | MegaVault Codex weekly limit | security | PASS | P1 | report | markdown | Codex weekly limit monitor real 5h source fix - 2026-07-05 |

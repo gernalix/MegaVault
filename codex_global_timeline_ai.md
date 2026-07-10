@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T12:48:00+02:00
-total_events=542
+generated_at=2026-07-10T16:12:54+02:00
+total_events=588
 format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
@@ -26,6 +26,55 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|fedora-system-monitor|Git PATH|release|FAIL|P1
 2026-07-10|fedora-system-monitor|fedora-system-monitor Integrazione Uptime Kuma|performance|FAIL|P2
 2026-07-10|fedora-system-monitor|fedora-system-monitor Registro incidenti|automation|UNKNOWN|P2
+2026-07-10|luoghi|Luoghi v10|security|WARN|P0
+2026-07-10|luoghi|Luoghi v10|security|WARN|P0
+2026-07-10|luoghi|Luoghi v5|security|WARN|P0
+2026-07-10|luoghi-app|luoghi-app v10|release|UNKNOWN|P0
+2026-07-10|luoghi-app|luoghi-app v11|release|UNKNOWN|P0
+2026-07-10|luoghi-app|luoghi-app v11|backup|UNKNOWN|P0
+2026-07-10|luoghi-app|luoghi-app v5|backup|OPEN|P0
+2026-07-10|luoghi-app|Git PATH|backup|UNKNOWN|P1
+2026-07-10|luoghi-app|Git PATH|backup|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app 1|release|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app 1.apk|security|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app 1.apk|security|PASS|P1
+2026-07-10|luoghi-app|luoghi-app 10.apk|release|PASS|P1
+2026-07-10|luoghi-app|luoghi-app 2|release|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app 3|release|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app v1|release|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app v1|security|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app v10|security|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app v10|security|PASS|P1
+2026-07-10|luoghi-app|luoghi-app v5|security|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app v5|security|PASS|P1
+2026-07-10|luoghi-app|luoghi-app v6|security|OPEN|P1
+2026-07-10|luoghi-app|luoghi-app version|release|UNKNOWN|P1
+2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|OPEN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v9|testing|UNKNOWN|P2
+2026-07-10|luoghi-app|luoghi-app v9|testing|UNKNOWN|P2
 2026-07-10|megavault|Android Tests|security|OPEN|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
@@ -43,6 +92,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|Git PATH|security|OPEN|P1
 2026-07-10|megavault|Git PATH|security|PASS|P1
 2026-07-10|megavault|MegaVault docs record Fedora|automation|PASS|P1
+2026-07-10|megavault|MegaVault docs refresh timeline|automation|PASS|P1
 2026-07-10|megavault|MegaVault docs register Fedora|automation|PASS|P1
 2026-07-10|megavault|MegaVault Incident Registry|security|PASS|P1
 2026-07-10|megavault|MegaVault Record Fedora Chrome|bugfix|PASS|P1
@@ -177,17 +227,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|luoghi|Luoghi app-debug.apk|release|UNKNOWN|P1
 2026-07-09|luoghi|Luoghi Luoghi Roadmap|backup|UNKNOWN|P1
 2026-07-09|luoghi|Luoghi Luoghi Troubleshooting|release|UNKNOWN|P1
-2026-07-09|luoghi-app|luoghi-app v11|release|UNKNOWN|P0
-2026-07-09|luoghi-app|luoghi-app v5|backup|OPEN|P0
 2026-07-09|luoghi-app|luoghi-app 1|release|UNKNOWN|P1
-2026-07-09|luoghi-app|luoghi-app 1.apk|security|UNKNOWN|P1
 2026-07-09|luoghi-app|luoghi-app 2|release|UNKNOWN|P1
 2026-07-09|luoghi-app|luoghi-app 3|release|UNKNOWN|P1
-2026-07-09|luoghi-app|luoghi-app v1|release|UNKNOWN|P1
-2026-07-09|luoghi-app|luoghi-app v5|security|UNKNOWN|P1
-2026-07-09|luoghi-app|luoghi-app v5|security|PASS|P1
-2026-07-09|luoghi-app|luoghi-app v6|security|OPEN|P1
-2026-07-09|luoghi-app|luoghi-app version|release|UNKNOWN|P1
 2026-07-09|maintenance-486|maintenance-486 v2|security|OPEN|P0
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Features|release|OPEN|P1
 2026-07-09|maintenance-486|maintenance-486 maintenance-486 Roadmap|testing|UNKNOWN|P2
@@ -314,10 +356,13 @@ format=event_date|project|label_short|category|status|importance
 2026-07-08|multitimetracker|MTT app-debug.apk|security|WARN|P0
 2026-07-08|rollout-summaries|Git PATH|release|WARN|P1
 2026-07-08|rollout-summaries|rollout-summaries Fedora/Android Emulator KVM|security|FAIL|P1
+2026-07-06|luoghi-app|luoghi-app 10.apk|security|WARN|P0
 2026-07-06|luoghi-app|luoghi-app 7.apk|security|WARN|P0
 2026-07-06|luoghi-app|luoghi-app 5.apk|security|PASS|P1
 2026-07-06|luoghi-app|luoghi-app 5.apk|security|WARN|P1
 2026-07-06|luoghi-app|luoghi-app 7.apk|release|WARN|P1
+2026-07-06|luoghi-app|luoghi-app 9.apk|security|WARN|P1
+2026-07-06|luoghi-app|luoghi-app PASS app-debug.apk app-debug-androidTest.apk|backup|PASS|P1
 2026-07-06|luoghi-app|luoghi-app v7|security|PASS|P1
 2026-07-06|megavault|Codex Timeline|docs|PASS|P0
 2026-07-06|megavault|MegaVault Aggiorna protocollo MegaVault|docs|PASS|P0
@@ -332,6 +377,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|luoghi-app|luoghi-app 4.apk|backup|PASS|P0
 2026-07-05|luoghi-app|luoghi-app 3.apk|backup|WARN|P1
 2026-07-05|luoghi-app|luoghi-app v3|docs|UNKNOWN|P2
+2026-07-05|luoghi-app|luoghi-app v5|testing|UNKNOWN|P2
 2026-07-05|megavault|Git PATH|security|PASS|P0
 2026-07-05|megavault|MegaVault Codex weekly limit|security|PASS|P1
 2026-07-05|megavault|MegaVault Codex weekly limit|security|PASS|P1
