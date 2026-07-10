@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T06:37:14+02:00
-total_events=500
+generated_at=2026-07-10T08:44:50+02:00
+total_events=501
 format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
@@ -16,6 +16,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault Record Fedora Chrome|bugfix|PASS|P1
 2026-07-10|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-10|megavault|Android Tests|bugfix|UNKNOWN|P2
+2026-07-10|megavault|MegaVault Document Fedora ADB|testing|PASS|P2
 2026-07-10|megavault|MegaVault Document Obsidian Fedora|docs|PASS|P2
 2026-07-10|megavault|MegaVault Topologia rete globale|automation|UNKNOWN|P2
 2026-07-09|2026|2026 v1|security|WARN|P0

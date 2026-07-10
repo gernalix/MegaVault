@@ -1,20 +1,21 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T06:37:14+02:00
+Generated: 2026-07-10T08:44:50+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 500
+Total events: 501
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
+- `/home/daniele/MegaVault/projects/luoghi-app`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 128 |
+| megavault | 129 |
 | amici-fb | 84 |
 | multitimetracker | 25 |
 | luoghi-app | 21 |
@@ -71,8 +72,8 @@ Total events: 500
 | docs | 53 |
 | release | 36 |
 | bugfix | 29 |
+| testing | 18 |
 | automation | 17 |
-| testing | 17 |
 | infra | 15 |
 | migration | 12 |
 | performance | 2 |
@@ -83,7 +84,7 @@ Total events: 500
 |---|---:|
 | P1 | 285 |
 | P0 | 110 |
-| P2 | 96 |
+| P2 | 97 |
 | P3 | 9 |
 
 ### Events by status
@@ -91,7 +92,7 @@ Total events: 500
 | Value | Events |
 |---|---:|
 | UNKNOWN | 190 |
-| PASS | 121 |
+| PASS | 122 |
 | WARN | 77 |
 | OPEN | 58 |
 | FAIL | 54 |
@@ -114,12 +115,12 @@ Total events: 500
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-10 | megavault | Android Tests | bugfix | UNKNOWN | P2 | doc_event | markdown | ADB Device Keeper |
+| 2026-07-10 | megavault | MegaVault Document Fedora ADB | testing | PASS | P2 | git_commit | git_log | Document Fedora ADB device keeper |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
 | 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
-| 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f486f-a23e-7510-8bcb-952c401ca618 |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -236,7 +237,7 @@ Total events: 500
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 128 events; latest=2026-07-10; label=Codex Timeline
+- `megavault`: 129 events; latest=2026-07-10; label=Codex Timeline
 - `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
 - `multitimetracker`: 25 events; latest=2026-07-09; label=Android Tests
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
@@ -301,6 +302,7 @@ Total events: 500
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-10 | megavault | Android Tests | bugfix | UNKNOWN | P2 | doc_event | markdown | ADB Device Keeper |
+| 2026-07-10 | megavault | MegaVault Document Fedora ADB | testing | PASS | P2 | git_commit | git_log | Document Fedora ADB device keeper |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
 | 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
