@@ -3,7 +3,7 @@ VERSION=5
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-09+activity_593184
+SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-10+activity_593184+activity_842731
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/STORAGE_TOPOLOGY.md
@@ -20,14 +20,14 @@ repo=/home/daniele/MegaVault
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
 external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs source=udisks_encrypted_volume_mapping size=3.5TiB
 external_ntfs=/run/media/daniele/09FA16D309FA16D3 ntfs size=155.9GiB role=UNKNOWN
-t7=/run/media/daniele/Ventoy exfat device=/dev/sdb1 size=931.5GiB
+t7=/mnt/T7_BACKUP ext4 label=T7_BACKUP uuid=4c75ac03-4c73-43f8-afd9-f90db49a74fc model=Samsung_PSSD_T7_Shield serial=S6YGNS0Y903440H size=931.5GiB persistent_fstab=yes activity=842731
 recovery_media=/run/media/daniele/VEEAMRE vfat device=/dev/sdc1 size=14.6GiB
 storage_health=mounted_filesystems_readable_at_2026-07-09_scan;full_backup_health_not_tested
 
 BACKUP_STORAGE:
 current_backup_policy=UNKNOWN_after_Fedora_migration
 rotated_media_rule=mount_paths_and_device_names_can_change;re-enumerate_before_conclusion
-t7_rule=currently_Ventoy;do_not_assume_backup_role_without_live_verification
+t7_rule=backup_target_T7_BACKUP;identify_by_model+serial+uuid;never_assume_/dev/sdX
 
 CONSTRAINTS:
 constraint=current_local_paths_use_/home/daniele_and_/run/media/daniele

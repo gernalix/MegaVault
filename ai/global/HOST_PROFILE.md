@@ -45,7 +45,7 @@ root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
 external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs size=3.5TiB source=udisks_encrypted_volume_mapping
 external_ntfs=/run/media/daniele/09FA16D309FA16D3 size=155.9GiB role=UNKNOWN
-t7=/run/media/daniele/Ventoy exfat size=931.5GiB connected=2026-07-09
+t7=/mnt/T7_BACKUP ext4 label=T7_BACKUP uuid=4c75ac03-4c73-43f8-afd9-f90db49a74fc model=Samsung_PSSD_T7_Shield serial=S6YGNS0Y903440H size=931.5GiB persistent_fstab=yes activity=842731 verified=2026-07-10
 recovery_media=/run/media/daniele/VEEAMRE vfat size=14.6GiB connected=2026-07-09
 storage_rule=verify_findmnt+lsblk+df_before_backup_or_large_IO;removable_mounts_can_drift
 

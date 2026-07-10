@@ -1,0 +1,23 @@
+# Activity 842731 - Samsung T7 backup restore
+
+- Result: PASS WITH WARNING
+- Date: 2026-07-10
+- Device: `/dev/disk/by-id/usb-Samsung_PSSD_T7_Shield_S6YGNS0Y903440H-0:0` (`/dev/sdb` at execution time)
+- Identity: Samsung PSSD T7 Shield, serial `S6YGNS0Y903440H`, 1,000,204,886,016 bytes
+- Layout: GPT, one ext4 partition, label `T7_BACKUP`, UUID `4c75ac03-4c73-43f8-afd9-f90db49a74fc`
+- Stable mount: `/mnt/T7_BACKUP`, persistent `/etc/fstab` UUID entry, owner `daniele:daniele`
+- Source ZIP: `/home/daniele/Downloads/daniele_pc_2026_06_22-7-10-3-16-55.zip`, 46,267,017,669 bytes
+- SHA-256: `c78ed886352b203e696dfc9eccd65e1a844a6594c835e99d639a259d15937cfc`
+- ZIP test: PASS, 7-Zip exit 0, 210,546 files, 46,180,382,329 uncompressed bytes
+- Extraction: PASS, 7-Zip exit 0, 210,546 files, 42,448 directories, 46,180,382,329 bytes
+- Final path: `/mnt/T7_BACKUP/daniele_pc_2026_06_22-7-10-3-16-55`
+- CRC/I/O/extraction errors: none
+- Integrity: 152/152 PDFs passed; 167 SQLite databases passed and 8 extension candidates were not SQLite by magic; 74/76 nested ZIPs passed, one was truncated and one was password-protected; 29,236/29,297 images passed ImageMagick validation, with 61 pre-existing invalid/unsupported image artifacts
+- Suspicious inventory: 37 `.part`/`.tmp`; 2,857 zero-byte files; retained because all are members of the CRC-valid source ZIP
+- Filesystem check: final offline `e2fsck -f -n` exit 0; remount and readability checks passed
+- Final space: 46,899,855,360 bytes used; 886,423,248,896 bytes available
+- Warning: one nested ZIP is truncated, one encrypted ZIP could not be tested without a password, and 61 image artifacts fail ImageMagick validation; these are source-content findings, not extraction failures
+- Resolved blocker: a Chrome Flatpak mount namespace retained the old Ventoy mount and initially blocked partition-table reread; the stale namespace mount was released without rebooting
+- Resolved blocker: SQLite validation created WAL/SHM sidecars despite read-only intent; exactly 213 sidecars were removed, the full ZIP was re-extracted successfully, exact counts were restored, and final e2fsck was repeated
+- Full log: `/home/daniele/task-842731/activity-842731.log`
+- Detailed validation artifacts: `/home/daniele/task-842731/`

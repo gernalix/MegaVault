@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T20:36:12+02:00
-total_events=607
+generated_at=2026-07-10T21:39:28+02:00
+total_events=632
 format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
@@ -9,6 +9,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
+2026-07-10|activity-842731-t7-backup-restore-md|activity-842731-t7-backup-restore-md Activity 842731 -|security|WARN|P1
+2026-07-10|activity-846271-codex-native-restore-md|activity-846271-codex-native-restore-md Activity 846271 Codex|backup|WARN|P1
 2026-07-10|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB trace|backup|UNKNOWN|P1
@@ -31,12 +33,13 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi|Luoghi v2|security|WARN|P0
 2026-07-10|luoghi|Luoghi v2|security|WARN|P0
 2026-07-10|luoghi|Luoghi v5|security|WARN|P0
-2026-07-10|luoghi-app|luoghi-app v10|release|UNKNOWN|P0
 2026-07-10|luoghi-app|luoghi-app v11|release|UNKNOWN|P0
 2026-07-10|luoghi-app|luoghi-app v11|backup|UNKNOWN|P0
+2026-07-10|luoghi-app|luoghi-app v16|release|UNKNOWN|P0
 2026-07-10|luoghi-app|luoghi-app v5|backup|OPEN|P0
 2026-07-10|luoghi-app|Git PATH|backup|UNKNOWN|P1
 2026-07-10|luoghi-app|Git PATH|backup|UNKNOWN|P1
+2026-07-10|luoghi-app|Git PATH|backup|PASS|P1
 2026-07-10|luoghi-app|luoghi-app 1|release|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app 1.apk|security|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app 1.apk|security|PASS|P1
@@ -44,6 +47,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi-app|luoghi-app 2|release|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app 3|release|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app luoghi manifest|backup|UNKNOWN|P1
+2026-07-10|luoghi-app|luoghi-app Registro incidenti|backup|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app v1|release|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app v1|security|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app v10|security|UNKNOWN|P1
@@ -57,7 +61,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|Android Tests|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app INCIDENT_REGISTRY|bugfix|UNKNOWN|P2
-2026-07-10|luoghi-app|luoghi-app Registro incidenti|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v10|testing|UNKNOWN|P2
@@ -98,6 +101,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault v2|security|OPEN|P0
 2026-07-10|megavault|Git PATH|security|OPEN|P1
 2026-07-10|megavault|Git PATH|security|PASS|P1
+2026-07-10|megavault|MegaVault Activity 842731 -|security|WARN|P1
 2026-07-10|megavault|MegaVault Activity 846271 Codex|backup|WARN|P1
 2026-07-10|megavault|MegaVault docs record Fedora|automation|PASS|P1
 2026-07-10|megavault|MegaVault docs refresh timeline|automation|PASS|P1
@@ -108,6 +112,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault Update timeline for|bugfix|PASS|P1
 2026-07-10|megavault|Android Tests|bugfix|UNKNOWN|P2
 2026-07-10|megavault|Codex Timeline|automation|UNKNOWN|P2
+2026-07-10|megavault|MegaVault Document Codex cleanup|docs|PASS|P2
 2026-07-10|megavault|MegaVault Document Fedora ADB|testing|PASS|P2
 2026-07-10|megavault|MegaVault Document Fedora RustDesk|docs|PASS|P2
 2026-07-10|megavault|MegaVault Document live Codex|docs|PASS|P2
@@ -121,6 +126,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|multitimetracker|MTT v1|security|PASS|P0
 2026-07-10|multitimetracker|MTT v2|security|WARN|P0
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
+2026-07-10|multitimetracker|MTT v537|security|WARN|P0
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
 2026-07-10|oracle-backup-service|Codex Timeline|security|FAIL|P0
@@ -128,11 +134,14 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma Topologia rete globale|security|UNKNOWN|P1
+2026-07-10|prompt-847263-rustdesk-fedora-md|Git PATH|security|PASS|P1
 2026-07-10|rollout-summaries|Codex Timeline|security|WARN|P0
 2026-07-10|rollout-summaries|Codex Timeline|release|WARN|P0
 2026-07-10|rollout-summaries|Codex Timeline|security|PASS|P0
 2026-07-10|rollout-summaries|Codex Timeline|security|PASS|P0
 2026-07-10|skills|Codex Timeline|security|OPEN|P0
+2026-07-10|task-714283-codex-live-logging-md|task-714283-codex-live-logging-md Task 714283 Codex|docs|UNKNOWN|P2
+2026-07-10|windows|Veeam T7|security|OPEN|P0
 2026-07-10|windows|Veeam T7|backup|OPEN|P0
 2026-07-10|windows|Veeam T7|security|UNKNOWN|P1
 2026-07-10|windowtabnotes|windowtabnotes v8|security|WARN|P0
@@ -315,6 +324,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|parcel-tracker|parcel-tracker parcel-tracker Troubleshooting|release|FAIL|P1
 2026-07-09|parcel-tracker|parcel-tracker parcel-tracker Overview|automation|OPEN|P2
 2026-07-09|parcel-tracker|parcel-tracker parcel-tracker Roadmap|docs|FAIL|P2
+2026-07-09|prompt-582941-activitywatch-reboot-before-md|prompt-582941-activitywatch-reboot-before-md v0|backup|UNKNOWN|P1
+2026-07-09|prompt-739482-xfce-window-tiling-report-20260610-md|prompt-739482-xfce-window-tiling-report-20260610-md XFCE window tiling|backup|UNKNOWN|P1
 2026-07-09|remote-codex-phone|remote-codex-phone v2|security|OPEN|P0
 2026-07-09|remote-codex-phone|remote-codex-phone remote-codex-phone Features|release|OPEN|P1
 2026-07-09|remote-codex-phone|remote-codex-phone remote-codex-phone Troubleshooting|release|OPEN|P1
@@ -349,7 +360,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|system-watchdog|system-watchdog system_watchdog Roadmap|automation|FAIL|P1
 2026-07-09|system-watchdog|system-watchdog system_watchdog Troubleshooting|release|FAIL|P1
 2026-07-09|system-watchdog|system-watchdog system_watchdog Overview|automation|OPEN|P2
-2026-07-09|windows|Veeam T7|security|OPEN|P0
 2026-07-09|windows|Veeam T7|security|WARN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
@@ -391,6 +401,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-06|megavault|MegaVault v536|infra|PASS|P1
 2026-07-06|megavault|MegaVault v536|docs|PASS|P2
 2026-07-06|megavault|MegaVault v537|docs|PASS|P2
+2026-07-05|codex-weekly-limit-monitor-vm-fix-20260705-md|Git PATH|security|PASS|P0
+2026-07-05|codex-weekly-limit-notification-format-20260705-md|codex-weekly-limit-notification-format-20260705-md Codex weekly limit|security|PASS|P1
+2026-07-05|codex-weekly-limit-real-5h-source-fix-20260705-md|codex-weekly-limit-real-5h-source-fix-20260705-md Codex weekly limit|security|PASS|P1
 2026-07-05|luoghi-app|luoghi-app 1.apk|security|WARN|P0
 2026-07-05|luoghi-app|luoghi-app 2.apk|security|WARN|P0
 2026-07-05|luoghi-app|luoghi-app 4.apk|backup|PASS|P0
@@ -443,6 +456,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-22|megavault|MegaVault Document MultiTimeTracker Play|docs|PASS|P2
 2026-06-22|megavault|MegaVault Document MultiTimeTracker signed|docs|PASS|P2
 2026-06-22|megavault|MegaVault v535|docs|PASS|P2
+2026-06-22|prompt-481926-oracle-vm-offloads-home-backup-md|prompt-481926-oracle-vm-offloads-home-backup-md prompt_481926 oracle-vm-offloads home-backup|backup|WARN|P0
 2026-06-18|grindr-web-exporter|grindr-web-exporter v1|security|PASS|P1
 2026-06-18|grindr-web-exporter|grindr-web-exporter Changelog|bugfix|UNKNOWN|P2
 2026-06-18|soldi|Soldi 2.apk|backup|OPEN|P1
@@ -480,6 +494,11 @@ format=event_date|project|label_short|category|status|importance
 2026-06-13|oracle-backup-service|Oracle Backup oracle-backup-service Overview|backup|WARN|P1
 2026-06-13|owntracks-watcher|owntracks-watcher v9|security|WARN|P0
 2026-06-13|owntracks-watcher|Android Tests|automation|FAIL|P1
+2026-06-13|prompt-483920-external-disk-io-diagnosis-md|prompt-483920-external-disk-io-diagnosis-md prompt_483920 external disk|backup|WARN|P0
+2026-06-13|prompt-628451-home-backup-post-run-baseline-md|prompt-628451-home-backup-post-run-baseline-md prompt_628451 home-backup post-run|backup|FAIL|P0
+2026-06-13|prompt-731584-codex-wal-disk-growth-md|prompt-731584-codex-wal-disk-growth-md Codex WAL T7|security|FAIL|P1
+2026-06-13|prompt-739284-home-backup-bwlimit-followup-md|prompt-739284-home-backup-bwlimit-followup-md prompt_739284 home-backup bwlimit|backup|UNKNOWN|P0
+2026-06-13|prompt-914672-home-backup-bwlimit-safety-md|Git PATH|backup|FAIL|P0
 2026-06-13|sostanze|Sostanze 4.apk|backup|WARN|P1
 2026-06-13|sostanze|Sostanze v4|release|UNKNOWN|P1
 2026-06-12|oracle-backup-service|Oracle Backup Oracle Backup|security|FAIL|P1
@@ -496,6 +515,9 @@ format=event_date|project|label_short|category|status|importance
 2026-06-10|oracle-backup-service|Oracle Backup v2|security|WARN|P0
 2026-06-10|oracle-backup-service|Oracle Backup oracle-backup healthcheck|backup|WARN|P1
 2026-06-10|oracle-uptime-kuma|Kuma Roadmap|performance|WARN|P2
+2026-06-10|prompt-391684-activitywatch-autostart-md|prompt-391684-activitywatch-autostart-md v2|backup|FAIL|P1
+2026-06-10|prompt-428691-kuma-docs-normalization-md|prompt-428691-kuma-docs-normalization-md v8|security|UNKNOWN|P0
+2026-06-10|prompt-731845-kuma-operational-audit-md|prompt-731845-kuma-operational-audit-md v8|security|FAIL|P0
 2026-06-10|supercontacts|SC v2|release|WARN|P1
 2026-06-10|surface-recovery-hardening|surface-recovery-hardening v2|security|PASS|P0
 2026-06-10|windowtabnotes|windowtabnotes v22|backup|UNKNOWN|P1
@@ -508,6 +530,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-06|mint-cloud-backup|mint-cloud-backup mint-cloud-backup Overview|backup|WARN|P1
 2026-06-06|oracle-uptime-kuma|Kuma v2|security|FAIL|P0
 2026-06-06|oracle-uptime-kuma|Kuma Uptime Kuma cleanup|security|WARN|P1
+2026-06-06|prompt-618903-mint-home-backup-rsync137-md|prompt-618903-mint-home-backup-rsync137-md prompt_618903 mint-home-backup rsync_exit|security|WARN|P1
 2026-06-06|surface-recovery-hardening|surface-recovery-hardening surface-recovery-hardening Changelog|backup|PASS|P1
 2026-06-05|android|android v3|security|FAIL|P0
 2026-06-05|android|android android Features|automation|OPEN|P2
@@ -534,6 +557,8 @@ format=event_date|project|label_short|category|status|importance
 2026-06-05|oracle-backup-service|Oracle Backup iniziale|security|WARN|P1
 2026-06-05|oracle-backup-service|Oracle Backup oracle-backup-service Troubleshooting|security|WARN|P1
 2026-06-05|oracle-backup-service|Oracle Backup v4|security|WARN|P1
+2026-06-05|prompt-584731-antifreeze-final-report-md|Git PATH|backup|PASS|P1
+2026-06-05|prompt-739482-initial-report-md|Android Tests|security|PASS|P1
 2026-06-04|megavault|MegaVault Consolidate Android updater|docs|PASS|P2
 2026-06-04|megavault|MegaVault Document mint update|docs|PASS|P2
 2026-06-04|mint-update-tracker|mint-update-tracker v2|security|PASS|P1
