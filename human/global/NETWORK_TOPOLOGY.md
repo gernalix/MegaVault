@@ -9,6 +9,8 @@ Aggiornato: 2026-07-10. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/glob
 - Ethernet `enp1s0f0` down; Tailscale non rilevato nel PATH.
 - Loopback `127.0.0.1`.
 
+Fedora System Monitor invia esclusivamente heartbeat e stati sintetici all'istanza Uptime Kuma esistente su `150.230.148.128:3001`, senza modifiche firewall. Gli endpoint sono root-only e i messaggi non contengono dati sensibili. Il collegamento attuale e' HTTP e va migrato a HTTPS per proteggere il trasporto.
+
 ## Android
 
 ADB usa `/home/daniele/Android/Sdk/platform-tools/adb`. Il server utente condiviso ascolta solo su `127.0.0.1:5037`; `adb-device-keeper.service` e' abilitato e attivo e gestisce Pixel 8a e TCL 6102H senza dipendere da Android Studio.

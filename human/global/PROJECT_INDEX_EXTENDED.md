@@ -8,6 +8,8 @@ MegaVault risiede in `/home/daniele/MegaVault`; usa `codex_global_timeline.sqlit
 
 Codex Session Logger risiede in `/home/daniele/projects/codex-session-logger`, installa il launcher in `~/.local/bin` e salva i log sotto `~/.local/state/codex-session-logger/sessions`. Non usa servizi o timer.
 
+Fedora System Monitor risiede in `/home/daniele/MegaVault/projects/fedora-system-monitor`. Il runtime è installato in `/usr/local/libexec/fedora-system-monitor`, usa configurazione sotto `/etc/fedora-system-monitor`, dati sotto `/var/lib/fedora-system-monitor`, un daemon eventi, unita' lifecycle/collector, quattro timer e una path unit. Installazione e prove live sono state verificate nell'attivita' 593184.
+
 ## Stato migrazione
 
 Servizi, timer, database, dashboard, monitor e alert degli altri progetti indicizzati non sono ancora stati riverificati sul Fedora corrente. Le relazioni vanno ricostruite in modo incrementale quando ciascun progetto viene migrato o toccato, usando evidenza live e i metadata locali.

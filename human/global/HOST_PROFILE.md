@@ -11,6 +11,7 @@ Aggiornato: 2026-07-10. Autorita' operativa: [HOST_PROFILE AI](../../ai/global/H
 - Git: `/usr/bin/git` 2.55.0; GitHub CLI: `/usr/bin/gh` 2.94.0; Codex CLI: `/usr/local/bin/codex` 0.144.0.
 - Python: `/usr/bin/python3` 3.14.6; pip 26.0.1; pipx 1.15.0; uv 0.11.26.
 - Servizi: systemd 259 tramite `systemctl` e `systemctl --user`.
+- Monitor host: Fedora System Monitor 1.0.0 installato, abilitato e verificato con database SQLite locale e cinque Push Monitor Kuma.
 - SSH: `/usr/bin/ssh` OpenSSH 10.2p1; directory standard `~/.ssh` (`/home/daniele/.ssh`) non ancora presente.
 - Container: Docker non installato e unit assente; Podman 5.8.4 disponibile come runtime opzionale.
 - Accesso remoto: RustDesk 1.4.9 RPM ufficiale in `/usr/bin/rustdesk`; servizio di sistema abilitato e attivo. Su GNOME Wayland il controllo e' sperimentale e la schermata GDM pre-login non e' raggiungibile; password permanente e test fisico Android restano manuali.

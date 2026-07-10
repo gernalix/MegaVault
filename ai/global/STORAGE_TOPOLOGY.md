@@ -1,9 +1,9 @@
 # STORAGE_TOPOLOGY
-VERSION=4
+VERSION=5
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-09
+SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-09+activity_593184
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/STORAGE_TOPOLOGY.md
@@ -13,6 +13,9 @@ host=fedora
 machine=Lenovo_ThinkPad_P14s_Gen_5_AMD
 root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=935.9GiB mounts=/,/home
 home=/home/daniele
+monitor_db=/var/lib/fedora-system-monitor/monitor.sqlite3;schema=2;WAL=yes;backup=/var/lib/fedora-system-monitor/backups;retention=enabled;integrity=ok_2026-07-10
+monitor_external_labels=Ventoy+VTOYEFI+VEEAMRE+Seagate_Expansion_Drive;identity=filesystem_UUID_or_hardware_serial_hash;never_dev_sdX
+incident=external-ntfs-disconnect-during-mounted-io;first_seen=2026-07-09T19:07:00+02:00;status=OPEN;details=INCIDENT_REGISTRY.md
 repo=/home/daniele/MegaVault
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
 external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs source=udisks_encrypted_volume_mapping size=3.5TiB

@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=7
+VERSION=8
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-10T11:24:00+02:00
-SOURCE=tool_versions_live_2026-07-09+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+task_714283
+UPDATED=2026-07-10T11:27:00+02:00
+SOURCE=tool_versions_live_2026-07-09+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+task_714283+activity_593184
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -27,6 +27,12 @@ tool=flatpak;path=PATH;critical=yes_for_Android_Studio
 tool=OpenSSH;path=/usr/bin/ssh;version=10.2p1;config_dir=/home/daniele/.ssh;config_dir_status=absent;critical=yes
 tool=Docker;path=missing;service=absent;version=not_installed;critical=no
 tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_container_runtime
+tool=Fedora_System_Monitor;version=1.0.0;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;status=installed+enabled+tested;activity=593184
+package=smartmontools;version=7.5-6.fc44;role=storage_health;preexisting=yes
+package=nvme-cli;version=2.16-2.fc44;role=NVMe_health;preexisting=yes
+package=lm_sensors;version=3.6.0-24.fc44;role=temperature;preexisting=yes
+package=sqlite;version=3.51.2-1.fc44;role=database_CLI;preexisting=yes
+packages=python3-snappy_0.7.3+python3-cramjam_2.11.0+python3-socketio_5.16.3+python3-bidict_0.23.1+python3-engineio_4.13.3+python3-simple-websocket_1.1.0+python3-wsproto_1.2.0;role=one_time_Kuma_admin_API;installed_by_activity=593184;runtime_collector_dependency=no
 
 DESKTOP_APPS_CURRENT:
 app=Obsidian;version=1.12.7;install=user_AppImage;path=/home/daniele/.local/opt/obsidian/Obsidian.AppImage;desktop=/home/daniele/.local/share/applications/obsidian.desktop;icon=/home/daniele/.local/share/icons/hicolor/512x512/apps/obsidian.png;arch=x86_64;launch=verified;gnome_applications=visible

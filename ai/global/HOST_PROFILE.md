@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=7
+VERSION=8
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-10T11:24:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+task_714283
+UPDATED=2026-07-10T11:27:00+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+task_714283+activity_593184
 
 META:
 host=fedora

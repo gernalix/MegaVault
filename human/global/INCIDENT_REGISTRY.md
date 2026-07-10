@@ -75,3 +75,13 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Verifica: dry-run e run reale systemd hanno letto `weekly_left=57%`, `five_hour_left=49%`, `five_hour_source=rateLimits.primary (codex)`, allineati allo screenshot utente.
 - Telegram: resta usato solo `/home/ubuntu/telegram_notify.py`; nessun token o chat id stampato.
 - Report: `ai/reports/codex_weekly_limit_real_5h_source_fix_20260705.md`.
+
+## EXTERNAL_NTFS_DISCONNECT_DURING_MOUNTED_IO
+- Timestamp UTC: `2026-07-09T17:07:00Z`.
+- Sintomo: un volume NTFS esterno montato e' scomparso durante I/O; `ntfs-3g` ha registrato errori di sync e chiusura.
+- Impatto: operazioni filesystem fallite fino alla ricomparsa e al remount circa dieci secondi dopo.
+- Stato: `OPEN`, gravita' `CRITICAL`; causa fisica non ancora determinata.
+- Mitigazione: Fedora System Monitor usa identita' stabile, registra l'evento, mantiene un alert critico e aggiorna il monitor Kuma `Fedora Storage` ID 40.
+- Prossimo controllo: verificare cavo, alimentazione e diagnostica del disco prima di scritture lunghe.
+- Sicurezza test: nessun dispositivo e' stato scollegato fisicamente e non e' stata tentata una riproduzione distruttiva.
+- Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md`.

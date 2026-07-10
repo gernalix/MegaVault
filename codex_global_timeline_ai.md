@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T11:24:12+02:00
-total_events=536
+generated_at=2026-07-10T11:33:48+02:00
+total_events=538
 format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
@@ -13,17 +13,17 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB trace|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
-2026-07-10|codex-session-logger|codex-session-logger Codex session logger|testing|OPEN|P0
-2026-07-10|codex-session-logger|Git PATH|backup|OPEN|P0
-2026-07-10|codex-session-logger|codex-session-logger Changelog|backup|OPEN|P1
-2026-07-10|codex-session-logger|codex-session-logger Incident Registry|release|UNKNOWN|P1
-2026-07-10|codex-session-logger|codex-session-logger Roadmap|release|UNKNOWN|P1
-2026-07-10|codex-session-logger|Git PATH|release|UNKNOWN|P1
-2026-07-10|codex-session-logger|codex-session-logger ACTIVE_EMPTY|bugfix|UNKNOWN|P2
-2026-07-10|codex-session-logger|codex-session-logger Codex Session Logger|docs|UNKNOWN|P2
-2026-07-10|codex-session-logger|codex-session-logger Overview|docs|UNKNOWN|P2
-2026-07-10|codex-session-logger|codex-session-logger Troubleshooting|docs|UNKNOWN|P2
 2026-07-10|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
+2026-07-10|fedora-system-monitor|fedora-system-monitor Changelog|backup|PASS|P1
+2026-07-10|fedora-system-monitor|fedora-system-monitor Fedora System Monitor|backup|UNKNOWN|P1
+2026-07-10|fedora-system-monitor|fedora-system-monitor INCIDENT REGISTRY|release|FAIL|P1
+2026-07-10|fedora-system-monitor|fedora-system-monitor OPERATIONS|security|FAIL|P1
+2026-07-10|fedora-system-monitor|fedora-system-monitor Roadmap|backup|UNKNOWN|P1
+2026-07-10|fedora-system-monitor|fedora-system-monitor SCHEMA|backup|FAIL|P1
+2026-07-10|fedora-system-monitor|fedora-system-monitor Troubleshooting|backup|WARN|P1
+2026-07-10|fedora-system-monitor|Git PATH|release|FAIL|P1
+2026-07-10|fedora-system-monitor|fedora-system-monitor Integrazione Uptime Kuma|performance|FAIL|P2
+2026-07-10|fedora-system-monitor|fedora-system-monitor Registro incidenti|automation|UNKNOWN|P2
 2026-07-10|megavault|Android Tests|security|OPEN|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
@@ -34,11 +34,13 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|Codex Timeline|backup|OPEN|P0
 2026-07-10|megavault|Git PATH|security|PASS|P0
 2026-07-10|megavault|Git PATH|security|PASS|P0
+2026-07-10|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
 2026-07-10|megavault|MegaVault CODEX_SESSION_LOGGING|backup|PASS|P0
 2026-07-10|megavault|MegaVault NETWORK_TOPOLOGY|security|OPEN|P0
 2026-07-10|megavault|MegaVault v2|security|OPEN|P0
 2026-07-10|megavault|Git PATH|security|OPEN|P1
 2026-07-10|megavault|Git PATH|security|PASS|P1
+2026-07-10|megavault|MegaVault Incident Registry|security|PASS|P1
 2026-07-10|megavault|MegaVault Record Fedora Chrome|bugfix|PASS|P1
 2026-07-10|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-10|megavault|MegaVault Task 714283 Codex|backup|PASS|P1
@@ -46,13 +48,17 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|Codex Timeline|automation|UNKNOWN|P2
 2026-07-10|megavault|MegaVault Document Fedora ADB|testing|PASS|P2
 2026-07-10|megavault|MegaVault Document Fedora RustDesk|docs|PASS|P2
+2026-07-10|megavault|MegaVault Document live Codex|docs|PASS|P2
 2026-07-10|megavault|MegaVault Document Obsidian Fedora|docs|PASS|P2
 2026-07-10|megavault|MegaVault Log live delle|testing|OPEN|P2
 2026-07-10|megavault|MegaVault Record WindowTabNotes Fedora|docs|PASS|P2
-2026-07-10|megavault|MegaVault Topologia rete globale|automation|UNKNOWN|P2
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
+2026-07-10|multitimetracker|MTT v4|security|PASS|P1
+2026-07-10|oracle-backup-service|Codex Timeline|security|FAIL|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
+2026-07-10|oracle-uptime-kuma|Kuma Topologia rete globale|security|UNKNOWN|P1
+2026-07-10|windows|Veeam T7|backup|OPEN|P0
 2026-07-10|windows|Veeam T7|security|UNKNOWN|P1
 2026-07-10|windowtabnotes|windowtabnotes v8|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
@@ -147,6 +153,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|facebook-video-archiver|facebook-video-archiver v4|testing|OPEN|P3
 2026-07-09|facedownassup-downloader|facedownassup-downloader facedownassup-downloader|security|OPEN|P1
 2026-07-09|facedownassup-downloader|facedownassup-downloader facedownassup-downloader Roadmap|testing|OPEN|P2
+2026-07-09|fedora-system-monitor|fedora-system-monitor v15|security|WARN|P0
 2026-07-09|git-change-ledger|git-change-ledger v8|security|PASS|P0
 2026-07-09|git-change-ledger|Git PATH|security|UNKNOWN|P1
 2026-07-09|git-change-ledger|Git PATH|security|UNKNOWN|P1
@@ -184,17 +191,15 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|megavault|Codex Timeline|docs|PASS|P0
 2026-07-09|megavault|Codex Timeline|backup|PASS|P0
 2026-07-09|megavault|Codex Timeline|migration|UNKNOWN|P0
+2026-07-09|megavault|Codex Timeline|backup|UNKNOWN|P0
 2026-07-09|megavault|Codex Timeline|backup|PASS|P0
 2026-07-09|megavault|Codex Timeline|security|UNKNOWN|P0
 2026-07-09|megavault|Codex Timeline|security|PASS|P0
 2026-07-09|megavault|Codex Timeline|docs|PASS|P0
 2026-07-09|megavault|MegaVault 1.apk|backup|PASS|P0
-2026-07-09|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
-2026-07-09|megavault|Codex Timeline|backup|UNKNOWN|P1
 2026-07-09|megavault|MegaVault Alert Registry|security|UNKNOWN|P1
 2026-07-09|megavault|MegaVault docs adapt MegaVault|infra|PASS|P1
 2026-07-09|megavault|MegaVault docs verify Fedora|migration|PASS|P1
-2026-07-09|megavault|MegaVault Incident Registry|security|PASS|P1
 2026-07-09|megavault|MegaVault Update global timeline|migration|PASS|P1
 2026-07-09|megavault|MegaVault v0|backup|UNKNOWN|P1
 2026-07-09|megavault|MegaVault XFCE window tiling|backup|UNKNOWN|P1
@@ -227,11 +232,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|multitimetracker|MTT ENRICHMENT_REPORT|security|PASS|P1
 2026-07-09|multitimetracker|MTT MegaVault Human Enrichment|security|PASS|P1
 2026-07-09|multitimetracker|MTT v4|security|WARN|P1
-2026-07-09|multitimetracker|MTT v4|security|PASS|P1
 2026-07-09|multitimetracker|MTT v488|security|WARN|P1
 2026-07-09|multitimetracker|MTT v488|security|WARN|P1
 2026-07-09|multitimetracker|MTT v534|backup|WARN|P1
-2026-07-09|oracle-backup-service|Codex Timeline|security|FAIL|P0
 2026-07-09|oracle-backup-service|Oracle Backup oracle-backup-service Features|security|FAIL|P1
 2026-07-09|oracle-backup-service|Oracle Backup oracle-backup-service Roadmap|security|WARN|P1
 2026-07-09|oracle-uptime-kuma|Kuma Features|backup|UNKNOWN|P1
@@ -283,7 +286,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|system-watchdog|system-watchdog system_watchdog Overview|automation|OPEN|P2
 2026-07-09|windows|Veeam T7|security|OPEN|P0
 2026-07-09|windows|Veeam T7|security|WARN|P0
-2026-07-09|windows|Veeam T7|backup|OPEN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|windows v1|security|WARN|P0

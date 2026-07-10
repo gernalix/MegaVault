@@ -11,6 +11,8 @@ Aggiornato: 2026-07-10. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/gl
 - OpenJDK 25.0.3 con `JAVA_HOME=/usr/lib/jvm/java-25-openjdk`.
 - OpenSSH 10.2p1 in `/usr/bin/ssh`; il path standard `~/.ssh` (`/home/daniele/.ssh`) non e' ancora presente.
 - Docker non e' installato e non ha una unit systemd; Podman 5.8.4 e' disponibile come runtime opzionale.
+- Fedora System Monitor 1.0.0 e' installato in `/usr/local/libexec/fedora-system-monitor` con CLI `/usr/local/bin/fedora-system-monitor`; servizi, timer e test live sono verificati.
+- Smartmontools 7.5, nvme-cli 2.16, lm_sensors 3.6 e SQLite 3.51 erano gia' disponibili. L'attivita' 593184 ha aggiunto i pacchetti Fedora Python Socket.IO e compressione necessari soltanto al provisioning amministrativo Kuma; i collector ordinari restano standard-library.
 - Android Studio Flatpak `com.google.AndroidStudio` 2026.1.1.10; avvio con `flatpak run com.google.AndroidStudio`.
 - Android SDK: `/home/daniele/Android/Sdk`; ADB `1.0.41 / 37.0.0-14910828`; `sdkmanager` sotto `cmdline-tools/latest/bin`.
 - Per Gradle usare il wrapper del progetto.

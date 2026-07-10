@@ -1,20 +1,31 @@
 # ALERT_REGISTRY
-VERSION=2
+VERSION=3
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_systemd_live_2026-07-09+HOST_PROFILE
+SOURCE=Fedora_systemd_live_2026-07-09+HOST_PROFILE+activity_593184
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
 
 CURRENT_FEDORA:
 host=fedora
-project_alert_services_verified=none
-project_alert_timers_verified=none
-Kuma_push_sources_verified=none
+project_alert_services_verified=fedora-system-monitor-events+collectors
+project_alert_timers_verified=fedora-system-monitor-fast+hourly+daily+weekly
+Kuma_push_sources_verified=fedora-system-monitor
 Telegram_sources_verified=none
 alert_migration=not_revalidated
+
+FEDORA_SYSTEM_MONITOR_KUMA:
+source=fedora-system-monitor;credentials=/etc/fedora-system-monitor/uptime-kuma.toml;mode=root:root_0600;transport=HTTP_existing_infrastructure;runtime_cookie_dependency=none
+monitor=Fedora_Host;id=39;heartbeat=180s;mapping=CPU+memory+swap+temperature+kernel+OOM
+monitor=Fedora_Storage;id=40;heartbeat=480s;mapping=filesystem+SMART+IO+mount+devices
+monitor=Fedora_Network;id=41;heartbeat=180s;mapping=Internet+gateway+WiFi+VPN+NetworkManager
+monitor=Fedora_Services;id=42;heartbeat=180s;mapping=failed_units+restart+restart_loop
+monitor=Fedora_Software;id=43;heartbeat=5400s;mapping=updates+transactions+inventory
+anti_spam=persistent_dedup+duration_gate+hysteresis+cooldown+aggregation+single_recovery
+verification=all_five_real_UP_delivered+Software_controlled_DOWN_HTTP_200+recovery_UP_HTTP_200
+security=push_URLs_not_in_repo_or_logs;HTTP_transport_risk_documented
 
 SYSTEM_SIGNALING_CURRENT:
 service=abrtd.service;state=active/running;scope=local_crash_reporting
@@ -30,4 +41,5 @@ rule=verify_sender+timer+delivery+destination_before_marking_active
 rule=do_not_assume_pre_migration_alert_sources_exist
 
 OPEN:
-open=project_alerting_and_remote_monitoring_not_revalidated_from_Fedora
+open=other_project_alerting_and_remote_monitoring_not_revalidated_from_Fedora
+open=migrate_existing_Kuma_endpoint_to_HTTPS

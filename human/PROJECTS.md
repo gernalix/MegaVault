@@ -1,6 +1,6 @@
 # MegaVault Projects
 
-Updated: 2026-07-09T00:00:00+02:00
+Updated: 2026-07-10T11:27:00+02:00
 
 Host note: current primary host is Fedora Linux 44 Workstation on Lenovo ThinkPad P14s Gen 5 AMD, with local root `/home/daniele`. Project rows are catalog records only; every local runtime path must be revalidated on Fedora and must not override `ai/global/HOST_PROFILE.md`.
 
@@ -18,6 +18,7 @@ Host note: current primary host is Fedora Linux 44 Workstation on Lenovo ThinkPa
 | disk-usage-monitor | Linux Mint disk monitor with SQLite state, clean Telegram alerts, and Oracle Uptime Kuma push heartbeat. | local Human docs unknown | local AI docs unknown | metadata unknown |
 | facebook-video-archiver | Start here for Codex/operator work on `facebook-video-archiver`. | [Human](../../facebook-video-archiver/docs/human/) | [AI](../../facebook-video-archiver/docs/ai/) | [metadata](../../facebook-video-archiver/dev/project.metadata.json) |
 | facedownassup-downloader | Local authorized downloader for facedownassup.com member gallery pages using the operator's existing Chrome login via yt-dlp cookies and non-evasive browser headers. | [Human](../../facedownassup-downloader/docs/human/) | [AI](../../facedownassup-downloader/docs/ai/) | [metadata](../../facedownassup-downloader/dev/project.metadata.json) |
+| Fedora System Monitor | Monitoraggio permanente Fedora con cronologia SQLite, eventi hardware/software, alert configurabili e cinque monitor Uptime Kuma. | [Human](../projects/fedora-system-monitor/docs/human/) | [AI](../projects/fedora-system-monitor/docs/ai/) | [metadata](../projects/fedora-system-monitor/dev/project.metadata.json) |
 | git-change-ledger | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs or automatic fetches. | [Human](../../git-change-ledger/docs/human/) | [AI](../../git-change-ledger/docs/ai/) | [metadata](../../git-change-ledger/dev/project.metadata.json) |
 | grindr-web-exporter | Local resumable Grindr Web chat exporter using Firefox session data, Playwright DOM scraping, SQLite, JSON and HTML outputs. | [Human](../../grindr-web-exporter/docs/human/) | [AI](../../grindr-web-exporter/docs/ai/) | [metadata](../../grindr-web-exporter/dev/project.metadata.json) |
 | installa-app | UNKNOWN: source docs do not state a clear purpose. | [Human](../../installa-app/docs/human/) | [AI](../../installa-app/docs/ai/) | [metadata](../../installa-app/dev/project.metadata.json) |

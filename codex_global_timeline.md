@@ -1,14 +1,13 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T11:24:12+02:00
+Generated: 2026-07-10T11:33:48+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 536
+Total events: 538
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/projects/codex-session-logger`
 
 ## Statistics
 ### Events by project
@@ -21,9 +20,9 @@ Total events: 536
 | luoghi-app | 21 |
 | oracle-backup-service | 18 |
 | 2026 | 13 |
-| oracle-uptime-kuma | 12 |
+| oracle-uptime-kuma | 13 |
+| fedora-system-monitor | 12 |
 | supercontacts | 11 |
-| codex-session-logger | 10 |
 | windows | 8 |
 | windows-winget-daily-update | 7 |
 | android | 6 |
@@ -62,42 +61,41 @@ Total events: 536
 | megavault-surface | 2 |
 | mint-update-tracker | 2 |
 | extensions | 1 |
-| fedora-system-monitor | 1 |
 | unknown | 1 |
 
 ### Events by category
 
 | Value | Events |
 |---|---:|
-| security | 175 |
-| backup | 163 |
-| docs | 59 |
-| release | 40 |
-| bugfix | 31 |
-| testing | 22 |
+| security | 178 |
+| backup | 166 |
+| docs | 57 |
+| release | 39 |
+| bugfix | 30 |
+| testing | 21 |
 | automation | 17 |
 | infra | 15 |
 | migration | 12 |
-| performance | 2 |
+| performance | 3 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 296 |
+| P1 | 300 |
 | P0 | 127 |
-| P2 | 104 |
+| P2 | 102 |
 | P3 | 9 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 201 |
-| PASS | 134 |
-| WARN | 86 |
-| OPEN | 62 |
-| FAIL | 53 |
+| UNKNOWN | 197 |
+| PASS | 136 |
+| WARN | 88 |
+| OPEN | 59 |
+| FAIL | 58 |
 
 
 ## Recent Events
@@ -114,15 +112,15 @@ Total events: 536
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
-| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
-| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
-| 2026-07-10 | codex-session-logger | codex-session-logger Changelog | backup | OPEN | P1 | changelog | markdown | Changelog |
-| 2026-07-10 | codex-session-logger | codex-session-logger Incident Registry | release | UNKNOWN | P1 | release | markdown | Incident Registry |
-| 2026-07-10 | codex-session-logger | codex-session-logger Roadmap | release | UNKNOWN | P1 | release | markdown | Roadmap |
-| 2026-07-10 | codex-session-logger | Git PATH | release | UNKNOWN | P1 | release | json | project.metadata |
-| 2026-07-10 | codex-session-logger | codex-session-logger ACTIVE_EMPTY | bugfix | UNKNOWN | P2 | doc_event | markdown | ACTIVE_EMPTY |
-| 2026-07-10 | codex-session-logger | codex-session-logger Codex Session Logger | docs | UNKNOWN | P2 | doc_event | markdown | Codex Session Logger |
-| 2026-07-10 | codex-session-logger | codex-session-logger Overview | docs | UNKNOWN | P2 | doc_event | markdown | Overview |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | release | FAIL | P1 | release | markdown | INCIDENT REGISTRY |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor OPERATIONS | security | FAIL | P1 | report | markdown | OPERATIONS |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor SCHEMA | backup | FAIL | P1 | backup | markdown | SCHEMA |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
+| 2026-07-10 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -134,8 +132,6 @@ Total events: 536
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | report | codex_log | 019f4b52-7285-7c42-8426-2120b3579fe1 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
-| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
-| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
@@ -147,11 +143,14 @@ Total events: 536
 | 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-10 | megavault | MegaVault CODEX_SESSION_LOGGING | backup | PASS | P0 | protocol_update | markdown | CODEX_SESSION_LOGGING |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
+| 2026-07-10 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4b20-625f-7b82-b449-3344d0f62c4a |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
+| 2026-07-10 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
@@ -163,6 +162,7 @@ Total events: 536
 | 2026-07-09 | codex-html-live | codex-html-live v2 | security | OPEN | P0 | protocol_update | markdown | Live HTML archive for Codex JSONL sessions: watches session files and renders browser-readable chat archives without relying on tmux |
 | 2026-07-09 | codex-wrapper | codex-wrapper v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
 | 2026-07-09 | facebook-video-archiver | facebook-video-archiver v4 | security | FAIL | P0 | protocol_update | markdown | Start here for Codex/operator work on `facebook-video-archiver` |
+| 2026-07-09 | fedora-system-monitor | fedora-system-monitor v15 | security | WARN | P0 | protocol_update | markdown | PROJECT |
 | 2026-07-09 | git-change-ledger | git-change-ledger v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-09 | installa-app | installa-app v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
 | 2026-07-09 | luoghi | Luoghi app-debug.apk | security | PASS | P0 | release | markdown | Cloned Luoghi on Fedora, validated the debug Android build, and documented the local Fedora/JDK workaround. |
@@ -172,12 +172,12 @@ Total events: 536
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
 | 2026-07-09 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
+| 2026-07-09 | megavault | Codex Timeline | backup | UNKNOWN | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam diagnosis 384917 |
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-09 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
 | 2026-07-09 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
-| 2026-07-09 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-09 | megavault-project-exporter | megavault-project-exporter v3 | bugfix | UNKNOWN | P0 | protocol_update | markdown | megavault-project-exporter Roadmap |
 | 2026-07-09 | mint-manual-updates | mint-manual-updates v3 | security | FAIL | P0 | changelog | markdown | Single user-systemd Linux Mint updater for system packages, local Python venvs, dev tools, Android Studio, and Android SDK |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | Code Audit Enrichment Report |
@@ -188,7 +188,6 @@ Total events: 536
 | 2026-07-09 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | markdown | Fedora/Wayland integration and extension testing for WindowTabNotes |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-07-09 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
-| 2026-07-09 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-09 | os-observer | os-observer v2 | security | FAIL | P0 | protocol_update | markdown | Linux Mint black-box recorder: user-systemd timer records read-only telemetry into SQLite, maintains diagnostic knowledge, exports bounded context... |
 | 2026-07-09 | parcel-tracker | parcel-tracker v2 | security | OPEN | P0 | protocol_update | markdown | Servizio leggero user-level per monitorare la spedizione `XT329499807TS` |
 | 2026-07-09 | remote-codex-phone | remote-codex-phone v2 | security | OPEN | P0 | protocol_update | markdown | Prompt #438 setup for controlling Codex from an Android phone through: |
@@ -199,7 +198,6 @@ Total events: 536
 | 2026-07-09 | system-watchdog | system-watchdog v2 | security | OPEN | P0 | protocol_update | markdown | Persistent heartbeat sender for a Uptime Kuma push monitor |
 | 2026-07-09 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
 | 2026-07-09 | windows | Veeam T7 | security | WARN | P0 | protocol_update | markdown | Read-only diagnosis of a Fedora/Veeam backup setup and USB visibility issue |
-| 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f48d9-f422-7f61-b220-fa34bd086950 |
@@ -260,11 +258,11 @@ Total events: 536
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
 - `multitimetracker`: 26 events; latest=2026-07-10; label=MTT v4
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
-- `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
+- `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
 - `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
-- `oracle-uptime-kuma`: 12 events; latest=2026-07-10; label=Kuma v2
+- `oracle-uptime-kuma`: 13 events; latest=2026-07-10; label=Kuma v2
+- `fedora-system-monitor`: 12 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
-- `codex-session-logger`: 10 events; latest=2026-07-10; label=codex-session-logger Codex session logger
 - `windows`: 8 events; latest=2026-07-10; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
@@ -303,7 +301,6 @@ Total events: 536
 - `megavault-surface`: 2 events; latest=2026-07-05; label=megavault-surface v527
 - `mint-update-tracker`: 2 events; latest=2026-06-04; label=mint-update-tracker v2
 - `extensions`: 1 events; latest=2026-07-09; label=extensions Ad-hoc notes
-- `fedora-system-monitor`: 1 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `unknown`: 1 events; latest=2026-07-05; label=Veeam T7
 
 ## Complete Timeline
@@ -320,17 +317,17 @@ Total events: 536
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
-| 2026-07-10 | codex-session-logger | codex-session-logger Codex session logger | testing | OPEN | P0 | changelog | markdown | Codex session logger |
-| 2026-07-10 | codex-session-logger | Git PATH | backup | OPEN | P0 | protocol_update | markdown | active |
-| 2026-07-10 | codex-session-logger | codex-session-logger Changelog | backup | OPEN | P1 | changelog | markdown | Changelog |
-| 2026-07-10 | codex-session-logger | codex-session-logger Incident Registry | release | UNKNOWN | P1 | release | markdown | Incident Registry |
-| 2026-07-10 | codex-session-logger | codex-session-logger Roadmap | release | UNKNOWN | P1 | release | markdown | Roadmap |
-| 2026-07-10 | codex-session-logger | Git PATH | release | UNKNOWN | P1 | release | json | project.metadata |
-| 2026-07-10 | codex-session-logger | codex-session-logger ACTIVE_EMPTY | bugfix | UNKNOWN | P2 | doc_event | markdown | ACTIVE_EMPTY |
-| 2026-07-10 | codex-session-logger | codex-session-logger Codex Session Logger | docs | UNKNOWN | P2 | doc_event | markdown | Codex Session Logger |
-| 2026-07-10 | codex-session-logger | codex-session-logger Overview | docs | UNKNOWN | P2 | doc_event | markdown | Overview |
-| 2026-07-10 | codex-session-logger | codex-session-logger Troubleshooting | docs | UNKNOWN | P2 | doc_event | markdown | Troubleshooting |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | release | FAIL | P1 | release | markdown | INCIDENT REGISTRY |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor OPERATIONS | security | FAIL | P1 | report | markdown | OPERATIONS |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor SCHEMA | backup | FAIL | P1 | backup | markdown | SCHEMA |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
+| 2026-07-10 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | performance | FAIL | P2 | doc_event | markdown | Integrazione Uptime Kuma |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Registro incidenti | automation | UNKNOWN | P2 | doc_event | markdown | Registro incidenti |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
@@ -341,11 +338,13 @@ Total events: 536
 | 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-10 | megavault | MegaVault CODEX_SESSION_LOGGING | backup | PASS | P0 | protocol_update | markdown | CODEX_SESSION_LOGGING |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-10 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
+| 2026-07-10 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-10 | megavault | MegaVault Task 714283 Codex | backup | PASS | P1 | backup | markdown | Task 714283 Codex live logging |
@@ -353,13 +352,17 @@ Total events: 536
 | 2026-07-10 | megavault | Codex Timeline | automation | UNKNOWN | P2 | doc_event | markdown | Project Index Extended |
 | 2026-07-10 | megavault | MegaVault Document Fedora ADB | testing | PASS | P2 | git_commit | git_log | Document Fedora ADB device keeper |
 | 2026-07-10 | megavault | MegaVault Document Fedora RustDesk | docs | PASS | P2 | git_commit | git_log | Document Fedora RustDesk setup |
+| 2026-07-10 | megavault | MegaVault Document live Codex | docs | PASS | P2 | git_commit | git_log | Document live Codex session logging |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
 | 2026-07-10 | megavault | MegaVault Log live delle | testing | OPEN | P2 | qa | markdown | Log live delle sessioni Codex |
 | 2026-07-10 | megavault | MegaVault Record WindowTabNotes Fedora | docs | PASS | P2 | git_commit | git_log | Record WindowTabNotes Fedora uninstall |
-| 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
 | 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
+| 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
+| 2026-07-10 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4b20-625f-7b82-b449-3344d0f62c4a |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
+| 2026-07-10 | oracle-uptime-kuma | Kuma Topologia rete globale | security | UNKNOWN | P1 | doc_event | markdown | Topologia rete globale |
+| 2026-07-10 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-10 | windows | Veeam T7 | security | UNKNOWN | P1 | doc_event | markdown | Profilo host globale |
 | 2026-07-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
@@ -454,6 +457,7 @@ Total events: 536
 | 2026-07-09 | facebook-video-archiver | facebook-video-archiver v4 | testing | OPEN | P3 | qa | markdown | facebook-video-archiver Overview |
 | 2026-07-09 | facedownassup-downloader | facedownassup-downloader facedownassup-downloader | security | OPEN | P1 | report | markdown | facedownassup-downloader |
 | 2026-07-09 | facedownassup-downloader | facedownassup-downloader facedownassup-downloader Roadmap | testing | OPEN | P2 | report | markdown | facedownassup-downloader Roadmap |
+| 2026-07-09 | fedora-system-monitor | fedora-system-monitor v15 | security | WARN | P0 | protocol_update | markdown | PROJECT |
 | 2026-07-09 | git-change-ledger | git-change-ledger v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-09 | git-change-ledger | Git PATH | security | UNKNOWN | P1 | report | markdown | git-change-ledger |
 | 2026-07-09 | git-change-ledger | Git PATH | security | UNKNOWN | P1 | report | markdown | git-change-ledger Roadmap |
@@ -491,17 +495,15 @@ Total events: 536
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes Fedora integration |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam VM task 841527 |
 | 2026-07-09 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
+| 2026-07-09 | megavault | Codex Timeline | backup | UNKNOWN | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-09 | megavault | Codex Timeline | backup | PASS | P0 | git_commit | git_log | Update global Codex timeline for Veeam diagnosis 384917 |
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-09 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
 | 2026-07-09 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
-| 2026-07-09 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
-| 2026-07-09 | megavault | Codex Timeline | backup | UNKNOWN | P1 | backup | markdown | Data Registry |
 | 2026-07-09 | megavault | MegaVault Alert Registry | security | UNKNOWN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-09 | megavault | MegaVault docs adapt MegaVault | infra | PASS | P1 | git_commit | git_log | docs: adapt MegaVault global documentation for Fedora host |
 | 2026-07-09 | megavault | MegaVault docs verify Fedora | migration | PASS | P1 | git_commit | git_log | docs: verify Fedora documentation migration |
-| 2026-07-09 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-09 | megavault | MegaVault Update global timeline | migration | PASS | P1 | git_commit | git_log | Update global timeline for amici_fb Fedora migration |
 | 2026-07-09 | megavault | MegaVault v0 | backup | UNKNOWN | P1 | report | markdown | PROMPT_582941_ACTIVITYWATCH_REBOOT_BEFORE |
 | 2026-07-09 | megavault | MegaVault XFCE window tiling | backup | UNKNOWN | P1 | report | markdown | Prompt 739482 - XFCE window tiling repair |
@@ -534,11 +536,9 @@ Total events: 536
 | 2026-07-09 | multitimetracker | MTT ENRICHMENT_REPORT | security | PASS | P1 | changelog | markdown | ENRICHMENT_REPORT |
 | 2026-07-09 | multitimetracker | MTT MegaVault Human Enrichment | security | PASS | P1 | changelog | markdown | MegaVault Human Enrichment Report |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P1 | doc_event | markdown | PROJECT_INVENTORY |
-| 2026-07-09 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
 | 2026-07-09 | multitimetracker | MTT v488 | security | WARN | P1 | changelog | markdown | MegaVault Migration Report |
 | 2026-07-09 | multitimetracker | MTT v488 | security | WARN | P1 | changelog | markdown | MIGRATION_REPORT |
 | 2026-07-09 | multitimetracker | MTT v534 | backup | WARN | P1 | report | markdown | MultiTimeTracker Troubleshooting |
-| 2026-07-09 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-09 | oracle-backup-service | Oracle Backup oracle-backup-service Features | security | FAIL | P1 | doc_event | markdown | oracle-backup-service Features |
 | 2026-07-09 | oracle-backup-service | Oracle Backup oracle-backup-service Roadmap | security | WARN | P1 | report | markdown | oracle-backup-service Roadmap |
 | 2026-07-09 | oracle-uptime-kuma | Kuma Features | backup | UNKNOWN | P1 | backup | markdown | Features |
@@ -590,7 +590,6 @@ Total events: 536
 | 2026-07-09 | system-watchdog | system-watchdog system_watchdog Overview | automation | OPEN | P2 | doc_event | markdown | system_watchdog Overview |
 | 2026-07-09 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
 | 2026-07-09 | windows | Veeam T7 | security | WARN | P0 | protocol_update | markdown | Read-only diagnosis of a Fedora/Veeam backup setup and USB visibility issue |
-| 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f48d9-f422-7f61-b220-fa34bd086950 |

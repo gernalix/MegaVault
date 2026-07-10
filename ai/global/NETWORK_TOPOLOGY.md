@@ -1,9 +1,9 @@
 # NETWORK_TOPOLOGY
-VERSION=4
+VERSION=5
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214
+SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214+activity_593184
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/NETWORK_TOPOLOGY.md
@@ -13,6 +13,10 @@ host=fedora
 machine=Lenovo_ThinkPad_P14s_Gen_5_AMD
 os=Fedora_Linux_44_Workstation
 loopback=127.0.0.1
+
+MONITORING_EGRESS:
+source=fedora-system-monitor;destination=150.230.148.128:3001;protocol=HTTP;purpose=Uptime_Kuma_push_only;categories=system+storage+network+services+software;credentials=root_only;payload=no_sensitive_data;firewall_change=none;verified=2026-07-10
+risk=HTTP_does_not_protect_push_endpoint_or_status_from_on_path_observers;HTTPS_migration_recommended
 wifi_interface=wlp2s0
 wifi_state=UP
 lan_ipv4=192.168.1.231/24

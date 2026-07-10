@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=4
+VERSION=5
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-10+HOST_PROFILE+activity_638214+activity_847263
+SOURCE=systemctl_live_2026-07-10+HOST_PROFILE+activity_638214+activity_847263+activity_593184
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -14,7 +14,7 @@ os=Fedora_Linux_44_Workstation
 service_manager=systemd
 system_state=running
 user_state=running
-project_services_verified=none
+project_services_verified=fedora-system-monitor
 project_service_migration=not_revalidated
 user_linger_daniele=yes
 
@@ -29,6 +29,12 @@ service=udisks2.service;state=active/running;purpose=removable_storage
 service=gdm.service;state=active/running;purpose=GNOME_display_manager
 service=rustdesk.service;scope=system;state=enabled+active/running;purpose=RustDesk_remote_access;exec=/usr/bin/rustdesk_--service;package=rustdesk-1.4.9-0.x86_64;starts=user_server+tray_when_session_exists
 service=windowtabnotes.service;state=removed/not-found;scope=system;removed_at=2026-07-10;reason=WindowTabNotes Fedora uninstall after GNOME Wayland limitation validation
+service=fedora-system-monitor-events.service;state=enabled+active/running;purpose=event_driven_journal_capture;processes=python+journalctl;activity=593184
+service=fedora-system-monitor-lifecycle.service;state=enabled+active/exited;purpose=boot+clean_shutdown_tracking;activity=593184
+service=fedora-system-monitor-collect@.service;state=static_template;purpose=isolated_periodic_collectors;activity=593184
+service=fedora-system-monitor-device-add@.service;state=static_template;purpose=udev_device_add;activity=593184
+service=fedora-system-monitor-device-change@.service;state=static_template;purpose=udev_device_change;activity=593184
+service=fedora-system-monitor-device-remove@.service;state=static_template;purpose=udev_device_remove;activity=593184
 
 USER_SERVICES_RELEVANT:
 service=gnome-session-manager@gnome.service;state=active/running;purpose=GNOME_session
@@ -43,6 +49,11 @@ timer=dnf-makecache.timer;scope=system;state=active;purpose=package_metadata
 timer=fstrim.timer;scope=system;state=active;purpose=SSD_trim
 timer=logrotate.timer;scope=system;state=active;purpose=log_rotation
 timer=systemd-tmpfiles-clean.timer;scope=system+user;state=active;purpose=temp_cleanup
+timer=fedora-system-monitor-fast.timer;scope=system;state=enabled+active;calendar=every_minute;purpose=minute+overdue_5m+15m_collectors
+timer=fedora-system-monitor-hourly.timer;scope=system;state=enabled+active;calendar=hourly;purpose=software+update+health_snapshot
+timer=fedora-system-monitor-daily.timer;scope=system;state=enabled+active;calendar=03:15;purpose=inventory+backup+retention+summary
+timer=fedora-system-monitor-weekly.timer;scope=system;state=enabled+active;calendar=Sunday_04:15;purpose=full_validation
+path=fedora-system-monitor-software.path;scope=system;state=enabled+active;purpose=event_driven_software_metadata_changes
 
 RULES:
 rule=use_systemctl_for_system_units

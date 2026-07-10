@@ -1,4 +1,4 @@
-VERSION=1
+VERSION=2
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -140,3 +140,21 @@ Commit_correlati=this_MegaVault_report_commit
 Prompt_correlati=codex_weekly_limit_monitor_wrong_5h_source_20260705
 Tempo_totale_di_impatto=about 11 minutes for the confirmed Spark-source runtime window; earlier user-observed 5h mismatch triggered the investigation and is covered by the same final parser correction.
 Note=Post-fix evidence: dry-run and real service run both read five_hour_left=49 percent and weekly_left=57 percent from rateLimits.primary/rateLimits.secondary; user screenshot after fix showed the same values. First post-fix notification marks previous 5h as unavailable because the stored previous source was Spark and must not be compared to the main quota.
+
+INCIDENT:
+Incident_ID=EXTERNAL_NTFS_DISCONNECT_DURING_MOUNTED_IO
+Titolo=External NTFS volume disappeared during mounted I/O
+Data_prima_comparsa_UTC=2026-07-09T17:07:00Z
+Data_ultima_comparsa_UTC=2026-07-09T17:07:10Z
+Numero_occorrenze=1 incident with repeated I/O symptoms coalesced
+Gravita_massima=CRITICAL
+Stato=OPEN
+Root_cause=UNKNOWN; cable,power path,or device instability requires physical inspection
+Sistemi_coinvolti=Fedora host; external mounted NTFS volume; udisks2; ntfs-3g; Fedora System Monitor
+Alert_coinvolti=disk_io_error;unsafe_device_removal;Uptime Kuma Fedora Storage monitor ID 40
+Tentativi_effettuati=Journal reconstruction,current mount check,non-destructive SMART/NVMe collection,cursor-idempotent backfill,and stable device identity enrichment
+Soluzione_finale=No root-cause repair yet; permanent event capture,critical alert,category heartbeat,and reconnect recovery mitigate observability risk
+Commit_correlati=fedora-system-monitor activity 593184
+Prompt_correlati=593184
+Tempo_totale_di_impatto=approximately 10 seconds until observed remount
+Note=No physical disconnect or destructive reproduction was attempted; device serial and filesystem UUID are intentionally omitted from documentation; project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
