@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=9
+VERSION=10
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-10T12:50:00+02:00
-SOURCE=tool_versions_live_2026-07-09+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+task_714283+activity_593184
+UPDATED=2026-07-10T20:05:00+02:00
+SOURCE=tool_versions_live_2026-07-09+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_593184+activity_846271
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -15,8 +15,7 @@ tool=dnf;path=/usr/bin/dnf;version=5.4.2.1;critical=yes
 tool=systemd;path=/usr/bin/systemctl;version=259;critical=yes
 tool=git;path=/usr/bin/git;version=2.55.0;critical=yes
 tool=gh;path=/usr/bin/gh;version=2.94.0;critical=yes
-tool=Codex_CLI;path=/usr/local/bin/codex;version=0.144.0;critical=yes
-tool=Codex_session_logger;version=1.0.0;project=/home/daniele/projects/codex-session-logger;launcher=/home/daniele/.local/bin/codex-live;log_cli=/home/daniele/.local/bin/codex-log;capture=tmux_3.6b_pipe-pane;status=installed+tested;service=none;docs=CODEX_SESSION_LOGGING.md
+tool=Codex_CLI;path=/usr/local/bin/codex;version=0.144.1;install=npm_official;launcher=direct;pty=Ptyxis_native;wrapper=none;automatic_capture=none;critical=yes
 tool=python;path=/usr/bin/python3;version=3.14.6;critical=yes
 tool=pip;path=/usr/bin/pip;version=26.0.1;critical=yes
 tool=pipx;path=/usr/bin/pipx;version=1.15.0;critical=yes

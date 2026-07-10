@@ -1,9 +1,9 @@
 # PROJECT_INDEX
-VERSION=5
+VERSION=6
 STATUS=ACTIVE_GLOBAL_CATALOG
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-10T11:27:00+02:00
+UPDATED=2026-07-10T20:05:00+02:00
 HOST=Fedora_Linux_44_Workstation
 HOST_ROOT=/home/daniele
 ROW_RULE=catalog_only;local_runtime_paths_require_Fedora_revalidation;HOST_PROFILE_wins
@@ -17,7 +17,6 @@ ROW_RULE=catalog_only;local_runtime_paths_require_Fedora_revalidation;HOST_PROFI
 | aw-converter | aw-converter | UNKNOWN: source docs do not state a clear purpose. | [AI](../../aw-converter/docs/ai/) | [Human](../../aw-converter/docs/human/) | [metadata](../../aw-converter/dev/project.metadata.json) | [repo](../../aw-converter) |
 | chatgpt-chrome-debug | chatgpt-chrome-debug | ChatGPT Chrome Redirect Debug Toolkit | [AI](../../chatgpt-chrome-debug/docs/ai/) | [Human](../../chatgpt-chrome-debug/docs/human/) | [metadata](../../chatgpt-chrome-debug/dev/project.metadata.json) | [repo](../../chatgpt-chrome-debug) |
 | codex-html-live | codex-html-live | Live HTML archive for Codex JSONL sessions: watches session files and renders browser-readable chat archives without relying on tmux. | [AI](../../codex-html-live/docs/ai/) | [Human](../../codex-html-live/docs/human/) | [metadata](../../codex-html-live/dev/project.metadata.json) | [repo](../../codex-html-live) |
-| Codex Session Logger | codex-session-logger | Fedora tmux launcher that records every interactive Codex session live as raw, transcript and readable screen files without interrupting Codex. | [AI](../../projects/codex-session-logger/docs/ai/) | [Human](../../projects/codex-session-logger/docs/human/) | [metadata](../../projects/codex-session-logger/dev/project.metadata.json) | [repo](../../projects/codex-session-logger) |
 | codex-token-watcher | codex-token-watcher | Monitor Codex CLI health/status and local session quota cache from Linux Mint, persist redacted SQLite observations/logs, and push health to Oracle VM Uptime Kuma without browser automation in the service path. | [AI](../../codex-token-watcher/docs/ai/) | [Human](../../codex-token-watcher/docs/human/) | [metadata](../../codex-token-watcher/dev/project.metadata.json) | [repo](../../codex-token-watcher) |
 | codex-wrapper | codex-wrapper | UNKNOWN: source docs do not state a clear purpose. | [AI](../../codex-wrapper/docs/ai/) | [Human](../../codex-wrapper/docs/human/) | [metadata](../../codex-wrapper/dev/project.metadata.json) | [repo](../../codex-wrapper) |
 | disk-usage-monitor | disk-usage-monitor | Linux Mint disk monitor with SQLite state, clean Telegram alerts, and Oracle Uptime Kuma push heartbeat. | local AI docs unknown | local Human docs unknown | metadata unknown | repo unknown |

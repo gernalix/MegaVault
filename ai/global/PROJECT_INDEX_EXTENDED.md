@@ -1,9 +1,9 @@
 # PROJECT_INDEX_EXTENDED
-VERSION=4
+VERSION=5
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=PROJECT_INDEX+Fedora_live_revalidation_2026-07-09+task_714283+activity_593184
+SOURCE=PROJECT_INDEX+Fedora_live_revalidation_2026-07-09+activity_593184+activity_846271
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/PROJECT_INDEX_EXTENDED.md
@@ -22,7 +22,6 @@ rule=project_paths+services+DBs+alerts_require_live_Fedora_evidence
 
 RELATIONS_CURRENT:
 project=MegaVault;repo=/home/daniele/MegaVault;db=/home/daniele/MegaVault/codex_global_timeline.sqlite;builder=/home/daniele/MegaVault/build_codex_global_timeline.py;service=none;timer=none
-project=codex-session-logger;repo=/home/daniele/projects/codex-session-logger;remote=https://github.com/gernalix/codex-session-logger.git;branch=main;runtime=/home/daniele/.local/bin/codex-live;data=/home/daniele/.local/state/codex-session-logger/sessions;service=none;timer=none;status=installed+tested
 project=WindowTabNotes;repo_local=removed;/home/daniele/projects/WindowTabNotes=absent;remote=https://github.com/gernalix/WindowTabNotes;branch=fedora-current-session-window-detection-927514;commit=40421981911c6d92111e9062eb20c506003d4d97;service=removed;data_backup=/home/daniele/WindowTabNotes-backup-351806
 project=fedora-system-monitor;repo=/home/daniele/MegaVault/projects/fedora-system-monitor;remote=https://github.com/gernalix/fedora-system-monitor.git;branch=codex/593184-fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;config=/etc/fedora-system-monitor;data=/var/lib/fedora-system-monitor;services=events+lifecycle+collector_templates;timers=fast+hourly+daily+weekly;path=software;status=installed+enabled+tested;activity=593184
 

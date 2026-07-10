@@ -1,4 +1,4 @@
-VERSION=15
+VERSION=16
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -65,7 +65,7 @@ CURRENT_PATH_STYLE=/home/daniele/...
 CURRENT_ANDROID_STUDIO=Flatpak_com.google.AndroidStudio;version=2026.1.1.10
 CURRENT_ANDROID_SDK=/home/daniele/Android/Sdk
 CURRENT_JAVA_HOME=/usr/lib/jvm/java-25-openjdk
-CURRENT_CODEX_CLI=/usr/local/bin/codex;version=0.144.0
+CURRENT_CODEX_CLI=/usr/local/bin/codex;version=0.144.1
 CURRENT_GH_CLI=/usr/bin/gh;version=2.94.0
 CURRENT_PYTHON=/usr/bin/python3;version=3.14.6
 CURRENT_PIP=/usr/bin/pip;version=26.0.1

@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=8
+VERSION=9
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-10T11:27:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+task_714283+activity_593184
+UPDATED=2026-07-10T20:05:00+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271
 
 META:
 host=fedora
@@ -52,7 +52,7 @@ storage_rule=verify_findmnt+lsblk+df_before_backup_or_large_IO;removable_mounts_
 TOOLING_CURRENT_FEDORA:
 git=/usr/bin/git version=2.55.0
 gh=/usr/bin/gh version=2.94.0
-codex=/usr/local/bin/codex version=0.144.0
+codex=/usr/local/bin/codex version=0.144.1
 python=/usr/bin/python3 version=3.14.6
 pip=/usr/bin/pip version=26.0.1
 pipx=/usr/bin/pipx version=1.15.0
@@ -78,8 +78,7 @@ adb_rule=verify_with_adb_devices_-l;device_IPs_and_pairing_drift
 CODEX_CURRENT_FEDORA:
 working_root=/home/daniele
 megavault=/home/daniele/MegaVault
-interactive_launcher=/home/daniele/.local/bin/codex-live;bash_function=codex;tmux_default=yes
-session_logger=/home/daniele/projects/codex-session-logger;logs=/home/daniele/.local/state/codex-session-logger/sessions;docs=CODEX_SESSION_LOGGING.md
+interactive_launcher=/usr/local/bin/codex;resolution=npm_official_launcher;native_binary=vendor_x86_64_unknown_linux_musl;pty=Ptyxis_native;tmux=no;wrapper=no;automatic_capture=no
 shell_commands=bash
 package_commands=dnf
 service_commands=systemctl+systemctl_--user

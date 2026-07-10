@@ -1,9 +1,9 @@
 # DATA_REGISTRY
-VERSION=5
+VERSION=6
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_filesystem_checks_2026-07-09+MegaVault_timeline_SQLite+activity_593184
+SOURCE=Fedora_filesystem_checks_2026-07-09+MegaVault_timeline_SQLite+activity_593184+activity_846271
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/DATA_REGISTRY.md
@@ -36,6 +36,3 @@ rule=Fedora_current_paths_only
 OPEN:
 open=project_database_migration_state_UNKNOWN
 open=backup_status_for_MegaVault_timeline_DB_UNKNOWN
-
-FILE_DATA_CURRENT:
-dataset=Codex_session_logs;owner=codex-session-logger;path=/home/daniele/.local/state/codex-session-logger/sessions;layout=YYYY/MM/DD/session;permissions=0700_dirs+0600_files;retention=manual;canonical_raw=terminal.raw;live_text=transcript.log;live_screen=screen.txt;registered=task_714283
