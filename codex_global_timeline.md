@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T05:10:08+02:00
+Generated: 2026-07-10T05:10:42+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 492
+Total events: 493
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,7 +14,7 @@ Total events: 492
 
 | Value | Events |
 |---|---:|
-| megavault | 122 |
+| megavault | 123 |
 | amici-fb | 84 |
 | multitimetracker | 25 |
 | luoghi-app | 21 |
@@ -70,7 +70,7 @@ Total events: 492
 | security | 157 |
 | docs | 51 |
 | release | 36 |
-| bugfix | 26 |
+| bugfix | 27 |
 | testing | 18 |
 | automation | 16 |
 | infra | 15 |
@@ -82,7 +82,7 @@ Total events: 492
 | Value | Events |
 |---|---:|
 | P1 | 284 |
-| P0 | 105 |
+| P0 | 106 |
 | P2 | 94 |
 | P3 | 9 |
 
@@ -91,7 +91,7 @@ Total events: 492
 | Value | Events |
 |---|---:|
 | UNKNOWN | 189 |
-| PASS | 116 |
+| PASS | 117 |
 | WARN | 75 |
 | OPEN | 58 |
 | FAIL | 54 |
@@ -102,6 +102,7 @@ Total events: 492
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
+| 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -119,13 +120,13 @@ Total events: 492
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T200412Z |
 | 2026-07-09 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | doc_event | markdown | amici_fb |
 | 2026-07-09 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
-| 2026-07-09 | amici-fb | Amici FB amici_fb Roadmap | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Roadmap |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
+| 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -231,7 +232,7 @@ Total events: 492
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 122 events; latest=2026-07-10; label=Codex Timeline
+- `megavault`: 123 events; latest=2026-07-10; label=Codex Timeline
 - `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
 - `multitimetracker`: 25 events; latest=2026-07-09; label=Android Tests
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
@@ -284,6 +285,7 @@ Total events: 492
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
+| 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
