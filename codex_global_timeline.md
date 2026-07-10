@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T12:46:30+02:00
+Generated: 2026-07-10T12:48:00+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 541
+Total events: 542
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,7 +15,7 @@ Total events: 541
 
 | Value | Events |
 |---|---:|
-| megavault | 139 |
+| megavault | 140 |
 | amici-fb | 87 |
 | multitimetracker | 26 |
 | luoghi-app | 21 |
@@ -74,7 +74,7 @@ Total events: 541
 | release | 39 |
 | bugfix | 30 |
 | testing | 21 |
-| automation | 18 |
+| automation | 19 |
 | infra | 15 |
 | migration | 12 |
 | performance | 3 |
@@ -83,7 +83,7 @@ Total events: 541
 
 | Value | Events |
 |---|---:|
-| P1 | 303 |
+| P1 | 304 |
 | P0 | 127 |
 | P2 | 102 |
 | P3 | 9 |
@@ -93,7 +93,7 @@ Total events: 541
 | Value | Events |
 |---|---:|
 | UNKNOWN | 198 |
-| PASS | 137 |
+| PASS | 138 |
 | WARN | 89 |
 | OPEN | 59 |
 | FAIL | 58 |
@@ -255,7 +255,7 @@ Total events: 541
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 139 events; latest=2026-07-10; label=Android Tests
+- `megavault`: 140 events; latest=2026-07-10; label=Android Tests
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
 - `multitimetracker`: 26 events; latest=2026-07-10; label=MTT v4
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
@@ -347,6 +347,7 @@ Total events: 541
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-10 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
+| 2026-07-10 | megavault | MegaVault docs record Fedora | automation | PASS | P1 | git_commit | git_log | docs: record Fedora monitor residual risk audit |
 | 2026-07-10 | megavault | MegaVault docs register Fedora | automation | PASS | P1 | git_commit | git_log | docs: register Fedora host monitor activity 593184 |
 | 2026-07-10 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
