@@ -1,29 +1,29 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T00:00:24+02:00
+Generated: 2026-07-10T05:10:08+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 488
+Total events: 492
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/MegaVault/projects/luoghi-app`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 121 |
+| megavault | 122 |
 | amici-fb | 84 |
-| multitimetracker | 23 |
+| multitimetracker | 25 |
 | luoghi-app | 21 |
 | oracle-backup-service | 18 |
 | supercontacts | 11 |
 | oracle-uptime-kuma | 10 |
+| 2026 | 7 |
 | windows | 7 |
-| 2026 | 6 |
+| windows-winget-daily-update | 7 |
 | android | 6 |
 | aw-converter | 6 |
 | chatgpt-chrome-debug | 6 |
@@ -45,7 +45,6 @@ Total events: 488
 | surface-recovery-hardening | 6 |
 | system-watchdog | 6 |
 | windows-flight-recorder | 6 |
-| windows-winget-daily-update | 6 |
 | windowtabnotes | 6 |
 | android-app-template | 5 |
 | facedownassup-downloader | 5 |
@@ -60,7 +59,6 @@ Total events: 488
 | megavault-surface | 2 |
 | mint-update-tracker | 2 |
 | extensions | 1 |
-| raw-memories-md | 1 |
 | rollout-summaries | 1 |
 | unknown | 1 |
 
@@ -68,9 +66,9 @@ Total events: 488
 
 | Value | Events |
 |---|---:|
-| backup | 158 |
-| security | 155 |
-| docs | 50 |
+| backup | 159 |
+| security | 157 |
+| docs | 51 |
 | release | 36 |
 | bugfix | 26 |
 | testing | 18 |
@@ -83,8 +81,8 @@ Total events: 488
 
 | Value | Events |
 |---|---:|
-| P1 | 285 |
-| P0 | 100 |
+| P1 | 284 |
+| P0 | 105 |
 | P2 | 94 |
 | P3 | 9 |
 
@@ -93,8 +91,8 @@ Total events: 488
 | Value | Events |
 |---|---:|
 | UNKNOWN | 189 |
-| PASS | 113 |
-| WARN | 74 |
+| PASS | 116 |
+| WARN | 75 |
 | OPEN | 58 |
 | FAIL | 54 |
 
@@ -102,6 +100,8 @@ Total events: 488
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -120,12 +120,12 @@ Total events: 488
 | 2026-07-09 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | doc_event | markdown | amici_fb |
 | 2026-07-09 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
 | 2026-07-09 | amici-fb | Amici FB amici_fb Roadmap | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Roadmap |
-| 2026-07-09 | amici-fb | Amici FB amici_fb Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | amici_fb Troubleshooting |
-| 2026-07-09 | amici-fb | Amici FB daily Facebook | security | OPEN | P1 | doc_event | markdown | daily Facebook friends snapshot with CSV SQLite diff Telegram notification |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -161,6 +161,7 @@ Total events: 488
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | PROTOCOL_V2_NORMALIZATION_REPORT |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | CODE_AUDIT_COMPRESSION_REPORT |
 | 2026-07-09 | multitimetracker | MTT 1.apk | security | WARN | P0 | changelog | codex_log | 019f485e-d56f-7842-91c9-55d8b6add531 |
+| 2026-07-09 | multitimetracker | MTT app-debug.apk | security | PASS | P0 | release | markdown | Fedora migration and clone-safe device smoke for MultiTimeTracker |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-07-09 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
 | 2026-07-09 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
@@ -177,7 +178,9 @@ Total events: 488
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f48d9-f422-7f61-b220-fa34bd086950 |
 | 2026-07-09 | windows-flight-recorder | WFR Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |
+| 2026-07-09 | windows-winget-daily-update | Git PATH | backup | PASS | P0 | changelog | markdown | Fedora migration of MegaVault global docs and final verification |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3f90-7f5f-7361-b0de-19a9db8a74c9 |
+| 2026-07-08 | multitimetracker | MTT app-debug.apk | security | WARN | P0 | release | markdown | Raw Memories |
 | 2026-07-06 | luoghi-app | luoghi-app 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Add global Codex timeline system |
 | 2026-07-06 | megavault | MegaVault Aggiorna protocollo MegaVault | docs | PASS | P0 | git_commit | git_log | Aggiorna protocollo MegaVault |
@@ -228,15 +231,16 @@ Total events: 488
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 121 events; latest=2026-07-09; label=Codex Timeline
+- `megavault`: 122 events; latest=2026-07-10; label=Codex Timeline
 - `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
-- `multitimetracker`: 23 events; latest=2026-07-09; label=Android Tests
+- `multitimetracker`: 25 events; latest=2026-07-09; label=Android Tests
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
 - `oracle-uptime-kuma`: 10 events; latest=2026-07-09; label=Kuma Features
+- `2026`: 7 events; latest=2026-07-10; label=2026 v2
 - `windows`: 7 events; latest=2026-07-09; label=Veeam T7
-- `2026`: 6 events; latest=2026-07-09; label=2026 v1
+- `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
 - `aw-converter`: 6 events; latest=2026-07-09; label=aw-converter v2
 - `chatgpt-chrome-debug`: 6 events; latest=2026-07-09; label=chatgpt-chrome-debug v2
@@ -258,7 +262,6 @@ Total events: 488
 - `surface-recovery-hardening`: 6 events; latest=2026-07-09; label=surface-recovery-hardening surface-recovery-hardening Features
 - `system-watchdog`: 6 events; latest=2026-07-09; label=system-watchdog v2
 - `windows-flight-recorder`: 6 events; latest=2026-07-09; label=WFR Windows 11 autonomous
-- `windows-winget-daily-update`: 6 events; latest=2026-07-09; label=Winget Windows Winget Daily
 - `windowtabnotes`: 6 events; latest=2026-07-09; label=windowtabnotes v20
 - `android-app-template`: 5 events; latest=2026-07-09; label=android-app-template Android App Template
 - `facedownassup-downloader`: 5 events; latest=2026-07-09; label=facedownassup-downloader facedownassup-downloader
@@ -273,13 +276,14 @@ Total events: 488
 - `megavault-surface`: 2 events; latest=2026-07-05; label=megavault-surface v527
 - `mint-update-tracker`: 2 events; latest=2026-06-04; label=mint-update-tracker v2
 - `extensions`: 1 events; latest=2026-07-09; label=extensions Ad-hoc notes
-- `raw-memories-md`: 1 events; latest=2026-07-08; label=raw-memories-md Raw Memories
 - `rollout-summaries`: 1 events; latest=2026-07-08; label=rollout-summaries Fedora/Android Emulator KVM
 - `unknown`: 1 events; latest=2026-07-05; label=Veeam T7
 
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -454,6 +458,7 @@ Total events: 488
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | PROTOCOL_V2_NORMALIZATION_REPORT |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P0 | protocol_update | markdown | CODE_AUDIT_COMPRESSION_REPORT |
 | 2026-07-09 | multitimetracker | MTT 1.apk | security | WARN | P0 | changelog | codex_log | 019f485e-d56f-7842-91c9-55d8b6add531 |
+| 2026-07-09 | multitimetracker | MTT app-debug.apk | security | PASS | P0 | release | markdown | Fedora migration and clone-safe device smoke for MultiTimeTracker |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-07-09 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
 | 2026-07-09 | multitimetracker | MTT ENRICHMENT_REPORT | security | PASS | P1 | changelog | markdown | ENRICHMENT_REPORT |
@@ -525,6 +530,7 @@ Total events: 488
 | 2026-07-09 | windows-flight-recorder | WFR Windows Flight Recorder | backup | UNKNOWN | P1 | changelog | markdown | Windows Flight Recorder |
 | 2026-07-09 | windows-flight-recorder | WFR v2 | bugfix | UNKNOWN | P2 | changelog | markdown | Windows Flight Recorder Changelog |
 | 2026-07-09 | windows-flight-recorder | WFR Windows Flight Recorder | bugfix | UNKNOWN | P2 | doc_event | markdown | Windows Flight Recorder Roadmap |
+| 2026-07-09 | windows-winget-daily-update | Git PATH | backup | PASS | P0 | changelog | markdown | Fedora migration of MegaVault global docs and final verification |
 | 2026-07-09 | windows-winget-daily-update | Winget Windows Winget Daily | infra | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Roadmap |
 | 2026-07-09 | windows-winget-daily-update | Winget Windows Winget Daily | automation | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Features |
 | 2026-07-09 | windows-winget-daily-update | Winget Windows Winget Daily | automation | UNKNOWN | P2 | doc_event | markdown | Windows Winget Daily Update Troubleshooting |
@@ -535,7 +541,7 @@ Total events: 488
 | 2026-07-09 | windowtabnotes | windowtabnotes WindowTabNotes Roadmap | backup | UNKNOWN | P1 | backup | markdown | WindowTabNotes Roadmap |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3f90-7f5f-7361-b0de-19a9db8a74c9 |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P1 | changelog | codex_log | 019f3faa-5c00-7dd1-bbb5-ed3cbc5129c7 |
-| 2026-07-08 | raw-memories-md | raw-memories-md Raw Memories | security | WARN | P1 | report | markdown | Raw Memories |
+| 2026-07-08 | multitimetracker | MTT app-debug.apk | security | WARN | P0 | release | markdown | Raw Memories |
 | 2026-07-08 | rollout-summaries | rollout-summaries Fedora/Android Emulator KVM | security | FAIL | P1 | report | markdown | Fedora/Android Emulator KVM check on ThinkPad; system stack was mostly prepared, but emulator binary was not found and the current session had not... |
 | 2026-07-06 | luoghi-app | luoghi-app 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | PASS | P1 | release | markdown | Telegram APK send fix - Luoghi v5 |
