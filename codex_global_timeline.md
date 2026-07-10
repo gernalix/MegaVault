@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T20:31:14+02:00
+Generated: 2026-07-10T20:36:12+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 606
+Total events: 607
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,7 +14,7 @@ Total events: 606
 
 | Value | Events |
 |---|---:|
-| megavault | 143 |
+| megavault | 144 |
 | amici-fb | 87 |
 | luoghi-app | 67 |
 | multitimetracker | 29 |
@@ -70,7 +70,7 @@ Total events: 606
 |---|---:|
 | security | 198 |
 | backup | 172 |
-| docs | 60 |
+| docs | 61 |
 | testing | 48 |
 | release | 45 |
 | bugfix | 32 |
@@ -85,7 +85,7 @@ Total events: 606
 |---|---:|
 | P1 | 319 |
 | P0 | 144 |
-| P2 | 133 |
+| P2 | 134 |
 | P3 | 10 |
 
 ### Events by status
@@ -93,7 +93,7 @@ Total events: 606
 | Value | Events |
 |---|---:|
 | UNKNOWN | 237 |
-| PASS | 148 |
+| PASS | 149 |
 | WARN | 102 |
 | OPEN | 61 |
 | FAIL | 58 |
@@ -272,7 +272,7 @@ Total events: 606
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 143 events; latest=2026-07-10; label=Android Tests
+- `megavault`: 144 events; latest=2026-07-10; label=Android Tests
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
 - `luoghi-app`: 67 events; latest=2026-07-10; label=luoghi-app v10
 - `multitimetracker`: 29 events; latest=2026-07-10; label=MTT 1.apk
@@ -435,6 +435,7 @@ Total events: 606
 | 2026-07-10 | megavault | MegaVault Document Fedora RustDesk | docs | PASS | P2 | git_commit | git_log | Document Fedora RustDesk setup |
 | 2026-07-10 | megavault | MegaVault Document live Codex | docs | PASS | P2 | git_commit | git_log | Document live Codex session logging |
 | 2026-07-10 | megavault | MegaVault Document Obsidian Fedora | docs | PASS | P2 | git_commit | git_log | Document Obsidian Fedora install task 481726 |
+| 2026-07-10 | megavault | MegaVault Record Luoghi interrupted | docs | PASS | P2 | git_commit | git_log | Record Luoghi interrupted session recovery |
 | 2026-07-10 | megavault | MegaVault Record WindowTabNotes Fedora | docs | PASS | P2 | git_commit | git_log | Record WindowTabNotes Fedora uninstall |
 | 2026-07-10 | megavault | MegaVault Remove Codex session | docs | PASS | P2 | git_commit | git_log | Remove Codex session logger integration |
 | 2026-07-10 | megavault | MegaVault Task 714283 Codex | docs | UNKNOWN | P2 | doc_event | markdown | Task 714283 Codex live logging historical |
