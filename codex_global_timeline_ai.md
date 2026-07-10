@@ -1,8 +1,10 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T09:44:32+02:00
-total_events=636
+generated_at=2026-07-10T11:18:59+02:00
+total_events=647
 format=event_date|project|label_short|category|status|importance
 2026-07-10|2026|2026 1.apk|security|WARN|P0
+2026-07-10|2026|2026 v2|security|WARN|P0
+2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
@@ -11,7 +13,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB trace|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-07-10|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
 2026-07-10|megavault|Android Tests|security|OPEN|P0
+2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|testing|PASS|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
@@ -32,6 +36,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault Record WindowTabNotes Fedora|docs|PASS|P2
 2026-07-10|megavault|MegaVault Topologia rete globale|automation|UNKNOWN|P2
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
+2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-07-10|windows|Veeam T7|security|UNKNOWN|P1
 2026-07-10|windowtabnotes|windowtabnotes v8|security|WARN|P0
@@ -142,6 +147,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Roadmap|security|FAIL|P1
 2026-07-09|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting|security|FAIL|P1
 2026-07-09|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Overview|automation|OPEN|P2
+2026-07-09|luoghi|Luoghi app-debug.apk|security|PASS|P0
 2026-07-09|luoghi|Luoghi app-debug.apk|release|UNKNOWN|P1
 2026-07-09|luoghi|Luoghi Luoghi Roadmap|backup|UNKNOWN|P1
 2026-07-09|luoghi|Luoghi Luoghi Troubleshooting|release|UNKNOWN|P1
@@ -208,6 +214,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|multitimetracker|MTT app-release.apk|security|PASS|P0
 2026-07-09|multitimetracker|MTT MultiTimeTracker|testing|UNKNOWN|P0
 2026-07-09|multitimetracker|MTT project.metadata|release|UNKNOWN|P0
+2026-07-09|multitimetracker|MTT v13|security|WARN|P0
 2026-07-09|multitimetracker|MTT v4|security|WARN|P0
 2026-07-09|multitimetracker|MTT v531|backup|WARN|P0
 2026-07-09|multitimetracker|Android Tests|security|PASS|P1
@@ -349,6 +356,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Overview|backup|OPEN|P1
 2026-07-09|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Roadmap|security|FAIL|P1
 2026-07-09|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Troubleshooting|security|FAIL|P1
+2026-07-09|rollout-summaries|Git PATH|bugfix|PASS|P0
+2026-07-09|rollout-summaries|Git PATH|security|PASS|P1
 2026-07-09|soldi|Android Tests|backup|PASS|P1
 2026-07-09|soldi|Soldi 2.apk|backup|UNKNOWN|P1
 2026-07-09|soldi|Soldi Soldi Roadmap|bugfix|UNKNOWN|P2
@@ -370,6 +379,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|system-watchdog|system-watchdog system_watchdog Troubleshooting|release|FAIL|P1
 2026-07-09|system-watchdog|system-watchdog system_watchdog Overview|automation|OPEN|P2
 2026-07-09|windows|Veeam T7|security|OPEN|P0
+2026-07-09|windows|Veeam T7|security|WARN|P0
 2026-07-09|windows|Veeam T7|backup|OPEN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
@@ -393,6 +403,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-08|2026|2026 v1|security|WARN|P0
 2026-07-08|2026|2026 v1|security|WARN|P1
 2026-07-08|multitimetracker|MTT app-debug.apk|security|WARN|P0
+2026-07-08|rollout-summaries|Git PATH|release|WARN|P1
 2026-07-08|rollout-summaries|rollout-summaries Fedora/Android Emulator KVM|security|FAIL|P1
 2026-07-06|luoghi-app|luoghi-app 7.apk|security|WARN|P0
 2026-07-06|luoghi-app|luoghi-app 5.apk|security|PASS|P1

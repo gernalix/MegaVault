@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T09:44:32+02:00
+Generated: 2026-07-10T11:18:59+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 636
+Total events: 647
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,15 +15,15 @@ Total events: 636
 
 | Value | Events |
 |---|---:|
-| multitimetracker | 150 |
-| megavault | 133 |
+| multitimetracker | 151 |
+| megavault | 134 |
 | amici-fb | 87 |
 | luoghi-app | 21 |
 | oracle-backup-service | 18 |
-| 2026 | 11 |
-| oracle-uptime-kuma | 11 |
+| 2026 | 13 |
+| oracle-uptime-kuma | 12 |
 | supercontacts | 11 |
-| windows | 7 |
+| windows | 8 |
 | windows-winget-daily-update | 7 |
 | android | 6 |
 | aw-converter | 6 |
@@ -34,6 +34,7 @@ Total events: 636
 | facebook-video-archiver | 6 |
 | installa-app | 6 |
 | linux-mint-service-dashboard | 6 |
+| luoghi | 6 |
 | maintenance-486 | 6 |
 | megavault-project-exporter | 6 |
 | mint-freeze-forensics | 6 |
@@ -50,28 +51,28 @@ Total events: 636
 | android-app-template | 5 |
 | facedownassup-downloader | 5 |
 | git-change-ledger | 5 |
-| luoghi | 5 |
 | soldi | 5 |
 | sostanze | 5 |
 | grindr-web-exporter | 4 |
+| rollout-summaries | 4 |
 | mint-cloud-backup | 3 |
 | disk-usage-monitor | 2 |
 | megavault-content-aware-merge-20260705 | 2 |
 | megavault-surface | 2 |
 | mint-update-tracker | 2 |
 | extensions | 1 |
-| rollout-summaries | 1 |
+| fedora-system-monitor | 1 |
 | unknown | 1 |
 
 ### Events by category
 
 | Value | Events |
 |---|---:|
-| security | 195 |
+| security | 202 |
 | backup | 185 |
-| docs | 81 |
-| release | 43 |
-| bugfix | 39 |
+| docs | 82 |
+| release | 45 |
+| bugfix | 40 |
 | testing | 35 |
 | automation | 19 |
 | infra | 19 |
@@ -82,8 +83,8 @@ Total events: 636
 
 | Value | Events |
 |---|---:|
-| P1 | 343 |
-| P0 | 127 |
+| P1 | 345 |
+| P0 | 136 |
 | P2 | 110 |
 | P3 | 56 |
 
@@ -91,9 +92,9 @@ Total events: 636
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 270 |
-| PASS | 148 |
-| WARN | 88 |
+| UNKNOWN | 271 |
+| PASS | 152 |
+| WARN | 94 |
 | OPEN | 68 |
 | FAIL | 62 |
 
@@ -102,35 +103,39 @@ Total events: 636
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4b4d-0914-7a11-877d-4614b9fd0b41 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | report | codex_log | 019f4b52-7285-7c42-8426-2120b3579fe1 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
+| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
-| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
-| 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
-| 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
-| 2026-07-10 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4b4d-0914-7a11-877d-4614b9fd0b41 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | report | codex_log | 019f4b52-7285-7c42-8426-2120b3579fe1 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
+| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
@@ -140,6 +145,7 @@ Total events: 636
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
+| 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4b20-625f-7b82-b449-3344d0f62c4a |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
 | 2026-07-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
@@ -154,6 +160,7 @@ Total events: 636
 | 2026-07-09 | facebook-video-archiver | facebook-video-archiver v4 | security | FAIL | P0 | protocol_update | markdown | Start here for Codex/operator work on `facebook-video-archiver` |
 | 2026-07-09 | git-change-ledger | git-change-ledger v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-09 | installa-app | installa-app v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
+| 2026-07-09 | luoghi | Luoghi app-debug.apk | security | PASS | P0 | release | markdown | Cloned Luoghi on Fedora, validated the debug Android build, and documented the local Fedora/JDK workaround. |
 | 2026-07-09 | luoghi-app | luoghi-app v11 | release | UNKNOWN | P0 | release | markdown | bootstrap |
 | 2026-07-09 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
 | 2026-07-09 | maintenance-486 | maintenance-486 v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
@@ -180,6 +187,7 @@ Total events: 636
 | 2026-07-09 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Active Roadmap |
 | 2026-07-09 | multitimetracker | MTT MultiTimeTracker | testing | UNKNOWN | P0 | protocol_update | markdown | MultiTimeTracker |
 | 2026-07-09 | multitimetracker | MTT project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-09 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | markdown | Fedora/Wayland integration and extension testing for WindowTabNotes |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-07-09 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
 | 2026-07-09 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
@@ -187,10 +195,12 @@ Total events: 636
 | 2026-07-09 | parcel-tracker | parcel-tracker v2 | security | OPEN | P0 | protocol_update | markdown | Servizio leggero user-level per monitorare la spedizione `XT329499807TS` |
 | 2026-07-09 | remote-codex-phone | remote-codex-phone v2 | security | OPEN | P0 | protocol_update | markdown | Prompt #438 setup for controlling Codex from an Android phone through: |
 | 2026-07-09 | remote-opt-oracle-backup | remote-opt-oracle-backup v2 | security | OPEN | P0 | protocol_update | markdown | Remote Oracle backup script set for restic backup/prune/systemd units under the Oracle backup runtime path; source docs are sparse, so verify remot... |
+| 2026-07-09 | rollout-summaries | Git PATH | bugfix | PASS | P0 | protocol_update | markdown | Verified Playwright is not reinstalled at runtime; no repo changes were needed. |
 | 2026-07-09 | supercontacts | SC 1.apk | security | WARN | P0 | changelog | codex_log | 019f48dd-a960-71d2-b4ab-89c66557f26f |
 | 2026-07-09 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-07-09 | system-watchdog | system-watchdog v2 | security | OPEN | P0 | protocol_update | markdown | Persistent heartbeat sender for a Uptime Kuma push monitor |
 | 2026-07-09 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
+| 2026-07-09 | windows | Veeam T7 | security | WARN | P0 | protocol_update | markdown | Read-only diagnosis of a Fedora/Veeam backup setup and USB visibility issue |
 | 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
@@ -254,15 +264,15 @@ Total events: 636
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `multitimetracker`: 150 events; latest=2026-07-10; label=MTT v4
-- `megavault`: 133 events; latest=2026-07-10; label=Android Tests
+- `multitimetracker`: 151 events; latest=2026-07-10; label=MTT v4
+- `megavault`: 134 events; latest=2026-07-10; label=Android Tests
 - `amici-fb`: 87 events; latest=2026-07-10; label=Amici FB amici 2026
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
-- `2026`: 11 events; latest=2026-07-10; label=2026 1.apk
-- `oracle-uptime-kuma`: 11 events; latest=2026-07-10; label=Kuma v2
+- `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
+- `oracle-uptime-kuma`: 12 events; latest=2026-07-10; label=Kuma v2
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
-- `windows`: 7 events; latest=2026-07-10; label=Veeam T7
+- `windows`: 8 events; latest=2026-07-10; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
 - `aw-converter`: 6 events; latest=2026-07-09; label=aw-converter v2
@@ -273,6 +283,7 @@ Total events: 636
 - `facebook-video-archiver`: 6 events; latest=2026-07-09; label=facebook-video-archiver v4
 - `installa-app`: 6 events; latest=2026-07-09; label=installa-app v2
 - `linux-mint-service-dashboard`: 6 events; latest=2026-07-09; label=linux-mint-service-dashboard linux-mint-service-dashboard Features
+- `luoghi`: 6 events; latest=2026-07-09; label=Luoghi app-debug.apk
 - `maintenance-486`: 6 events; latest=2026-07-09; label=maintenance-486 v2
 - `megavault-project-exporter`: 6 events; latest=2026-07-09; label=megavault-project-exporter v3
 - `mint-freeze-forensics`: 6 events; latest=2026-07-09; label=mint-freeze-forensics Features
@@ -289,32 +300,36 @@ Total events: 636
 - `android-app-template`: 5 events; latest=2026-07-09; label=android-app-template Android App Template
 - `facedownassup-downloader`: 5 events; latest=2026-07-09; label=facedownassup-downloader facedownassup-downloader
 - `git-change-ledger`: 5 events; latest=2026-07-09; label=git-change-ledger v8
-- `luoghi`: 5 events; latest=2026-07-09; label=Luoghi app-debug.apk
 - `soldi`: 5 events; latest=2026-07-09; label=Android Tests
 - `sostanze`: 5 events; latest=2026-07-09; label=Sostanze 4.apk
 - `grindr-web-exporter`: 4 events; latest=2026-07-09; label=grindr-web-exporter Grindr Web Exporter
+- `rollout-summaries`: 4 events; latest=2026-07-09; label=Git PATH
 - `mint-cloud-backup`: 3 events; latest=2026-06-06; label=mint-cloud-backup v2
 - `disk-usage-monitor`: 2 events; latest=2026-06-13; label=disk-usage-monitor v8
 - `megavault-content-aware-merge-20260705`: 2 events; latest=2026-07-05; label=Git PATH
 - `megavault-surface`: 2 events; latest=2026-07-05; label=megavault-surface v527
 - `mint-update-tracker`: 2 events; latest=2026-06-04; label=mint-update-tracker v2
 - `extensions`: 1 events; latest=2026-07-09; label=extensions Ad-hoc notes
-- `rollout-summaries`: 1 events; latest=2026-07-08; label=rollout-summaries Fedora/Android Emulator KVM
+- `fedora-system-monitor`: 1 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `unknown`: 1 events; latest=2026-07-05; label=Veeam T7
 
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4b4d-0914-7a11-877d-4614b9fd0b41 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | report | codex_log | 019f4b52-7285-7c42-8426-2120b3579fe1 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-10 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
+| 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
@@ -335,6 +350,7 @@ Total events: 636
 | 2026-07-10 | megavault | MegaVault Record WindowTabNotes Fedora | docs | PASS | P2 | git_commit | git_log | Record WindowTabNotes Fedora uninstall |
 | 2026-07-10 | megavault | MegaVault Topologia rete globale | automation | UNKNOWN | P2 | doc_event | markdown | Topologia rete globale |
 | 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
+| 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4b20-625f-7b82-b449-3344d0f62c4a |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
 | 2026-07-10 | windows | Veeam T7 | security | UNKNOWN | P1 | doc_event | markdown | Profilo host globale |
 | 2026-07-10 | windowtabnotes | windowtabnotes v8 | security | WARN | P0 | changelog | markdown | Linux/X11 + Chrome/Firefox tab note overlay; stores notes in local SQLite and binds each note to a normal window, browser tab, or workspace context. |
@@ -445,6 +461,7 @@ Total events: 636
 | 2026-07-09 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Roadmap | security | FAIL | P1 | doc_event | markdown | linux-mint-service-dashboard Roadmap |
 | 2026-07-09 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Troubleshooting | security | FAIL | P1 | report | markdown | linux-mint-service-dashboard Troubleshooting |
 | 2026-07-09 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Overview | automation | OPEN | P2 | doc_event | markdown | linux-mint-service-dashboard Overview |
+| 2026-07-09 | luoghi | Luoghi app-debug.apk | security | PASS | P0 | release | markdown | Cloned Luoghi on Fedora, validated the debug Android build, and documented the local Fedora/JDK workaround. |
 | 2026-07-09 | luoghi | Luoghi app-debug.apk | release | UNKNOWN | P1 | release | markdown | Luoghi |
 | 2026-07-09 | luoghi | Luoghi Luoghi Roadmap | backup | UNKNOWN | P1 | backup | markdown | Luoghi Roadmap |
 | 2026-07-09 | luoghi | Luoghi Luoghi Troubleshooting | release | UNKNOWN | P1 | release | markdown | Luoghi Troubleshooting |
@@ -511,6 +528,7 @@ Total events: 636
 | 2026-07-09 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Active Roadmap |
 | 2026-07-09 | multitimetracker | MTT MultiTimeTracker | testing | UNKNOWN | P0 | protocol_update | markdown | MultiTimeTracker |
 | 2026-07-09 | multitimetracker | MTT project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-09 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | markdown | Fedora/Wayland integration and extension testing for WindowTabNotes |
 | 2026-07-09 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-07-09 | multitimetracker | MTT v531 | backup | WARN | P0 | report | markdown | MultiTimeTracker Architecture Audit |
 | 2026-07-09 | multitimetracker | Android Tests | security | PASS | P1 | report | markdown | ARCHITECTURE LOCK |
@@ -652,6 +670,8 @@ Total events: 636
 | 2026-07-09 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Overview | backup | OPEN | P1 | backup | markdown | remote_opt_oracle_backup Overview |
 | 2026-07-09 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Roadmap | security | FAIL | P1 | doc_event | markdown | remote_opt_oracle_backup Roadmap |
 | 2026-07-09 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Troubleshooting | security | FAIL | P1 | doc_event | markdown | remote_opt_oracle_backup Troubleshooting |
+| 2026-07-09 | rollout-summaries | Git PATH | bugfix | PASS | P0 | protocol_update | markdown | Verified Playwright is not reinstalled at runtime; no repo changes were needed. |
+| 2026-07-09 | rollout-summaries | Git PATH | security | PASS | P1 | report | markdown | Fedora Android/Kotlin/Python environment prep and verification on `/home/daniele` |
 | 2026-07-09 | soldi | Android Tests | backup | PASS | P1 | backup | markdown | soldi |
 | 2026-07-09 | soldi | Soldi 2.apk | backup | UNKNOWN | P1 | release | markdown | Soldi |
 | 2026-07-09 | soldi | Soldi Soldi Roadmap | bugfix | UNKNOWN | P2 | doc_event | markdown | Soldi Roadmap |
@@ -673,6 +693,7 @@ Total events: 636
 | 2026-07-09 | system-watchdog | system-watchdog system_watchdog Troubleshooting | release | FAIL | P1 | release | markdown | system_watchdog Troubleshooting |
 | 2026-07-09 | system-watchdog | system-watchdog system_watchdog Overview | automation | OPEN | P2 | doc_event | markdown | system_watchdog Overview |
 | 2026-07-09 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
+| 2026-07-09 | windows | Veeam T7 | security | WARN | P0 | protocol_update | markdown | Read-only diagnosis of a Fedora/Veeam backup setup and USB visibility issue |
 | 2026-07-09 | windows | Veeam T7 | backup | OPEN | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | changelog | codex_log | 019f47e2-86bb-7be3-9537-27ee6c2916b7 |
 | 2026-07-09 | windows | windows v1 | security | WARN | P0 | protocol_update | codex_log | 019f4846-94f3-7923-8d4b-af63bca07df4 |
@@ -696,6 +717,7 @@ Total events: 636
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f3f90-7f5f-7361-b0de-19a9db8a74c9 |
 | 2026-07-08 | 2026 | 2026 v1 | security | WARN | P1 | changelog | codex_log | 019f3faa-5c00-7dd1-bbb5-ed3cbc5129c7 |
 | 2026-07-08 | multitimetracker | MTT app-debug.apk | security | WARN | P0 | release | markdown | Raw Memories |
+| 2026-07-08 | rollout-summaries | Git PATH | release | WARN | P1 | release | markdown | Fedora audit/update/prep for Android development with Markdown reports under `system-docs/` |
 | 2026-07-08 | rollout-summaries | rollout-summaries Fedora/Android Emulator KVM | security | FAIL | P1 | report | markdown | Fedora/Android Emulator KVM check on ThinkPad; system stack was mostly prepared, but emulator binary was not found and the current session had not... |
 | 2026-07-06 | luoghi-app | luoghi-app 7.apk | security | WARN | P0 | release | markdown | central Android place provider for stable reusable UUID-based places across Soldi, SuperContacts/SC and MultiTimeTracker/MTT |
 | 2026-07-06 | luoghi-app | luoghi-app 5.apk | security | PASS | P1 | release | markdown | Telegram APK send fix - Luoghi v5 |
