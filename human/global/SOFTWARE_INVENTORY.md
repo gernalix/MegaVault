@@ -1,6 +1,6 @@
 # Inventario software globale
 
-Aggiornato: 2026-07-09. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
+Aggiornato: 2026-07-10. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
 
 ## Tool Fedora verificati
 
@@ -13,6 +13,7 @@ Aggiornato: 2026-07-09. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/gl
 - Android Studio Flatpak `com.google.AndroidStudio` 2026.1.1.10; avvio con `flatpak run com.google.AndroidStudio`.
 - Android SDK: `/home/daniele/Android/Sdk`; ADB `1.0.41 / 37.0.0-14910828`; `sdkmanager` sotto `cmdline-tools/latest/bin`.
 - Per Gradle usare il wrapper del progetto.
+- Obsidian 1.12.7 e' installato per il solo utente come AppImage in `~/.local/opt/obsidian/Obsidian.AppImage`, con voce GNOME e icona locali; l'avvio e la presenza nel menu Applicazioni sono verificati. La compatibilita' AppImage richiede `fuse-libs.x86_64` 2.9.9-25.fc44.
 
 Per il Fedora corrente usare Bash, `dnf`, `systemctl`, `findmnt`, `lsblk` e `df`. Tool e path remoti non descrivono il runtime locale.
 

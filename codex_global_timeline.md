@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-10T05:10:42+02:00
+Generated: 2026-07-10T05:26:59+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 493
+Total events: 495
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,14 +14,14 @@ Total events: 493
 
 | Value | Events |
 |---|---:|
-| megavault | 123 |
+| megavault | 124 |
 | amici-fb | 84 |
 | multitimetracker | 25 |
 | luoghi-app | 21 |
 | oracle-backup-service | 18 |
 | supercontacts | 11 |
 | oracle-uptime-kuma | 10 |
-| 2026 | 7 |
+| 2026 | 8 |
 | windows | 7 |
 | windows-winget-daily-update | 7 |
 | android | 6 |
@@ -67,10 +67,10 @@ Total events: 493
 | Value | Events |
 |---|---:|
 | backup | 159 |
-| security | 157 |
+| security | 158 |
 | docs | 51 |
 | release | 36 |
-| bugfix | 27 |
+| bugfix | 28 |
 | testing | 18 |
 | automation | 16 |
 | infra | 15 |
@@ -81,8 +81,8 @@ Total events: 493
 
 | Value | Events |
 |---|---:|
-| P1 | 284 |
-| P0 | 106 |
+| P1 | 285 |
+| P0 | 107 |
 | P2 | 94 |
 | P3 | 9 |
 
@@ -91,8 +91,8 @@ Total events: 493
 | Value | Events |
 |---|---:|
 | UNKNOWN | 189 |
-| PASS | 117 |
-| WARN | 75 |
+| PASS | 118 |
+| WARN | 76 |
 | OPEN | 58 |
 | FAIL | 54 |
 
@@ -100,9 +100,13 @@ Total events: 493
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
+| 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | Git PATH | backup | OPEN | P1 | backup | markdown | Inventario software globale |
+| 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -116,17 +120,15 @@ Total events: 493
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 01 12 |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T205550Z |
 | 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T202226Z |
-| 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T205341Z |
-| 2026-07-09 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 09T200412Z |
-| 2026-07-09 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | doc_event | markdown | amici_fb |
-| 2026-07-09 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
+| 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -150,7 +152,6 @@ Total events: 493
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-09 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
-| 2026-07-09 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-09 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-07-09 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-09 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
@@ -232,14 +233,14 @@ Total events: 493
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 123 events; latest=2026-07-10; label=Codex Timeline
+- `megavault`: 124 events; latest=2026-07-10; label=Codex Timeline
 - `amici-fb`: 84 events; latest=2026-07-09; label=Amici FB amici 2026
 - `multitimetracker`: 25 events; latest=2026-07-09; label=Android Tests
 - `luoghi-app`: 21 events; latest=2026-07-09; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-09; label=Codex Timeline
 - `supercontacts`: 11 events; latest=2026-07-09; label=SC 1.apk
 - `oracle-uptime-kuma`: 10 events; latest=2026-07-09; label=Kuma Features
-- `2026`: 7 events; latest=2026-07-10; label=2026 v2
+- `2026`: 8 events; latest=2026-07-10; label=2026 v2
 - `windows`: 7 events; latest=2026-07-09; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
@@ -283,9 +284,13 @@ Total events: 493
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4a0b-1e3a-7c30-98dd-afe7c3aa7e8c |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
+| 2026-07-10 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | Git PATH | backup | OPEN | P1 | backup | markdown | Inventario software globale |
+| 2026-07-10 | megavault | MegaVault Record Fedora Chrome | bugfix | PASS | P1 | git_commit | git_log | Record Fedora Chrome launcher fix |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f48a0-16d3-79e3-863b-8066f3607f78 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f482e-265b-7242-93d4-61b288816ba8 |
 | 2026-07-09 | 2026 | 2026 v1 | security | WARN | P0 | changelog | codex_log | 019f47d4-29c2-73e3-b73b-884f99bfcef8 |
@@ -420,14 +425,12 @@ Total events: 493
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-09 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
-| 2026-07-09 | megavault | Git PATH | backup | FAIL | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-09 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-07-09 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-09 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-09 | megavault | MegaVault SERVICE_REGISTRY | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-09 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-09 | megavault | Codex Timeline | backup | UNKNOWN | P1 | backup | markdown | Data Registry |
-| 2026-07-09 | megavault | Git PATH | backup | OPEN | P1 | backup | markdown | Inventario software globale |
 | 2026-07-09 | megavault | MegaVault Alert Registry | security | UNKNOWN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-09 | megavault | MegaVault docs adapt MegaVault | infra | PASS | P1 | git_commit | git_log | docs: adapt MegaVault global documentation for Fedora host |
 | 2026-07-09 | megavault | MegaVault docs verify Fedora | migration | PASS | P1 | git_commit | git_log | docs: verify Fedora documentation migration |
