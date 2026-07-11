@@ -85,3 +85,12 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Prossimo controllo: verificare cavo, alimentazione e diagnostica del disco prima di scritture lunghe.
 - Sicurezza test: nessun dispositivo e' stato scollegato fisicamente e non e' stata tentata una riproduzione distruttiva.
 - Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md`.
+
+## T7_MOUNTPOINT_FELL_THROUGH_TO_INTERNAL_ROOT
+
+- Timestamp UTC: `2026-07-11T23:09:00Z`; stato `RESOLVED`, gravita' `CRITICAL`.
+- Sintomo: `/mnt/T7_BACKUP` esisteva sul Btrfs interno mentre il T7 non era montato.
+- Root cause: `nofail` consente il boot senza disco; la directory non prova il mount esterno.
+- Fix: ogni job richiede mount separato, ext4, UUID+label attesi, by-id seriale/modello e parent disk corretto prima di credenziale/repository.
+- Test: namespace isolato senza T7, exit 21, entry interne `0→0`; backup reale successivo PASS.
+- Sorgente: `/home/daniele/MegaVault/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md`.

@@ -1,7 +1,39 @@
 # Global Codex Timeline AI
-generated_at=2026-07-10T21:41:50+02:00
-total_events=614
+generated_at=2026-07-12T01:43:49+02:00
+total_events=638
 format=event_date|project|label_short|category|status|importance
+2026-07-12|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-12|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-12|amici-fb|Amici FB trace|backup|FAIL|P1
+2026-07-12|amici-fb|Amici FB facebook friends|bugfix|UNKNOWN|P2
+2026-07-12|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
+2026-07-12|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-07-12|fedora-t7-backup|fedora-t7-backup project.metadata|backup|UNKNOWN|P0
+2026-07-12|fedora-t7-backup|fedora-t7-backup v16|security|PASS|P0
+2026-07-12|fedora-t7-backup|Android Tests|security|UNKNOWN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup Activity 583921 -|backup|UNKNOWN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup AUDIT 583921|security|WARN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup Changelog|backup|UNKNOWN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup controlled incremental restore|backup|UNKNOWN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup Fedora T7 Backup|security|UNKNOWN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup INCIDENT REGISTRY|backup|FAIL|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup Registro incidenti|backup|UNKNOWN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup Roadmap|backup|UNKNOWN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup Troubleshooting|backup|UNKNOWN|P1
+2026-07-12|fedora-t7-backup|fedora-t7-backup v2|security|WARN|P1
+2026-07-12|megavault|Codex Timeline|backup|OPEN|P0
+2026-07-12|megavault|Codex Timeline|backup|PASS|P0
+2026-07-12|megavault|MegaVault v2|security|OPEN|P0
+2026-07-12|megavault|Codex Timeline|backup|FAIL|P1
+2026-07-12|megavault|Git PATH|security|OPEN|P1
+2026-07-12|megavault|MegaVault Incident Registry|security|PASS|P1
+2026-07-12|megavault|MegaVault Service Registry|security|UNKNOWN|P1
+2026-07-12|multitimetracker|MTT v537|security|WARN|P0
+2026-07-12|multitimetracker|MTT v4|security|PASS|P1
+2026-07-12|windows|Veeam T7|security|PASS|P0
+2026-07-12|windows|Veeam T7|security|OPEN|P0
+2026-07-12|windows|Veeam T7|security|UNKNOWN|P1
+2026-07-12|windows|Veeam T7|security|PASS|P1
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
@@ -12,7 +44,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB trace|backup|UNKNOWN|P1
-2026-07-10|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
 2026-07-10|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
 2026-07-10|fedora-system-monitor|Android Tests|security|FAIL|P1
 2026-07-10|fedora-system-monitor|Android Tests|backup|FAIL|P1
@@ -28,9 +59,11 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|fedora-system-monitor|fedora-system-monitor Registro incidenti|automation|UNKNOWN|P2
 2026-07-10|luoghi|Luoghi v10|security|WARN|P0
 2026-07-10|luoghi|Luoghi v10|security|WARN|P0
+2026-07-10|luoghi|Luoghi v13|security|PASS|P0
 2026-07-10|luoghi|Luoghi v2|security|WARN|P0
 2026-07-10|luoghi|Luoghi v2|security|WARN|P0
 2026-07-10|luoghi|Luoghi v5|security|WARN|P0
+2026-07-10|luoghi|Git PATH|backup|PASS|P1
 2026-07-10|luoghi-app|luoghi-app v11|release|UNKNOWN|P0
 2026-07-10|luoghi-app|luoghi-app v11|backup|UNKNOWN|P0
 2026-07-10|luoghi-app|luoghi-app v16|release|UNKNOWN|P0
@@ -86,20 +119,16 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi-app|Git PATH|performance|OPEN|P3
 2026-07-10|megavault|Android Tests|security|OPEN|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
-2026-07-10|megavault|Codex Timeline|backup|UNKNOWN|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|testing|PASS|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|bugfix|PASS|P0
 2026-07-10|megavault|Codex Timeline|testing|PASS|P0
-2026-07-10|megavault|Codex Timeline|backup|OPEN|P0
 2026-07-10|megavault|Codex Timeline|security|PASS|P0
 2026-07-10|megavault|Git PATH|security|PASS|P0
 2026-07-10|megavault|Git PATH|security|PASS|P0
 2026-07-10|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
 2026-07-10|megavault|MegaVault NETWORK_TOPOLOGY|security|OPEN|P0
-2026-07-10|megavault|MegaVault v2|security|OPEN|P0
-2026-07-10|megavault|Git PATH|security|OPEN|P1
 2026-07-10|megavault|Git PATH|security|PASS|P1
 2026-07-10|megavault|MegaVault Activity 842731 -|security|WARN|P1
 2026-07-10|megavault|MegaVault Activity 846271 Codex|backup|WARN|P1
@@ -107,42 +136,38 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault docs record T7|backup|PASS|P1
 2026-07-10|megavault|MegaVault docs refresh timeline|automation|PASS|P1
 2026-07-10|megavault|MegaVault docs register Fedora|automation|PASS|P1
-2026-07-10|megavault|MegaVault Incident Registry|security|PASS|P1
 2026-07-10|megavault|MegaVault Record Fedora Chrome|bugfix|PASS|P1
-2026-07-10|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-10|megavault|MegaVault Update timeline for|bugfix|PASS|P1
 2026-07-10|megavault|Android Tests|bugfix|UNKNOWN|P2
-2026-07-10|megavault|Codex Timeline|automation|UNKNOWN|P2
 2026-07-10|megavault|MegaVault Document Codex cleanup|docs|PASS|P2
 2026-07-10|megavault|MegaVault Document Fedora ADB|testing|PASS|P2
 2026-07-10|megavault|MegaVault Document Fedora RustDesk|docs|PASS|P2
 2026-07-10|megavault|MegaVault Document live Codex|docs|PASS|P2
 2026-07-10|megavault|MegaVault Document Obsidian Fedora|docs|PASS|P2
 2026-07-10|megavault|MegaVault Record Luoghi interrupted|docs|PASS|P2
+2026-07-10|megavault|MegaVault Record Luoghi restore|docs|PASS|P2
 2026-07-10|megavault|MegaVault Record WindowTabNotes Fedora|docs|PASS|P2
 2026-07-10|megavault|MegaVault Remove Codex session|docs|PASS|P2
 2026-07-10|megavault|MegaVault Task 714283 Codex|docs|UNKNOWN|P2
 2026-07-10|megavault|MegaVault v10|docs|PASS|P2
 2026-07-10|multitimetracker|MTT 1.apk|security|WARN|P0
+2026-07-10|multitimetracker|MTT app-debug.apk|security|WARN|P0
 2026-07-10|multitimetracker|MTT v1|security|PASS|P0
-2026-07-10|multitimetracker|MTT v2|security|WARN|P0
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
-2026-07-10|multitimetracker|MTT v4|security|PASS|P1
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
 2026-07-10|oracle-backup-service|Codex Timeline|security|FAIL|P0
+2026-07-10|oracle-uptime-kuma|Kuma Failed attempt to|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|PASS|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma Topologia rete globale|security|UNKNOWN|P1
+2026-07-10|rollout-summaries|Codex Timeline|backup|PASS|P0
 2026-07-10|rollout-summaries|Codex Timeline|security|WARN|P0
 2026-07-10|rollout-summaries|Codex Timeline|release|WARN|P0
 2026-07-10|rollout-summaries|Codex Timeline|security|PASS|P0
 2026-07-10|rollout-summaries|Codex Timeline|security|PASS|P0
 2026-07-10|skills|Codex Timeline|security|OPEN|P0
-2026-07-10|windows|Veeam T7|security|OPEN|P0
-2026-07-10|windows|Veeam T7|backup|OPEN|P0
-2026-07-10|windows|Veeam T7|security|UNKNOWN|P1
 2026-07-10|windowtabnotes|windowtabnotes v8|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
 2026-07-09|2026|2026 v1|security|WARN|P0
@@ -297,7 +322,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|multitimetracker|Android Tests|security|PASS|P0
 2026-07-09|multitimetracker|Android Tests|security|PASS|P0
 2026-07-09|multitimetracker|MTT 1.apk|security|WARN|P0
-2026-07-09|multitimetracker|MTT app-debug.apk|security|PASS|P0
+2026-07-09|multitimetracker|MTT app-deviceTest.apk|security|PASS|P0
 2026-07-09|multitimetracker|MTT v4|security|WARN|P0
 2026-07-09|multitimetracker|MTT v531|backup|WARN|P0
 2026-07-09|multitimetracker|MTT ENRICHMENT_REPORT|security|PASS|P1
@@ -361,7 +386,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
 2026-07-09|windows|windows v1|security|WARN|P0
-2026-07-09|windows|Veeam T7|backup|UNKNOWN|P1
 2026-07-09|windows-flight-recorder|WFR Windows 11 autonomous|security|FAIL|P0
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
 2026-07-09|windows-flight-recorder|WFR Windows Flight Recorder|security|UNKNOWN|P1
@@ -379,7 +403,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|windowtabnotes|windowtabnotes WindowTabNotes Roadmap|backup|UNKNOWN|P1
 2026-07-08|2026|2026 v1|security|WARN|P0
 2026-07-08|2026|2026 v1|security|WARN|P1
-2026-07-08|multitimetracker|MTT app-debug.apk|security|WARN|P0
+2026-07-08|multitimetracker|MTT app-deviceTest.apk|security|WARN|P0
 2026-07-08|rollout-summaries|Git PATH|release|WARN|P1
 2026-07-08|rollout-summaries|rollout-summaries Fedora/Android Emulator KVM|security|FAIL|P1
 2026-07-06|luoghi-app|luoghi-app 10.apk|security|WARN|P0

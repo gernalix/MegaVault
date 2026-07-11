@@ -1,6 +1,6 @@
 # Profilo host globale
 
-Aggiornato: 2026-07-10. Autorita' operativa: [HOST_PROFILE AI](../../ai/global/HOST_PROFILE.md).
+Aggiornato: 2026-07-12. Autorita' operativa: [HOST_PROFILE AI](../../ai/global/HOST_PROFILE.md).
 
 ## Host corrente
 
@@ -21,9 +21,9 @@ Per operazioni locali Codex deve usare path Fedora `/home/daniele/...`, comandi 
 ## Hardware e storage
 
 - CPU AMD Ryzen 7 PRO 8840HS con Radeon 780M, 8 core / 16 thread; RAM circa 27.7 GiB; BIOS `R2LET40W (1.21)`.
-- Root e home: Btrfs su volume LUKS Kioxia NVMe da circa 951 GiB, circa 936 GiB disponibili al controllo.
+- Root e home: Btrfs su volume LUKS Kioxia NVMe da circa 951 GiB, circa 844 GiB disponibili al controllo.
 - Seagate 3.5 TiB montato in `/run/media/daniele/Seagate Expansion Drive`; volume NTFS 155.9 GiB montato in `/run/media/daniele/09FA16D309FA16D3`.
-- Samsung T7 collegato in `/run/media/daniele/Ventoy`; supporto recovery in `/run/media/daniele/VEEAMRE`.
+- Il Samsung chiamato `T7` e' montato in `/mnt/T7_BACKUP`, ext4 label `T7_BACKUP`; ospita il repository Restic cifrato. Il supporto recovery vfat con label `VEEAMRE` e' un dispositivo storico distinto.
 
 Prima di backup o I/O pesante verificare `findmnt`, `lsblk` e `df`; i mount rimovibili possono cambiare.
 
@@ -37,4 +37,4 @@ Prima di backup o I/O pesante verificare `findmnt`, `lsblk` e `df`; i mount rimo
 
 ## Stato da verificare
 
-Policy e target backup Fedora non sono stati verificati. Servizi e path specifici di progetto richiedono una verifica live prima dell'uso sul nuovo host.
+Il backup Fedora sul T7 e' verificato; resta manuale l'escrow della password nel password manager. Altri servizi e path specifici di progetto richiedono verifica live.

@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=10
+VERSION=11
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-10T20:05:00+02:00
-SOURCE=tool_versions_live_2026-07-09+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_593184+activity_846271
+UPDATED=2026-07-12T01:35:00+02:00
+SOURCE=tool_versions_live_2026-07-12+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_593184+activity_846271+activity_583921
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -27,6 +27,7 @@ tool=OpenSSH;path=/usr/bin/ssh;version=10.2p1;config_dir=/home/daniele/.ssh;conf
 tool=Docker;path=missing;service=absent;version=not_installed;critical=no
 tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_container_runtime
 tool=Fedora_System_Monitor;version=1.0.1;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;status=installed+enabled+audited;activity=593184
+tool=Restic;path=/usr/bin/restic;version=0.19.0;project=/home/daniele/MegaVault/projects/fedora-t7-backup;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+encrypted+automated+full_check+restore_tested;activity=583921
 package=smartmontools;version=7.5-6.fc44;role=storage_health;preexisting=yes
 package=nvme-cli;version=2.16-2.fc44;role=NVMe_health;preexisting=yes
 package=lm_sensors;version=3.6.0-24.fc44;role=temperature;preexisting=yes
@@ -61,5 +62,5 @@ shell_ops=bash
 android_ops=flatpak,adb,sdkmanager,java,project_Gradle_wrapper
 
 OPEN:
-open=current_backup_client_and_restic_state_not_refreshed_on_Fedora
+open=T7_Restic_password_external_escrow_pending_user
 open=project_Gradle_versions_are_project_specific

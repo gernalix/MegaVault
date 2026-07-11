@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=9
+VERSION=10
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-10T20:05:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271
+UPDATED=2026-07-12T01:35:00+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921
 
 META:
 host=fedora
@@ -41,12 +41,12 @@ gpu=Radeon_780M_integrated
 constraints=laptop_power/thermal_profile,verify_sudo_requirement,use_Fedora_commands_and_mounts
 
 STORAGE_CURRENT_FEDORA:
-root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=935.9GiB mounts=/,/home
+root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=844GiB mounts=/,/home
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
 external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs size=3.5TiB source=udisks_encrypted_volume_mapping
 external_ntfs=/run/media/daniele/09FA16D309FA16D3 size=155.9GiB role=UNKNOWN
-t7=/mnt/T7_BACKUP ext4 label=T7_BACKUP uuid=4c75ac03-4c73-43f8-afd9-f90db49a74fc model=Samsung_PSSD_T7_Shield serial=S6YGNS0Y903440H size=931.5GiB persistent_fstab=yes activity=842731 verified=2026-07-10
-recovery_media=/run/media/daniele/VEEAMRE vfat size=14.6GiB connected=2026-07-09
+t7=name=T7 mount=/mnt/T7_BACKUP ext4 label=T7_BACKUP uuid=4c75ac03-4c73-43f8-afd9-f90db49a74fc model=Samsung_PSSD_T7_Shield serial=S6YGNS0Y903440H size=931.5GiB free=761GiB persistent_fstab=yes udisks_hint=T7 restic=/mnt/T7_BACKUP/restic-fedora verified=2026-07-12 activity=583921
+recovery_media=historical_distinct_vfat label=VEEAMRE uuid=16B8-BC99 size=14.6GiB last_seen=2026-07-12T01:09:47+02:00
 storage_rule=verify_findmnt+lsblk+df_before_backup_or_large_IO;removable_mounts_can_drift
 
 TOOLING_CURRENT_FEDORA:
@@ -100,5 +100,5 @@ dnb=do_not_run_destructive_storage/backup/remediation_commands_without_explicit_
 dnb=do_not_use_human_docs_as_operational_authority_when_AI_doc/protocol/profile_disagree
 
 OPEN:
-open=current_backup_policy_and_targets_UNKNOWN_on_Fedora
+open=external_password_manager_escrow_pending_for_T7_Restic
 open=project_specific_services_and_data_paths_require_live_revalidation_on_Fedora

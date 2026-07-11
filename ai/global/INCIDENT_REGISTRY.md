@@ -1,4 +1,4 @@
-VERSION=2
+VERSION=3
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -158,3 +158,21 @@ Commit_correlati=fedora-system-monitor activity 593184
 Prompt_correlati=593184
 Tempo_totale_di_impatto=approximately 10 seconds until observed remount
 Note=No physical disconnect or destructive reproduction was attempted; device serial and filesystem UUID are intentionally omitted from documentation; project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
+
+INCIDENT:
+Incident_ID=T7_MOUNTPOINT_FELL_THROUGH_TO_INTERNAL_ROOT
+Titolo=T7 fstab mountpoint existed on internal root while external device was absent
+Data_prima_comparsa_UTC=2026-07-11T23:09:00Z
+Data_ultima_comparsa_UTC=2026-07-11T23:09:00Z
+Numero_occorrenze=1 confirmed preflight state
+Gravita_massima=CRITICAL
+Stato=RESOLVED
+Root_cause=The nofail fstab entry allowed boot without T7; the persistent /mnt/T7_BACKUP directory then resolved to internal Btrfs and directory existence alone could not prove the external mount.
+Sistemi_coinvolti=Fedora host; Samsung T7; /mnt/T7_BACKUP; fedora-t7-backup
+Alert_coinvolti=journal nonzero backup job; no external notification configured
+Tentativi_effettuati=Live findmnt+lsblk+udev+UUID+label+serial inventory; isolated mount-namespace missing-device simulation; internal entry count before/after.
+Soluzione_finale=Every operation requires separate mountpoint, ext4, expected UUID+label, persistent by-id serial/model,parent-disk match,and device number different from root before credential or repository access.
+Commit_correlati=fedora-t7-backup activity 583921
+Prompt_correlati=583921
+Tempo_totale_di_impatto=no backup write occurred; unsafe state detected before implementation
+Note=Isolated absent simulation exited 21 and preserved internal entry count 0 to 0; subsequent real T7 backup succeeded; project source=/home/daniele/MegaVault/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md
