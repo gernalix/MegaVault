@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-12T13:25:36+02:00
+Generated: 2026-07-12T13:27:21+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 648
+Total events: 649
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,7 +14,7 @@ Total events: 648
 
 | Value | Events |
 |---|---:|
-| megavault | 150 |
+| megavault | 151 |
 | amici-fb | 95 |
 | luoghi-app | 70 |
 | multitimetracker | 32 |
@@ -74,7 +74,7 @@ Total events: 648
 | docs | 63 |
 | testing | 47 |
 | release | 45 |
-| bugfix | 34 |
+| bugfix | 35 |
 | automation | 19 |
 | infra | 15 |
 | migration | 12 |
@@ -84,7 +84,7 @@ Total events: 648
 
 | Value | Events |
 |---|---:|
-| P1 | 349 |
+| P1 | 350 |
 | P0 | 153 |
 | P2 | 136 |
 | P3 | 10 |
@@ -94,7 +94,7 @@ Total events: 648
 | Value | Events |
 |---|---:|
 | UNKNOWN | 250 |
-| PASS | 163 |
+| PASS | 164 |
 | WARN | 113 |
 | FAIL | 62 |
 | OPEN | 60 |
@@ -282,7 +282,7 @@ Total events: 648
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 150 events; latest=2026-07-12; label=Codex Timeline
+- `megavault`: 151 events; latest=2026-07-12; label=Codex Timeline
 - `amici-fb`: 95 events; latest=2026-07-12; label=Amici FB amici 2026
 - `luoghi-app`: 70 events; latest=2026-07-10; label=luoghi-app v11
 - `multitimetracker`: 32 events; latest=2026-07-12; label=MTT 1.apk
@@ -369,6 +369,7 @@ Total events: 648
 | 2026-07-12 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-12 | megavault | MegaVault activity 583921 register | backup | PASS | P1 | git_commit | git_log | activity 583921: register Fedora T7 backup |
 | 2026-07-12 | megavault | MegaVault activity 684219 sync | backup | PASS | P1 | git_commit | git_log | activity 684219: sync T7 connect backup globally |
+| 2026-07-12 | megavault | MegaVault fix host recover | bugfix | PASS | P1 | git_commit | git_log | fix(host): recover Android Studio DirectoryLock |
 | 2026-07-12 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-12 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f5605-f5af-7480-b995-b7d72e0a235e |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
