@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=12
+VERSION=13
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
 UPDATED=2026-07-12T01:35:00+02:00
-SOURCE=tool_versions_live_2026-07-12+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_593184+activity_846271+activity_583921+activity_684219
+SOURCE=tool_versions_live_2026-07-12+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_846271+activity_583921+activity_684219
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -46,6 +46,11 @@ security=permanent_password_not_set_by_Codex;user_must_set_manually_in_GUI;passw
 limits=Wayland_support_experimental;Wayland_login_screen_unavailable_after_logout/reboot_until_graphical_login;mobile_screen/input/clipboard/lock/reconnect_tests_pending
 maintenance=update_repeat_official_GitHub_API_asset_selection+digest_validation+sudo_dnf_install_local_RPM;remove=sudo_dnf_remove_rustdesk;configuration_preserved_unless_user_explicitly_removes_it
 event_date=2026-07-10;summary=RustDesk_1.4.9_official_RPM_installed_service_enabled_GNOME_Wayland_technical_validation_pass_mobile_test_pending;status=PASS;source_ref=task_847263
+app=VeraCrypt;version=1.26.29-1;install=official_Fedora_44_x86_64_GUI_RPM_via_DNF;path=/usr/bin/veracrypt;desktop=/usr/share/applications/veracrypt.desktop;launch=verified_AT-SPI_frame;gnome_visible=yes
+asset=veracrypt-1.26.29-Fedora-44-x86_64.rpm;source=https://launchpad.net/veracrypt/trunk/1.26.29/+download/veracrypt-1.26.29-Fedora-44-x86_64.rpm;sha256=ff6b9b4a84a546c6a6fbc0c58ac1074fc6252cae8398f52b57ff360a3cbc312e;rpm_signature=OK;signing_fingerprint=5069A233D55A0EEB174A5FC3821ACD02680D16DE
+validation=veracrypt_--text_--version_returns_1.26.29;desktop_file_valid;GUI_process+AT-SPI_frame_detected;storage_or_volume_changes=none
+warning=plain_GUI_mode_veracrypt_--version_waits_for_GUI_event_loop;use_--text_--version_for_CLI;GTK_scale_factor_critical_nonfatal_at_launch
+event_date=2026-07-12;summary=VeraCrypt_1.26.29_official_Fedora_44_GUI_RPM_checksum_signature_DNF_CLI_menu_GUI_validated;status=PASS_WITH_WARNING;source_ref=activity_581204
 
 ANDROID_TOOLS_CURRENT:
 tool=Android_Studio;install=Flatpak_com.google.AndroidStudio;version=2026.1.1.10;launch=flatpak_run_com.google.AndroidStudio;critical=yes

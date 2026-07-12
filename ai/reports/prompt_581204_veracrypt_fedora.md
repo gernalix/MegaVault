@@ -1,0 +1,20 @@
+# ACTIVITY_581204
+date=2026-07-12
+category=security
+importance=P2
+status=PASS_WITH_WARNING
+summary=VeraCrypt_1.26.29_official_Fedora_44_GUI_RPM_installed_and_validated
+scope=Fedora_44_x86_64_package_installation_only;no_volume_partition_or_disk_changes
+package=veracrypt-1.26.29-Fedora-44-x86_64.rpm
+source_ref=https://veracrypt.io/en/Downloads.html
+asset_url=https://launchpad.net/veracrypt/trunk/1.26.29/+download/veracrypt-1.26.29-Fedora-44-x86_64.rpm
+sha256=ff6b9b4a84a546c6a6fbc0c58ac1074fc6252cae8398f52b57ff360a3cbc312e;official_match=yes
+signature=rpm_-K_digests_signatures_OK;fingerprint=5069A233D55A0EEB174A5FC3821ACD02680D16DE
+install=sudo_dnf_reinstall_-y_--setopt=localpkg_gpgcheck=True_local_RPM;result=complete
+test=veracrypt_--text_--version;result=PASS;detail=VeraCrypt_1.26.29
+test=desktop-file-validate_/usr/share/applications/veracrypt.desktop;result=PASS
+test=GUI_launch+process+AT-SPI_frame;result=PASS;detail=window_VeraCrypt_role_frame
+warning=initial_DNF_local_package_transaction_reported_default_OpenPGP_skip;resolved_by_reinstall_with_localpkg_gpgcheck=True
+warning=plain_veracrypt_--version_enters_GUI_event_loop;CLI_requires_--text
+warning=GUI_launch_logged_nonfatal_Gtk_scale_factor_critical
+cleanup=download_checksum_key_and_GUI_log_removed_from_/tmp

@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-12T13:27:21+02:00
+Generated: 2026-07-12T16:07:19+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 649
+Total events: 652
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,10 +14,10 @@ Total events: 649
 
 | Value | Events |
 |---|---:|
-| megavault | 151 |
+| megavault | 153 |
 | amici-fb | 95 |
 | luoghi-app | 70 |
-| multitimetracker | 32 |
+| multitimetracker | 33 |
 | oracle-backup-service | 18 |
 | fedora-t7-backup | 15 |
 | oracle-uptime-kuma | 15 |
@@ -69,11 +69,11 @@ Total events: 649
 
 | Value | Events |
 |---|---:|
-| security | 214 |
+| security | 215 |
 | backup | 195 |
-| docs | 63 |
+| docs | 64 |
 | testing | 47 |
-| release | 45 |
+| release | 46 |
 | bugfix | 35 |
 | automation | 19 |
 | infra | 15 |
@@ -84,9 +84,9 @@ Total events: 649
 
 | Value | Events |
 |---|---:|
-| P1 | 350 |
-| P0 | 153 |
-| P2 | 136 |
+| P1 | 351 |
+| P0 | 154 |
+| P2 | 137 |
 | P3 | 10 |
 
 ### Events by status
@@ -95,9 +95,9 @@ Total events: 649
 |---|---:|
 | UNKNOWN | 250 |
 | PASS | 164 |
-| WARN | 113 |
+| WARN | 117 |
 | FAIL | 62 |
-| OPEN | 60 |
+| OPEN | 59 |
 
 
 ## Recent Events
@@ -134,6 +134,7 @@ Total events: 649
 | 2026-07-12 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-12 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-12 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f5605-f5af-7480-b995-b7d72e0a235e |
+| 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5611-46f2-7493-ad57-657902648d00 |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-12 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-12 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
@@ -165,7 +166,7 @@ Total events: 649
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT notification QA |
 | 2026-07-10 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
-| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -282,10 +283,10 @@ Total events: 649
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 151 events; latest=2026-07-12; label=Codex Timeline
+- `megavault`: 153 events; latest=2026-07-12; label=Codex Timeline
 - `amici-fb`: 95 events; latest=2026-07-12; label=Amici FB amici 2026
 - `luoghi-app`: 70 events; latest=2026-07-10; label=luoghi-app v11
-- `multitimetracker`: 32 events; latest=2026-07-12; label=MTT 1.apk
+- `multitimetracker`: 33 events; latest=2026-07-12; label=MTT 1.apk
 - `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `oracle-uptime-kuma`: 15 events; latest=2026-07-10; label=Kuma Failed attempt to
@@ -366,12 +367,15 @@ Total events: 649
 | 2026-07-12 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-12 | megavault | Android Tests | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-12 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
-| 2026-07-12 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
+| 2026-07-12 | megavault | Git PATH | security | WARN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-12 | megavault | MegaVault activity 583921 register | backup | PASS | P1 | git_commit | git_log | activity 583921: register Fedora T7 backup |
 | 2026-07-12 | megavault | MegaVault activity 684219 sync | backup | PASS | P1 | git_commit | git_log | activity 684219: sync T7 connect backup globally |
+| 2026-07-12 | megavault | MegaVault ACTIVITY_581204 | release | WARN | P1 | release | markdown | ACTIVITY_581204 |
 | 2026-07-12 | megavault | MegaVault fix host recover | bugfix | PASS | P1 | git_commit | git_log | fix(host): recover Android Studio DirectoryLock |
 | 2026-07-12 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
+| 2026-07-12 | megavault | MegaVault docs sync timeline | docs | PASS | P2 | git_commit | git_log | docs: sync timeline for activity 516803 |
 | 2026-07-12 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f5605-f5af-7480-b995-b7d72e0a235e |
+| 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5611-46f2-7493-ad57-657902648d00 |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-12 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
 | 2026-07-12 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
@@ -471,7 +475,7 @@ Total events: 649
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT notification QA |
 | 2026-07-10 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
-| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
+| 2026-07-10 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-10 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
