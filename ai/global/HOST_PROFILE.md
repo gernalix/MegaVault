@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=10
+VERSION=11
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
 UPDATED=2026-07-12T01:35:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219
 
 META:
 host=fedora
@@ -45,7 +45,7 @@ root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
 external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs size=3.5TiB source=udisks_encrypted_volume_mapping
 external_ntfs=/run/media/daniele/09FA16D309FA16D3 size=155.9GiB role=UNKNOWN
-t7=name=T7 mount=/mnt/T7_BACKUP ext4 label=T7_BACKUP uuid=4c75ac03-4c73-43f8-afd9-f90db49a74fc model=Samsung_PSSD_T7_Shield serial=S6YGNS0Y903440H size=931.5GiB free=761GiB persistent_fstab=yes udisks_hint=T7 restic=/mnt/T7_BACKUP/restic-fedora verified=2026-07-12 activity=583921
+t7=name=T7 normal_state=physically_disconnected_or_USB_present_unmounted job_mount=/mnt/T7_BACKUP ext4 label=T7_BACKUP uuid=4c75ac03-4c73-43f8-afd9-f90db49a74fc model=Samsung_PSSD_T7_Shield serial=S6YGNS0Y903440H size=931.5GiB free_about=761GiB persistent_fstab=yes udisks_hint=T7 restic=/mnt/T7_BACKUP/restic-fedora connect_trigger=udev+systemd verified=2026-07-12 activity=684219
 recovery_media=historical_distinct_vfat label=VEEAMRE uuid=16B8-BC99 size=14.6GiB last_seen=2026-07-12T01:09:47+02:00
 storage_rule=verify_findmnt+lsblk+df_before_backup_or_large_IO;removable_mounts_can_drift
 

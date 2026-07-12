@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-12T01:43:49+02:00
+Generated: 2026-07-12T02:08:52+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 638
+Total events: 641
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,15 +15,15 @@ Total events: 638
 
 | Value | Events |
 |---|---:|
-| megavault | 148 |
+| megavault | 149 |
 | amici-fb | 92 |
 | luoghi-app | 70 |
 | multitimetracker | 31 |
 | oracle-backup-service | 18 |
+| fedora-t7-backup | 15 |
 | oracle-uptime-kuma | 15 |
 | fedora-system-monitor | 14 |
 | 2026 | 13 |
-| fedora-t7-backup | 13 |
 | luoghi | 12 |
 | supercontacts | 12 |
 | rollout-summaries | 10 |
@@ -70,8 +70,8 @@ Total events: 638
 
 | Value | Events |
 |---|---:|
-| security | 210 |
-| backup | 189 |
+| security | 212 |
+| backup | 190 |
 | docs | 63 |
 | testing | 47 |
 | release | 45 |
@@ -85,7 +85,7 @@ Total events: 638
 
 | Value | Events |
 |---|---:|
-| P1 | 341 |
+| P1 | 344 |
 | P0 | 151 |
 | P2 | 136 |
 | P3 | 10 |
@@ -94,9 +94,9 @@ Total events: 638
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 248 |
-| PASS | 160 |
-| WARN | 108 |
+| UNKNOWN | 247 |
+| PASS | 162 |
+| WARN | 110 |
 | FAIL | 62 |
 | OPEN | 60 |
 
@@ -112,18 +112,18 @@ Total events: 638
 | 2026-07-12 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup project.metadata | backup | UNKNOWN | P0 | protocol_update | json | project.metadata |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v16 | security | PASS | P0 | protocol_update | markdown | PROJECT |
-| 2026-07-12 | fedora-t7-backup | Android Tests | security | UNKNOWN | P1 | doc_event | markdown | Operazioni Fedora T7 Backup attivita 583921 |
+| 2026-07-12 | fedora-t7-backup | Android Tests | security | UNKNOWN | P1 | doc_event | markdown | Operazioni Fedora T7 Backup attivita 684219 |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Activity 583921 - | backup | UNKNOWN | P1 | backup | txt | Activity 583921 - rebuildable caches and unsafe/live data. |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup AUDIT 583921 | security | WARN | P1 | doc_event | markdown | AUDIT 583921 |
+| 2026-07-12 | fedora-t7-backup | fedora-t7-backup AUDIT 684219 | security | WARN | P1 | doc_event | markdown | AUDIT 684219 |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
+| 2026-07-12 | fedora-t7-backup | fedora-t7-backup conclusivo attivita 684219 | security | WARN | P1 | report | markdown | Report conclusivo attivita 684219 |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup controlled incremental restore | backup | UNKNOWN | P1 | backup | txt | controlled incremental and restore test |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Fedora T7 Backup | security | UNKNOWN | P1 | report | markdown | Fedora T7 Backup |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup INCIDENT REGISTRY | backup | FAIL | P1 | backup | markdown | INCIDENT REGISTRY |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup Registro incidenti | backup | UNKNOWN | P1 | backup | markdown | Registro incidenti |
+| 2026-07-12 | fedora-t7-backup | fedora-t7-backup INCIDENT REGISTRY | backup | PASS | P1 | backup | markdown | INCIDENT REGISTRY |
+| 2026-07-12 | fedora-t7-backup | fedora-t7-backup Registro incidenti | backup | PASS | P1 | backup | markdown | Registro incidenti |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | Troubleshooting |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup v2 | security | WARN | P1 | report | markdown | Report conclusivo attivita 583921 |
-| 2026-07-12 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -281,15 +281,15 @@ Total events: 638
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 148 events; latest=2026-07-12; label=Codex Timeline
+- `megavault`: 149 events; latest=2026-07-12; label=Codex Timeline
 - `amici-fb`: 92 events; latest=2026-07-12; label=Amici FB amici 2026
 - `luoghi-app`: 70 events; latest=2026-07-10; label=luoghi-app v11
 - `multitimetracker`: 31 events; latest=2026-07-12; label=MTT v537
 - `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
+- `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `oracle-uptime-kuma`: 15 events; latest=2026-07-10; label=Kuma Failed attempt to
 - `fedora-system-monitor`: 14 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
-- `fedora-t7-backup`: 13 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `luoghi`: 12 events; latest=2026-07-10; label=Luoghi v10
 - `supercontacts`: 12 events; latest=2026-07-09; label=SC 1.apk
 - `rollout-summaries`: 10 events; latest=2026-07-10; label=Codex Timeline
@@ -343,14 +343,16 @@ Total events: 638
 | 2026-07-12 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup project.metadata | backup | UNKNOWN | P0 | protocol_update | json | project.metadata |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v16 | security | PASS | P0 | protocol_update | markdown | PROJECT |
-| 2026-07-12 | fedora-t7-backup | Android Tests | security | UNKNOWN | P1 | doc_event | markdown | Operazioni Fedora T7 Backup attivita 583921 |
+| 2026-07-12 | fedora-t7-backup | Android Tests | security | UNKNOWN | P1 | doc_event | markdown | Operazioni Fedora T7 Backup attivita 684219 |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Activity 583921 - | backup | UNKNOWN | P1 | backup | txt | Activity 583921 - rebuildable caches and unsafe/live data. |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup AUDIT 583921 | security | WARN | P1 | doc_event | markdown | AUDIT 583921 |
+| 2026-07-12 | fedora-t7-backup | fedora-t7-backup AUDIT 684219 | security | WARN | P1 | doc_event | markdown | AUDIT 684219 |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
+| 2026-07-12 | fedora-t7-backup | fedora-t7-backup conclusivo attivita 684219 | security | WARN | P1 | report | markdown | Report conclusivo attivita 684219 |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup controlled incremental restore | backup | UNKNOWN | P1 | backup | txt | controlled incremental and restore test |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Fedora T7 Backup | security | UNKNOWN | P1 | report | markdown | Fedora T7 Backup |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup INCIDENT REGISTRY | backup | FAIL | P1 | backup | markdown | INCIDENT REGISTRY |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup Registro incidenti | backup | UNKNOWN | P1 | backup | markdown | Registro incidenti |
+| 2026-07-12 | fedora-t7-backup | fedora-t7-backup INCIDENT REGISTRY | backup | PASS | P1 | backup | markdown | INCIDENT REGISTRY |
+| 2026-07-12 | fedora-t7-backup | fedora-t7-backup Registro incidenti | backup | PASS | P1 | backup | markdown | Registro incidenti |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v2 | security | WARN | P1 | report | markdown | Report conclusivo attivita 583921 |
@@ -359,6 +361,7 @@ Total events: 638
 | 2026-07-12 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-12 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
 | 2026-07-12 | megavault | Git PATH | security | OPEN | P1 | doc_event | markdown | Inventario software globale |
+| 2026-07-12 | megavault | MegaVault activity 583921 register | backup | PASS | P1 | git_commit | git_log | activity 583921: register Fedora T7 backup |
 | 2026-07-12 | megavault | MegaVault Incident Registry | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-12 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -366,7 +369,7 @@ Total events: 638
 | 2026-07-12 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-12 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
 | 2026-07-12 | windows | Veeam T7 | security | UNKNOWN | P1 | doc_event | markdown | Profilo host globale |
-| 2026-07-12 | windows | Veeam T7 | security | PASS | P1 | doc_event | markdown | Topologia storage globale |
+| 2026-07-12 | windows | Veeam T7 | security | FAIL | P1 | doc_event | markdown | Topologia storage globale |
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4b4d-0914-7a11-877d-4614b9fd0b41 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |

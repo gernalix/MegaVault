@@ -8,7 +8,12 @@ MegaVault risiede in `/home/daniele/MegaVault`; usa `codex_global_timeline.sqlit
 
 Fedora System Monitor risiede in `/home/daniele/MegaVault/projects/fedora-system-monitor`. Il runtime è installato in `/usr/local/libexec/fedora-system-monitor`, usa configurazione sotto `/etc/fedora-system-monitor`, dati sotto `/var/lib/fedora-system-monitor`, un daemon eventi, unita' lifecycle/collector, quattro timer e una path unit. Installazione e prove live sono state verificate nell'attivita' 593184.
 
-Fedora T7 Backup risiede in `/home/daniele/MegaVault/projects/fedora-t7-backup`; runtime `/usr/local/libexec/t7-restic-backup`, repository cifrato `/mnt/T7_BACKUP/restic-fedora`, tre service e tre timer. Backup, check, restore e fail-closed sono verificati nell'attivita' 583921; HEAD progetto `e3df07b89541fe0fba8e308cee28b343eeaa5c11`.
+Fedora T7 Backup risiede in `/home/daniele/MegaVault/projects/fedora-t7-backup`;
+runtime lifecycle `/usr/local/libexec/t7-restic-lifecycle`, repository cifrato
+`/mnt/T7_BACKUP/restic-fedora`, trigger udev, service backup e reminder one-shot.
+Trigger, singola istanza, backup, manutenzione, smontaggio, notifiche e
+fail-closed sono verificati nell'attivita' 684219; HEAD progetto
+`1495f135a81e9457e1efcb12a5db6689983b3c79`.
 
 ## Stato migrazione
 

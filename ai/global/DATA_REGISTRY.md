@@ -1,9 +1,9 @@
 # DATA_REGISTRY
-VERSION=7
+VERSION=8
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_filesystem_checks_2026-07-12+MegaVault_timeline_SQLite+activity_593184+activity_846271+activity_583921
+SOURCE=Fedora_filesystem_checks_2026-07-12+MegaVault_timeline_SQLite+activity_593184+activity_846271+activity_583921+activity_684219
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/DATA_REGISTRY.md
@@ -27,7 +27,7 @@ exception=/var/lib/fedora-system-monitor/monitor.sqlite3_is_current+verified
 windowtabnotes_2026_07_10=original_path_removed_after_backup;backup=/home/daniele/WindowTabNotes-backup-351806;size=132K;notes_total=19;notes_nonempty=0;config_included=yes
 
 BACKUP_CURRENT:
-repository=Restic;owner=fedora-t7-backup;path=/mnt/T7_BACKUP/restic-fedora;device=T7;encrypted=yes;repository_id=5872c043e0;snapshots=2;stored=64.934GiB;verified=full_read_3955/3955_packs+sample_restore_SHA256_PASS;activity=583921
+repository=Restic;owner=fedora-t7-backup;path=/mnt/T7_BACKUP/restic-fedora;device=T7;encrypted=yes;repository_id=5872c043e0;snapshots=2;verified=historical_full_read_3955/3955_packs+current_light_198/198_packs_5percent+sample_restore_SHA256_PASS;latest_snapshot=3082eb92;activity=684219
 manifest=/var/lib/t7-restic-backup/manifest;contains=RPM+Flatpak+storage+mount+boot+SELinux+systemd+Podman+Git_paths;secret_content=forbidden
 monitor_db_consistency=online_SQLite_backup+integrity_check_before_each_Restic_snapshot;raw_live_DB_WAL_SHM_excluded
 

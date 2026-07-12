@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=7
+VERSION=8
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-12+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_583921
+SOURCE=systemctl_live_2026-07-12+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_583921+activity_684219
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -35,9 +35,9 @@ service=fedora-system-monitor-collect@.service;state=static_template;purpose=iso
 service=fedora-system-monitor-device-add@.service;state=static_template;purpose=udev_device_add;activity=593184
 service=fedora-system-monitor-device-change@.service;state=static_template;purpose=udev_device_change;activity=593184
 service=fedora-system-monitor-device-remove@.service;state=static_template;purpose=udev_device_remove;activity=593184
-service=t7-restic-backup.service;scope=system;state=static_oneshot+tested_success;purpose=encrypted_incremental_backup_to_T7;runtime=/usr/local/libexec/t7-restic-backup;activity=583921
-service=t7-restic-check.service;scope=system;state=static_oneshot+tested_success;purpose=Restic_metadata+5percent_data_integrity;activity=583921
-service=t7-restic-maintenance.service;scope=system;state=static_oneshot+tested_success;purpose=Restic_full_data_check+retention_prune;activity=583921
+service=t7-restic-backup.service;scope=system;state=static_oneshot+tested_success;purpose=udev_connect_mount+encrypted_incremental_backup+conditional_maintenance+sync+unmount+notify;runtime=/usr/local/libexec/t7-restic-lifecycle;activity=684219
+service=t7-restic-reminder.service;scope=system;state=static_oneshot+tested_success;purpose=single_disconnect_reminder_if_serial_still_present;activity=684219
+udev=90-t7-name.rules;match=USB_disk_add+serial_S6YGNS0Y903440H;action=TAG_systemd+SYSTEMD_WANTS_t7-restic-backup.service;duplicate_events=flock_ignored;activity=684219
 audit=fedora-system-monitor_1.0.1;udev=verify+real_device_test_PASS;hardening=systemd_analyze_verify_PASS;security_scores=3.4_to_4.5_OK;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent
 
 USER_SERVICES_RELEVANT:
@@ -57,9 +57,8 @@ timer=fedora-system-monitor-fast.timer;scope=system;state=enabled+active;calenda
 timer=fedora-system-monitor-hourly.timer;scope=system;state=enabled+active;calendar=hourly;purpose=software+update+health_snapshot
 timer=fedora-system-monitor-daily.timer;scope=system;state=enabled+active;calendar=03:15;purpose=inventory+backup+retention+summary
 timer=fedora-system-monitor-weekly.timer;scope=system;state=enabled+active;calendar=Sunday_04:15;purpose=full_validation
-timer=t7-restic-backup.timer;scope=system;state=enabled+active;calendar=daily_03:00+jitter_30m;Persistent=yes;purpose=encrypted_T7_backup
-timer=t7-restic-check.timer;scope=system;state=enabled+active;calendar=Sunday_06:00+jitter_45m;Persistent=yes;purpose=5percent_repository_check
-timer=t7-restic-maintenance.timer;scope=system;state=enabled+active;calendar=monthly_day1_07:00+jitter_2h;Persistent=yes;purpose=full_repository_check+prune
+timer=t7-restic-reminder.timer;scope=system;state=static_one_shot_after_success;delay=30min;purpose=notify_once_only_if_T7_serial_still_present_and_unmounted;activity=684219
+removed_timers=t7-restic-backup.timer+t7-restic-check.timer+t7-restic-maintenance.timer;reason=T7_normally_disconnected+backup_on_connect;activity=684219
 path=fedora-system-monitor-software.path;scope=system;state=enabled+active;purpose=event_driven_software_metadata_changes
 
 RULES:

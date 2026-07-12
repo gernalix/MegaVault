@@ -10,7 +10,11 @@ Timer di sistema rilevanti: `dnf-makecache`, `fstrim`, `logrotate` e `systemd-tm
 
 Fedora System Monitor è verificato e attivo: `fedora-system-monitor-events.service` segue il journal, `fedora-system-monitor-lifecycle.service` registra boot e shutdown, mentre il template collector è attivato dai timer ogni minuto, ogni ora, ogni giorno e ogni settimana. La path unit software e i template udev sono attivi. Tutte le unità passano `systemd-analyze verify`; i punteggi security sono `OK` da 3,4 a 4,5. Da versione 1.0.1 soltanto il collector giornaliero conserva `CAP_SYS_ADMIN` per NVMe, mentre daemon, lifecycle e device hook non hanno capability.
 
-Fedora T7 Backup e' installato e testato: `t7-restic-backup`, `t7-restic-check` e `t7-restic-maintenance` sono oneshot root con timer enabled+active giornaliero, settimanale e mensile. Il job verifica identita' persistente e mount separato prima di accedere al repository; log in journal.
+Fedora T7 Backup e' installato e testato: il collegamento del seriale T7 corretto
+attiva via udev `t7-restic-backup.service`, che monta, verifica, esegue backup e
+manutenzioni dovute, sincronizza, smonta e notifica. I vecchi timer periodici
+sono rimossi; `t7-restic-reminder.timer` e' un one-shot a 30 minuti dopo un
+successo. Il doppio evento e' bloccato da lock in `/run`; log in journal.
 
 Il servizio utente `adb-device-keeper.service` e' abilitato e attivo per mantenere disponibili via ADB Wi-Fi il Pixel 8a e il TCL 6102H. Il linger di `daniele` e' attivo per eseguirlo anche senza sessione grafica. Dettagli e comandi: [ADB Device Keeper](ADB_DEVICE_KEEPER.md).
 

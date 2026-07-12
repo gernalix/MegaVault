@@ -176,3 +176,21 @@ Commit_correlati=fedora-t7-backup activity 583921
 Prompt_correlati=583921
 Tempo_totale_di_impatto=no backup write occurred; unsafe state detected before implementation
 Note=Isolated absent simulation exited 21 and preserved internal entry count 0 to 0; subsequent real T7 backup succeeded; project source=/home/daniele/MegaVault/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md
+
+INCIDENT:
+Incident_ID=T7_LIFECYCLE_MOUNT_NAMESPACE
+Titolo=T7 connect lifecycle could not observe or release its system mount
+Data_prima_comparsa_UTC=2026-07-11T23:51:57Z
+Data_ultima_comparsa_UTC=2026-07-11T23:54:58Z
+Numero_occorrenze=4 failed development trigger attempts before correction
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=ProtectSystem filesystem namespace hid a mount created after service start; replacing it with RequiresMountsFor then caused stopping the mount to stop the requiring backup service.
+Sistemi_coinvolti=Fedora host; t7-restic-backup.service; mnt-T7_BACKUP.mount; Samsung T7
+Alert_coinvolti=Four Telegram unmount-cleanup failure notifications during activity 684219 validation
+Tentativi_effettuati=Real-device udev replay; libmount and blkid comparison; filesystem namespace inspection; RequiresMountsFor test; journal and systemd job analysis.
+Soluzione_finale=The lifecycle manages the global systemd mount without service filesystem namespace options; it retains NoNewPrivileges, restricted capabilities, locking, timeouts and process restrictions. Controlled tests are now explicitly marked TEST in Telegram.
+Commit_correlati=fedora-t7-backup 55d310db67eaff1ee2dc15884213311e1269f2f4
+Prompt_correlati=684219
+Tempo_totale_di_impatto=approximately 3 minutes during controlled installation validation; no retained repository corruption and final jobs succeeded
+Note=Real udev replay created f7682be7 and later tests created a989e8fd and 3082eb92; all successful jobs synced and unmounted. Project source=/home/daniele/MegaVault/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md

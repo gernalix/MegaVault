@@ -94,3 +94,19 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Fix: ogni job richiede mount separato, ext4, UUID+label attesi, by-id seriale/modello e parent disk corretto prima di credenziale/repository.
 - Test: namespace isolato senza T7, exit 21, entry interne `0→0`; backup reale successivo PASS.
 - Sorgente: `/home/daniele/MegaVault/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md`.
+
+## T7_LIFECYCLE_MOUNT_NAMESPACE
+
+- Timestamp UTC: `2026-07-11T23:51:57Z`; stato `RESOLVED`, gravita' `HIGH`.
+- Sintomo: quattro collaudi iniziali hanno notificato `unmount-cleanup` mentre
+  il job non riusciva a vedere o rilasciare coerentemente il mount T7.
+- Root cause: il namespace filesystem del servizio nascondeva il mount creato
+  dopo lo start; `RequiresMountsFor` faceva invece arrestare il servizio quando
+  il lifecycle smontava il disco.
+- Fix: mount globale gestito dal lifecycle, mantenendo capability limitate,
+  lock, timeout e hardening non incompatibile. I futuri fault test Telegram sono
+  marcati `TEST CONTROLLATO`.
+- Verifica: udev reale riprodotto, backup, check/prune, sync e smontaggio PASS;
+  snapshot finali `f7682be7`, `a989e8fd`, `3082eb92`.
+- Commit progetto: `55d310db67eaff1ee2dc15884213311e1269f2f4`;
+  attività `684219`.

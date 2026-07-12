@@ -10,7 +10,12 @@ Fedora System Monitor usa `/var/lib/fedora-system-monitor/monitor.sqlite3`, sche
 
 Il registro incidenti globale previsto dal protocollo e' inizializzato in `/home/daniele/sync_root/db/incident_registry.sqlite`, modo `0600`, con tabelle `incidents` e `incident_events` e integrita' verificata.
 
-Il repository Restic cifrato corrente e' `/mnt/T7_BACKUP/restic-fedora` sul T7. Contiene 2 snapshot e circa 64,934 GiB fisici; lettura integrale di 3.955 pack e restore SHA-256 sono PASS. Prima di ogni snapshot il DB Fedora System Monitor viene copiato online e verificato nel manifest `/var/lib/t7-restic-backup/manifest`.
+Il repository Restic cifrato corrente e' `/mnt/T7_BACKUP/restic-fedora` sul T7.
+Contiene 2 snapshot; la lettura integrale storica di 3.955 pack, il controllo
+corrente 5% di 198 pack e il restore SHA-256 sono PASS. L'ultimo snapshot
+verificato e' `3082eb92`. Prima di ogni snapshot il DB Fedora System Monitor
+viene copiato online e verificato nel manifest
+`/var/lib/t7-restic-backup/manifest`.
 
 I precedenti path Fedora attesi per codex usage monitor, terminal logger, WindowTabNotes, ActivityWatch, disk usage monitor e git change ledger non esistono al controllo. Questo indica soltanto che i dati non risultano migrati o installati nei path attesi; non prova una perdita dati.
 

@@ -23,7 +23,11 @@ Per operazioni locali Codex deve usare path Fedora `/home/daniele/...`, comandi 
 - CPU AMD Ryzen 7 PRO 8840HS con Radeon 780M, 8 core / 16 thread; RAM circa 27.7 GiB; BIOS `R2LET40W (1.21)`.
 - Root e home: Btrfs su volume LUKS Kioxia NVMe da circa 951 GiB, circa 844 GiB disponibili al controllo.
 - Seagate 3.5 TiB montato in `/run/media/daniele/Seagate Expansion Drive`; volume NTFS 155.9 GiB montato in `/run/media/daniele/09FA16D309FA16D3`.
-- Il Samsung chiamato `T7` e' montato in `/mnt/T7_BACKUP`, ext4 label `T7_BACKUP`; ospita il repository Restic cifrato. Il supporto recovery vfat con label `VEEAMRE` e' un dispositivo storico distinto.
+- Il Samsung chiamato `T7` e' normalmente scollegato o smontato. Quando viene
+  collegato, udev avvia il backup: il job monta l'ext4 label `T7_BACKUP` in
+  `/mnt/T7_BACKUP`, usa il repository Restic cifrato e lo smonta prima della
+  notifica di scollegamento sicuro. Il supporto recovery vfat `VEEAMRE` e' un
+  dispositivo storico distinto.
 
 Prima di backup o I/O pesante verificare `findmnt`, `lsblk` e `df`; i mount rimovibili possono cambiare.
 
