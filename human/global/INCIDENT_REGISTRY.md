@@ -110,3 +110,14 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
   snapshot finali `f7682be7`, `a989e8fd`, `3082eb92`.
 - Commit progetto: `55d310db67eaff1ee2dc15884213311e1269f2f4`;
   attività `684219`.
+
+## ANDROID_STUDIO_FLATPAK_STALE_DIRECTORYLOCK_SOCKET
+
+- Timestamp: artefatti dal `2026-07-09T17:11:52Z`; avvio fallito confermato il `2026-07-12T11:08:04Z`; stato `RESOLVED`, gravita' `HIGH`.
+- Sintomo: Android Studio non partiva con `CannotActivateException`, `Address already in use` e `Connection refused`.
+- Root cause: una chiusura Flatpak incompleta aveva lasciato il socket Unix `.port` e i marker `.pid`/`.lock`, ma nessun processo o listener era ancora vivo.
+- PID: `(3)` era il PID interno del namespace Flatpak, non PID 3 dell'host. Il tentativo fallito aveva PID host `16895`; il PID host della vecchia istanza era gia' scomparso e non e' ricostruibile.
+- Fix: dopo verifica con `flatpak ps`, processi, namespace, `ss`, `lsof` e `fuser`, sono stati spostati solo i tre artefatti in `/home/daniele/.local/state/android-studio-recovery/activity-516803-20260712T131700+0200`.
+- Verifica: tre avvii riusciti, finestre XWayland realmente visibili/responsive, shutdown normali, socket e lock rilasciati; SDK, plugin, due AVD, ADB e keeper preservati.
+- Recupero sicuro: non uccidere mai PID host 3 e non cancellare lock automaticamente. Prima provare che nessuna istanza valida possieda il socket, poi spostare `.port`/`.lock` in un backup timestampato.
+- Report: `ai/reports/prompt_516803_android_studio_directory_lock.md`.

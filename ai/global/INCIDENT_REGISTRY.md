@@ -194,3 +194,21 @@ Commit_correlati=fedora-t7-backup 55d310db67eaff1ee2dc15884213311e1269f2f4
 Prompt_correlati=684219
 Tempo_totale_di_impatto=approximately 3 minutes during controlled installation validation; no retained repository corruption and final jobs succeeded
 Note=Real udev replay created f7682be7 and later tests created a989e8fd and 3082eb92; all successful jobs synced and unmounted. Project source=/home/daniele/MegaVault/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md
+
+INCIDENT:
+Incident_ID=ANDROID_STUDIO_FLATPAK_STALE_DIRECTORYLOCK_SOCKET
+Titolo=Android Studio Flatpak blocked by stale DirectoryLock Unix socket
+Data_prima_comparsa_UTC=2026-07-09T17:11:52Z
+Data_ultima_comparsa_UTC=2026-07-12T11:08:04Z
+Numero_occorrenze=1 confirmed persistent stale-socket incident
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=The Android Studio Flatpak session started on 2026-07-09 did not complete IDE shutdown and left the filesystem Unix socket .port plus PID/lock markers containing namespace PID 3. No process or listener remained, so the next launch saw bind address in use but connect refused.
+Sistemi_coinvolti=Fedora 44 host; Flatpak com.google.AndroidStudio 2026.1.1.10; JetBrains DirectoryLock; Android Studio config and system paths
+Alert_coinvolti=GNOME launch error dialog; user activity 516803
+Tentativi_effettuati=Flatpak/install/launcher inventory;host and namespace process mapping;ss,lsof,fuser,/proc/net/unix ownership checks;artifact stat/content;idea.log and journal reconstruction;three successful launch-close checks.
+Soluzione_finale=After proving no valid Studio process or socket owner existed,move only .port,.pid,.lock to a retained timestamped backup. No process signal,cache reset,reinstall,or data deletion. Normal starts now create an owned listening socket and normal shutdown removes .port and .lock.
+Commit_correlati=this MegaVault activity commit
+Prompt_correlati=516803
+Tempo_totale_di_impatto=From the failed launch confirmed at 2026-07-12T11:08:04Z until the first verified fixed launch at 2026-07-12T11:15:49Z; stale artifacts originated 2026-07-09T17:11:52Z.
+Note=Process 3 is PID 3 inside the Flatpak namespace,not host PID 3. Failed new launch host PID was 16895; stale creator host PID is UNKNOWN because it had already exited. Backup=/home/daniele/.local/state/android-studio-recovery/activity-516803-20260712T131700+0200. Never automate blind lock deletion.
