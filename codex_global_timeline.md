@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-13T21:03:08+02:00
+Generated: 2026-07-13T21:12:42+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 682
+Total events: 685
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,10 +14,10 @@ Total events: 682
 
 | Value | Events |
 |---|---:|
-| megavault | 165 |
+| megavault | 167 |
 | amici-fb | 100 |
 | luoghi-app | 70 |
-| multitimetracker | 39 |
+| multitimetracker | 40 |
 | oracle-backup-service | 18 |
 | fedora-system-monitor | 16 |
 | fedora-t7-backup | 15 |
@@ -69,12 +69,12 @@ Total events: 682
 
 | Value | Events |
 |---|---:|
-| security | 225 |
+| security | 226 |
 | backup | 204 |
 | docs | 69 |
-| release | 50 |
+| release | 51 |
 | testing | 47 |
-| bugfix | 38 |
+| bugfix | 39 |
 | automation | 19 |
 | infra | 15 |
 | migration | 12 |
@@ -84,8 +84,8 @@ Total events: 682
 
 | Value | Events |
 |---|---:|
-| P1 | 365 |
-| P0 | 165 |
+| P1 | 367 |
+| P0 | 166 |
 | P2 | 142 |
 | P3 | 10 |
 
@@ -94,8 +94,8 @@ Total events: 682
 | Value | Events |
 |---|---:|
 | UNKNOWN | 254 |
-| PASS | 176 |
-| WARN | 132 |
+| PASS | 178 |
+| WARN | 133 |
 | FAIL | 62 |
 | OPEN | 58 |
 
@@ -138,6 +138,7 @@ Total events: 682
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f5cd3-1ca0-7a71-bca4-b1740b17d8c9 |
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-6afe-78e2-8a94-d179f75b0d6f |
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-0f47-7f81-9817-bd0c509251c2 |
+| 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f5b28-539a-77b2-972b-14fd44bf0b2a |
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a56-d40e-7d01-b61b-ac442055d7ac |
 | 2026-07-13 | rollout-summaries | Codex Timeline | backup | WARN | P0 | protocol_update | markdown | MP3 metadata on Fedora: placeholder tags, conflicting tag families, and Decibels cache refresh |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup project.metadata | backup | UNKNOWN | P0 | protocol_update | json | project.metadata |
@@ -294,10 +295,10 @@ Total events: 682
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 165 events; latest=2026-07-13; label=Codex Timeline
+- `megavault`: 167 events; latest=2026-07-13; label=Codex Timeline
 - `amici-fb`: 100 events; latest=2026-07-13; label=Amici FB amici 2026
 - `luoghi-app`: 70 events; latest=2026-07-10; label=luoghi-app v11
-- `multitimetracker`: 39 events; latest=2026-07-13; label=MTT app-deviceTest.apk
+- `multitimetracker`: 40 events; latest=2026-07-13; label=MTT app-deviceTest.apk
 - `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
 - `fedora-system-monitor`: 16 events; latest=2026-07-13; label=fedora-system-monitor project.metadata
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
@@ -377,9 +378,11 @@ Total events: 682
 | 2026-07-13 | megavault | Git PATH | release | PASS | P1 | release | markdown | Activity 735184 Logseq Fedora Install |
 | 2026-07-13 | megavault | MegaVault Activity 20260713 Logseq | release | WARN | P1 | release | markdown | Activity 20260713 Logseq Fedora Local Audit |
 | 2026-07-13 | megavault | MegaVault Activity 318604 MP3 | backup | WARN | P1 | backup | markdown | Activity 318604 MP3 Metadata Placeholder Fix |
+| 2026-07-13 | megavault | MegaVault Activity 487361 GNOME | release | PASS | P1 | release | markdown | Activity 487361 GNOME Window Title |
 | 2026-07-13 | megavault | MegaVault Alert Registry | security | UNKNOWN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-13 | megavault | MegaVault docs record Fedora | automation | PASS | P1 | git_commit | git_log | docs: record Fedora monitor recovery audit 471852 |
 | 2026-07-13 | megavault | MegaVault docs record mp3 | bugfix | PASS | P1 | git_commit | git_log | docs: record mp3 metadata placeholder fix |
+| 2026-07-13 | megavault | MegaVault fix VLC H264 | bugfix | PASS | P1 | git_commit | git_log | fix VLC H264 Flatpak source on Fedora |
 | 2026-07-13 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-13 | megavault | MegaVault v0 | backup | WARN | P1 | backup | markdown | PENDING_TEST_POST_LOGIN |
 | 2026-07-13 | megavault | MegaVault v0 | security | WARN | P1 | doc_event | markdown | Inventario software globale |
@@ -391,6 +394,7 @@ Total events: 682
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f5cd3-1ca0-7a71-bca4-b1740b17d8c9 |
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-6afe-78e2-8a94-d179f75b0d6f |
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-0f47-7f81-9817-bd0c509251c2 |
+| 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f5b28-539a-77b2-972b-14fd44bf0b2a |
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a56-d40e-7d01-b61b-ac442055d7ac |
 | 2026-07-13 | rollout-summaries | Codex Timeline | backup | WARN | P0 | protocol_update | markdown | MP3 metadata on Fedora: placeholder tags, conflicting tag families, and Decibels cache refresh |
 | 2026-07-13 | rollout-summaries | Git PATH | release | PASS | P1 | release | markdown | Official Logseq Linux install from GitHub Actions artifact on Fedora |

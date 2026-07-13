@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=17
+VERSION=18
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
 UPDATED=2026-07-13T21:00:00+02:00
-SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271
+SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -35,6 +35,11 @@ package=sqlite;version=3.51.2-1.fc44;role=database_CLI;preexisting=yes
 packages=python3-snappy_0.7.3+python3-cramjam_2.11.0+python3-socketio_5.16.3+python3-bidict_0.23.1+python3-engineio_4.13.3+python3-simple-websocket_1.1.0+python3-wsproto_1.2.0;role=one_time_Kuma_admin_API;installed_by_activity=593184;runtime_collector_dependency=no
 
 DESKTOP_APPS_CURRENT:
+app=Extension_Manager;app_id=com.mattjakeman.ExtensionManager;version=0.6.5;install=system_Flatpak_Flathub;runtime=org.gnome.Platform/x86_64/50;status=installed
+gnome_extension=Tasks_in_panel;uuid=tasks-in-panel@fthx;version=72;install=user_official_extensions.gnome.org_zip;GNOME=50;state=enabled+ACTIVE;mode=focused_window_only+icon+application_name+window_title
+replacement_for=Window_title_is_back;reason=requested_extension_supports_GNOME_46_to_49_only_and_is_superseded_by_same_author;forced_incompatible_install=NO
+validation=gnome_extensions_info_ACTIVE+settings_readback+AT-SPI_top_bar_title_and_application_visible;restart_logout=not_required
+event_date=2026-07-13;summary=GNOME_50_compatible_window_title_and_application_indicator_installed_configured_and_AT-SPI_validated;status=PASS;source_ref=activity_487361
 app=VLC;version=3.0.23;install=system_Flatpak_Flathub;app_id=org.videolan.VLC;runtime=org.kde.Platform/x86_64/5.15-25.08;desktop=/var/lib/flatpak/exports/share/applications/org.videolan.VLC.desktop;launch=verified;H264=FFmpeg_avcodec_decode_PASS
 replaced=Fedora_Flatpak_org.videolan.vlc_3.0.23;reason=Fedora_f44_runtime_noopenh264_fake_library_caused_libopenh264_decoder_creation_failure;old_ref=absent;installed_VLC_refs=1;RPM_changes=none
 validation=controlled_MP4_H264_Baseline_yuv420p_AAC_LC;pre_fix_exact_codec_not_supported_reproduced;post_fix_first_picture+real_video_output+exit_0;flatpak_repair_system_dry_run_PASS;dnf_check_PASS
