@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=15
+VERSION=16
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-13T10:21:00+02:00
-SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219+activity_638417
+UPDATED=2026-07-13T14:05:00+02:00
+SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -38,6 +38,11 @@ DESKTOP_APPS_CURRENT:
 app=Obsidian;version=1.12.7;install=user_AppImage;path=/home/daniele/.local/opt/obsidian/Obsidian.AppImage;desktop=/home/daniele/.local/share/applications/obsidian.desktop;icon=/home/daniele/.local/share/icons/hicolor/512x512/apps/obsidian.png;arch=x86_64;launch=verified;gnome_applications=visible
 dependency=fuse-libs.x86_64;version=2.9.9-25.fc44;reason=AppImage_libfuse.so.2
 event_date=2026-07-10;summary=Obsidian_1.12.7_user_AppImage_installed_and_validated;status=completed;source_ref=task_481726
+app=Logseq;version=2.0.1;install=user_AppImage_from_official_logseq/logseq_GitHub_Actions_artifact;path=/home/daniele/.local/opt/logseq/2.0.1/Logseq-linux-x86_64-2.0.1.AppImage;launcher=/home/daniele/.local/bin/logseq;desktop=/home/daniele/.local/share/applications/logseq.desktop;icon=/home/daniele/.local/share/icons/hicolor/512x512/apps/logseq.png;arch=x86_64;launch=verified_direct+gtk_launch;status=PASS_WITH_WARNING
+source=repo_logseq/logseq;workflow=.github/workflows/build-desktop-release.yml;workflow_name=Build-Desktop-Release;run_id=29228358932;run_number=2284;event=workflow_dispatch;branch=master;commit=b09316abd7bde39d25c6c5694d01b2d4e874fe01;artifact=logseq-linux-x64-builds;artifact_id=8270822046;artifact_size=353844309;expires_at=2026-08-02T06:13:44Z
+hashes=sha256_49de367078b37670febdb987e562b75dee1e1ae96c28bfb8738779c42297dd0c;sha512_base64_manifest_match_QEMeUwblXJIEBCQc5Ah2ARxft3dOUOyNZy7TEQW1ofbD76Cr/DD41pkv58f3Q6sR81PqVSzWUvj1Q6Vk7MZ4XA==
+warnings=desktop-file-validate_hint_categories_Office_Utility_multiple_main_categories;gtk_icon_cache_no_index_theme_nonfatal_absolute_icon_used;Logseq_auto_updater_404_for_release_0.10.15_latest-linux_yml_nonfatal;first_launch_can_create_demo_graph_under_HOME/logseq
+event_date=2026-07-13;summary=Logseq_2.0.1_official_GitHub_Actions_linux_x86_64_AppImage_installed_user_launcher_GNOME_validated;status=PASS_WITH_WARNING;source_ref=activity_735184
 app=RustDesk;version=1.4.9-0;install=official_GitHub_release_x86_64_RPM_via_DNF;path=/usr/bin/rustdesk;desktop=/usr/share/applications/rustdesk.desktop;hidden_link_handler=/usr/share/applications/rustdesk-link.desktop;launch=verified;gnome_visible_launchers=1
 asset=rustdesk-1.4.9-0.x86_64.rpm;bytes=31577386;release=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9;sha256=eb1b053ac5b2f774f2271f7fbbfd2ea475899f7a55135c5e172bc54b9388f108;github_digest=matching;rpm_signature=absent
 dependencies=libayatana-ido-gtk3,libayatana-indicator-gtk3,libdbusmenu,libdbusmenu-gtk3,libayatana-appindicator-gtk3;source=Fedora_repositories
