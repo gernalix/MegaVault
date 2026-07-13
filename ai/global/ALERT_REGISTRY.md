@@ -1,9 +1,9 @@
 # ALERT_REGISTRY
-VERSION=4
+VERSION=5
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_systemd_live_2026-07-09+HOST_PROFILE+activity_593184
+SOURCE=Fedora_systemd_live_2026-07-13+HOST_PROFILE+activity_593184+activity_471852
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
@@ -24,8 +24,10 @@ monitor=Fedora_Network;id=41;heartbeat=180s;mapping=Internet+gateway+WiFi+VPN+Ne
 monitor=Fedora_Services;id=42;heartbeat=180s;mapping=failed_units+restart+restart_loop
 monitor=Fedora_Software;id=43;heartbeat=5400s;mapping=updates+transactions+inventory
 delivery_audit_1.0.1=atomic_alert_transition+endpoint_flock+post_delivery_reconciliation;slow_DOWN_recovery_order=DOWN_then_UP_PASS;real_current_health_heartbeat=delivered;false_transition_final_gate=none
+delivery_audit_1.1.0=stable_WiFi_key+bidirectional_sensor_recovery+valid_filesystem_floor+FUSE_inode_suppression+original_replay_time+clean_journal_IO_recovery+terminal_DNF_retry+endpoint_snapshot_refresh;all_five_real_pushes=delivered
 anti_spam=persistent_dedup+duration_gate+hysteresis+cooldown+aggregation+single_recovery
 verification=all_five_real_UP_delivered+Software_controlled_DOWN_HTTP_200+recovery_UP_HTTP_200
+current_2026_07_13=Host_UP+Network_UP+Services_UP+Software_UP+Storage_DOWN_truthful;Storage_reasons=Seagate_3.6754_percent_free+unmatched_unsafe_removal;Kuma_admin_readback=JWT_rejected_pending
 security=push_URLs_not_in_repo_or_logs;HTTP_transport_risk_documented
 
 SYSTEM_SIGNALING_CURRENT:
@@ -44,3 +46,4 @@ rule=do_not_assume_pre_migration_alert_sources_exist
 OPEN:
 open=other_project_alerting_and_remote_monitoring_not_revalidated_from_Fedora
 open=migrate_existing_Kuma_endpoint_to_HTTPS
+open=authenticated_Kuma_definition_readback_after_login_refresh

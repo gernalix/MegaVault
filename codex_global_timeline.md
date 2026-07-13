@@ -1,31 +1,32 @@
 # Global Codex Timeline
 
-Generated: 2026-07-12T16:07:19+02:00
+Generated: 2026-07-13T09:42:15+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 652
+Total events: 664
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
+- `/home/daniele/MegaVault/projects/fedora-system-monitor`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 153 |
-| amici-fb | 95 |
+| megavault | 154 |
+| amici-fb | 100 |
 | luoghi-app | 70 |
-| multitimetracker | 33 |
+| multitimetracker | 36 |
 | oracle-backup-service | 18 |
+| fedora-system-monitor | 16 |
 | fedora-t7-backup | 15 |
 | oracle-uptime-kuma | 15 |
-| fedora-system-monitor | 14 |
 | luoghi | 14 |
 | 2026 | 13 |
 | supercontacts | 12 |
-| rollout-summaries | 10 |
+| rollout-summaries | 11 |
 | windows | 8 |
 | windows-winget-daily-update | 7 |
 | android | 6 |
@@ -69,73 +70,80 @@ Total events: 652
 
 | Value | Events |
 |---|---:|
-| security | 215 |
-| backup | 195 |
-| docs | 64 |
+| security | 219 |
+| backup | 201 |
+| docs | 65 |
+| release | 47 |
 | testing | 47 |
-| release | 46 |
-| bugfix | 35 |
-| automation | 19 |
+| bugfix | 37 |
+| automation | 18 |
 | infra | 15 |
 | migration | 12 |
-| performance | 4 |
+| performance | 3 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 351 |
-| P0 | 154 |
-| P2 | 137 |
+| P1 | 358 |
+| P0 | 158 |
+| P2 | 138 |
 | P3 | 10 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 250 |
-| PASS | 164 |
-| WARN | 117 |
+| UNKNOWN | 254 |
+| PASS | 167 |
+| WARN | 123 |
 | FAIL | 62 |
-| OPEN | 59 |
+| OPEN | 58 |
 
 
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
-| 2026-07-12 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 12T070000Z |
-| 2026-07-12 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 11T223130Z |
-| 2026-07-12 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 10T070005Z vs 2026 07 11T223130Z |
-| 2026-07-12 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 11T223130Z vs 2026 07 12T070000Z |
-| 2026-07-12 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
-| 2026-07-12 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
-| 2026-07-12 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
-| 2026-07-12 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
-| 2026-07-12 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup project.metadata | backup | UNKNOWN | P0 | protocol_update | json | project.metadata |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup v16 | security | PASS | P0 | protocol_update | markdown | PROJECT |
-| 2026-07-12 | fedora-t7-backup | Android Tests | security | UNKNOWN | P1 | doc_event | markdown | Operazioni Fedora T7 Backup attivita 684219 |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup Activity 583921 - | backup | UNKNOWN | P1 | backup | txt | Activity 583921 - rebuildable caches and unsafe/live data. |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup AUDIT 583921 | security | WARN | P1 | doc_event | markdown | AUDIT 583921 |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup AUDIT 684219 | security | WARN | P1 | doc_event | markdown | AUDIT 684219 |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup conclusivo attivita 684219 | security | WARN | P1 | report | markdown | Report conclusivo attivita 684219 |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup controlled incremental restore | backup | UNKNOWN | P1 | backup | txt | controlled incremental and restore test |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup Fedora T7 Backup | security | UNKNOWN | P1 | report | markdown | Fedora T7 Backup |
-| 2026-07-12 | fedora-t7-backup | fedora-t7-backup INCIDENT REGISTRY | backup | PASS | P1 | backup | markdown | INCIDENT REGISTRY |
+| 2026-07-13 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 13T071256Z |
+| 2026-07-13 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 12T070000Z vs 2026 07 13T071256Z |
+| 2026-07-13 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
+| 2026-07-13 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
+| 2026-07-13 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
+| 2026-07-13 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-13 | fedora-system-monitor | Android Tests | security | WARN | P1 | report | markdown | OPERATIONS |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor AUDIT 471852 | security | WARN | P1 | report | markdown | AUDIT 471852 |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Audit tecnico 471852 | backup | PASS | P1 | backup | markdown | Audit tecnico 471852 |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | backup | FAIL | P1 | backup | markdown | Integrazione Uptime Kuma |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Registro incidenti | release | UNKNOWN | P1 | release | markdown | Registro incidenti |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
+| 2026-07-13 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
+| 2026-07-13 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-13 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-13 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-13 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
+| 2026-07-13 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
+| 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-6afe-78e2-8a94-d179f75b0d6f |
+| 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-0f47-7f81-9817-bd0c509251c2 |
+| 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a56-d40e-7d01-b61b-ac442055d7ac |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup project.metadata | backup | UNKNOWN | P0 | protocol_update | json | project.metadata |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v16 | security | PASS | P0 | protocol_update | markdown | PROJECT |
 | 2026-07-12 | luoghi | Git PATH | backup | WARN | P0 | protocol_update | markdown | Diagnosed a Samsung T7 Shield that was absent from USB/kernel on Fedora, then reconstructed its prior layout/configuration from live state, system... |
-| 2026-07-12 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-12 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-12 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-12 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f5605-f5af-7480-b995-b7d72e0a235e |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5611-46f2-7493-ad57-657902648d00 |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-12 | rollout-summaries | rollout-summaries VeraCrypt 1.26.29 was | release | WARN | P0 | release | markdown | VeraCrypt 1.26.29 was installed on Fedora 44 from the official Fedora 44 x86_64 RPM, verified by checksum and signature, tested in CLI/menu/GUI, an... |
 | 2026-07-12 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-12 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
@@ -145,7 +153,6 @@ Total events: 652
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | report | codex_log | 019f4b52-7285-7c42-8426-2120b3579fe1 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | protocol_update | codex_log | 019f4ae6-29a6-7c40-93bf-c2c6c8515bc6 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f49fc-f378-72a1-9419-88cd43fe36fd |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | luoghi | Git PATH | security | WARN | P0 | protocol_update | markdown | Removed codex-session-logger locally, restored native Codex launcher, but GitHub deletion remained blocked |
 | 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | changelog | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -157,7 +164,7 @@ Total events: 652
 | 2026-07-10 | luoghi-app | luoghi-app v11 | backup | UNKNOWN | P0 | protocol_update | markdown | bootstrap |
 | 2026-07-10 | luoghi-app | luoghi-app v16 | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-10 | luoghi-app | luoghi-app v5 | backup | OPEN | P0 | protocol_update | json | project.metadata |
-| 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
+| 2026-07-10 | megavault | Android Tests | security | PASS | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
@@ -167,8 +174,6 @@ Total events: 652
 | 2026-07-10 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
-| 2026-07-10 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
-| 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | multitimetracker | MTT v1 | security | PASS | P0 | protocol_update | markdown | User Profile |
 | 2026-07-10 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f4d44-9413-7721-9500-cacecbb42982 |
@@ -195,7 +200,7 @@ Total events: 652
 | 2026-07-09 | codex-html-live | codex-html-live v2 | security | OPEN | P0 | protocol_update | markdown | Live HTML archive for Codex JSONL sessions: watches session files and renders browser-readable chat archives without relying on tmux |
 | 2026-07-09 | codex-wrapper | codex-wrapper v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
 | 2026-07-09 | facebook-video-archiver | facebook-video-archiver v4 | security | FAIL | P0 | protocol_update | markdown | Start here for Codex/operator work on `facebook-video-archiver` |
-| 2026-07-09 | fedora-system-monitor | fedora-system-monitor v15 | security | WARN | P0 | protocol_update | markdown | PROJECT |
+| 2026-07-09 | fedora-system-monitor | fedora-system-monitor v16 | security | WARN | P0 | protocol_update | markdown | PROJECT |
 | 2026-07-09 | git-change-ledger | git-change-ledger v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-09 | installa-app | installa-app v2 | security | OPEN | P0 | protocol_update | markdown | UNKNOWN: source docs do not state a clear purpose. |
 | 2026-07-09 | maintenance-486 | maintenance-486 v2 | security | OPEN | P0 | protocol_update | markdown | Oracle VM maintenance/report workspace for prompt 486; source material is mostly reports and logs, so operational details are limited and should be... |
@@ -283,18 +288,18 @@ Total events: 652
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 153 events; latest=2026-07-12; label=Codex Timeline
-- `amici-fb`: 95 events; latest=2026-07-12; label=Amici FB amici 2026
+- `megavault`: 154 events; latest=2026-07-13; label=Codex Timeline
+- `amici-fb`: 100 events; latest=2026-07-13; label=Amici FB amici 2026
 - `luoghi-app`: 70 events; latest=2026-07-10; label=luoghi-app v11
-- `multitimetracker`: 33 events; latest=2026-07-12; label=MTT 1.apk
+- `multitimetracker`: 36 events; latest=2026-07-13; label=MTT v537
 - `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
+- `fedora-system-monitor`: 16 events; latest=2026-07-13; label=fedora-system-monitor project.metadata
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `oracle-uptime-kuma`: 15 events; latest=2026-07-10; label=Kuma Failed attempt to
-- `fedora-system-monitor`: 14 events; latest=2026-07-10; label=fedora-system-monitor project.metadata
 - `luoghi`: 14 events; latest=2026-07-12; label=Git PATH
 - `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
 - `supercontacts`: 12 events; latest=2026-07-09; label=SC 1.apk
-- `rollout-summaries`: 10 events; latest=2026-07-10; label=Codex Timeline
+- `rollout-summaries`: 11 events; latest=2026-07-12; label=rollout-summaries VeraCrypt 1.26.29 was
 - `windows`: 8 events; latest=2026-07-12; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `android`: 6 events; latest=2026-07-09; label=android v0
@@ -337,6 +342,35 @@ Total events: 652
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-13 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 13T071256Z |
+| 2026-07-13 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 12T070000Z vs 2026 07 13T071256Z |
+| 2026-07-13 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
+| 2026-07-13 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
+| 2026-07-13 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
+| 2026-07-13 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-13 | fedora-system-monitor | Android Tests | security | WARN | P1 | report | markdown | OPERATIONS |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor AUDIT 471852 | security | WARN | P1 | report | markdown | AUDIT 471852 |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Audit tecnico 471852 | backup | PASS | P1 | backup | markdown | Audit tecnico 471852 |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | backup | FAIL | P1 | backup | markdown | Integrazione Uptime Kuma |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Registro incidenti | release | UNKNOWN | P1 | release | markdown | Registro incidenti |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
+| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
+| 2026-07-13 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
+| 2026-07-13 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-13 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
+| 2026-07-13 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
+| 2026-07-13 | megavault | Android Tests | security | PASS | P1 | report | markdown | Incident Registry |
+| 2026-07-13 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
+| 2026-07-13 | megavault | Git PATH | security | WARN | P1 | doc_event | markdown | Inventario software globale |
+| 2026-07-13 | megavault | MegaVault Alert Registry | security | UNKNOWN | P1 | doc_event | markdown | Alert Registry |
+| 2026-07-13 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
+| 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-6afe-78e2-8a94-d179f75b0d6f |
+| 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-0f47-7f81-9817-bd0c509251c2 |
+| 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a56-d40e-7d01-b61b-ac442055d7ac |
 | 2026-07-12 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 12T070000Z |
 | 2026-07-12 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 11T223130Z |
 | 2026-07-12 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 10T070005Z vs 2026 07 11T223130Z |
@@ -345,7 +379,6 @@ Total events: 652
 | 2026-07-12 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
 | 2026-07-12 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-12 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
-| 2026-07-12 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup project.metadata | backup | UNKNOWN | P0 | protocol_update | json | project.metadata |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v16 | security | PASS | P0 | protocol_update | markdown | PROJECT |
 | 2026-07-12 | fedora-t7-backup | Android Tests | security | UNKNOWN | P1 | doc_event | markdown | Operazioni Fedora T7 Backup attivita 684219 |
@@ -362,22 +395,19 @@ Total events: 652
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v2 | security | WARN | P1 | report | markdown | Report conclusivo attivita 583921 |
 | 2026-07-12 | luoghi | Git PATH | backup | WARN | P0 | protocol_update | markdown | Diagnosed a Samsung T7 Shield that was absent from USB/kernel on Fedora, then reconstructed its prior layout/configuration from live state, system... |
-| 2026-07-12 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-12 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-12 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
-| 2026-07-12 | megavault | Android Tests | security | PASS | P1 | report | markdown | Incident Registry |
-| 2026-07-12 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
-| 2026-07-12 | megavault | Git PATH | security | WARN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-12 | megavault | MegaVault activity 583921 register | backup | PASS | P1 | git_commit | git_log | activity 583921: register Fedora T7 backup |
 | 2026-07-12 | megavault | MegaVault activity 684219 sync | backup | PASS | P1 | git_commit | git_log | activity 684219: sync T7 connect backup globally |
 | 2026-07-12 | megavault | MegaVault ACTIVITY_581204 | release | WARN | P1 | release | markdown | ACTIVITY_581204 |
 | 2026-07-12 | megavault | MegaVault fix host recover | bugfix | PASS | P1 | git_commit | git_log | fix(host): recover Android Studio DirectoryLock |
-| 2026-07-12 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
+| 2026-07-12 | megavault | MegaVault docs record VeraCrypt | docs | PASS | P2 | git_commit | git_log | docs: record VeraCrypt Fedora installation |
 | 2026-07-12 | megavault | MegaVault docs sync timeline | docs | PASS | P2 | git_commit | git_log | docs: sync timeline for activity 516803 |
 | 2026-07-12 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f5605-f5af-7480-b995-b7d72e0a235e |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5611-46f2-7493-ad57-657902648d00 |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-12 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
+| 2026-07-12 | rollout-summaries | rollout-summaries VeraCrypt 1.26.29 was | release | WARN | P0 | release | markdown | VeraCrypt 1.26.29 was installed on Fedora 44 from the official Fedora 44 x86_64 RPM, verified by checksum and signature, tested in CLI/menu/GUI, an... |
 | 2026-07-12 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-12 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
 | 2026-07-12 | windows | Veeam T7 | security | UNKNOWN | P1 | doc_event | markdown | Profilo host globale |
@@ -392,19 +422,9 @@ Total events: 652
 | 2026-07-10 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 09T205550Z vs 2026 07 10T070005Z |
 | 2026-07-10 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
-| 2026-07-10 | fedora-system-monitor | Android Tests | security | FAIL | P1 | report | markdown | OPERATIONS |
 | 2026-07-10 | fedora-system-monitor | Android Tests | backup | FAIL | P1 | backup | markdown | SCHEMA |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor AUDIT 593184 | backup | WARN | P1 | backup | markdown | AUDIT 593184 |
 | 2026-07-10 | fedora-system-monitor | fedora-system-monitor Audit tecnico 593184 | backup | UNKNOWN | P1 | report | markdown | Audit tecnico 593184 |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | release | FAIL | P1 | release | markdown | INCIDENT REGISTRY |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
-| 2026-07-10 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | performance | FAIL | P2 | doc_event | markdown | Integrazione Uptime Kuma |
-| 2026-07-10 | fedora-system-monitor | fedora-system-monitor Registro incidenti | automation | UNKNOWN | P2 | doc_event | markdown | Registro incidenti |
 | 2026-07-10 | luoghi | Git PATH | security | WARN | P0 | protocol_update | markdown | Removed codex-session-logger locally, restored native Codex launcher, but GitHub deletion remained blocked |
 | 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | report | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | luoghi | Luoghi v10 | security | WARN | P0 | changelog | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -466,7 +486,7 @@ Total events: 652
 | 2026-07-10 | luoghi-app | luoghi-app v9 | testing | UNKNOWN | P2 | qa | txt | tcl home current summary |
 | 2026-07-10 | luoghi-app | luoghi-app v9 | testing | UNKNOWN | P2 | qa | txt | tcl home v9 summary |
 | 2026-07-10 | luoghi-app | Git PATH | performance | OPEN | P3 | doc_event | markdown | RECOVERY_638204 |
-| 2026-07-10 | megavault | Android Tests | security | OPEN | P0 | protocol_update | markdown | SERVICE_REGISTRY |
+| 2026-07-10 | megavault | Android Tests | security | PASS | P0 | protocol_update | markdown | SERVICE_REGISTRY |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT SAF certification |
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Obsidian install |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi smoke test |
@@ -476,8 +496,6 @@ Total events: 652
 | 2026-07-10 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
-| 2026-07-10 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
-| 2026-07-10 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P1 | report | markdown | 1.4.9;stable=yes;published=2026-07-06T10:02:30Z;url=https://github.com/rustdesk/rustdesk/releases/tag/1.4.9 |
 | 2026-07-10 | megavault | MegaVault Activity 842731 - | security | WARN | P1 | doc_event | markdown | Activity 842731 - Samsung T7 backup restore |
 | 2026-07-10 | megavault | MegaVault Activity 846271 Codex | backup | WARN | P1 | report | markdown | Activity 846271 Codex native restore |
@@ -610,7 +628,7 @@ Total events: 652
 | 2026-07-09 | facebook-video-archiver | facebook-video-archiver v4 | testing | OPEN | P3 | qa | markdown | facebook-video-archiver Overview |
 | 2026-07-09 | facedownassup-downloader | facedownassup-downloader facedownassup-downloader | security | OPEN | P1 | report | markdown | facedownassup-downloader |
 | 2026-07-09 | facedownassup-downloader | facedownassup-downloader facedownassup-downloader Roadmap | testing | OPEN | P2 | report | markdown | facedownassup-downloader Roadmap |
-| 2026-07-09 | fedora-system-monitor | fedora-system-monitor v15 | security | WARN | P0 | protocol_update | markdown | PROJECT |
+| 2026-07-09 | fedora-system-monitor | fedora-system-monitor v16 | security | WARN | P0 | protocol_update | markdown | PROJECT |
 | 2026-07-09 | git-change-ledger | git-change-ledger v8 | security | PASS | P0 | protocol_update | markdown | Local lightweight Git state ledger for repos under `/home/daniele/codex-workspace`, stored in one SQLite DB without full diffs. |
 | 2026-07-09 | git-change-ledger | Git PATH | security | UNKNOWN | P1 | report | markdown | git-change-ledger |
 | 2026-07-09 | git-change-ledger | Git PATH | security | UNKNOWN | P1 | report | markdown | git-change-ledger Roadmap |
@@ -643,7 +661,6 @@ Total events: 652
 | 2026-07-09 | megavault | Codex Timeline | security | UNKNOWN | P0 | protocol_update | markdown | GLOBAL_RULES |
 | 2026-07-09 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for WindowTabNotes native messaging |
 | 2026-07-09 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
-| 2026-07-09 | megavault | MegaVault Alert Registry | security | UNKNOWN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-09 | megavault | MegaVault docs adapt MegaVault | infra | PASS | P1 | git_commit | git_log | docs: adapt MegaVault global documentation for Fedora host |
 | 2026-07-09 | megavault | MegaVault docs verify Fedora | migration | PASS | P1 | git_commit | git_log | docs: verify Fedora documentation migration |
 | 2026-07-09 | megavault | MegaVault Update global timeline | migration | PASS | P1 | git_commit | git_log | Update global timeline for amici_fb Fedora migration |

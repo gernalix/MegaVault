@@ -121,3 +121,12 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Verifica: tre avvii riusciti, finestre XWayland realmente visibili/responsive, shutdown normali, socket e lock rilasciati; SDK, plugin, due AVD, ADB e keeper preservati.
 - Recupero sicuro: non uccidere mai PID host 3 e non cancellare lock automaticamente. Prima provare che nessuna istanza valida possieda il socket, poi spostare `.port`/`.lock` in un backup timestampato.
 - Report: `ai/reports/prompt_516803_android_studio_directory_lock.md`.
+
+## KUMA_STALE_CATEGORY_ALERTS
+
+- Timestamp: `2026-07-13`; stato `RESOLVED_WITH_REAL_STORAGE_ALERTS_REMAINING`, gravità `HIGH`.
+- Sintomo: Host, Network e Storage restavano rossi anche dopo il rientro di alcune condizioni; DNF poteva generare un falso Software rosso.
+- Root cause: recovery sensore monodirezionale, chiave Wi-Fi instabile, soglie filesystem incoerenti, inode FUSE sintetici, timestamp persi nel replay, recovery I/O incompleta e race DNF `Started`.
+- Fix: Fedora System Monitor 1.1.0 con recovery bidirezionale, identità stabili, journal pulito, retry DNF terminale e deduplicazione esatta.
+- Stato finale: Host, Network, Services e Software sani; Storage resta correttamente rosso per Seagate al 3,6754% libero e unsafe removal senza riconnessione.
+- Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471852.md`.

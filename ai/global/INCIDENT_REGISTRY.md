@@ -212,3 +212,21 @@ Commit_correlati=this MegaVault activity commit
 Prompt_correlati=516803
 Tempo_totale_di_impatto=From the failed launch confirmed at 2026-07-12T11:08:04Z until the first verified fixed launch at 2026-07-12T11:15:49Z; stale artifacts originated 2026-07-09T17:11:52Z.
 Note=Process 3 is PID 3 inside the Flatpak namespace,not host PID 3. Failed new launch host PID was 16895; stale creator host PID is UNKNOWN because it had already exited. Backup=/home/daniele/.local/state/android-studio-recovery/activity-516803-20260712T131700+0200. Never automate blind lock deletion.
+
+INCIDENT:
+Incident_ID=KUMA_STALE_CATEGORY_ALERTS
+Titolo=Fedora System Monitor category alerts could not recover reliably
+Data_prima_comparsa_UTC=2026-07-13T07:18:00Z
+Data_ultima_comparsa_UTC=2026-07-13T07:35:12Z
+Numero_occorrenze=1 multi-root audit incident
+Gravita_massima=HIGH
+Stato=RESOLVED_WITH_REAL_STORAGE_ALERTS_REMAINING
+Root_cause=One-sided sensor recovery;unstable WiFi device key;invalid absolute filesystem floor;synthetic FUSE inodes;historical replay timestamp loss;missing clean-journal I/O recovery;DNF Started race
+Sistemi_coinvolti=Fedora host;fedora-system-monitor;SQLite;systemd;udev;NetworkManager;Uptime Kuma
+Alert_coinvolti=Fedora Host ID39;Fedora Storage ID40;Fedora Network ID41;Fedora Software ID43
+Tentativi_effettuati=Full source+installed+runtime audit;all collector scopes;DB state reconstruction;real category pushes;systemd+udev+selftest;DNF source reconciliation
+Soluzione_finale=Fedora System Monitor 1.1.0 adds bidirectional recovery,stable identity,valid thresholds,FUSE filtering,original timestamps,clean-window recovery,terminal DNF retry,exact event dedup,and endpoint reconciliation
+Commit_correlati=fedora-system-monitor activity 471852
+Prompt_correlati=471852
+Tempo_totale_di_impatto=Stale state persisted from first installation until 2026-07-13 audit;exact user-visible duration UNKNOWN
+Note=Host,Network,Services,Software healthy after fix;Storage intentionally DOWN for Seagate 3.6754 percent free and unmatched unsafe removal;fresh Kuma admin readback pending because Chrome JWT was rejected;project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md

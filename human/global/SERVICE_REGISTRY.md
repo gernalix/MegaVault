@@ -1,6 +1,6 @@
 # Service Registry
 
-Aggiornato: 2026-07-12. Autorita' operativa: [SERVICE_REGISTRY AI](../../ai/global/SERVICE_REGISTRY.md).
+Aggiornato: 2026-07-13. Autorita' operativa: [SERVICE_REGISTRY AI](../../ai/global/SERVICE_REGISTRY.md).
 
 ## Fedora corrente
 
@@ -8,7 +8,7 @@ Il system manager e lo user manager systemd risultano `running`. Tra i servizi r
 
 Timer di sistema rilevanti: `dnf-makecache`, `fstrim`, `logrotate` e `systemd-tmpfiles-clean`.
 
-Fedora System Monitor è verificato e attivo: `fedora-system-monitor-events.service` segue il journal, `fedora-system-monitor-lifecycle.service` registra boot e shutdown, mentre il template collector è attivato dai timer ogni minuto, ogni ora, ogni giorno e ogni settimana. La path unit software e i template udev sono attivi. Tutte le unità passano `systemd-analyze verify`; i punteggi security sono `OK` da 3,4 a 4,5. Da versione 1.0.1 soltanto il collector giornaliero conserva `CAP_SYS_ADMIN` per NVMe, mentre daemon, lifecycle e device hook non hanno capability.
+Fedora System Monitor 1.1.0 è verificato e attivo: daemon journal, lifecycle, collector, quattro timer, path software e template udev sono operativi. Dashboard, timeline, trend e storico servizi leggono il DB esistente. L’unità Prometheus locale è installata, verificata e disabilitata per default. I 92 test e 17 self-check passano; soltanto il collector giornaliero conserva `CAP_SYS_ADMIN` per NVMe.
 
 Fedora T7 Backup e' installato e testato: il collegamento del seriale T7 corretto
 attiva via udev `t7-restic-backup.service`, che monta, verifica, esegue backup e

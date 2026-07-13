@@ -15,7 +15,8 @@ os=Fedora_Linux_44_Workstation
 loopback=127.0.0.1
 
 MONITORING_EGRESS:
-source=fedora-system-monitor;destination=150.230.148.128:3001;protocol=HTTP;purpose=Uptime_Kuma_push_only;categories=system+storage+network+services+software;credentials=root_only;payload=no_sensitive_data;firewall_change=none;verified=2026-07-10
+source=fedora-system-monitor;destination=150.230.148.128:3001;protocol=HTTP;purpose=Uptime_Kuma_push_only;categories=system+storage+network+services+software;credentials=root_only;payload=no_sensitive_data;firewall_change=none;delivery_verified=2026-07-13;admin_readback=JWT_rejected_pending
+source=fedora-system-monitor-prometheus;destination=127.0.0.1:9109;protocol=HTTP;purpose=optional_local_metrics;default_state=disabled;external_exposure=none;verified=2026-07-13
 risk=HTTP_does_not_protect_push_endpoint_or_status_from_on_path_observers;HTTPS_migration_recommended
 wifi_interface=wlp2s0
 wifi_state=UP

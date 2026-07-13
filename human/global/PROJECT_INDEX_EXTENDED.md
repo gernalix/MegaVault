@@ -1,12 +1,12 @@
 # Project Index Extended
 
-Aggiornato: 2026-07-12. Autorita' operativa: [PROJECT_INDEX_EXTENDED AI](../../ai/global/PROJECT_INDEX_EXTENDED.md).
+Aggiornato: 2026-07-13. Autorita' operativa: [PROJECT_INDEX_EXTENDED AI](../../ai/global/PROJECT_INDEX_EXTENDED.md).
 
 ## Relazione verificata su Fedora
 
 MegaVault risiede in `/home/daniele/MegaVault`; usa `codex_global_timeline.sqlite` come DB canonico e `build_codex_global_timeline.py` come builder. Non ha servizi o timer host registrati.
 
-Fedora System Monitor risiede in `/home/daniele/MegaVault/projects/fedora-system-monitor`. Il runtime è installato in `/usr/local/libexec/fedora-system-monitor`, usa configurazione sotto `/etc/fedora-system-monitor`, dati sotto `/var/lib/fedora-system-monitor`, un daemon eventi, unita' lifecycle/collector, quattro timer e una path unit. Installazione e prove live sono state verificate nell'attivita' 593184.
+Fedora System Monitor 1.1.0 risiede in `/home/daniele/MegaVault/projects/fedora-system-monitor`, branch `codex/471852-fedora-system-monitor`. Runtime, configurazione e dati restano nelle posizioni esistenti; dashboard, timeline, trend, storico servizi e Prometheus opzionale sono verificati nell'attivita' 471852.
 
 Fedora T7 Backup risiede in `/home/daniele/MegaVault/projects/fedora-t7-backup`;
 runtime lifecycle `/usr/local/libexec/t7-restic-lifecycle`, repository cifrato
