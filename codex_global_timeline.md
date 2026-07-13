@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-13T13:07:58+02:00
+Generated: 2026-07-13T13:08:38+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 672
+Total events: 673
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,7 +14,7 @@ Total events: 672
 
 | Value | Events |
 |---|---:|
-| megavault | 160 |
+| megavault | 161 |
 | amici-fb | 100 |
 | luoghi-app | 70 |
 | multitimetracker | 37 |
@@ -71,7 +71,7 @@ Total events: 672
 |---|---:|
 | security | 221 |
 | backup | 203 |
-| docs | 66 |
+| docs | 67 |
 | release | 48 |
 | testing | 47 |
 | bugfix | 38 |
@@ -86,7 +86,7 @@ Total events: 672
 |---|---:|
 | P1 | 363 |
 | P0 | 160 |
-| P2 | 139 |
+| P2 | 140 |
 | P3 | 10 |
 
 ### Events by status
@@ -94,7 +94,7 @@ Total events: 672
 | Value | Events |
 |---|---:|
 | UNKNOWN | 254 |
-| PASS | 170 |
+| PASS | 171 |
 | WARN | 128 |
 | FAIL | 62 |
 | OPEN | 58 |
@@ -289,7 +289,7 @@ Total events: 672
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 160 events; latest=2026-07-13; label=Codex Timeline
+- `megavault`: 161 events; latest=2026-07-13; label=Codex Timeline
 - `amici-fb`: 100 events; latest=2026-07-13; label=Amici FB amici 2026
 - `luoghi-app`: 70 events; latest=2026-07-10; label=luoghi-app v11
 - `multitimetracker`: 37 events; latest=2026-07-13; label=MTT app-deviceTest.apk
@@ -376,6 +376,7 @@ Total events: 672
 | 2026-07-13 | megavault | MegaVault v0 | backup | WARN | P1 | backup | markdown | PENDING_TEST_POST_LOGIN |
 | 2026-07-13 | megavault | MegaVault v0 | security | WARN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-13 | megavault | MegaVault activity 638417 deploy | docs | PASS | P2 | git_commit | git_log | activity 638417: deploy AutoKey for GNOME Wayland |
+| 2026-07-13 | megavault | MegaVault docs record Logseq | docs | PASS | P2 | git_commit | git_log | docs: record Logseq Fedora package audit |
 | 2026-07-13 | multitimetracker | MTT app-deviceTest.apk | security | WARN | P0 | protocol_update | codex_log | 019f5b1e-7650-7661-8b16-4c0e0d6a717f |
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-6afe-78e2-8a94-d179f75b0d6f |
 | 2026-07-13 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5a69-0f47-7f81-9817-bd0c509251c2 |
