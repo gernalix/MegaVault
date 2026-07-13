@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-13T13:02:08+02:00
+Generated: 2026-07-13T13:07:58+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 669
+Total events: 672
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,7 +14,7 @@ Total events: 669
 
 | Value | Events |
 |---|---:|
-| megavault | 158 |
+| megavault | 160 |
 | amici-fb | 100 |
 | luoghi-app | 70 |
 | multitimetracker | 37 |
@@ -22,8 +22,8 @@ Total events: 669
 | fedora-system-monitor | 16 |
 | fedora-t7-backup | 15 |
 | oracle-uptime-kuma | 15 |
+| 2026 | 14 |
 | luoghi | 14 |
-| 2026 | 13 |
 | supercontacts | 12 |
 | rollout-summaries | 11 |
 | windows | 8 |
@@ -69,12 +69,12 @@ Total events: 669
 
 | Value | Events |
 |---|---:|
-| security | 220 |
+| security | 221 |
 | backup | 203 |
 | docs | 66 |
-| release | 47 |
+| release | 48 |
 | testing | 47 |
-| bugfix | 37 |
+| bugfix | 38 |
 | automation | 19 |
 | infra | 15 |
 | migration | 12 |
@@ -84,8 +84,8 @@ Total events: 669
 
 | Value | Events |
 |---|---:|
-| P1 | 361 |
-| P0 | 159 |
+| P1 | 363 |
+| P0 | 160 |
 | P2 | 139 |
 | P3 | 10 |
 
@@ -94,8 +94,8 @@ Total events: 669
 | Value | Events |
 |---|---:|
 | UNKNOWN | 254 |
-| PASS | 169 |
-| WARN | 126 |
+| PASS | 170 |
+| WARN | 128 |
 | FAIL | 62 |
 | OPEN | 58 |
 
@@ -103,6 +103,7 @@ Total events: 669
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
 | 2026-07-13 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 13T071256Z |
 | 2026-07-13 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 12T070000Z vs 2026 07 13T071256Z |
 | 2026-07-13 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
@@ -122,11 +123,11 @@ Total events: 669
 | 2026-07-13 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-13 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-13 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
-| 2026-07-13 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
 | 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-13 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-13 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
@@ -288,7 +289,7 @@ Total events: 669
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 158 events; latest=2026-07-13; label=Codex Timeline
+- `megavault`: 160 events; latest=2026-07-13; label=Codex Timeline
 - `amici-fb`: 100 events; latest=2026-07-13; label=Amici FB amici 2026
 - `luoghi-app`: 70 events; latest=2026-07-10; label=luoghi-app v11
 - `multitimetracker`: 37 events; latest=2026-07-13; label=MTT app-deviceTest.apk
@@ -296,8 +297,8 @@ Total events: 669
 - `fedora-system-monitor`: 16 events; latest=2026-07-13; label=fedora-system-monitor project.metadata
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `oracle-uptime-kuma`: 15 events; latest=2026-07-10; label=Kuma Failed attempt to
+- `2026`: 14 events; latest=2026-07-13; label=2026 v537
 - `luoghi`: 14 events; latest=2026-07-12; label=Git PATH
-- `2026`: 13 events; latest=2026-07-10; label=2026 1.apk
 - `supercontacts`: 12 events; latest=2026-07-09; label=SC 1.apk
 - `rollout-summaries`: 11 events; latest=2026-07-12; label=rollout-summaries VeraCrypt 1.26.29 was
 - `windows`: 8 events; latest=2026-07-12; label=Veeam T7
@@ -342,6 +343,7 @@ Total events: 669
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
 | 2026-07-13 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 13T071256Z |
 | 2026-07-13 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 12T070000Z vs 2026 07 13T071256Z |
 | 2026-07-13 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
@@ -365,9 +367,11 @@ Total events: 669
 | 2026-07-13 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-13 | megavault | Android Tests | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-13 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
+| 2026-07-13 | megavault | MegaVault Activity 20260713 Logseq | release | WARN | P1 | release | markdown | Activity 20260713 Logseq Fedora Local Audit |
 | 2026-07-13 | megavault | MegaVault Activity 318604 MP3 | backup | WARN | P1 | backup | markdown | Activity 318604 MP3 Metadata Placeholder Fix |
 | 2026-07-13 | megavault | MegaVault Alert Registry | security | UNKNOWN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-13 | megavault | MegaVault docs record Fedora | automation | PASS | P1 | git_commit | git_log | docs: record Fedora monitor recovery audit 471852 |
+| 2026-07-13 | megavault | MegaVault docs record mp3 | bugfix | PASS | P1 | git_commit | git_log | docs: record mp3 metadata placeholder fix |
 | 2026-07-13 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-13 | megavault | MegaVault v0 | backup | WARN | P1 | backup | markdown | PENDING_TEST_POST_LOGIN |
 | 2026-07-13 | megavault | MegaVault v0 | security | WARN | P1 | doc_event | markdown | Inventario software globale |
