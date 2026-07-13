@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=16
+VERSION=17
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-13T14:05:00+02:00
-SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184
+UPDATED=2026-07-13T21:00:00+02:00
+SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -35,6 +35,11 @@ package=sqlite;version=3.51.2-1.fc44;role=database_CLI;preexisting=yes
 packages=python3-snappy_0.7.3+python3-cramjam_2.11.0+python3-socketio_5.16.3+python3-bidict_0.23.1+python3-engineio_4.13.3+python3-simple-websocket_1.1.0+python3-wsproto_1.2.0;role=one_time_Kuma_admin_API;installed_by_activity=593184;runtime_collector_dependency=no
 
 DESKTOP_APPS_CURRENT:
+app=VLC;version=3.0.23;install=system_Flatpak_Flathub;app_id=org.videolan.VLC;runtime=org.kde.Platform/x86_64/5.15-25.08;desktop=/var/lib/flatpak/exports/share/applications/org.videolan.VLC.desktop;launch=verified;H264=FFmpeg_avcodec_decode_PASS
+replaced=Fedora_Flatpak_org.videolan.vlc_3.0.23;reason=Fedora_f44_runtime_noopenh264_fake_library_caused_libopenh264_decoder_creation_failure;old_ref=absent;installed_VLC_refs=1;RPM_changes=none
+validation=controlled_MP4_H264_Baseline_yuv420p_AAC_LC;pre_fix_exact_codec_not_supported_reproduced;post_fix_first_picture+real_video_output+exit_0;flatpak_repair_system_dry_run_PASS;dnf_check_PASS
+warnings=original_user_file_not_supplied;mpv_not_installed;host_libpostproc_absent_nonrequired;old_lowercase_app_data_preserved_5.3MiB
+event_date=2026-07-13;summary=VLC_Fedora_Flatpak_fake_OpenH264_replaced_with_single_Flathub_installation_and_H264_decode_validated;status=PASS_WITH_WARNING;source_ref=activity_684271
 app=Obsidian;version=1.12.7;install=user_AppImage;path=/home/daniele/.local/opt/obsidian/Obsidian.AppImage;desktop=/home/daniele/.local/share/applications/obsidian.desktop;icon=/home/daniele/.local/share/icons/hicolor/512x512/apps/obsidian.png;arch=x86_64;launch=verified;gnome_applications=visible
 dependency=fuse-libs.x86_64;version=2.9.9-25.fc44;reason=AppImage_libfuse.so.2
 event_date=2026-07-10;summary=Obsidian_1.12.7_user_AppImage_installed_and_validated;status=completed;source_ref=task_481726

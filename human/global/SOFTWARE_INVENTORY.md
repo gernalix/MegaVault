@@ -17,6 +17,7 @@ Aggiornato: 2026-07-13. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/gl
   restano verificati dall'attivita' 583921.
 - Smartmontools 7.5, nvme-cli 2.16, lm_sensors 3.6 e SQLite 3.51 erano gia' disponibili. L'attivita' 593184 ha aggiunto i pacchetti Fedora Python Socket.IO e compressione necessari soltanto al provisioning amministrativo Kuma; i collector ordinari restano standard-library.
 - Android Studio Flatpak `com.google.AndroidStudio` 2026.1.1.10; avvio con `flatpak run com.google.AndroidStudio`.
+- VLC 3.0.23 e' installato una sola volta come Flatpak Flathub `org.videolan.VLC`. Il precedente Flatpak Fedora `org.videolan.vlc` usava nel runtime Fedora una libreria `noopenh264` fittizia e non poteva creare il decoder H.264; e' stato sostituito nell'attivita' `684271`. La decodifica H.264 FFmpeg, il rendering video, il linkage dei plugin e l'integrita' Flatpak sono verificati. Nessun RPM multimediale e' stato modificato.
 - Android SDK: `/home/daniele/Android/Sdk`; ADB `1.0.41 / 37.0.0-14910828`; `sdkmanager` sotto `cmdline-tools/latest/bin`.
 - Per Gradle usare il wrapper del progetto.
 - Obsidian 1.12.7 e' installato per il solo utente come AppImage in `~/.local/opt/obsidian/Obsidian.AppImage`, con voce GNOME e icona locali; l'avvio e la presenza nel menu Applicazioni sono verificati. La compatibilita' AppImage richiede `fuse-libs.x86_64` 2.9.9-25.fc44.

@@ -1,4 +1,4 @@
-VERSION=4
+VERSION=5
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -248,3 +248,21 @@ Commit_correlati=this MegaVault activity commit
 Prompt_correlati=638417
 Tempo_totale_di_impatto=Unknown before report;technical repair and current-session core validation completed 2026-07-13T08:21:00Z
 Note=GTK Wayland,Chrome Wayland,and Zenity XWayland hotkey+clipboard phrase tests PASS;GUI visible and single instance PASS. Real GNOME extension discovery,menu launch,service autostart,and persistence after logout/login remain pending because forcing logout risked user work. SQLite incident updated and backed up at /home/daniele/sync_root/db/backups/incident_registry.activity-638417.pre-update.20260713T082100Z.sqlite.
+
+INCIDENT:
+Incident_ID=VLC_FEDORA_FLATPAK_FAKE_OPENH264
+Titolo=VLC Fedora Flatpak could not decode H264
+Data_prima_comparsa_UTC=2026-07-13T18:55:48Z
+Data_ultima_comparsa_UTC=2026-07-13T19:00:00Z
+Numero_occorrenze=1 confirmed user incident with controlled reproduction
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=The only VLC installation was Fedora Flatpak org.videolan.vlc using org.fedoraproject.KDE5Platform f44;its ffmpeg-free disabled the native h264 decoder and delegated to libopenh264,but the sandbox supplied noopenh264 2.6.0,explicitly a fake OpenH264 implementation,so decoder creation failed even though the host had the real openh264 RPM.
+Sistemi_coinvolti=Fedora 44 host;Flatpak Fedora remote;org.videolan.vlc;org.fedoraproject.KDE5Platform f44;FFmpeg;OpenH264
+Alert_coinvolti=VLC Codec not supported h264 dialog and terminal decoder errors
+Tentativi_effettuati=RPM/Flatpak/repository inventory;plugin and linkage audit;host versus sandbox FFmpeg comparison;controlled Baseline H264 MP4 reproduction;full VLC -vvv pre/post logs;ffprobe,ffmpeg,ffplay,DNF and Flatpak integrity checks.
+Soluzione_finale=Unfiltered the existing system Flathub remote,removed only Fedora org.videolan.vlc,and installed system Flathub org.videolan.VLC 3.0.23;kept one VLC installation and made no RPM codec changes. Post-fix avcodec received the first H264 picture and real video output exited 0.
+Commit_correlati=this MegaVault activity commit
+Prompt_correlati=684271
+Tempo_totale_di_impatto=UNKNOWN before report;technical repair and validation completed 2026-07-13T19:00:00Z
+Note=Original user file path was not supplied,so a controlled MP4/H264 Baseline/yuv420p/AAC LC sample proved the same generic failure and fix. mpv was not installed and was not added only as a test dependency. Host libpostproc is absent but unrelated to H264 and disabled in both VLC builds. Old lowercase Flatpak app data remains preserved at /home/daniele/.var/app/org.videolan.vlc.

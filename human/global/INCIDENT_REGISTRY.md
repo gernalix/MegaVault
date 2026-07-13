@@ -139,3 +139,13 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Fix: COPR firmato `dlk/autokey` 0.97.4, estensione GNOME 50, accesso `input`/uinput, launcher e servizio utente unici, wrapper reversibile che filtra soltanto `EV_ABS` e limita la lettura clipboard a un secondo. Nessun file RPM e' stato modificato.
 - Verifica: hotkey e frase clipboard PASS in GNOME Text Editor Wayland, Chrome Wayland nativo e Zenity XWayland; GUI visibile e singola istanza PASS. Logout/login, caricamento reale dell'estensione, apertura dal menu e autostart restano pendenti per evitare perdita di lavoro.
 - Report: `ai/reports/prompt_638417_autokey_wayland.md`; checklist: `~/.local/bin/autokey-post-login-638417-check`.
+
+## VLC_FEDORA_FLATPAK_FAKE_OPENH264
+
+- Timestamp: `2026-07-13T18:55:48Z`; stato `RESOLVED`, gravita' `HIGH`.
+- Sintomo: VLC mostrava `Codec not supported` e non decodificava H.264, pur con OpenH264 installato sull'host Fedora.
+- Root cause: l'unico VLC era il Flatpak Fedora `org.videolan.vlc`; il suo runtime Fedora 44 usava `ffmpeg-free` senza decoder H.264 nativo e il pacchetto `noopenh264`, una libreria OpenH264 fittizia. Il sandbox non poteva usare l'OpenH264 reale dell'host.
+- Fix: rimosso soltanto il ref Fedora e installato il ref Flathub `org.videolan.VLC` 3.0.23 a livello di sistema. Resta una sola installazione VLC; nessun RPM codec e' stato cambiato e i dati della vecchia app sono stati preservati.
+- Verifica: lo stesso campione MP4 H.264 Baseline falliva prima con `Unable to create decoder`; dopo il fix VLC `avcodec` ha ricevuto il primo frame, il rendering video e' terminato con codice 0, `ffmpeg` e `ffplay` sono PASS, `dnf check` e `flatpak repair --dry-run` sono PASS.
+- Limiti: file originale non fornito; `mpv` non installato; `libpostproc` host assente ma non necessario per H.264.
+- Report: `ai/reports/prompt_684271_vlc_h264_fedora.md`.
