@@ -18,6 +18,8 @@ successo. Il doppio evento e' bloccato da lock in `/run`; log in journal.
 
 Il servizio utente `adb-device-keeper.service` e' abilitato e attivo per mantenere disponibili via ADB Wi-Fi il Pixel 8a e il TCL 6102H. Il linger di `daniele` e' attivo per eseguirlo anche senza sessione grafica. Dettagli e comandi: [ADB Device Keeper](ADB_DEVICE_KEEPER.md).
 
+`autokey.service` e' l'unico autostart AutoKey: unita' utente abilitata su `graphical-session.target`, con restart solo su errore e wrapper `~/.local/libexec/autokey-wayland-fedora44`. Non creare anche un autostart XDG e non avviare direttamente `/usr/bin/autokey-gtk`. Nella sessione corrente resta intenzionalmente inattivo: il gruppo `input` e l'estensione GNOME appena installata saranno acquisiti al prossimo login; il collaudo post-login dell'attivita' `638417` e' ancora pendente.
+
 `rustdesk.service` e' l'unico meccanismo di avvio RustDesk: servizio di sistema abilitato e attivo, con server e tray utente quando la sessione grafica esiste. Non aggiungere autostart XDG o unita' utente duplicate. Su Wayland il servizio persiste dopo logout/boot, ma la schermata GDM pre-login non e' controllabile; l'accesso torna utilizzabile soltanto dopo un login grafico compatibile. L'`ExecStop` ufficiale usa un match `pkill` ampio: eseguire restart/stop in un comando separato da altri comandi RustDesk con opzioni.
 
 ## Stato progetti

@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=14
+VERSION=15
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-13T09:40:00+02:00
-SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219
+UPDATED=2026-07-13T10:21:00+02:00
+SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219+activity_638417
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -51,6 +51,11 @@ asset=veracrypt-1.26.29-Fedora-44-x86_64.rpm;source=https://launchpad.net/veracr
 validation=veracrypt_--text_--version_returns_1.26.29;desktop_file_valid;GUI_process+AT-SPI_frame_detected;storage_or_volume_changes=none
 warning=plain_GUI_mode_veracrypt_--version_waits_for_GUI_event_loop;use_--text_--version_for_CLI;GTK_scale_factor_critical_nonfatal_at_launch
 event_date=2026-07-12;summary=VeraCrypt_1.26.29_official_Fedora_44_GUI_RPM_checksum_signature_DNF_CLI_menu_GUI_validated;status=PASS_WITH_WARNING;source_ref=activity_581204
+app=AutoKey_for_Wayland;version=0.97.4-0.fc44;install=signed_COPR_dlk_autokey_RPM+user_compat_wrapper;upstream=https://github.com/dlk3/autokey-wayland;release=v0.97.4;commit=a41c8a0a145ee00ffb7e197c3b5dd26a3e946e7e;path=/usr/bin/autokey-gtk;wrapper=/home/daniele/.local/libexec/autokey-wayland-fedora44;desktop=/home/daniele/.local/share/applications/autokey-gtk.desktop;gnome_visible_logical_entries=1;icon=autokey;extension=autokey-gnome-extension@autokey_shell_45-50;status=native_Wayland_core_tests_PASS+post_login_pending
+compatibility=wrapper_filters_invalid_EV_ABS_from_combined_uinput_device_for_GNOME50_libinput+adds_1s_timeout_for_ownerless_wl-paste;RPM_files_unmodified;relative_mouse+keyboard_preserved;absolute_uinput_axes_filtered
+dependencies=gnome-extensions-app_50.2+python3-magic_0.4.27+python3-pyasyncore_1.0.4+python3-pydbus_0.6.0+preexisting_wl-clipboard_python3-evdev_python3-pyudev;removed_replaced_dependency=python3-file-magic;xautomation=not_installed_X11_only_optional
+tests=GTK_Wayland_hotkey+clipboard_phrase_PASS;Chrome_native_Wayland_hotkey+clipboard_phrase_PASS;Zenity_XWayland_hotkey+clipboard_phrase_PASS;GUI_visible+single_instance_PASS;real_extension+menu_launch+systemd_autostart_after_logout_login=PENDING
+event_date=2026-07-13;summary=AutoKey_0.97.4_Wayland_installed_hardened_and_native_input_validated;status=PENDING_TEST_POST_LOGIN;source_ref=activity_638417
 
 ANDROID_TOOLS_CURRENT:
 tool=Android_Studio;install=Flatpak_com.google.AndroidStudio;version=2026.1.1.10;launch=flatpak_run_com.google.AndroidStudio;critical=yes

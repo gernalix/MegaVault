@@ -130,3 +130,12 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Fix: Fedora System Monitor 1.1.0 con recovery bidirezionale, identità stabili, journal pulito, retry DNF terminale e deduplicazione esatta.
 - Stato finale: Host, Network, Services e Software sani; Storage resta correttamente rosso per Seagate al 3,6754% libero e unsafe removal senza riconnessione.
 - Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471852.md`.
+
+## AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
+
+- Timestamp: `2026-07-13`; stato `MITIGATED`, gravita' `HIGH` fino al collaudo post-login.
+- Sintomo visivo: il launcher RPM esisteva, ma AutoKey restava senza finestra evidente e dipendeva da una tray icon non mostrata da GNOME.
+- Causa funzionale: Fedora AutoKey 0.96 usa XRecord ed e' limitato a X11/XWayland. Il fork Wayland 0.97.4 catturava l'input, ma GNOME 50 scartava il dispositivo virtuale per assi `EV_ABS` tablet incompleti; inoltre `wl-paste` poteva attendere senza limite con clipboard vuota.
+- Fix: COPR firmato `dlk/autokey` 0.97.4, estensione GNOME 50, accesso `input`/uinput, launcher e servizio utente unici, wrapper reversibile che filtra soltanto `EV_ABS` e limita la lettura clipboard a un secondo. Nessun file RPM e' stato modificato.
+- Verifica: hotkey e frase clipboard PASS in GNOME Text Editor Wayland, Chrome Wayland nativo e Zenity XWayland; GUI visibile e singola istanza PASS. Logout/login, caricamento reale dell'estensione, apertura dal menu e autostart restano pendenti per evitare perdita di lavoro.
+- Report: `ai/reports/prompt_638417_autokey_wayland.md`; checklist: `~/.local/bin/autokey-post-login-638417-check`.

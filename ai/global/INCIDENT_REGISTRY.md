@@ -1,4 +1,4 @@
-VERSION=3
+VERSION=4
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -230,3 +230,21 @@ Commit_correlati=fedora-system-monitor activity 471852
 Prompt_correlati=471852
 Tempo_totale_di_impatto=Stale state persisted from first installation until 2026-07-13 audit;exact user-visible duration UNKNOWN
 Note=Host,Network,Services,Software healthy after fix;Storage intentionally DOWN for Seagate 3.6754 percent free and unmatched unsafe removal;fresh Kuma admin readback pending because Chrome JWT was rejected;project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
+
+INCIDENT:
+Incident_ID=AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
+Titolo=AutoKey unusable on Fedora 44 GNOME Wayland
+Data_prima_comparsa_UTC=2026-07-13T07:39:00Z
+Data_ultima_comparsa_UTC=2026-07-13T08:21:00Z
+Numero_occorrenze=1
+Gravita_massima=HIGH
+Stato=MITIGATED
+Root_cause=Fedora autokey 0.96 is X11-only;AutoKey for Wayland 0.97.4 additionally cloned incomplete EV_ABS tablet axes into one uinput device so GNOME Shell 50/libinput rejected the entire virtual device;its synchronous wl-paste read could also block when no clipboard owner existed.
+Sistemi_coinvolti=Fedora 44 host;GNOME Shell 50.3;AutoKey;libinput;uinput;wl-clipboard
+Alert_coinvolti=GNOME launcher not apparent;XRecord-only native input failure;libinput missing tablet capabilities;ownerless wl-paste hang
+Tentativi_effettuati=Baseline package,desktop,tray,process,journal,coredump,config,window,extension,alternate install and environment inventory;real kernel input into GTK Wayland and Zenity XWayland;official source/release/COPR audit;fork uinput and clipboard trace;Chrome native Wayland isolated QA.
+Soluzione_finale=Signed dlk/autokey COPR 0.97.4;GNOME 50 extension;input group and udev access;single user launcher and graphical-session systemd service;user wrapper filters invalid EV_ABS and bounds wl-paste to one second without modifying RPM files.
+Commit_correlati=this MegaVault activity commit
+Prompt_correlati=638417
+Tempo_totale_di_impatto=Unknown before report;technical repair and current-session core validation completed 2026-07-13T08:21:00Z
+Note=GTK Wayland,Chrome Wayland,and Zenity XWayland hotkey+clipboard phrase tests PASS;GUI visible and single instance PASS. Real GNOME extension discovery,menu launch,service autostart,and persistence after logout/login remain pending because forcing logout risked user work. SQLite incident updated and backed up at /home/daniele/sync_root/db/backups/incident_registry.activity-638417.pre-update.20260713T082100Z.sqlite.

@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=9
+VERSION=10
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-13+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_583921+activity_684219
+SOURCE=systemctl_live_2026-07-13+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_583921+activity_684219+activity_638417
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -48,6 +48,7 @@ service=pipewire.service;state=active/running;purpose=audio_video
 service=wireplumber.service;state=active/running;purpose=media_session
 service=xdg-desktop-portal.service;state=active/running;purpose=desktop_portal
 service=adb-device-keeper.service;scope=user;state=enabled+active/running;purpose=allowlisted_Pixel_8a+TCL_6102H_ADB_WiFi_availability;exec=/home/daniele/.local/bin/adb-device-keeper_--daemon;docs=ADB_DEVICE_KEEPER.md
+service=autokey.service;scope=user;state=enabled+inactive_until_next_graphical_login;purpose=AutoKey_for_Wayland_session_automation;exec=/home/daniele/.local/libexec/autokey-wayland-fedora44;wanted_by=graphical-session.target;restart=on-failure_5s;part_of=graphical-session.target;duplicate_XDG_autostart=none;activity=638417;post_login_test=pending
 
 TIMERS_RELEVANT:
 timer=dnf-makecache.timer;scope=system;state=active;purpose=package_metadata
@@ -70,6 +71,7 @@ rule=do_not_assume_pre_migration_project_units_exist
 rule=ADB_keeper_is_user_scoped+linger_required_for_logout_and_boot
 rule=RustDesk_official_unit_is_only_autostart_mechanism;do_not_add_XDG_or_user_systemd_duplicate
 rule=RustDesk_vendor_ExecStop_uses_broad_pkill_pattern;run_service_restart_in_command_without_other_RustDesk_double_dash_arguments
+rule=AutoKey_is_user_session_scoped;use_only_autokey.service+same_ID_user_desktop_override;do_not_add_XDG_autostart_or_start_raw_/usr/bin/autokey-gtk;GNOME_extension_requires_relogin_after_first_install
 
 OPEN:
 open=project_specific_services_and_timers_not_migrated_or_revalidated
