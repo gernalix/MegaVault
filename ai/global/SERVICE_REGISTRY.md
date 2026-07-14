@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=13
+VERSION=14
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-14+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417
+SOURCE=systemctl_live_2026-07-14+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_614283
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -38,7 +38,8 @@ service=fedora-system-monitor-device-remove@.service;state=static_template;purpo
 service=fedora-system-monitor-prometheus.service;state=active_as_prometheus_dependency+disabled_direct_enablement;purpose=readonly_localhost_9109_metrics_endpoint;runtime_dependency=stdlib_only;live_test=PASS;activity=471852+826417
 service=prometheus.service;state=enabled+active/running;package=prometheus-3.13.0-1.fc44;bind=127.0.0.1:9090;retention=30d_or_5GB;scrape=15s;restart=on-failure_5s;targets=prometheus+node+fedora-system-monitor;activity=826417
 service=prometheus-node-exporter.service;aliases=node_exporter.service_same_unit;state=enabled+active/running;package=node-exporter-1.11.1-1.fc44;bind=127.0.0.1:9100;restart=on-failure_5s;privilege=prometheus_user+no_capabilities;activity=826417
-command=fedora-diagnostics;service=none;timer=none;mode=manual_on_demand;path=/usr/local/bin/fedora-diagnostics;activity=826417
+command=fedora-diagnostics;mode=manual_on_demand;path=/usr/local/bin/fedora-diagnostics;version=1.1.0;fan_analysis=yes;activity=826417+614283
+service=fedora-diagnostics-telemetry.service;state=static_oneshot+last_result_success;user=prometheus;purpose=bounded_fan+power+top_process_textfile_metrics;network=none;capabilities=DAC_READ_SEARCH+SYS_PTRACE;debug_syscalls=denied;activity=614283
 service=t7-restic-backup.service;scope=system;state=static_oneshot+tested_success;purpose=udev_connect_mount+encrypted_incremental_backup+conditional_maintenance+sync+unmount+notify;runtime=/usr/local/libexec/t7-restic-lifecycle;activity=684219
 service=t7-restic-reminder.service;scope=system;state=static_oneshot+tested_success;purpose=single_disconnect_reminder_if_serial_still_present;activity=684219
 service=fedora-external-updater-root.service;scope=system;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_root_scope;activity=846219
@@ -52,7 +53,7 @@ service=pipewire.service;state=active/running;purpose=audio_video
 service=wireplumber.service;state=active/running;purpose=media_session
 service=xdg-desktop-portal.service;state=active/running;purpose=desktop_portal
 service=adb-device-keeper.service;scope=user;state=enabled+active/running;purpose=allowlisted_Pixel_8a+TCL_6102H_ADB_WiFi_availability;exec=/home/daniele/.local/bin/adb-device-keeper_--daemon;docs=ADB_DEVICE_KEEPER.md
-service=autokey.service;scope=user;state=enabled+inactive_until_next_graphical_login;purpose=AutoKey_for_Wayland_session_automation;exec=/home/daniele/.local/libexec/autokey-wayland-fedora44;wanted_by=graphical-session.target;restart=on-failure_5s;part_of=graphical-session.target;duplicate_XDG_autostart=none;activity=638417;post_login_test=pending
+service=autokey.service;scope=user;state=enabled+active/running;purpose=AutoKey_for_Wayland_session_automation;exec=/home/daniele/.local/libexec/autokey-wayland-fedora44;wanted_by=graphical-session.target;restart=on-failure_5s;part_of=graphical-session.target;duplicate_XDG_autostart=none;activity=638417+614283;incident=stale_evdev_ENODEV_busy_loop_mitigated_by_controlled_restart
 service=activitywatch.service;scope=user;state=enabled+active/running;purpose=ActivityWatch_official_aw-qt_server_only;exec=/home/daniele/.local/opt/activitywatch/aw-qt_--no-gui_--autostart-modules_aw-server;wanted_by=graphical-session.target;restart=on-failure_5s;port=127.0.0.1:5600;extra_layers=none;activity=284617
 service=activitywatch-wayland-watcher.service;scope=user;state=enabled+inactive_until_next_graphical_login;purpose=ActivityWatch_GNOME_Wayland_AFK+active_window_via_aw-awatcher;exec=/usr/bin/aw-awatcher;wanted_by=graphical-session.target;requires=activitywatch.service;restart=always_5s;port_extra=none;extension=focused-window-dbus@flexagoon.com_v11;activity=735804
 service=fedora-external-updater-user.service;scope=user;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_user_scope;activity=846219
@@ -63,6 +64,7 @@ timer=fstrim.timer;scope=system;state=active;purpose=SSD_trim
 timer=logrotate.timer;scope=system;state=active;purpose=log_rotation
 timer=systemd-tmpfiles-clean.timer;scope=system+user;state=active;purpose=temp_cleanup
 timer=fedora-system-monitor-fast.timer;scope=system;state=enabled+active;calendar=every_minute;purpose=minute+overdue_5m+15m_collectors
+timer=fedora-diagnostics-telemetry.timer;scope=system;state=enabled+active;interval=30s;purpose=atomic_Node_textfile_fan+power+process_metrics;new_wakeup=2_per_minute;activity=614283
 timer=fedora-system-monitor-hourly.timer;scope=system;state=enabled+active;calendar=hourly;purpose=software+update+health_snapshot
 timer=fedora-system-monitor-daily.timer;scope=system;state=enabled+active;calendar=03:15;purpose=inventory+backup+retention+summary
 timer=fedora-system-monitor-weekly.timer;scope=system;state=enabled+active;calendar=Sunday_04:15;purpose=full_validation

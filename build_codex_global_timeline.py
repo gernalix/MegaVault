@@ -556,8 +556,8 @@ def event_from_file(path: Path, root: Path, discovered_at: str) -> Event | None:
     )
 
 
-def discover_source_roots(extra_roots: list[Path]) -> list[Path]:
-    roots: list[Path] = [BASE_DIR]
+def discover_source_roots(extra_roots: list[Path], primary_root: Path = BASE_DIR) -> list[Path]:
+    roots: list[Path] = [primary_root]
     home = Path.home()
     documents = home / "Documents"
     codex = home / ".codex"
@@ -610,15 +610,16 @@ def iter_source_files(root: Path) -> list[Path]:
     return files
 
 
-def discover_git_repos() -> list[Path]:
-    roots: list[Path] = [BASE_DIR]
+def discover_git_repos(primary_root: Path = BASE_DIR) -> list[Path]:
+    roots: list[Path] = [primary_root]
     documents = Path.home() / "Documents"
     if documents.exists():
         roots.append(documents)
     repos: list[Path] = []
     for root in dedupe_paths(roots):
         for dirpath, dirnames, _filenames in os.walk(root):
-            if ".git" in dirnames:
+            git_marker = Path(dirpath) / ".git"
+            if ".git" in dirnames or git_marker.is_file():
                 repos.append(Path(dirpath))
                 dirnames[:] = []
                 continue
@@ -1064,7 +1065,8 @@ def print_milestones(conn: sqlite3.Connection) -> None:
 
 def build(args: argparse.Namespace) -> int:
     discovered_at = now_iso()
-    source_roots = discover_source_roots([Path(item) for item in args.source_root])
+    primary_root = Path(args.primary_root) if args.primary_root else BASE_DIR
+    source_roots = discover_source_roots([Path(item) for item in args.source_root], primary_root)
     events_by_id: dict[str, Event] = {}
     file_count = 0
     for root in source_roots:
@@ -1076,7 +1078,7 @@ def build(args: argparse.Namespace) -> int:
 
     git_events = 0
     if not args.no_git:
-        for repo in discover_git_repos():
+        for repo in discover_git_repos(primary_root):
             for event in events_from_git(repo, discovered_at, args.max_git_commits):
                 git_events += 1
                 events_by_id[event.id] = event
@@ -1120,6 +1122,7 @@ def build(args: argparse.Namespace) -> int:
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build the mandatory Global Codex Timeline.")
+    parser.add_argument("--primary-root", help="Primary source root; output remains next to this script.")
     parser.add_argument("--source-root", action="append", default=[], help="Extra source root to scan recursively.")
     parser.add_argument("--no-git", action="store_true", help="Skip local git log import.")
     parser.add_argument("--max-git-commits", type=int, default=DEFAULT_GIT_MAX_COMMITS, help="Max commits imported per local repository.")

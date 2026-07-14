@@ -176,3 +176,12 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Verifica: lo stesso campione MP4 H.264 Baseline falliva prima con `Unable to create decoder`; dopo il fix VLC `avcodec` ha ricevuto il primo frame, il rendering video e' terminato con codice 0, `ffmpeg` e `ffplay` sono PASS, `dnf check` e `flatpak repair --dry-run` sono PASS.
 - Limiti: file originale non fornito; `mpv` non installato; `libpostproc` host assente ma non necessario per H.264.
 - Report: `ai/reports/prompt_684271_vlc_h264_fedora.md`.
+
+## AUTOKEY_UINPUT_STALE_DEVICE_BUSY_LOOP
+
+- Timestamp osservato: `2026-07-14T18:35:00Z`-`18:49:50Z`; stato `MITIGATED`, gravita' `HIGH`.
+- Sintomo: `autokey-wayland` usava stabilmente circa il 99% di un core e scriveva circa 3 MB/s di traceback; CPU 84-89 C, package 19-23 W e due ventole circa 4.480 RPM.
+- Root cause: un device evdev era scomparso, ma il flush loop uinput di AutoKey 0.97.4 continuava a leggerlo; ogni iterazione generava `ENODEV` senza rimuovere il device o applicare backoff.
+- Mitigazione: stop/start controllato del solo `autokey.service`, sempre ripristinato. Dopo tre minuti CPU circa 60 C e ventole 3.762 RPM; nella finestra successiva AutoKey circa 0,2%, CPU media 62,2 C e ventole medie 2.975 RPM.
+- Limite: non e' stato modificato il codice AutoKey; l'incidente puo' ricorrere a un futuro cambio dispositivo. La telemetria 1.1.0 consente ora di attribuirlo senza command line, PID persistenti o contenuti personali.
+- Sorgente: `/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_614283.md`; SQLite integrita' `ok` con backup pre-upsert protetto.

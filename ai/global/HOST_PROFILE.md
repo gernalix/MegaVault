@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=12
+VERSION=13
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
 UPDATED=2026-07-14T20:05:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_614283
 
 META:
 host=fedora
@@ -90,7 +90,8 @@ project_rule=project_or_remote_paths_never_override_HOST_SYSTEM_CURRENT
 MONITORING_CURRENT:
 prometheus=/usr/bin/prometheus;version=3.13.0;service=enabled+active;bind=127.0.0.1:9090;retention=30d_or_5GB;activity=826417
 node_exporter=/usr/bin/node_exporter;version=1.11.1;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
-diagnostics=/usr/local/bin/fedora-diagnostics;version=1.0.0;default=7d;archive=single_sanitized_0600_ZIP;activity=826417
+diagnostics=/usr/local/bin/fedora-diagnostics;version=1.1.0;default=7d;fan_analysis=optional_historical_CPU+GPU+fan+power+process_attribution;archive=single_sanitized_0600_ZIP;activity=826417+614283
+diagnostics_telemetry=fedora-diagnostics-telemetry.timer+oneshot;cadence=30s;textfile=Node_Exporter;new_port=none;activity=614283
 relationship=Prometheus_historical_metrics;Uptime_Kuma_synthetic_UP_DOWN_unchanged;fedora-system-monitor_readonly_target=127.0.0.1:9109
 
 REMOTE_ACCESS_CURRENT:
