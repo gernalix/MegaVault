@@ -142,6 +142,24 @@ Tempo_totale_di_impatto=about 11 minutes for the confirmed Spark-source runtime 
 Note=Post-fix evidence: dry-run and real service run both read five_hour_left=49 percent and weekly_left=57 percent from rateLimits.primary/rateLimits.secondary; user screenshot after fix showed the same values. First post-fix notification marks previous 5h as unavailable because the stored previous source was Spark and must not be compared to the main quota.
 
 INCIDENT:
+Incident_ID=CODEX_WEEKLY_LIMIT_MONITOR_QUOTA_SCHEMA_CHANGE
+Titolo=Oracle VM Codex quota monitor failed after 5h window removal and primary weekly schema change
+Data_prima_comparsa_UTC=2026-07-12T18:28:00Z
+Data_ultima_comparsa_UTC=2026-07-14T17:48:27Z
+Numero_occorrenze=recurring_every_poll_until_fix
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=Codex app-server account/rateLimits/read stopped returning the previous 300-minute main 5h window and changed codex primary to a 10080-minute window while secondary became null; the watcher still required secondary as weekly and kept obsolete last_five_hour state.
+Sistemi_coinvolti=Oracle VM instance-20260201-1126; codex-weekly-limit-monitor.service; /home/ubuntu/codex/automazione/codex_weekly_limit_monitor; /home/ubuntu/telegram_notify.py; Codex app-server account/rateLimits/read
+Alert_coinvolti=Codex quota Telegram notifications; codex_weekly_limit_monitor runtime log/state
+Tentativi_effettuati=Read MegaVault protocol and host profile; found active monitor by systemd, process tree, logs, state, config, helper path, and source JSON-RPC; observed live redacted payload; backed up runtime files; deployed generic category parser and state migration; ran deterministic tests, dry-run real source, controlled real service restart, and no-duplicate restart verification.
+Soluzione_finale=Monitor now parses dynamic quota categories from actual rateLimits/rateLimitsByLimitId windows, skips null windows, maps codex 10080-minute window to Weekly, emits Telegram only for present categories, removes obsolete last_five_hour state, preserves last valid categories on errors, keeps telegram_notify.py as the only Telegram helper, and documents UTC dd/mm/yy hh:mm timestamps.
+Commit_correlati=this_MegaVault_report_commit
+Prompt_correlati=738416
+Tempo_totale_di_impatto=At least 2026-07-12T18:28:00Z to 2026-07-14T17:48:27Z based on monitor logs/state; previous successful state was 2026-07-12T18:13:53Z and errors repeated until fix.
+Note=Post-fix evidence: state version=3, last_error empty, categories weekly left=82 reset=20/07/26 07:18 and GPT-5.3-Codex-Spark left=100; no last_five_hour_* keys; real Telegram notification sent once for Weekly 94% -> 82%; second restart did not resend.
+
+INCIDENT:
 Incident_ID=EXTERNAL_NTFS_DISCONNECT_DURING_MOUNTED_IO
 Titolo=External NTFS volume disappeared during mounted I/O
 Data_prima_comparsa_UTC=2026-07-09T17:07:00Z

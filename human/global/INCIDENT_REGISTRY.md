@@ -76,6 +76,14 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Telegram: resta usato solo `/home/ubuntu/telegram_notify.py`; nessun token o chat id stampato.
 - Report: `ai/reports/codex_weekly_limit_real_5h_source_fix_20260705.md`.
 
+## CODEX_WEEKLY_LIMIT_MONITOR_QUOTA_SCHEMA_CHANGE
+- Timestamp UTC: 2026-07-14T17:48:27Z.
+- Sintomo: dal 2026-07-12 il monitor Oracle VM falliva ogni poll con `Missing secondary rate limit window` e non aggiornava piu' correttamente le notifiche quote.
+- Root cause: `account/rateLimits/read` non espone piu' la vecchia finestra main 5h da 300 minuti; `rateLimits.primary` ora e' una finestra da 10080 minuti, `secondary` e' `null`, e `codex_bengalfox` e' una categoria separata `GPT-5.3-Codex-Spark`.
+- Fix: parser generico per categorie reali, rimozione/migrazione stato `last_five_hour_*`, Telegram costruito solo da categorie presenti, timestamp UTC in formato `dd/mm/yy hh:mm`.
+- Verifica: test locali PASS, dry-run reale senza send PASS, notifica reale singola `Weekly 94% -> 82%`, service enabled+active, nessun timer dedicato perche' il watch loop interno programma il prossimo poll.
+- Report: `ai/reports/prompt_738416_codex_quota_monitor_schema_change.md`.
+
 ## EXTERNAL_NTFS_DISCONNECT_DURING_MOUNTED_IO
 - Timestamp UTC: `2026-07-09T17:07:00Z`.
 - Sintomo: un volume NTFS esterno montato e' scomparso durante I/O; `ntfs-3g` ha registrato errori di sync e chiusura.

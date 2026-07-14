@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T19:33:46+02:00
+Generated: 2026-07-14T19:54:49+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 713
+Total events: 716
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,10 +14,10 @@ Total events: 713
 
 | Value | Events |
 |---|---:|
-| megavault | 181 |
+| megavault | 183 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
-| multitimetracker | 41 |
+| multitimetracker | 42 |
 | 2026 | 20 |
 | fedora-system-monitor | 18 |
 | oracle-backup-service | 18 |
@@ -72,9 +72,9 @@ Total events: 713
 
 | Value | Events |
 |---|---:|
-| security | 235 |
-| backup | 210 |
-| docs | 77 |
+| security | 236 |
+| backup | 211 |
+| docs | 78 |
 | release | 51 |
 | testing | 47 |
 | bugfix | 41 |
@@ -88,8 +88,8 @@ Total events: 713
 | Value | Events |
 |---|---:|
 | P1 | 373 |
-| P0 | 178 |
-| P2 | 152 |
+| P0 | 180 |
+| P2 | 153 |
 | P3 | 10 |
 
 ### Events by status
@@ -97,8 +97,8 @@ Total events: 713
 | Value | Events |
 |---|---:|
 | UNKNOWN | 255 |
-| PASS | 189 |
-| WARN | 146 |
+| PASS | 190 |
+| WARN | 148 |
 | FAIL | 64 |
 | OPEN | 59 |
 
@@ -141,9 +141,11 @@ Total events: 713
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-14 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-14 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: update global Codex timeline for MTT recovery |
+| 2026-07-14 | megavault | Git PATH | backup | WARN | P0 | protocol_update | markdown | Prompt 738416 - Codex quota monitor schema change |
 | 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-14 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-14 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
+| 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f61b2-896f-7332-a636-d44f39bdb416 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f60cc-b168-7f70-b0a5-9f4f6aea6b97 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
@@ -310,10 +312,10 @@ Total events: 713
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 181 events; latest=2026-07-14; label=Codex Timeline
+- `megavault`: 183 events; latest=2026-07-14; label=Codex Timeline
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
-- `multitimetracker`: 41 events; latest=2026-07-14; label=MTT v537
+- `multitimetracker`: 42 events; latest=2026-07-14; label=MTT v537
 - `2026`: 20 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
 - `fedora-system-monitor`: 18 events; latest=2026-07-14; label=fedora-system-monitor project.metadata
 - `oracle-backup-service`: 18 events; latest=2026-07-14; label=Codex Timeline
@@ -394,6 +396,7 @@ Total events: 713
 | 2026-07-14 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-14 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
 | 2026-07-14 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: update global Codex timeline for MTT recovery |
+| 2026-07-14 | megavault | Git PATH | backup | WARN | P0 | protocol_update | markdown | Prompt 738416 - Codex quota monitor schema change |
 | 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-14 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-14 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
@@ -406,6 +409,7 @@ Total events: 713
 | 2026-07-14 | megavault | MegaVault Update Fedora monitor | automation | PASS | P1 | git_commit | git_log | Update Fedora monitor Host Storage audit registries |
 | 2026-07-14 | megavault | MegaVault v0 | backup | PASS | P1 | backup | markdown | activity 284617 activitywatch simplified |
 | 2026-07-14 | megavault | MegaVault v0 | security | WARN | P1 | doc_event | markdown | Inventario software globale |
+| 2026-07-14 | megavault | MegaVault Descrizione delle modifiche | docs | PASS | P2 | git_commit | git_log | Descrizione delle modifiche |
 | 2026-07-14 | megavault | MegaVault docs prepare ActivityWatch | docs | PASS | P2 | git_commit | git_log | docs: prepare ActivityWatch Wayland watchers |
 | 2026-07-14 | megavault | MegaVault docs record data | docs | PASS | P2 | git_commit | git_log | docs: record data analytics MCP repair |
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
@@ -413,6 +417,7 @@ Total events: 713
 | 2026-07-14 | megavault | MegaVault docs register Fedora | docs | PASS | P2 | git_commit | git_log | docs: register Fedora external updater |
 | 2026-07-14 | megavault | MegaVault docs simplify ActivityWatch | docs | PASS | P2 | git_commit | git_log | docs: simplify ActivityWatch Fedora setup |
 | 2026-07-14 | megavault | MegaVault Prima implementazione sovradimensionata | automation | UNKNOWN | P2 | report | markdown | Prima implementazione sovradimensionata rimossa: proxy 5601, healthcheck timer, wrapper, awatcher, extension e script update/rollback eliminati. St... |
+| 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f61b2-896f-7332-a636-d44f39bdb416 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f60cc-b168-7f70-b0a5-9f4f6aea6b97 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
@@ -430,7 +435,6 @@ Total events: 713
 | 2026-07-13 | fedora-system-monitor | fedora-system-monitor Audit tecnico 471852 | backup | PASS | P1 | backup | markdown | Audit tecnico 471852 |
 | 2026-07-13 | megavault | MegaVault v0 | security | WARN | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-13 | megavault | MegaVault vlc h264 fedora | security | WARN | P0 | protocol_update | markdown | prompt 684271 vlc h264 fedora |
-| 2026-07-13 | megavault | Android Tests | security | WARN | P1 | report | markdown | Incident Registry |
 | 2026-07-13 | megavault | Git PATH | release | PASS | P1 | release | markdown | Activity 735184 Logseq Fedora Install |
 | 2026-07-13 | megavault | MegaVault Activity 20260713 Logseq | release | WARN | P1 | release | markdown | Activity 20260713 Logseq Fedora Local Audit |
 | 2026-07-13 | megavault | MegaVault Activity 318604 MP3 | backup | WARN | P1 | backup | markdown | Activity 318604 MP3 Metadata Placeholder Fix |
@@ -481,6 +485,7 @@ Total events: 713
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v2 | security | WARN | P1 | report | markdown | Report conclusivo attivita 583921 |
 | 2026-07-12 | luoghi | Git PATH | backup | WARN | P0 | protocol_update | markdown | Diagnosed a Samsung T7 Shield that was absent from USB/kernel on Fedora, then reconstructed its prior layout/configuration from live state, system... |
 | 2026-07-12 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
+| 2026-07-12 | megavault | Android Tests | security | WARN | P1 | report | markdown | Incident Registry |
 | 2026-07-12 | megavault | MegaVault activity 583921 register | backup | PASS | P1 | git_commit | git_log | activity 583921: register Fedora T7 backup |
 | 2026-07-12 | megavault | MegaVault activity 684219 sync | backup | PASS | P1 | git_commit | git_log | activity 684219: sync T7 connect backup globally |
 | 2026-07-12 | megavault | MegaVault ACTIVITY_581204 | release | WARN | P1 | release | markdown | ACTIVITY_581204 |
