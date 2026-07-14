@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-14T20:14:02+02:00
-total_events=729
+generated_at=2026-07-14T20:14:58+02:00
+total_events=730
 format=event_date|project|label_short|category|status|importance
 2026-07-14|2026|2026 luoghi-app 10.apk|security|WARN|P0
 2026-07-14|2026|2026 luoghi-app 10.apk|security|WARN|P0
@@ -51,6 +51,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|megavault|MegaVault Alert Registry|security|WARN|P1
 2026-07-14|megavault|MegaVault docs configure Oracle|infra|PASS|P1
 2026-07-14|megavault|MegaVault docs record Codex|backup|PASS|P1
+2026-07-14|megavault|MegaVault infra register Fedora|automation|PASS|P1
 2026-07-14|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-14|megavault|MegaVault Update Fedora monitor|automation|PASS|P1
 2026-07-14|megavault|MegaVault v0|backup|PASS|P1

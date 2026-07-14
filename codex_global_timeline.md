@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T20:14:02+02:00
+Generated: 2026-07-14T20:14:58+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 729
+Total events: 730
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,7 +15,7 @@ Total events: 729
 
 | Value | Events |
 |---|---:|
-| megavault | 184 |
+| megavault | 185 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
 | multitimetracker | 42 |
@@ -80,7 +80,7 @@ Total events: 729
 | release | 52 |
 | testing | 47 |
 | bugfix | 41 |
-| automation | 24 |
+| automation | 25 |
 | infra | 16 |
 | migration | 13 |
 | performance | 5 |
@@ -89,7 +89,7 @@ Total events: 729
 
 | Value | Events |
 |---|---:|
-| P1 | 379 |
+| P1 | 380 |
 | P0 | 181 |
 | P2 | 159 |
 | P3 | 10 |
@@ -99,7 +99,7 @@ Total events: 729
 | Value | Events |
 |---|---:|
 | UNKNOWN | 260 |
-| PASS | 191 |
+| PASS | 192 |
 | WARN | 152 |
 | FAIL | 65 |
 | OPEN | 61 |
@@ -315,7 +315,7 @@ Total events: 729
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 184 events; latest=2026-07-14; label=Codex Timeline
+- `megavault`: 185 events; latest=2026-07-14; label=Codex Timeline
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
 - `multitimetracker`: 42 events; latest=2026-07-14; label=MTT v537
@@ -422,6 +422,7 @@ Total events: 729
 | 2026-07-14 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-14 | megavault | MegaVault docs configure Oracle | infra | PASS | P1 | git_commit | git_log | docs: configure Oracle VM SSH access |
 | 2026-07-14 | megavault | MegaVault docs record Codex | backup | PASS | P1 | git_commit | git_log | docs: record Codex quota monitor schema update |
+| 2026-07-14 | megavault | MegaVault infra register Fedora | automation | PASS | P1 | git_commit | git_log | infra: register Fedora diagnostics monitoring |
 | 2026-07-14 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-14 | megavault | MegaVault Update Fedora monitor | automation | PASS | P1 | git_commit | git_log | Update Fedora monitor Host Storage audit registries |
 | 2026-07-14 | megavault | MegaVault v0 | backup | PASS | P1 | backup | markdown | activity 284617 activitywatch simplified |
