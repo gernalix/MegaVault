@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=11
+VERSION=12
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-14+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417
+SOURCE=systemctl_live_2026-07-14+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -38,6 +38,7 @@ service=fedora-system-monitor-device-remove@.service;state=static_template;purpo
 service=fedora-system-monitor-prometheus.service;state=installed+disabled;purpose=optional_localhost_9109_metrics_endpoint;runtime_dependency=stdlib_only;live_test=PASS;activity=471852
 service=t7-restic-backup.service;scope=system;state=static_oneshot+tested_success;purpose=udev_connect_mount+encrypted_incremental_backup+conditional_maintenance+sync+unmount+notify;runtime=/usr/local/libexec/t7-restic-lifecycle;activity=684219
 service=t7-restic-reminder.service;scope=system;state=static_oneshot+tested_success;purpose=single_disconnect_reminder_if_serial_still_present;activity=684219
+service=fedora-external-updater-root.service;scope=system;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_root_scope;activity=846219
 udev=90-t7-name.rules;match=USB_disk_add+serial_S6YGNS0Y903440H;action=TAG_systemd+SYSTEMD_WANTS_t7-restic-backup.service;duplicate_events=flock_ignored;activity=684219
 audit=fedora-system-monitor_1.1.1;watchers=minute+five_minute+fifteen_minute_real_ok;tests=93_PASS;selftest=18_PASS;udev=verify_PASS;hardening=systemd_analyze_verify_PASS;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent;activity=471853
 
@@ -49,6 +50,7 @@ service=wireplumber.service;state=active/running;purpose=media_session
 service=xdg-desktop-portal.service;state=active/running;purpose=desktop_portal
 service=adb-device-keeper.service;scope=user;state=enabled+active/running;purpose=allowlisted_Pixel_8a+TCL_6102H_ADB_WiFi_availability;exec=/home/daniele/.local/bin/adb-device-keeper_--daemon;docs=ADB_DEVICE_KEEPER.md
 service=autokey.service;scope=user;state=enabled+inactive_until_next_graphical_login;purpose=AutoKey_for_Wayland_session_automation;exec=/home/daniele/.local/libexec/autokey-wayland-fedora44;wanted_by=graphical-session.target;restart=on-failure_5s;part_of=graphical-session.target;duplicate_XDG_autostart=none;activity=638417;post_login_test=pending
+service=fedora-external-updater-user.service;scope=user;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_user_scope;activity=846219
 
 TIMERS_RELEVANT:
 timer=dnf-makecache.timer;scope=system;state=active;purpose=package_metadata
@@ -60,6 +62,8 @@ timer=fedora-system-monitor-hourly.timer;scope=system;state=enabled+active;calen
 timer=fedora-system-monitor-daily.timer;scope=system;state=enabled+active;calendar=03:15;purpose=inventory+backup+retention+summary
 timer=fedora-system-monitor-weekly.timer;scope=system;state=enabled+active;calendar=Sunday_04:15;purpose=full_validation
 timer=t7-restic-reminder.timer;scope=system;state=static_one_shot_after_success;delay=30min;purpose=notify_once_only_if_T7_serial_still_present_and_unmounted;activity=684219
+timer=fedora-external-updater-root.timer;scope=system;state=enabled+active;calendar=daily+persistent+randomized_12min;purpose=complementary_external_update_root_scope;activity=846219
+timer=fedora-external-updater-user.timer;scope=user;state=enabled+active;calendar=daily+persistent+randomized_18min;purpose=complementary_external_update_user_scope;activity=846219
 removed_timers=t7-restic-backup.timer+t7-restic-check.timer+t7-restic-maintenance.timer;reason=T7_normally_disconnected+backup_on_connect;activity=684219
 path=fedora-system-monitor-software.path;scope=system;state=enabled+active;purpose=event_driven_software_metadata_changes
 

@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T14:31:14+02:00
+Generated: 2026-07-14T16:48:38+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 827
+Total events: 830
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,13 +15,13 @@ Total events: 827
 
 | Value | Events |
 |---|---:|
-| megavault | 174 |
+| megavault | 175 |
 | multitimetracker | 165 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
+| 2026 | 19 |
 | fedora-system-monitor | 18 |
 | oracle-backup-service | 18 |
-| 2026 | 17 |
 | rollout-summaries | 16 |
 | fedora-t7-backup | 15 |
 | luoghi | 15 |
@@ -73,9 +73,9 @@ Total events: 827
 
 | Value | Events |
 |---|---:|
-| security | 258 |
+| security | 260 |
 | backup | 235 |
-| docs | 99 |
+| docs | 100 |
 | testing | 63 |
 | release | 58 |
 | bugfix | 51 |
@@ -89,7 +89,7 @@ Total events: 827
 | Value | Events |
 |---|---:|
 | P1 | 425 |
-| P0 | 186 |
+| P0 | 189 |
 | P2 | 159 |
 | P3 | 57 |
 
@@ -98,8 +98,8 @@ Total events: 827
 | Value | Events |
 |---|---:|
 | UNKNOWN | 328 |
-| PASS | 205 |
-| WARN | 151 |
+| PASS | 206 |
+| WARN | 153 |
 | FAIL | 74 |
 | OPEN | 69 |
 
@@ -108,7 +108,9 @@ Total events: 827
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6064-57d6-7ca3-bdb2-8c19a5f930ad |
+| 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6107-fde7-7821-8236-4a28b19ff35d |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6103-22f2-7341-aa2b-7736cebc8654 |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 14T103719Z |
 | 2026-07-14 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 13T071256Z vs 2026 07 14T103719Z |
@@ -125,19 +127,20 @@ Total events: 827
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | backup | FAIL | P1 | backup | markdown | Integrazione Uptime Kuma |
-| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Registro incidenti | backup | FAIL | P1 | backup | markdown | Registro incidenti |
-| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6064-57d6-7ca3-bdb2-8c19a5f930ad |
+| 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6107-fde7-7821-8236-4a28b19ff35d |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6103-22f2-7341-aa2b-7736cebc8654 |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
 | 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-14 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-14 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: update global Codex timeline for MTT recovery |
 | 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-14 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-14 | multitimetracker | Android Tests | backup | UNKNOWN | P0 | protocol_update | txt | codex log |
@@ -319,13 +322,13 @@ Total events: 827
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 174 events; latest=2026-07-14; label=Codex Timeline
+- `megavault`: 175 events; latest=2026-07-14; label=Codex Timeline
 - `multitimetracker`: 165 events; latest=2026-07-14; label=Android Tests
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
+- `2026`: 19 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
 - `fedora-system-monitor`: 18 events; latest=2026-07-14; label=fedora-system-monitor project.metadata
 - `oracle-backup-service`: 18 events; latest=2026-07-14; label=Codex Timeline
-- `2026`: 17 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
 - `rollout-summaries`: 16 events; latest=2026-07-13; label=Codex Timeline
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `luoghi`: 15 events; latest=2026-07-12; label=Git PATH
@@ -377,7 +380,9 @@ Total events: 827
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6064-57d6-7ca3-bdb2-8c19a5f930ad |
+| 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6107-fde7-7821-8236-4a28b19ff35d |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6103-22f2-7341-aa2b-7736cebc8654 |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 14T103719Z |
 | 2026-07-14 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 13T071256Z vs 2026 07 14T103719Z |
@@ -399,6 +404,7 @@ Total events: 827
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-14 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-14 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-14 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: update global Codex timeline for MTT recovery |
 | 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-14 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-14 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
