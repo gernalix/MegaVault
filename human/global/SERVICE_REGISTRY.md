@@ -10,7 +10,7 @@ Timer di sistema rilevanti: `dnf-makecache`, `fstrim`, `logrotate` e `systemd-tm
 
 Fedora System Monitor 1.1.1 è verificato e attivo: daemon journal, lifecycle, collector, quattro timer, path software e template udev sono operativi. Dashboard, timeline, trend e storico servizi leggono il DB esistente. Il suo exporter read-only su `127.0.0.1:9109` e' ora avviato come dipendenza di Prometheus, senza modificare collector o Kuma. I 93 test e 18 self-check passano; soltanto il collector giornaliero conserva `CAP_SYS_ADMIN` per NVMe.
 
-Prometheus 3.13.0 (`prometheus.service`) e Node Exporter 1.11.1 (`prometheus-node-exporter.service`) sono abilitati e attivi, con restart su errore e listener esclusivamente `127.0.0.1:9090` e `127.0.0.1:9100`. Prometheus conserva al massimo 30 giorni o 5 GB. `fedora-diagnostics` e' un comando manuale, senza servizio o timer periodico.
+Prometheus 3.13.0 (`prometheus.service`) e Node Exporter 1.11.1 (`prometheus-node-exporter.service`) sono abilitati e attivi, con restart su errore e listener esclusivamente `127.0.0.1:9090` e `127.0.0.1:9100`. Prometheus conserva al massimo 30 giorni o 5 GB. `fedora-diagnostics` 1.1.0 resta un comando manuale; un solo timer di supporto ogni 30 secondi esegue un oneshot senza rete che aggiorna atomicamente le metriche fan/power/processi nel textfile gia' letto da Node Exporter. Non esiste una nuova porta.
 
 Fedora T7 Backup e' installato e testato: il collegamento del seriale T7 corretto
 attiva via udev `t7-restic-backup.service`, che monta, verifica, esegue backup e
@@ -20,7 +20,7 @@ successo. Il doppio evento e' bloccato da lock in `/run`; log in journal.
 
 Il servizio utente `adb-device-keeper.service` e' abilitato e attivo per mantenere disponibili via ADB Wi-Fi il Pixel 8a e il TCL 6102H. Il linger di `daniele` e' attivo per eseguirlo anche senza sessione grafica. Dettagli e comandi: [ADB Device Keeper](ADB_DEVICE_KEEPER.md).
 
-`autokey.service` e' l'unico autostart AutoKey: unita' utente abilitata su `graphical-session.target`, con restart solo su errore e wrapper `~/.local/libexec/autokey-wayland-fedora44`. Non creare anche un autostart XDG e non avviare direttamente `/usr/bin/autokey-gtk`. Nella sessione corrente resta intenzionalmente inattivo: il gruppo `input` e l'estensione GNOME appena installata saranno acquisiti al prossimo login; il collaudo post-login dell'attivita' `638417` e' ancora pendente.
+`autokey.service` e' l'unico autostart AutoKey: unita' utente abilitata su `graphical-session.target`, con restart solo su errore e wrapper `~/.local/libexec/autokey-wayland-fedora44`. Non creare anche un autostart XDG e non avviare direttamente `/usr/bin/autokey-gtk`. Il servizio e' attivo; nell'attivita' 614283 un device evdev scomparso ha causato un loop ENODEV a un core intero, mitigato da un riavvio controllato. Se ricorre, raccogliere journal e metriche prima del riavvio senza leggere gli script personali.
 
 `rustdesk.service` e' l'unico meccanismo di avvio RustDesk: servizio di sistema abilitato e attivo, con server e tray utente quando la sessione grafica esiste. Non aggiungere autostart XDG o unita' utente duplicate. Su Wayland il servizio persiste dopo logout/boot, ma la schermata GDM pre-login non e' controllabile; l'accesso torna utilizzabile soltanto dopo un login grafico compatibile. L'`ExecStop` ufficiale usa un match `pkill` ampio: eseguire restart/stop in un comando separato da altri comandi RustDesk con opzioni.
 

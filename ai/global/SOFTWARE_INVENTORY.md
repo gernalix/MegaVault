@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=21
+VERSION=22
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
 UPDATED=2026-07-14T20:05:00+02:00
-SOURCE=tool_versions_live_2026-07-14+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417
+SOURCE=tool_versions_live_2026-07-14+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417+activity_614283
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -29,7 +29,7 @@ tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_contain
 tool=Fedora_System_Monitor;version=1.1.1;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;features=dashboard+timeline+trends+service_history+prometheus_optional;status=installed+enabled+audited;activity=471853
 tool=Prometheus;version=3.13.0-1.fc44;package=official_Fedora_updates;path=/usr/bin/prometheus;service=enabled+active;bind=127.0.0.1:9090;activity=826417
 tool=Node_Exporter;version=1.11.1-1.fc44;package=official_Fedora_updates;path=/usr/bin/node_exporter;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
-tool=Fedora_Diagnostics;version=1.0.0;project=/home/daniele/projects/fedora-diagnostics;path=/usr/local/bin/fedora-diagnostics;runtime=/usr/local/lib/fedora-diagnostics;status=installed+functional+fault_tested;activity=826417
+tool=Fedora_Diagnostics;version=1.1.0;project=/home/daniele/projects/fedora-diagnostics;path=/usr/local/bin/fedora-diagnostics;runtime=/usr/local/lib/fedora-diagnostics;features=fan_analysis+30s_textfile_telemetry+bounded_top_process_attribution;status=installed+functional+fault_tested;activity=826417+614283
 tool=Fedora_External_Updater;version=0.1.0;project=/home/daniele/projects/fedora-external-updater;cli=/usr/local/bin/fedora-external-updater;status=installed+root_user_timers_enabled+manual_PASS;policy=complementary_safe_external_updates_no_project_dependency_updates;activity=846219
 tool=Restic;path=/usr/bin/restic;version=0.19.0;project=/home/daniele/MegaVault/projects/fedora-t7-backup;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+encrypted+udev_connect_automated+conditional_check_prune+unmount+restore_tested;activity=684219
 package=smartmontools;version=7.5-6.fc44;role=storage_health;preexisting=yes
@@ -75,6 +75,7 @@ compatibility=wrapper_filters_invalid_EV_ABS_from_combined_uinput_device_for_GNO
 dependencies=gnome-extensions-app_50.2+python3-magic_0.4.27+python3-pyasyncore_1.0.4+python3-pydbus_0.6.0+preexisting_wl-clipboard_python3-evdev_python3-pyudev;removed_replaced_dependency=python3-file-magic;xautomation=not_installed_X11_only_optional
 tests=GTK_Wayland_hotkey+clipboard_phrase_PASS;Chrome_native_Wayland_hotkey+clipboard_phrase_PASS;Zenity_XWayland_hotkey+clipboard_phrase_PASS;GUI_visible+single_instance_PASS;real_extension+menu_launch+systemd_autostart_after_logout_login=PENDING
 event_date=2026-07-13;summary=AutoKey_0.97.4_Wayland_installed_hardened_and_native_input_validated;status=PENDING_TEST_POST_LOGIN;source_ref=activity_638417
+event_date=2026-07-14;summary=AutoKey_stale_evdev_ENODEV_busy_loop_identified+controlled_restart_restored_low_CPU_and_fan;status=MITIGATED;source_ref=activity_614283
 app=ActivityWatch;version=v0.13.2;install=official_ActivityWatch_GitHub_linux_x86_64_zip_user_flat;path=/home/daniele/.local/opt/activitywatch;dashboard=http://127.0.0.1:5600;desktop=none;status=PENDING_POST_LOGIN
 asset=activitywatch-v0.13.2-linux-x86_64.zip;sha256=8f62b10babf8a8f108cbdf7267c02fbc1ce2a970fa9535f230b3416b803e3360;release=https://github.com/ActivityWatch/activitywatch/releases/tag/v0.13.2;latest_stable_verified=yes;prerelease_v0.14.0b1_excluded=yes;published_checksum_or_signature=none_found
 wayland=standard_aw-qt_watchers_disabled;aw-awatcher_0.3.3_official_RPM_installed;focused-window-dbus_v11_installed_enabled_in_gsettings_requires_next_GNOME_login_to_load;no_proxy_no_timer_no_watchdog

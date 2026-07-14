@@ -1,4 +1,4 @@
-VERSION=5
+VERSION=6
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -320,3 +320,21 @@ Commit_correlati=this MegaVault activity commit
 Prompt_correlati=684271
 Tempo_totale_di_impatto=UNKNOWN before report;technical repair and validation completed 2026-07-13T19:00:00Z
 Note=Original user file path was not supplied,so a controlled MP4/H264 Baseline/yuv420p/AAC LC sample proved the same generic failure and fix. mpv was not installed and was not added only as a test dependency. Host libpostproc is absent but unrelated to H264 and disabled in both VLC builds. Old lowercase Flatpak app data remains preserved at /home/daniele/.var/app/org.videolan.vlc.
+
+INCIDENT:
+Incident_ID=AUTOKEY_UINPUT_STALE_DEVICE_BUSY_LOOP
+Titolo=AutoKey stale input device caused CPU and fan runaway
+Data_prima_comparsa_UTC=2026-07-14T18:35:00Z
+Data_ultima_comparsa_UTC=2026-07-14T18:49:50Z
+Numero_occorrenze=1
+Gravita_massima=HIGH
+Stato=MITIGATED
+Root_cause=AutoKey for Wayland 0.97.4 retained a disappeared evdev device in its uinput flush set;repeated read calls raised ENODEV and the exception loop had no device removal or backoff,consuming one CPU and writing tracebacks continuously.
+Sistemi_coinvolti=Fedora 44 host;AutoKey for Wayland;uinput;evdev;systemd-journald;thermal cooling
+Alert_coinvolti=CPU_84_89C;fans_about4480RPM;AutoKey_99pct_CPU+about3MB_s_journal_writes
+Tentativi_effettuati=Five-minute no-benchmark CPU/frequency/temperature/fan/GPU/power/interrupt/process baseline;bounded AutoKey journal;controlled three-minute stop/start comparison;post-deploy five-minute measurement.
+Soluzione_finale=Controlled autokey.service stop/start rebuilt the device set and restored AutoKey about0.2pct CPU,post-window CPU average62.2C,and fan average2975RPM;historical telemetry now attributes future recurrence without command lines.
+Commit_correlati=codex/614283-fan-diagnostics
+Prompt_correlati=614283
+Tempo_totale_di_impatto=At least 2026-07-14T18:35:00Z to controlled restart at 2026-07-14T18:49:50Z;earlier start unknown
+Note=MITIGATED not RESOLVED because the upstream missing-device loop was not patched and may recur. Distinct from AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED. SQLite upsert integrity=ok;backup=/home/daniele/sync_root/db/backups/incident_registry.activity-614283.pre-update.20260714T194000Z.sqlite;source=/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_614283.md.
