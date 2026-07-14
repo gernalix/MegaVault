@@ -250,6 +250,24 @@ Tempo_totale_di_impatto=Stale state persisted from first installation until 2026
 Note=Host,Network,Services,Software healthy after fix;Storage intentionally DOWN for Seagate 3.6754 percent free and unmatched unsafe removal;fresh Kuma admin readback pending because Chrome JWT was rejected;project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
 
 INCIDENT:
+Incident_ID=KUMA_HOST_STORAGE_REAL_STATE_471853
+Titolo=Fedora System Monitor Host and Storage red states were real after Seagate cleanup
+Data_prima_comparsa_UTC=2026-07-14T12:15:00Z
+Data_ultima_comparsa_UTC=2026-07-14T12:23:02Z
+Numero_occorrenze=1 audit follow-up
+Gravita_massima=HIGH
+Stato=RESOLVED_WITH_REAL_ALERTS_REMAINING
+Root_cause=Host had real swap.used_percent warning near 39 percent;Storage had Seagate filesystem.free_percent 5.2273 below recovery threshold;unsafe_device_removal was stale because mount point was present again
+Sistemi_coinvolti=Fedora host;fedora-system-monitor;SQLite;Uptime Kuma Oracle VM
+Alert_coinvolti=Fedora Host ID39;Fedora Storage ID40;swap.used_percent;filesystem.free_percent;unsafe_device_removal
+Tentativi_effettuati=Live DB queries;df/findmnt;minute+five_minute+fifteen_minute collectors;remote Kuma SQLite readback;systemd+udev+selftest
+Soluzione_finale=Fedora System Monitor 1.1.1 refreshes active metric alerts and reconciles unsafe-removal alerts when findmnt proves the recorded mount point is present
+Commit_correlati=fedora-system-monitor activity 471853
+Prompt_correlati=471853
+Tempo_totale_di_impatto=User-visible red state persisted until real conditions were distinguished and stale unsafe removal recovered;exact UI duration UNKNOWN
+Note=Final state Host DOWN truthful for swap warning;Storage DOWN truthful for Seagate free space;Network/Services/Software UP;project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471853.md
+
+INCIDENT:
 Incident_ID=AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
 Titolo=AutoKey unusable on Fedora 44 GNOME Wayland
 Data_prima_comparsa_UTC=2026-07-13T07:39:00Z

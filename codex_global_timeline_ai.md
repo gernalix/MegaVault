@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-14T14:08:50+02:00
-total_events=698
+generated_at=2026-07-14T14:28:21+02:00
+total_events=663
 format=event_date|project|label_short|category|status|importance
 2026-07-14|2026|2026 luoghi-app 10.apk|security|WARN|P0
 2026-07-14|2026|2026 v537|security|WARN|P0
@@ -13,12 +13,32 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
 2026-07-14|docs|docs Activity 739184 -|backup|WARN|P0
 2026-07-14|docs|docs v22|backup|PASS|P0
+2026-07-14|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
+2026-07-14|fedora-system-monitor|fedora-system-monitor AUDIT 471853|backup|WARN|P1
+2026-07-14|fedora-system-monitor|fedora-system-monitor Audit tecnico 471853|backup|FAIL|P1
+2026-07-14|fedora-system-monitor|fedora-system-monitor Changelog|backup|WARN|P1
+2026-07-14|fedora-system-monitor|fedora-system-monitor Fedora System Monitor|backup|UNKNOWN|P1
+2026-07-14|fedora-system-monitor|fedora-system-monitor INCIDENT REGISTRY|backup|FAIL|P1
+2026-07-14|fedora-system-monitor|fedora-system-monitor Integrazione Uptime Kuma|backup|FAIL|P1
+2026-07-14|fedora-system-monitor|fedora-system-monitor Registro incidenti|backup|FAIL|P1
+2026-07-14|fedora-system-monitor|fedora-system-monitor Roadmap|backup|UNKNOWN|P1
+2026-07-14|fedora-system-monitor|fedora-system-monitor Troubleshooting|backup|WARN|P1
+2026-07-14|fedora-system-monitor|Git PATH|release|FAIL|P1
+2026-07-14|megavault|Codex Timeline|backup|OPEN|P0
+2026-07-14|megavault|Git PATH|security|OPEN|P0
+2026-07-14|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
+2026-07-14|megavault|Codex Timeline|backup|FAIL|P1
 2026-07-14|megavault|Git PATH|security|PASS|P1
+2026-07-14|megavault|MegaVault Alert Registry|security|WARN|P1
+2026-07-14|megavault|MegaVault docs configure Oracle|infra|PASS|P1
+2026-07-14|megavault|MegaVault Service Registry|security|UNKNOWN|P1
+2026-07-14|megavault|MegaVault v0|security|WARN|P1
 2026-07-14|megavault|MegaVault docs record data|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs refresh global|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs refresh global|docs|PASS|P2
 2026-07-14|multitimetracker|MTT v537|security|WARN|P0
 2026-07-14|oracle-backup-service|Codex Timeline|security|FAIL|P0
+2026-07-14|oracle-uptime-kuma|Kuma Topologia rete globale|security|UNKNOWN|P1
 2026-07-14|secrets|Git PATH|security|UNKNOWN|P1
 2026-07-13|2026|2026 v537|security|WARN|P0
 2026-07-13|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
@@ -27,36 +47,20 @@ format=event_date|project|label_short|category|status|importance
 2026-07-13|amici-fb|Amici FB facebook friends|bugfix|UNKNOWN|P2
 2026-07-13|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
 2026-07-13|backups|Android Tests|security|PASS|P1
-2026-07-13|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
 2026-07-13|fedora-system-monitor|Android Tests|security|WARN|P1
 2026-07-13|fedora-system-monitor|fedora-system-monitor AUDIT 471852|security|WARN|P1
 2026-07-13|fedora-system-monitor|fedora-system-monitor Audit tecnico 471852|backup|PASS|P1
-2026-07-13|fedora-system-monitor|fedora-system-monitor Changelog|backup|PASS|P1
-2026-07-13|fedora-system-monitor|fedora-system-monitor Fedora System Monitor|backup|UNKNOWN|P1
-2026-07-13|fedora-system-monitor|fedora-system-monitor INCIDENT REGISTRY|backup|FAIL|P1
-2026-07-13|fedora-system-monitor|fedora-system-monitor Integrazione Uptime Kuma|backup|FAIL|P1
-2026-07-13|fedora-system-monitor|fedora-system-monitor Registro incidenti|release|UNKNOWN|P1
-2026-07-13|fedora-system-monitor|fedora-system-monitor Roadmap|backup|UNKNOWN|P1
-2026-07-13|fedora-system-monitor|fedora-system-monitor Troubleshooting|backup|WARN|P1
-2026-07-13|fedora-system-monitor|Git PATH|release|FAIL|P1
-2026-07-13|megavault|Codex Timeline|backup|OPEN|P0
-2026-07-13|megavault|Git PATH|security|OPEN|P0
-2026-07-13|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
 2026-07-13|megavault|MegaVault v0|security|WARN|P0
 2026-07-13|megavault|MegaVault vlc h264 fedora|security|WARN|P0
 2026-07-13|megavault|Android Tests|security|WARN|P1
-2026-07-13|megavault|Codex Timeline|backup|FAIL|P1
 2026-07-13|megavault|Git PATH|release|PASS|P1
 2026-07-13|megavault|MegaVault Activity 20260713 Logseq|release|WARN|P1
 2026-07-13|megavault|MegaVault Activity 318604 MP3|backup|WARN|P1
 2026-07-13|megavault|MegaVault Activity 487361 GNOME|release|PASS|P1
-2026-07-13|megavault|MegaVault Alert Registry|security|UNKNOWN|P1
 2026-07-13|megavault|MegaVault docs record Fedora|automation|PASS|P1
 2026-07-13|megavault|MegaVault docs record mp3|bugfix|PASS|P1
 2026-07-13|megavault|MegaVault fix VLC H264|bugfix|PASS|P1
-2026-07-13|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-13|megavault|MegaVault v0|backup|WARN|P1
-2026-07-13|megavault|MegaVault v0|security|WARN|P1
 2026-07-13|megavault|MegaVault activity 638417 deploy|docs|PASS|P2
 2026-07-13|megavault|MegaVault docs record GNOME|docs|PASS|P2
 2026-07-13|megavault|MegaVault docs record Logseq|docs|PASS|P2
@@ -229,7 +233,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|PASS|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
-2026-07-10|oracle-uptime-kuma|Kuma Topologia rete globale|security|UNKNOWN|P1
 2026-07-10|rollout-summaries|Codex Timeline|backup|PASS|P0
 2026-07-10|rollout-summaries|Codex Timeline|security|WARN|P0
 2026-07-10|rollout-summaries|Codex Timeline|release|WARN|P0
@@ -608,18 +611,6 @@ format=event_date|project|label_short|category|status|importance
 2026-06-05|codex-token-watcher|codex-token-watcher v2|security|FAIL|P1
 2026-06-05|megavault|Android Tests|security|PASS|P1
 2026-06-05|megavault|Git PATH|backup|PASS|P1
-2026-06-05|megavault|MegaVault Document Android ADB|automation|PASS|P1
-2026-06-05|megavault|MegaVault Document CLI-only Codex|migration|PASS|P1
-2026-06-05|megavault|MegaVault Document Codex quota|backup|PASS|P1
-2026-06-05|megavault|MegaVault Document human Codex|backup|PASS|P1
-2026-06-05|megavault|MegaVault Update Codex quota|backup|PASS|P1
-2026-06-05|megavault|MegaVault Add Soldi project|docs|PASS|P2
-2026-06-05|megavault|MegaVault Document detached X11|docs|PASS|P2
-2026-06-05|megavault|MegaVault Document exporter clipboard|docs|PASS|P2
-2026-06-05|megavault|MegaVault Document exporter global|docs|PASS|P2
-2026-06-05|megavault|MegaVault Document exporter headless|docs|PASS|P2
-2026-06-05|megavault|MegaVault Document exporter X11|docs|PASS|P2
-2026-06-05|megavault|MegaVault Register MegaVault project|docs|PASS|P2
 2026-06-05|megavault-project-exporter|megavault-project-exporter v3|backup|WARN|P0
 2026-06-05|megavault-project-exporter|megavault-project-exporter megavault-project-exporter Changelog|bugfix|UNKNOWN|P2
 2026-06-05|oracle-backup-service|Oracle Backup v2|security|FAIL|P0
@@ -627,22 +618,9 @@ format=event_date|project|label_short|category|status|importance
 2026-06-05|oracle-backup-service|Oracle Backup iniziale|security|WARN|P1
 2026-06-05|oracle-backup-service|Oracle Backup oracle-backup-service Troubleshooting|security|WARN|P1
 2026-06-05|oracle-backup-service|Oracle Backup v4|security|WARN|P1
-2026-06-04|megavault|MegaVault Consolidate Android updater|docs|PASS|P2
-2026-06-04|megavault|MegaVault Document mint update|docs|PASS|P2
 2026-06-04|mint-update-tracker|mint-update-tracker v2|security|PASS|P1
-2026-06-03|megavault|MegaVault Update rsync transfer|backup|PASS|P1
 2026-06-03|surface-recovery-hardening|surface-recovery-hardening surface-recovery-hardening Overview|backup|UNKNOWN|P1
 2026-06-03|surface-recovery-hardening|surface-recovery-hardening surface-recovery-hardening Troubleshooting|backup|FAIL|P1
-2026-06-02|megavault|MegaVault Record Oracle software|infra|PASS|P1
-2026-06-02|megavault|MegaVault Register mint-cloud-backup docs|backup|PASS|P1
-2026-06-02|megavault|MegaVault v24|backup|PASS|P1
-2026-06-02|megavault|MegaVault Clarify SuperContacts capsulization|docs|PASS|P2
-2026-06-02|megavault|MegaVault Document mint update|docs|PASS|P2
-2026-06-02|megavault|MegaVault Improve messaging links|docs|PASS|P2
-2026-06-02|megavault|MegaVault Update SuperContacts 384917|docs|PASS|P2
-2026-06-02|megavault|MegaVault v21|docs|PASS|P2
-2026-06-02|megavault|MegaVault v22|docs|PASS|P2
-2026-06-02|megavault|MegaVault v25|docs|PASS|P2
 2026-06-02|mint-update-tracker|mint-update-tracker v2|security|FAIL|P0
 2026-06-01|aw-converter|aw-converter aw-converter Changelog|bugfix|UNKNOWN|P2
 2026-06-01|chatgpt-chrome-debug|chatgpt-chrome-debug chatgpt-chrome-debug Changelog|bugfix|UNKNOWN|P2
@@ -653,19 +631,6 @@ format=event_date|project|label_short|category|status|importance
 2026-06-01|installa-app|installa-app installa-app Changelog|bugfix|UNKNOWN|P2
 2026-06-01|linux-mint-service-dashboard|linux-mint-service-dashboard linux-mint-service-dashboard Changelog|bugfix|UNKNOWN|P2
 2026-06-01|maintenance-486|maintenance-486 maintenance-486 Changelog|bugfix|UNKNOWN|P2
-2026-06-01|megavault|MegaVault v2|docs|PASS|P0
-2026-06-01|megavault|MegaVault Document Kuma pusher|infra|PASS|P1
-2026-06-01|megavault|MegaVault Document rsync transfer|backup|PASS|P1
-2026-06-01|megavault|MegaVault Update rsync transfer|backup|PASS|P1
-2026-06-01|megavault|MegaVault Audit codebase compress|docs|PASS|P2
-2026-06-01|megavault|MegaVault Document MultiTimeTracker audit|docs|PASS|P2
-2026-06-01|megavault|MegaVault Document MultiTimeTracker capsule|docs|PASS|P2
-2026-06-01|megavault|MegaVault Document MultiTimeTracker capsule|docs|PASS|P2
-2026-06-01|megavault|MegaVault Document MultiTimeTracker since|docs|PASS|P2
-2026-06-01|megavault|MegaVault Document SuperContacts capsule|docs|PASS|P2
-2026-06-01|megavault|MegaVault Enrich AI human|docs|PASS|P2
-2026-06-01|megavault|MegaVault v525|docs|PASS|P2
-2026-06-01|megavault|MegaVault Add megavault metadata|docs|PASS|P3
 2026-06-01|multitimetracker|MTT 537.apk|security|WARN|P0
 2026-06-01|oracle-backup-service|Oracle Backup oracle-backup-service Changelog|backup|UNKNOWN|P1
 2026-06-01|os-observer|os-observer os-observer Changelog|bugfix|UNKNOWN|P2

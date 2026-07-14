@@ -1,9 +1,9 @@
 # NETWORK_TOPOLOGY
-VERSION=6
+VERSION=7
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214+activity_593184+activity_593804
+SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214+activity_593184+activity_593804+activity_471853
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/NETWORK_TOPOLOGY.md
@@ -15,7 +15,7 @@ os=Fedora_Linux_44_Workstation
 loopback=127.0.0.1
 
 MONITORING_EGRESS:
-source=fedora-system-monitor;destination=150.230.148.128:3001;protocol=HTTP;purpose=Uptime_Kuma_push_only;categories=system+storage+network+services+software;credentials=root_only;payload=no_sensitive_data;firewall_change=none;delivery_verified=2026-07-13;admin_readback=JWT_rejected_pending
+source=fedora-system-monitor;destination=150.230.148.128:3001;protocol=HTTP;purpose=Uptime_Kuma_push_only;categories=system+storage+network+services+software;credentials=root_only;payload=no_sensitive_data;firewall_change=none;delivery_verified=2026-07-14;admin_readback=remote_SQLite_ok
 source=fedora-system-monitor-prometheus;destination=127.0.0.1:9109;protocol=HTTP;purpose=optional_local_metrics;default_state=disabled;external_exposure=none;verified=2026-07-13
 risk=HTTP_does_not_protect_push_endpoint_or_status_from_on_path_observers;HTTPS_migration_recommended
 wifi_interface=wlp2s0

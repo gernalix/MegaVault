@@ -1,26 +1,27 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T14:08:50+02:00
+Generated: 2026-07-14T14:28:21+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 698
+Total events: 663
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
+- `/home/daniele/MegaVault/projects/fedora-system-monitor`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 172 |
+| megavault | 135 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
 | multitimetracker | 40 |
+| fedora-system-monitor | 18 |
 | oracle-backup-service | 18 |
 | 2026 | 17 |
-| fedora-system-monitor | 16 |
 | rollout-summaries | 16 |
 | fedora-t7-backup | 15 |
 | luoghi | 15 |
@@ -73,33 +74,33 @@ Total events: 698
 | Value | Events |
 |---|---:|
 | security | 231 |
-| backup | 206 |
-| docs | 73 |
-| release | 51 |
+| backup | 201 |
+| release | 50 |
+| docs | 47 |
 | testing | 47 |
 | bugfix | 41 |
-| automation | 19 |
-| infra | 15 |
-| migration | 12 |
+| automation | 18 |
+| infra | 14 |
+| migration | 11 |
 | performance | 3 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 367 |
-| P0 | 173 |
-| P2 | 148 |
-| P3 | 10 |
+| P1 | 358 |
+| P0 | 172 |
+| P2 | 124 |
+| P3 | 9 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 255 |
-| PASS | 183 |
-| WARN | 139 |
-| FAIL | 62 |
+| UNKNOWN | 253 |
+| PASS | 145 |
+| WARN | 142 |
+| FAIL | 64 |
 | OPEN | 59 |
 
 
@@ -117,15 +118,15 @@ Total events: 698
 | 2026-07-14 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
 | 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
-| 2026-07-14 | megavault | Git PATH | security | PASS | P1 | doc_event | markdown | Prompt 593804 - Oracle VM SSH access |
-| 2026-07-14 | megavault | MegaVault docs record data | docs | PASS | P2 | git_commit | git_log | docs: record data analytics MCP repair |
-| 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
-| 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline after SDK repair |
-| 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
-| 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
-| 2026-07-14 | secrets | Git PATH | security | UNKNOWN | P1 | doc_event | markdown | Oracle Cloud VM SSH Access |
-| 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
-| 2026-07-13 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 13T071256Z |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor AUDIT 471853 | backup | WARN | P1 | backup | markdown | AUDIT 471853 |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Audit tecnico 471853 | backup | FAIL | P1 | backup | markdown | Audit tecnico 471853 |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P1 | changelog | markdown | Changelog |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | backup | FAIL | P1 | backup | markdown | Integrazione Uptime Kuma |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Registro incidenti | backup | FAIL | P1 | backup | markdown | Registro incidenti |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -135,13 +136,13 @@ Total events: 698
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
 | 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-14 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
+| 2026-07-14 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
-| 2026-07-13 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
-| 2026-07-13 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
-| 2026-07-13 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-13 | megavault | MegaVault v0 | security | WARN | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-13 | megavault | MegaVault vlc h264 fedora | security | WARN | P0 | protocol_update | markdown | prompt 684271 vlc h264 fedora |
 | 2026-07-13 | multitimetracker | MTT app-deviceTest.apk | security | WARN | P0 | protocol_update | codex_log | 019f5b1e-7650-7661-8b16-4c0e0d6a717f |
@@ -301,21 +302,20 @@ Total events: 698
 | 2026-06-05 | megavault-project-exporter | megavault-project-exporter v3 | backup | WARN | P0 | changelog | markdown | Ultra-fast cached ZIP bundler for sharing any MegaVault-registered project plus MegaVault docs with ChatGPT. |
 | 2026-06-05 | oracle-backup-service | Oracle Backup v2 | security | FAIL | P0 | protocol_update | markdown | Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, an... |
 | 2026-06-02 | mint-update-tracker | mint-update-tracker v2 | security | FAIL | P0 | protocol_update | markdown | Read-only software black-box recorder for Linux Mint desktop and Oracle Ubuntu Server; records installs, updates, downgrades, removals, snapshots a... |
-| 2026-06-01 | megavault | MegaVault v2 | docs | PASS | P0 | git_commit | git_log | Normalize AI docs to MegaVault protocol v2 |
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 172 events; latest=2026-07-14; label=Git PATH
+- `megavault`: 135 events; latest=2026-07-14; label=Codex Timeline
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
 - `multitimetracker`: 40 events; latest=2026-07-14; label=MTT v537
+- `fedora-system-monitor`: 18 events; latest=2026-07-14; label=fedora-system-monitor project.metadata
 - `oracle-backup-service`: 18 events; latest=2026-07-14; label=Codex Timeline
 - `2026`: 17 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
-- `fedora-system-monitor`: 16 events; latest=2026-07-13; label=fedora-system-monitor project.metadata
 - `rollout-summaries`: 16 events; latest=2026-07-13; label=Codex Timeline
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `luoghi`: 15 events; latest=2026-07-12; label=Git PATH
-- `oracle-uptime-kuma`: 15 events; latest=2026-07-13; label=Codex Timeline
+- `oracle-uptime-kuma`: 15 events; latest=2026-07-14; label=Kuma Topologia rete globale
 - `supercontacts`: 8 events; latest=2026-07-09; label=SC 1.apk
 - `windows`: 8 events; latest=2026-07-12; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
@@ -373,12 +373,32 @@ Total events: 698
 | 2026-07-14 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
 | 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor AUDIT 471853 | backup | WARN | P1 | backup | markdown | AUDIT 471853 |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Audit tecnico 471853 | backup | FAIL | P1 | backup | markdown | Audit tecnico 471853 |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P1 | changelog | markdown | Changelog |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | backup | FAIL | P1 | backup | markdown | Integrazione Uptime Kuma |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Registro incidenti | backup | FAIL | P1 | backup | markdown | Registro incidenti |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
+| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
+| 2026-07-14 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
+| 2026-07-14 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
+| 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
+| 2026-07-14 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
+| 2026-07-14 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
 | 2026-07-14 | megavault | Git PATH | security | PASS | P1 | doc_event | markdown | Prompt 593804 - Oracle VM SSH access |
+| 2026-07-14 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
+| 2026-07-14 | megavault | MegaVault docs configure Oracle | infra | PASS | P1 | git_commit | git_log | docs: configure Oracle VM SSH access |
+| 2026-07-14 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
+| 2026-07-14 | megavault | MegaVault v0 | security | WARN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-14 | megavault | MegaVault docs record data | docs | PASS | P2 | git_commit | git_log | docs: record data analytics MCP repair |
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline after SDK repair |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
+| 2026-07-14 | oracle-uptime-kuma | Kuma Topologia rete globale | security | UNKNOWN | P1 | doc_event | markdown | Topologia rete globale |
 | 2026-07-14 | secrets | Git PATH | security | UNKNOWN | P1 | doc_event | markdown | Oracle Cloud VM SSH Access |
 | 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
 | 2026-07-13 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 13T071256Z |
@@ -387,36 +407,20 @@ Total events: 698
 | 2026-07-13 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-13 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-13 | backups | Android Tests | security | PASS | P1 | report | markdown | Incident Registry |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-13 | fedora-system-monitor | Android Tests | security | WARN | P1 | report | markdown | OPERATIONS |
 | 2026-07-13 | fedora-system-monitor | fedora-system-monitor AUDIT 471852 | security | WARN | P1 | report | markdown | AUDIT 471852 |
 | 2026-07-13 | fedora-system-monitor | fedora-system-monitor Audit tecnico 471852 | backup | PASS | P1 | backup | markdown | Audit tecnico 471852 |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Changelog | backup | PASS | P1 | changelog | markdown | Changelog |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | backup | FAIL | P1 | backup | markdown | Integrazione Uptime Kuma |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Registro incidenti | release | UNKNOWN | P1 | release | markdown | Registro incidenti |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
-| 2026-07-13 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
-| 2026-07-13 | megavault | Codex Timeline | backup | OPEN | P0 | protocol_update | markdown | PROJECT_INDEX_EXTENDED |
-| 2026-07-13 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
-| 2026-07-13 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-13 | megavault | MegaVault v0 | security | WARN | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-13 | megavault | MegaVault vlc h264 fedora | security | WARN | P0 | protocol_update | markdown | prompt 684271 vlc h264 fedora |
 | 2026-07-13 | megavault | Android Tests | security | WARN | P1 | report | markdown | Incident Registry |
-| 2026-07-13 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
 | 2026-07-13 | megavault | Git PATH | release | PASS | P1 | release | markdown | Activity 735184 Logseq Fedora Install |
 | 2026-07-13 | megavault | MegaVault Activity 20260713 Logseq | release | WARN | P1 | release | markdown | Activity 20260713 Logseq Fedora Local Audit |
 | 2026-07-13 | megavault | MegaVault Activity 318604 MP3 | backup | WARN | P1 | backup | markdown | Activity 318604 MP3 Metadata Placeholder Fix |
 | 2026-07-13 | megavault | MegaVault Activity 487361 GNOME | release | PASS | P1 | release | markdown | Activity 487361 GNOME Window Title |
-| 2026-07-13 | megavault | MegaVault Alert Registry | security | UNKNOWN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-13 | megavault | MegaVault docs record Fedora | automation | PASS | P1 | git_commit | git_log | docs: record Fedora monitor recovery audit 471852 |
 | 2026-07-13 | megavault | MegaVault docs record mp3 | bugfix | PASS | P1 | git_commit | git_log | docs: record mp3 metadata placeholder fix |
 | 2026-07-13 | megavault | MegaVault fix VLC H264 | bugfix | PASS | P1 | git_commit | git_log | fix VLC H264 Flatpak source on Fedora |
-| 2026-07-13 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-13 | megavault | MegaVault v0 | backup | WARN | P1 | backup | markdown | PENDING_TEST_POST_LOGIN |
-| 2026-07-13 | megavault | MegaVault v0 | security | WARN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-13 | megavault | MegaVault activity 638417 deploy | docs | PASS | P2 | git_commit | git_log | activity 638417: deploy AutoKey for GNOME Wayland |
 | 2026-07-13 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME window title setup 487361 |
 | 2026-07-13 | megavault | MegaVault docs record Logseq | docs | PASS | P2 | git_commit | git_log | docs: record Logseq Fedora install 735184 |
@@ -589,7 +593,6 @@ Total events: 698
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | PASS | P0 | changelog | markdown | Fedora System Monitor for Fedora 44 was designed, implemented, audited, installed, tested, documented, committed, pushed, and globally indexed. |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4b20-625f-7b82-b449-3344d0f62c4a |
 | 2026-07-10 | oracle-uptime-kuma | Kuma v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
-| 2026-07-10 | oracle-uptime-kuma | Kuma Topologia rete globale | security | UNKNOWN | P1 | doc_event | markdown | Topologia rete globale |
 | 2026-07-10 | rollout-summaries | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Permanent live Codex session logging on Fedora |
 | 2026-07-10 | rollout-summaries | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Fedora RustDesk install, configuration, verification, documentation, and sync completed with mobile test pending |
 | 2026-07-10 | rollout-summaries | Codex Timeline | release | WARN | P0 | release | markdown | Fedora AppImage installation and validation for Obsidian |
@@ -968,18 +971,6 @@ Total events: 698
 | 2026-06-05 | codex-token-watcher | codex-token-watcher v2 | security | FAIL | P1 | report | markdown | codex-token-watcher Troubleshooting |
 | 2026-06-05 | megavault | Android Tests | security | PASS | P1 | report | markdown | Prompt 739482 - initial incident report |
 | 2026-06-05 | megavault | Git PATH | backup | PASS | P1 | report | markdown | Prompt 584731 - anti-freeze disable report |
-| 2026-06-05 | megavault | MegaVault Document Android ADB | automation | PASS | P1 | git_commit | git_log | Document Android ADB Wi-Fi service and sync vault |
-| 2026-06-05 | megavault | MegaVault Document CLI-only Codex | migration | PASS | P1 | git_commit | git_log | Document CLI-only Codex watcher migration |
-| 2026-06-05 | megavault | MegaVault Document Codex quota | backup | PASS | P1 | git_commit | git_log | Document Codex quota cache investigation |
-| 2026-06-05 | megavault | MegaVault Document human Codex | backup | PASS | P1 | git_commit | git_log | Document human Codex quota status command |
-| 2026-06-05 | megavault | MegaVault Update Codex quota | backup | PASS | P1 | git_commit | git_log | Update Codex quota cache watcher status |
-| 2026-06-05 | megavault | MegaVault Add Soldi project | docs | PASS | P2 | git_commit | git_log | Add Soldi project docs |
-| 2026-06-05 | megavault | MegaVault Document detached X11 | docs | PASS | P2 | git_commit | git_log | Document detached X11 clipboard provider |
-| 2026-06-05 | megavault | MegaVault Document exporter clipboard | docs | PASS | P2 | git_commit | git_log | Document exporter clipboard fallback |
-| 2026-06-05 | megavault | MegaVault Document exporter global | docs | PASS | P2 | git_commit | git_log | Document exporter global command |
-| 2026-06-05 | megavault | MegaVault Document exporter headless | docs | PASS | P2 | git_commit | git_log | Document exporter headless clipboard command |
-| 2026-06-05 | megavault | MegaVault Document exporter X11 | docs | PASS | P2 | git_commit | git_log | Document exporter X11 clipboard fallback |
-| 2026-06-05 | megavault | MegaVault Register MegaVault project | docs | PASS | P2 | git_commit | git_log | Register MegaVault project exporter |
 | 2026-06-05 | megavault-project-exporter | megavault-project-exporter v3 | backup | WARN | P0 | changelog | markdown | Ultra-fast cached ZIP bundler for sharing any MegaVault-registered project plus MegaVault docs with ChatGPT. |
 | 2026-06-05 | megavault-project-exporter | megavault-project-exporter megavault-project-exporter Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | megavault-project-exporter Changelog |
 | 2026-06-05 | oracle-backup-service | Oracle Backup v2 | security | FAIL | P0 | protocol_update | markdown | Restic-based backup service for the Oracle VM. It snapshots SQLite databases with the SQLite online backup API, backs up `/home/ubuntu`, `/etc`, an... |
@@ -987,22 +978,9 @@ Total events: 698
 | 2026-06-05 | oracle-backup-service | Oracle Backup iniziale | security | WARN | P1 | report | markdown | Prompt 918364 - report iniziale |
 | 2026-06-05 | oracle-backup-service | Oracle Backup oracle-backup-service Troubleshooting | security | WARN | P1 | doc_event | markdown | oracle-backup-service Troubleshooting |
 | 2026-06-05 | oracle-backup-service | Oracle Backup v4 | security | WARN | P1 | report | markdown | Prompt 739482 - final report |
-| 2026-06-04 | megavault | MegaVault Consolidate Android updater | docs | PASS | P2 | git_commit | git_log | Consolidate Android updater documentation |
-| 2026-06-04 | megavault | MegaVault Document mint update | docs | PASS | P2 | git_commit | git_log | Document mint update tracker recovery |
 | 2026-06-04 | mint-update-tracker | mint-update-tracker v2 | security | PASS | P1 | changelog | markdown | Mint Update Tracker |
-| 2026-06-03 | megavault | MegaVault Update rsync transfer | backup | PASS | P1 | git_commit | git_log | Update rsync transfer recovery docs |
 | 2026-06-03 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Overview | backup | UNKNOWN | P1 | backup | markdown | surface-recovery-hardening Overview |
 | 2026-06-03 | surface-recovery-hardening | surface-recovery-hardening surface-recovery-hardening Troubleshooting | backup | FAIL | P1 | backup | markdown | surface-recovery-hardening Troubleshooting |
-| 2026-06-02 | megavault | MegaVault Record Oracle software | infra | PASS | P1 | git_commit | git_log | Record Oracle software audit deployment |
-| 2026-06-02 | megavault | MegaVault Register mint-cloud-backup docs | backup | PASS | P1 | git_commit | git_log | Register mint-cloud-backup docs |
-| 2026-06-02 | megavault | MegaVault v24 | backup | PASS | P1 | git_commit | git_log | Document SuperContacts v24 backup test closure |
-| 2026-06-02 | megavault | MegaVault Clarify SuperContacts capsulization | docs | PASS | P2 | git_commit | git_log | Clarify SuperContacts capsulization baseline |
-| 2026-06-02 | megavault | MegaVault Document mint update | docs | PASS | P2 | git_commit | git_log | Document mint update tracker |
-| 2026-06-02 | megavault | MegaVault Improve messaging links | docs | PASS | P2 | git_commit | git_log | Improve messaging links decided-state UX |
-| 2026-06-02 | megavault | MegaVault Update SuperContacts 384917 | docs | PASS | P2 | git_commit | git_log | Update SuperContacts prompt 384917 doc |
-| 2026-06-02 | megavault | MegaVault v21 | docs | PASS | P2 | git_commit | git_log | Document SuperContacts capsule audit v21 |
-| 2026-06-02 | megavault | MegaVault v22 | docs | PASS | P2 | git_commit | git_log | Document WindowTabNotes v22 state |
-| 2026-06-02 | megavault | MegaVault v25 | docs | PASS | P2 | git_commit | git_log | Document SuperContacts Home v25 |
 | 2026-06-02 | mint-update-tracker | mint-update-tracker v2 | security | FAIL | P0 | protocol_update | markdown | Read-only software black-box recorder for Linux Mint desktop and Oracle Ubuntu Server; records installs, updates, downgrades, removals, snapshots a... |
 | 2026-06-01 | aw-converter | aw-converter aw-converter Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | aw-converter Changelog |
 | 2026-06-01 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | chatgpt-chrome-debug Changelog |
@@ -1013,19 +991,6 @@ Total events: 698
 | 2026-06-01 | installa-app | installa-app installa-app Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | installa-app Changelog |
 | 2026-06-01 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | linux-mint-service-dashboard Changelog |
 | 2026-06-01 | maintenance-486 | maintenance-486 maintenance-486 Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | maintenance-486 Changelog |
-| 2026-06-01 | megavault | MegaVault v2 | docs | PASS | P0 | git_commit | git_log | Normalize AI docs to MegaVault protocol v2 |
-| 2026-06-01 | megavault | MegaVault Document Kuma pusher | infra | PASS | P1 | git_commit | git_log | Document Kuma pusher resilience |
-| 2026-06-01 | megavault | MegaVault Document rsync transfer | backup | PASS | P1 | git_commit | git_log | Document rsync transfer operations |
-| 2026-06-01 | megavault | MegaVault Update rsync transfer | backup | PASS | P1 | git_commit | git_log | Update rsync transfer health docs |
-| 2026-06-01 | megavault | MegaVault Audit codebase compress | docs | PASS | P2 | git_commit | git_log | Audit codebase and compress AI documentation |
-| 2026-06-01 | megavault | MegaVault Document MultiTimeTracker audit | docs | PASS | P2 | git_commit | git_log | Document MultiTimeTracker audit log ownership |
-| 2026-06-01 | megavault | MegaVault Document MultiTimeTracker capsule | docs | PASS | P2 | git_commit | git_log | Document MultiTimeTracker capsule ownership progress |
-| 2026-06-01 | megavault | MegaVault Document MultiTimeTracker capsule | docs | PASS | P2 | git_commit | git_log | Document MultiTimeTracker capsule boundaries |
-| 2026-06-01 | megavault | MegaVault Document MultiTimeTracker since | docs | PASS | P2 | git_commit | git_log | Document MultiTimeTracker since when capsule |
-| 2026-06-01 | megavault | MegaVault Document SuperContacts capsule | docs | PASS | P2 | git_commit | git_log | Document SuperContacts capsule enforcement |
-| 2026-06-01 | megavault | MegaVault Enrich AI human | docs | PASS | P2 | git_commit | git_log | Enrich AI and human project documentation |
-| 2026-06-01 | megavault | MegaVault v525 | docs | PASS | P2 | git_commit | git_log | Update MultiTimeTracker v525 docs |
-| 2026-06-01 | megavault | MegaVault Add megavault metadata | docs | PASS | P3 | git_commit | git_log | Add megavault metadata and archive legacy docs |
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 | 2026-06-01 | oracle-backup-service | Oracle Backup oracle-backup-service Changelog | backup | UNKNOWN | P1 | changelog | markdown | oracle-backup-service Changelog |
 | 2026-06-01 | os-observer | os-observer os-observer Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | os-observer Changelog |

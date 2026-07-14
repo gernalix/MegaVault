@@ -141,6 +141,15 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Stato finale: Host, Network, Services e Software sani; Storage resta correttamente rosso per Seagate al 3,6754% libero e unsafe removal senza riconnessione.
 - Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471852.md`.
 
+## KUMA_HOST_STORAGE_REAL_STATE_471853
+
+- Timestamp: `2026-07-14`; stato `RESOLVED_WITH_REAL_ALERTS_REMAINING`, gravita' `HIGH`.
+- Sintomo: Fedora Host alternava DOWN e Fedora Storage restava DOWN dopo il cleanup del Seagate.
+- Causa reale: Host aveva swap warning reale circa 39%; Storage aveva Seagate al 5,2273% libero, ancora sotto recovery. Un alert `unsafe_device_removal` era stale perché il mount point era di nuovo presente.
+- Fix: Fedora System Monitor 1.1.1 aggiorna gli alert metrici attivi e chiude unsafe-removal quando `findmnt` prova il ritorno del mount point.
+- Stato finale: Host DOWN corretto per swap; Storage DOWN corretto per spazio Seagate; Network, Services e Software UP.
+- Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471853.md`.
+
 ## AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
 
 - Timestamp: `2026-07-13`; stato `MITIGATED`, gravita' `HIGH` fino al collaudo post-login.

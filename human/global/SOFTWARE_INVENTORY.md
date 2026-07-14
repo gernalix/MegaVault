@@ -1,6 +1,6 @@
 # Inventario software globale
 
-Aggiornato: 2026-07-13. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
+Aggiornato: 2026-07-14. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
 
 ## Tool Fedora verificati
 
@@ -10,7 +10,7 @@ Aggiornato: 2026-07-13. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/gl
 - OpenJDK 25.0.3 con `JAVA_HOME=/usr/lib/jvm/java-25-openjdk`.
 - OpenSSH 10.2p1 in `/usr/bin/ssh`; il path standard `~/.ssh` (`/home/daniele/.ssh`) non e' ancora presente.
 - Docker non e' installato e non ha una unit systemd; Podman 5.8.4 e' disponibile come runtime opzionale.
-- Fedora System Monitor 1.1.0 e' installato in `/usr/local/libexec/fedora-system-monitor` con CLI `/usr/local/bin/fedora-system-monitor`; include dashboard, timeline, trend, storico servizi e Prometheus locale opzionale. Tutti i watcher e i cinque push Kuma sono stati verificati live nell'attivita' 471852.
+- Fedora System Monitor 1.1.1 e' installato in `/usr/local/libexec/fedora-system-monitor` con CLI `/usr/local/bin/fedora-system-monitor`; include dashboard, timeline, trend, storico servizi e Prometheus locale opzionale. I watcher Host/Storage e i cinque push Kuma sono stati verificati live nell'attivita' 471853.
 - Restic 0.19.0 e' installato in `/usr/bin/restic`; repository cifrato T7,
   avvio automatico udev al collegamento, manutenzione condizionale, smontaggio e
   notifiche sono verificati nell'attivita' 684219; check completo e restore

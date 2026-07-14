@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=18
+VERSION=19
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-13T21:00:00+02:00
-SOURCE=tool_versions_live_2026-07-13+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361
+UPDATED=2026-07-14T14:25:00+02:00
+SOURCE=tool_versions_live_2026-07-14+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -26,7 +26,7 @@ tool=flatpak;path=PATH;critical=yes_for_Android_Studio
 tool=OpenSSH;path=/usr/bin/ssh;version=10.2p1;config_dir=/home/daniele/.ssh;config_dir_status=absent;critical=yes
 tool=Docker;path=missing;service=absent;version=not_installed;critical=no
 tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_container_runtime
-tool=Fedora_System_Monitor;version=1.1.0;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;features=dashboard+timeline+trends+service_history+prometheus_optional;status=installed+enabled+audited;activity=471852
+tool=Fedora_System_Monitor;version=1.1.1;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;features=dashboard+timeline+trends+service_history+prometheus_optional;status=installed+enabled+audited;activity=471853
 tool=Restic;path=/usr/bin/restic;version=0.19.0;project=/home/daniele/MegaVault/projects/fedora-t7-backup;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+encrypted+udev_connect_automated+conditional_check_prune+unmount+restore_tested;activity=684219
 package=smartmontools;version=7.5-6.fc44;role=storage_health;preexisting=yes
 package=nvme-cli;version=2.16-2.fc44;role=NVMe_health;preexisting=yes

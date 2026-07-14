@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=10
+VERSION=11
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-13+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_583921+activity_684219+activity_638417
+SOURCE=systemctl_live_2026-07-14+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -39,7 +39,7 @@ service=fedora-system-monitor-prometheus.service;state=installed+disabled;purpos
 service=t7-restic-backup.service;scope=system;state=static_oneshot+tested_success;purpose=udev_connect_mount+encrypted_incremental_backup+conditional_maintenance+sync+unmount+notify;runtime=/usr/local/libexec/t7-restic-lifecycle;activity=684219
 service=t7-restic-reminder.service;scope=system;state=static_oneshot+tested_success;purpose=single_disconnect_reminder_if_serial_still_present;activity=684219
 udev=90-t7-name.rules;match=USB_disk_add+serial_S6YGNS0Y903440H;action=TAG_systemd+SYSTEMD_WANTS_t7-restic-backup.service;duplicate_events=flock_ignored;activity=684219
-audit=fedora-system-monitor_1.1.0;watchers=all_scopes_ok;tests=92_PASS;selftest=17_PASS;udev=verify_PASS;hardening=systemd_analyze_verify_PASS;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent;activity=471852
+audit=fedora-system-monitor_1.1.1;watchers=minute+five_minute+fifteen_minute_real_ok;tests=93_PASS;selftest=18_PASS;udev=verify_PASS;hardening=systemd_analyze_verify_PASS;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent;activity=471853
 
 USER_SERVICES_RELEVANT:
 service=gnome-session-manager@gnome.service;state=active/running;purpose=GNOME_session
