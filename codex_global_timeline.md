@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T13:44:27+02:00
+Generated: 2026-07-14T13:47:31+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 809
+Total events: 810
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,7 +15,7 @@ Total events: 809
 
 | Value | Events |
 |---|---:|
-| megavault | 168 |
+| megavault | 169 |
 | multitimetracker | 160 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
@@ -72,7 +72,7 @@ Total events: 809
 |---|---:|
 | security | 251 |
 | backup | 228 |
-| docs | 96 |
+| docs | 97 |
 | testing | 63 |
 | release | 59 |
 | bugfix | 51 |
@@ -87,7 +87,7 @@ Total events: 809
 |---|---:|
 | P1 | 416 |
 | P0 | 180 |
-| P2 | 156 |
+| P2 | 157 |
 | P3 | 57 |
 
 ### Events by status
@@ -95,7 +95,7 @@ Total events: 809
 | Value | Events |
 |---|---:|
 | UNKNOWN | 329 |
-| PASS | 198 |
+| PASS | 199 |
 | WARN | 142 |
 | FAIL | 71 |
 | OPEN | 69 |
@@ -112,6 +112,7 @@ Total events: 809
 | 2026-07-14 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-14 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-14 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
 | 2026-07-14 | multitimetracker | Android Tests | security | UNKNOWN | P0 | protocol_update | markdown | Fedora Setup |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | multitimetracker | Android Tests | security | FAIL | P1 | doc_event | markdown | MultiTimeTracker Incident Registry |
@@ -123,7 +124,6 @@ Total events: 809
 | 2026-07-13 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-13 | fedora-system-monitor | Android Tests | security | WARN | P1 | report | markdown | OPERATIONS |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor AUDIT 471852 | security | WARN | P1 | report | markdown | AUDIT 471852 |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -310,7 +310,7 @@ Total events: 809
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 168 events; latest=2026-07-13; label=Codex Timeline
+- `megavault`: 169 events; latest=2026-07-14; label=MegaVault docs refresh global
 - `multitimetracker`: 160 events; latest=2026-07-14; label=Android Tests
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
@@ -372,6 +372,7 @@ Total events: 809
 | 2026-07-14 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-14 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-14 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
 | 2026-07-14 | multitimetracker | Android Tests | security | UNKNOWN | P0 | protocol_update | markdown | Fedora Setup |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | multitimetracker | Android Tests | security | FAIL | P1 | doc_event | markdown | MultiTimeTracker Incident Registry |
