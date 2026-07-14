@@ -160,24 +160,6 @@ Tempo_totale_di_impatto=approximately 10 seconds until observed remount
 Note=No physical disconnect or destructive reproduction was attempted; device serial and filesystem UUID are intentionally omitted from documentation; project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
 
 INCIDENT:
-Incident_ID=CODEX_DATA_ANALYTICS_WIDGETS_MISSING_PNG
-Titolo=Codex Data Analytics plugin MCP closed initialize response due missing PNG asset
-Data_prima_comparsa_UTC=2026-07-14T11:30:01Z
-Data_ultima_comparsa_UTC=2026-07-14T12:03:44Z
-Numero_occorrenze=1 confirmed current startup failure
-Gravita_massima=MEDIUM
-Stato=RESOLVED
-Root_cause=The plugin-provided MCP server dataAnalyticsWidgets in /home/daniele/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599 loaded assets/datascience.png during module initialization, but that asset was absent from the installed cache; Node threw ENOENT before replying to MCP initialize, so Codex reported connection closed: initialize response.
-Sistemi_coinvolti=Fedora host; Codex CLI 0.144.4; OpenAI curated Data Analytics plugin 0.2.8-13ceeea1f599; node /usr/bin/node v22.22.2
-Alert_coinvolti=Codex startup banner MCP startup incomplete failed dataAnalyticsWidgets
-Tentativi_effettuati=Read MEGAVAULT_PROTOCOL and HOST_PROFILE; captured Fedora/Codex versions, codex mcp help/list/get, doctor, plugin config, process cwd/env, journal/systemd state, plugin .mcp.json, server.cjs, package manifests, manual server stdout/stderr/exit/duration before and after fix, official Codex manual MCP section, and two real codex --yolo launches.
-Soluzione_finale=Regenerated /home/daniele/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599/assets/datascience.png from the bundled datascience.svg using ImageMagick; no MCP disable, model change, timeout change, retry change, package update, or config replacement.
-Commit_correlati=none_local_cache_repair
-Prompt_correlati=739184
-Tempo_totale_di_impatto=active at task start until local cache repair and two clean Codex launches on 2026-07-14T12:03:44Z
-Note=Backups: plugin backup activity_739184_20260714T140237+0200 and MegaVault registry backup activity_739184_20260714T140520+0200. Residual warning: remote plugin refresh or reinstall could replace the local cache if upstream still lacks the asset.
-
-INCIDENT:
 Incident_ID=T7_MOUNTPOINT_FELL_THROUGH_TO_INTERNAL_ROOT
 Titolo=T7 fstab mountpoint existed on internal root while external device was absent
 Data_prima_comparsa_UTC=2026-07-11T23:09:00Z

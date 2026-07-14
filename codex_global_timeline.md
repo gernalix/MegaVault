@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T13:47:31+02:00
+Generated: 2026-07-14T14:07:35+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 810
+Total events: 817
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,12 +15,12 @@ Total events: 810
 
 | Value | Events |
 |---|---:|
-| megavault | 169 |
-| multitimetracker | 160 |
+| megavault | 170 |
+| multitimetracker | 161 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
 | oracle-backup-service | 18 |
-| 2026 | 16 |
+| 2026 | 17 |
 | fedora-system-monitor | 16 |
 | rollout-summaries | 16 |
 | fedora-t7-backup | 15 |
@@ -59,10 +59,13 @@ Total events: 810
 | grindr-web-exporter | 4 |
 | mint-cloud-backup | 3 |
 | disk-usage-monitor | 2 |
+| docs | 2 |
 | megavault-content-aware-merge-20260705 | 2 |
 | megavault-surface | 2 |
 | mint-update-tracker | 2 |
+| backups | 1 |
 | extensions | 1 |
+| secrets | 1 |
 | skills | 1 |
 | unknown | 1 |
 
@@ -70,9 +73,9 @@ Total events: 810
 
 | Value | Events |
 |---|---:|
-| security | 251 |
-| backup | 228 |
-| docs | 97 |
+| security | 255 |
+| backup | 230 |
+| docs | 98 |
 | testing | 63 |
 | release | 59 |
 | bugfix | 51 |
@@ -85,18 +88,18 @@ Total events: 810
 
 | Value | Events |
 |---|---:|
-| P1 | 416 |
-| P0 | 180 |
-| P2 | 157 |
+| P1 | 418 |
+| P0 | 184 |
+| P2 | 158 |
 | P3 | 57 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 329 |
-| PASS | 199 |
-| WARN | 142 |
+| UNKNOWN | 330 |
+| PASS | 201 |
+| WARN | 146 |
 | FAIL | 71 |
 | OPEN | 69 |
 
@@ -106,30 +109,33 @@ Total events: 810
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6064-57d6-7ca3-bdb2-8c19a5f930ad |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 14T103719Z |
 | 2026-07-14 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 13T071256Z vs 2026 07 14T103719Z |
 | 2026-07-14 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
 | 2026-07-14 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-14 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-14 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
+| 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
+| 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline after SDK repair |
 | 2026-07-14 | multitimetracker | Android Tests | security | UNKNOWN | P0 | protocol_update | markdown | Fedora Setup |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | multitimetracker | Android Tests | security | FAIL | P1 | doc_event | markdown | MultiTimeTracker Incident Registry |
+| 2026-07-14 | secrets | Git PATH | security | UNKNOWN | P1 | doc_event | markdown | Oracle Cloud VM SSH Access |
 | 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
 | 2026-07-13 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 13T071256Z |
 | 2026-07-13 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 12T070000Z vs 2026 07 13T071256Z |
-| 2026-07-13 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
-| 2026-07-13 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
-| 2026-07-13 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
-| 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
-| 2026-07-13 | fedora-system-monitor | Android Tests | security | WARN | P1 | report | markdown | OPERATIONS |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6064-57d6-7ca3-bdb2-8c19a5f930ad |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
+| 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
+| 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
 | 2026-07-14 | multitimetracker | Android Tests | security | UNKNOWN | P0 | protocol_update | markdown | Fedora Setup |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
@@ -282,6 +288,7 @@ Total events: 810
 | 2026-06-22 | multitimetracker | MTT app-release.apk | security | PASS | P0 | release | markdown | Play Store Release Checklist |
 | 2026-06-22 | multitimetracker | MTT Release Notes | security | PASS | P0 | doc_event | markdown | Release Notes |
 | 2026-06-17 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MERGED_GITHUB_BRANCH_20260705 |
+| 2026-06-15 | multitimetracker | MTT v22 | security | WARN | P0 | protocol_update | markdown | MANDATORY_STANDARD |
 | 2026-06-15 | oracle-uptime-kuma | Kuma v11 | security | PASS | P0 | protocol_update | markdown | Prompt 847261 Kuma Dashboard Restore |
 | 2026-06-13 | disk-usage-monitor | disk-usage-monitor v8 | security | PASS | P0 | protocol_update | markdown | Linux Mint canonical 3-disk monitor with SQLite state, clean Telegram alerts, and Oracle Uptime Kuma push heartbeat. |
 | 2026-06-13 | facedownassup-downloader | facedownassup-downloader v0 | security | WARN | P0 | protocol_update | markdown | Local authorized downloader for facedownassup.com member gallery pages using existing legitimate Firefox login via yt-dlp cookies by default. |
@@ -310,12 +317,12 @@ Total events: 810
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 169 events; latest=2026-07-14; label=MegaVault docs refresh global
-- `multitimetracker`: 160 events; latest=2026-07-14; label=Android Tests
+- `megavault`: 170 events; latest=2026-07-14; label=MegaVault docs refresh global
+- `multitimetracker`: 161 events; latest=2026-07-14; label=Android Tests
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
 - `oracle-backup-service`: 18 events; latest=2026-07-10; label=Codex Timeline
-- `2026`: 16 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
+- `2026`: 17 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
 - `fedora-system-monitor`: 16 events; latest=2026-07-13; label=fedora-system-monitor project.metadata
 - `rollout-summaries`: 16 events; latest=2026-07-13; label=Codex Timeline
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
@@ -354,10 +361,13 @@ Total events: 810
 - `grindr-web-exporter`: 4 events; latest=2026-07-09; label=grindr-web-exporter Grindr Web Exporter
 - `mint-cloud-backup`: 3 events; latest=2026-06-06; label=mint-cloud-backup v2
 - `disk-usage-monitor`: 2 events; latest=2026-06-13; label=disk-usage-monitor v8
+- `docs`: 2 events; latest=2026-07-14; label=docs Activity 739184 -
 - `megavault-content-aware-merge-20260705`: 2 events; latest=2026-07-05; label=Git PATH
 - `megavault-surface`: 2 events; latest=2026-07-05; label=megavault-surface v527
 - `mint-update-tracker`: 2 events; latest=2026-06-04; label=mint-update-tracker v2
+- `backups`: 1 events; latest=2026-07-13; label=Android Tests
 - `extensions`: 1 events; latest=2026-07-09; label=extensions Ad-hoc notes
+- `secrets`: 1 events; latest=2026-07-14; label=Git PATH
 - `skills`: 1 events; latest=2026-07-10; label=Codex Timeline
 - `unknown`: 1 events; latest=2026-07-05; label=Veeam T7
 
@@ -366,22 +376,28 @@ Total events: 810
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6064-57d6-7ca3-bdb2-8c19a5f930ad |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 14T103719Z |
 | 2026-07-14 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 13T071256Z vs 2026 07 14T103719Z |
 | 2026-07-14 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
 | 2026-07-14 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-14 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-14 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
+| 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
+| 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline after SDK repair |
 | 2026-07-14 | multitimetracker | Android Tests | security | UNKNOWN | P0 | protocol_update | markdown | Fedora Setup |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | multitimetracker | Android Tests | security | FAIL | P1 | doc_event | markdown | MultiTimeTracker Incident Registry |
+| 2026-07-14 | secrets | Git PATH | security | UNKNOWN | P1 | doc_event | markdown | Oracle Cloud VM SSH Access |
 | 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
 | 2026-07-13 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 13T071256Z |
 | 2026-07-13 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 12T070000Z vs 2026 07 13T071256Z |
 | 2026-07-13 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
 | 2026-07-13 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-13 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
+| 2026-07-13 | backups | Android Tests | security | PASS | P1 | report | markdown | Incident Registry |
 | 2026-07-13 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-13 | fedora-system-monitor | Android Tests | security | WARN | P1 | report | markdown | OPERATIONS |
 | 2026-07-13 | fedora-system-monitor | fedora-system-monitor AUDIT 471852 | security | WARN | P1 | report | markdown | AUDIT 471852 |
@@ -399,7 +415,7 @@ Total events: 810
 | 2026-07-13 | megavault | MegaVault NETWORK_TOPOLOGY | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-13 | megavault | MegaVault v0 | security | WARN | P0 | protocol_update | markdown | SOFTWARE_INVENTORY |
 | 2026-07-13 | megavault | MegaVault vlc h264 fedora | security | WARN | P0 | protocol_update | markdown | prompt 684271 vlc h264 fedora |
-| 2026-07-13 | megavault | Android Tests | security | PASS | P1 | report | markdown | Incident Registry |
+| 2026-07-13 | megavault | Android Tests | security | WARN | P1 | report | markdown | Incident Registry |
 | 2026-07-13 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
 | 2026-07-13 | megavault | Git PATH | release | PASS | P1 | release | markdown | Activity 735184 Logseq Fedora Install |
 | 2026-07-13 | megavault | MegaVault Activity 20260713 Logseq | release | WARN | P1 | release | markdown | Activity 20260713 Logseq Fedora Local Audit |
@@ -1017,6 +1033,7 @@ Total events: 810
 | 2026-06-18 | soldi | Soldi 2.apk | backup | OPEN | P1 | release | markdown | Soldi Changelog |
 | 2026-06-18 | soldi | Soldi Soldi Troubleshooting | release | FAIL | P1 | release | markdown | Soldi Troubleshooting |
 | 2026-06-17 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MERGED_GITHUB_BRANCH_20260705 |
+| 2026-06-15 | multitimetracker | MTT v22 | security | WARN | P0 | protocol_update | markdown | MANDATORY_STANDARD |
 | 2026-06-15 | multitimetracker | Android Tests | security | WARN | P1 | report | markdown | MANDATORY_STANDARD |
 | 2026-06-15 | oracle-uptime-kuma | Kuma v11 | security | PASS | P0 | protocol_update | markdown | Prompt 847261 Kuma Dashboard Restore |
 | 2026-06-15 | oracle-uptime-kuma | Kuma Changelog | backup | FAIL | P1 | changelog | markdown | Changelog |

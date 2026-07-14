@@ -86,16 +86,6 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Sicurezza test: nessun dispositivo e' stato scollegato fisicamente e non e' stata tentata una riproduzione distruttiva.
 - Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md`.
 
-## CODEX_DATA_ANALYTICS_WIDGETS_MISSING_PNG
-
-- Timestamp UTC: `2026-07-14T12:03:44Z`; stato `RESOLVED`, gravita' `MEDIUM`.
-- Sintomo: `codex --yolo` mostrava `MCP startup incomplete (failed: dataAnalyticsWidgets)` e `connection closed: initialize response`.
-- Root cause: il plugin Data Analytics installato in `~/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599` avviava `node ./mcp/server.cjs --stdio`; il server caricava `assets/datascience.png` prima dell'handshake MCP, ma il PNG mancava e Node usciva con `ENOENT`.
-- Fix: rigenerato solo `assets/datascience.png` dal `datascience.svg` gia' incluso nel plugin. Nessun server disabilitato, nessun cambio modello/YOLO/timeout/retry e nessun update pacchetti.
-- Verifica: handshake manuale PASS con 5 tool e 3 risorse; `codex doctor` PASS `17 ok`, `0 warn`, `0 fail`; due avvii reali `codex --yolo` da `/home` senza l'errore MCP.
-- Backup: plugin `activity_739184_20260714T140237+0200`; MegaVault registry `activity_739184_20260714T140520+0200`.
-- Warning: un refresh/reinstall del plugin potrebbe sovrascrivere la cache locale se il pacchetto remoto resta privo dello stesso asset.
-
 ## T7_MOUNTPOINT_FELL_THROUGH_TO_INTERNAL_ROOT
 
 - Timestamp UTC: `2026-07-11T23:09:00Z`; stato `RESOLVED`, gravita' `CRITICAL`.
