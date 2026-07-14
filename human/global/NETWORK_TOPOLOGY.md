@@ -11,6 +11,8 @@ Aggiornato: 2026-07-14. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/glob
 
 Fedora System Monitor invia esclusivamente heartbeat e stati sintetici all'istanza Uptime Kuma esistente su `150.230.148.128:3001`, senza modifiche firewall. Gli endpoint sono root-only e i messaggi non contengono dati sensibili. Il readback operativo e' stato verificato via SQLite remoto sulla VM Oracle. Il collegamento attuale e' HTTP e va migrato a HTTPS per proteggere il trasporto.
 
+Prometheus (`127.0.0.1:9090`), Node Exporter (`127.0.0.1:9100`) e l'exporter read-only Fedora System Monitor (`127.0.0.1:9109`) sono raggiungibili solo da localhost. Non sono state aggiunte regole firewall. L'accesso futuro tramite tunnel SSH resta possibile senza cambiare i binding; nessun tunnel e' configurato ora. Prometheus e Kuma funzionano indipendentemente.
+
 ## Android
 
 ADB usa `/home/daniele/Android/Sdk/platform-tools/adb`. Il server utente condiviso ascolta solo su `127.0.0.1:5037`; `adb-device-keeper.service` e' abilitato e attivo e gestisce Pixel 8a e TCL 6102H senza dipendere da Android Studio.

@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-14T19:54:49+02:00
-total_events=716
+generated_at=2026-07-14T20:14:02+02:00
+total_events=729
 format=event_date|project|label_short|category|status|importance
 2026-07-14|2026|2026 luoghi-app 10.apk|security|WARN|P0
 2026-07-14|2026|2026 luoghi-app 10.apk|security|WARN|P0
@@ -16,6 +16,18 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
 2026-07-14|docs|docs Activity 739184 -|backup|WARN|P0
 2026-07-14|docs|docs v22|backup|PASS|P0
+2026-07-14|fedora-diagnostics|fedora-diagnostics project.metadata|release|OPEN|P0
+2026-07-14|fedora-diagnostics|fedora-diagnostics Audit 826417|security|WARN|P1
+2026-07-14|fedora-diagnostics|fedora-diagnostics Prometheus+Node_Exporter+global_fedora-diagnostics+MegaVault_docs+timeline|security|WARN|P1
+2026-07-14|fedora-diagnostics|fedora-diagnostics Troubleshooting|automation|WARN|P1
+2026-07-14|fedora-diagnostics|fedora-diagnostics v1|security|OPEN|P1
+2026-07-14|fedora-diagnostics|fedora-diagnostics v1|security|WARN|P1
+2026-07-14|fedora-diagnostics|fedora-diagnostics Changelog|automation|UNKNOWN|P2
+2026-07-14|fedora-diagnostics|fedora-diagnostics Fedora Diagnostics|docs|UNKNOWN|P2
+2026-07-14|fedora-diagnostics|fedora-diagnostics fedora workstation rules|performance|UNKNOWN|P2
+2026-07-14|fedora-diagnostics|fedora-diagnostics prometheus|automation|UNKNOWN|P2
+2026-07-14|fedora-diagnostics|fedora-diagnostics queries|performance|FAIL|P2
+2026-07-14|fedora-diagnostics|fedora-diagnostics Roadmap|migration|UNKNOWN|P2
 2026-07-14|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
 2026-07-14|fedora-system-monitor|fedora-system-monitor AUDIT 471853|backup|WARN|P1
 2026-07-14|fedora-system-monitor|fedora-system-monitor Audit tecnico 471853|backup|FAIL|P1
@@ -38,6 +50,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|megavault|Git PATH|release|UNKNOWN|P1
 2026-07-14|megavault|MegaVault Alert Registry|security|WARN|P1
 2026-07-14|megavault|MegaVault docs configure Oracle|infra|PASS|P1
+2026-07-14|megavault|MegaVault docs record Codex|backup|PASS|P1
 2026-07-14|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-14|megavault|MegaVault Update Fedora monitor|automation|PASS|P1
 2026-07-14|megavault|MegaVault v0|backup|PASS|P1
@@ -53,9 +66,12 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|multitimetracker|MTT v537|security|WARN|P0
 2026-07-14|multitimetracker|MTT v537|security|WARN|P0
 2026-07-14|multitimetracker|MTT v537|security|WARN|P0
+2026-07-14|multitimetracker|MTT v4|security|PASS|P1
 2026-07-14|oracle-backup-service|Codex Timeline|security|FAIL|P0
 2026-07-14|oracle-uptime-kuma|Kuma Topologia rete globale|security|UNKNOWN|P1
+2026-07-14|oracle-uptime-kuma|Veeam T7|security|UNKNOWN|P1
 2026-07-14|secrets|Git PATH|security|UNKNOWN|P1
+2026-07-14|windows|Veeam T7|security|PASS|P0
 2026-07-13|2026|2026 v537|security|WARN|P0
 2026-07-13|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-13|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
@@ -129,11 +145,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-12|multitimetracker|MTT 1.apk|security|WARN|P0
 2026-07-12|multitimetracker|MTT v537|security|WARN|P0
 2026-07-12|multitimetracker|MTT v537|security|WARN|P0
-2026-07-12|multitimetracker|MTT v4|security|PASS|P1
 2026-07-12|rollout-summaries|rollout-summaries VeraCrypt 1.26.29 was|release|WARN|P0
-2026-07-12|windows|Veeam T7|security|PASS|P0
 2026-07-12|windows|Veeam T7|security|OPEN|P0
-2026-07-12|windows|Veeam T7|security|UNKNOWN|P1
 2026-07-12|windows|Veeam T7|security|FAIL|P1
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0

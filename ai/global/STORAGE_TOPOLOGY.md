@@ -1,9 +1,9 @@
 # STORAGE_TOPOLOGY
-VERSION=7
+VERSION=8
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-12+activity_593184+activity_842731+activity_583921+activity_684219
+SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-14+activity_593184+activity_842731+activity_583921+activity_684219+activity_826417
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/STORAGE_TOPOLOGY.md
@@ -14,6 +14,8 @@ machine=Lenovo_ThinkPad_P14s_Gen_5_AMD
 root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=844GiB mounts=/,/home
 home=/home/daniele
 monitor_db=/var/lib/fedora-system-monitor/monitor.sqlite3;schema=2;WAL=yes;backup=/var/lib/fedora-system-monitor/backups;retention=enabled;integrity=ok_2026-07-10
+prometheus_tsdb=/var/lib/prometheus/metrics2;retention=30d_or_5GB_first;size_growth_measured_about_96.9KiB_per_minute;projection_about_4.2GiB_per_30d;activity=826417
+prometheus_external_filesystems=real_fuseblk_under_/run/media_included_via_execute_only_ACL;virtual+tmpfs+overlay+squashfs+erofs+portal_FUSE_excluded;disconnected_media_absent_without_target_failure
 monitor_external_labels=Ventoy+VTOYEFI+VEEAMRE+Seagate_Expansion_Drive;identity=filesystem_UUID_or_hardware_serial_hash;never_dev_sdX
 incident=external-ntfs-disconnect-during-mounted-io;first_seen=2026-07-09T19:07:00+02:00;status=OPEN;details=INCIDENT_REGISTRY.md
 repo=/home/daniele/MegaVault

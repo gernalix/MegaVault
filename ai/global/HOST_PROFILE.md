@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=11
+VERSION=12
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-12T01:35:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219
+UPDATED=2026-07-14T20:05:00+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417
 
 META:
 host=fedora
@@ -86,6 +86,12 @@ service_manager=systemd version=259
 storage_commands=findmnt+lsblk+df
 path_rule=current_local_paths_must_resolve_under_Fedora_mounts
 project_rule=project_or_remote_paths_never_override_HOST_SYSTEM_CURRENT
+
+MONITORING_CURRENT:
+prometheus=/usr/bin/prometheus;version=3.13.0;service=enabled+active;bind=127.0.0.1:9090;retention=30d_or_5GB;activity=826417
+node_exporter=/usr/bin/node_exporter;version=1.11.1;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
+diagnostics=/usr/local/bin/fedora-diagnostics;version=1.0.0;default=7d;archive=single_sanitized_0600_ZIP;activity=826417
+relationship=Prometheus_historical_metrics;Uptime_Kuma_synthetic_UP_DOWN_unchanged;fedora-system-monitor_readonly_target=127.0.0.1:9109
 
 REMOTE_ACCESS_CURRENT:
 client=RustDesk;version=1.4.9;install=official_x86_64_RPM_via_DNF;path=/usr/bin/rustdesk

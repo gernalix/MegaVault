@@ -1,9 +1,9 @@
 # ALERT_REGISTRY
-VERSION=6
+VERSION=7
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_systemd_live_2026-07-14+HOST_PROFILE+activity_593184+activity_471852+activity_471853
+SOURCE=Fedora_systemd_live_2026-07-14+HOST_PROFILE+activity_593184+activity_471852+activity_471853+activity_826417
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
@@ -37,6 +37,10 @@ service=abrt-journal-core.service;state=active/running;scope=coredump_events
 service=abrt-oops.service;state=active/running;scope=kernel_oops
 service=smartd.service;state=active/running;scope=storage_health
 service=systemd-oomd.service;state=active/running;scope=memory_pressure
+
+PROMETHEUS_LOCAL:
+role=historical_metrics_only;Alertmanager=not_installed;Grafana=not_installed;alerts=none_added
+independence=Uptime_Kuma_monitors+heartbeat+thresholds+credentials_unchanged;Prometheus_does_not_depend_on_Kuma;Kuma_does_not_depend_on_Prometheus;activity=826417
 
 RULES:
 rule=never_print_or_commit_tokens+chat_ids+push_URLs

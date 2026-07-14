@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=12
+VERSION=13
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-14+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219
+SOURCE=systemctl_live_2026-07-14+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -14,7 +14,7 @@ os=Fedora_Linux_44_Workstation
 service_manager=systemd
 system_state=running
 user_state=running
-project_services_verified=fedora-system-monitor+fedora-t7-backup
+project_services_verified=fedora-system-monitor+fedora-t7-backup+fedora-diagnostics
 project_service_migration=not_revalidated
 user_linger_daniele=yes
 
@@ -35,7 +35,10 @@ service=fedora-system-monitor-collect@.service;state=static_template;purpose=iso
 service=fedora-system-monitor-device-add@.service;state=static_template;purpose=udev_device_add;activity=593184
 service=fedora-system-monitor-device-change@.service;state=static_template;purpose=udev_device_change;activity=593184
 service=fedora-system-monitor-device-remove@.service;state=static_template;purpose=udev_device_remove;activity=593184
-service=fedora-system-monitor-prometheus.service;state=installed+disabled;purpose=optional_localhost_9109_metrics_endpoint;runtime_dependency=stdlib_only;live_test=PASS;activity=471852
+service=fedora-system-monitor-prometheus.service;state=active_as_prometheus_dependency+disabled_direct_enablement;purpose=readonly_localhost_9109_metrics_endpoint;runtime_dependency=stdlib_only;live_test=PASS;activity=471852+826417
+service=prometheus.service;state=enabled+active/running;package=prometheus-3.13.0-1.fc44;bind=127.0.0.1:9090;retention=30d_or_5GB;scrape=15s;restart=on-failure_5s;targets=prometheus+node+fedora-system-monitor;activity=826417
+service=prometheus-node-exporter.service;aliases=node_exporter.service_same_unit;state=enabled+active/running;package=node-exporter-1.11.1-1.fc44;bind=127.0.0.1:9100;restart=on-failure_5s;privilege=prometheus_user+no_capabilities;activity=826417
+command=fedora-diagnostics;service=none;timer=none;mode=manual_on_demand;path=/usr/local/bin/fedora-diagnostics;activity=826417
 service=t7-restic-backup.service;scope=system;state=static_oneshot+tested_success;purpose=udev_connect_mount+encrypted_incremental_backup+conditional_maintenance+sync+unmount+notify;runtime=/usr/local/libexec/t7-restic-lifecycle;activity=684219
 service=t7-restic-reminder.service;scope=system;state=static_oneshot+tested_success;purpose=single_disconnect_reminder_if_serial_still_present;activity=684219
 service=fedora-external-updater-root.service;scope=system;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_root_scope;activity=846219

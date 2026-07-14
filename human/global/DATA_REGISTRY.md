@@ -8,6 +8,8 @@ Il database globale verificato e' `/home/daniele/MegaVault/codex_global_timeline
 
 Fedora System Monitor usa `/var/lib/fedora-system-monitor/monitor.sqlite3`, schema 2 in WAL, con integrita' e foreign key verificate e backup online sotto `/var/lib/fedora-system-monitor/backups`. Al gate dell'audit 593184 misurava 14.032.896 byte. La retention aggrega soltanto giorni UTC completi prima della cancellazione e conserva permanentemente gli eventi software. Il benchmark sintetico proietta circa 485 MB a 14 giorni, 943 MB a 60, 1,08 GB a 180 e 1,16 GB a un anno; l'upper bound dei backup completi configurati è 39,3 GB prima della compressione filesystem.
 
+Prometheus usa `/var/lib/prometheus/metrics2`, owner `prometheus`, con retention 30 giorni e limite 5 GB. `fedora-diagnostics` non copia questa TSDB: usa l'API ufficiale e crea un singolo ZIP `0600` con CSV, JSON e checksum nella destinazione scelta dall'utente. Gli archivi restano dati manuali dell'utente e non hanno upload o retention automatica.
+
 Il registro incidenti globale previsto dal protocollo e' inizializzato in `/home/daniele/sync_root/db/incident_registry.sqlite`, modo `0600`, con tabelle `incidents` e `incident_events` e integrita' verificata.
 
 Il repository Restic cifrato corrente e' `/mnt/T7_BACKUP/restic-fedora` sul T7.

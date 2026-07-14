@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=20
+VERSION=21
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-14T14:25:00+02:00
-SOURCE=tool_versions_live_2026-07-14+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219
+UPDATED=2026-07-14T20:05:00+02:00
+SOURCE=tool_versions_live_2026-07-14+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -27,6 +27,9 @@ tool=OpenSSH;path=/usr/bin/ssh;version=10.2p1;config_dir=/home/daniele/.ssh;conf
 tool=Docker;path=missing;service=absent;version=not_installed;critical=no
 tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_container_runtime
 tool=Fedora_System_Monitor;version=1.1.1;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;features=dashboard+timeline+trends+service_history+prometheus_optional;status=installed+enabled+audited;activity=471853
+tool=Prometheus;version=3.13.0-1.fc44;package=official_Fedora_updates;path=/usr/bin/prometheus;service=enabled+active;bind=127.0.0.1:9090;activity=826417
+tool=Node_Exporter;version=1.11.1-1.fc44;package=official_Fedora_updates;path=/usr/bin/node_exporter;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
+tool=Fedora_Diagnostics;version=1.0.0;project=/home/daniele/projects/fedora-diagnostics;path=/usr/local/bin/fedora-diagnostics;runtime=/usr/local/lib/fedora-diagnostics;status=installed+functional+fault_tested;activity=826417
 tool=Fedora_External_Updater;version=0.1.0;project=/home/daniele/projects/fedora-external-updater;cli=/usr/local/bin/fedora-external-updater;status=installed+root_user_timers_enabled+manual_PASS;policy=complementary_safe_external_updates_no_project_dependency_updates;activity=846219
 tool=Restic;path=/usr/bin/restic;version=0.19.0;project=/home/daniele/MegaVault/projects/fedora-t7-backup;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+encrypted+udev_connect_automated+conditional_check_prune+unmount+restore_tested;activity=684219
 package=smartmontools;version=7.5-6.fc44;role=storage_health;preexisting=yes
