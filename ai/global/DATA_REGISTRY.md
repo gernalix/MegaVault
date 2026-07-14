@@ -18,7 +18,7 @@ SQLITE_CURRENT:
 db=codex_global_timeline.sqlite;owner=MegaVault;path=/home/daniele/MegaVault/codex_global_timeline.sqlite;size=live_dynamic;canonical=yes;integrity=ok_task_714283_final_builder_gate
 db=monitor.sqlite3;owner=fedora-system-monitor;path=/var/lib/fedora-system-monitor/monitor.sqlite3;schema=2;mode=WAL;owner_mode=root:daniele_0640;size_2026-07-10_audit=14032896;integrity=ok;foreign_keys=ok;backup=/var/lib/fedora-system-monitor/backups;retention=complete_UTC_daily_aggregates;projection_14d=484835328;projection_60d=942552152;projection_180d=1075346602;projection_365d=1155609353;backup_365d_upper=39290718002;activity=593184
 db=incident_registry.sqlite;owner=MegaVault_global_incidents;path=/home/daniele/sync_root/db/incident_registry.sqlite;mode=WAL;owner_mode=daniele:daniele_0600;tables=incidents+incident_events;integrity=ok;bootstrap_activity=593184
-db=activitywatch_peewee;owner=ActivityWatch;path=/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db;mode=SQLite;owner_mode=daniele:daniele_0644;tables=bucketmodel+eventmodel;integrity=ok;bucket_count_2026-07-14=3;event_count_2026-07-14=4;program_updates_preserve_data=yes;activity=284617
+db=activitywatch_peewee;owner=ActivityWatch;path=/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db;mode=SQLite;owner_mode=daniele:daniele_0644;tables=bucketmodel+eventmodel;integrity=ok;bucket_count_2026-07-14=3;event_count_2026-07-14=55;program_updates_preserve_data=yes;activity=284617+735804
 
 EXPECTED_PROJECT_DBS_CHECKED:
 status=missing_on_current_Fedora

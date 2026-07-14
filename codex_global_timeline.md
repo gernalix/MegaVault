@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T18:19:11+02:00
+Generated: 2026-07-14T19:22:41+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 708
+Total events: 711
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,11 +14,11 @@ Total events: 708
 
 | Value | Events |
 |---|---:|
-| megavault | 178 |
+| megavault | 180 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
 | multitimetracker | 40 |
-| 2026 | 19 |
+| 2026 | 20 |
 | fedora-system-monitor | 18 |
 | oracle-backup-service | 18 |
 | rollout-summaries | 16 |
@@ -72,10 +72,10 @@ Total events: 708
 
 | Value | Events |
 |---|---:|
-| security | 233 |
+| security | 234 |
 | backup | 210 |
-| docs | 75 |
-| release | 50 |
+| docs | 76 |
+| release | 51 |
 | testing | 47 |
 | bugfix | 41 |
 | automation | 21 |
@@ -87,18 +87,18 @@ Total events: 708
 
 | Value | Events |
 |---|---:|
-| P1 | 372 |
-| P0 | 176 |
-| P2 | 150 |
+| P1 | 373 |
+| P0 | 177 |
+| P2 | 151 |
 | P3 | 10 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 254 |
-| PASS | 187 |
-| WARN | 144 |
+| UNKNOWN | 255 |
+| PASS | 188 |
+| WARN | 145 |
 | FAIL | 64 |
 | OPEN | 59 |
 
@@ -110,6 +110,7 @@ Total events: 708
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6107-fde7-7821-8236-4a28b19ff35d |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6103-22f2-7341-aa2b-7736cebc8654 |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f61a1-1a76-76b1-87a2-510a2dd1fbeb |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 14T103719Z |
 | 2026-07-14 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 13T071256Z vs 2026 07 14T103719Z |
@@ -125,7 +126,6 @@ Total events: 708
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P1 | changelog | markdown | Changelog |
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | backup | UNKNOWN | P1 | backup | markdown | Fedora System Monitor |
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
-| 2026-07-14 | fedora-system-monitor | fedora-system-monitor Integrazione Uptime Kuma | backup | FAIL | P1 | backup | markdown | Integrazione Uptime Kuma |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -134,6 +134,7 @@ Total events: 708
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6107-fde7-7821-8236-4a28b19ff35d |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6103-22f2-7341-aa2b-7736cebc8654 |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f61a1-1a76-76b1-87a2-510a2dd1fbeb |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
 | 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
@@ -308,11 +309,11 @@ Total events: 708
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 178 events; latest=2026-07-14; label=Codex Timeline
+- `megavault`: 180 events; latest=2026-07-14; label=Codex Timeline
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
 - `multitimetracker`: 40 events; latest=2026-07-14; label=MTT v537
-- `2026`: 19 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
+- `2026`: 20 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
 - `fedora-system-monitor`: 18 events; latest=2026-07-14; label=fedora-system-monitor project.metadata
 - `oracle-backup-service`: 18 events; latest=2026-07-14; label=Codex Timeline
 - `rollout-summaries`: 16 events; latest=2026-07-13; label=Codex Timeline
@@ -369,6 +370,7 @@ Total events: 708
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6107-fde7-7821-8236-4a28b19ff35d |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6103-22f2-7341-aa2b-7736cebc8654 |
+| 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f61a1-1a76-76b1-87a2-510a2dd1fbeb |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f607e-649d-79d1-9aa8-d240dd4e920b |
 | 2026-07-14 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 14T103719Z |
 | 2026-07-14 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 13T071256Z vs 2026 07 14T103719Z |
@@ -396,6 +398,7 @@ Total events: 708
 | 2026-07-14 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-14 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
 | 2026-07-14 | megavault | Git PATH | security | PASS | P1 | doc_event | markdown | Prompt 593804 - Oracle VM SSH access |
+| 2026-07-14 | megavault | Git PATH | release | UNKNOWN | P1 | release | markdown | activity 735804 activitywatch wayland watchers |
 | 2026-07-14 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-14 | megavault | MegaVault docs configure Oracle | infra | PASS | P1 | git_commit | git_log | docs: configure Oracle VM SSH access |
 | 2026-07-14 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
@@ -406,6 +409,7 @@ Total events: 708
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline after SDK repair |
 | 2026-07-14 | megavault | MegaVault docs register Fedora | docs | PASS | P2 | git_commit | git_log | docs: register Fedora external updater |
+| 2026-07-14 | megavault | MegaVault docs simplify ActivityWatch | docs | PASS | P2 | git_commit | git_log | docs: simplify ActivityWatch Fedora setup |
 | 2026-07-14 | megavault | MegaVault Prima implementazione sovradimensionata | automation | UNKNOWN | P2 | report | markdown | Prima implementazione sovradimensionata rimossa: proxy 5601, healthcheck timer, wrapper, awatcher, extension e script update/rollback eliminati. St... |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |

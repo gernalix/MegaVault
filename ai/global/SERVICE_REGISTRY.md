@@ -51,6 +51,7 @@ service=xdg-desktop-portal.service;state=active/running;purpose=desktop_portal
 service=adb-device-keeper.service;scope=user;state=enabled+active/running;purpose=allowlisted_Pixel_8a+TCL_6102H_ADB_WiFi_availability;exec=/home/daniele/.local/bin/adb-device-keeper_--daemon;docs=ADB_DEVICE_KEEPER.md
 service=autokey.service;scope=user;state=enabled+inactive_until_next_graphical_login;purpose=AutoKey_for_Wayland_session_automation;exec=/home/daniele/.local/libexec/autokey-wayland-fedora44;wanted_by=graphical-session.target;restart=on-failure_5s;part_of=graphical-session.target;duplicate_XDG_autostart=none;activity=638417;post_login_test=pending
 service=activitywatch.service;scope=user;state=enabled+active/running;purpose=ActivityWatch_official_aw-qt_server_only;exec=/home/daniele/.local/opt/activitywatch/aw-qt_--no-gui_--autostart-modules_aw-server;wanted_by=graphical-session.target;restart=on-failure_5s;port=127.0.0.1:5600;extra_layers=none;activity=284617
+service=activitywatch-wayland-watcher.service;scope=user;state=enabled+inactive_until_next_graphical_login;purpose=ActivityWatch_GNOME_Wayland_AFK+active_window_via_aw-awatcher;exec=/usr/bin/aw-awatcher;wanted_by=graphical-session.target;requires=activitywatch.service;restart=always_5s;port_extra=none;extension=focused-window-dbus@flexagoon.com_v11;activity=735804
 service=fedora-external-updater-user.service;scope=user;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_user_scope;activity=846219
 
 TIMERS_RELEVANT:
