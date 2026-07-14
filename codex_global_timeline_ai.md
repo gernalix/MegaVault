@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-14T20:17:58+02:00
-total_events=732
+generated_at=2026-07-14T21:40:24+02:00
+total_events=739
 format=event_date|project|label_short|category|status|importance
 2026-07-14|2026|2026 luoghi-app 10.apk|security|WARN|P0
 2026-07-14|2026|2026 luoghi-app 10.apk|security|WARN|P0
@@ -17,17 +17,21 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|docs|docs Activity 739184 -|backup|WARN|P0
 2026-07-14|docs|docs v22|backup|PASS|P0
 2026-07-14|fedora-diagnostics|fedora-diagnostics project.metadata|release|OPEN|P0
+2026-07-14|fedora-diagnostics|fedora-diagnostics Audit 614283|security|WARN|P1
 2026-07-14|fedora-diagnostics|fedora-diagnostics Audit 826417|security|WARN|P1
+2026-07-14|fedora-diagnostics|fedora-diagnostics audit_existing_metrics+fan_power_textfile_telemetry+fan_analysis_ZIP+live_root_cause+docs+timeline|security|PASS|P1
+2026-07-14|fedora-diagnostics|fedora-diagnostics FAN METRICS|security|UNKNOWN|P1
 2026-07-14|fedora-diagnostics|fedora-diagnostics Prometheus+Node_Exporter+global_fedora-diagnostics+MegaVault_docs+timeline|security|WARN|P1
-2026-07-14|fedora-diagnostics|fedora-diagnostics Troubleshooting|automation|WARN|P1
+2026-07-14|fedora-diagnostics|fedora-diagnostics Troubleshooting|security|WARN|P1
 2026-07-14|fedora-diagnostics|fedora-diagnostics v1|security|OPEN|P1
 2026-07-14|fedora-diagnostics|fedora-diagnostics v1|security|WARN|P1
-2026-07-14|fedora-diagnostics|fedora-diagnostics Changelog|automation|UNKNOWN|P2
+2026-07-14|fedora-diagnostics|fedora-diagnostics fan queries|performance|UNKNOWN|P2
 2026-07-14|fedora-diagnostics|fedora-diagnostics Fedora Diagnostics|docs|UNKNOWN|P2
 2026-07-14|fedora-diagnostics|fedora-diagnostics fedora workstation rules|performance|UNKNOWN|P2
 2026-07-14|fedora-diagnostics|fedora-diagnostics prometheus|automation|UNKNOWN|P2
 2026-07-14|fedora-diagnostics|fedora-diagnostics queries|performance|FAIL|P2
-2026-07-14|fedora-diagnostics|fedora-diagnostics Roadmap|migration|UNKNOWN|P2
+2026-07-14|fedora-diagnostics|fedora-diagnostics Roadmap|performance|UNKNOWN|P2
+2026-07-14|fedora-diagnostics|fedora-diagnostics Changelog|performance|UNKNOWN|P3
 2026-07-14|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
 2026-07-14|fedora-system-monitor|fedora-system-monitor AUDIT 471853|backup|WARN|P1
 2026-07-14|fedora-system-monitor|fedora-system-monitor Audit tecnico 471853|backup|FAIL|P1
@@ -43,6 +47,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|megavault|Codex Timeline|docs|PASS|P0
 2026-07-14|megavault|Git PATH|backup|WARN|P0
 2026-07-14|megavault|Git PATH|security|OPEN|P0
+2026-07-14|megavault|Git PATH|security|WARN|P0
 2026-07-14|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
 2026-07-14|megavault|MegaVault v2|security|OPEN|P0
 2026-07-14|megavault|Codex Timeline|backup|FAIL|P1
@@ -59,12 +64,14 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|megavault|MegaVault Descrizione delle modifiche|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs prepare ActivityWatch|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs record data|docs|PASS|P2
+2026-07-14|megavault|MegaVault docs refresh activity|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs refresh global|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs refresh global|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs register Fedora|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs simplify ActivityWatch|docs|PASS|P2
 2026-07-14|megavault|MegaVault docs sync timeline|docs|PASS|P2
 2026-07-14|megavault|MegaVault Prima implementazione sovradimensionata|automation|UNKNOWN|P2
+2026-07-14|multitimetracker|MTT v537|security|WARN|P0
 2026-07-14|multitimetracker|MTT v537|security|WARN|P0
 2026-07-14|multitimetracker|MTT v537|security|WARN|P0
 2026-07-14|multitimetracker|MTT v537|security|WARN|P0

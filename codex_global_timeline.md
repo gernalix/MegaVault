@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T20:17:58+02:00
-SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 732
+Generated: 2026-07-14T21:40:24+02:00
+SQLite canonical source: `/home/daniele/MegaVault-worktrees/activity-614283/codex_global_timeline.sqlite`
+Total events: 739
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,18 +15,18 @@ Total events: 732
 
 | Value | Events |
 |---|---:|
-| megavault | 186 |
+| megavault | 188 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
-| multitimetracker | 43 |
+| multitimetracker | 44 |
 | 2026 | 20 |
 | fedora-system-monitor | 18 |
 | oracle-backup-service | 18 |
+| fedora-diagnostics | 16 |
 | oracle-uptime-kuma | 16 |
 | rollout-summaries | 16 |
 | fedora-t7-backup | 15 |
 | luoghi | 15 |
-| fedora-diagnostics | 12 |
 | supercontacts | 8 |
 | windows | 7 |
 | windows-winget-daily-update | 7 |
@@ -74,33 +74,33 @@ Total events: 732
 
 | Value | Events |
 |---|---:|
-| security | 241 |
+| security | 247 |
 | backup | 212 |
-| docs | 80 |
+| docs | 81 |
 | release | 52 |
 | testing | 47 |
 | bugfix | 41 |
-| automation | 25 |
+| automation | 23 |
 | infra | 16 |
-| migration | 13 |
-| performance | 5 |
+| migration | 12 |
+| performance | 8 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 380 |
-| P0 | 182 |
-| P2 | 160 |
-| P3 | 10 |
+| P1 | 383 |
+| P0 | 184 |
+| P2 | 161 |
+| P3 | 11 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 260 |
-| PASS | 193 |
-| WARN | 153 |
+| UNKNOWN | 262 |
+| PASS | 195 |
+| WARN | 156 |
 | FAIL | 65 |
 | OPEN | 61 |
 
@@ -123,11 +123,11 @@ Total events: 732
 | 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
 | 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics project.metadata | release | OPEN | P0 | release | json | project.metadata |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Audit 614283 | security | WARN | P1 | doc_event | markdown | Audit 614283 |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics Audit 826417 | security | WARN | P1 | doc_event | markdown | Audit 826417 |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics audit_existing_metrics+fan_power_textfile_telemetry+fan_analysis_ZIP+live_root_cause+docs+timeline | security | PASS | P1 | doc_event | markdown | audit_existing_metrics+fan_power_textfile_telemetry+fan_analysis_ZIP+live_root_cause+docs+timeline |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics FAN METRICS | security | UNKNOWN | P1 | doc_event | markdown | FAN METRICS |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics Prometheus+Node_Exporter+global_fedora-diagnostics+MegaVault_docs+timeline | security | WARN | P1 | doc_event | markdown | Prometheus+Node_Exporter+global_fedora-diagnostics+MegaVault_docs+timeline |
-| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Troubleshooting | automation | WARN | P1 | doc_event | markdown | Troubleshooting |
-| 2026-07-14 | fedora-diagnostics | fedora-diagnostics v1 | security | OPEN | P1 | changelog | markdown | PROJECT |
-| 2026-07-14 | fedora-diagnostics | fedora-diagnostics v1 | security | WARN | P1 | report | markdown | Fedora Diagnostics Operations |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -146,12 +146,14 @@ Total events: 732
 | 2026-07-14 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: update global Codex timeline for MTT recovery |
 | 2026-07-14 | megavault | Git PATH | backup | WARN | P0 | protocol_update | markdown | Prompt 738416 - Codex quota monitor schema change |
 | 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
+| 2026-07-14 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | activity_684327_expressvpn_fedora |
 | 2026-07-14 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-14 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f61b2-896f-7332-a636-d44f39bdb416 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f60cc-b168-7f70-b0a5-9f4f6aea6b97 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f61d5-2cc6-7941-8466-0f685f677da5 |
+| 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f61f5-1d99-7af3-b996-8daa8b26a072 |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-14 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
@@ -316,18 +318,18 @@ Total events: 732
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 186 events; latest=2026-07-14; label=Codex Timeline
+- `megavault`: 188 events; latest=2026-07-14; label=Codex Timeline
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
-- `multitimetracker`: 43 events; latest=2026-07-14; label=MTT v537
+- `multitimetracker`: 44 events; latest=2026-07-14; label=MTT v537
 - `2026`: 20 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
 - `fedora-system-monitor`: 18 events; latest=2026-07-14; label=fedora-system-monitor project.metadata
 - `oracle-backup-service`: 18 events; latest=2026-07-14; label=Codex Timeline
+- `fedora-diagnostics`: 16 events; latest=2026-07-14; label=fedora-diagnostics project.metadata
 - `oracle-uptime-kuma`: 16 events; latest=2026-07-14; label=Kuma Topologia rete globale
 - `rollout-summaries`: 16 events; latest=2026-07-13; label=Codex Timeline
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `luoghi`: 15 events; latest=2026-07-12; label=Git PATH
-- `fedora-diagnostics`: 12 events; latest=2026-07-14; label=fedora-diagnostics project.metadata
 - `supercontacts`: 8 events; latest=2026-07-09; label=SC 1.apk
 - `windows`: 7 events; latest=2026-07-14; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
@@ -389,17 +391,21 @@ Total events: 732
 | 2026-07-14 | docs | docs Activity 739184 - | backup | WARN | P0 | protocol_update | markdown | Activity 739184 - Data Analytics MCP startup fix |
 | 2026-07-14 | docs | docs v22 | backup | PASS | P0 | protocol_update | markdown | Activity 739184 Data Analytics Widgets MCP |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics project.metadata | release | OPEN | P0 | release | json | project.metadata |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Audit 614283 | security | WARN | P1 | doc_event | markdown | Audit 614283 |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics Audit 826417 | security | WARN | P1 | doc_event | markdown | Audit 826417 |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics audit_existing_metrics+fan_power_textfile_telemetry+fan_analysis_ZIP+live_root_cause+docs+timeline | security | PASS | P1 | doc_event | markdown | audit_existing_metrics+fan_power_textfile_telemetry+fan_analysis_ZIP+live_root_cause+docs+timeline |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics FAN METRICS | security | UNKNOWN | P1 | doc_event | markdown | FAN METRICS |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics Prometheus+Node_Exporter+global_fedora-diagnostics+MegaVault_docs+timeline | security | WARN | P1 | doc_event | markdown | Prometheus+Node_Exporter+global_fedora-diagnostics+MegaVault_docs+timeline |
-| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Troubleshooting | automation | WARN | P1 | doc_event | markdown | Troubleshooting |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Troubleshooting | security | WARN | P1 | doc_event | markdown | Troubleshooting |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics v1 | security | OPEN | P1 | changelog | markdown | PROJECT |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics v1 | security | WARN | P1 | report | markdown | Fedora Diagnostics Operations |
-| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Changelog | automation | UNKNOWN | P2 | changelog | markdown | Changelog |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics fan queries | performance | UNKNOWN | P2 | doc_event | json | fan queries |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics Fedora Diagnostics | docs | UNKNOWN | P2 | doc_event | markdown | Fedora Diagnostics |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics fedora workstation rules | performance | UNKNOWN | P2 | doc_event | yml | fedora workstation rules |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics prometheus | automation | UNKNOWN | P2 | doc_event | yml | prometheus |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics queries | performance | FAIL | P2 | doc_event | json | queries |
-| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Roadmap | migration | UNKNOWN | P2 | migration | markdown | Roadmap |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Roadmap | performance | UNKNOWN | P2 | doc_event | markdown | Roadmap |
+| 2026-07-14 | fedora-diagnostics | fedora-diagnostics Changelog | performance | UNKNOWN | P3 | changelog | markdown | Changelog |
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor AUDIT 471853 | backup | WARN | P1 | backup | markdown | AUDIT 471853 |
 | 2026-07-14 | fedora-system-monitor | fedora-system-monitor Audit tecnico 471853 | backup | FAIL | P1 | backup | markdown | Audit tecnico 471853 |
@@ -415,6 +421,7 @@ Total events: 732
 | 2026-07-14 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: update global Codex timeline for MTT recovery |
 | 2026-07-14 | megavault | Git PATH | backup | WARN | P0 | protocol_update | markdown | Prompt 738416 - Codex quota monitor schema change |
 | 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
+| 2026-07-14 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | activity_684327_expressvpn_fedora |
 | 2026-07-14 | megavault | MegaVault ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-14 | megavault | MegaVault v2 | security | OPEN | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-07-14 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
@@ -431,6 +438,7 @@ Total events: 732
 | 2026-07-14 | megavault | MegaVault Descrizione delle modifiche | docs | PASS | P2 | git_commit | git_log | Descrizione delle modifiche |
 | 2026-07-14 | megavault | MegaVault docs prepare ActivityWatch | docs | PASS | P2 | git_commit | git_log | docs: prepare ActivityWatch Wayland watchers |
 | 2026-07-14 | megavault | MegaVault docs record data | docs | PASS | P2 | git_commit | git_log | docs: record data analytics MCP repair |
+| 2026-07-14 | megavault | MegaVault docs refresh activity | docs | PASS | P2 | git_commit | git_log | docs: refresh activity 826417 audit timeline |
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline for activity 824619 |
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline after SDK repair |
 | 2026-07-14 | megavault | MegaVault docs register Fedora | docs | PASS | P2 | git_commit | git_log | docs: register Fedora external updater |
@@ -441,6 +449,7 @@ Total events: 732
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f60cc-b168-7f70-b0a5-9f4f6aea6b97 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f61d5-2cc6-7941-8466-0f685f677da5 |
+| 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f61f5-1d99-7af3-b996-8daa8b26a072 |
 | 2026-07-14 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-14 | oracle-uptime-kuma | Kuma Topologia rete globale | security | UNKNOWN | P1 | doc_event | markdown | Topologia rete globale |
