@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T20:14:58+02:00
+Generated: 2026-07-14T20:17:58+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 730
+Total events: 732
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,10 +15,10 @@ Total events: 730
 
 | Value | Events |
 |---|---:|
-| megavault | 185 |
+| megavault | 186 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
-| multitimetracker | 42 |
+| multitimetracker | 43 |
 | 2026 | 20 |
 | fedora-system-monitor | 18 |
 | oracle-backup-service | 18 |
@@ -74,9 +74,9 @@ Total events: 730
 
 | Value | Events |
 |---|---:|
-| security | 240 |
+| security | 241 |
 | backup | 212 |
-| docs | 79 |
+| docs | 80 |
 | release | 52 |
 | testing | 47 |
 | bugfix | 41 |
@@ -90,8 +90,8 @@ Total events: 730
 | Value | Events |
 |---|---:|
 | P1 | 380 |
-| P0 | 181 |
-| P2 | 159 |
+| P0 | 182 |
+| P2 | 160 |
 | P3 | 10 |
 
 ### Events by status
@@ -99,8 +99,8 @@ Total events: 730
 | Value | Events |
 |---|---:|
 | UNKNOWN | 260 |
-| PASS | 192 |
-| WARN | 152 |
+| PASS | 193 |
+| WARN | 153 |
 | FAIL | 65 |
 | OPEN | 61 |
 
@@ -151,6 +151,7 @@ Total events: 730
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f61b2-896f-7332-a636-d44f39bdb416 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f60cc-b168-7f70-b0a5-9f4f6aea6b97 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
+| 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f61d5-2cc6-7941-8466-0f685f677da5 |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-14 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-13 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f5b27-c244-74b1-b0cf-104430109bb3 |
@@ -315,10 +316,10 @@ Total events: 730
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 185 events; latest=2026-07-14; label=Codex Timeline
+- `megavault`: 186 events; latest=2026-07-14; label=Codex Timeline
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
-- `multitimetracker`: 42 events; latest=2026-07-14; label=MTT v537
+- `multitimetracker`: 43 events; latest=2026-07-14; label=MTT v537
 - `2026`: 20 events; latest=2026-07-14; label=2026 luoghi-app 10.apk
 - `fedora-system-monitor`: 18 events; latest=2026-07-14; label=fedora-system-monitor project.metadata
 - `oracle-backup-service`: 18 events; latest=2026-07-14; label=Codex Timeline
@@ -434,10 +435,12 @@ Total events: 730
 | 2026-07-14 | megavault | MegaVault docs refresh global | docs | PASS | P2 | git_commit | git_log | docs: refresh global timeline after SDK repair |
 | 2026-07-14 | megavault | MegaVault docs register Fedora | docs | PASS | P2 | git_commit | git_log | docs: register Fedora external updater |
 | 2026-07-14 | megavault | MegaVault docs simplify ActivityWatch | docs | PASS | P2 | git_commit | git_log | docs: simplify ActivityWatch Fedora setup |
+| 2026-07-14 | megavault | MegaVault docs sync timeline | docs | PASS | P2 | git_commit | git_log | docs: sync timeline for activity 826417 |
 | 2026-07-14 | megavault | MegaVault Prima implementazione sovradimensionata | automation | UNKNOWN | P2 | report | markdown | Prima implementazione sovradimensionata rimossa: proxy 5601, healthcheck timer, wrapper, awatcher, extension e script update/rollback eliminati. St... |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f61b2-896f-7332-a636-d44f39bdb416 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f60cc-b168-7f70-b0a5-9f4f6aea6b97 |
 | 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f605a-b4f6-7402-9435-09fa1461727e |
+| 2026-07-14 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f61d5-2cc6-7941-8466-0f685f677da5 |
 | 2026-07-14 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | PROJECT_INDEX |
 | 2026-07-14 | oracle-backup-service | Codex Timeline | security | FAIL | P0 | changelog | markdown | MegaVault Changelog |
 | 2026-07-14 | oracle-uptime-kuma | Kuma Topologia rete globale | security | UNKNOWN | P1 | doc_event | markdown | Topologia rete globale |
