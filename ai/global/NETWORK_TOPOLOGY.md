@@ -1,9 +1,9 @@
 # NETWORK_TOPOLOGY
-VERSION=5
+VERSION=6
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214+activity_593184
+SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214+activity_593184+activity_593804
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/NETWORK_TOPOLOGY.md
@@ -42,6 +42,10 @@ constraint=network_facts_drift_fast;verify_before_use
 constraint=do_not_expose_tokens+credentials+private_keys
 constraint=remote_nodes_require_separate_live_verification
 constraint=ADB_connect_candidates_require_allowlist_identity_verification
+
+ORACLE_VM_SSH:
+host=150.230.148.128;alias=oracle-vm;user=ubuntu;remote_hostname=instance-20260201-1126;remote_os=Ubuntu_22.04_oracle_kernel_6.8.0-1054-oracle;ssh_key_path=/home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa;public_key_fingerprint=SHA256:cmihWRlHSLgX1YGGRx7zukWWql3Am4rCqCx/Hp27uXU;host_key=ED25519_SHA256:jeMdcW+n3CdSv33xHSLgLx8tO4L4Pk3h6ziTgre0wUE;verified=2026-07-14;activity=593804
+rule=private_key_never_in_docs_prompts_logs_git;secret_material_stored_only_under_ignored_protected_MegaVault_secrets_path
 
 OPEN:
 open=current_external_IP_UNKNOWN
