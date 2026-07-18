@@ -48,7 +48,7 @@ FINAL_GATE=verify_capsulization_before_final
 # HOST_PROFILE
 HOST_PROFILE=mandatory
 HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
-READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>docs/ai
+READ_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>HOST_PROFILE>project.metadata.json>docs/ai
 HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux,android
 UNKNOWN_RULE=mark_UNKNOWN
 
@@ -89,7 +89,7 @@ CANONICAL_NETWORK=ai/global/NETWORK_TOPOLOGY.md
 CANONICAL_STORAGE=ai/global/STORAGE_TOPOLOGY.md
 CANONICAL_ALERT=ai/global/ALERT_REGISTRY.md
 CANONICAL_INCIDENT=ai/global/INCIDENT_REGISTRY.md
-CANONICAL_PROJECT_INDEX=ai/GLOBAL_INDEX.md
+CANONICAL_PROJECT_INDEX=ai/GLOBAL_INDEX.md;role=mandatory_canonical_router;read=immediately_after_protocol
 CANONICAL_CODEX_TIMELINE_DB=codex_global_timeline.sqlite
 CANONICAL_CODEX_TIMELINE_REPORT=codex_global_timeline.md
 CANONICAL_CODEX_TIMELINE_AI=codex_global_timeline_ai.md
@@ -107,7 +107,7 @@ HISTORICAL_EXCEPTION=reports,changelogs,state_snapshots,premigration_docs_preser
 ANDROID_PROTOCOL=ai/ANDROID_PROTOCOL.md
 ANDROID_AUTHORITY=mandatory
 ANDROID_REQUIRED_FOR=android_projects,android_builds,android_releases,android_tooling
-ANDROID_READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>ANDROID_PROTOCOL>metadata>docs/ai
+ANDROID_READ_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>HOST_PROFILE>ANDROID_PROTOCOL>metadata>docs/ai
 
 # SOURCE_PRIORITY
 SRC_ORDER=HOST_PROFILE>metadata>code_reality>docs_ai>docs_human>legacy
@@ -116,11 +116,12 @@ IF_STALE=update_from_code
 INVENT_FACTS=forbidden
 
 # ENTRY
-ENTRY_ORDER=clean_check>protocol>host_profile>metadata>docs_ai>targeted_inspection>reuse>implementation
+ENTRY_ORDER=protocol>global_index>clean_check>host_profile>metadata>docs_ai>targeted_inspection>reuse>implementation
+PROTOCOL_READ=allowed_before_any_operational_command
 ENTRY_FORBID=repo_wide_scan,human_as_source,blind_copy
 
 # GIT
-CLEAN_REQUIRED=before+after
+CLEAN_REQUIRED=before_any_modification+after
 REMOTE_REQUIRED=yes
 SYNC_REQUIRED=yes
 PUSH_REQUIRED=yes
