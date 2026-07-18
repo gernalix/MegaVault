@@ -1,0 +1,21 @@
+# REPORTS_LATEST
+VERSION=1
+STATUS=AUTHORITATIVE_OPEN_RESULTS
+FORMAT=ultracompressed
+UPDATED=2026-07-18
+
+OPEN:
+activity=684327;topic=ExpressVPN_Fedora;status=PENDING_USER_LOGIN;installed=14.2.0+13656;service=enabled+active;next=authenticate_GUI>connection+DNS_leak+Network_Lock+reconnect_tests;source=activity_684327_expressvpn_fedora.md
+activity=847263;topic=RustDesk_Fedora;status=PASS_TECHNICAL+PENDING_MOBILE_TEST;service=vendor_system_service;next=test_remote_mobile_access;history=0b1fc4b8
+activity=638417;topic=AutoKey_Wayland;status=PENDING_POST_LOGIN_TEST;backup=recorded_in_Git_report;history=0b1fc4b8
+activity=846271;topic=Codex_native_restore;status=PARTIAL_REMOTE_SCOPE_BLOCKED;history=0b1fc4b8
+activity=20260713;topic=Logseq_Fedora_local;status=WARNING;use=installed_state_requires_targeted_revalidation;history=0b1fc4b8
+topic=Oracle_backup_remote_quota;status=UNRESOLVED_DEGRADED_CONTROLLED;remote=oci:bucket-20260206-0730;constraint=no_destructive_no-lock_prune_without_explicit_approval_or_quota_headroom;fallback=/var/lib/oracle_backup/emergency_repo;history=0b1fc4b8
+topic=Kuma_operations;status=OPEN;unknown=UI_API_auth+Telegram_delivery+HTTP_monitor_live_procedure;history=0b1fc4b8
+topic=T7_Restic;status=OPEN;warning=password_external_escrow_pending_user;authority=../global/STORAGE_TOPOLOGY.md
+
+CURRENT:
+activity=592184;topic=ActivityWatch_Fedora_Wayland;status=PASS_WITH_WARNING;runtime=aw-qt+aw-server+aw-awatcher+Chrome_web_watcher;bind=127.0.0.1:5600;warning=no_new_AFK_transition_during_190s_test_but_same_boot_AFk_events_exist;Firefox=out_of_scope_by_user;source=activity_592184_activitywatch_fedora44_wayland.md
+
+RULE:
+rule=remove_entry_when_resolved_or_superseded;append_closed_record_to_ARCHIVE.md
