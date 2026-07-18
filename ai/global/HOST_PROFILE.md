@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=12
+VERSION=13
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-14T20:05:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417
+UPDATED=2026-07-15T11:33:35+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716
 
 META:
 host=fedora
@@ -66,7 +66,7 @@ docker=not_installed service=absent
 podman=/usr/bin/podman version=5.8.4 role=optional_container_runtime
 
 ANDROID_CURRENT_FEDORA:
-android_studio=Flatpak_com.google.AndroidStudio version=2026.1.1.10 launch="flatpak run com.google.AndroidStudio"
+android_studio=user_official_Google_archive version=2026.1.2 build=AI-261.25134.95.2612.15822958 path=/home/daniele/.local/opt/android-studio launch=/home/daniele/.local/bin/android-studio desktop=/home/daniele/.local/share/applications/com.google.AndroidStudio.desktop owner=daniele writable=yes flatpak_removed=yes activity=483716
 android_sdk=/home/daniele/Android/Sdk
 ANDROID_HOME=/home/daniele/Android/Sdk
 ANDROID_SDK_ROOT=/home/daniele/Android/Sdk

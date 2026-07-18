@@ -62,7 +62,7 @@ CURRENT_SHELL=bash
 CURRENT_PACKAGE_MANAGER=dnf
 CURRENT_SERVICE_MANAGER=systemd
 CURRENT_PATH_STYLE=/home/daniele/...
-CURRENT_ANDROID_STUDIO=Flatpak_com.google.AndroidStudio;version=2026.1.1.10
+CURRENT_ANDROID_STUDIO=user_official_Google_archive;/home/daniele/.local/opt/android-studio;version=2026.1.2;build=AI-261.25134.95.2612.15822958;writable_by_daniele=yes
 CURRENT_ANDROID_SDK=/home/daniele/Android/Sdk
 CURRENT_JAVA_HOME=/usr/lib/jvm/java-25-openjdk
 CURRENT_CODEX_CLI=/usr/local/bin/codex;version=0.144.1

@@ -37,7 +37,7 @@ SDK_INSTALL_ALLOWED=yes
 ADB_INSTALL_ALLOWED=yes
 BUILD_BLOCKED=auto_repair
 HOST_FEDORA_PRIMARY=yes
-FEDORA_ANDROID_STUDIO=flatpak_run_com.google.AndroidStudio
+FEDORA_ANDROID_STUDIO=/home/daniele/.local/bin/android-studio;install=user_official_Google_archive;writable_by_daniele=yes
 FEDORA_ANDROID_SDK=/home/daniele/Android/Sdk
 FEDORA_ADB=/home/daniele/Android/Sdk/platform-tools/adb
 FEDORA_SDKMANAGER=/home/daniele/Android/Sdk/cmdline-tools/latest/bin/sdkmanager

@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=21
+VERSION=23
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-14T20:05:00+02:00
-SOURCE=tool_versions_live_2026-07-14+HOST_PROFILE+flatpak+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417
+UPDATED=2026-07-18T19:32:46+02:00
+SOURCE=tool_versions_live_2026-07-18+HOST_PROFILE+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417+activity_483716+activity_592184
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -22,7 +22,7 @@ tool=pipx;path=/usr/bin/pipx;version=1.15.0;critical=yes
 tool=uv;path=/usr/bin/uv;version=0.11.26;critical=yes
 tool=java;path=/usr/bin/java;JAVA_HOME=/usr/lib/jvm/java-25-openjdk;version=OpenJDK_25.0.3;critical=yes
 tool=rg;path=Codex_bundle;version=15.1.0;critical=yes
-tool=flatpak;path=PATH;critical=yes_for_Android_Studio
+tool=flatpak;path=PATH;critical=no_for_Android_Studio_after_activity_483716
 tool=OpenSSH;path=/usr/bin/ssh;version=10.2p1;config_dir=/home/daniele/.ssh;config_dir_status=absent;critical=yes
 tool=Docker;path=missing;service=absent;version=not_installed;critical=no
 tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_container_runtime
@@ -75,17 +75,18 @@ compatibility=wrapper_filters_invalid_EV_ABS_from_combined_uinput_device_for_GNO
 dependencies=gnome-extensions-app_50.2+python3-magic_0.4.27+python3-pyasyncore_1.0.4+python3-pydbus_0.6.0+preexisting_wl-clipboard_python3-evdev_python3-pyudev;removed_replaced_dependency=python3-file-magic;xautomation=not_installed_X11_only_optional
 tests=GTK_Wayland_hotkey+clipboard_phrase_PASS;Chrome_native_Wayland_hotkey+clipboard_phrase_PASS;Zenity_XWayland_hotkey+clipboard_phrase_PASS;GUI_visible+single_instance_PASS;real_extension+menu_launch+systemd_autostart_after_logout_login=PENDING
 event_date=2026-07-13;summary=AutoKey_0.97.4_Wayland_installed_hardened_and_native_input_validated;status=PENDING_TEST_POST_LOGIN;source_ref=activity_638417
-app=ActivityWatch;version=v0.13.2;install=official_ActivityWatch_GitHub_linux_x86_64_zip_user_flat;path=/home/daniele/.local/opt/activitywatch;dashboard=http://127.0.0.1:5600;desktop=none;status=PENDING_POST_LOGIN
+app=ActivityWatch;version=v0.13.2;install=official_ActivityWatch_GitHub_linux_x86_64_zip_user_flat;path=/home/daniele/.local/opt/activitywatch;dashboard=http://127.0.0.1:5600;desktop=none;status=ACTIVE_VERIFIED
 asset=activitywatch-v0.13.2-linux-x86_64.zip;sha256=8f62b10babf8a8f108cbdf7267c02fbc1ce2a970fa9535f230b3416b803e3360;release=https://github.com/ActivityWatch/activitywatch/releases/tag/v0.13.2;latest_stable_verified=yes;prerelease_v0.14.0b1_excluded=yes;published_checksum_or_signature=none_found
-wayland=standard_aw-qt_watchers_disabled;aw-awatcher_0.3.3_official_RPM_installed;focused-window-dbus_v11_installed_enabled_in_gsettings_requires_next_GNOME_login_to_load;no_proxy_no_timer_no_watchdog
+wayland=standard_aw-qt_watchers_disabled;aw-awatcher_0.3.3_official_RPM_active;focused-window-dbus_v11_enabled+active;no_proxy_no_timer_no_watchdog
 runtime=activitywatch.service+activitywatch-wayland-watcher.service;server_exec=/home/daniele/.local/opt/activitywatch/aw-qt_--no-gui_--autostart-modules_aw-server;watcher_exec=/usr/bin/aw-awatcher;server=127.0.0.1:5600;extra_runtime_layers=none;linger_not_required
-validation=systemd_verify_PASS+server_enabled_active+watcher_enabled_inactive_until_login+API_PASS+dashboard_http_200+SQLite_integrity_ok+direct_aw-awatcher_to_aw-server_PASS_no_5601+standard_watchers_absent+duplicates_absent;AFK=direct_test_events_written;window_events=PENDING_POST_LOGIN_DBUS_extension_load
+validation=systemd_verify_PASS+server_enabled_active+watcher_enabled_active+API_PASS_v0.13.2+dashboard_http_200+SQLite_integrity_ok+window_events_real+AFK_events_same_boot+Chrome_web_events+no_5601+standard_watchers_absent+duplicates_absent;warning=no_new_AFK_transition_during_190s_test;Firefox=out_of_scope_by_user
 maintenance=manual_update_replace_official_zip_after_stop;rollback=restore_backup_or_previous_program_dir_preserve_data;custom_update_rollback_scripts_removed
 event_date=2026-07-14;summary=ActivityWatch_v0.13.2_simplified_to_single_aw-qt_server_service_after_removing_custom_layers;status=PENDING_WITH_WAYLAND_WATCHER_LIMIT;source_ref=activity_284617
 event_date=2026-07-14;summary=ActivityWatch_Wayland_watchers_prepared_with_official_aw-awatcher_and_Focused_Window_DBus;status=PENDING_POST_LOGIN;source_ref=activity_735804
+event_date=2026-07-18;summary=ActivityWatch_Wayland_runtime+Chrome_web_tracking_verified;status=PASS_WITH_WARNING;source_ref=activity_592184
 
 ANDROID_TOOLS_CURRENT:
-tool=Android_Studio;install=Flatpak_com.google.AndroidStudio;version=2026.1.1.10;launch=flatpak_run_com.google.AndroidStudio;critical=yes
+tool=Android_Studio;install=user_official_Google_Linux_archive;version=Quail_2_2026.1.2;build=AI-261.25134.95.2612.15822958;path=/home/daniele/.local/opt/android-studio;launcher=/home/daniele/.local/bin/android-studio;desktop=/home/daniele/.local/share/applications/com.google.AndroidStudio.desktop;owner=daniele:daniele;writable_by_daniele=yes;source=https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.1.2.10/android-studio-quail2-linux.tar.gz;sha256=64445a54092e7056c6eb7f1a89ad116d0feec2ef5f965b8e594d62abdb58590f;old_flatpak=com.google.AndroidStudio_2026.1.1.10_removed_without_delete_data;critical=yes;activity=483716
 tool=Android_SDK;path=/home/daniele/Android/Sdk;ANDROID_HOME=/home/daniele/Android/Sdk;ANDROID_SDK_ROOT=/home/daniele/Android/Sdk;critical=yes
 tool=adb;path=/home/daniele/Android/Sdk/platform-tools/adb;version=1.0.41/37.0.0-14910828;critical=yes
 tool=sdkmanager;path=/home/daniele/Android/Sdk/cmdline-tools/latest/bin/sdkmanager;critical=yes
@@ -96,7 +97,7 @@ package_ops=dnf
 service_ops=systemctl+systemctl_--user
 storage_ops=findmnt,lsblk,df
 shell_ops=bash
-android_ops=flatpak,adb,sdkmanager,java,project_Gradle_wrapper
+android_ops=user_Android_Studio_archive,adb,sdkmanager,java,project_Gradle_wrapper
 
 OPEN:
 open=T7_Restic_password_external_escrow_pending_user
