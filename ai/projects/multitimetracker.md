@@ -1,15 +1,16 @@
 META:
 name=MultiTimeTracker
 slug=multitimetracker
-path=/home/daniele/codex-workspace/projects/MultiTimeTracker
+path=/home/daniele/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
-branch=codex/v488-release-safe-ui-lockdown
-verified_commit=9c7510d
-verified_at=2026-06-15T16:02:18+02:00
+branch=codex/731684-fedora-environment-adaptation
+verified_commit=971649d7e20df057fe7ca523868673bab2357e0d
+verified_at=2026-07-18T19:32:46+02:00
+metadata=/home/daniele/projects/MultiTimeTracker/dev/project.metadata.json
 protocol=MEGAVAULT_PROTOCOL.md:v11
 merge_20260705=retains_local_v527_v534_persistence_capsule_device_history_and_adds_github_master_v535_play_store_readiness_below
-current_github_branch=master
-current_github_commit=44c2b33e53ce98e02f95437bd5bc7eb3f16aa688
+historical_github_branch_20260705=master
+historical_github_commit_20260705=44c2b33e53ce98e02f95437bd5bc7eb3f16aa688
 PURPOSE:
 purpose=local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model
 STACK:
