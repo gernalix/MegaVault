@@ -1,6 +1,6 @@
 # Inventario software globale
 
-Aggiornato: 2026-07-14. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
+Aggiornato: 2026-07-18. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
 
 ## Tool Fedora verificati
 
@@ -10,12 +10,13 @@ Aggiornato: 2026-07-14. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/gl
 - OpenJDK 25.0.3 con `JAVA_HOME=/usr/lib/jvm/java-25-openjdk`.
 - OpenSSH 10.2p1 in `/usr/bin/ssh`; il path standard `~/.ssh` (`/home/daniele/.ssh`) non e' ancora presente.
 - Docker non e' installato e non ha una unit systemd; Podman 5.8.4 e' disponibile come runtime opzionale.
-- Fedora System Monitor 1.1.1 e' installato in `/usr/local/libexec/fedora-system-monitor` con CLI `/usr/local/bin/fedora-system-monitor`; include dashboard, timeline, trend, storico servizi e Prometheus locale opzionale. I watcher Host/Storage e i cinque push Kuma sono stati verificati live nell'attivita' 471853.
+- Fedora System Monitor 1.2.0 e' installato in `/usr/local/libexec/fedora-system-monitor` con CLI `/usr/local/bin/fedora-system-monitor`; include pressione memoria composta, SMART dettagliato, salute batteria e Btrfs oltre a dashboard, timeline, trend e Prometheus opzionale. Sono passati 100 test e i collector live `minute`/`daily` nell'attivita' 962417.
 - Restic 0.19.0 e' installato in `/usr/bin/restic`; repository cifrato T7,
   avvio automatico udev al collegamento, manutenzione condizionale, smontaggio e
   notifiche sono verificati nell'attivita' 684219; check completo e restore
   restano verificati dall'attivita' 583921.
 - Smartmontools 7.5, nvme-cli 2.16, lm_sensors 3.6 e SQLite 3.51 erano gia' disponibili. L'attivita' 593184 ha aggiunto i pacchetti Fedora Python Socket.IO e compressione necessari soltanto al provisioning amministrativo Kuma; i collector ordinari restano standard-library.
+- Snapper 0.13.0, btrfsmaintenance 0.5.2 e il plugin actions DNF5 5.4.2.1 gestiscono snapshot root, retention, cleanup, scrub e snapshot pre-transazione. Il repository Terra inutilizzato e con firma metadata non valida è stato disabilitato con backup.
 - Android Studio Flatpak `com.google.AndroidStudio` 2026.1.1.10; avvio con `flatpak run com.google.AndroidStudio`.
 - VLC 3.0.23 e' installato una sola volta come Flatpak Flathub `org.videolan.VLC`. Il precedente Flatpak Fedora `org.videolan.vlc` usava nel runtime Fedora una libreria `noopenh264` fittizia e non poteva creare il decoder H.264; e' stato sostituito nell'attivita' `684271`. La decodifica H.264 FFmpeg, il rendering video, il linkage dei plugin e l'integrita' Flatpak sono verificati. Nessun RPM multimediale e' stato modificato.
 - Android SDK: `/home/daniele/Android/Sdk`; ADB `1.0.41 / 37.0.0-14910828`; `sdkmanager` sotto `cmdline-tools/latest/bin`.

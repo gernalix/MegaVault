@@ -1,11 +1,12 @@
 # Topologia storage globale
 
-Aggiornato: 2026-07-12. Autorita' operativa: [STORAGE_TOPOLOGY AI](../../ai/global/STORAGE_TOPOLOGY.md).
+Aggiornato: 2026-07-18. Autorita' operativa: [STORAGE_TOPOLOGY AI](../../ai/global/STORAGE_TOPOLOGY.md).
 
 ## Stato Fedora corrente
 
 - Host `fedora`, Lenovo ThinkPad P14s Gen 5 AMD.
-- Root e `/home`: Btrfs cifrato LUKS su Kioxia NVMe da circa 951 GiB; circa 844 GiB disponibili al controllo.
+- Root e `/home`: Btrfs cifrato LUKS su Kioxia NVMe da circa 951 GiB. Root e home sono subvolumi separati; `nodiscard` è esplicito e il trim resta settimanale.
+- Snapper protegge soltanto root con snapshot periodici e pre-transazione DNF5, retention e cleanup. Lo scrub read-only è mensile; il collaudo su 41,18 GiB e i device stats sono senza errori.
 - Home corrente: `/home/daniele`; repo: `/home/daniele/MegaVault`.
 - Seagate 3.5 TiB: `/run/media/daniele/Seagate Expansion Drive`; volume NTFS 155.9 GiB: `/run/media/daniele/09FA16D309FA16D3`.
 - Samsung chiamato `T7`: normalmente scollegato oppure presente USB ma smontato;

@@ -176,3 +176,12 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Verifica: lo stesso campione MP4 H.264 Baseline falliva prima con `Unable to create decoder`; dopo il fix VLC `avcodec` ha ricevuto il primo frame, il rendering video e' terminato con codice 0, `ffmpeg` e `ffplay` sono PASS, `dnf check` e `flatpak repair --dry-run` sono PASS.
 - Limiti: file originale non fornito; `mpv` non installato; `libpostproc` host assente ma non necessario per H.264.
 - Report: `ai/reports/prompt_684271_vlc_h264_fedora.md`.
+
+## ZRAM_OCCUPANCY_MISCLASSIFIED_AS_MEMORY_PRESSURE
+
+- Timestamp: dal `2026-07-14T10:15:00Z` al recovery `2026-07-18T18:40:34Z`; stato `RESOLVED`, gravità `HIGH`.
+- Sintomo: Fedora Host risultava DOWN per la sola percentuale di zram occupata.
+- Root cause: `swap.used_percent` equiparava memoria compressa utile a pressione memoria senza verificare MemAvailable, PSI, velocità swap, reclaim o OOM.
+- Fix: Fedora System Monitor 1.2.0 mantiene l’occupazione zram informativa e genera alert soltanto da `memory.pressure_level` composto.
+- Verifica: MemAvailable 68,752%, PSI zero, pressione zero, rapporto di compressione 2,857x, writeback e OOM delta zero; collector live `minute` e `daily` entrambi `ok`.
+- Commit progetto: `7f91e2316887`; attività `962417`.

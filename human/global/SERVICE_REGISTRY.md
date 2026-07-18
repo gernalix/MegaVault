@@ -1,14 +1,14 @@
 # Service Registry
 
-Aggiornato: 2026-07-14. Autorita' operativa: [SERVICE_REGISTRY AI](../../ai/global/SERVICE_REGISTRY.md).
+Aggiornato: 2026-07-18. Autorita' operativa: [SERVICE_REGISTRY AI](../../ai/global/SERVICE_REGISTRY.md).
 
 ## Fedora corrente
 
 Il system manager e lo user manager systemd risultano `running`. Tra i servizi rilevanti verificati sono attivi NetworkManager, firewalld, DNF daemon, fwupd, smartd, systemd-oomd, udisks2 e GDM; nella sessione utente sono attivi GNOME, Flatpak portal, PipeWire, WirePlumber e XDG portal.
 
-Timer di sistema rilevanti: `dnf-makecache`, `fstrim`, `logrotate` e `systemd-tmpfiles-clean`.
+Timer di sistema rilevanti: `dnf-makecache`, `fstrim`, `logrotate`, `systemd-tmpfiles-clean`, `snapper-timeline`, `snapper-cleanup`, `btrfs-scrub` e `fwupd-refresh`. `raid-check.timer` è disabilitato perché non esistono array MD.
 
-Fedora System Monitor 1.1.1 è verificato e attivo: daemon journal, lifecycle, collector, quattro timer, path software e template udev sono operativi. Dashboard, timeline, trend e storico servizi leggono il DB esistente. Il suo exporter read-only su `127.0.0.1:9109` e' ora avviato come dipendenza di Prometheus, senza modificare collector o Kuma. I 93 test e 18 self-check passano; soltanto il collector giornaliero conserva `CAP_SYS_ADMIN` per NVMe.
+Fedora System Monitor 1.2.0 è verificato e attivo: daemon journal, lifecycle, collector, quattro timer, path software e template udev sono operativi. Dashboard, timeline, trend e storico servizi leggono il DB esistente. Il suo exporter read-only su `127.0.0.1:9109` e' avviato come dipendenza di Prometheus. I 100 test e 18 self-check passano; soltanto il collector giornaliero conserva `CAP_SYS_ADMIN` per NVMe.
 
 Prometheus 3.13.0 (`prometheus.service`) e Node Exporter 1.11.1 (`prometheus-node-exporter.service`) sono abilitati e attivi, con restart su errore e listener esclusivamente `127.0.0.1:9090` e `127.0.0.1:9100`. Prometheus conserva al massimo 30 giorni o 5 GB. `fedora-diagnostics` e' un comando manuale, senza servizio o timer periodico.
 

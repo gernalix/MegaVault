@@ -1,4 +1,4 @@
-VERSION=5
+VERSION=6
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -320,3 +320,21 @@ Commit_correlati=this MegaVault activity commit
 Prompt_correlati=684271
 Tempo_totale_di_impatto=UNKNOWN before report;technical repair and validation completed 2026-07-13T19:00:00Z
 Note=Original user file path was not supplied,so a controlled MP4/H264 Baseline/yuv420p/AAC LC sample proved the same generic failure and fix. mpv was not installed and was not added only as a test dependency. Host libpostproc is absent but unrelated to H264 and disabled in both VLC builds. Old lowercase Flatpak app data remains preserved at /home/daniele/.var/app/org.videolan.vlc.
+
+INCIDENT:
+Incident_ID=ZRAM_OCCUPANCY_MISCLASSIFIED_AS_MEMORY_PRESSURE
+Titolo=Fedora Host marked DOWN for normal compressed zram occupancy
+Data_prima_comparsa_UTC=2026-07-14T10:15:00Z
+Data_ultima_comparsa_UTC=2026-07-18T18:40:34Z
+Numero_occorrenze=1 persistent false category state
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=Fedora System Monitor 1.1.1 alerted directly on swap.used_percent,which measured normal zram occupancy without requiring evidence from MemAvailable,PSI,swap rate,reclaim,or OOM.
+Sistemi_coinvolti=Fedora 44 host;zram-generator;fedora-system-monitor;SQLite;Uptime Kuma Fedora Host ID39
+Alert_coinvolti=swap.used_percent;Fedora Host ID39
+Tentativi_effettuati=Live zram configuration and compression audit;MemAvailable and PSI baseline;vmstat swap/reclaim/OOM sampling;7-day Prometheus history;installed minute and daily collector tests.
+Soluzione_finale=Fedora System Monitor 1.2.0 keeps zram use informational and alerts only on composite memory.pressure_level using independent pressure evidence;legacy swap threshold keys migrate safely.
+Commit_correlati=fedora-system-monitor 7f91e2316887
+Prompt_correlati=962417
+Tempo_totale_di_impatto=User-visible Host false warning persisted from the prior audit until recovery at 2026-07-18T18:40:34Z.
+Note=Post-fix memory available 68.752 percent,PSI zero,pressure level zero,zram compression 2.857x,writeback zero,OOM delta zero;Storage alerts remain separate and real. Project evidence=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_962417.md

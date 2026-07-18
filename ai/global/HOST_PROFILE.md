@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=13
+VERSION=14
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-15T11:33:35+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716
+UPDATED=2026-07-18T20:45:27+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716+activity_962417
 
 META:
 host=fedora
@@ -22,7 +22,7 @@ centralization=host/system/storage/Android_tooling_constraints_authoritative_her
 
 HOST_SYSTEM_CURRENT:
 os=Fedora_Linux_44_Workstation
-kernel=7.1.3-200.fc44.x86_64
+kernel=7.1.3-201.fc44.x86_64
 arch=x86_64
 hostname=fedora
 user_home=/home/daniele
@@ -41,7 +41,7 @@ gpu=Radeon_780M_integrated
 constraints=laptop_power/thermal_profile,verify_sudo_requirement,use_Fedora_commands_and_mounts
 
 STORAGE_CURRENT_FEDORA:
-root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=844GiB mounts=/,/home
+root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB mounts=/,/home options=nodiscard weekly_fstrim=yes monthly_readonly_scrub=yes snapper=root_only activity=962417
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
 external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs size=3.5TiB source=udisks_encrypted_volume_mapping
 external_ntfs=/run/media/daniele/09FA16D309FA16D3 size=155.9GiB role=UNKNOWN
@@ -72,7 +72,7 @@ ANDROID_HOME=/home/daniele/Android/Sdk
 ANDROID_SDK_ROOT=/home/daniele/Android/Sdk
 adb=/home/daniele/Android/Sdk/platform-tools/adb version=1.0.41/37.0.0-14910828
 sdkmanager=/home/daniele/Android/Sdk/cmdline-tools/latest/bin/sdkmanager
-adb_os=Linux_7.1.3-200.fc44.x86_64
+adb_os=Linux_7.1.3-201.fc44.x86_64
 adb_rule=verify_with_adb_devices_-l;device_IPs_and_pairing_drift
 
 CODEX_CURRENT_FEDORA:
