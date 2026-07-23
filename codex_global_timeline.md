@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-14T20:17:58+02:00
+Generated: 2026-07-23T02:48:12+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 732
+Total events: 733
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,7 +15,7 @@ Total events: 732
 
 | Value | Events |
 |---|---:|
-| megavault | 186 |
+| megavault | 187 |
 | amici-fb | 104 |
 | luoghi-app | 68 |
 | multitimetracker | 43 |
@@ -79,7 +79,7 @@ Total events: 732
 | docs | 80 |
 | release | 52 |
 | testing | 47 |
-| bugfix | 41 |
+| bugfix | 42 |
 | automation | 25 |
 | infra | 16 |
 | migration | 13 |
@@ -89,7 +89,7 @@ Total events: 732
 
 | Value | Events |
 |---|---:|
-| P1 | 380 |
+| P1 | 381 |
 | P0 | 182 |
 | P2 | 160 |
 | P3 | 10 |
@@ -100,7 +100,7 @@ Total events: 732
 |---|---:|
 | UNKNOWN | 260 |
 | PASS | 193 |
-| WARN | 153 |
+| WARN | 154 |
 | FAIL | 65 |
 | OPEN | 61 |
 
@@ -108,6 +108,7 @@ Total events: 732
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-23 | megavault | Display WiFi idle fix | bugfix | WARN | P1 | report | markdown | activity 641827 display wifi idle |
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6064-57d6-7ca3-bdb2-8c19a5f930ad |
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6107-fde7-7821-8236-4a28b19ff35d |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |
@@ -127,7 +128,6 @@ Total events: 732
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics Prometheus+Node_Exporter+global_fedora-diagnostics+MegaVault_docs+timeline | security | WARN | P1 | doc_event | markdown | Prometheus+Node_Exporter+global_fedora-diagnostics+MegaVault_docs+timeline |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics Troubleshooting | automation | WARN | P1 | doc_event | markdown | Troubleshooting |
 | 2026-07-14 | fedora-diagnostics | fedora-diagnostics v1 | security | OPEN | P1 | changelog | markdown | PROJECT |
-| 2026-07-14 | fedora-diagnostics | fedora-diagnostics v1 | security | WARN | P1 | report | markdown | Fedora Diagnostics Operations |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -316,7 +316,7 @@ Total events: 732
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
 
 ## Projects
-- `megavault`: 186 events; latest=2026-07-14; label=Codex Timeline
+- `megavault`: 187 events; latest=2026-07-23; label=Display WiFi idle fix
 - `amici-fb`: 104 events; latest=2026-07-14; label=Amici FB amici 2026
 - `luoghi-app`: 68 events; latest=2026-07-10; label=luoghi-app v11
 - `multitimetracker`: 43 events; latest=2026-07-14; label=MTT v537
@@ -374,6 +374,7 @@ Total events: 732
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-23 | megavault | Display WiFi idle fix | bugfix | WARN | P1 | report | markdown | activity 641827 display wifi idle |
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6064-57d6-7ca3-bdb2-8c19a5f930ad |
 | 2026-07-14 | 2026 | 2026 luoghi-app 10.apk | security | WARN | P0 | changelog | codex_log | 019f6107-fde7-7821-8236-4a28b19ff35d |
 | 2026-07-14 | 2026 | 2026 v537 | security | WARN | P0 | changelog | codex_log | 019f6062-76d1-7993-9759-ad98cd358f7c |

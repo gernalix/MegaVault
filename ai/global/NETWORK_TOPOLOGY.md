@@ -1,9 +1,9 @@
 # NETWORK_TOPOLOGY
-VERSION=8
+VERSION=9
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214+activity_593184+activity_593804+activity_471853+activity_826417
+SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214+activity_593184+activity_593804+activity_471853+activity_826417+activity_641827
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/NETWORK_TOPOLOGY.md
@@ -23,6 +23,7 @@ relation=Prometheus_scrapes_127.0.0.1:9090+9100+9109;Uptime_Kuma_egress_independ
 risk=HTTP_does_not_protect_push_endpoint_or_status_from_on_path_observers;HTTPS_migration_recommended
 wifi_interface=wlp2s0
 wifi_state=UP
+wifi_power_policy=NetworkManager_global_wifi.powersave_2+iw_power_save_off;driver=ath11k_pci;PCI_runtime_control=on;verified=2026-07-23;activity=641827
 lan_ipv4=192.168.1.231/24
 default_gateway=192.168.1.1
 ethernet_interface=enp1s0f0

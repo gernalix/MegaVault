@@ -176,3 +176,13 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Verifica: lo stesso campione MP4 H.264 Baseline falliva prima con `Unable to create decoder`; dopo il fix VLC `avcodec` ha ricevuto il primo frame, il rendering video e' terminato con codice 0, `ffmpeg` e `ffplay` sono PASS, `dnf check` e `flatpak repair --dry-run` sono PASS.
 - Limiti: file originale non fornito; `mpv` non installato; `libpostproc` host assente ma non necessario per H.264.
 - Report: `ai/reports/prompt_684271_vlc_h264_fedora.md`.
+
+## GNOME_IDLE_SUSPEND_WIFI_SLEEP
+
+- Timestamp UTC confermati: dal `2026-07-22T20:35:44Z` al `2026-07-22T23:39:36Z`; stato `RESOLVED`, gravita' `HIGH`; warning: test runtime fisico a batteria non eseguito.
+- Sintomo: dopo inattivita' il display si spegneva e il Wi-Fi si disconnetteva.
+- Root cause: `idle-delay=0` disabilitava il blanking desktop, ma GNOME Power conservava un secondo criterio indipendente: dopo 900 secondi eseguiva `suspend` sia con alimentatore sia a batteria. Il journal prova che NetworkManager disconnetteva `wlp2s0` con motivo `sleeping` subito dopo la richiesta di sospensione. Inoltre il powersave Wi-Fi era realmente attivo.
+- Fix: timeout AC e batteria a `0`, azione inattiva `nothing`, idle dim disabilitato; drop-in globale NetworkManager `wifi.powersave=2` e powersave ath11k corrente disattivato. Sospensione, ibernazione e blocco manuali restano disponibili.
+- Verifica: 600,594 secondi continui di inattivita' reale con pannello `DPMS=On`, Wi-Fi associato, powersave `off`, gateway raggiungibile e nessun nuovo evento suspend/disconnect. Prova fisica su AC; configurazione batteria verificata ma alimentatore non scollegato.
+- Backup: `/home/daniele/.local/state/activity-641827/backups/20260723T020636+0200`.
+- Report: `ai/reports/activity_641827_display_wifi_idle.md`.

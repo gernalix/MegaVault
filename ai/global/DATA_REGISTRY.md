@@ -1,9 +1,9 @@
 # DATA_REGISTRY
-VERSION=9
+VERSION=10
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_filesystem_checks_2026-07-14+MegaVault_timeline_SQLite+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417
+SOURCE=Fedora_filesystem_checks_2026-07-23+MegaVault_timeline_SQLite+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_641827
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/DATA_REGISTRY.md
@@ -19,7 +19,7 @@ db=codex_global_timeline.sqlite;owner=MegaVault;path=/home/daniele/MegaVault/cod
 db=monitor.sqlite3;owner=fedora-system-monitor;path=/var/lib/fedora-system-monitor/monitor.sqlite3;schema=2;mode=WAL;owner_mode=root:daniele_0640;size_2026-07-10_audit=14032896;integrity=ok;foreign_keys=ok;backup=/var/lib/fedora-system-monitor/backups;retention=complete_UTC_daily_aggregates;projection_14d=484835328;projection_60d=942552152;projection_180d=1075346602;projection_365d=1155609353;backup_365d_upper=39290718002;activity=593184
 tsdb=Prometheus;path=/var/lib/prometheus/metrics2;owner=prometheus:prometheus;retention=30d+5GB_first_limit;measured_growth_60s=96974B;projection_about_140MB_per_day+4.2GB_per_30d;raw_copy_to_diagnostics=forbidden;activity=826417
 archive=fedora-diagnostics;default_output=user_selected;mode=0600;format=single_root_ZIP+CSV+JSON+SHA256;retention=manual_user_owned;activity=826417
-db=incident_registry.sqlite;owner=MegaVault_global_incidents;path=/home/daniele/sync_root/db/incident_registry.sqlite;mode=WAL;owner_mode=daniele:daniele_0600;tables=incidents+incident_events;integrity=ok;bootstrap_activity=593184
+db=incident_registry.sqlite;owner=MegaVault_global_incidents;path=/home/daniele/sync_root/db/incident_registry.sqlite;mode=WAL;owner_mode=daniele:daniele_0600;tables=incidents+incident_events;integrity=ok;latest_incident=GNOME_IDLE_SUSPEND_WIFI_SLEEP_RESOLVED;backup=/home/daniele/.local/state/activity-641827/backups/20260723T020636+0200/incident_registry.before.sqlite;activity=593184+641827
 db=activitywatch_peewee;owner=ActivityWatch;path=/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db;mode=SQLite;owner_mode=daniele:daniele_0644;tables=bucketmodel+eventmodel;integrity=ok;bucket_count_2026-07-14=3;event_count_2026-07-14=55;program_updates_preserve_data=yes;activity=284617+735804
 
 EXPECTED_PROJECT_DBS_CHECKED:

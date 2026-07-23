@@ -1,4 +1,4 @@
-VERSION=5
+VERSION=6
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -320,3 +320,21 @@ Commit_correlati=this MegaVault activity commit
 Prompt_correlati=684271
 Tempo_totale_di_impatto=UNKNOWN before report;technical repair and validation completed 2026-07-13T19:00:00Z
 Note=Original user file path was not supplied,so a controlled MP4/H264 Baseline/yuv420p/AAC LC sample proved the same generic failure and fix. mpv was not installed and was not added only as a test dependency. Host libpostproc is absent but unrelated to H264 and disabled in both VLC builds. Old lowercase Flatpak app data remains preserved at /home/daniele/.var/app/org.videolan.vlc.
+
+INCIDENT:
+Incident_ID=GNOME_IDLE_SUSPEND_WIFI_SLEEP
+Titolo=GNOME inactivity suspension turned off the display and disconnected WiFi
+Data_prima_comparsa_UTC=2026-07-22T20:35:44Z
+Data_ultima_comparsa_UTC=2026-07-22T23:39:36Z
+Numero_occorrenze=4 confirmed suspend sequences in current boot before fix
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=GNOME Settings Daemon Power retained Fedora defaults of 900 seconds plus suspend for both AC and battery even though desktop idle-delay was already zero; each idle suspend caused NetworkManager to disconnect wlp2s0 explicitly with reason sleeping. Separately the WiFi profile inherited default powersave and the ath11k driver reported power save on.
+Sistemi_coinvolti=Fedora 44 host;GNOME Wayland;gnome-settings-daemon Power;systemd-logind;systemd sleep targets;NetworkManager;wlp2s0;ath11k_pci;QCNFA765
+Alert_coinvolti=User-visible display off and WiFi disconnected after inactivity;system journal suspend and NetworkManager sleeping transitions
+Tentativi_effettuati=Targeted audit of gsettings,dconf,schema defaults,GNOME idle and power plugin,Mutter DPMS,extensions,PPD/TuneD/TLP,logind,sleep targets,inhibitors,NetworkManager,iw,rfkill,driver,modinfo,modprobe,udev,kernel command line,PCI runtime PM,ASPM relevance and journal causality;real continuous idle test.
+Soluzione_finale=Set GNOME AC and battery inactive timeouts to zero and actions to nothing,disabled idle dimming,kept idle-delay zero and every manual sleep target unmasked;added NetworkManager global wifi.powersave=2,then reloaded,reapplied and disabled current ath11k link powersave. No BIOS,kernel,udev,modprobe,logind,tuned or profile edits were needed.
+Commit_correlati=this MegaVault activity commit
+Prompt_correlati=641827
+Tempo_totale_di_impatto=At least four confirmed suspensions between 2026-07-22T20:35:44Z and 2026-07-22T23:39:36Z; earlier user-visible duration UNKNOWN.
+Note=Post-fix continuous idle reached 600594 ms with Mutter PowerSaveMode 0,eDP-1 DPMS On,wlp2s0 associated,power save off,gateway reachable and zero suspend or sleeping-disconnect markers. AC was physically online; battery policy readback is correct but a physical unplugged 10-minute run was not performed. Backups are under /home/daniele/.local/state/activity-641827/backups/20260723T020636+0200.

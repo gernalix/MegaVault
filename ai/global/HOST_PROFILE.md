@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=13
+VERSION=14
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-15T11:33:35+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716
+UPDATED=2026-07-23T02:38:31+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716+activity_641827
 
 META:
 host=fedora
@@ -92,6 +92,11 @@ prometheus=/usr/bin/prometheus;version=3.13.0;service=enabled+active;bind=127.0.
 node_exporter=/usr/bin/node_exporter;version=1.11.1;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
 diagnostics=/usr/local/bin/fedora-diagnostics;version=1.0.0;default=7d;archive=single_sanitized_0600_ZIP;activity=826417
 relationship=Prometheus_historical_metrics;Uptime_Kuma_synthetic_UP_DOWN_unchanged;fedora-system-monitor_readonly_target=127.0.0.1:9109
+
+POWER_POLICY_CURRENT:
+desktop=GNOME_Wayland;idle-delay=0;idle-dim=false;sleep-inactive-ac-timeout=0;sleep-inactive-ac-type=nothing;sleep-inactive-battery-timeout=0;sleep-inactive-battery-type=nothing;manual_suspend_targets=preserved_unmasked;manual_lock_key=Super_L;verified=2026-07-23;activity=641827
+wifi=wlp2s0_QCNFA765_ath11k_pci;NetworkManager_global_wifi.powersave=2;iw_power_save=off;PCI_runtime_control=on;rfkill=unblocked;verified=2026-07-23;activity=641827
+power_stack=tuned+tuned-ppd_active;profile=throughput-performance;power-profiles-daemon=absent;TLP=absent;logind_IdleAction=ignore;activity=641827
 
 REMOTE_ACCESS_CURRENT:
 client=RustDesk;version=1.4.9;install=official_x86_64_RPM_via_DNF;path=/usr/bin/rustdesk

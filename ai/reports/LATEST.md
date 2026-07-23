@@ -2,7 +2,7 @@
 VERSION=1
 STATUS=AUTHORITATIVE_OPEN_RESULTS
 FORMAT=ultracompressed
-UPDATED=2026-07-18
+UPDATED=2026-07-23
 
 OPEN:
 activity=684327;topic=ExpressVPN_Fedora;status=AUTHENTICATED+DISCONNECTED;installed=14.2.0+13656;service=enabled+active;region=denmark;network_lock=enabled_when_connected;next=connection+DNS_leak+Network_Lock+reconnect_tests_only_if_user_requests_network_change;source=activity_684327_expressvpn_fedora.md;verified=live_519684
@@ -15,6 +15,7 @@ topic=Kuma_operations;status=OPEN;unknown=UI_API_auth+Telegram_delivery+HTTP_mon
 topic=T7_Restic;status=OPEN;warning=password_external_escrow_pending_user;authority=../global/STORAGE_TOPOLOGY.md
 
 CURRENT:
+activity=641827;topic=Fedora_display+WiFi_idle;status=PASS_WITH_WARNING;cause=GNOME_900s_auto_suspend+WiFi_driver_powersave_on;fix=GNOME_AC+battery_never_suspend_on_idle+NetworkManager_global_wifi.powersave_2;validation=600s_continuous_idle_AC_panel_On+WiFi_connected+zero_suspend;warning=battery_runtime_not_physically_tested;source=activity_641827_display_wifi_idle.md
 activity=592184;topic=ActivityWatch_Fedora_Wayland;status=PASS_WITH_WARNING;runtime=aw-qt+aw-server+aw-awatcher+Chrome_web_watcher;bind=127.0.0.1:5600;warning=no_new_AFK_transition_during_190s_test_but_same_boot_AFk_events_exist;Firefox=out_of_scope_by_user;source=activity_592184_activitywatch_fedora44_wayland.md
 
 RULE:

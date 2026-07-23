@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=14
+VERSION=15
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-18+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184
+SOURCE=systemctl_live_2026-07-23+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_641827
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -20,6 +20,8 @@ user_linger_daniele=yes
 
 SYSTEM_SERVICES_RELEVANT:
 service=NetworkManager.service;state=active/running;purpose=network
+service=tuned.service;state=enabled+active/running;profile=throughput-performance;purpose=system_tuning;activity=641827
+service=tuned-ppd.service;state=enabled+active/running;purpose=PPD_API_translation_to_TuneD;power-profiles-daemon=not_installed;activity=641827
 service=firewalld.service;state=active/running;purpose=firewall
 service=dnf5daemon-server.service;state=active/running;purpose=package_management
 service=fwupd.service;state=active/running;purpose=firmware_updates
