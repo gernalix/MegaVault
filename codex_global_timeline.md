@@ -1,27 +1,28 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T13:16:39+02:00
+Generated: 2026-07-26T13:21:23+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 756
+Total events: 758
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
+- `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 159 |
+| megavault | 160 |
 | amici-fb | 142 |
 | luoghi-app | 71 |
 | multitimetracker | 55 |
 | rollout-summaries | 34 |
 | oracle-backup-service | 27 |
 | 2026 | 26 |
-| fedora-system-monitor | 21 |
+| fedora-system-monitor | 22 |
 | luoghi | 18 |
 | fedora-t7-backup | 15 |
 | oracle-uptime-kuma | 13 |
@@ -70,13 +71,13 @@ Total events: 756
 
 | Value | Events |
 |---|---:|
-| backup | 238 |
+| backup | 239 |
 | security | 232 |
 | docs | 86 |
 | bugfix | 53 |
 | release | 48 |
 | testing | 47 |
-| automation | 21 |
+| automation | 22 |
 | infra | 16 |
 | migration | 12 |
 | performance | 3 |
@@ -85,7 +86,7 @@ Total events: 756
 
 | Value | Events |
 |---|---:|
-| P1 | 397 |
+| P1 | 399 |
 | P0 | 182 |
 | P2 | 166 |
 | P3 | 11 |
@@ -95,8 +96,8 @@ Total events: 756
 | Value | Events |
 |---|---:|
 | UNKNOWN | 280 |
-| PASS | 197 |
-| WARN | 169 |
+| PASS | 198 |
+| WARN | 170 |
 | FAIL | 57 |
 | OPEN | 53 |
 
@@ -121,9 +122,9 @@ Total events: 756
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | security | UNKNOWN | P1 | report | markdown | Fedora System Monitor |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
+| 2026-07-26 | fedora-system-monitor | Git PATH | backup | WARN | P1 | report | markdown | REPORT 684219 |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
-| 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
-| 2026-07-26 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
+| 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -131,6 +132,7 @@ Total events: 756
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor 418732 | security | WARN | P0 | protocol_update | markdown | REPORT 418732 |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
+| 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-26 | oracle-backup-service | Oracle Backup ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
@@ -216,7 +218,6 @@ Total events: 756
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup project.metadata | backup | UNKNOWN | P0 | protocol_update | json | project.metadata |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v16 | security | PASS | P0 | protocol_update | markdown | PROJECT |
 | 2026-07-12 | luoghi | Git PATH | backup | WARN | P0 | protocol_update | markdown | Diagnosed a Samsung T7 Shield that was absent from USB/kernel on Fedora, then reconstructed its prior layout/configuration from live state, system... |
-| 2026-07-12 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-12 | multitimetracker | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Android Studio Flatpak DirectoryLock recovery on Fedora 44 |
 | 2026-07-12 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f5605-f5af-7480-b995-b7d72e0a235e |
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f5611-46f2-7493-ad57-657902648d00 |
@@ -312,14 +313,14 @@ Total events: 756
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | PASS | P0 | protocol_update | markdown | DATA_REGISTRY |
 
 ## Projects
-- `megavault`: 159 events; latest=2026-07-26; label=Codex Timeline
+- `megavault`: 160 events; latest=2026-07-26; label=Codex Timeline
 - `amici-fb`: 142 events; latest=2026-07-26; label=Amici FB amici 2026
 - `luoghi-app`: 71 events; latest=2026-07-26; label=luoghi-app 13.apk
 - `multitimetracker`: 55 events; latest=2026-07-26; label=MTT v2
 - `rollout-summaries`: 34 events; latest=2026-07-23; label=rollout-summaries Fedora 44 idle
 - `oracle-backup-service`: 27 events; latest=2026-07-26; label=Oracle Backup ALERT_REGISTRY
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
-- `fedora-system-monitor`: 21 events; latest=2026-07-26; label=fedora-system-monitor 418732
+- `fedora-system-monitor`: 22 events; latest=2026-07-26; label=fedora-system-monitor 418732
 - `luoghi`: 18 events; latest=2026-07-19; label=Luoghi v2
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `oracle-uptime-kuma`: 13 events; latest=2026-07-14; label=Kuma Topologia rete globale
@@ -384,10 +385,13 @@ Total events: 756
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | security | UNKNOWN | P1 | report | markdown | Fedora System Monitor |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
+| 2026-07-26 | fedora-system-monitor | Git PATH | backup | WARN | P1 | report | markdown | REPORT 684219 |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
+| 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-26 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-26 | megavault | MegaVault docs record Oracle | backup | PASS | P1 | git_commit | git_log | docs: record Oracle backup recovery |
+| 2026-07-26 | megavault | MegaVault docs register filesystem | automation | PASS | P1 | git_commit | git_log | docs: register filesystem Telegram monitoring |
 | 2026-07-26 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -607,7 +611,6 @@ Total events: 756
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v2 | security | WARN | P1 | report | markdown | Report conclusivo attivita 583921 |
 | 2026-07-12 | luoghi | Git PATH | backup | WARN | P0 | protocol_update | markdown | Diagnosed a Samsung T7 Shield that was absent from USB/kernel on Fedora, then reconstructed its prior layout/configuration from live state, system... |
-| 2026-07-12 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-12 | megavault | Android Tests | security | WARN | P1 | report | markdown | Incident Registry |
 | 2026-07-12 | megavault | MegaVault activity 583921 register | backup | PASS | P1 | git_commit | git_log | activity 583921: register Fedora T7 backup |
 | 2026-07-12 | megavault | MegaVault activity 684219 sync | backup | PASS | P1 | git_commit | git_log | activity 684219: sync T7 connect backup globally |

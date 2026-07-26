@@ -1,5 +1,5 @@
 # SERVICE_REGISTRY
-VERSION=16
+VERSION=17
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
@@ -44,6 +44,7 @@ service=t7-restic-reminder.service;scope=system;state=static_oneshot+tested_succ
 service=fedora-external-updater-root.service;scope=system;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_root_scope;activity=846219
 udev=90-t7-name.rules;match=USB_disk_add+serial_S6YGNS0Y903440H;action=TAG_systemd+SYSTEMD_WANTS_t7-restic-backup.service;duplicate_events=flock_ignored;activity=684219
 audit=fedora-system-monitor_1.3.0;watchers=minute+five_minute+fifteen_minute_real_ok;filesystem_Telegram_delta=existing_five_minute_collector+telegram_notify.py+SQLite_baseline;tests=107_PASS;selftest=18_PASS;udev=verify_PASS;hardening=systemd_analyze_verify_PASS;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent;activity=418732
+audit=fedora-system-monitor_1.3.0;events+lifecycle+prometheus=active_success;timers=fast+hourly+daily+weekly_enabled_active;path=software_enabled_active;collectors=minute+five_minute+fifteen_minute+hourly+daily+weekly+software_event_latest_ok;SQLite_live_insert_before_after=PASS;tests=107_PASS;selftest=18_PASS;udev=verify_PASS;systemd=verify_PASS;activity=684219
 
 USER_SERVICES_RELEVANT:
 service=gnome-session-manager@gnome.service;state=active/running;purpose=GNOME_session
