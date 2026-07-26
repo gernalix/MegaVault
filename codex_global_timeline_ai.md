@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T14:17:26+02:00
-total_events=762
+generated_at=2026-07-26T20:10:22+02:00
+total_events=768
 format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
@@ -24,17 +24,25 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|fedora-system-monitor|fedora-system-monitor Troubleshooting|backup|WARN|P1
 2026-07-26|fedora-system-monitor|Git PATH|release|FAIL|P1
 2026-07-26|fedora-system-monitor|Git PATH|backup|WARN|P1
+2026-07-26|luoghi|Git PATH|security|WARN|P0
+2026-07-26|luoghi|Luoghi v16|security|WARN|P0
 2026-07-26|luoghi-app|luoghi-app 13.apk|security|WARN|P0
 2026-07-26|megavault|Codex Timeline|backup|PASS|P0
 2026-07-26|megavault|Codex Timeline|docs|PASS|P0
+2026-07-26|megavault|MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE|release|PASS|P0
 2026-07-26|megavault|MegaVault Alert Registry|security|WARN|P1
 2026-07-26|megavault|MegaVault docs record monitor|automation|PASS|P1
 2026-07-26|megavault|MegaVault docs record Oracle|backup|PASS|P1
 2026-07-26|megavault|MegaVault docs refresh timeline|automation|PASS|P1
 2026-07-26|megavault|MegaVault docs register filesystem|automation|PASS|P1
+2026-07-26|megavault|MegaVault docs register SMART|bugfix|PASS|P1
+2026-07-26|megavault|MegaVault REPORTS_LATEST|security|WARN|P1
 2026-07-26|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-26|megavault|MegaVault docs record GNOME|docs|PASS|P2
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0
+2026-07-26|multitimetracker|MTT v2|security|WARN|P0
+2026-07-26|multitimetracker|MTT v2|security|WARN|P0
+2026-07-26|oracle-backup-service|Android Tests|security|PASS|P0
 2026-07-26|oracle-backup-service|Oracle Backup ALERT_REGISTRY|security|OPEN|P0
 2026-07-26|oracle-backup-service|Codex Timeline|backup|OPEN|P1
 2026-07-26|oracle-backup-service|Git PATH|security|PASS|P1
@@ -67,7 +75,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0
-2026-07-23|multitimetracker|MTT v3|security|WARN|P0
 2026-07-23|rollout-summaries|rollout-summaries Fedora 44 idle|backup|WARN|P0
 2026-07-23|rollout-summaries|rollout-summaries Fedora 44 reboot|bugfix|WARN|P0
 2026-07-23|rollout-summaries|rollout-summaries X repost downloader|backup|WARN|P1
@@ -101,7 +108,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-18|megavault|Codex Timeline|security|PASS|P0
 2026-07-18|megavault|Git PATH|security|WARN|P0
 2026-07-18|megavault|MegaVault docs align protocol|docs|PASS|P0
-2026-07-18|megavault|MegaVault REPORTS_LATEST|security|WARN|P1
 2026-07-18|megavault|MegaVault v0|backup|FAIL|P1
 2026-07-18|megavault|MegaVault docs consolidate authoritative|docs|PASS|P2
 2026-07-18|megavault|MegaVault docs finalize AI|docs|PASS|P2
@@ -113,7 +119,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-18|multitimetracker|MTT v0|security|WARN|P0
 2026-07-18|multitimetracker|MTT v537|security|WARN|P0
 2026-07-18|multitimetracker|MTT v538|security|WARN|P1
-2026-07-18|oracle-backup-service|Android Tests|security|PASS|P0
 2026-07-18|rollout-summaries|Codex Timeline|security|PASS|P0
 2026-07-18|rollout-summaries|Git PATH|backup|PASS|P0
 2026-07-18|rollout-summaries|rollout-summaries v0|security|PASS|P0
@@ -355,6 +360,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault Remove Codex session|docs|PASS|P2
 2026-07-10|megavault|MegaVault v10|docs|PASS|P2
 2026-07-10|multitimetracker|MTT 1.apk|security|WARN|P0
+2026-07-10|multitimetracker|MTT v3|security|WARN|P0
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1

@@ -2,7 +2,7 @@
 VERSION=1
 STATUS=AUTHORITATIVE_CLOSED_RECORDS
 FORMAT=ultracompressed
-UPDATED=2026-07-18
+UPDATED=2026-07-26
 DETAIL=git_history_at_or_before_0b1fc4b8ff6d69726b8cfba9b26d7634018021ef
 
 DOC_TRANSFORMATIONS:
@@ -22,6 +22,7 @@ activity=20260713;topic=Logseq_local_audit;status=WARNING_MOVED_TO_LATEST;source
 activity=284617;topic=ActivityWatch_simplification;status=SUPERSEDED_BY_592184;decision=single_aw-qt_stack;source=git:0b1fc4b8:ai/reports/activity_284617_activitywatch_simplified.md
 activity=487361;topic=GNOME_window_title;status=PASS;source=git:0b1fc4b8:ai/reports/activity_487361_gnome_window_title.md
 activity=735184;topic=Logseq_Fedora_install;status=PASS_WITH_WARNING;source=git:0b1fc4b8:ai/reports/activity_735184_logseq_fedora_install.md
+activity=593814;topic=Logseq_Fedora_AppImage;status=PASS;decision=requested_nonidentical_2.0.1_binary_replaced_prior_single_install;source=ai/reports/activity_593814_logseq_fedora_appimage.md
 activity=735804;topic=ActivityWatch_Wayland_watchers;status=SUPERSEDED_BY_592184;source=git:0b1fc4b8:ai/reports/activity_735804_activitywatch_wayland_watchers.md
 activity=842731;topic=T7_backup_restore;status=PASS;decision=restore+fail_closed_verified;source=git:0b1fc4b8:ai/reports/activity_842731_t7_backup_restore.md
 activity=846271;topic=Codex_native_restore;status=PARTIAL_MOVED_TO_LATEST;source=git:0b1fc4b8:ai/reports/activity_846271_codex_native_restore.md

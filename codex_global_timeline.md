@@ -1,29 +1,28 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T14:17:26+02:00
+Generated: 2026-07-26T20:10:22+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 762
+Total events: 768
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/MegaVault/projects/fedora-system-monitor`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 162 |
+| megavault | 164 |
 | amici-fb | 142 |
 | luoghi-app | 71 |
-| multitimetracker | 55 |
+| multitimetracker | 57 |
 | rollout-summaries | 34 |
 | oracle-backup-service | 27 |
 | 2026 | 26 |
 | fedora-system-monitor | 24 |
-| luoghi | 18 |
+| luoghi | 20 |
 | fedora-t7-backup | 15 |
 | oracle-uptime-kuma | 13 |
 | windows | 8 |
@@ -72,10 +71,10 @@ Total events: 762
 | Value | Events |
 |---|---:|
 | backup | 240 |
-| security | 233 |
+| security | 237 |
 | docs | 86 |
-| bugfix | 53 |
-| release | 48 |
+| bugfix | 54 |
+| release | 49 |
 | testing | 47 |
 | automation | 24 |
 | infra | 16 |
@@ -86,8 +85,8 @@ Total events: 762
 
 | Value | Events |
 |---|---:|
-| P1 | 400 |
-| P0 | 185 |
+| P1 | 401 |
+| P0 | 190 |
 | P2 | 166 |
 | P3 | 11 |
 
@@ -96,8 +95,8 @@ Total events: 762
 | Value | Events |
 |---|---:|
 | UNKNOWN | 280 |
-| PASS | 200 |
-| WARN | 172 |
+| PASS | 202 |
+| WARN | 176 |
 | FAIL | 57 |
 | OPEN | 53 |
 
@@ -134,10 +133,16 @@ Total events: 762
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Attivita 482731 correzione | backup | WARN | P0 | protocol_update | markdown | Attivita 482731 correzione SMART Fedora |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P0 | changelog | markdown | Changelog |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
+| 2026-07-26 | luoghi | Git PATH | security | WARN | P0 | protocol_update | markdown | Fedora System Monitor esteso con notifiche Telegram cumulative e sincronizzazione completa |
+| 2026-07-26 | luoghi | Luoghi v16 | security | WARN | P0 | protocol_update | markdown | Fedora System Monitor SQLite persistence audit completed with PASS CON WARNING |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
 | 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-26 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f9a-4f20-73f0-a032-14f617ee8482 |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f96-be0b-7193-9107-7d706b0629a4 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-26 | oracle-backup-service | Android Tests | security | PASS | P0 | changelog | markdown | REPORTS_ARCHIVE |
 | 2026-07-26 | oracle-backup-service | Oracle Backup ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-26 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-23 | multitimetracker | MTT v1 | security | PASS | P0 | protocol_update | markdown | User Profile |
@@ -145,7 +150,6 @@ Total events: 762
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8bf2-f0e7-7a82-a599-2bb31c1caa7a |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8f50-fc71-7af1-994e-31500567d8f0 |
-| 2026-07-23 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora 44 unexpected poweroff and GNOME/logind incident diagnosis |
 | 2026-07-23 | rollout-summaries | rollout-summaries Fedora 44 idle | backup | WARN | P0 | protocol_update | markdown | Fedora 44 idle display/WiFi issue fixed and documented |
 | 2026-07-23 | rollout-summaries | rollout-summaries Fedora 44 reboot | bugfix | WARN | P0 | protocol_update | markdown | Fedora 44 reboot and fan investigation completed with warning |
 | 2026-07-22 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8bc0-f364-7902-a280-b6726a76e3e7 |
@@ -167,7 +171,6 @@ Total events: 762
 | 2026-07-18 | multitimetracker | MTT v0 | security | PASS | P0 | protocol_update | markdown | MegaVault AI-doc consistency follow-up with live verification and minimal corrections |
 | 2026-07-18 | multitimetracker | MTT v0 | security | WARN | P0 | protocol_update | markdown | ACTIVITY_519684_AI_DOCS_FINAL_CONSISTENCY |
 | 2026-07-18 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f7624-fec9-72d0-8b8b-cc0b66e581cf |
-| 2026-07-18 | oracle-backup-service | Android Tests | security | PASS | P0 | changelog | markdown | REPORTS_ARCHIVE |
 | 2026-07-18 | rollout-summaries | Codex Timeline | security | PASS | P0 | protocol_update | markdown | Updated the MegaVault protocol to remove the prompt-order conflict and make the protocol self-sufficient for future prompts. |
 | 2026-07-18 | rollout-summaries | Git PATH | backup | PASS | P0 | protocol_update | markdown | Two read-only home audits were performed for Daniele under `/home/daniele`, using the MegaVault protocol as a binding document and relying primaril... |
 | 2026-07-18 | rollout-summaries | rollout-summaries v0 | security | PASS | P0 | protocol_update | markdown | ActivityWatch on Fedora 44 GNOME Wayland was audited and minimally corrected, with Firefox explicitly excluded from the completion criteria. |
@@ -254,6 +257,7 @@ Total events: 762
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT notification QA |
 | 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora System Monitor project under MegaVault |
 | 2026-07-10 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f4d44-9413-7721-9500-cacecbb42982 |
 | 2026-07-10 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | oracle-backup-service | Oracle Backup v1 | security | PASS | P0 | protocol_update | markdown | SERVICE_REGISTRY |
@@ -316,15 +320,15 @@ Total events: 762
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | PASS | P0 | protocol_update | markdown | DATA_REGISTRY |
 
 ## Projects
-- `megavault`: 162 events; latest=2026-07-26; label=Codex Timeline
+- `megavault`: 164 events; latest=2026-07-26; label=Codex Timeline
 - `amici-fb`: 142 events; latest=2026-07-26; label=Amici FB amici 2026
 - `luoghi-app`: 71 events; latest=2026-07-26; label=luoghi-app 13.apk
-- `multitimetracker`: 55 events; latest=2026-07-26; label=MTT v2
+- `multitimetracker`: 57 events; latest=2026-07-26; label=MTT v2
 - `rollout-summaries`: 34 events; latest=2026-07-23; label=rollout-summaries Fedora 44 idle
-- `oracle-backup-service`: 27 events; latest=2026-07-26; label=Oracle Backup ALERT_REGISTRY
+- `oracle-backup-service`: 27 events; latest=2026-07-26; label=Android Tests
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
 - `fedora-system-monitor`: 24 events; latest=2026-07-26; label=fedora-system-monitor 418732
-- `luoghi`: 18 events; latest=2026-07-19; label=Luoghi v2
+- `luoghi`: 20 events; latest=2026-07-26; label=Git PATH
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `oracle-uptime-kuma`: 13 events; latest=2026-07-14; label=Kuma Topologia rete globale
 - `windows`: 8 events; latest=2026-07-26; label=Veeam T7
@@ -393,17 +397,25 @@ Total events: 762
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-26 | fedora-system-monitor | Git PATH | backup | WARN | P1 | report | markdown | REPORT 684219 |
+| 2026-07-26 | luoghi | Git PATH | security | WARN | P0 | protocol_update | markdown | Fedora System Monitor esteso con notifiche Telegram cumulative e sincronizzazione completa |
+| 2026-07-26 | luoghi | Luoghi v16 | security | WARN | P0 | protocol_update | markdown | Fedora System Monitor SQLite persistence audit completed with PASS CON WARNING |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
 | 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-26 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
 | 2026-07-26 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-26 | megavault | MegaVault docs record monitor | automation | PASS | P1 | git_commit | git_log | docs: record monitor SQLite persistence audit |
 | 2026-07-26 | megavault | MegaVault docs record Oracle | backup | PASS | P1 | git_commit | git_log | docs: record Oracle backup recovery |
 | 2026-07-26 | megavault | MegaVault docs refresh timeline | automation | PASS | P1 | git_commit | git_log | docs: refresh timeline after monitor coverage audit |
 | 2026-07-26 | megavault | MegaVault docs register filesystem | automation | PASS | P1 | git_commit | git_log | docs: register filesystem Telegram monitoring |
+| 2026-07-26 | megavault | MegaVault docs register SMART | bugfix | PASS | P1 | git_commit | git_log | docs: register SMART monitor fix 482731 |
+| 2026-07-26 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
 | 2026-07-26 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f9a-4f20-73f0-a032-14f617ee8482 |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f96-be0b-7193-9107-7d706b0629a4 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-26 | oracle-backup-service | Android Tests | security | PASS | P0 | changelog | markdown | REPORTS_ARCHIVE |
 | 2026-07-26 | oracle-backup-service | Oracle Backup ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-26 | oracle-backup-service | Codex Timeline | backup | OPEN | P1 | backup | markdown | GLOBAL_STATE |
 | 2026-07-26 | oracle-backup-service | Git PATH | security | PASS | P1 | doc_event | markdown | MIGRATED_POINTER |
@@ -436,7 +448,6 @@ Total events: 762
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8bf2-f0e7-7a82-a599-2bb31c1caa7a |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8f50-fc71-7af1-994e-31500567d8f0 |
-| 2026-07-23 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora 44 unexpected poweroff and GNOME/logind incident diagnosis |
 | 2026-07-23 | rollout-summaries | rollout-summaries Fedora 44 idle | backup | WARN | P0 | protocol_update | markdown | Fedora 44 idle display/WiFi issue fixed and documented |
 | 2026-07-23 | rollout-summaries | rollout-summaries Fedora 44 reboot | bugfix | WARN | P0 | protocol_update | markdown | Fedora 44 reboot and fan investigation completed with warning |
 | 2026-07-23 | rollout-summaries | rollout-summaries X repost downloader | backup | WARN | P1 | report | markdown | X repost downloader backfill corrected and reconciled |
@@ -470,7 +481,6 @@ Total events: 762
 | 2026-07-18 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-18 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | activity_684327_expressvpn_fedora |
 | 2026-07-18 | megavault | MegaVault docs align protocol | docs | PASS | P0 | git_commit | git_log | docs: align protocol entry order |
-| 2026-07-18 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
 | 2026-07-18 | megavault | MegaVault v0 | backup | FAIL | P1 | backup | markdown | activity 592184 activitywatch fedora44 wayland |
 | 2026-07-18 | megavault | MegaVault docs consolidate authoritative | docs | PASS | P2 | git_commit | git_log | docs: consolidate authoritative AI documentation |
 | 2026-07-18 | megavault | MegaVault docs finalize AI | docs | PASS | P2 | git_commit | git_log | docs: finalize AI documentation consistency |
@@ -482,7 +492,6 @@ Total events: 762
 | 2026-07-18 | multitimetracker | MTT v0 | security | WARN | P0 | protocol_update | markdown | ACTIVITY_519684_AI_DOCS_FINAL_CONSISTENCY |
 | 2026-07-18 | multitimetracker | MTT v537 | security | WARN | P0 | changelog | codex_log | 019f7624-fec9-72d0-8b8b-cc0b66e581cf |
 | 2026-07-18 | multitimetracker | MTT v538 | security | WARN | P1 | report | markdown | MultiTimeTracker persistence race fixed and signing key archived |
-| 2026-07-18 | oracle-backup-service | Android Tests | security | PASS | P0 | changelog | markdown | REPORTS_ARCHIVE |
 | 2026-07-18 | rollout-summaries | Codex Timeline | security | PASS | P0 | protocol_update | markdown | Updated the MegaVault protocol to remove the prompt-order conflict and make the protocol self-sufficient for future prompts. |
 | 2026-07-18 | rollout-summaries | Git PATH | backup | PASS | P0 | protocol_update | markdown | Two read-only home audits were performed for Daniele under `/home/daniele`, using the MegaVault protocol as a binding document and relying primaril... |
 | 2026-07-18 | rollout-summaries | rollout-summaries v0 | security | PASS | P0 | protocol_update | markdown | ActivityWatch on Fedora 44 GNOME Wayland was audited and minimally corrected, with Firefox explicitly excluded from the completion criteria. |
@@ -724,6 +733,7 @@ Total events: 762
 | 2026-07-10 | megavault | MegaVault Remove Codex session | docs | PASS | P2 | git_commit | git_log | Remove Codex session logger integration |
 | 2026-07-10 | megavault | MegaVault v10 | docs | PASS | P2 | git_commit | git_log | Update Luoghi v10 timeline |
 | 2026-07-10 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-10 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora System Monitor project under MegaVault |
 | 2026-07-10 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f4d44-9413-7721-9500-cacecbb42982 |
 | 2026-07-10 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
