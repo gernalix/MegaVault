@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T13:12:54+02:00
-total_events=755
+generated_at=2026-07-26T13:13:53+02:00
+total_events=756
 format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
@@ -21,6 +21,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|fedora-system-monitor|Git PATH|release|FAIL|P1
 2026-07-26|luoghi-app|luoghi-app 13.apk|security|WARN|P0
 2026-07-26|megavault|Codex Timeline|docs|PASS|P0
+2026-07-26|megavault|MegaVault docs record Oracle|backup|PASS|P1
 2026-07-26|megavault|MegaVault docs record GNOME|docs|PASS|P2
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0
 2026-07-26|oracle-backup-service|Oracle Backup ALERT_REGISTRY|security|OPEN|P0

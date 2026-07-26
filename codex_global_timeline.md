@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T13:12:54+02:00
+Generated: 2026-07-26T13:13:53+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 755
+Total events: 756
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,7 +15,7 @@ Total events: 755
 
 | Value | Events |
 |---|---:|
-| megavault | 158 |
+| megavault | 159 |
 | amici-fb | 142 |
 | luoghi-app | 71 |
 | multitimetracker | 55 |
@@ -71,7 +71,7 @@ Total events: 755
 
 | Value | Events |
 |---|---:|
-| backup | 237 |
+| backup | 238 |
 | security | 232 |
 | docs | 86 |
 | bugfix | 53 |
@@ -86,7 +86,7 @@ Total events: 755
 
 | Value | Events |
 |---|---:|
-| P1 | 396 |
+| P1 | 397 |
 | P0 | 182 |
 | P2 | 166 |
 | P3 | 11 |
@@ -96,7 +96,7 @@ Total events: 755
 | Value | Events |
 |---|---:|
 | UNKNOWN | 280 |
-| PASS | 196 |
+| PASS | 197 |
 | WARN | 169 |
 | FAIL | 57 |
 | OPEN | 53 |
@@ -124,7 +124,7 @@ Total events: 755
 | 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
-| 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
+| 2026-07-26 | megavault | MegaVault docs record Oracle | backup | PASS | P1 | git_commit | git_log | docs: record Oracle backup recovery |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -313,7 +313,7 @@ Total events: 755
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | PASS | P0 | protocol_update | markdown | DATA_REGISTRY |
 
 ## Projects
-- `megavault`: 158 events; latest=2026-07-26; label=Codex Timeline
+- `megavault`: 159 events; latest=2026-07-26; label=Codex Timeline
 - `amici-fb`: 142 events; latest=2026-07-26; label=Amici FB amici 2026
 - `luoghi-app`: 71 events; latest=2026-07-26; label=luoghi-app 13.apk
 - `multitimetracker`: 55 events; latest=2026-07-26; label=MTT v2
@@ -387,6 +387,7 @@ Total events: 755
 | 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-26 | megavault | MegaVault docs record Oracle | backup | PASS | P1 | git_commit | git_log | docs: record Oracle backup recovery |
 | 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-26 | oracle-backup-service | Oracle Backup ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
