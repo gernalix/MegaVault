@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T13:21:23+02:00
+Generated: 2026-07-26T13:23:23+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 758
+Total events: 759
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -15,7 +15,7 @@ Total events: 758
 
 | Value | Events |
 |---|---:|
-| megavault | 160 |
+| megavault | 161 |
 | amici-fb | 142 |
 | luoghi-app | 71 |
 | multitimetracker | 55 |
@@ -77,7 +77,7 @@ Total events: 758
 | bugfix | 53 |
 | release | 48 |
 | testing | 47 |
-| automation | 22 |
+| automation | 23 |
 | infra | 16 |
 | migration | 12 |
 | performance | 3 |
@@ -86,7 +86,7 @@ Total events: 758
 
 | Value | Events |
 |---|---:|
-| P1 | 399 |
+| P1 | 400 |
 | P0 | 182 |
 | P2 | 166 |
 | P3 | 11 |
@@ -96,7 +96,7 @@ Total events: 758
 | Value | Events |
 |---|---:|
 | UNKNOWN | 280 |
-| PASS | 198 |
+| PASS | 199 |
 | WARN | 170 |
 | FAIL | 57 |
 | OPEN | 53 |
@@ -313,7 +313,7 @@ Total events: 758
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | PASS | P0 | protocol_update | markdown | DATA_REGISTRY |
 
 ## Projects
-- `megavault`: 160 events; latest=2026-07-26; label=Codex Timeline
+- `megavault`: 161 events; latest=2026-07-26; label=Codex Timeline
 - `amici-fb`: 142 events; latest=2026-07-26; label=Amici FB amici 2026
 - `luoghi-app`: 71 events; latest=2026-07-26; label=luoghi-app 13.apk
 - `multitimetracker`: 55 events; latest=2026-07-26; label=MTT v2
@@ -390,6 +390,7 @@ Total events: 758
 | 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-26 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
+| 2026-07-26 | megavault | MegaVault docs record monitor | automation | PASS | P1 | git_commit | git_log | docs: record monitor SQLite persistence audit |
 | 2026-07-26 | megavault | MegaVault docs record Oracle | backup | PASS | P1 | git_commit | git_log | docs: record Oracle backup recovery |
 | 2026-07-26 | megavault | MegaVault docs register filesystem | automation | PASS | P1 | git_commit | git_log | docs: register filesystem Telegram monitoring |
 | 2026-07-26 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
