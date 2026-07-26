@@ -33,7 +33,7 @@ BACKUP_CURRENT:
 repository=Restic;owner=fedora-t7-backup;path=/mnt/T7_BACKUP/restic-fedora;device=T7;encrypted=yes;repository_id=5872c043e0;snapshots=2;verified=historical_full_read_3955/3955_packs+current_light_198/198_packs_5percent+sample_restore_SHA256_PASS;latest_snapshot=3082eb92;activity=684219
 manifest=/var/lib/t7-restic-backup/manifest;contains=RPM+Flatpak+storage+mount+boot+SELinux+systemd+Podman+Git_paths;secret_content=forbidden
 monitor_db_consistency=online_SQLite_backup+integrity_check_before_each_Restic_snapshot;raw_live_DB_WAL_SHM_excluded
-remote_repository=Restic;owner=oracle-backup-service;host=150.230.148.128;path=rclone:oci:bucket-20260206-0730/oraclevm;id=7fd0c92d9f;snapshots=1_at_2026-07-26;latest=685d4861;integrity=ok;restore_SHA256=PASS;quota=3.25GiB_OK;activity=731904
+remote_repository=Restic;owner=oracle-backup-service;host=150.230.148.128;path=rclone:oci:bucket-20260206-0730/oraclevm;id=7fd0c92d9f;snapshots=8_at_2026-07-26;latest=186673bf;integrity=ok;restore_SHA256=PASS;rollback_archives=present;quota=4.53GiB_OK;activity=731904+731842
 remote_incident_db=/home/ubuntu/sync_root/db/incident_registry.sqlite;host=150.230.148.128;owner=oracle-backup-service;integrity=live_tool_operational;activity=731904
 
 RULES:

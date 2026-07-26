@@ -12,6 +12,7 @@ project=fedora-system-monitor;repo=/home/daniele/MegaVault/projects/fedora-syste
 project=fedora-diagnostics;repo=/home/daniele/projects/fedora-diagnostics;runtime=/usr/local/lib/fedora-diagnostics;cli=/usr/local/bin/fedora-diagnostics;status=installed+enabled+functional+fault_tested;version=1.0.0;activity=826417
 project=fedora-t7-backup;repo=/home/daniele/MegaVault/projects/fedora-t7-backup;runtime=/usr/local/libexec/t7-restic-lifecycle;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+backup+maintenance+restore+failsafe_tested;commit=1495f135a81e9457e1efcb12a5db6689983b3c79;activity=684219
 project=oracle-backup-service;repo=/home/daniele/MegaVault/projects/oracle-backup-service;runtime=ubuntu@150.230.148.128:/opt/oracle_backup;repository=rclone:oci:bucket-20260206-0730/oraclevm;status=remote_backup+check+restore+healthcheck_PASS;version=2026.07.26.1;commit=cf9cc16;activity=731904
+project=vm_oracle;repo=/home/daniele/MegaVault/projects/vm_oracle;runtime=ubuntu@150.230.148.128;status=PASS_CON_WARNING+apt_0+snap_0+venv_0+pip_check_PASS+services_PASS+reboot_complete;version=2026.07.26.1;commit=3549baa;activity=731842
 project=WindowTabNotes;local=removed;remote=https://github.com/gernalix/WindowTabNotes;branch=fedora-current-session-window-detection-927514;commit=40421981911c6d92111e9062eb20c506003d4d97;data_backup=/home/daniele/WindowTabNotes-backup-351806
 
 OPEN:

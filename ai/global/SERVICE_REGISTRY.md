@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=18
+VERSION=19
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-26+HOST_PROFILE+activity_482731+activity_418732+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904
+SOURCE=systemctl_live_2026-07-26+HOST_PROFILE+activity_482731+activity_418732+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904+activity_731842
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -75,13 +75,17 @@ removed_timers=t7-restic-backup.timer+t7-restic-check.timer+t7-restic-maintenanc
 path=fedora-system-monitor-software.path;scope=system;state=enabled+active;purpose=event_driven_software_metadata_changes
 
 REMOTE_ORACLE_VM:
-host=150.230.148.128;os=Ubuntu_22.04;verified=2026-07-26;activity=731904
+host=150.230.148.128;os=Ubuntu_22.04.5;kernel=6.8.0-1058-oracle;system_state=running;failed_units=0;verified=2026-07-26;activity=731904+731842
 service=oracle-backup.service;state=oneshot_last_result_success;runtime=/opt/oracle_backup/backup.sh;purpose=OCI_primary+bounded_local_fallback
 service=oracle-backup-healthcheck.service;state=oneshot_last_result_success;checks=all_OK
 service=oracle-backup-monitor.service;state=oneshot_last_result_success;recovery_notification=PASS
-service=oracle-backup-remote-quota.service;state=oneshot_last_result_success;quota=OK_3.25GiB
+service=oracle-backup-remote-quota.service;state=oneshot_last_result_success;quota=OK_4.53GiB
 timers=oracle-backup+prune+healthcheck+monitor+remote-quota;state=active;failed_units=none
+python_services=datasette+telegram-insert-bot+youtube-links-bot+owntracks-http-server+software-audit+codex-weekly-limit-monitor+telegram-media-monitor+logseq-updates;interpreter=/usr/bin/python3;venv=none;pip_check=PASS
+service=telegram-media-monitor.service;state=oneshot_last_result_success;timer=active;environment=protected_shared_notifier_file;activity=731842
+container=uptime-kuma;state=running;version=2.4.0;monitors=5;restart=unless-stopped;rollback_image=2.3.2_preserved;activity=731842
 dependency=rclone;path=/usr/bin/rclone;version=1.74.4;source=official_verified_SHA256;rollback=/var/lib/oracle_backup/rollback-731904/rclone-v1.53.3-DEV
+dependency=restic;path=/usr/local/bin/restic;version=0.19.1;source=official_verified_checksum;apt_0.12.1_retained_for_rollback=yes;activity=731842
 
 RULES:
 rule=use_systemctl_for_system_units

@@ -55,6 +55,7 @@ independence=Uptime_Kuma_monitors+heartbeat+thresholds+credentials_unchanged;Pro
 
 ORACLE_BACKUP_REMOTE:
 host=150.230.148.128;source=oracle-backup-healthcheck+oracle-backup-monitor+oracle-backup-remote-quota;verified=2026-07-26;activity=731904
+uptime_kuma=2.4.0;container=running;monitors=5;data_preserved=yes;activity=731842
 current=backup_state_OK+remote_quota_OK_3.25GiB+remote_retention_OK+local_fallback_quota_OK+root_usage_53percent+root_free_21.1GiB
 cleared=REMOTE_DEGRADED_absent+StorageLimitExceeded_absent+last_failed_repos_empty+last_remote_error_empty
 delivery=recovery_notification_PASS_after_output_redaction

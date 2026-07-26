@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=24
+VERSION=25
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
 UPDATED=2026-07-26T20:09:12+02:00
-SOURCE=tool_versions_live_2026-07-18+HOST_PROFILE+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417+activity_483716+activity_592184+activity_593814
+SOURCE=tool_versions_live_2026-07-18+HOST_PROFILE+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417+activity_483716+activity_592184+activity_593814+activity_731842
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -93,6 +93,18 @@ tool=Android_SDK;path=/home/daniele/Android/Sdk;ANDROID_HOME=/home/daniele/Andro
 tool=adb;path=/home/daniele/Android/Sdk/platform-tools/adb;version=1.0.41/37.0.0-14910828;critical=yes
 tool=sdkmanager;path=/home/daniele/Android/Sdk/cmdline-tools/latest/bin/sdkmanager;critical=yes
 tool=Gradle;path=project_wrapper_preferred;version=project_specific;critical=yes
+
+REMOTE_ORACLE_VM:
+host=150.230.148.128;os=Ubuntu_22.04.5;kernel=6.8.0-1058-oracle;activity=731842
+tool=python;path=/usr/bin/python3;version=3.10.12;project_site=user_global;venv=none;pip_check=PASS
+tool=pip;scope=ubuntu_user_global;version=26.1.2;setuptools=83.0.0;wheel=0.47.0;lock=/home/daniele/MegaVault/projects/vm_oracle/python/requirements-global.lock.txt
+tool=Docker;version=29.6.2;compose=5.3.1;containerd=2.2.6
+tool=Node;version=22.23.1;npm=10.9.8;Codex_CLI=0.145.0;corepack=0.35.0;npm_12_major=suspended
+tool=Restic;path=/usr/local/bin/restic;version=0.19.1;source=official_checksum_verified
+tool=rclone;path=/usr/bin/rclone;version=1.74.4;status=current
+tool=cloudflared;version=2026.7.3;status=current
+app=Uptime_Kuma;version=2.4.0;container=running;monitors=5;rollback_image=2.3.2_preserved
+updates=APT_0+Snap_0;reboot_required=no;status=PASS_CON_WARNING
 
 FEDORA_OPERATIONS:
 package_ops=dnf
