@@ -1,5 +1,5 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T13:13:53+02:00
+generated_at=2026-07-26T13:16:39+02:00
 total_events=756
 format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
@@ -21,7 +21,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|fedora-system-monitor|Git PATH|release|FAIL|P1
 2026-07-26|luoghi-app|luoghi-app 13.apk|security|WARN|P0
 2026-07-26|megavault|Codex Timeline|docs|PASS|P0
+2026-07-26|megavault|MegaVault Alert Registry|security|WARN|P1
 2026-07-26|megavault|MegaVault docs record Oracle|backup|PASS|P1
+2026-07-26|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-26|megavault|MegaVault docs record GNOME|docs|PASS|P2
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0
 2026-07-26|oracle-backup-service|Oracle Backup ALERT_REGISTRY|security|OPEN|P0
@@ -41,6 +43,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|oracle-backup-service|Oracle Backup Roadmap|backup|UNKNOWN|P1
 2026-07-26|oracle-backup-service|Oracle Backup Troubleshooting|backup|FAIL|P1
 2026-07-26|windows|Veeam T7|security|PASS|P0
+2026-07-26|windows|Veeam T7|security|FAIL|P1
 2026-07-24|luoghi-app|Android Tests|backup|UNKNOWN|P1
 2026-07-24|luoghi-app|Git PATH|backup|UNKNOWN|P1
 2026-07-24|luoghi-app|luoghi-app 1.apk|security|PASS|P1
@@ -152,11 +155,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|megavault|Codex Timeline|docs|PASS|P0
 2026-07-14|megavault|Git PATH|security|OPEN|P0
 2026-07-14|megavault|Codex Timeline|backup|FAIL|P1
-2026-07-14|megavault|MegaVault Alert Registry|security|WARN|P1
 2026-07-14|megavault|MegaVault docs configure Oracle|infra|PASS|P1
 2026-07-14|megavault|MegaVault docs record Codex|backup|PASS|P1
 2026-07-14|megavault|MegaVault infra register Fedora|automation|PASS|P1
-2026-07-14|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-14|megavault|MegaVault Update Fedora monitor|automation|PASS|P1
 2026-07-14|megavault|MegaVault v0|security|WARN|P1
 2026-07-14|megavault|MegaVault Descrizione delle modifiche|docs|PASS|P2
@@ -254,7 +255,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-12|multitimetracker|MTT v537|security|WARN|P0
 2026-07-12|rollout-summaries|rollout-summaries VeraCrypt 1.26.29 was|release|WARN|P0
 2026-07-12|windows|Veeam T7|security|OPEN|P0
-2026-07-12|windows|Veeam T7|security|FAIL|P1
 2026-07-10|2026|2026 1.apk|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0
 2026-07-10|2026|2026 v2|security|WARN|P0

@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=15
+VERSION=16
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-18+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904
+SOURCE=systemctl_live_2026-07-26+HOST_PROFILE+activity_418732+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -43,7 +43,7 @@ service=t7-restic-backup.service;scope=system;state=static_oneshot+tested_succes
 service=t7-restic-reminder.service;scope=system;state=static_oneshot+tested_success;purpose=single_disconnect_reminder_if_serial_still_present;activity=684219
 service=fedora-external-updater-root.service;scope=system;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_root_scope;activity=846219
 udev=90-t7-name.rules;match=USB_disk_add+serial_S6YGNS0Y903440H;action=TAG_systemd+SYSTEMD_WANTS_t7-restic-backup.service;duplicate_events=flock_ignored;activity=684219
-audit=fedora-system-monitor_1.1.1;watchers=minute+five_minute+fifteen_minute_real_ok;tests=93_PASS;selftest=18_PASS;udev=verify_PASS;hardening=systemd_analyze_verify_PASS;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent;activity=471853
+audit=fedora-system-monitor_1.3.0;watchers=minute+five_minute+fifteen_minute_real_ok;filesystem_Telegram_delta=existing_five_minute_collector+telegram_notify.py+SQLite_baseline;tests=107_PASS;selftest=18_PASS;udev=verify_PASS;hardening=systemd_analyze_verify_PASS;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent;activity=418732
 
 USER_SERVICES_RELEVANT:
 service=gnome-session-manager@gnome.service;state=active/running;purpose=GNOME_session
@@ -62,7 +62,7 @@ timer=dnf-makecache.timer;scope=system;state=active;purpose=package_metadata
 timer=fstrim.timer;scope=system;state=active;purpose=SSD_trim
 timer=logrotate.timer;scope=system;state=active;purpose=log_rotation
 timer=systemd-tmpfiles-clean.timer;scope=system+user;state=active;purpose=temp_cleanup
-timer=fedora-system-monitor-fast.timer;scope=system;state=enabled+active;calendar=every_minute;purpose=minute+overdue_5m+15m_collectors
+timer=fedora-system-monitor-fast.timer;scope=system;state=enabled+active;calendar=every_minute;purpose=minute+overdue_5m+15m_collectors+five_minute_filesystem_Telegram_delta
 timer=fedora-system-monitor-hourly.timer;scope=system;state=enabled+active;calendar=hourly;purpose=software+update+health_snapshot
 timer=fedora-system-monitor-daily.timer;scope=system;state=enabled+active;calendar=03:15;purpose=inventory+backup+retention+summary
 timer=fedora-system-monitor-weekly.timer;scope=system;state=enabled+active;calendar=Sunday_04:15;purpose=full_validation

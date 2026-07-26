@@ -1,9 +1,9 @@
 # ALERT_REGISTRY
-VERSION=8
+VERSION=9
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_systemd_live_2026-07-14+HOST_PROFILE+activity_593184+activity_471852+activity_471853+activity_826417+activity_731904
+SOURCE=Fedora_systemd_live_2026-07-26+HOST_PROFILE+activity_418732+activity_593184+activity_471852+activity_471853+activity_826417+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
@@ -13,7 +13,7 @@ host=fedora
 project_alert_services_verified=fedora-system-monitor-events+collectors
 project_alert_timers_verified=fedora-system-monitor-fast+hourly+daily+weekly
 Kuma_push_sources_verified=fedora-system-monitor
-Telegram_sources_verified=none
+Telegram_sources_verified=fedora-system-monitor
 alert_migration=not_revalidated
 
 FEDORA_SYSTEM_MONITOR_KUMA:
@@ -30,6 +30,16 @@ anti_spam=persistent_dedup+duration_gate+hysteresis+cooldown+aggregation+single_
 verification=all_five_real_UP_delivered+Software_controlled_DOWN_HTTP_200+recovery_UP_HTTP_200
 current_2026_07_14=Host_DOWN_truthful+Storage_DOWN_truthful+Network_UP+Services_UP+Software_UP;Host_reason=swap_used_percent_warning_about_39_percent;Storage_reason=Seagate_5.2273_percent_free_below_recovery;unsafe_removal=recovered;Kuma_readback=remote_SQLite_ok
 security=push_URLs_not_in_repo_or_logs;HTTP_transport_risk_documented
+
+FEDORA_SYSTEM_MONITOR_TELEGRAM:
+source=fedora-system-monitor_1.3.0;service=fedora-system-monitor-collect@.service;timer=fedora-system-monitor-fast.timer;cadence=all_relevant_filesystems_every_5m
+helper=telegram_notify.py_compatibility_API;runtime_package=/usr/local/lib/python3.14/site-packages/telegram_notify;direct_HTTP_duplicate=none
+credentials=/home/daniele/.config/telegram-notify/telegram-notify.env;mode=daniele:daniele_0600;reused_unmodified=yes
+policy=absolute_cumulative_free_space_delta_at_least_1GiB;directions=increase+decrease;baseline=last_successful_delivery;first_run=silent
+identity=filesystem_UUID_preferred+stable_source_hash_fallback;unmount=state_preserved;mountpoint_change=current_path_in_message
+state=/var/lib/fedora-system-monitor/monitor.sqlite3:dedup_state:notification
+anti_spam=one_send_per_underlying_filesystem+baseline_advance_after_success+failed_send_retry+duplicate_views_collapsed
+verification=mock_matrix_PASS+live_first_run_5_UUID_states_zero_sends+second_run_zero_duplicates+explicit_TEST_message_delivered;activity=418732
 
 SYSTEM_SIGNALING_CURRENT:
 service=abrtd.service;state=active/running;scope=local_crash_reporting
@@ -51,6 +61,7 @@ security_incident=TELEGRAM_TRANSPORT_SECRET_DISCLOSURE;status=MITIGATED;remainin
 
 RULES:
 rule=never_print_or_commit_tokens+chat_ids+push_URLs
+rule=Fedora_system_monitor_Telegram_must_use_telegram_notify.py_and_existing_private_config
 rule=alerts_are_signals_not_remediation_authority
 rule=verify_sender+timer+delivery+destination_before_marking_active
 rule=do_not_assume_pre_migration_alert_sources_exist

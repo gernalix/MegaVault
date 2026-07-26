@@ -1,6 +1,6 @@
 # Topologia storage globale
 
-Aggiornato: 2026-07-12. Autorita' operativa: [STORAGE_TOPOLOGY AI](../../ai/global/STORAGE_TOPOLOGY.md).
+Aggiornato: 2026-07-26. Autorita' operativa: [STORAGE_TOPOLOGY AI](../../ai/global/STORAGE_TOPOLOGY.md).
 
 ## Stato Fedora corrente
 
@@ -14,7 +14,7 @@ Aggiornato: 2026-07-12. Autorita' operativa: [STORAGE_TOPOLOGY AI](../../ai/glob
 - Repository Restic cifrato: `/mnt/T7_BACKUP/restic-fedora`; backup a ogni
   collegamento, check leggero/prune al massimo settimanali, check completo al
   massimo mensile, retention 7 giornalieri/5 settimanali/12 mensili/3 annuali.
-- Fedora System Monitor conserva il database sotto `/var/lib/fedora-system-monitor` e backup online nella sottodirectory `backups`; identifica i rimovibili con UUID o hash seriale stabile, mai con `/dev/sdX`.
+- Fedora System Monitor conserva il database sotto `/var/lib/fedora-system-monitor` e backup online nella sottodirectory `backups`; identifica i rimovibili con UUID o hash seriale stabile, mai con `/dev/sdX`. Ogni cinque minuti confronta lo spazio libero dei filesystem reali con l'ultima baseline Telegram consegnata; i delta inferiori a 1 GiB si accumulano e gli smontaggi non cancellano lo stato.
 - Prometheus conserva la TSDB in `/var/lib/prometheus/metrics2` fino al primo limite tra 30 giorni e 5 GB. La crescita misurata iniziale e' circa 96,9 KiB/minuto, proiezione grezza circa 4,2 GiB/30 giorni. I volumi esterni reali sotto `/run/media` sono inclusi tramite ACL di solo attraversamento per l'exporter; filesystem virtuali e temporanei sono filtrati.
 - Il 9 luglio 2026 un volume NTFS esterno e' scomparso durante I/O e si e' rimontato circa dieci secondi dopo. La causa e' ancora aperta; vedere il registro incidenti globale.
 

@@ -1,6 +1,6 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T13:13:53+02:00
+Generated: 2026-07-26T13:16:39+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
 Total events: 756
 
@@ -8,7 +8,6 @@ Total events: 756
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/MegaVault/projects/oracle-backup-service`
 
 ## Statistics
 ### Events by project
@@ -124,7 +123,7 @@ Total events: 756
 | 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
-| 2026-07-26 | megavault | MegaVault docs record Oracle | backup | PASS | P1 | git_commit | git_log | docs: record Oracle backup recovery |
+| 2026-07-26 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -387,7 +386,9 @@ Total events: 756
 | 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-26 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-26 | megavault | MegaVault docs record Oracle | backup | PASS | P1 | git_commit | git_log | docs: record Oracle backup recovery |
+| 2026-07-26 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-26 | oracle-backup-service | Oracle Backup ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
@@ -407,6 +408,7 @@ Total events: 756
 | 2026-07-26 | oracle-backup-service | Oracle Backup Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Troubleshooting | backup | FAIL | P1 | backup | markdown | Troubleshooting |
 | 2026-07-26 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
+| 2026-07-26 | windows | Veeam T7 | security | FAIL | P1 | doc_event | markdown | Topologia storage globale |
 | 2026-07-24 | luoghi-app | Android Tests | backup | UNKNOWN | P1 | backup | markdown | Registro incidenti |
 | 2026-07-24 | luoghi-app | Git PATH | backup | UNKNOWN | P1 | backup | json | 5 |
 | 2026-07-24 | luoghi-app | luoghi-app 1.apk | security | PASS | P1 | release | markdown | Luoghi Troubleshooting |
@@ -518,11 +520,9 @@ Total events: 756
 | 2026-07-14 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: update global Codex timeline for MTT recovery |
 | 2026-07-14 | megavault | Git PATH | security | OPEN | P0 | protocol_update | markdown | NETWORK_TOPOLOGY |
 | 2026-07-14 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
-| 2026-07-14 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-14 | megavault | MegaVault docs configure Oracle | infra | PASS | P1 | git_commit | git_log | docs: configure Oracle VM SSH access |
 | 2026-07-14 | megavault | MegaVault docs record Codex | backup | PASS | P1 | git_commit | git_log | docs: record Codex quota monitor schema update |
 | 2026-07-14 | megavault | MegaVault infra register Fedora | automation | PASS | P1 | git_commit | git_log | infra: register Fedora diagnostics monitoring |
-| 2026-07-14 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-14 | megavault | MegaVault Update Fedora monitor | automation | PASS | P1 | git_commit | git_log | Update Fedora monitor Host Storage audit registries |
 | 2026-07-14 | megavault | MegaVault v0 | security | WARN | P1 | doc_event | markdown | Inventario software globale |
 | 2026-07-14 | megavault | MegaVault Descrizione delle modifiche | docs | PASS | P2 | git_commit | git_log | Descrizione delle modifiche |
@@ -620,7 +620,6 @@ Total events: 756
 | 2026-07-12 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-12 | rollout-summaries | rollout-summaries VeraCrypt 1.26.29 was | release | WARN | P0 | release | markdown | VeraCrypt 1.26.29 was installed on Fedora 44 from the official Fedora 44 x86_64 RPM, verified by checksum and signature, tested in CLI/menu/GUI, an... |
 | 2026-07-12 | windows | Veeam T7 | security | OPEN | P0 | protocol_update | markdown | HOST_PROFILE |
-| 2026-07-12 | windows | Veeam T7 | security | FAIL | P1 | doc_event | markdown | Topologia storage globale |
 | 2026-07-10 | 2026 | 2026 1.apk | security | WARN | P0 | protocol_update | codex_log | 019f4a10-c997-7c91-9452-d3db629cab20 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4b4d-0914-7a11-877d-4614b9fd0b41 |
 | 2026-07-10 | 2026 | 2026 v2 | security | WARN | P0 | changelog | codex_log | 019f4af9-474f-7f01-8b8a-de670f44549e |
