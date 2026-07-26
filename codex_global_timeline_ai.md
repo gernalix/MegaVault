@@ -1,16 +1,45 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T07:28:37+02:00
-total_events=735
+generated_at=2026-07-26T13:12:54+02:00
+total_events=755
 format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-26|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB diff 2026|backup|OPEN|P1
 2026-07-26|amici-fb|Amici FB trace|backup|FAIL|P1
 2026-07-26|amici-fb|Amici FB trace|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB facebook friends|bugfix|UNKNOWN|P2
 2026-07-26|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
 2026-07-26|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-07-26|fedora-system-monitor|fedora-system-monitor 418732|security|WARN|P0
+2026-07-26|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
+2026-07-26|fedora-system-monitor|Android Tests|backup|FAIL|P1
+2026-07-26|fedora-system-monitor|Android Tests|security|WARN|P1
+2026-07-26|fedora-system-monitor|fedora-system-monitor Changelog|backup|WARN|P1
+2026-07-26|fedora-system-monitor|fedora-system-monitor Fedora System Monitor|security|UNKNOWN|P1
+2026-07-26|fedora-system-monitor|fedora-system-monitor Troubleshooting|backup|WARN|P1
+2026-07-26|fedora-system-monitor|Git PATH|release|FAIL|P1
 2026-07-26|luoghi-app|luoghi-app 13.apk|security|WARN|P0
+2026-07-26|megavault|Codex Timeline|docs|PASS|P0
 2026-07-26|megavault|MegaVault docs record GNOME|docs|PASS|P2
+2026-07-26|multitimetracker|MTT v2|security|WARN|P0
+2026-07-26|oracle-backup-service|Oracle Backup ALERT_REGISTRY|security|OPEN|P0
+2026-07-26|oracle-backup-service|Codex Timeline|backup|OPEN|P1
+2026-07-26|oracle-backup-service|Git PATH|security|PASS|P1
+2026-07-26|oracle-backup-service|Oracle Backup Changelog|backup|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup Oracle backup|backup|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup Oracle backup|backup|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup Oracle backup|security|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup oracle-backup-service|security|FAIL|P1
+2026-07-26|oracle-backup-service|Oracle Backup oracle-backup-service|backup|PASS|P1
+2026-07-26|oracle-backup-service|Oracle Backup oracle-backup-service Changelog|security|WARN|P1
+2026-07-26|oracle-backup-service|Oracle Backup oracle-backup-service_operations|security|OPEN|P1
+2026-07-26|oracle-backup-service|Oracle Backup Project documentation|backup|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup project.metadata|backup|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup Registro incidenti|security|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup Roadmap|backup|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup Troubleshooting|backup|FAIL|P1
+2026-07-26|windows|Veeam T7|security|PASS|P0
 2026-07-24|luoghi-app|Android Tests|backup|UNKNOWN|P1
 2026-07-24|luoghi-app|Git PATH|backup|UNKNOWN|P1
 2026-07-24|luoghi-app|luoghi-app 1.apk|security|PASS|P1
@@ -51,12 +80,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-18|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-18|amici-fb|Amici FB diff 2026|backup|OPEN|P1
 2026-07-18|amici-fb|Amici FB trace|backup|UNKNOWN|P1
-2026-07-18|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
 2026-07-18|fedora-system-monitor|fedora-system-monitor v16|security|WARN|P0
-2026-07-18|fedora-system-monitor|Android Tests|security|WARN|P1
 2026-07-18|fedora-system-monitor|fedora-system-monitor Audit Fedora 44|security|UNKNOWN|P1
-2026-07-18|fedora-system-monitor|fedora-system-monitor Changelog|backup|WARN|P1
-2026-07-18|fedora-system-monitor|fedora-system-monitor Fedora System Monitor|backup|UNKNOWN|P1
 2026-07-18|fedora-system-monitor|fedora-system-monitor INCIDENT REGISTRY|backup|FAIL|P1
 2026-07-18|fedora-system-monitor|fedora-system-monitor Registro incidenti|backup|FAIL|P1
 2026-07-18|legacy|Git PATH|security|OPEN|P1
@@ -65,7 +90,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-18|megavault|Codex Timeline|security|PASS|P0
 2026-07-18|megavault|Git PATH|security|WARN|P0
 2026-07-18|megavault|MegaVault docs align protocol|docs|PASS|P0
-2026-07-18|megavault|Codex Timeline|backup|OPEN|P1
 2026-07-18|megavault|MegaVault REPORTS_LATEST|security|WARN|P1
 2026-07-18|megavault|MegaVault v0|backup|FAIL|P1
 2026-07-18|megavault|MegaVault docs consolidate authoritative|docs|PASS|P2
@@ -124,12 +148,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|fedora-system-monitor|fedora-system-monitor Audit tecnico 471853|backup|FAIL|P1
 2026-07-14|fedora-system-monitor|fedora-system-monitor Integrazione Uptime Kuma|backup|FAIL|P1
 2026-07-14|fedora-system-monitor|fedora-system-monitor Roadmap|backup|UNKNOWN|P1
-2026-07-14|fedora-system-monitor|fedora-system-monitor Troubleshooting|backup|WARN|P1
-2026-07-14|fedora-system-monitor|Git PATH|release|FAIL|P1
 2026-07-14|megavault|Codex Timeline|docs|PASS|P0
 2026-07-14|megavault|Git PATH|security|OPEN|P0
-2026-07-14|megavault|MegaVault ALERT_REGISTRY|security|OPEN|P0
-2026-07-14|megavault|MegaVault v2|security|OPEN|P0
 2026-07-14|megavault|Codex Timeline|backup|FAIL|P1
 2026-07-14|megavault|MegaVault Alert Registry|security|WARN|P1
 2026-07-14|megavault|MegaVault docs configure Oracle|infra|PASS|P1
@@ -166,7 +186,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-14|rollout-summaries|Git PATH|security|WARN|P0
 2026-07-14|rollout-summaries|rollout-summaries v11|release|WARN|P1
 2026-07-14|secrets|Git PATH|security|UNKNOWN|P1
-2026-07-14|windows|Veeam T7|security|PASS|P0
 2026-07-13|2026|2026 v537|security|WARN|P0
 2026-07-13|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-13|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
@@ -245,7 +264,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-10|amici-fb|Amici FB trace|backup|UNKNOWN|P1
-2026-07-10|fedora-system-monitor|Android Tests|backup|FAIL|P1
 2026-07-10|fedora-system-monitor|fedora-system-monitor AUDIT 593184|backup|WARN|P1
 2026-07-10|fedora-system-monitor|fedora-system-monitor Audit tecnico 593184|backup|UNKNOWN|P1
 2026-07-10|luoghi|Git PATH|security|WARN|P0
@@ -305,7 +323,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi-app|luoghi-app v9|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|luoghi-app v9|testing|UNKNOWN|P2
 2026-07-10|luoghi-app|Git PATH|performance|OPEN|P3
-2026-07-10|megavault|Android Tests|security|PASS|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|testing|PASS|P0
@@ -334,6 +351,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
+2026-07-10|oracle-backup-service|Oracle Backup v1|security|PASS|P0
 2026-07-10|oracle-uptime-kuma|Kuma Failed attempt to|security|WARN|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|PASS|P0
 2026-07-10|oracle-uptime-kuma|Kuma v2|security|WARN|P0
@@ -485,8 +503,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|multitimetracker|MTT MegaVault Human Enrichment|security|PASS|P1
 2026-07-09|multitimetracker|MTT v488|security|WARN|P1
 2026-07-09|multitimetracker|MTT v534|backup|WARN|P1
-2026-07-09|oracle-backup-service|Oracle Backup oracle-backup-service Features|security|FAIL|P1
-2026-07-09|oracle-backup-service|Oracle Backup oracle-backup-service Roadmap|security|WARN|P1
 2026-07-09|oracle-uptime-kuma|Kuma Features|backup|UNKNOWN|P1
 2026-07-09|os-observer|os-observer os-observer Features|backup|UNKNOWN|P1
 2026-07-09|os-observer|os-observer os-observer Overview|backup|OPEN|P1
@@ -587,6 +603,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|multitimetracker|MTT app-release.apk|security|PASS|P1
 2026-07-05|multitimetracker|MTT v528|security|FAIL|P1
 2026-07-05|multitimetracker|MTT v530|security|PASS|P1
+2026-06-29|oracle-backup-service|Oracle Backup v2|security|WARN|P1
 2026-06-28|megavault|MegaVault Add Pixel Buds|infra|PASS|P1
 2026-06-27|megavault|MegaVault Add Windows Flight|infra|PASS|P1
 2026-06-27|megavault|MegaVault Document Windows winget|infra|PASS|P1
@@ -630,8 +647,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-13|megavault|MegaVault Home Backup Bwlimit|backup|UNKNOWN|P1
 2026-06-13|mint-manual-updates|mint-manual-updates v9|backup|WARN|P1
 2026-06-13|multitimetracker|MTT Audit Telegram MegaVault|security|FAIL|P1
-2026-06-13|oracle-backup-service|Oracle Backup oracle-backup-service Changelog|backup|WARN|P1
-2026-06-13|oracle-backup-service|Oracle Backup oracle-backup-service Overview|backup|WARN|P1
+2026-06-13|oracle-backup-service|Git PATH|backup|WARN|P1
 2026-06-13|owntracks-watcher|owntracks-watcher v9|security|WARN|P0
 2026-06-13|owntracks-watcher|Android Tests|automation|FAIL|P1
 2026-06-13|sostanze|Sostanze 4.apk|backup|WARN|P1
@@ -640,7 +656,6 @@ format=event_date|project|label_short|category|status|importance
 2026-06-10|codex-token-watcher|codex-token-watcher codex-token-watcher Features|security|UNKNOWN|P1
 2026-06-10|git-change-ledger|Git PATH|automation|UNKNOWN|P2
 2026-06-10|mint-freeze-forensics|mint-freeze-forensics v1|backup|UNKNOWN|P1
-2026-06-10|oracle-backup-service|Oracle Backup v2|security|WARN|P0
 2026-06-10|oracle-uptime-kuma|Kuma Roadmap|performance|WARN|P2
 2026-06-10|surface-recovery-hardening|surface-recovery-hardening v2|security|PASS|P0
 2026-06-10|windowtabnotes|windowtabnotes v22|backup|UNKNOWN|P1
@@ -665,7 +680,6 @@ format=event_date|project|label_short|category|status|importance
 2026-06-05|megavault|MegaVault Document exporter X11|docs|PASS|P2
 2026-06-05|megavault|MegaVault Register MegaVault project|docs|PASS|P2
 2026-06-05|megavault-project-exporter|megavault-project-exporter megavault-project-exporter Changelog|bugfix|UNKNOWN|P2
-2026-06-05|oracle-backup-service|Oracle Backup oracle-backup-service Troubleshooting|security|WARN|P1
 2026-06-04|megavault|MegaVault Consolidate Android updater|docs|PASS|P2
 2026-06-04|megavault|MegaVault Document mint update|docs|PASS|P2
 2026-06-04|mint-update-tracker|mint-update-tracker v2|security|PASS|P1
@@ -711,7 +725,13 @@ format=event_date|project|label_short|category|status|importance
 2026-06-01|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Changelog|backup|UNKNOWN|P1
 2026-06-01|supercontacts|SC v20|backup|UNKNOWN|P1
 2026-06-01|system-watchdog|system-watchdog system_watchdog Changelog|bugfix|UNKNOWN|P2
+2026-02-06|oracle-backup-service|Oracle Backup v2|security|PASS|P0
+2026-02-06|oracle-backup-service|Git PATH|backup|WARN|P1
+2026-02-06|oracle-backup-service|Git PATH|security|WARN|P1
+2026-02-06|oracle-backup-service|Oracle Backup Oracle backup|backup|WARN|P1
+2026-02-06|oracle-backup-service|Oracle Backup v2|security|WARN|P1
 2026-02-01|maintenance-486|maintenance-486 maintenance-486 Troubleshooting|release|UNKNOWN|P1
+2026-02-01|oracle-backup-service|Git PATH|security|PASS|P1
 2026-02-01|oracle-uptime-kuma|Kuma Troubleshooting|security|FAIL|P1
 2026-01-11|amici-fb|Amici FB diff 2026|backup|OPEN|P1
 2026-01-10|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1

@@ -1,9 +1,9 @@
 # DATA_REGISTRY
-VERSION=9
+VERSION=10
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_filesystem_checks_2026-07-14+MegaVault_timeline_SQLite+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417
+SOURCE=Fedora_filesystem_checks_2026-07-14+MegaVault_timeline_SQLite+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/DATA_REGISTRY.md
@@ -33,6 +33,8 @@ BACKUP_CURRENT:
 repository=Restic;owner=fedora-t7-backup;path=/mnt/T7_BACKUP/restic-fedora;device=T7;encrypted=yes;repository_id=5872c043e0;snapshots=2;verified=historical_full_read_3955/3955_packs+current_light_198/198_packs_5percent+sample_restore_SHA256_PASS;latest_snapshot=3082eb92;activity=684219
 manifest=/var/lib/t7-restic-backup/manifest;contains=RPM+Flatpak+storage+mount+boot+SELinux+systemd+Podman+Git_paths;secret_content=forbidden
 monitor_db_consistency=online_SQLite_backup+integrity_check_before_each_Restic_snapshot;raw_live_DB_WAL_SHM_excluded
+remote_repository=Restic;owner=oracle-backup-service;host=150.230.148.128;path=rclone:oci:bucket-20260206-0730/oraclevm;id=7fd0c92d9f;snapshots=1_at_2026-07-26;latest=685d4861;integrity=ok;restore_SHA256=PASS;quota=3.25GiB_OK;activity=731904
+remote_incident_db=/home/ubuntu/sync_root/db/incident_registry.sqlite;host=150.230.148.128;owner=oracle-backup-service;integrity=live_tool_operational;activity=731904
 
 RULES:
 rule=do_not_modify_project_databases_for_docs_tasks

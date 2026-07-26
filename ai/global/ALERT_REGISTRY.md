@@ -1,9 +1,9 @@
 # ALERT_REGISTRY
-VERSION=7
+VERSION=8
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_systemd_live_2026-07-14+HOST_PROFILE+activity_593184+activity_471852+activity_471853+activity_826417
+SOURCE=Fedora_systemd_live_2026-07-14+HOST_PROFILE+activity_593184+activity_471852+activity_471853+activity_826417+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
@@ -41,6 +41,13 @@ service=systemd-oomd.service;state=active/running;scope=memory_pressure
 PROMETHEUS_LOCAL:
 role=historical_metrics_only;Alertmanager=not_installed;Grafana=not_installed;alerts=none_added
 independence=Uptime_Kuma_monitors+heartbeat+thresholds+credentials_unchanged;Prometheus_does_not_depend_on_Kuma;Kuma_does_not_depend_on_Prometheus;activity=826417
+
+ORACLE_BACKUP_REMOTE:
+host=150.230.148.128;source=oracle-backup-healthcheck+oracle-backup-monitor+oracle-backup-remote-quota;verified=2026-07-26;activity=731904
+current=backup_state_OK+remote_quota_OK_3.25GiB+remote_retention_OK+local_fallback_quota_OK+root_usage_53percent+root_free_21.1GiB
+cleared=REMOTE_DEGRADED_absent+StorageLimitExceeded_absent+last_failed_repos_empty+last_remote_error_empty
+delivery=recovery_notification_PASS_after_output_redaction
+security_incident=TELEGRAM_TRANSPORT_SECRET_DISCLOSURE;status=MITIGATED;remaining=credential_rotation_required
 
 RULES:
 rule=never_print_or_commit_tokens+chat_ids+push_URLs

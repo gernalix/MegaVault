@@ -1,5 +1,15 @@
 # oracle-backup-service Changelog
 
+## 2026-07-26 — attività 731904
+
+- Nuovo checkout Fedora in `/home/daniele/MegaVault/projects/oracle-backup-service`, ramo `codex/731904-oracle-remote-recovery`, push completato.
+- SSH verificato con `/home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa`.
+- Vecchio repository OCI provato corrotto, inventariato e sostituito dopo restore valido dal fallback.
+- Nuovo repository `7fd0c92d9f`: backup remoto `685d4861`, check e restore PASS.
+- Retention remota preventiva accoppiata al backup, `keep-last=22`; quota finale 3,25 GiB OK.
+- `REMOTE_DEGRADED` e `StorageLimitExceeded` assenti; healthcheck pulito.
+- Output Telegram sensibile redatto nel codice; rotazione credenziale ancora richiesta.
+
 ## Eventi MegaVault
 - 2026-06-13: `#847261` ha introdotto Incident Registry SQLite (`/home/ubuntu/sync_root/db/incident_registry.sqlite`) e ha corretto la causa locale degli alert ricorrenti: preflight remoto/fallback prima degli snapshot SQLite, streaming forzato quando OCI non e' scrivibile, retention locale a un run completo, hard quota fallback 7G. Validazione: backup manuale rc=0 `REMOTE_DEGRADED`, fallback valido, `/` 66%, `sqlite_snapshots` 40K, `emergency_repo` 4.8G, healthcheck/monitor rc=0 WARNING. Remoto OCI resta `StorageLimitExceeded` e repo remoto risulta corrotto/unindexed.
 - 2026-06-13: `#918472` ha eseguito cleanup sicuro e solo locale del fallback restic `/var/lib/oracle_backup/emergency_repo`. Snapshot locali: 82 -> 11; repo fisico: 14G -> 3.9G; `/`: 98%/1.2G liberi -> 75%/12G liberi. Comandi restic puntati sempre a `-r /var/lib/oracle_backup/emergency_repo`; nessun backup remoto cancellato o modificato. Healthcheck finale coerente: WARNING/`REMOTE_DEGRADED`, quota fallback OK, OCI ancora `StorageLimitExceeded`.
