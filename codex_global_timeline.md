@@ -1,6 +1,6 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T22:23:28+02:00
+Generated: 2026-07-26T22:27:25+02:00
 SQLite canonical source: `/home/daniele/MegaVault-worktrees/activity-731842/codex_global_timeline.sqlite`
 Total events: 382
 
@@ -69,13 +69,13 @@ Total events: 382
 
 | Value | Events |
 |---|---:|
-| security | 201 |
-| backup | 79 |
+| security | 204 |
+| backup | 78 |
 | release | 33 |
 | bugfix | 26 |
 | testing | 17 |
 | automation | 13 |
-| infra | 7 |
+| infra | 5 |
 | docs | 2 |
 | migration | 2 |
 | performance | 2 |
@@ -84,9 +84,9 @@ Total events: 382
 
 | Value | Events |
 |---|---:|
-| P1 | 168 |
+| P1 | 169 |
 | P0 | 156 |
-| P2 | 50 |
+| P2 | 49 |
 | P3 | 8 |
 
 ### Events by status
@@ -474,15 +474,15 @@ Total events: 382
 | 2026-07-26 | system-watchdog | system-watchdog system_watchdog Troubleshooting | release | FAIL | P1 | release | markdown | system_watchdog Troubleshooting |
 | 2026-07-26 | system-watchdog | system-watchdog system_watchdog Overview | automation | OPEN | P2 | doc_event | markdown | system_watchdog Overview |
 | 2026-07-26 | vm-oracle | vm-oracle Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
-| 2026-07-26 | vm-oracle | vm-oracle Operazioni VM Oracle | backup | FAIL | P1 | report | markdown | Operazioni VM Oracle |
+| 2026-07-26 | vm-oracle | vm-oracle Operazioni VM Oracle | security | FAIL | P1 | doc_event | markdown | Operazioni VM Oracle |
 | 2026-07-26 | vm-oracle | vm-oracle project.metadata | release | UNKNOWN | P1 | release | json | project.metadata |
 | 2026-07-26 | vm-oracle | vm-oracle Registro incidenti | security | PASS | P1 | doc_event | markdown | Registro incidenti |
 | 2026-07-26 | vm-oracle | vm-oracle requirements global.lock | security | UNKNOWN | P1 | doc_event | txt | requirements global.lock |
 | 2026-07-26 | vm-oracle | vm-oracle Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
-| 2026-07-26 | vm-oracle | vm-oracle VM Oracle Ubuntu | infra | WARN | P1 | doc_event | markdown | VM Oracle Ubuntu |
+| 2026-07-26 | vm-oracle | vm-oracle VM Oracle Ubuntu | security | WARN | P1 | doc_event | markdown | VM Oracle Ubuntu |
+| 2026-07-26 | vm-oracle | vm-oracle vm_oracle | security | UNKNOWN | P1 | report | markdown | vm_oracle |
 | 2026-07-26 | vm-oracle | vm-oracle Incidenti | automation | UNKNOWN | P2 | doc_event | markdown | Incidenti |
 | 2026-07-26 | vm-oracle | vm-oracle Troubleshooting | automation | UNKNOWN | P2 | doc_event | markdown | Troubleshooting |
-| 2026-07-26 | vm-oracle | vm-oracle vm_oracle | infra | UNKNOWN | P2 | report | markdown | vm_oracle |
 | 2026-07-26 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-26 | windows | Veeam T7 | security | FAIL | P1 | doc_event | markdown | Topologia storage globale |
 | 2026-07-26 | windows-flight-recorder | WFR Windows 11 autonomous | security | FAIL | P0 | protocol_update | markdown | Windows 11 autonomous flight-recorder logger: system events+metrics -> SQLite, heartbeat -> Uptime Kuma, watchdog recovery, CLI inspection, local d... |

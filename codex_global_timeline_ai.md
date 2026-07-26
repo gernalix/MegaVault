@@ -1,5 +1,5 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T22:23:28+02:00
+generated_at=2026-07-26T22:27:25+02:00
 total_events=382
 format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB amici_fb Features|security|UNKNOWN|P1
@@ -138,15 +138,15 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|system-watchdog|system-watchdog system_watchdog Troubleshooting|release|FAIL|P1
 2026-07-26|system-watchdog|system-watchdog system_watchdog Overview|automation|OPEN|P2
 2026-07-26|vm-oracle|vm-oracle Changelog|backup|UNKNOWN|P1
-2026-07-26|vm-oracle|vm-oracle Operazioni VM Oracle|backup|FAIL|P1
+2026-07-26|vm-oracle|vm-oracle Operazioni VM Oracle|security|FAIL|P1
 2026-07-26|vm-oracle|vm-oracle project.metadata|release|UNKNOWN|P1
 2026-07-26|vm-oracle|vm-oracle Registro incidenti|security|PASS|P1
 2026-07-26|vm-oracle|vm-oracle requirements global.lock|security|UNKNOWN|P1
 2026-07-26|vm-oracle|vm-oracle Roadmap|backup|UNKNOWN|P1
-2026-07-26|vm-oracle|vm-oracle VM Oracle Ubuntu|infra|WARN|P1
+2026-07-26|vm-oracle|vm-oracle VM Oracle Ubuntu|security|WARN|P1
+2026-07-26|vm-oracle|vm-oracle vm_oracle|security|UNKNOWN|P1
 2026-07-26|vm-oracle|vm-oracle Incidenti|automation|UNKNOWN|P2
 2026-07-26|vm-oracle|vm-oracle Troubleshooting|automation|UNKNOWN|P2
-2026-07-26|vm-oracle|vm-oracle vm_oracle|infra|UNKNOWN|P2
 2026-07-26|windows|Veeam T7|security|PASS|P0
 2026-07-26|windows|Veeam T7|security|FAIL|P1
 2026-07-26|windows-flight-recorder|WFR Windows 11 autonomous|security|FAIL|P0
