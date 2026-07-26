@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T22:27:25+02:00
+Generated: 2026-07-27T00:43:30+02:00
 SQLite canonical source: `/home/daniele/MegaVault-worktrees/activity-731842/codex_global_timeline.sqlite`
-Total events: 382
+Total events: 384
 
 ## Source Roots
 - `/home/daniele/MegaVault-worktrees/activity-731842`
@@ -20,8 +20,8 @@ Total events: 382
 | 2026 | 26 |
 | megavault | 22 |
 | luoghi | 20 |
+| vm-oracle | 15 |
 | oracle-uptime-kuma | 13 |
-| vm-oracle | 13 |
 | oracle-backup-service | 12 |
 | windows | 8 |
 | supercontacts | 7 |
@@ -69,10 +69,10 @@ Total events: 382
 
 | Value | Events |
 |---|---:|
-| security | 204 |
-| backup | 78 |
+| security | 206 |
+| backup | 77 |
 | release | 33 |
-| bugfix | 26 |
+| bugfix | 27 |
 | testing | 17 |
 | automation | 13 |
 | infra | 5 |
@@ -84,17 +84,17 @@ Total events: 382
 
 | Value | Events |
 |---|---:|
-| P1 | 169 |
+| P1 | 170 |
 | P0 | 156 |
-| P2 | 49 |
+| P2 | 50 |
 | P3 | 8 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| WARN | 153 |
-| UNKNOWN | 109 |
+| WARN | 154 |
+| UNKNOWN | 110 |
 | PASS | 46 |
 | FAIL | 38 |
 | OPEN | 36 |
@@ -103,6 +103,11 @@ Total events: 382
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-27 | vm-oracle | Git PATH | security | WARN | P1 | changelog | markdown | REPORT_846273 - Datasette e Python globale VM Oracle |
+| 2026-07-27 | vm-oracle | vm-oracle Operazioni VM Oracle | security | FAIL | P1 | doc_event | markdown | Operazioni VM Oracle |
+| 2026-07-27 | vm-oracle | vm-oracle Registro incidenti | security | PASS | P1 | doc_event | markdown | Registro incidenti |
+| 2026-07-27 | vm-oracle | vm-oracle VM Oracle Ubuntu | security | WARN | P1 | doc_event | markdown | VM Oracle Ubuntu |
+| 2026-07-27 | vm-oracle | vm-oracle runtime python contexts | bugfix | UNKNOWN | P2 | doc_event | json | runtime python contexts 846273 |
 | 2026-07-26 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
 | 2026-07-26 | amici-fb | Amici FB amici_fb Roadmap | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Roadmap |
 | 2026-07-26 | amici-fb | Amici FB amici_fb Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | amici_fb Troubleshooting |
@@ -118,11 +123,6 @@ Total events: 382
 | 2026-07-26 | aw-converter | aw-converter aw-converter Overview | testing | OPEN | P3 | qa | markdown | aw-converter Overview |
 | 2026-07-26 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Features | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Features |
 | 2026-07-26 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Overview | backup | OPEN | P1 | backup | markdown | chatgpt-chrome-debug Overview |
-| 2026-07-26 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Roadmap | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Roadmap |
-| 2026-07-26 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Troubleshooting | security | UNKNOWN | P1 | doc_event | markdown | chatgpt-chrome-debug Troubleshooting |
-| 2026-07-26 | codex-html-live | codex-html-live codex-html-live Features | release | UNKNOWN | P1 | release | markdown | codex-html-live Features |
-| 2026-07-26 | codex-html-live | codex-html-live codex-html-live Roadmap | infra | FAIL | P1 | doc_event | markdown | codex-html-live Roadmap |
-| 2026-07-26 | codex-html-live | codex-html-live codex-html-live Troubleshooting | release | FAIL | P1 | release | markdown | codex-html-live Troubleshooting |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -290,8 +290,8 @@ Total events: 382
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
 - `megavault`: 22 events; latest=2026-07-26; label=Codex Timeline
 - `luoghi`: 20 events; latest=2026-07-26; label=Git PATH
+- `vm-oracle`: 15 events; latest=2026-07-27; label=Git PATH
 - `oracle-uptime-kuma`: 13 events; latest=2026-07-26; label=Kuma Features
-- `vm-oracle`: 13 events; latest=2026-07-26; label=vm-oracle Changelog
 - `oracle-backup-service`: 12 events; latest=2026-07-26; label=Android Tests
 - `windows`: 8 events; latest=2026-07-26; label=Veeam T7
 - `supercontacts`: 7 events; latest=2026-07-26; label=SC SuperContacts Roadmap
@@ -338,6 +338,11 @@ Total events: 382
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-27 | vm-oracle | Git PATH | security | WARN | P1 | changelog | markdown | REPORT_846273 - Datasette e Python globale VM Oracle |
+| 2026-07-27 | vm-oracle | vm-oracle Operazioni VM Oracle | security | FAIL | P1 | doc_event | markdown | Operazioni VM Oracle |
+| 2026-07-27 | vm-oracle | vm-oracle Registro incidenti | security | PASS | P1 | doc_event | markdown | Registro incidenti |
+| 2026-07-27 | vm-oracle | vm-oracle VM Oracle Ubuntu | security | WARN | P1 | doc_event | markdown | VM Oracle Ubuntu |
+| 2026-07-27 | vm-oracle | vm-oracle runtime python contexts | bugfix | UNKNOWN | P2 | doc_event | json | runtime python contexts 846273 |
 | 2026-07-26 | amici-fb | Amici FB amici_fb Features | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Features |
 | 2026-07-26 | amici-fb | Amici FB amici_fb Roadmap | security | UNKNOWN | P1 | doc_event | markdown | amici_fb Roadmap |
 | 2026-07-26 | amici-fb | Amici FB amici_fb Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | amici_fb Troubleshooting |
@@ -473,13 +478,10 @@ Total events: 382
 | 2026-07-26 | system-watchdog | system-watchdog system_watchdog Roadmap | automation | FAIL | P1 | doc_event | markdown | system_watchdog Roadmap |
 | 2026-07-26 | system-watchdog | system-watchdog system_watchdog Troubleshooting | release | FAIL | P1 | release | markdown | system_watchdog Troubleshooting |
 | 2026-07-26 | system-watchdog | system-watchdog system_watchdog Overview | automation | OPEN | P2 | doc_event | markdown | system_watchdog Overview |
-| 2026-07-26 | vm-oracle | vm-oracle Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
-| 2026-07-26 | vm-oracle | vm-oracle Operazioni VM Oracle | security | FAIL | P1 | doc_event | markdown | Operazioni VM Oracle |
+| 2026-07-26 | vm-oracle | Git PATH | security | UNKNOWN | P1 | changelog | markdown | Changelog |
 | 2026-07-26 | vm-oracle | vm-oracle project.metadata | release | UNKNOWN | P1 | release | json | project.metadata |
-| 2026-07-26 | vm-oracle | vm-oracle Registro incidenti | security | PASS | P1 | doc_event | markdown | Registro incidenti |
 | 2026-07-26 | vm-oracle | vm-oracle requirements global.lock | security | UNKNOWN | P1 | doc_event | txt | requirements global.lock |
 | 2026-07-26 | vm-oracle | vm-oracle Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
-| 2026-07-26 | vm-oracle | vm-oracle VM Oracle Ubuntu | security | WARN | P1 | doc_event | markdown | VM Oracle Ubuntu |
 | 2026-07-26 | vm-oracle | vm-oracle vm_oracle | security | UNKNOWN | P1 | report | markdown | vm_oracle |
 | 2026-07-26 | vm-oracle | vm-oracle Incidenti | automation | UNKNOWN | P2 | doc_event | markdown | Incidenti |
 | 2026-07-26 | vm-oracle | vm-oracle Troubleshooting | automation | UNKNOWN | P2 | doc_event | markdown | Troubleshooting |
@@ -719,4 +721,4 @@ Total events: 382
 | 2026-02-01 | maintenance-486 | maintenance-486 maintenance-486 Troubleshooting | release | UNKNOWN | P1 | release | markdown | maintenance-486 Troubleshooting |
 | 2026-02-01 | oracle-uptime-kuma | Kuma Troubleshooting | security | FAIL | P1 | doc_event | markdown | Troubleshooting |
 | 2026-02-01 | vm-oracle | vm-oracle REPORT_731842 aggiornamento completo | security | WARN | P0 | protocol_update | markdown | REPORT_731842 aggiornamento completo VM Oracle Ubuntu |
-| 2026-02-01 | vm-oracle | vm-oracle 2026.07.26.1 | security | WARN | P1 | report | markdown | 2026.07.26.1 |
+| 2026-02-01 | vm-oracle | Git PATH | security | WARN | P1 | report | markdown | 2026.07.26.2 |
