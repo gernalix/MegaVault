@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=17
+VERSION=18
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-26+HOST_PROFILE+activity_418732+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904
+SOURCE=systemctl_live_2026-07-26+HOST_PROFILE+activity_482731+activity_418732+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -45,6 +45,7 @@ service=fedora-external-updater-root.service;scope=system;state=installed+timer_
 udev=90-t7-name.rules;match=USB_disk_add+serial_S6YGNS0Y903440H;action=TAG_systemd+SYSTEMD_WANTS_t7-restic-backup.service;duplicate_events=flock_ignored;activity=684219
 audit=fedora-system-monitor_1.3.0;watchers=minute+five_minute+fifteen_minute_real_ok;filesystem_Telegram_delta=existing_five_minute_collector+telegram_notify.py+SQLite_baseline;tests=107_PASS;selftest=18_PASS;udev=verify_PASS;hardening=systemd_analyze_verify_PASS;capabilities_base=DAC_READ_SEARCH+SETGID+SETUID;capabilities_daily=base+SYS_ADMIN;capabilities_daemon_device_lifecycle=none;SYS_RAWIO=absent;activity=418732
 audit=fedora-system-monitor_1.3.0;events+lifecycle+prometheus=active_success;timers=fast+hourly+daily+weekly_enabled_active;path=software_enabled_active;collectors=minute+five_minute+fifteen_minute+hourly+daily+weekly+software_event_latest_ok;SQLite_live_insert_before_after=PASS;tests=107_PASS;selftest=18_PASS;udev=verify_PASS;systemd=verify_PASS;activity=684219
+audit=fedora-system-monitor_1.3.1;SMART_false_positive=RESOLVED;hourly+daily=SYS_ADMIN+SYS_RAWIO_only;NoNewPrivileges=yes;native_NVMe+T7_sntasmedia_health=PASS;Seagate_USB_SAT=skipped_asleep;new_false_events=0;tests=110_PASS;selftest=18_PASS;SQLite=PASS;systemd+udev=PASS;activity=482731
 
 USER_SERVICES_RELEVANT:
 service=gnome-session-manager@gnome.service;state=active/running;purpose=GNOME_session

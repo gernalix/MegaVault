@@ -1,28 +1,28 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T13:23:23+02:00
+Generated: 2026-07-26T14:17:26+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 759
+Total events: 762
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai`
+- `/home/daniele/MegaVault/projects/fedora-system-monitor`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 161 |
+| megavault | 162 |
 | amici-fb | 142 |
 | luoghi-app | 71 |
 | multitimetracker | 55 |
 | rollout-summaries | 34 |
 | oracle-backup-service | 27 |
 | 2026 | 26 |
-| fedora-system-monitor | 22 |
+| fedora-system-monitor | 24 |
 | luoghi | 18 |
 | fedora-t7-backup | 15 |
 | oracle-uptime-kuma | 13 |
@@ -71,13 +71,13 @@ Total events: 759
 
 | Value | Events |
 |---|---:|
-| backup | 239 |
-| security | 232 |
+| backup | 240 |
+| security | 233 |
 | docs | 86 |
 | bugfix | 53 |
 | release | 48 |
 | testing | 47 |
-| automation | 23 |
+| automation | 24 |
 | infra | 16 |
 | migration | 12 |
 | performance | 3 |
@@ -87,7 +87,7 @@ Total events: 759
 | Value | Events |
 |---|---:|
 | P1 | 400 |
-| P0 | 182 |
+| P0 | 185 |
 | P2 | 166 |
 | P3 | 11 |
 
@@ -96,8 +96,8 @@ Total events: 759
 | Value | Events |
 |---|---:|
 | UNKNOWN | 280 |
-| PASS | 199 |
-| WARN | 170 |
+| PASS | 200 |
+| WARN | 172 |
 | FAIL | 57 |
 | OPEN | 53 |
 
@@ -115,21 +115,24 @@ Total events: 759
 | 2026-07-26 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-26 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor 418732 | security | WARN | P0 | protocol_update | markdown | REPORT 418732 |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor 482731 | security | WARN | P0 | protocol_update | markdown | REPORT 482731 |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Attivita 482731 correzione | backup | WARN | P0 | protocol_update | markdown | Attivita 482731 correzione SMART Fedora |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P0 | changelog | markdown | Changelog |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-26 | fedora-system-monitor | Android Tests | backup | FAIL | P1 | backup | markdown | SCHEMA |
 | 2026-07-26 | fedora-system-monitor | Android Tests | security | WARN | P1 | report | markdown | OPERATIONS |
-| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P1 | changelog | markdown | Changelog |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | security | UNKNOWN | P1 | report | markdown | Fedora System Monitor |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Registro incidenti | backup | FAIL | P1 | backup | markdown | Registro incidenti |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
-| 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
-| 2026-07-26 | fedora-system-monitor | Git PATH | backup | WARN | P1 | report | markdown | REPORT 684219 |
-| 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
-| 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor 418732 | security | WARN | P0 | protocol_update | markdown | REPORT 418732 |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor 482731 | security | WARN | P0 | protocol_update | markdown | REPORT 482731 |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Attivita 482731 correzione | backup | WARN | P0 | protocol_update | markdown | Attivita 482731 correzione SMART Fedora |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P0 | changelog | markdown | Changelog |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-26 | luoghi-app | luoghi-app 13.apk | security | WARN | P0 | release | markdown | Places Autocomplete Recovery |
 | 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
@@ -313,14 +316,14 @@ Total events: 759
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | PASS | P0 | protocol_update | markdown | DATA_REGISTRY |
 
 ## Projects
-- `megavault`: 161 events; latest=2026-07-26; label=Codex Timeline
+- `megavault`: 162 events; latest=2026-07-26; label=Codex Timeline
 - `amici-fb`: 142 events; latest=2026-07-26; label=Amici FB amici 2026
 - `luoghi-app`: 71 events; latest=2026-07-26; label=luoghi-app 13.apk
 - `multitimetracker`: 55 events; latest=2026-07-26; label=MTT v2
 - `rollout-summaries`: 34 events; latest=2026-07-23; label=rollout-summaries Fedora 44 idle
 - `oracle-backup-service`: 27 events; latest=2026-07-26; label=Oracle Backup ALERT_REGISTRY
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
-- `fedora-system-monitor`: 22 events; latest=2026-07-26; label=fedora-system-monitor 418732
+- `fedora-system-monitor`: 24 events; latest=2026-07-26; label=fedora-system-monitor 418732
 - `luoghi`: 18 events; latest=2026-07-19; label=Luoghi v2
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `oracle-uptime-kuma`: 13 events; latest=2026-07-14; label=Kuma Topologia rete globale
@@ -378,11 +381,15 @@ Total events: 759
 | 2026-07-26 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-26 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor 418732 | security | WARN | P0 | protocol_update | markdown | REPORT 418732 |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor 482731 | security | WARN | P0 | protocol_update | markdown | REPORT 482731 |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Attivita 482731 correzione | backup | WARN | P0 | protocol_update | markdown | Attivita 482731 correzione SMART Fedora |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P0 | changelog | markdown | Changelog |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor project.metadata | release | UNKNOWN | P0 | release | json | project.metadata |
 | 2026-07-26 | fedora-system-monitor | Android Tests | backup | FAIL | P1 | backup | markdown | SCHEMA |
 | 2026-07-26 | fedora-system-monitor | Android Tests | security | WARN | P1 | report | markdown | OPERATIONS |
-| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Changelog | backup | WARN | P1 | changelog | markdown | Changelog |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | security | UNKNOWN | P1 | report | markdown | Fedora System Monitor |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
+| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Registro incidenti | backup | FAIL | P1 | backup | markdown | Registro incidenti |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-26 | fedora-system-monitor | Git PATH | release | FAIL | P1 | release | markdown | Fedora System Monitor |
 | 2026-07-26 | fedora-system-monitor | Git PATH | backup | WARN | P1 | report | markdown | REPORT 684219 |
@@ -392,6 +399,7 @@ Total events: 759
 | 2026-07-26 | megavault | MegaVault Alert Registry | security | WARN | P1 | doc_event | markdown | Alert Registry |
 | 2026-07-26 | megavault | MegaVault docs record monitor | automation | PASS | P1 | git_commit | git_log | docs: record monitor SQLite persistence audit |
 | 2026-07-26 | megavault | MegaVault docs record Oracle | backup | PASS | P1 | git_commit | git_log | docs: record Oracle backup recovery |
+| 2026-07-26 | megavault | MegaVault docs refresh timeline | automation | PASS | P1 | git_commit | git_log | docs: refresh timeline after monitor coverage audit |
 | 2026-07-26 | megavault | MegaVault docs register filesystem | automation | PASS | P1 | git_commit | git_log | docs: register filesystem Telegram monitoring |
 | 2026-07-26 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
@@ -456,8 +464,6 @@ Total events: 759
 | 2026-07-18 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-18 | fedora-system-monitor | fedora-system-monitor v16 | security | WARN | P0 | protocol_update | markdown | AUDIT 962417 |
 | 2026-07-18 | fedora-system-monitor | fedora-system-monitor Audit Fedora 44 | security | UNKNOWN | P1 | doc_event | markdown | Audit Fedora 44 attivita 962417 |
-| 2026-07-18 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
-| 2026-07-18 | fedora-system-monitor | fedora-system-monitor Registro incidenti | backup | FAIL | P1 | backup | markdown | Registro incidenti |
 | 2026-07-18 | legacy | Git PATH | security | OPEN | P1 | doc_event | markdown | PROJECTS_LEGACY |
 | 2026-07-18 | luoghi | Luoghi v2 | security | WARN | P0 | protocol_update | codex_log | 019f766c-a541-7360-8295-7880c83f5454 |
 | 2026-07-18 | luoghi | Luoghi v2 | security | WARN | P0 | protocol_update | codex_log | 019f766e-6b68-79c1-9313-a2f1d5aeea8a |

@@ -1,9 +1,9 @@
 # STORAGE_TOPOLOGY
-VERSION=10
+VERSION=11
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-26+activity_418732+activity_593184+activity_842731+activity_583921+activity_684219+activity_826417+activity_731904
+SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-26+activity_482731+activity_418732+activity_593184+activity_842731+activity_583921+activity_684219+activity_826417+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/STORAGE_TOPOLOGY.md
@@ -26,6 +26,7 @@ external_ntfs=/run/media/daniele/09FA16D309FA16D3 ntfs size=155.9GiB role=UNKNOW
 t7=name=T7 normally=physically_disconnected_or_USB_present_unmounted mount_when_job_active=/mnt/T7_BACKUP ext4 label=T7_BACKUP uuid=4c75ac03-4c73-43f8-afd9-f90db49a74fc model=Samsung_PSSD_T7_Shield serial=S6YGNS0Y903440H size=931.5GiB free_about=761GiB persistent_fstab=yes udisks_hint=T7 activity=684219
 recovery_media=historical_distinct_vfat label=VEEAMRE uuid=16B8-BC99 size=14.6GiB disconnected=2026-07-12T01:09:47+02:00
 storage_health=T7_identity_verified+Restic_full_read_check_PASS_2026-07-12+connect_backup_unmount_PASS
+smart_health_2026_07_26=internal_KIOXIA_PASS+temperature_41C+spare_100percent+used_0percent+media_errors_0+error_log_0+self_test_failures_0;T7_sntasmedia_health_PASS+error_log_bridge_unsupported;two_Seagate_USB_SAT_skipped_asleep;activity=482731
 
 BACKUP_STORAGE:
 current_backup_policy=Restic_encrypted_to_T7;backup_every_physical_connect_via_udev+systemd;forget_each_success;light_check+prune_weekly_max;full_check_monthly_max;retention=7d+5w+12m+3y;activity=684219

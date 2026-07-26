@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T13:23:23+02:00
-total_events=759
+generated_at=2026-07-26T14:17:26+02:00
+total_events=762
 format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
@@ -12,11 +12,15 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
 2026-07-26|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
 2026-07-26|fedora-system-monitor|fedora-system-monitor 418732|security|WARN|P0
+2026-07-26|fedora-system-monitor|fedora-system-monitor 482731|security|WARN|P0
+2026-07-26|fedora-system-monitor|fedora-system-monitor Attivita 482731 correzione|backup|WARN|P0
+2026-07-26|fedora-system-monitor|fedora-system-monitor Changelog|backup|WARN|P0
 2026-07-26|fedora-system-monitor|fedora-system-monitor project.metadata|release|UNKNOWN|P0
 2026-07-26|fedora-system-monitor|Android Tests|backup|FAIL|P1
 2026-07-26|fedora-system-monitor|Android Tests|security|WARN|P1
-2026-07-26|fedora-system-monitor|fedora-system-monitor Changelog|backup|WARN|P1
 2026-07-26|fedora-system-monitor|fedora-system-monitor Fedora System Monitor|security|UNKNOWN|P1
+2026-07-26|fedora-system-monitor|fedora-system-monitor INCIDENT REGISTRY|backup|FAIL|P1
+2026-07-26|fedora-system-monitor|fedora-system-monitor Registro incidenti|backup|FAIL|P1
 2026-07-26|fedora-system-monitor|fedora-system-monitor Troubleshooting|backup|WARN|P1
 2026-07-26|fedora-system-monitor|Git PATH|release|FAIL|P1
 2026-07-26|fedora-system-monitor|Git PATH|backup|WARN|P1
@@ -26,6 +30,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|megavault|MegaVault Alert Registry|security|WARN|P1
 2026-07-26|megavault|MegaVault docs record monitor|automation|PASS|P1
 2026-07-26|megavault|MegaVault docs record Oracle|backup|PASS|P1
+2026-07-26|megavault|MegaVault docs refresh timeline|automation|PASS|P1
 2026-07-26|megavault|MegaVault docs register filesystem|automation|PASS|P1
 2026-07-26|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-26|megavault|MegaVault docs record GNOME|docs|PASS|P2
@@ -90,8 +95,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-18|amici-fb|Amici FB trace|backup|UNKNOWN|P1
 2026-07-18|fedora-system-monitor|fedora-system-monitor v16|security|WARN|P0
 2026-07-18|fedora-system-monitor|fedora-system-monitor Audit Fedora 44|security|UNKNOWN|P1
-2026-07-18|fedora-system-monitor|fedora-system-monitor INCIDENT REGISTRY|backup|FAIL|P1
-2026-07-18|fedora-system-monitor|fedora-system-monitor Registro incidenti|backup|FAIL|P1
 2026-07-18|legacy|Git PATH|security|OPEN|P1
 2026-07-18|luoghi|Luoghi v2|security|WARN|P0
 2026-07-18|luoghi|Luoghi v2|security|WARN|P0

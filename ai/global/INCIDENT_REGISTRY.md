@@ -323,3 +323,21 @@ Commit_correlati=this MegaVault activity commit
 Prompt_correlati=684271
 Tempo_totale_di_impatto=UNKNOWN before report;technical repair and validation completed 2026-07-13T19:00:00Z
 Note=Original user file path was not supplied,so a controlled MP4/H264 Baseline/yuv420p/AAC LC sample proved the same generic failure and fix. mpv was not installed and was not added only as a test dependency. Host libpostproc is absent but unrelated to H264 and disabled in both VLC builds. Old lowercase Flatpak app data remains preserved at /home/daniele/.var/app/org.videolan.vlc.
+
+INCIDENT:
+Incident_ID=SMART_SERVICE_CAPABILITY_FALSE_POSITIVE
+Titolo=Fedora System Monitor registrava falsi smart_check_failed su NVMe interno e Samsung T7
+Data_prima_comparsa_UTC=2026-07-10T10:30:53Z
+Data_ultima_comparsa_UTC=2026-07-26T12:08:27Z
+Numero_occorrenze=156
+Gravita_massima=MEDIUM
+Stato=RESOLVED
+Root_cause=Il collector hourly rimuoveva CAP_SYS_ADMIN necessaria all NVMe nativo e CAP_SYS_RAWIO necessaria al passthrough SCSI del bridge USB NVMe ASMedia del T7
+Sistemi_coinvolti=Fedora 44 host;fedora-system-monitor;KIOXIA NVMe interno;Samsung T7 Shield USB NVMe;SQLite;systemd
+Alert_coinvolti=smart_check_failed warning events;zero active SMART alerts;zero false Kuma transitions
+Tentativi_effettuati=Database reconstruction;lsblk+findmnt+udevadm+smartctl scan-open;capability-isolated transient units;SMART and NVMe health,error,self-test,temperature and kernel journal checks
+Soluzione_finale=Fedora System Monitor 1.3.1 scopes CAP_SYS_ADMIN and CAP_SYS_RAWIO only to hourly and daily,records bounded diagnostic output,skips absent or unsupported devices,and avoids the ASMedia error-log page while preserving health and self-test monitoring
+Commit_correlati=fedora-system-monitor activity 482731
+Prompt_correlati=482731
+Tempo_totale_di_impatto=2026-07-10T10:30:53Z to 2026-07-26T12:08:27Z for false warning event generation
+Note=Internal KIOXIA health PASS with media errors 0 and T7 health PASS through sntasmedia;two Seagate USB SAT disks remained intentionally asleep. An explicit T7 error-log probe during investigation caused two successful UAS resets and was stopped;it is separate from the historical cause. Project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md

@@ -1,9 +1,9 @@
 # ALERT_REGISTRY
-VERSION=9
+VERSION=10
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_systemd_live_2026-07-26+HOST_PROFILE+activity_418732+activity_593184+activity_471852+activity_471853+activity_826417+activity_731904
+SOURCE=Fedora_systemd_live_2026-07-26+HOST_PROFILE+activity_482731+activity_418732+activity_593184+activity_471852+activity_471853+activity_826417+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
@@ -26,13 +26,14 @@ monitor=Fedora_Software;id=43;heartbeat=5400s;mapping=updates+transactions+inven
 delivery_audit_1.0.1=atomic_alert_transition+endpoint_flock+post_delivery_reconciliation;slow_DOWN_recovery_order=DOWN_then_UP_PASS;real_current_health_heartbeat=delivered;false_transition_final_gate=none
 delivery_audit_1.1.0=stable_WiFi_key+bidirectional_sensor_recovery+valid_filesystem_floor+FUSE_inode_suppression+original_replay_time+clean_journal_IO_recovery+terminal_DNF_retry+endpoint_snapshot_refresh;all_five_real_pushes=delivered
 delivery_audit_1.1.1=active_metric_alert_refresh+unsafe_removal_mountpoint_reconciliation+remote_Kuma_SQLite_readback;real_pushes=delivered
+delivery_audit_1.3.1=smart_check_failed_permission_false_positive_resolved;zero_active_SMART_alerts;zero_false_Kuma_transitions;real_SMART_health_and_filesystem_alerts_preserved;activity=482731
 anti_spam=persistent_dedup+duration_gate+hysteresis+cooldown+aggregation+single_recovery
 verification=all_five_real_UP_delivered+Software_controlled_DOWN_HTTP_200+recovery_UP_HTTP_200
 current_2026_07_14=Host_DOWN_truthful+Storage_DOWN_truthful+Network_UP+Services_UP+Software_UP;Host_reason=swap_used_percent_warning_about_39_percent;Storage_reason=Seagate_5.2273_percent_free_below_recovery;unsafe_removal=recovered;Kuma_readback=remote_SQLite_ok
 security=push_URLs_not_in_repo_or_logs;HTTP_transport_risk_documented
 
 FEDORA_SYSTEM_MONITOR_TELEGRAM:
-source=fedora-system-monitor_1.3.0;service=fedora-system-monitor-collect@.service;timer=fedora-system-monitor-fast.timer;cadence=all_relevant_filesystems_every_5m
+source=fedora-system-monitor_1.3.1;service=fedora-system-monitor-collect@.service;timer=fedora-system-monitor-fast.timer;cadence=all_relevant_filesystems_every_5m
 helper=telegram_notify.py_compatibility_API;runtime_package=/usr/local/lib/python3.14/site-packages/telegram_notify;direct_HTTP_duplicate=none
 credentials=/home/daniele/.config/telegram-notify/telegram-notify.env;mode=daniele:daniele_0600;reused_unmodified=yes
 policy=absolute_cumulative_free_space_delta_at_least_1GiB;directions=increase+decrease;baseline=last_successful_delivery;first_run=silent

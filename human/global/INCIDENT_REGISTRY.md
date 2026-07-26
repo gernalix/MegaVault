@@ -38,6 +38,21 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - `RESOLVED`: causa eliminata e verificata.
 - `ACCEPTED`: rischio noto accettato per vincolo documentato.
 
+## SMART_SERVICE_CAPABILITY_FALSE_POSITIVE
+
+- Timestamp UTC: `2026-07-10T10:30:53Z`–`2026-07-26T12:08:27Z`.
+- Stato: `RESOLVED`, gravita' `MEDIUM`, 156 occorrenze.
+- Sintomo: `smart_check_failed` ripetuto per NVMe KIOXIA interno e Samsung T7,
+  senza alert SMART attivo o transizione Kuma falsa.
+- Root cause: al collector orario mancavano `CAP_SYS_ADMIN` per NVMe nativo e
+  `CAP_SYS_RAWIO` per il bridge USB-NVMe ASMedia.
+- Fix: Fedora System Monitor 1.3.1 limita entrambe le capability a
+  `hourly`/`daily`, registra diagnostica strutturata, salta assenti/non
+  compatibili e non interroga l'error log che blocca il bridge T7.
+- Verifica: KIOXIA e T7 SMART `PASS`, zero nuovi falsi eventi, SQLite/systemd/
+  udev/self-check verdi; due Seagate addormentati restano non risvegliati.
+- Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md`.
+
 ## CODEX_SQLITE_WAL_T7_ROOT_GROWTH
 - Timestamp UTC: 2026-06-13T19:13:08Z
 - Detection source: Disk Usage Monitor su `/dev/sda2` montato `/`.
