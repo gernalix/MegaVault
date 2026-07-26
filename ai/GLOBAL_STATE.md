@@ -13,6 +13,7 @@ project=fedora-diagnostics;repo=/home/daniele/projects/fedora-diagnostics;runtim
 project=fedora-t7-backup;repo=/home/daniele/MegaVault/projects/fedora-t7-backup;runtime=/usr/local/libexec/t7-restic-lifecycle;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+backup+maintenance+restore+failsafe_tested;commit=1495f135a81e9457e1efcb12a5db6689983b3c79;activity=684219
 project=oracle-backup-service;repo=/home/daniele/MegaVault/projects/oracle-backup-service;runtime=ubuntu@150.230.148.128:/opt/oracle_backup;repository=rclone:oci:bucket-20260206-0730/oraclevm;status=remote_backup+check+restore+healthcheck_PASS;version=2026.07.26.1;commit=cf9cc16;activity=731904
 project=WindowTabNotes;local=removed;remote=https://github.com/gernalix/WindowTabNotes;branch=fedora-current-session-window-detection-927514;commit=40421981911c6d92111e9062eb20c506003d4d97;data_backup=/home/daniele/WindowTabNotes-backup-351806
+runtime=Espanso;package=espanso-wayland-2.3.0-1.fc44.x86_64;service=espanso.service;startup=graphical-session.target;status=PASS_WITH_WARNING;activity=573814
 
 OPEN:
 open=all_other_project_runtime_relations_UNKNOWN_until_Fedora_revalidation

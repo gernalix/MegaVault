@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T20:10:22+02:00
+Generated: 2026-07-26T20:29:17+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 768
+Total events: 771
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,10 +14,10 @@ Total events: 768
 
 | Value | Events |
 |---|---:|
-| megavault | 164 |
+| megavault | 165 |
 | amici-fb | 142 |
 | luoghi-app | 71 |
-| multitimetracker | 57 |
+| multitimetracker | 58 |
 | rollout-summaries | 34 |
 | oracle-backup-service | 27 |
 | 2026 | 26 |
@@ -56,7 +56,7 @@ Total events: 768
 | windowtabnotes | 5 |
 | git-change-ledger | 4 |
 | grindr-web-exporter | 4 |
-| docs | 2 |
+| docs | 3 |
 | mint-cloud-backup | 2 |
 | backups | 1 |
 | disk-usage-monitor | 1 |
@@ -71,8 +71,8 @@ Total events: 768
 | Value | Events |
 |---|---:|
 | backup | 240 |
-| security | 237 |
-| docs | 86 |
+| security | 239 |
+| docs | 87 |
 | bugfix | 54 |
 | release | 49 |
 | testing | 47 |
@@ -85,9 +85,9 @@ Total events: 768
 
 | Value | Events |
 |---|---:|
-| P1 | 401 |
-| P0 | 190 |
-| P2 | 166 |
+| P1 | 402 |
+| P0 | 191 |
+| P2 | 167 |
 | P3 | 11 |
 
 ### Events by status
@@ -95,8 +95,8 @@ Total events: 768
 | Value | Events |
 |---|---:|
 | UNKNOWN | 280 |
-| PASS | 202 |
-| WARN | 176 |
+| PASS | 203 |
+| WARN | 178 |
 | FAIL | 57 |
 | OPEN | 53 |
 
@@ -113,6 +113,7 @@ Total events: 768
 | 2026-07-26 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-26 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-26 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-26 | docs | docs 573814 Espanso intermittente | security | WARN | P1 | report | markdown | REPORT 573814 Espanso intermittente su Fedora 44 GNOME/Wayland |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor 418732 | security | WARN | P0 | protocol_update | markdown | REPORT 418732 |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor 482731 | security | WARN | P0 | protocol_update | markdown | REPORT 482731 |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Attivita 482731 correzione | backup | WARN | P0 | protocol_update | markdown | Attivita 482731 correzione SMART Fedora |
@@ -123,7 +124,6 @@ Total events: 768
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Fedora System Monitor | security | UNKNOWN | P1 | report | markdown | Fedora System Monitor |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor INCIDENT REGISTRY | backup | FAIL | P1 | report | markdown | INCIDENT REGISTRY |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Registro incidenti | backup | FAIL | P1 | backup | markdown | Registro incidenti |
-| 2026-07-26 | fedora-system-monitor | fedora-system-monitor Troubleshooting | backup | WARN | P1 | backup | markdown | Troubleshooting |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -139,6 +139,7 @@ Total events: 768
 | 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-26 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9fa7-0a50-75e0-8aa6-13421ffc8b04 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f9a-4f20-73f0-a032-14f617ee8482 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f96-be0b-7193-9107-7d706b0629a4 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -320,10 +321,10 @@ Total events: 768
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | PASS | P0 | protocol_update | markdown | DATA_REGISTRY |
 
 ## Projects
-- `megavault`: 164 events; latest=2026-07-26; label=Codex Timeline
+- `megavault`: 165 events; latest=2026-07-26; label=Codex Timeline
 - `amici-fb`: 142 events; latest=2026-07-26; label=Amici FB amici 2026
 - `luoghi-app`: 71 events; latest=2026-07-26; label=luoghi-app 13.apk
-- `multitimetracker`: 57 events; latest=2026-07-26; label=MTT v2
+- `multitimetracker`: 58 events; latest=2026-07-26; label=MTT v2
 - `rollout-summaries`: 34 events; latest=2026-07-23; label=rollout-summaries Fedora 44 idle
 - `oracle-backup-service`: 27 events; latest=2026-07-26; label=Android Tests
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
@@ -362,7 +363,7 @@ Total events: 768
 - `windowtabnotes`: 5 events; latest=2026-07-09; label=windowtabnotes v20
 - `git-change-ledger`: 4 events; latest=2026-07-09; label=Git PATH
 - `grindr-web-exporter`: 4 events; latest=2026-07-09; label=grindr-web-exporter Grindr Web Exporter
-- `docs`: 2 events; latest=2026-07-14; label=docs Activity 739184 -
+- `docs`: 3 events; latest=2026-07-26; label=docs 573814 Espanso intermittente
 - `mint-cloud-backup`: 2 events; latest=2026-06-06; label=mint-cloud-backup mint-cloud-backup Changelog
 - `backups`: 1 events; latest=2026-07-13; label=Android Tests
 - `disk-usage-monitor`: 1 events; latest=2026-06-13; label=disk-usage-monitor Disk Usage Monitor
@@ -384,6 +385,7 @@ Total events: 768
 | 2026-07-26 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
 | 2026-07-26 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
 | 2026-07-26 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-26 | docs | docs 573814 Espanso intermittente | security | WARN | P1 | report | markdown | REPORT 573814 Espanso intermittente su Fedora 44 GNOME/Wayland |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor 418732 | security | WARN | P0 | protocol_update | markdown | REPORT 418732 |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor 482731 | security | WARN | P0 | protocol_update | markdown | REPORT 482731 |
 | 2026-07-26 | fedora-system-monitor | fedora-system-monitor Attivita 482731 correzione | backup | WARN | P0 | protocol_update | markdown | Attivita 482731 correzione SMART Fedora |
@@ -412,6 +414,8 @@ Total events: 768
 | 2026-07-26 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
 | 2026-07-26 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
+| 2026-07-26 | megavault | MegaVault docs record Logseq | docs | PASS | P2 | git_commit | git_log | docs: record Logseq AppImage install 593814 |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9fa7-0a50-75e0-8aa6-13421ffc8b04 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f9a-4f20-73f0-a032-14f617ee8482 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f96-be0b-7193-9107-7d706b0629a4 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |

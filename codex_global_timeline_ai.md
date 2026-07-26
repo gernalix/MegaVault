@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T20:10:22+02:00
-total_events=768
+generated_at=2026-07-26T20:29:17+02:00
+total_events=771
 format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
@@ -11,6 +11,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB facebook friends|bugfix|UNKNOWN|P2
 2026-07-26|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
 2026-07-26|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-07-26|docs|docs 573814 Espanso intermittente|security|WARN|P1
 2026-07-26|fedora-system-monitor|fedora-system-monitor 418732|security|WARN|P0
 2026-07-26|fedora-system-monitor|fedora-system-monitor 482731|security|WARN|P0
 2026-07-26|fedora-system-monitor|fedora-system-monitor Attivita 482731 correzione|backup|WARN|P0
@@ -39,6 +40,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|megavault|MegaVault REPORTS_LATEST|security|WARN|P1
 2026-07-26|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-26|megavault|MegaVault docs record GNOME|docs|PASS|P2
+2026-07-26|megavault|MegaVault docs record Logseq|docs|PASS|P2
+2026-07-26|multitimetracker|MTT v2|security|WARN|P0
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0

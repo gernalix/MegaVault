@@ -1,10 +1,10 @@
 # SOFTWARE_INVENTORY
-VERSION=24
+VERSION=25
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
 UPDATED=2026-07-26T20:09:12+02:00
-SOURCE=tool_versions_live_2026-07-18+HOST_PROFILE+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417+activity_483716+activity_592184+activity_593814
+SOURCE=tool_versions_live_2026-07-18+HOST_PROFILE+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417+activity_483716+activity_592184+activity_593814+activity_573814
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -72,11 +72,10 @@ asset=veracrypt-1.26.29-Fedora-44-x86_64.rpm;source=https://launchpad.net/veracr
 validation=veracrypt_--text_--version_returns_1.26.29;desktop_file_valid;GUI_process+AT-SPI_frame_detected;storage_or_volume_changes=none
 warning=plain_GUI_mode_veracrypt_--version_waits_for_GUI_event_loop;use_--text_--version_for_CLI;GTK_scale_factor_critical_nonfatal_at_launch
 event_date=2026-07-12;summary=VeraCrypt_1.26.29_official_Fedora_44_GUI_RPM_checksum_signature_DNF_CLI_menu_GUI_validated;status=PASS_WITH_WARNING;source_ref=activity_581204
-app=AutoKey_for_Wayland;version=0.97.4-0.fc44;install=signed_COPR_dlk_autokey_RPM+user_compat_wrapper;upstream=https://github.com/dlk3/autokey-wayland;release=v0.97.4;commit=a41c8a0a145ee00ffb7e197c3b5dd26a3e946e7e;path=/usr/bin/autokey-gtk;wrapper=/home/daniele/.local/libexec/autokey-wayland-fedora44;desktop=/home/daniele/.local/share/applications/autokey-gtk.desktop;gnome_visible_logical_entries=1;icon=autokey;extension=autokey-gnome-extension@autokey_shell_45-50;status=native_Wayland_core_tests_PASS+post_login_pending
-compatibility=wrapper_filters_invalid_EV_ABS_from_combined_uinput_device_for_GNOME50_libinput+adds_1s_timeout_for_ownerless_wl-paste;RPM_files_unmodified;relative_mouse+keyboard_preserved;absolute_uinput_axes_filtered
-dependencies=gnome-extensions-app_50.2+python3-magic_0.4.27+python3-pyasyncore_1.0.4+python3-pydbus_0.6.0+preexisting_wl-clipboard_python3-evdev_python3-pyudev;removed_replaced_dependency=python3-file-magic;xautomation=not_installed_X11_only_optional
-tests=GTK_Wayland_hotkey+clipboard_phrase_PASS;Chrome_native_Wayland_hotkey+clipboard_phrase_PASS;Zenity_XWayland_hotkey+clipboard_phrase_PASS;GUI_visible+single_instance_PASS;real_extension+menu_launch+systemd_autostart_after_logout_login=PENDING
-event_date=2026-07-13;summary=AutoKey_0.97.4_Wayland_installed_hardened_and_native_input_validated;status=PENDING_TEST_POST_LOGIN;source_ref=activity_638417
+app=Espanso;version=2.3.0;package=espanso-wayland-2.3.0-1.fc44.x86_64;install=Terra_RPM;path=/usr/bin/espanso;config=/home/daniele/.config/espanso;runtime=/home/daniele/.cache/espanso;service=espanso.service;status=PASS_WITH_WARNING
+backend=EVDEVSource+EVDEVInjector+WaylandFallbackClipboard;keyboard_layout=it;binary_capability=cap_dac_override_ep;startup=user_systemd_graphical_session_target+PartOf_graphical_session;duplicate_autostart=none
+tests=YAML_all_PASS+single_cdd_rule_PASS+GTK_native_Wayland_30_of_30_trigger_expansions+controlled_reload_restart_stop_start_PASS;warning=XTerm_XWayland_injection_failed+Chrome_not_revalidated+fresh_login_pending
+event_date=2026-07-26;summary=Espanso_pre_compositor_startup_race_fixed_without_version_or_match_text_changes;status=PASS_WITH_WARNING;source_ref=activity_573814
 app=ActivityWatch;version=v0.13.2;install=official_ActivityWatch_GitHub_linux_x86_64_zip_user_flat;path=/home/daniele/.local/opt/activitywatch;dashboard=http://127.0.0.1:5600;desktop=none;status=ACTIVE_VERIFIED
 asset=activitywatch-v0.13.2-linux-x86_64.zip;sha256=8f62b10babf8a8f108cbdf7267c02fbc1ce2a970fa9535f230b3416b803e3360;release=https://github.com/ActivityWatch/activitywatch/releases/tag/v0.13.2;latest_stable_verified=yes;prerelease_v0.14.0b1_excluded=yes;published_checksum_or_signature=none_found
 wayland=standard_aw-qt_watchers_disabled;aw-awatcher_0.3.3_official_RPM_active;focused-window-dbus_v11_enabled+active;no_proxy_no_timer_no_watchdog

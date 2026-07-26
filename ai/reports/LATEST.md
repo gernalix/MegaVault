@@ -7,7 +7,7 @@ UPDATED=2026-07-26
 OPEN:
 activity=684327;topic=ExpressVPN_Fedora;status=AUTHENTICATED+DISCONNECTED;installed=14.2.0+13656;service=enabled+active;region=denmark;network_lock=enabled_when_connected;next=connection+DNS_leak+Network_Lock+reconnect_tests_only_if_user_requests_network_change;source=activity_684327_expressvpn_fedora.md;verified=live_519684
 activity=847263;topic=RustDesk_Fedora;status=PASS_TECHNICAL+PENDING_MOBILE_TEST;service=vendor_system_service;next=test_remote_mobile_access;history=0b1fc4b8
-activity=638417;topic=AutoKey_Wayland;status=PENDING_POST_LOGIN_TEST;backup=recorded_in_Git_report;history=0b1fc4b8
+activity=573814;topic=Espanso_GNOME_Wayland;status=PASS_WITH_WARNING;root_cause=pre_compositor_user_service_start_race;tests=GTK_Wayland_30_of_30;warning=XTerm_XWayland_injection+Chrome+fresh_login_not_confirmed;source=../../docs/ai/REPORT_573814.md
 activity=846271;topic=Codex_native_restore;status=PARTIAL_REMOTE_SCOPE_BLOCKED;history=0b1fc4b8
 topic=Oracle_backup_remote_quota;status=UNRESOLVED_DEGRADED_CONTROLLED;remote=oci:bucket-20260206-0730;constraint=no_destructive_no-lock_prune_without_explicit_approval_or_quota_headroom;fallback=/var/lib/oracle_backup/emergency_repo;history=0b1fc4b8
 topic=Kuma_operations;status=OPEN;unknown=UI_API_auth+Telegram_delivery+HTTP_monitor_live_procedure;history=0b1fc4b8

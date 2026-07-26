@@ -1,4 +1,4 @@
-VERSION=5
+VERSION=6
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -341,3 +341,21 @@ Commit_correlati=fedora-system-monitor activity 482731
 Prompt_correlati=482731
 Tempo_totale_di_impatto=2026-07-10T10:30:53Z to 2026-07-26T12:08:27Z for false warning event generation
 Note=Internal KIOXIA health PASS with media errors 0 and T7 health PASS through sntasmedia;two Seagate USB SAT disks remained intentionally asleep. An explicit T7 error-log probe during investigation caused two successful UAS resets and was stopped;it is separate from the historical cause. Project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md
+
+INCIDENT:
+Incident_ID=ESPANSO_WAYLAND_PRECOMPOSITOR_START_RACE
+Titolo=Espanso risultava attivo ma non espandeva su GNOME Wayland
+Data_prima_comparsa_UTC=2026-07-15T07:55:19Z
+Data_ultima_comparsa_UTC=2026-07-26T12:25:25Z
+Numero_occorrenze=multiple_boots_exact_count_UNKNOWN
+Gravita_massima=MEDIUM
+Stato=RESOLVED
+Root_cause=La user unit era abilitata sotto default.target mentre linger era attivo;systemd avviava Espanso prima del compositor GNOME Wayland. Il worker falliva con NoCompositor e i retry potevano lasciare un worker parzialmente inizializzato, attivo per systemd ma privo di EVDEVInjector e accesso a /dev/uinput.
+Sistemi_coinvolti=Fedora_44;GNOME_Wayland;systemd_user;Espanso_2.3.0;evdev;uinput
+Alert_coinvolti=trigger_cdd_non_espanso;worker_NoCompositor_panic;servizio_active_ma_backend_incompleto
+Tentativi_effettuati=Inventario installazione e sessione;validazione YAML e regole;ricerca duplicati;processi,fd,device,permessi,gruppi,variabili,log Espanso e journal multi-boot;riavvio controllato a sessione matura;matrice GTK Wayland;test XTerm XWayland separato.
+Soluzione_finale=Unit utente spostata da default.target a graphical-session.target con PartOf=graphical-session.target;nessun loop,delay,aggiornamento,reinstallazione o modifica al testo del match. Dopo stop/start il singolo worker inizializza EVDEVSource,EVDEVInjector e WaylandFallbackClipboard.
+Commit_correlati=activity_573814_MegaVault_commit
+Prompt_correlati=573814
+Tempo_totale_di_impatto=intermittente_dal_primo_log_disponibile_2026-07-15_fino_alla_correzione_2026-07-26
+Note=GTK Wayland ha completato 30/30 rilevamenti ed espansioni. XTerm XWayland non ha superato il test di iniezione clipboard; Chrome non e stato rivalidato e un logout/login reale non e stato forzato per non interrompere la sessione. Report=docs/ai/REPORT_573814.md;backup=/home/daniele/backups/espanso/573814-20260726T201952+0200.
