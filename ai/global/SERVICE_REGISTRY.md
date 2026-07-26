@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=14
+VERSION=15
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-18+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184
+SOURCE=systemctl_live_2026-07-18+HOST_PROFILE+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -71,6 +71,15 @@ timer=fedora-external-updater-root.timer;scope=system;state=enabled+active;calen
 timer=fedora-external-updater-user.timer;scope=user;state=enabled+active;calendar=daily+persistent+randomized_18min;purpose=complementary_external_update_user_scope;activity=846219
 removed_timers=t7-restic-backup.timer+t7-restic-check.timer+t7-restic-maintenance.timer;reason=T7_normally_disconnected+backup_on_connect;activity=684219
 path=fedora-system-monitor-software.path;scope=system;state=enabled+active;purpose=event_driven_software_metadata_changes
+
+REMOTE_ORACLE_VM:
+host=150.230.148.128;os=Ubuntu_22.04;verified=2026-07-26;activity=731904
+service=oracle-backup.service;state=oneshot_last_result_success;runtime=/opt/oracle_backup/backup.sh;purpose=OCI_primary+bounded_local_fallback
+service=oracle-backup-healthcheck.service;state=oneshot_last_result_success;checks=all_OK
+service=oracle-backup-monitor.service;state=oneshot_last_result_success;recovery_notification=PASS
+service=oracle-backup-remote-quota.service;state=oneshot_last_result_success;quota=OK_3.25GiB
+timers=oracle-backup+prune+healthcheck+monitor+remote-quota;state=active;failed_units=none
+dependency=rclone;path=/usr/bin/rclone;version=1.74.4;source=official_verified_SHA256;rollback=/var/lib/oracle_backup/rollback-731904/rclone-v1.53.3-DEV
 
 RULES:
 rule=use_systemctl_for_system_units

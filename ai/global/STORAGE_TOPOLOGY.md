@@ -1,9 +1,9 @@
 # STORAGE_TOPOLOGY
-VERSION=8
+VERSION=9
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-14+activity_593184+activity_842731+activity_583921+activity_684219+activity_826417
+SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-14+activity_593184+activity_842731+activity_583921+activity_684219+activity_826417+activity_731904
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/STORAGE_TOPOLOGY.md
@@ -32,6 +32,7 @@ repository=/mnt/T7_BACKUP/restic-fedora;id=5872c043e0;snapshots=2;full_check_his
 credential=/etc/credstore.encrypted/t7-restic-password;mode=root_root_0600;plaintext=systemd_tmpfs_only;external_escrow=pending_user
 rotated_media_rule=mount_paths_and_device_names_can_change;re-enumerate_before_conclusion
 t7_rule=name_T7+backup_target_T7_BACKUP;identify_by_model+serial+uuid+separate_mount;never_assume_/dev/sdX;sync+normal_unmount_before_safe_disconnect_notice
+remote_oracle=host=150.230.148.128;repository=rclone:oci:bucket-20260206-0730/oraclevm;repository_id=7fd0c92d9f;used=3.25GiB;quota_status=OK;retention=prewrite_every_3600s+keep_last_22;backup_snapshot=685d4861;check=PASS;restore_/etc/hostname=PASS;verified=2026-07-26;activity=731904
 
 CONSTRAINTS:
 constraint=current_local_paths_use_/home/daniele_and_/run/media/daniele
