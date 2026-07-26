@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T20:10:22+02:00
-total_events=768
+generated_at=2026-07-26T20:35:31+02:00
+total_events=772
 format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
@@ -39,6 +39,9 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|megavault|MegaVault REPORTS_LATEST|security|WARN|P1
 2026-07-26|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-26|megavault|MegaVault docs record GNOME|docs|PASS|P2
+2026-07-26|megavault|MegaVault docs record Logseq|docs|PASS|P2
+2026-07-26|multitimetracker|MTT v2|security|WARN|P0
+2026-07-26|multitimetracker|MTT v2|security|WARN|P0
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0
 2026-07-26|multitimetracker|MTT v2|security|WARN|P0
@@ -59,6 +62,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|oracle-backup-service|Oracle Backup Registro incidenti|security|UNKNOWN|P1
 2026-07-26|oracle-backup-service|Oracle Backup Roadmap|backup|UNKNOWN|P1
 2026-07-26|oracle-backup-service|Oracle Backup Troubleshooting|backup|FAIL|P1
+2026-07-26|pixel-8a|Git PATH|security|WARN|P0
+2026-07-26|pixel-8a|pixel-8a 2.26.28.77|security|WARN|P1
 2026-07-26|windows|Veeam T7|security|PASS|P0
 2026-07-26|windows|Veeam T7|security|FAIL|P1
 2026-07-24|luoghi-app|Android Tests|backup|UNKNOWN|P1
@@ -254,7 +259,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-12|fedora-t7-backup|fedora-t7-backup Troubleshooting|backup|UNKNOWN|P1
 2026-07-12|fedora-t7-backup|fedora-t7-backup v2|security|WARN|P1
 2026-07-12|luoghi|Git PATH|backup|WARN|P0
-2026-07-12|megavault|Android Tests|security|WARN|P1
 2026-07-12|megavault|MegaVault activity 583921 register|backup|PASS|P1
 2026-07-12|megavault|MegaVault activity 684219 sync|backup|PASS|P1
 2026-07-12|megavault|MegaVault fix host recover|bugfix|PASS|P1
@@ -341,7 +345,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|Codex Timeline|docs|PASS|P0
 2026-07-10|megavault|Codex Timeline|bugfix|PASS|P0
 2026-07-10|megavault|Codex Timeline|testing|PASS|P0
-2026-07-10|megavault|Git PATH|security|PASS|P0
 2026-07-10|megavault|MegaVault docs record Fedora|automation|PASS|P1
 2026-07-10|megavault|MegaVault docs record T7|backup|PASS|P1
 2026-07-10|megavault|MegaVault docs refresh timeline|automation|PASS|P1
@@ -616,6 +619,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|multitimetracker|MTT app-release.apk|security|PASS|P1
 2026-07-05|multitimetracker|MTT v528|security|FAIL|P1
 2026-07-05|multitimetracker|MTT v530|security|PASS|P1
+2026-07-02|pixel-8a|Android Tests|security|WARN|P1
 2026-06-29|oracle-backup-service|Oracle Backup v2|security|WARN|P1
 2026-06-28|megavault|MegaVault Add Pixel Buds|infra|PASS|P1
 2026-06-27|megavault|MegaVault Add Windows Flight|infra|PASS|P1

@@ -1,13 +1,13 @@
 # ADB_DEVICE_KEEPER
-VERSION=1
+VERSION=2
 STATUS=ACTIVE_VERIFIED
 MODE=codex_first
 FORMAT=ultracompressed
-UPDATED=2026-07-10T06:34:00+02:00
+UPDATED=2026-07-26T20:30:42+02:00
 SUMMARY=Servizio_systemd_utente_24x7_per_Pixel_8a_e_TCL_6102H_via_ADB_WiFi_allowlist
 CATEGORY=automation
 IMPORTANCE=P1
-SOURCE_REF=activity_638214+Fedora_live_validation_2026-07-10
+SOURCE_REF=activity_638214+Fedora_live_validation_2026-07-10+activity_473821
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 ANDROID_PROTOCOL=../ANDROID_PROTOCOL.md
@@ -126,6 +126,20 @@ command=loginctl show-user daniele -p Linger
 command=/home/daniele/Android/Sdk/platform-tools/adb devices -l
 command=journalctl --user -b -u adb-device-keeper.service --no-pager
 expected=enabled+active+Linger_yes+reachable_allowlisted_devices_only
+
+WHATSAPP_NOTIFICATION_RECOVERY:
+activity=473821
+package=com.whatsapp
+incident=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION
+recurrence=2026-07-02_fix_regressed_by_2026-07-26
+fault_signature=dynamic_WhatsApp_UID_in_cmd_netpolicy_restrict-background-blacklist+policy_1_REJECT_METERED_BACKGROUND
+healthy_signature=UID_absent_from_blacklist+policy_4_ALLOW_METERED_BACKGROUND
+fix=remove_restrict-background-blacklist+add_restrict-background-whitelist_for_current_package_UID_only
+validation=real_C2DM_PUSH_MESSAGING+GcmFGService+two_non-intercepted_notification_records_while_Pixel_remained_Dozing
+quick_check=/home/daniele/Android/Sdk/platform-tools/adb_shell_cmd_package_list_packages_-U_com.whatsapp;then_cmd_netpolicy_list_restrict-background-blacklist
+report=../reports/activity_473821_pixel_whatsapp_notifications.md
+warning=manual_DND_intercepted_two_real_WhatsApp_summaries_on_2026-07-25_by_design;do_not_change_DND_rules_without_user_intent
+warning=WhatsApp_update_replaced_deleted_silent_notifications_6_with_active_silent_notifications_9;channel_ID_specific_overrides_do_not_survive_that_replacement
 
 ROLLBACK:
 step=systemctl --user disable --now adb-device-keeper.service

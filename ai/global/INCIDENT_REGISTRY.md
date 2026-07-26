@@ -1,4 +1,4 @@
-VERSION=5
+VERSION=6
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -341,3 +341,21 @@ Commit_correlati=fedora-system-monitor activity 482731
 Prompt_correlati=482731
 Tempo_totale_di_impatto=2026-07-10T10:30:53Z to 2026-07-26T12:08:27Z for false warning event generation
 Note=Internal KIOXIA health PASS with media errors 0 and T7 health PASS through sntasmedia;two Seagate USB SAT disks remained intentionally asleep. An explicit T7 error-log probe during investigation caused two successful UAS resets and was stopped;it is separate from the historical cause. Project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md
+
+INCIDENT:
+Incident_ID=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION
+Titolo=Pixel 8a restringeva i dati in background di WhatsApp e ritardava le notifiche
+Data_prima_comparsa_UTC=2026-07-02T03:14:07Z
+Data_ultima_comparsa_UTC=2026-07-26T18:28:58Z
+Numero_occorrenze=2
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=Android NetworkPolicyManager aveva nuovamente assegnato all UID 10363 di com.whatsapp policy 1 REJECT_METERED_BACKGROUND; il push poteva funzionare in primo piano o su WiFi non misurato ma veniva negato in background sui percorsi misurati.
+Sistemi_coinvolti=Google Pixel 8a;Android 17;com.whatsapp;Google Play Services FCM;NetworkPolicyManager
+Alert_coinvolti=notifiche WhatsApp assenti o ritardate in background;nessun alert automatico
+Tentativi_effettuati=Recuperata diagnosi 2026-07-02 dai commit 856efce e 33f13ae;verificati identita ADB,permesso,canali,appops,batteria,Doze,standby,Data Saver,rete,DND,GMS,servizi e logcat;due test reali esterni.
+Soluzione_finale=Rimossa la blacklist per il solo UID WhatsApp e aggiunta allowlist dati misurati persistente;policy finale 4 ALLOW_METERED_BACKGROUND;nessuna modifica a dati,cache,account,chat,backup,DND,Doze o canali.
+Commit_correlati=856efce;33f13ae;activity_473821_MegaVault_commit
+Prompt_correlati=473821
+Tempo_totale_di_impatto=UNKNOWN tra la ricomparsa della policy e il fix 2026-07-26;la prima occorrenza fu risolta il 2026-07-02
+Note=Test finale 2026-07-26 20:28:37-20:29:24 CEST: Pixel sempre Dozing, push C2DM alle 20:28:58, GcmFGService avviato, due record Android mIntercept false e mHidden false. Il writer che ha reintrodotto policy 1 non e conservato nei log. Due record WhatsApp distinti furono intercettati il 2026-07-25 da DND manuale, comportamento atteso non modificato. SQLite globale integro ma non aggiornato manualmente perche il registro impone upsert automatici e non offre un updater globale. Source=ai/reports/activity_473821_pixel_whatsapp_notifications.md

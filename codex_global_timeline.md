@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-26T20:10:22+02:00
+Generated: 2026-07-26T20:35:31+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 768
+Total events: 772
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,10 +14,10 @@ Total events: 768
 
 | Value | Events |
 |---|---:|
-| megavault | 164 |
+| megavault | 163 |
 | amici-fb | 142 |
 | luoghi-app | 71 |
-| multitimetracker | 57 |
+| multitimetracker | 59 |
 | rollout-summaries | 34 |
 | oracle-backup-service | 27 |
 | 2026 | 26 |
@@ -56,6 +56,7 @@ Total events: 768
 | windowtabnotes | 5 |
 | git-change-ledger | 4 |
 | grindr-web-exporter | 4 |
+| pixel-8a | 3 |
 | docs | 2 |
 | mint-cloud-backup | 2 |
 | backups | 1 |
@@ -71,8 +72,8 @@ Total events: 768
 | Value | Events |
 |---|---:|
 | backup | 240 |
-| security | 237 |
-| docs | 86 |
+| security | 240 |
+| docs | 87 |
 | bugfix | 54 |
 | release | 49 |
 | testing | 47 |
@@ -85,9 +86,9 @@ Total events: 768
 
 | Value | Events |
 |---|---:|
-| P1 | 401 |
-| P0 | 190 |
-| P2 | 166 |
+| P1 | 402 |
+| P0 | 192 |
+| P2 | 167 |
 | P3 | 11 |
 
 ### Events by status
@@ -96,7 +97,7 @@ Total events: 768
 |---|---:|
 | UNKNOWN | 280 |
 | PASS | 202 |
-| WARN | 176 |
+| WARN | 180 |
 | FAIL | 57 |
 | OPEN | 53 |
 
@@ -139,11 +140,14 @@ Total events: 768
 | 2026-07-26 | megavault | Codex Timeline | backup | PASS | P0 | protocol_update | markdown | Data Registry |
 | 2026-07-26 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-26 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9fa7-0a50-75e0-8aa6-13421ffc8b04 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f9a-4f20-73f0-a032-14f617ee8482 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f96-be0b-7193-9107-7d706b0629a4 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9fb5-61b5-75a0-8719-e3b5bee89dc3 |
 | 2026-07-26 | oracle-backup-service | Android Tests | security | PASS | P0 | changelog | markdown | REPORTS_ARCHIVE |
 | 2026-07-26 | oracle-backup-service | Oracle Backup ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
+| 2026-07-26 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-26 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-23 | multitimetracker | MTT v1 | security | PASS | P0 | protocol_update | markdown | User Profile |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8c47-abd3-7293-9009-6412718f2458 |
@@ -255,7 +259,6 @@ Total events: 768
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT notification QA |
-| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | multitimetracker | MTT 1.apk | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
 | 2026-07-10 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora System Monitor project under MegaVault |
 | 2026-07-10 | multitimetracker | MTT v537 | security | WARN | P0 | protocol_update | codex_log | 019f4d44-9413-7721-9500-cacecbb42982 |
@@ -320,10 +323,10 @@ Total events: 768
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | PASS | P0 | protocol_update | markdown | DATA_REGISTRY |
 
 ## Projects
-- `megavault`: 164 events; latest=2026-07-26; label=Codex Timeline
+- `megavault`: 163 events; latest=2026-07-26; label=Codex Timeline
 - `amici-fb`: 142 events; latest=2026-07-26; label=Amici FB amici 2026
 - `luoghi-app`: 71 events; latest=2026-07-26; label=luoghi-app 13.apk
-- `multitimetracker`: 57 events; latest=2026-07-26; label=MTT v2
+- `multitimetracker`: 59 events; latest=2026-07-26; label=MTT v2
 - `rollout-summaries`: 34 events; latest=2026-07-23; label=rollout-summaries Fedora 44 idle
 - `oracle-backup-service`: 27 events; latest=2026-07-26; label=Android Tests
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
@@ -362,6 +365,7 @@ Total events: 768
 - `windowtabnotes`: 5 events; latest=2026-07-09; label=windowtabnotes v20
 - `git-change-ledger`: 4 events; latest=2026-07-09; label=Git PATH
 - `grindr-web-exporter`: 4 events; latest=2026-07-09; label=grindr-web-exporter Grindr Web Exporter
+- `pixel-8a`: 3 events; latest=2026-07-26; label=Git PATH
 - `docs`: 2 events; latest=2026-07-14; label=docs Activity 739184 -
 - `mint-cloud-backup`: 2 events; latest=2026-06-06; label=mint-cloud-backup mint-cloud-backup Changelog
 - `backups`: 1 events; latest=2026-07-13; label=Android Tests
@@ -412,9 +416,12 @@ Total events: 768
 | 2026-07-26 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
 | 2026-07-26 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
+| 2026-07-26 | megavault | MegaVault docs record Logseq | docs | PASS | P2 | git_commit | git_log | docs: record Logseq AppImage install 593814 |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9fa7-0a50-75e0-8aa6-13421ffc8b04 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f9a-4f20-73f0-a032-14f617ee8482 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9f96-be0b-7193-9107-7d706b0629a4 |
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
+| 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9fb5-61b5-75a0-8719-e3b5bee89dc3 |
 | 2026-07-26 | oracle-backup-service | Android Tests | security | PASS | P0 | changelog | markdown | REPORTS_ARCHIVE |
 | 2026-07-26 | oracle-backup-service | Oracle Backup ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
 | 2026-07-26 | oracle-backup-service | Codex Timeline | backup | OPEN | P1 | backup | markdown | GLOBAL_STATE |
@@ -432,6 +439,8 @@ Total events: 768
 | 2026-07-26 | oracle-backup-service | Oracle Backup Registro incidenti | security | UNKNOWN | P1 | doc_event | markdown | Registro incidenti |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Troubleshooting | backup | FAIL | P1 | backup | markdown | Troubleshooting |
+| 2026-07-26 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
+| 2026-07-26 | pixel-8a | pixel-8a 2.26.28.77 | security | WARN | P1 | report | markdown | ACTIVITY_473821_PIXEL_WHATSAPP_NOTIFICATIONS |
 | 2026-07-26 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
 | 2026-07-26 | windows | Veeam T7 | security | FAIL | P1 | doc_event | markdown | Topologia storage globale |
 | 2026-07-24 | luoghi-app | Android Tests | backup | UNKNOWN | P1 | backup | markdown | Registro incidenti |
@@ -627,7 +636,6 @@ Total events: 768
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup Troubleshooting | backup | UNKNOWN | P1 | backup | markdown | Troubleshooting |
 | 2026-07-12 | fedora-t7-backup | fedora-t7-backup v2 | security | WARN | P1 | report | markdown | Report conclusivo attivita 583921 |
 | 2026-07-12 | luoghi | Git PATH | backup | WARN | P0 | protocol_update | markdown | Diagnosed a Samsung T7 Shield that was absent from USB/kernel on Fedora, then reconstructed its prior layout/configuration from live state, system... |
-| 2026-07-12 | megavault | Android Tests | security | WARN | P1 | report | markdown | Incident Registry |
 | 2026-07-12 | megavault | MegaVault activity 583921 register | backup | PASS | P1 | git_commit | git_log | activity 583921: register Fedora T7 backup |
 | 2026-07-12 | megavault | MegaVault activity 684219 sync | backup | PASS | P1 | git_commit | git_log | activity 684219: sync T7 connect backup globally |
 | 2026-07-12 | megavault | MegaVault fix host recover | bugfix | PASS | P1 | git_commit | git_log | fix(host): recover Android Studio DirectoryLock |
@@ -714,7 +722,6 @@ Total events: 768
 | 2026-07-10 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | Update global Codex timeline for Luoghi Fedora build |
 | 2026-07-10 | megavault | Codex Timeline | bugfix | PASS | P0 | git_commit | git_log | Update global Codex timeline for Fedora Chrome launcher fix |
 | 2026-07-10 | megavault | Codex Timeline | testing | PASS | P0 | git_commit | git_log | Update global Codex timeline for MTT notification QA |
-| 2026-07-10 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-07-10 | megavault | MegaVault docs record Fedora | automation | PASS | P1 | git_commit | git_log | docs: record Fedora monitor residual risk audit |
 | 2026-07-10 | megavault | MegaVault docs record T7 | backup | PASS | P1 | git_commit | git_log | docs: record T7 backup restore activity 842731 |
 | 2026-07-10 | megavault | MegaVault docs refresh timeline | automation | PASS | P1 | git_commit | git_log | docs: refresh timeline after monitor audit |
@@ -989,6 +996,7 @@ Total events: 768
 | 2026-07-05 | multitimetracker | MTT app-release.apk | security | PASS | P1 | release | markdown | MultiTimeTracker Overview |
 | 2026-07-05 | multitimetracker | MTT v528 | security | FAIL | P1 | doc_event | markdown | MultiTimeTracker Features |
 | 2026-07-05 | multitimetracker | MTT v530 | security | PASS | P1 | report | markdown | MultiTimeTracker Roadmap |
+| 2026-07-02 | pixel-8a | Android Tests | security | WARN | P1 | report | markdown | Incident Registry |
 | 2026-06-29 | oracle-backup-service | Oracle Backup v2 | security | WARN | P1 | report | markdown | oracle-backup healthcheck critical fix - 2026-06-29 |
 | 2026-06-28 | megavault | MegaVault Add Pixel Buds | infra | PASS | P1 | git_commit | git_log | Add Pixel Buds Windows audio routing report |
 | 2026-06-27 | megavault | MegaVault Add Windows Flight | infra | PASS | P1 | git_commit | git_log | Add Windows Flight Recorder docs |

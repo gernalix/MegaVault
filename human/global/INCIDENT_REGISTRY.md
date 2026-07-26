@@ -38,6 +38,26 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - `RESOLVED`: causa eliminata e verificata.
 - `ACCEPTED`: rischio noto accettato per vincolo documentato.
 
+## PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION
+
+- Prima occorrenza: `2026-07-02`; ricomparsa e nuova risoluzione:
+  `2026-07-26`; stato `RESOLVED`, gravita' `HIGH`, 2 occorrenze.
+- Sintomo: molte notifiche WhatsApp arrivavano in ritardo o solo aprendo
+  l'app, soprattutto quando il Pixel usava una rete mobile/misurata.
+- Root cause: l'UID corrente di WhatsApp era tornato nella blacklist Android
+  dei dati in background (`REJECT_METERED_BACKGROUND`).
+- Fix: rimossa la blacklist e abilitati i dati mobili senza restrizioni solo
+  per WhatsApp. Nessun dato, cache, account, chat o backup e' stato toccato.
+- Verifica: dopo force-stop e riapertura, un messaggio reale e' arrivato mentre
+  il Pixel restava in `Dozing`; FCM ha avviato WhatsApp e Android ha pubblicato
+  due record non intercettati e non nascosti.
+- Riconoscimento rapido: ricavare l'UID con `adb shell cmd package list
+  packages -U com.whatsapp`, poi controllare `adb shell cmd netpolicy list
+  restrict-background-blacklist`. L'UID WhatsApp non deve comparire.
+- Nota DND: due notifiche del 25 luglio furono bloccate mentre Non disturbare
+  era stato attivato manualmente. Le regole DND non sono state cambiate.
+- Report: `ai/reports/activity_473821_pixel_whatsapp_notifications.md`.
+
 ## SMART_SERVICE_CAPABILITY_FALSE_POSITIVE
 
 - Timestamp UTC: `2026-07-10T10:30:53Z`–`2026-07-26T12:08:27Z`.

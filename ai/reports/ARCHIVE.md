@@ -18,6 +18,7 @@ record=2026-07-05_MegaVault_content_merge;status=PASS;source=git:0b1fc4b8:ai/rep
 record=2026-07-05_MegaVault_post_merge_audit;status=PASS;source=git:0b1fc4b8:ai/reports/megavault_post_merge_quality_audit_20260705.md
 
 ACTIVITIES:
+activity=473821;topic=Pixel_WhatsApp_notifications;status=PASS_WITH_WARNING;root_cause=UID_10363_policy_1_REJECT_METERED_BACKGROUND_recurred;fix=policy_4_ALLOW_METERED_BACKGROUND;validation=real_locked_screen_Dozing_FCM_push+two_visible_records;source=ai/reports/activity_473821_pixel_whatsapp_notifications.md
 activity=20260713;topic=Logseq_local_audit;status=WARNING_MOVED_TO_LATEST;source=git:0b1fc4b8:ai/reports/activity_20260713_logseq_fedora_local_audit.md
 activity=284617;topic=ActivityWatch_simplification;status=SUPERSEDED_BY_592184;decision=single_aw-qt_stack;source=git:0b1fc4b8:ai/reports/activity_284617_activitywatch_simplified.md
 activity=487361;topic=GNOME_window_title;status=PASS;source=git:0b1fc4b8:ai/reports/activity_487361_gnome_window_title.md
