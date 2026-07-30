@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=14
+VERSION=15
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-30T08:04:00+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716+activity_948315
+UPDATED=2026-07-30T16:49:28+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716+activity_948315+activity_562941
 
 META:
 host=fedora
@@ -22,7 +22,7 @@ centralization=host/system/storage/Android_tooling_constraints_authoritative_her
 
 HOST_SYSTEM_CURRENT:
 os=Fedora_Linux_44_Workstation
-kernel=7.1.3-200.fc44.x86_64
+kernel=7.1.5-200.fc44.x86_64
 arch=x86_64
 hostname=fedora
 user_home=/home/daniele
@@ -36,7 +36,7 @@ HARDWARE:
 cpu=AMD_Ryzen_7_PRO_8840HS_w_Radeon_780M_Graphics
 cpu_topology=8c/16t
 ram=27.7GiB
-bios=R2LET40W_1.21
+bios=R2LET41W_1.22
 gpu=Radeon_780M_integrated
 constraints=laptop_power/thermal_profile,verify_sudo_requirement,use_Fedora_commands_and_mounts
 
