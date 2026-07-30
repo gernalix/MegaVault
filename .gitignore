@@ -1,4 +1,5 @@
 /projects/
+private/
 secrets/
 **/secrets/
 oracle-vm-rsa
