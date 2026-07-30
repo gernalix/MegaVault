@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-30T05:53:05+02:00
+Generated: 2026-07-30T08:09:38+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 838
+Total events: 844
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,19 +14,19 @@ Total events: 838
 
 | Value | Events |
 |---|---:|
-| megavault | 167 |
+| megavault | 169 |
 | amici-fb | 153 |
 | luoghi-app | 78 |
-| multitimetracker | 65 |
-| rollout-summaries | 34 |
+| multitimetracker | 64 |
+| rollout-summaries | 36 |
 | oracle-backup-service | 27 |
 | 2026 | 26 |
 | fedora-system-monitor | 24 |
-| luoghi | 22 |
+| luoghi | 23 |
 | wordpulse | 18 |
 | fedora-t7-backup | 15 |
 | vm-oracle | 15 |
-| oracle-uptime-kuma | 13 |
+| oracle-uptime-kuma | 14 |
 | supercontacts | 10 |
 | windows | 8 |
 | windows-winget-daily-update | 7 |
@@ -58,7 +58,7 @@ Total events: 838
 | windowtabnotes | 5 |
 | git-change-ledger | 4 |
 | grindr-web-exporter | 4 |
-| pixel-8a | 3 |
+| pixel-8a | 4 |
 | docs | 2 |
 | mint-cloud-backup | 2 |
 | backups | 1 |
@@ -73,13 +73,13 @@ Total events: 838
 
 | Value | Events |
 |---|---:|
-| security | 267 |
+| security | 271 |
 | backup | 253 |
-| docs | 90 |
+| docs | 91 |
 | bugfix | 63 |
 | release | 58 |
 | testing | 48 |
-| automation | 26 |
+| automation | 27 |
 | infra | 16 |
 | migration | 13 |
 | performance | 4 |
@@ -88,9 +88,9 @@ Total events: 838
 
 | Value | Events |
 |---|---:|
-| P1 | 441 |
-| P0 | 206 |
-| P2 | 178 |
+| P1 | 442 |
+| P0 | 210 |
+| P2 | 179 |
 | P3 | 13 |
 
 ### Events by status
@@ -98,8 +98,8 @@ Total events: 838
 | Value | Events |
 |---|---:|
 | UNKNOWN | 312 |
-| PASS | 213 |
-| WARN | 195 |
+| PASS | 214 |
+| WARN | 200 |
 | FAIL | 64 |
 | OPEN | 54 |
 
@@ -111,8 +111,10 @@ Total events: 838
 | 2026-07-30 | amici-fb | Amici FB amici_fb Fedora | automation | UNKNOWN | P2 | report | markdown | amici_fb Fedora |
 | 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-30 | megavault | MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS | backup | PASS | P1 | report | markdown | ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS |
+| 2026-07-30 | megavault | MegaVault ACTIVITY_948315_SECURE_BOOT_EVIDENCE | automation | WARN | P1 | report | markdown | ACTIVITY_948315_SECURE_BOOT_EVIDENCE |
 | 2026-07-30 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
 | 2026-07-30 | megavault | MegaVault chore ignore MegaVault | docs | PASS | P2 | git_commit | git_log | chore: ignore MegaVault private files |
+| 2026-07-30 | megavault | MegaVault docs record Secure | docs | PASS | P2 | git_commit | git_log | docs: record Secure Boot dracut forensics 214587 |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fb0ec-f63b-7970-8812-cd261f7ccd4b |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb01e-55f3-76a3-b4f3-2e22487bef6c |
@@ -125,8 +127,6 @@ Total events: 838
 | 2026-07-30 | wordpulse | wordpulse 3 | release | UNKNOWN | P1 | release | json | 3 |
 | 2026-07-30 | wordpulse | wordpulse Links | backup | UNKNOWN | P1 | backup | markdown | Links |
 | 2026-07-30 | wordpulse | wordpulse project.metadata | backup | UNKNOWN | P1 | backup | json | project.metadata |
-| 2026-07-30 | wordpulse | wordpulse Typing Performance | backup | PASS | P1 | report | markdown | Typing Performance |
-| 2026-07-30 | wordpulse | wordpulse version | release | UNKNOWN | P1 | release | txt | version |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
@@ -164,9 +164,13 @@ Total events: 838
 | 2026-07-26 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f9fb5-61b5-75a0-8719-e3b5bee89dc3 |
 | 2026-07-26 | oracle-backup-service | Android Tests | security | PASS | P0 | changelog | markdown | REPORTS_ARCHIVE |
 | 2026-07-26 | oracle-backup-service | Oracle Backup ALERT_REGISTRY | security | OPEN | P0 | protocol_update | markdown | ALERT_REGISTRY |
+| 2026-07-26 | oracle-uptime-kuma | Git PATH | security | WARN | P0 | changelog | markdown | Oracle Ubuntu VM maintenance completed with PASS CON WARNING |
 | 2026-07-26 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
+| 2026-07-26 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | Pixel WhatsApp notifications were restored and documented |
+| 2026-07-26 | rollout-summaries | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Logseq 2.0.1 AppImage replaced and validated on Fedora 44 |
+| 2026-07-26 | rollout-summaries | rollout-summaries Espanso intermittente su | security | WARN | P0 | protocol_update | markdown | Espanso intermittente su Fedora 44 GNOME/Wayland risolto con PASS CON WARNING |
 | 2026-07-26 | windows | Veeam T7 | security | PASS | P0 | protocol_update | markdown | STORAGE_TOPOLOGY |
-| 2026-07-23 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | markdown | Task Group: Luoghi Google Places autocomplete and persistent Maps secret configuration |
+| 2026-07-23 | luoghi | Luoghi v13 | security | WARN | P0 | protocol_update | markdown | Task Group: Luoghi Google Places autocomplete and persistent Maps secret configuration |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8c47-abd3-7293-9009-6412718f2458 |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8bf2-f0e7-7a82-a599-2bb31c1caa7a |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -339,19 +343,19 @@ Total events: 838
 | 2026-02-01 | vm-oracle | vm-oracle REPORT_731842 aggiornamento completo | security | WARN | P0 | protocol_update | markdown | REPORT_731842 aggiornamento completo VM Oracle Ubuntu |
 
 ## Projects
-- `megavault`: 167 events; latest=2026-07-30; label=Codex Timeline
+- `megavault`: 169 events; latest=2026-07-30; label=Codex Timeline
 - `amici-fb`: 153 events; latest=2026-07-30; label=Amici FB amici_fb
 - `luoghi-app`: 78 events; latest=2026-07-27; label=luoghi-app v16
-- `multitimetracker`: 65 events; latest=2026-07-30; label=MTT v1
-- `rollout-summaries`: 34 events; latest=2026-07-23; label=rollout-summaries Fedora 44 idle
+- `multitimetracker`: 64 events; latest=2026-07-30; label=MTT v1
+- `rollout-summaries`: 36 events; latest=2026-07-26; label=Codex Timeline
 - `oracle-backup-service`: 27 events; latest=2026-07-26; label=Android Tests
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
 - `fedora-system-monitor`: 24 events; latest=2026-07-26; label=fedora-system-monitor 418732
-- `luoghi`: 22 events; latest=2026-07-26; label=Codex Timeline
+- `luoghi`: 23 events; latest=2026-07-26; label=Codex Timeline
 - `wordpulse`: 18 events; latest=2026-07-30; label=Android Tests
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `vm-oracle`: 15 events; latest=2026-07-27; label=Git PATH
-- `oracle-uptime-kuma`: 13 events; latest=2026-07-14; label=Kuma Topologia rete globale
+- `oracle-uptime-kuma`: 14 events; latest=2026-07-26; label=Git PATH
 - `supercontacts`: 10 events; latest=2026-07-27; label=Git PATH
 - `windows`: 8 events; latest=2026-07-26; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
@@ -383,7 +387,7 @@ Total events: 838
 - `windowtabnotes`: 5 events; latest=2026-07-09; label=windowtabnotes v20
 - `git-change-ledger`: 4 events; latest=2026-07-09; label=Git PATH
 - `grindr-web-exporter`: 4 events; latest=2026-07-09; label=grindr-web-exporter Grindr Web Exporter
-- `pixel-8a`: 3 events; latest=2026-07-26; label=Git PATH
+- `pixel-8a`: 4 events; latest=2026-07-26; label=Git PATH
 - `docs`: 2 events; latest=2026-07-14; label=docs Activity 739184 -
 - `mint-cloud-backup`: 2 events; latest=2026-06-06; label=mint-cloud-backup mint-cloud-backup Changelog
 - `backups`: 1 events; latest=2026-07-13; label=Android Tests
@@ -401,8 +405,10 @@ Total events: 838
 | 2026-07-30 | amici-fb | Amici FB amici_fb Fedora | automation | UNKNOWN | P2 | report | markdown | amici_fb Fedora |
 | 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-30 | megavault | MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS | backup | PASS | P1 | report | markdown | ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS |
+| 2026-07-30 | megavault | MegaVault ACTIVITY_948315_SECURE_BOOT_EVIDENCE | automation | WARN | P1 | report | markdown | ACTIVITY_948315_SECURE_BOOT_EVIDENCE |
 | 2026-07-30 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
 | 2026-07-30 | megavault | MegaVault chore ignore MegaVault | docs | PASS | P2 | git_commit | git_log | chore: ignore MegaVault private files |
+| 2026-07-30 | megavault | MegaVault docs record Secure | docs | PASS | P2 | git_commit | git_log | docs: record Secure Boot dracut forensics 214587 |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fb0ec-f63b-7970-8812-cd261f7ccd4b |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb01e-55f3-76a3-b4f3-2e22487bef6c |
@@ -515,8 +521,12 @@ Total events: 838
 | 2026-07-26 | oracle-backup-service | Oracle Backup Registro incidenti | security | UNKNOWN | P1 | doc_event | markdown | Registro incidenti |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Roadmap | backup | UNKNOWN | P1 | backup | markdown | Roadmap |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Troubleshooting | backup | FAIL | P1 | backup | markdown | Troubleshooting |
+| 2026-07-26 | oracle-uptime-kuma | Git PATH | security | WARN | P0 | changelog | markdown | Oracle Ubuntu VM maintenance completed with PASS CON WARNING |
 | 2026-07-26 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
+| 2026-07-26 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | Pixel WhatsApp notifications were restored and documented |
 | 2026-07-26 | pixel-8a | pixel-8a 2.26.28.77 | security | WARN | P1 | report | markdown | ACTIVITY_473821_PIXEL_WHATSAPP_NOTIFICATIONS |
+| 2026-07-26 | rollout-summaries | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Logseq 2.0.1 AppImage replaced and validated on Fedora 44 |
+| 2026-07-26 | rollout-summaries | rollout-summaries Espanso intermittente su | security | WARN | P0 | protocol_update | markdown | Espanso intermittente su Fedora 44 GNOME/Wayland risolto con PASS CON WARNING |
 | 2026-07-26 | vm-oracle | Git PATH | security | UNKNOWN | P1 | changelog | markdown | Changelog |
 | 2026-07-26 | vm-oracle | vm-oracle project.metadata | release | UNKNOWN | P1 | release | json | project.metadata |
 | 2026-07-26 | vm-oracle | vm-oracle requirements global.lock | security | UNKNOWN | P1 | doc_event | txt | requirements global.lock |
@@ -532,8 +542,8 @@ Total events: 838
 | 2026-07-23 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 23T070002Z |
 | 2026-07-23 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 22T200155Z vs 2026 07 23T070002Z |
 | 2026-07-23 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
+| 2026-07-23 | luoghi | Luoghi v13 | security | WARN | P0 | protocol_update | markdown | Task Group: Luoghi Google Places autocomplete and persistent Maps secret configuration |
 | 2026-07-23 | megavault | MegaVault Attivita 631904 - | security | WARN | P1 | doc_event | markdown | Attivita 631904 - incidente GNOME/GDM dopo restart di systemd-logind |
-| 2026-07-23 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | markdown | Task Group: Luoghi Google Places autocomplete and persistent Maps secret configuration |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8c47-abd3-7293-9009-6412718f2458 |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | 019f8bf2-f0e7-7a82-a599-2bb31c1caa7a |
 | 2026-07-23 | multitimetracker | MTT v2 | security | WARN | P0 | protocol_update | codex_log | /home/daniele/MegaVault/projects/luoghi-app |

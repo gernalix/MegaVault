@@ -1,11 +1,11 @@
 # HOST_PROFILE
-VERSION=13
+VERSION=14
 STATUS=MANDATORY_GLOBAL_CONTEXT
 MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
-UPDATED=2026-07-15T11:33:35+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716
+UPDATED=2026-07-30T08:04:00+02:00
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716+activity_948315
 
 META:
 host=fedora
@@ -90,7 +90,8 @@ project_rule=project_or_remote_paths_never_override_HOST_SYSTEM_CURRENT
 MONITORING_CURRENT:
 prometheus=/usr/bin/prometheus;version=3.13.0;service=enabled+active;bind=127.0.0.1:9090;retention=30d_or_5GB;activity=826417
 node_exporter=/usr/bin/node_exporter;version=1.11.1;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
-diagnostics=/usr/local/bin/fedora-diagnostics;version=1.0.0;default=7d;archive=single_sanitized_0600_ZIP;activity=826417
+diagnostics=/usr/local/bin/fedora-diagnostics;version=1.2.0;default=7d;archive=single_sanitized_0600_ZIP;activity=826417+614283+948315
+secureboot_forensics=/usr/local/sbin/fedora-secureboot-forensics-capture;unit=fedora-secureboot-forensics-capture.service_enabled+inactive;output=/var/log/fedora-secureboot-forensics_root_only;BLS=separate_non_default_7.1.5_forensics_948315;Secure_Boot=disabled;reboot=not_run
 relationship=Prometheus_historical_metrics;Uptime_Kuma_synthetic_UP_DOWN_unchanged;fedora-system-monitor_readonly_target=127.0.0.1:9109
 
 REMOTE_ACCESS_CURRENT:

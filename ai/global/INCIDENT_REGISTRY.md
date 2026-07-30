@@ -1,4 +1,4 @@
-VERSION=7
+VERSION=8
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -353,12 +353,12 @@ Stato=OPEN
 Root_cause=Il riferimento mostrato da dracut non e obsoleto: e il FSID Btrfs corrente passato dalle opzioni BLS e compare solo dopo apertura LUKS. Il guasto a monte del tentativo fallito e delimitato a mancata scoperta NVMe/LUKS oppure richiesta cryptsetup fallita o terminata, ma il boot initramfs non monto la root e non lascio journal o rdsosreport persistenti; la causa dinamica esatta e quindi UNKNOWN.
 Sistemi_coinvolti=Fedora 44;UEFI Secure Boot;shim;GRUB;BLS;kernel 7.1.x;dracut;NVMe interno;LUKS2;Btrfs
 Alert_coinvolti=/dev/disk/by-uuid/6ff76a46-6614-4ac6-b1fa-a9590f09c709 does not exist;Not all disks have been found;dracut emergency mode
-Tentativi_effettuati=32 boot journal verificati;artefatti dracut,rdsosreport,pstore,coredump e kdump cercati;UUID tracciato in fstab,kernel cmdline,BLS,GRUB,generatori,EFI e binari;quattro initramfs estratti in tmpfs con lsinitrd e hash invariati;selezione BLS,grubenv,ordine EFI,fallback,firme e moduli verificati.
-Soluzione_finale=Nessuna modifica al boot: BLS,FSID LUKS e initramfs sono coerenti e firmati; rimuovere il FSID corretto o rigenerare dracut senza prova introdurrebbe rischio. Nuovo test Secure Boot non autorizzato finche la causa a monte resta non dimostrata.
-Commit_correlati=activity_214587_MegaVault_commit
-Prompt_correlati=731846;214587
+Tentativi_effettuati=32 boot journal verificati;artefatti dracut,rdsosreport,pstore,coredump e kdump cercati;UUID tracciato in fstab,kernel cmdline,BLS,GRUB,generatori,EFI e binari;quattro initramfs estratti in tmpfs con lsinitrd e hash invariati;selezione BLS,grubenv,ordine EFI,fallback,firme e moduli verificati;activity 948315 ha armato collector first-successful-boot e BLS diagnostica separata con output console.
+Soluzione_finale=Causa ancora OPEN. Preparata raccolta forense reversibile: archivio automatico root-only dopo il primo boot riuscito e BLS non predefinita sullo stesso kernel/initramfs con soli parametri debug; LUKS,partizioni,Secure Boot,chiavi,kernel,initramfs,BLS originali,GRUB e grubenv invariati.
+Commit_correlati=activity_214587_MegaVault_commit;activity_948315_MegaVault_commit
+Prompt_correlati=731846;214587;948315
 Tempo_totale_di_impatto=Un singolo tentativo nel gap tra arresto pulito 2026-07-30T03:01:36Z e avvio corrente 2026-07-30T03:10:52Z; durata esatta UNKNOWN
-Note=Origine FSID provata da /var/log/anaconda/storage.log mkfs.btrfs del 2026-07-07. Secure Boot corrente disabilitato. Nessuna modifica a LUKS,partizioni,bootloader,kernel,initramfs,pacchetti o chiavi. Source=ai/reports/activity_214587_secure_boot_dracut_forensics.md
+Note=Origine FSID provata da /var/log/anaconda/storage.log mkfs.btrfs del 2026-07-07. Secure Boot corrente disabilitato. Nessun reboot activity 948315. Pstore EFI e journal persistente gia operativi ma un timeout dracut normale pre-root resta volatile; foto/video console obbligatori. Sources=ai/reports/activity_214587_secure_boot_dracut_forensics.md;/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_948315.md
 
 INCIDENT:
 Incident_ID=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION

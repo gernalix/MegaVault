@@ -220,5 +220,7 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Meccanismo: la entry BLS passa `root=UUID=6ff...`; dracut lo converte nel link `by-uuid`. Il link compare soltanto dopo che NVMe e' disponibile e cryptsetup apre LUKS.
 - Limite probatorio: il boot fallito non ha montato la root e non ha lasciato boot ID, journal initramfs, `rdsosreport`, pstore o dump persistenti. Non si puo' distinguere offline tra mancata scoperta NVMe/LUKS e richiesta cryptsetup fallita o terminata.
 - Verifiche: tutti i quattro initramfs, BLS, cmdline, grubenv, ordine EFI, fallback, firme shim/GRUB/kernel e moduli storage sono coerenti; l'UUID Btrfs non e' incorporato negli initramfs.
-- Decisione: nessuna modifica a boot, LUKS, partizioni, initramfs, pacchetti o chiavi. Non ripetere ancora il test Secure Boot e non rimuovere l'UUID corretto.
-- Report: `ai/reports/activity_214587_secure_boot_dracut_forensics.md`.
+- Preparazione activity 948315: collector automatico root-only al primo boot riuscito e entry BLS diagnostica separata sullo stesso kernel/initramfs, senza `rhgb quiet`.
+- Stato protetto: Secure Boot resta disabilitato; nessun reboot. LUKS, partizioni, chiavi, kernel, initramfs, BLS originali, GRUB e `grubenv` sono invariati.
+- Limite residuo: un timeout dracut normale prima della root non entra nel journal interno o in pstore; occorre fotografare o filmare la console diagnostica.
+- Report: `ai/reports/activity_214587_secure_boot_dracut_forensics.md`; preparazione: `/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_948315.md`.

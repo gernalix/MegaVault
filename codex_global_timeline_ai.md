@@ -1,13 +1,15 @@
 # Global Codex Timeline AI
-generated_at=2026-07-30T05:53:05+02:00
-total_events=838
+generated_at=2026-07-30T08:09:38+02:00
+total_events=844
 format=event_date|project|label_short|category|status|importance
 2026-07-30|amici-fb|Amici FB amici_fb|security|UNKNOWN|P1
 2026-07-30|amici-fb|Amici FB amici_fb Fedora|automation|UNKNOWN|P2
 2026-07-30|megavault|Codex Timeline|docs|PASS|P0
 2026-07-30|megavault|MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS|backup|PASS|P1
+2026-07-30|megavault|MegaVault ACTIVITY_948315_SECURE_BOOT_EVIDENCE|automation|WARN|P1
 2026-07-30|megavault|MegaVault REPORTS_LATEST|security|WARN|P1
 2026-07-30|megavault|MegaVault chore ignore MegaVault|docs|PASS|P2
+2026-07-30|megavault|MegaVault docs record Secure|docs|PASS|P2
 2026-07-30|multitimetracker|MTT v1|security|WARN|P0
 2026-07-30|multitimetracker|MTT v1|security|WARN|P0
 2026-07-30|multitimetracker|MTT v1|security|WARN|P0
@@ -120,8 +122,12 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|oracle-backup-service|Oracle Backup Registro incidenti|security|UNKNOWN|P1
 2026-07-26|oracle-backup-service|Oracle Backup Roadmap|backup|UNKNOWN|P1
 2026-07-26|oracle-backup-service|Oracle Backup Troubleshooting|backup|FAIL|P1
+2026-07-26|oracle-uptime-kuma|Git PATH|security|WARN|P0
+2026-07-26|pixel-8a|Git PATH|security|WARN|P0
 2026-07-26|pixel-8a|Git PATH|security|WARN|P0
 2026-07-26|pixel-8a|pixel-8a 2.26.28.77|security|WARN|P1
+2026-07-26|rollout-summaries|Codex Timeline|security|WARN|P0
+2026-07-26|rollout-summaries|rollout-summaries Espanso intermittente su|security|WARN|P0
 2026-07-26|vm-oracle|Git PATH|security|UNKNOWN|P1
 2026-07-26|vm-oracle|vm-oracle project.metadata|release|UNKNOWN|P1
 2026-07-26|vm-oracle|vm-oracle requirements global.lock|security|UNKNOWN|P1
@@ -137,8 +143,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-23|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-23|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-23|amici-fb|Amici FB trace|backup|FAIL|P1
+2026-07-23|luoghi|Luoghi v13|security|WARN|P0
 2026-07-23|megavault|MegaVault Attivita 631904 -|security|WARN|P1
-2026-07-23|multitimetracker|MTT v13|security|WARN|P0
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0

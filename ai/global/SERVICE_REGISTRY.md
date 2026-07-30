@@ -1,9 +1,9 @@
 # SERVICE_REGISTRY
-VERSION=18
+VERSION=19
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=systemctl_live_2026-07-26+HOST_PROFILE+activity_482731+activity_418732+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904
+SOURCE=systemctl_live_2026-07-30+HOST_PROFILE+activity_482731+activity_418732+activity_638214+activity_847263+activity_593184+activity_471852+activity_471853+activity_583921+activity_684219+activity_638417+activity_846219+activity_826417+activity_592184+activity_731904+activity_948315
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SERVICE_REGISTRY.md
@@ -39,6 +39,7 @@ service=fedora-system-monitor-prometheus.service;state=active_as_prometheus_depe
 service=prometheus.service;state=enabled+active/running;package=prometheus-3.13.0-1.fc44;bind=127.0.0.1:9090;retention=30d_or_5GB;scrape=15s;restart=on-failure_5s;targets=prometheus+node+fedora-system-monitor;activity=826417
 service=prometheus-node-exporter.service;aliases=node_exporter.service_same_unit;state=enabled+active/running;package=node-exporter-1.11.1-1.fc44;bind=127.0.0.1:9100;restart=on-failure_5s;privilege=prometheus_user+no_capabilities;activity=826417
 command=fedora-diagnostics;service=none;timer=none;mode=manual_on_demand;path=/usr/local/bin/fedora-diagnostics;activity=826417
+service=fedora-secureboot-forensics-capture.service;scope=system;state=enabled+inactive+never_started;trigger=first_successful_multi-user_boot_if_no_existing_archive;purpose=post-Secure-Boot-test_root-only_forensic_archive;exec=/usr/local/sbin/fedora-secureboot-forensics-capture;output=/var/log/fedora-secureboot-forensics;network=denied;activity=948315
 service=t7-restic-backup.service;scope=system;state=static_oneshot+tested_success;purpose=udev_connect_mount+encrypted_incremental_backup+conditional_maintenance+sync+unmount+notify;runtime=/usr/local/libexec/t7-restic-lifecycle;activity=684219
 service=t7-restic-reminder.service;scope=system;state=static_oneshot+tested_success;purpose=single_disconnect_reminder_if_serial_still_present;activity=684219
 service=fedora-external-updater-root.service;scope=system;state=installed+timer_enabled+manual_PASS;purpose=complementary_safe_external_updates_root_scope;activity=846219
