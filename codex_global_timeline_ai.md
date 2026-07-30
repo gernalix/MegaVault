@@ -1,7 +1,48 @@
 # Global Codex Timeline AI
-generated_at=2026-07-26T20:35:31+02:00
-total_events=772
+generated_at=2026-07-30T03:57:48+02:00
+total_events=828
 format=event_date|project|label_short|category|status|importance
+2026-07-30|amici-fb|Amici FB amici_fb|security|UNKNOWN|P1
+2026-07-30|amici-fb|Amici FB amici_fb Fedora|automation|UNKNOWN|P2
+2026-07-30|multitimetracker|MTT v1|security|WARN|P0
+2026-07-30|multitimetracker|MTT v1|security|WARN|P0
+2026-07-30|multitimetracker|MTT v1|security|WARN|P0
+2026-07-30|wordpulse|Android Tests|security|UNKNOWN|P1
+2026-07-30|wordpulse|Android Tests|security|OPEN|P1
+2026-07-30|wordpulse|wordpulse Changelog|backup|UNKNOWN|P1
+2026-07-30|wordpulse|wordpulse Links|backup|UNKNOWN|P1
+2026-07-30|wordpulse|wordpulse project.metadata|backup|UNKNOWN|P1
+2026-07-30|wordpulse|Android Tests|testing|UNKNOWN|P2
+2026-07-30|wordpulse|Android Tests|bugfix|UNKNOWN|P2
+2026-07-30|wordpulse|wordpulse Incident Registry|docs|UNKNOWN|P2
+2026-07-30|wordpulse|wordpulse Roadmap|testing|UNKNOWN|P2
+2026-07-29|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-29|amici-fb|Amici FB diff 2026|backup|OPEN|P1
+2026-07-29|amici-fb|Amici FB trace|backup|FAIL|P1
+2026-07-29|amici-fb|Amici FB facebook friends|bugfix|UNKNOWN|P2
+2026-07-29|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
+2026-07-29|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-07-27|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-27|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-07-27|amici-fb|Amici FB trace|backup|FAIL|P1
+2026-07-27|amici-fb|Amici FB trace|backup|UNKNOWN|P1
+2026-07-27|amici-fb|Amici FB facebook friends|bugfix|UNKNOWN|P2
+2026-07-27|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
+2026-07-27|luoghi-app|luoghi-app v16|security|UNKNOWN|P0
+2026-07-27|luoghi-app|luoghi-app 1.apk|security|PASS|P1
+2026-07-27|luoghi-app|luoghi-app v13|security|UNKNOWN|P1
+2026-07-27|luoghi-app|luoghi-app v14|security|PASS|P1
+2026-07-27|luoghi-app|luoghi-app version|release|UNKNOWN|P1
+2026-07-27|luoghi-app|Telegram APK|security|UNKNOWN|P1
+2026-07-27|multitimetracker|MTT v1|security|WARN|P0
+2026-07-27|multitimetracker|MTT v1|security|WARN|P0
+2026-07-27|supercontacts|Git PATH|security|WARN|P0
+2026-07-27|supercontacts|Git PATH|security|FAIL|P0
+2026-07-27|vm-oracle|Git PATH|security|WARN|P1
+2026-07-27|vm-oracle|vm-oracle Operazioni VM Oracle|security|FAIL|P1
+2026-07-27|vm-oracle|vm-oracle Registro incidenti|security|PASS|P1
+2026-07-27|vm-oracle|vm-oracle VM Oracle Ubuntu|security|WARN|P1
+2026-07-27|vm-oracle|vm-oracle runtime python contexts|bugfix|UNKNOWN|P2
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
@@ -10,7 +51,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|amici-fb|Amici FB trace|backup|UNKNOWN|P1
 2026-07-26|amici-fb|Amici FB facebook friends|bugfix|UNKNOWN|P2
 2026-07-26|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
-2026-07-26|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
 2026-07-26|fedora-system-monitor|fedora-system-monitor 418732|security|WARN|P0
 2026-07-26|fedora-system-monitor|fedora-system-monitor 482731|security|WARN|P0
 2026-07-26|fedora-system-monitor|fedora-system-monitor Attivita 482731 correzione|backup|WARN|P0
@@ -24,9 +64,16 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|fedora-system-monitor|fedora-system-monitor Troubleshooting|backup|WARN|P1
 2026-07-26|fedora-system-monitor|Git PATH|release|FAIL|P1
 2026-07-26|fedora-system-monitor|Git PATH|backup|WARN|P1
+2026-07-26|luoghi|Codex Timeline|security|WARN|P0
+2026-07-26|luoghi|Git PATH|security|WARN|P0
 2026-07-26|luoghi|Git PATH|security|WARN|P0
 2026-07-26|luoghi|Luoghi v16|security|WARN|P0
 2026-07-26|luoghi-app|luoghi-app 13.apk|security|WARN|P0
+2026-07-26|luoghi-app|luoghi-app build output|release|FAIL|P0
+2026-07-26|luoghi-app|luoghi-app full build output|release|FAIL|P0
+2026-07-26|luoghi-app|Android Tests|release|PASS|P1
+2026-07-26|luoghi-app|Android Tests|release|PASS|P1
+2026-07-26|luoghi-app|luoghi-app Warning Build Error|security|WARN|P1
 2026-07-26|megavault|Codex Timeline|backup|PASS|P0
 2026-07-26|megavault|Codex Timeline|docs|PASS|P0
 2026-07-26|megavault|MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE|release|PASS|P0
@@ -36,6 +83,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|megavault|MegaVault docs refresh timeline|automation|PASS|P1
 2026-07-26|megavault|MegaVault docs register filesystem|automation|PASS|P1
 2026-07-26|megavault|MegaVault docs register SMART|bugfix|PASS|P1
+2026-07-26|megavault|MegaVault fix restore Pixel|bugfix|PASS|P1
 2026-07-26|megavault|MegaVault REPORTS_LATEST|security|WARN|P1
 2026-07-26|megavault|MegaVault Service Registry|security|UNKNOWN|P1
 2026-07-26|megavault|MegaVault docs record GNOME|docs|PASS|P2
@@ -64,18 +112,23 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|oracle-backup-service|Oracle Backup Troubleshooting|backup|FAIL|P1
 2026-07-26|pixel-8a|Git PATH|security|WARN|P0
 2026-07-26|pixel-8a|pixel-8a 2.26.28.77|security|WARN|P1
+2026-07-26|vm-oracle|Git PATH|security|UNKNOWN|P1
+2026-07-26|vm-oracle|vm-oracle project.metadata|release|UNKNOWN|P1
+2026-07-26|vm-oracle|vm-oracle requirements global.lock|security|UNKNOWN|P1
+2026-07-26|vm-oracle|vm-oracle Roadmap|backup|UNKNOWN|P1
+2026-07-26|vm-oracle|vm-oracle vm_oracle|security|UNKNOWN|P1
+2026-07-26|vm-oracle|vm-oracle Incidenti|automation|UNKNOWN|P2
+2026-07-26|vm-oracle|vm-oracle Troubleshooting|automation|UNKNOWN|P2
 2026-07-26|windows|Veeam T7|security|PASS|P0
 2026-07-26|windows|Veeam T7|security|FAIL|P1
 2026-07-24|luoghi-app|Android Tests|backup|UNKNOWN|P1
 2026-07-24|luoghi-app|Git PATH|backup|UNKNOWN|P1
-2026-07-24|luoghi-app|luoghi-app 1.apk|security|PASS|P1
 2026-07-24|luoghi-app|luoghi-app Gradle Sync Repair|bugfix|PASS|P1
-2026-07-24|luoghi-app|luoghi-app v13|backup|UNKNOWN|P1
 2026-07-23|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-23|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-23|amici-fb|Amici FB trace|backup|FAIL|P1
 2026-07-23|megavault|MegaVault Attivita 631904 -|security|WARN|P1
-2026-07-23|multitimetracker|MTT v1|security|PASS|P0
+2026-07-23|multitimetracker|MTT v13|security|WARN|P0
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0
 2026-07-23|multitimetracker|MTT v2|security|WARN|P0
@@ -83,6 +136,7 @@ format=event_date|project|label_short|category|status|importance
 2026-07-23|rollout-summaries|rollout-summaries Fedora 44 idle|backup|WARN|P0
 2026-07-23|rollout-summaries|rollout-summaries Fedora 44 reboot|bugfix|WARN|P0
 2026-07-23|rollout-summaries|rollout-summaries X repost downloader|backup|WARN|P1
+2026-07-23|supercontacts|SC 13.apk|security|PASS|P1
 2026-07-22|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-22|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-22|amici-fb|Amici FB trace|backup|FAIL|P1
@@ -293,7 +347,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi|Git PATH|backup|PASS|P1
 2026-07-10|luoghi-app|luoghi-app v11|release|UNKNOWN|P0
 2026-07-10|luoghi-app|luoghi-app v11|backup|UNKNOWN|P0
-2026-07-10|luoghi-app|luoghi-app v16|release|UNKNOWN|P0
 2026-07-10|luoghi-app|luoghi-app v5|backup|OPEN|P0
 2026-07-10|luoghi-app|Git PATH|backup|PASS|P1
 2026-07-10|luoghi-app|luoghi-app 1|release|UNKNOWN|P1
@@ -306,7 +359,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|luoghi-app|luoghi-app v1|release|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app v1|security|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app v10|security|UNKNOWN|P1
-2026-07-10|luoghi-app|luoghi-app v10|security|PASS|P1
 2026-07-10|luoghi-app|luoghi-app v13|backup|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app v5|security|UNKNOWN|P1
 2026-07-10|luoghi-app|luoghi-app v5|security|PASS|P1
@@ -363,7 +415,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-10|megavault|MegaVault Remove Codex session|docs|PASS|P2
 2026-07-10|megavault|MegaVault v10|docs|PASS|P2
 2026-07-10|multitimetracker|MTT 1.apk|security|WARN|P0
-2026-07-10|multitimetracker|MTT v3|security|WARN|P0
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
 2026-07-10|multitimetracker|MTT v537|security|WARN|P0
 2026-07-10|multitimetracker|MTT v4|security|PASS|P1
@@ -392,7 +443,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
-2026-07-09|amici-fb|Amici FB amici_fb|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Features|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Roadmap|security|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB amici_fb Troubleshooting|backup|UNKNOWN|P1
@@ -426,7 +476,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-09|amici-fb|Amici FB project.metadata|release|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB trace|backup|UNKNOWN|P1
 2026-07-09|amici-fb|Amici FB trace|backup|FAIL|P1
-2026-07-09|amici-fb|Amici FB amici_fb Fedora|automation|UNKNOWN|P2
 2026-07-09|amici-fb|Amici FB facebook friends|docs|UNKNOWN|P2
 2026-07-09|amici-fb|Amici FB facebook me|docs|UNKNOWN|P2
 2026-07-09|amici-fb|Amici FB Legacy Agent|migration|UNKNOWN|P2
@@ -619,7 +668,11 @@ format=event_date|project|label_short|category|status|importance
 2026-07-05|multitimetracker|MTT app-release.apk|security|PASS|P1
 2026-07-05|multitimetracker|MTT v528|security|FAIL|P1
 2026-07-05|multitimetracker|MTT v530|security|PASS|P1
+2026-07-03|wordpulse|wordpulse 2|release|UNKNOWN|P1
+2026-07-03|wordpulse|wordpulse WordPulse Correction Bottleneck|security|PASS|P1
+2026-07-03|wordpulse|wordpulse WordPulse Scientific Curation|bugfix|PASS|P1
 2026-07-02|pixel-8a|Android Tests|security|WARN|P1
+2026-07-02|wordpulse|wordpulse 1|release|UNKNOWN|P1
 2026-06-29|oracle-backup-service|Oracle Backup v2|security|WARN|P1
 2026-06-28|megavault|MegaVault Add Pixel Buds|infra|PASS|P1
 2026-06-27|megavault|MegaVault Add Windows Flight|infra|PASS|P1
@@ -747,9 +800,12 @@ format=event_date|project|label_short|category|status|importance
 2026-02-06|oracle-backup-service|Git PATH|security|WARN|P1
 2026-02-06|oracle-backup-service|Oracle Backup Oracle backup|backup|WARN|P1
 2026-02-06|oracle-backup-service|Oracle Backup v2|security|WARN|P1
+2026-02-05|vm-oracle|vm-oracle ENV /home/ubuntu/.venv|backup|UNKNOWN|P1
 2026-02-01|maintenance-486|maintenance-486 maintenance-486 Troubleshooting|release|UNKNOWN|P1
 2026-02-01|oracle-backup-service|Git PATH|security|PASS|P1
 2026-02-01|oracle-uptime-kuma|Kuma Troubleshooting|security|FAIL|P1
+2026-02-01|vm-oracle|vm-oracle REPORT_731842 aggiornamento completo|security|WARN|P0
+2026-02-01|vm-oracle|Git PATH|security|WARN|P1
 2026-01-11|amici-fb|Amici FB diff 2026|backup|OPEN|P1
 2026-01-10|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-01-09|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
