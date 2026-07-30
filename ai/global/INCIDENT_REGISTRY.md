@@ -1,4 +1,4 @@
-VERSION=6
+VERSION=7
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -341,6 +341,24 @@ Commit_correlati=fedora-system-monitor activity 482731
 Prompt_correlati=482731
 Tempo_totale_di_impatto=2026-07-10T10:30:53Z to 2026-07-26T12:08:27Z for false warning event generation
 Note=Internal KIOXIA health PASS with media errors 0 and T7 health PASS through sntasmedia;two Seagate USB SAT disks remained intentionally asleep. An explicit T7 error-log probe during investigation caused two successful UAS resets and was stopped;it is separate from the historical cause. Project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md
+
+INCIDENT:
+Incident_ID=SECURE_BOOT_DRACUT_LUKS_UNLOCK_NOT_PERSISTED
+Titolo=Boot Fedora con Secure Boot raggiunge dracut ma il Btrfs dentro LUKS non compare
+Data_prima_comparsa_UTC=2026-07-30T03:01:36Z_to_2026-07-30T03:10:52Z;exact_UNKNOWN
+Data_ultima_comparsa_UTC=2026-07-30T03:01:36Z_to_2026-07-30T03:10:52Z;exact_UNKNOWN
+Numero_occorrenze=1
+Gravita_massima=HIGH
+Stato=OPEN
+Root_cause=Il riferimento mostrato da dracut non e obsoleto: e il FSID Btrfs corrente passato dalle opzioni BLS e compare solo dopo apertura LUKS. Il guasto a monte del tentativo fallito e delimitato a mancata scoperta NVMe/LUKS oppure richiesta cryptsetup fallita o terminata, ma il boot initramfs non monto la root e non lascio journal o rdsosreport persistenti; la causa dinamica esatta e quindi UNKNOWN.
+Sistemi_coinvolti=Fedora 44;UEFI Secure Boot;shim;GRUB;BLS;kernel 7.1.x;dracut;NVMe interno;LUKS2;Btrfs
+Alert_coinvolti=/dev/disk/by-uuid/6ff76a46-6614-4ac6-b1fa-a9590f09c709 does not exist;Not all disks have been found;dracut emergency mode
+Tentativi_effettuati=32 boot journal verificati;artefatti dracut,rdsosreport,pstore,coredump e kdump cercati;UUID tracciato in fstab,kernel cmdline,BLS,GRUB,generatori,EFI e binari;quattro initramfs estratti in tmpfs con lsinitrd e hash invariati;selezione BLS,grubenv,ordine EFI,fallback,firme e moduli verificati.
+Soluzione_finale=Nessuna modifica al boot: BLS,FSID LUKS e initramfs sono coerenti e firmati; rimuovere il FSID corretto o rigenerare dracut senza prova introdurrebbe rischio. Nuovo test Secure Boot non autorizzato finche la causa a monte resta non dimostrata.
+Commit_correlati=activity_214587_MegaVault_commit
+Prompt_correlati=731846;214587
+Tempo_totale_di_impatto=Un singolo tentativo nel gap tra arresto pulito 2026-07-30T03:01:36Z e avvio corrente 2026-07-30T03:10:52Z; durata esatta UNKNOWN
+Note=Origine FSID provata da /var/log/anaconda/storage.log mkfs.btrfs del 2026-07-07. Secure Boot corrente disabilitato. Nessuna modifica a LUKS,partizioni,bootloader,kernel,initramfs,pacchetti o chiavi. Source=ai/reports/activity_214587_secure_boot_dracut_forensics.md
 
 INCIDENT:
 Incident_ID=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION

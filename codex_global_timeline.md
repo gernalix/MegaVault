@@ -1,33 +1,32 @@
 # Global Codex Timeline
 
-Generated: 2026-07-30T03:57:48+02:00
+Generated: 2026-07-30T05:53:05+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 828
+Total events: 838
 
 ## Source Roots
 - `/home/daniele/MegaVault`
 - `/home/daniele/.codex/memories`
 - `/home/daniele/.codex/sessions`
-- `/home/daniele/MegaVault/projects/amici_fb`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 164 |
+| megavault | 167 |
 | amici-fb | 153 |
 | luoghi-app | 78 |
-| multitimetracker | 63 |
+| multitimetracker | 65 |
 | rollout-summaries | 34 |
 | oracle-backup-service | 27 |
 | 2026 | 26 |
 | fedora-system-monitor | 24 |
 | luoghi | 22 |
+| wordpulse | 18 |
 | fedora-t7-backup | 15 |
 | vm-oracle | 15 |
 | oracle-uptime-kuma | 13 |
-| wordpulse | 13 |
 | supercontacts | 10 |
 | windows | 8 |
 | windows-winget-daily-update | 7 |
@@ -74,35 +73,35 @@ Total events: 828
 
 | Value | Events |
 |---|---:|
-| security | 265 |
-| backup | 251 |
-| docs | 88 |
-| bugfix | 62 |
-| release | 56 |
-| testing | 49 |
+| security | 267 |
+| backup | 253 |
+| docs | 90 |
+| bugfix | 63 |
+| release | 58 |
+| testing | 48 |
 | automation | 26 |
 | infra | 16 |
-| migration | 12 |
-| performance | 3 |
+| migration | 13 |
+| performance | 4 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 436 |
-| P0 | 203 |
+| P1 | 441 |
+| P0 | 206 |
 | P2 | 178 |
-| P3 | 11 |
+| P3 | 13 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 309 |
-| PASS | 208 |
-| WARN | 193 |
-| FAIL | 63 |
-| OPEN | 55 |
+| UNKNOWN | 312 |
+| PASS | 213 |
+| WARN | 195 |
+| FAIL | 64 |
+| OPEN | 54 |
 
 
 ## Recent Events
@@ -110,31 +109,34 @@ Total events: 828
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-30 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | report | markdown | amici_fb |
 | 2026-07-30 | amici-fb | Amici FB amici_fb Fedora | automation | UNKNOWN | P2 | report | markdown | amici_fb Fedora |
+| 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-30 | megavault | MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS | backup | PASS | P1 | report | markdown | ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS |
+| 2026-07-30 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
+| 2026-07-30 | megavault | MegaVault chore ignore MegaVault | docs | PASS | P2 | git_commit | git_log | chore: ignore MegaVault private files |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
+| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fb0ec-f63b-7970-8812-cd261f7ccd4b |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb01e-55f3-76a3-b4f3-2e22487bef6c |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb09c-075c-7813-b408-9f5b55718959 |
-| 2026-07-30 | wordpulse | Android Tests | security | UNKNOWN | P1 | report | markdown | WordPulse |
-| 2026-07-30 | wordpulse | Android Tests | security | OPEN | P1 | doc_event | markdown | WordPulse AI Project Notes |
-| 2026-07-30 | wordpulse | wordpulse Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
+| 2026-07-30 | multitimetracker | MTT v2 | security | WARN | P0 | changelog | codex_log | 019fb102-17de-7d20-92b1-6d83e2a1f7b1 |
+| 2026-07-30 | wordpulse | Android Tests | migration | FAIL | P1 | migration | markdown | Incident Registry |
+| 2026-07-30 | wordpulse | wordpulse 2.apk | security | PASS | P1 | release | markdown | WordPulse AI Project Notes |
+| 2026-07-30 | wordpulse | wordpulse 2.apk | security | UNKNOWN | P1 | release | markdown | WordPulse |
+| 2026-07-30 | wordpulse | wordpulse 2.apk | backup | UNKNOWN | P1 | release | markdown | Changelog |
+| 2026-07-30 | wordpulse | wordpulse 3 | release | UNKNOWN | P1 | release | json | 3 |
 | 2026-07-30 | wordpulse | wordpulse Links | backup | UNKNOWN | P1 | backup | markdown | Links |
 | 2026-07-30 | wordpulse | wordpulse project.metadata | backup | UNKNOWN | P1 | backup | json | project.metadata |
-| 2026-07-30 | wordpulse | Android Tests | testing | UNKNOWN | P2 | qa | markdown | WordPulse |
-| 2026-07-30 | wordpulse | Android Tests | bugfix | UNKNOWN | P2 | doc_event | markdown | Troubleshooting |
-| 2026-07-30 | wordpulse | wordpulse Incident Registry | docs | UNKNOWN | P2 | doc_event | markdown | Incident Registry |
-| 2026-07-30 | wordpulse | wordpulse Roadmap | testing | UNKNOWN | P2 | qa | markdown | Roadmap |
-| 2026-07-29 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 29T213950Z |
-| 2026-07-29 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 27T070526Z vs 2026 07 29T213950Z |
-| 2026-07-29 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
-| 2026-07-29 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
-| 2026-07-29 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
-| 2026-07-29 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-07-30 | wordpulse | wordpulse Typing Performance | backup | PASS | P1 | report | markdown | Typing Performance |
+| 2026-07-30 | wordpulse | wordpulse version | release | UNKNOWN | P1 | release | txt | version |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
+| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fb0ec-f63b-7970-8812-cd261f7ccd4b |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb01e-55f3-76a3-b4f3-2e22487bef6c |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb09c-075c-7813-b408-9f5b55718959 |
+| 2026-07-30 | multitimetracker | MTT v2 | security | WARN | P0 | changelog | codex_log | 019fb102-17de-7d20-92b1-6d83e2a1f7b1 |
 | 2026-07-27 | luoghi-app | luoghi-app v16 | security | UNKNOWN | P0 | protocol_update | json | project.metadata |
 | 2026-07-27 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | markdown | User Profile |
 | 2026-07-27 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -337,19 +339,19 @@ Total events: 828
 | 2026-02-01 | vm-oracle | vm-oracle REPORT_731842 aggiornamento completo | security | WARN | P0 | protocol_update | markdown | REPORT_731842 aggiornamento completo VM Oracle Ubuntu |
 
 ## Projects
-- `megavault`: 164 events; latest=2026-07-26; label=Codex Timeline
+- `megavault`: 167 events; latest=2026-07-30; label=Codex Timeline
 - `amici-fb`: 153 events; latest=2026-07-30; label=Amici FB amici_fb
 - `luoghi-app`: 78 events; latest=2026-07-27; label=luoghi-app v16
-- `multitimetracker`: 63 events; latest=2026-07-30; label=MTT v1
+- `multitimetracker`: 65 events; latest=2026-07-30; label=MTT v1
 - `rollout-summaries`: 34 events; latest=2026-07-23; label=rollout-summaries Fedora 44 idle
 - `oracle-backup-service`: 27 events; latest=2026-07-26; label=Android Tests
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
 - `fedora-system-monitor`: 24 events; latest=2026-07-26; label=fedora-system-monitor 418732
 - `luoghi`: 22 events; latest=2026-07-26; label=Codex Timeline
+- `wordpulse`: 18 events; latest=2026-07-30; label=Android Tests
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `vm-oracle`: 15 events; latest=2026-07-27; label=Git PATH
 - `oracle-uptime-kuma`: 13 events; latest=2026-07-14; label=Kuma Topologia rete globale
-- `wordpulse`: 13 events; latest=2026-07-30; label=Android Tests
 - `supercontacts`: 10 events; latest=2026-07-27; label=Git PATH
 - `windows`: 8 events; latest=2026-07-26; label=Veeam T7
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
@@ -397,18 +399,29 @@ Total events: 828
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-30 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | report | markdown | amici_fb |
 | 2026-07-30 | amici-fb | Amici FB amici_fb Fedora | automation | UNKNOWN | P2 | report | markdown | amici_fb Fedora |
+| 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-30 | megavault | MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS | backup | PASS | P1 | report | markdown | ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS |
+| 2026-07-30 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
+| 2026-07-30 | megavault | MegaVault chore ignore MegaVault | docs | PASS | P2 | git_commit | git_log | chore: ignore MegaVault private files |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
+| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fb0ec-f63b-7970-8812-cd261f7ccd4b |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb01e-55f3-76a3-b4f3-2e22487bef6c |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb09c-075c-7813-b408-9f5b55718959 |
-| 2026-07-30 | wordpulse | Android Tests | security | UNKNOWN | P1 | report | markdown | WordPulse |
-| 2026-07-30 | wordpulse | Android Tests | security | OPEN | P1 | doc_event | markdown | WordPulse AI Project Notes |
-| 2026-07-30 | wordpulse | wordpulse Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
+| 2026-07-30 | multitimetracker | MTT v2 | security | WARN | P0 | changelog | codex_log | 019fb102-17de-7d20-92b1-6d83e2a1f7b1 |
+| 2026-07-30 | wordpulse | Android Tests | migration | FAIL | P1 | migration | markdown | Incident Registry |
+| 2026-07-30 | wordpulse | wordpulse 2.apk | security | PASS | P1 | release | markdown | WordPulse AI Project Notes |
+| 2026-07-30 | wordpulse | wordpulse 2.apk | security | UNKNOWN | P1 | release | markdown | WordPulse |
+| 2026-07-30 | wordpulse | wordpulse 2.apk | backup | UNKNOWN | P1 | release | markdown | Changelog |
+| 2026-07-30 | wordpulse | wordpulse 3 | release | UNKNOWN | P1 | release | json | 3 |
 | 2026-07-30 | wordpulse | wordpulse Links | backup | UNKNOWN | P1 | backup | markdown | Links |
 | 2026-07-30 | wordpulse | wordpulse project.metadata | backup | UNKNOWN | P1 | backup | json | project.metadata |
+| 2026-07-30 | wordpulse | wordpulse Typing Performance | backup | PASS | P1 | report | markdown | Typing Performance |
+| 2026-07-30 | wordpulse | wordpulse version | release | UNKNOWN | P1 | release | txt | version |
 | 2026-07-30 | wordpulse | Android Tests | testing | UNKNOWN | P2 | qa | markdown | WordPulse |
 | 2026-07-30 | wordpulse | Android Tests | bugfix | UNKNOWN | P2 | doc_event | markdown | Troubleshooting |
-| 2026-07-30 | wordpulse | wordpulse Incident Registry | docs | UNKNOWN | P2 | doc_event | markdown | Incident Registry |
-| 2026-07-30 | wordpulse | wordpulse Roadmap | testing | UNKNOWN | P2 | qa | markdown | Roadmap |
+| 2026-07-30 | wordpulse | Android Tests | bugfix | UNKNOWN | P2 | doc_event | markdown | Incident Registry |
+| 2026-07-30 | wordpulse | Android Tests | performance | UNKNOWN | P3 | doc_event | markdown | Capsulization Audit |
+| 2026-07-30 | wordpulse | wordpulse Roadmap | docs | UNKNOWN | P3 | doc_event | markdown | Roadmap |
 | 2026-07-29 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 29T213950Z |
 | 2026-07-29 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 27T070526Z vs 2026 07 29T213950Z |
 | 2026-07-29 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
@@ -477,7 +490,6 @@ Total events: 828
 | 2026-07-26 | megavault | MegaVault docs register filesystem | automation | PASS | P1 | git_commit | git_log | docs: register filesystem Telegram monitoring |
 | 2026-07-26 | megavault | MegaVault docs register SMART | bugfix | PASS | P1 | git_commit | git_log | docs: register SMART monitor fix 482731 |
 | 2026-07-26 | megavault | MegaVault fix restore Pixel | bugfix | PASS | P1 | git_commit | git_log | fix: restore Pixel WhatsApp background notifications |
-| 2026-07-26 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
 | 2026-07-26 | megavault | MegaVault Service Registry | security | UNKNOWN | P1 | doc_event | markdown | Service Registry |
 | 2026-07-26 | megavault | MegaVault docs record GNOME | docs | PASS | P2 | git_commit | git_log | docs: record GNOME logind incident |
 | 2026-07-26 | megavault | MegaVault docs record Logseq | docs | PASS | P2 | git_commit | git_log | docs: record Logseq AppImage install 593814 |

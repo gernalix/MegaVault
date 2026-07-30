@@ -211,3 +211,14 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Verifica: lo stesso campione MP4 H.264 Baseline falliva prima con `Unable to create decoder`; dopo il fix VLC `avcodec` ha ricevuto il primo frame, il rendering video e' terminato con codice 0, `ffmpeg` e `ffplay` sono PASS, `dnf check` e `flatpak repair --dry-run` sono PASS.
 - Limiti: file originale non fornito; `mpv` non installato; `libpostproc` host assente ma non necessario per H.264.
 - Report: `ai/reports/prompt_684271_vlc_h264_fedora.md`.
+
+## SECURE_BOOT_DRACUT_LUKS_UNLOCK_NOT_PERSISTED
+
+- Finestra UTC: tra `2026-07-30T03:01:36Z` e `03:10:52Z`; stato `OPEN`, gravita' `HIGH`.
+- Sintomo: con Secure Boot attivo dracut ha atteso `/dev/disk/by-uuid/6ff76a46-6614-4ac6-b1fa-a9590f09c709` ed e' entrato in emergency mode.
+- Identita' provata: l'UUID non e' obsoleto. E' il FSID Btrfs corrente creato da Anaconda dentro `/dev/nvme0n1p3`, cifrato LUKS2 con UUID `0c261c5f-02dd-484f-b266-13ff4ee02abb`.
+- Meccanismo: la entry BLS passa `root=UUID=6ff...`; dracut lo converte nel link `by-uuid`. Il link compare soltanto dopo che NVMe e' disponibile e cryptsetup apre LUKS.
+- Limite probatorio: il boot fallito non ha montato la root e non ha lasciato boot ID, journal initramfs, `rdsosreport`, pstore o dump persistenti. Non si puo' distinguere offline tra mancata scoperta NVMe/LUKS e richiesta cryptsetup fallita o terminata.
+- Verifiche: tutti i quattro initramfs, BLS, cmdline, grubenv, ordine EFI, fallback, firme shim/GRUB/kernel e moduli storage sono coerenti; l'UUID Btrfs non e' incorporato negli initramfs.
+- Decisione: nessuna modifica a boot, LUKS, partizioni, initramfs, pacchetti o chiavi. Non ripetere ancora il test Secure Boot e non rimuovere l'UUID corretto.
+- Report: `ai/reports/activity_214587_secure_boot_dracut_forensics.md`.
