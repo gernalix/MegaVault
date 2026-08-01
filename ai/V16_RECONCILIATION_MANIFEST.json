@@ -326,10 +326,9 @@
     "duplicate_event_ids": 0,
     "double_generation": {
       "status": "PASS",
-      "sqlite_sha256": "1976b739cbe577e3d561c3526d1f17cabf34a177909757ee16dcbc53a52658e9",
-      "markdown_sha256": "8036553bc716350fb556de7d8e5f504d137063ec40f0c782a4c60c0917c777a8",
-      "ai_markdown_sha256": "236440d94601fe8021fde5f6c65f874fa884aa04f66e4468edacbc0256142d64",
-      "second_run_git_noop": "PASS"
+      "mode": "byte_identical",
+      "second_run_git_noop": "PASS",
+      "evidence": "activity_816428_megavault_final_canonicalization.md"
     },
     "final_git_clean": "POST_COMMIT_GATE",
     "upstream_sync": "POST_PUSH_GATE"
