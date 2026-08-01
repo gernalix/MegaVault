@@ -2,7 +2,7 @@
 
 Generated: 2026-08-01T00:00:00+00:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 1074
+Total events: 1076
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -12,14 +12,14 @@ Total events: 1074
 
 | Value | Events |
 |---|---:|
-| megavault | 200 |
+| megavault | 201 |
 | amici-fb | 168 |
 | multitimetracker | 80 |
 | luoghi-app | 78 |
 | rollout-summaries | 39 |
 | oracle-backup-service | 32 |
+| supercontacts | 27 |
 | 2026 | 26 |
-| supercontacts | 26 |
 | luoghi | 25 |
 | fedora-system-monitor | 24 |
 | wordpulse | 18 |
@@ -72,8 +72,8 @@ Total events: 1074
 | Value | Events |
 |---|---:|
 | security | 355 |
-| backup | 314 |
-| docs | 99 |
+| backup | 315 |
+| docs | 100 |
 | release | 81 |
 | bugfix | 73 |
 | testing | 72 |
@@ -87,16 +87,16 @@ Total events: 1074
 | Value | Events |
 |---|---:|
 | P1 | 580 |
-| P0 | 249 |
+| P0 | 250 |
 | P2 | 217 |
-| P3 | 28 |
+| P3 | 29 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
 | UNKNOWN | 391 |
-| PASS | 238 |
+| PASS | 240 |
 | WARN | 238 |
 | OPEN | 117 |
 | FAIL | 90 |
@@ -145,6 +145,7 @@ Total events: 1074
 | 2026-08-01 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-08-01 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-08-01 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
+| 2026-08-01 | supercontacts | SC v16 | backup | PASS | P0 | protocol_update | json | MEGAVAULT BRANCH ARCHIVE MANIFEST |
 | 2026-08-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
 | 2026-08-01 | windows | windows v33 | security | OPEN | P0 | protocol_update | markdown | GLOBAL_INDEX |
 | 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
@@ -380,14 +381,14 @@ Total events: 1074
 | 1970-01-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
 
 ## Projects
-- `megavault`: 200 events; latest=2026-08-01; label=Codex Timeline
+- `megavault`: 201 events; latest=2026-08-01; label=Codex Timeline
 - `amici-fb`: 168 events; latest=2026-08-01; label=Amici FB amici 2026
 - `multitimetracker`: 80 events; latest=2026-08-01; label=MTT Activity 483716 Android
 - `luoghi-app`: 78 events; latest=2026-07-27; label=luoghi-app v16
 - `rollout-summaries`: 39 events; latest=2026-07-31; label=Codex Timeline
 - `oracle-backup-service`: 32 events; latest=2026-08-01; label=Oracle Backup Oracle backup
+- `supercontacts`: 27 events; latest=2026-08-01; label=SC app-debug.apk
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
-- `supercontacts`: 26 events; latest=2026-08-01; label=SC app-debug.apk
 - `luoghi`: 25 events; latest=2026-07-26; label=Codex Timeline
 - `fedora-system-monitor`: 24 events; latest=2026-07-26; label=fedora-system-monitor 418732
 - `wordpulse`: 18 events; latest=2026-07-30; label=Android Tests
@@ -474,6 +475,7 @@ Total events: 1074
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | reconcile: establish MegaVault v16 foundation |
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | reconcile: complete canonical MegaVault v16 baseline |
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | docs: record v16 review gate evidence |
+| 2026-08-01 | megavault | MegaVault archive preserve MegaVault | docs | PASS | P3 | git_commit | git_log | archive: preserve MegaVault branch histories |
 | 2026-08-01 | megavault-project-exporter | Git PATH | backup | OPEN | P1 | backup | markdown | megavault-project-exporter Overview |
 | 2026-08-01 | mint-manual-updates | mint-manual-updates v9 | backup | OPEN | P1 | backup | markdown | mint-manual-updates Overview |
 | 2026-08-01 | multitimetracker | MTT Activity 483716 Android | security | WARN | P0 | protocol_update | markdown | Activity 483716 Android Studio User Migration |
@@ -493,6 +495,7 @@ Total events: 1074
 | 2026-08-01 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Overview | backup | OPEN | P1 | backup | markdown | remote_opt_oracle_backup Overview |
 | 2026-08-01 | soldi | Android Tests | backup | PASS | P1 | backup | markdown | SOLDI |
 | 2026-08-01 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
+| 2026-08-01 | supercontacts | SC v16 | backup | PASS | P0 | protocol_update | json | MEGAVAULT BRANCH ARCHIVE MANIFEST |
 | 2026-08-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
 | 2026-08-01 | supercontacts | SC v1 | security | FAIL | P1 | report | json | CODE AUDIT SOURCES |
 | 2026-08-01 | supercontacts | SC v23 | backup | OPEN | P1 | backup | markdown | SuperContacts Overview |
