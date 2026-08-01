@@ -39,7 +39,7 @@ project=disk-usage-monitor;repo=legacy:/home/daniele/disk_usage_monitor;ai=proje
 project=facebook-video-archiver;repo=legacy:/home/daniele/codex-workspace/facebook-video-archiver;ai=projects/LEGACY.md;status=legacy
 project=facedownassup-downloader;repo=legacy:/home/daniele/codex-workspace/facedownassup-downloader;ai=projects/facedownassup-downloader.md;status=revalidate_Fedora
 project=fedora-diagnostics;repo=/home/daniele/projects/fedora-diagnostics;ai=/home/daniele/projects/fedora-diagnostics/docs/ai;status=installed
-project=fedora-system-monitor;repo=/home/daniele/MegaVault/projects/fedora-system-monitor;ai=../projects/fedora-system-monitor/docs/ai;status=installed
+project=fedora-system-monitor;repo=/home/daniele/projects/fedora-system-monitor;ai=/home/daniele/projects/fedora-system-monitor/docs/ai;branch=main;head=909bfc1402071ea4389caa0878b061e9fa16f6ca;status=installed+single_trunk+runtime_verified
 project=fedora-t7-backup;repo=/home/daniele/MegaVault/projects/fedora-t7-backup;ai=../projects/fedora-t7-backup/docs/ai;status=installed
 project=git-change-ledger;repo=legacy:/home/daniele/codex-workspace/git-change-ledger;ai=projects/LEGACY.md;status=legacy
 project=grindr-web-exporter;repo=legacy:/home/daniele/codex-workspace/grindr-web-exporter;ai=projects/grindr-web-exporter.md;status=MVP_revalidate_path

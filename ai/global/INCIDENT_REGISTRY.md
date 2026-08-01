@@ -179,7 +179,7 @@ Soluzione_finale=No root-cause repair yet; permanent event capture,critical aler
 Commit_correlati=fedora-system-monitor activity 593184
 Prompt_correlati=593184
 Tempo_totale_di_impatto=approximately 10 seconds until observed remount
-Note=No physical disconnect or destructive reproduction was attempted; device serial and filesystem UUID are intentionally omitted from documentation; project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
+Note=No physical disconnect or destructive reproduction was attempted; device serial and filesystem UUID are intentionally omitted from documentation; project source=/home/daniele/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
 
 INCIDENT:
 Incident_ID=CODEX_DATA_ANALYTICS_WIDGETS_MISSING_PNG
@@ -269,7 +269,7 @@ Soluzione_finale=Fedora System Monitor 1.1.0 adds bidirectional recovery,stable 
 Commit_correlati=fedora-system-monitor activity 471852
 Prompt_correlati=471852
 Tempo_totale_di_impatto=Stale state persisted from first installation until 2026-07-13 audit;exact user-visible duration UNKNOWN
-Note=Host,Network,Services,Software healthy after fix;Storage intentionally DOWN for Seagate 3.6754 percent free and unmatched unsafe removal;fresh Kuma admin readback pending because Chrome JWT was rejected;project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
+Note=Host,Network,Services,Software healthy after fix;Storage intentionally DOWN for Seagate 3.6754 percent free and unmatched unsafe removal;fresh Kuma admin readback pending because Chrome JWT was rejected;project source=/home/daniele/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
 
 INCIDENT:
 Incident_ID=KUMA_HOST_STORAGE_REAL_STATE_471853
@@ -287,7 +287,7 @@ Soluzione_finale=Fedora System Monitor 1.1.1 refreshes active metric alerts and 
 Commit_correlati=fedora-system-monitor activity 471853
 Prompt_correlati=471853
 Tempo_totale_di_impatto=User-visible red state persisted until real conditions were distinguished and stale unsafe removal recovered;exact UI duration UNKNOWN
-Note=Final state Host DOWN truthful for swap warning;Storage DOWN truthful for Seagate free space;Network/Services/Software UP;project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471853.md
+Note=Final state Host DOWN truthful for swap warning;Storage DOWN truthful for Seagate free space;Network/Services/Software UP;project source=/home/daniele/projects/fedora-system-monitor/docs/ai/AUDIT_471853.md
 
 INCIDENT:
 Incident_ID=AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
@@ -341,7 +341,7 @@ Soluzione_finale=Fedora System Monitor 1.3.1 scopes CAP_SYS_ADMIN and CAP_SYS_RA
 Commit_correlati=fedora-system-monitor activity 482731
 Prompt_correlati=482731
 Tempo_totale_di_impatto=2026-07-10T10:30:53Z to 2026-07-26T12:08:27Z for false warning event generation
-Note=Internal KIOXIA health PASS with media errors 0 and T7 health PASS through sntasmedia;two Seagate USB SAT disks remained intentionally asleep. An explicit T7 error-log probe during investigation caused two successful UAS resets and was stopped;it is separate from the historical cause. Project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md
+Note=Internal KIOXIA health PASS with media errors 0 and T7 health PASS through sntasmedia;two Seagate USB SAT disks remained intentionally asleep. An explicit T7 error-log probe during investigation caused two successful UAS resets and was stopped;it is separate from the historical cause. Project source=/home/daniele/projects/fedora-system-monitor/docs/ai/REPORT_482731.md
 
 INCIDENT:
 Incident_ID=ZRAM_OCCUPANCY_MISCLASSIFIED_AS_MEMORY_PRESSURE
@@ -359,7 +359,7 @@ Soluzione_finale=Fedora System Monitor 1.2.0 keeps zram use informational and al
 Commit_correlati=c36f1fcf55fdaa6e06675a588068189198f203d4;project=7f91e2316887
 Prompt_correlati=962417
 Tempo_totale_di_impatto=User-visible Host false warning persisted from the prior audit until recovery at 2026-07-18T18:40:34Z.
-Note=Post-fix memory available 68.752 percent,PSI zero,pressure level zero,zram compression 2.857x,writeback zero,OOM delta zero;Storage alerts remain separate and real. Project evidence=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_962417.md
+Note=Post-fix memory available 68.752 percent,PSI zero,pressure level zero,zram compression 2.857x,writeback zero,OOM delta zero;Storage alerts remain separate and real. Project evidence=/home/daniele/projects/fedora-system-monitor/docs/ai/AUDIT_962417.md
 
 INCIDENT:
 Incident_ID=AUTOKEY_UINPUT_STALE_DEVICE_BUSY_LOOP
