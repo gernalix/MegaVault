@@ -12,6 +12,7 @@ PROTOCOL = REPO / "ai" / "MEGAVAULT_PROTOCOL.md"
 INDEX = REPO / "ai" / "GLOBAL_INDEX.md"
 MANIFEST = REPO / "ai" / "V16_RECONCILIATION_MANIFEST.json"
 DELETE_MANIFEST = REPO / "ai" / "archive" / "2917AA9_DELETE_MANIFEST.json"
+BRANCH_ARCHIVE_MANIFEST = REPO / "ai" / "archive" / "MEGAVAULT_BRANCH_ARCHIVE_MANIFEST.json"
 
 
 class CanonicalMegaVaultTest(unittest.TestCase):
@@ -104,6 +105,36 @@ class CanonicalMegaVaultTest(unittest.TestCase):
                 ["git", "hash-object", str(archive)], cwd=REPO, text=True, capture_output=True, check=True
             ).stdout.strip()
             self.assertEqual(item["blob_sha"], archive_blob, path)
+
+    def test_branch_archive_manifest_is_complete_and_recoverable(self) -> None:
+        manifest = json.loads(BRANCH_ARCHIVE_MANIFEST.read_text(encoding="utf-8"))
+        self.assertEqual(816428, manifest["prompt_id"])
+        self.assertEqual(38, manifest["initial_noncanonical_branch_count"])
+        self.assertEqual(38, len(manifest["branches"]))
+        self.assertEqual(0, manifest["finalization"]["valid_missing"])
+        self.assertEqual(0, manifest["finalization"]["unknown"])
+        valid_dispositions = {"already_integrated", "archive_only", "obsolete"}
+        for item in manifest["branches"]:
+            self.assertIn(item["disposition"], valid_dispositions)
+            self.assertEqual(item["unique_commits"], sum(item["unique_commit_classes"].values()))
+            self.assertIs(item["recovery_verified"], True)
+            recovered = subprocess.run(
+                ["git", "rev-list", "-n", "1", item["archive_tag"]],
+                cwd=REPO,
+                text=True,
+                capture_output=True,
+                check=True,
+            ).stdout.strip()
+            self.assertEqual(item["tip"], recovered, item["branch"])
+        for item in manifest["unreachable_commits"]:
+            recovered = subprocess.run(
+                ["git", "rev-list", "-n", "1", item["archive_tag"]],
+                cwd=REPO,
+                text=True,
+                capture_output=True,
+                check=True,
+            ).stdout.strip()
+            self.assertEqual(item["sha"], recovered)
 
     def test_global_single_developer_trunk_policy(self) -> None:
         text = PROTOCOL.read_text(encoding="utf-8")

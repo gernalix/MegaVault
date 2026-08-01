@@ -3,6 +3,7 @@ STATUS=ACTIVE
 FORMAT=ultracompressed
 PURPOSE=historical_navigation_not_operational_authority
 RULE=archive_files_are_not_active_sources_of_truth
+BRANCH_MANIFEST=MEGAVAULT_BRANCH_ARCHIVE_MANIFEST.json;prompt=816428;tags=archive/megavault/*;status=VERIFIED_RECOVERABLE
 PROMPT_ID=816427
 UPDATED=2026-08-01
 ENTRY=sources/CODE_AUDIT_SOURCES.json;blob=ed98271c5290085cbf6e1e27283763637adc1c5a;source=4450694;status=HISTORICAL
