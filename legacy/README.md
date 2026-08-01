@@ -1,0 +1,5 @@
+# legacy
+STATUS=NON_AUTHORITATIVE
+PURPOSE=explicit_historical_requests_only
+RULE=empty_by_default;Git_history_is_primary_archive
+CURRENT_CONTENT=none

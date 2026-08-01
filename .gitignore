@@ -6,6 +6,8 @@ oracle-vm-rsa
 access.env
 codex_global_timeline.sqlite-shm
 codex_global_timeline.sqlite-wal
+megavault.sqlite-shm
+megavault.sqlite-wal
 __pycache__/
 *.py[cod]
 .pytest_cache/
