@@ -2,7 +2,7 @@
 
 Generated: 2026-08-01T00:00:00+00:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 1076
+Total events: 1077
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -12,7 +12,7 @@ Total events: 1076
 
 | Value | Events |
 |---|---:|
-| megavault | 201 |
+| megavault | 202 |
 | amici-fb | 168 |
 | multitimetracker | 80 |
 | luoghi-app | 78 |
@@ -73,7 +73,7 @@ Total events: 1076
 |---|---:|
 | security | 355 |
 | backup | 315 |
-| docs | 100 |
+| docs | 101 |
 | release | 81 |
 | bugfix | 73 |
 | testing | 72 |
@@ -88,7 +88,7 @@ Total events: 1076
 |---|---:|
 | P1 | 580 |
 | P0 | 250 |
-| P2 | 217 |
+| P2 | 218 |
 | P3 | 29 |
 
 ### Events by status
@@ -96,7 +96,7 @@ Total events: 1076
 | Value | Events |
 |---|---:|
 | UNKNOWN | 391 |
-| PASS | 240 |
+| PASS | 241 |
 | WARN | 238 |
 | OPEN | 117 |
 | FAIL | 90 |
@@ -381,7 +381,7 @@ Total events: 1076
 | 1970-01-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
 
 ## Projects
-- `megavault`: 201 events; latest=2026-08-01; label=Codex Timeline
+- `megavault`: 202 events; latest=2026-08-01; label=Codex Timeline
 - `amici-fb`: 168 events; latest=2026-08-01; label=Amici FB amici 2026
 - `multitimetracker`: 80 events; latest=2026-08-01; label=MTT Activity 483716 Android
 - `luoghi-app`: 78 events; latest=2026-07-27; label=luoghi-app v16
@@ -472,6 +472,7 @@ Total events: 1076
 | 2026-08-01 | megavault | MegaVault v0 | backup | FAIL | P1 | backup | markdown | activity 592184 activitywatch fedora44 wayland |
 | 2026-08-01 | megavault | MegaVault v16 | bugfix | PASS | P1 | git_commit | git_log | fix: address v16 reconciliation review gates |
 | 2026-08-01 | megavault | MegaVault v16 | migration | PASS | P1 | git_commit | git_log | Merge pull request #2 from codex/megavault-v16-reconciliation |
+| 2026-08-01 | megavault | MegaVault docs finalize single-trunk | docs | PASS | P2 | git_commit | git_log | docs: finalize single-trunk MegaVault canonicalization |
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | reconcile: establish MegaVault v16 foundation |
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | reconcile: complete canonical MegaVault v16 baseline |
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | docs: record v16 review gate evidence |
