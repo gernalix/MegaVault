@@ -1,14 +1,28 @@
 # Global Codex Timeline AI
-generated_at=2026-07-30T16:51:07+02:00
-total_events=851
+generated_at=2026-08-01T10:36:24+02:00
+total_events=869
 format=event_date|project|label_short|category|status|importance
+2026-08-01|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-08-01|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-08-01|amici-fb|Amici FB trace|backup|FAIL|P1
+2026-08-01|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-08-01|megavault|MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE|security|WARN|P0
+2026-08-01|multitimetracker|MTT v1|security|WARN|P0
+2026-08-01|multitimetracker|MTT v13|security|WARN|P0
+2026-07-31|amici-fb|Amici FB trace|backup|FAIL|P0
+2026-07-31|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
+2026-07-31|amici-fb|Amici FB diff 2026|backup|OPEN|P1
+2026-07-31|amici-fb|Amici FB facebook friends|bugfix|UNKNOWN|P2
+2026-07-31|amici-fb|Amici FB facebook me|bugfix|UNKNOWN|P2
+2026-07-31|amici-fb|Amici FB facebook me|docs|UNKNOWN|P2
+2026-07-31|multitimetracker|MTT v1|security|WARN|P0
+2026-07-31|multitimetracker|MTT v3|security|WARN|P0
+2026-07-31|rollout-summaries|Codex Timeline|security|WARN|P0
 2026-07-30|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-30|amici-fb|Amici FB amici_fb|security|UNKNOWN|P1
 2026-07-30|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
 2026-07-30|amici-fb|Amici FB trace|backup|UNKNOWN|P1
 2026-07-30|amici-fb|Amici FB amici_fb Fedora|automation|UNKNOWN|P2
-2026-07-30|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
-2026-07-30|luoghi|Luoghi v3|security|WARN|P0
 2026-07-30|megavault|Codex Timeline|docs|PASS|P0
 2026-07-30|megavault|MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS|backup|PASS|P1
 2026-07-30|megavault|MegaVault ACTIVITY_562941_SECURE_BOOT_FINAL_READONLY_VERIFICATION|security|WARN|P1
@@ -17,13 +31,17 @@ format=event_date|project|label_short|category|status|importance
 2026-07-30|megavault|MegaVault chore ignore MegaVault|docs|PASS|P2
 2026-07-30|megavault|MegaVault docs prepare Secure|docs|PASS|P2
 2026-07-30|megavault|MegaVault docs record Secure|docs|PASS|P2
+2026-07-30|megavault|MegaVault docs verify Secure|testing|PASS|P2
+2026-07-30|multitimetracker|Codex Timeline|security|WARN|P0
 2026-07-30|multitimetracker|MTT v1|security|WARN|P0
 2026-07-30|multitimetracker|MTT v1|security|WARN|P0
 2026-07-30|multitimetracker|MTT v1|security|WARN|P0
 2026-07-30|multitimetracker|MTT v1|security|WARN|P0
 2026-07-30|multitimetracker|MTT v1|security|WARN|P0
 2026-07-30|multitimetracker|MTT v2|security|WARN|P0
+2026-07-30|pixel-8a|Git PATH|security|WARN|P0
 2026-07-30|pixel-8a|pixel-8a v3|security|PASS|P0
+2026-07-30|rollout-summaries|Codex Timeline|security|WARN|P1
 2026-07-30|rollout-summaries|rollout-summaries Verifica live cifratura|security|WARN|P1
 2026-07-30|wordpulse|Android Tests|migration|FAIL|P1
 2026-07-30|wordpulse|wordpulse 2.apk|security|PASS|P1

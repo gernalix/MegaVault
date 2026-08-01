@@ -1,8 +1,8 @@
 # Global Codex Timeline
 
-Generated: 2026-07-30T16:51:07+02:00
+Generated: 2026-08-01T10:36:24+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 851
+Total events: 869
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -14,15 +14,15 @@ Total events: 851
 
 | Value | Events |
 |---|---:|
-| megavault | 171 |
-| amici-fb | 156 |
+| megavault | 173 |
+| amici-fb | 165 |
 | luoghi-app | 78 |
-| multitimetracker | 64 |
-| rollout-summaries | 37 |
+| multitimetracker | 69 |
+| rollout-summaries | 39 |
 | oracle-backup-service | 27 |
 | 2026 | 26 |
 | fedora-system-monitor | 24 |
-| luoghi | 23 |
+| luoghi | 22 |
 | wordpulse | 18 |
 | fedora-t7-backup | 15 |
 | vm-oracle | 15 |
@@ -32,6 +32,7 @@ Total events: 851
 | windows-winget-daily-update | 7 |
 | codex-token-watcher | 6 |
 | owntracks-watcher | 6 |
+| pixel-8a | 6 |
 | surface-recovery-hardening | 6 |
 | windows-flight-recorder | 6 |
 | android | 5 |
@@ -50,7 +51,6 @@ Total events: 851
 | mint-manual-updates | 5 |
 | os-observer | 5 |
 | parcel-tracker | 5 |
-| pixel-8a | 5 |
 | remote-codex-phone | 5 |
 | remote-opt-oracle-backup | 5 |
 | soldi | 5 |
@@ -73,12 +73,12 @@ Total events: 851
 
 | Value | Events |
 |---|---:|
-| security | 274 |
-| backup | 256 |
-| docs | 92 |
-| bugfix | 63 |
+| security | 282 |
+| backup | 262 |
+| docs | 93 |
+| bugfix | 65 |
 | release | 58 |
-| testing | 48 |
+| testing | 49 |
 | automation | 27 |
 | infra | 16 |
 | migration | 13 |
@@ -88,57 +88,65 @@ Total events: 851
 
 | Value | Events |
 |---|---:|
-| P1 | 447 |
-| P0 | 211 |
-| P2 | 180 |
+| P1 | 453 |
+| P0 | 219 |
+| P2 | 184 |
 | P3 | 13 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 315 |
-| PASS | 216 |
-| WARN | 202 |
-| FAIL | 64 |
-| OPEN | 54 |
+| UNKNOWN | 321 |
+| PASS | 217 |
+| WARN | 210 |
+| FAIL | 66 |
+| OPEN | 55 |
 
 
 ## Recent Events
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-08-01 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 08 01T070000Z |
+| 2026-08-01 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 31T194614Z vs 2026 08 01T070000Z |
+| 2026-08-01 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
+| 2026-08-01 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
+| 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
+| 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
+| 2026-07-31 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 31T194614Z |
+| 2026-07-31 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 30T070001Z vs 2026 07 31T194614Z |
+| 2026-07-31 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
+| 2026-07-31 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
+| 2026-07-31 | amici-fb | Amici FB facebook me | docs | UNKNOWN | P2 | doc_event | txt | facebook me consent.state |
+| 2026-07-31 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fba00-074b-7120-a1aa-9d333f3ace56 |
+| 2026-07-31 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora USB HDD spin-down and lid-suspend diagnosis |
+| 2026-07-31 | rollout-summaries | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Diagnosi spin-down HDD USB Fedora 44 completata con PASS CON WARNING |
 | 2026-07-30 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 30T070001Z |
 | 2026-07-30 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | report | markdown | amici_fb |
 | 2026-07-30 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 29T213950Z vs 2026 07 30T070001Z |
 | 2026-07-30 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
-| 2026-07-30 | amici-fb | Amici FB amici_fb Fedora | automation | UNKNOWN | P2 | report | markdown | amici_fb Fedora |
-| 2026-07-30 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
-| 2026-07-30 | luoghi | Luoghi v3 | security | WARN | P0 | protocol_update | markdown | Task Group: WordPulse Android typing-performance feature and release verification |
-| 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
-| 2026-07-30 | megavault | MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS | backup | PASS | P1 | report | markdown | ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS |
-| 2026-07-30 | megavault | MegaVault ACTIVITY_562941_SECURE_BOOT_FINAL_READONLY_VERIFICATION | security | WARN | P1 | doc_event | markdown | ACTIVITY_562941_SECURE_BOOT_FINAL_READONLY_VERIFICATION |
-| 2026-07-30 | megavault | MegaVault ACTIVITY_948315_SECURE_BOOT_EVIDENCE | automation | WARN | P1 | report | markdown | ACTIVITY_948315_SECURE_BOOT_EVIDENCE |
-| 2026-07-30 | megavault | MegaVault REPORTS_LATEST | security | WARN | P1 | report | markdown | REPORTS_LATEST |
-| 2026-07-30 | megavault | MegaVault chore ignore MegaVault | docs | PASS | P2 | git_commit | git_log | chore: ignore MegaVault private files |
-| 2026-07-30 | megavault | MegaVault docs prepare Secure | docs | PASS | P2 | git_commit | git_log | docs: prepare Secure Boot evidence capture 948315 |
-| 2026-07-30 | megavault | MegaVault docs record Secure | docs | PASS | P2 | git_commit | git_log | docs: record Secure Boot dracut forensics 214587 |
-| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
-| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | markdown | User Profile |
-| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fb0ec-f63b-7970-8812-cd261f7ccd4b |
-| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb01e-55f3-76a3-b4f3-2e22487bef6c |
-| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb09c-075c-7813-b408-9f5b55718959 |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
-| 2026-07-30 | luoghi | Luoghi v3 | security | WARN | P0 | protocol_update | markdown | Task Group: WordPulse Android typing-performance feature and release verification |
+| 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
+| 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
+| 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
+| 2026-07-31 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fba00-074b-7120-a1aa-9d333f3ace56 |
+| 2026-07-31 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora USB HDD spin-down and lid-suspend diagnosis |
+| 2026-07-31 | rollout-summaries | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Diagnosi spin-down HDD USB Fedora 44 completata con PASS CON WARNING |
 | 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-30 | multitimetracker | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Telegram notification helper audit and chat_id API extension completed |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
-| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | markdown | User Profile |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fb0ec-f63b-7970-8812-cd261f7ccd4b |
+| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | markdown | User Profile |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb01e-55f3-76a3-b4f3-2e22487bef6c |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb09c-075c-7813-b408-9f5b55718959 |
 | 2026-07-30 | multitimetracker | MTT v2 | security | WARN | P0 | changelog | codex_log | 019fb102-17de-7d20-92b1-6d83e2a1f7b1 |
+| 2026-07-30 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | Pixel 8a battery investigation completed with warning |
 | 2026-07-30 | pixel-8a | pixel-8a v3 | security | PASS | P0 | protocol_update | markdown | WordPulse typing-performance feature and final repository synchronization completed |
 | 2026-07-27 | luoghi-app | luoghi-app v16 | security | UNKNOWN | P0 | protocol_update | json | project.metadata |
 | 2026-07-27 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | /home/daniele/MegaVault/projects/luoghi-app |
@@ -344,15 +352,15 @@ Total events: 851
 | 2026-02-01 | vm-oracle | vm-oracle REPORT_731842 aggiornamento completo | security | WARN | P0 | protocol_update | markdown | REPORT_731842 aggiornamento completo VM Oracle Ubuntu |
 
 ## Projects
-- `megavault`: 171 events; latest=2026-07-30; label=Codex Timeline
-- `amici-fb`: 156 events; latest=2026-07-30; label=Amici FB amici 2026
+- `megavault`: 173 events; latest=2026-08-01; label=MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE
+- `amici-fb`: 165 events; latest=2026-08-01; label=Amici FB amici 2026
 - `luoghi-app`: 78 events; latest=2026-07-27; label=luoghi-app v16
-- `multitimetracker`: 64 events; latest=2026-07-30; label=MTT v1
-- `rollout-summaries`: 37 events; latest=2026-07-30; label=rollout-summaries Verifica live cifratura
+- `multitimetracker`: 69 events; latest=2026-08-01; label=MTT v1
+- `rollout-summaries`: 39 events; latest=2026-07-31; label=Codex Timeline
 - `oracle-backup-service`: 27 events; latest=2026-07-26; label=Android Tests
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
 - `fedora-system-monitor`: 24 events; latest=2026-07-26; label=fedora-system-monitor 418732
-- `luoghi`: 23 events; latest=2026-07-30; label=Luoghi v3
+- `luoghi`: 22 events; latest=2026-07-26; label=Codex Timeline
 - `wordpulse`: 18 events; latest=2026-07-30; label=Android Tests
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
 - `vm-oracle`: 15 events; latest=2026-07-27; label=Git PATH
@@ -362,6 +370,7 @@ Total events: 851
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `codex-token-watcher`: 6 events; latest=2026-07-09; label=codex-token-watcher codex-token-watcher Overview
 - `owntracks-watcher`: 6 events; latest=2026-07-09; label=Android Tests
+- `pixel-8a`: 6 events; latest=2026-07-30; label=Git PATH
 - `surface-recovery-hardening`: 6 events; latest=2026-07-09; label=surface-recovery-hardening surface-recovery-hardening Features
 - `windows-flight-recorder`: 6 events; latest=2026-07-09; label=WFR Windows 11 autonomous
 - `android`: 5 events; latest=2026-07-09; label=android v0
@@ -380,7 +389,6 @@ Total events: 851
 - `mint-manual-updates`: 5 events; latest=2026-07-09; label=mint-manual-updates mint-manual-updates Roadmap
 - `os-observer`: 5 events; latest=2026-07-09; label=os-observer os-observer Features
 - `parcel-tracker`: 5 events; latest=2026-07-09; label=parcel-tracker parcel-tracker Features
-- `pixel-8a`: 5 events; latest=2026-07-30; label=pixel-8a v3
 - `remote-codex-phone`: 5 events; latest=2026-07-09; label=remote-codex-phone remote-codex-phone Features
 - `remote-opt-oracle-backup`: 5 events; latest=2026-07-09; label=remote-opt-oracle-backup remote_opt_oracle_backup Features
 - `soldi`: 5 events; latest=2026-07-18; label=Android Tests
@@ -402,13 +410,27 @@ Total events: 851
 ## Complete Timeline
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-08-01 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 08 01T070000Z |
+| 2026-08-01 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 31T194614Z vs 2026 08 01T070000Z |
+| 2026-08-01 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
+| 2026-08-01 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
+| 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
+| 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
+| 2026-07-31 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 31T194614Z |
+| 2026-07-31 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 30T070001Z vs 2026 07 31T194614Z |
+| 2026-07-31 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
+| 2026-07-31 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
+| 2026-07-31 | amici-fb | Amici FB facebook me | docs | UNKNOWN | P2 | doc_event | txt | facebook me consent.state |
+| 2026-07-31 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fba00-074b-7120-a1aa-9d333f3ace56 |
+| 2026-07-31 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora USB HDD spin-down and lid-suspend diagnosis |
+| 2026-07-31 | rollout-summaries | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Diagnosi spin-down HDD USB Fedora 44 completata con PASS CON WARNING |
 | 2026-07-30 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 30T070001Z |
 | 2026-07-30 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | report | markdown | amici_fb |
 | 2026-07-30 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 29T213950Z vs 2026 07 30T070001Z |
 | 2026-07-30 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-30 | amici-fb | Amici FB amici_fb Fedora | automation | UNKNOWN | P2 | report | markdown | amici_fb Fedora |
-| 2026-07-30 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
-| 2026-07-30 | luoghi | Luoghi v3 | security | WARN | P0 | protocol_update | markdown | Task Group: WordPulse Android typing-performance feature and release verification |
 | 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
 | 2026-07-30 | megavault | MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS | backup | PASS | P1 | report | markdown | ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS |
 | 2026-07-30 | megavault | MegaVault ACTIVITY_562941_SECURE_BOOT_FINAL_READONLY_VERIFICATION | security | WARN | P1 | doc_event | markdown | ACTIVITY_562941_SECURE_BOOT_FINAL_READONLY_VERIFICATION |
@@ -417,13 +439,17 @@ Total events: 851
 | 2026-07-30 | megavault | MegaVault chore ignore MegaVault | docs | PASS | P2 | git_commit | git_log | chore: ignore MegaVault private files |
 | 2026-07-30 | megavault | MegaVault docs prepare Secure | docs | PASS | P2 | git_commit | git_log | docs: prepare Secure Boot evidence capture 948315 |
 | 2026-07-30 | megavault | MegaVault docs record Secure | docs | PASS | P2 | git_commit | git_log | docs: record Secure Boot dracut forensics 214587 |
+| 2026-07-30 | megavault | MegaVault docs verify Secure | testing | PASS | P2 | git_commit | git_log | docs: verify Secure Boot test readiness 562941 |
+| 2026-07-30 | multitimetracker | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Telegram notification helper audit and chat_id API extension completed |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
-| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | markdown | User Profile |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fb0ec-f63b-7970-8812-cd261f7ccd4b |
+| 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | markdown | User Profile |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb01e-55f3-76a3-b4f3-2e22487bef6c |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb09c-075c-7813-b408-9f5b55718959 |
 | 2026-07-30 | multitimetracker | MTT v2 | security | WARN | P0 | changelog | codex_log | 019fb102-17de-7d20-92b1-6d83e2a1f7b1 |
+| 2026-07-30 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | Pixel 8a battery investigation completed with warning |
 | 2026-07-30 | pixel-8a | pixel-8a v3 | security | PASS | P0 | protocol_update | markdown | WordPulse typing-performance feature and final repository synchronization completed |
+| 2026-07-30 | rollout-summaries | Codex Timeline | security | WARN | P1 | report | markdown | Secure Boot forensic preparation and final read-only verification completed; live test remains pending |
 | 2026-07-30 | rollout-summaries | rollout-summaries Verifica live cifratura | security | WARN | P1 | doc_event | markdown | Verifica live della cifratura LUKS sul disco interno Fedora |
 | 2026-07-30 | wordpulse | Android Tests | migration | FAIL | P1 | migration | markdown | Incident Registry |
 | 2026-07-30 | wordpulse | wordpulse 2.apk | security | PASS | P1 | release | markdown | WordPulse AI Project Notes |
