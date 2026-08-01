@@ -21,6 +21,7 @@ task=adb_wifi|remote_android;read=global/ADB_DEVICE_KEEPER.md
 task=recent_open_result;read=reports/LATEST.md
 task=historical_result;read=reports/ARCHIVE.md+git_history
 task=project;read=this_catalog>project.metadata.json>project_repo/docs/ai
+task=repository_location|canonical_local_path|git_model;read=global/REPOSITORY_LOCATION_REGISTRY.json
 
 PROJECTS:
 project=MegaVault;repo=/home/daniele/MegaVault;ai=MEGAVAULT_PROTOCOL.md+GLOBAL_STATE.md
@@ -43,7 +44,7 @@ project=git-change-ledger;repo=legacy:/home/daniele/codex-workspace/git-change-l
 project=grindr-web-exporter;repo=legacy:/home/daniele/codex-workspace/grindr-web-exporter;ai=projects/grindr-web-exporter.md;status=MVP_revalidate_path
 project=installa-app;repo=legacy:/home/daniele/codex-workspace/installa-app;ai=projects/LEGACY.md;status=unknown
 project=linux-mint-service-dashboard;repo=legacy:/home/daniele/codex-workspace/linux-mint-service-dashboard;ai=projects/LEGACY.md;status=legacy_Mint
-project=luoghi;repo=/home/daniele/MegaVault/projects/luoghi-app;ai=../projects/luoghi-app/docs/ai;context=projects/luoghi.md;branch=codex/842517-safe-restore;status=active
+project=luoghi;repo=/home/daniele/projects/luoghi-app;ai=/home/daniele/projects/luoghi-app/docs/ai;context=projects/luoghi.md;branch=main;status=active
 project=maintenance-486;repo=legacy:/home/daniele/codex-workspace/projects/vm_oracle/maintenance-486;ai=projects/LEGACY.md;status=legacy
 project=megavault-project-exporter;repo=legacy:/home/daniele/codex-workspace/megavault-project-exporter;ai=projects/LEGACY.md;status=legacy
 project=mint-cloud-backup;repo=legacy:/home/daniele/codex-projects/mint-cloud-backup;ai=projects/LEGACY.md;status=legacy_Mint

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "goal_id": 816429,
+  "canonical_projects_root": "/home/daniele/projects",
+  "repositories": [
+    {
+      "repository_name": "luoghi-app",
+      "canonical_remote": "https://github.com/gernalix/luoghi-app",
+      "canonical_local_path": "/home/daniele/projects/luoghi-app",
+      "default_branch": "main",
+      "git_model": "trunk_based_single_developer",
+      "source": "moved",
+      "previous_paths": [
+        "/home/daniele/MegaVault/projects/luoghi-app"
+      ],
+      "relocation_status": "complete",
+      "last_verified": "2026-08-01"
+    }
+  ]
+}
