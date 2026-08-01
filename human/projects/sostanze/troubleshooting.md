@@ -5,7 +5,7 @@
 Run:
 
 ```bash
-cd /home/daniele/AndroidStudioProjects/Sostanze
+cd /home/daniele/projects/Sostanze
 ./gradlew --no-daemon --console=plain testDebugUnitTest assembleDebug
 ```
 

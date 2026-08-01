@@ -2,7 +2,7 @@
 
 Sostanze is now a local-first Android app for medications, supplements, stock, prescriptions, interactions, and intake tracking.
 
-- Project path: `/home/daniele/AndroidStudioProjects/Sostanze`
+- Project path: `/home/daniele/projects/Sostanze`
 - Package/applicationId: `com.gernalix.sostanze`
 - Current UI: Compose Material3 app with Home, Scorte, Prescrizioni, and Interazioni tabs.
 - Build command: `./gradlew --no-daemon --console=plain testDebugUnitTest assembleDebug`

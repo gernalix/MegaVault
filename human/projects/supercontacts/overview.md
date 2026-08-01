@@ -3,7 +3,7 @@
 Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggestions, duplicate checks, backup/ex
 
 ## Stato e codice
-- Repository: `/home/daniele/codex-workspace/SuperContacts`
+- Repository canonico: `/home/daniele/projects/SuperContacts`
 - Branch/commit verificati: `codex/prompt-729604-capsule-audit` / `97441c4`
 - File codice/config/test/script analizzati: 96 su 96
 - Stack rilevato: Kotlin, Python, Shell, Gradle, Jetpack Compose, Android

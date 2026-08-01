@@ -5,7 +5,7 @@
 Run:
 
 ```bash
-cd /home/daniele/AndroidStudioProjects/Soldi
+cd /home/daniele/projects/Soldi
 ./gradlew assembleDebug
 ```
 

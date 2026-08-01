@@ -6,9 +6,9 @@ Aggiornato: 2026-08-01. Autorita' operativa: [GLOBAL_INDEX AI](../../ai/GLOBAL_I
 
 MegaVault risiede in `/home/daniele/MegaVault`; usa `codex_global_timeline.sqlite` come DB canonico e `build_codex_global_timeline.py` come builder. Non ha servizi o timer host registrati.
 
-Fedora System Monitor 1.1.1 risiede in `/home/daniele/MegaVault/projects/fedora-system-monitor`, branch `codex/471853-fedora-system-monitor`. Runtime, configurazione e dati restano nelle posizioni esistenti; dashboard, timeline, trend, storico servizi, Prometheus opzionale e readback Kuma remoto sono verificati fino all'attivita' 471853.
+Fedora System Monitor risiede in `/home/daniele/projects/fedora-system-monitor`, branch canonico `main`. Runtime, configurazione e dati restano nelle posizioni installate; dashboard, timeline, trend, storico servizi, Prometheus opzionale e readback Kuma remoto sono verificati.
 
-Fedora T7 Backup risiede in `/home/daniele/MegaVault/projects/fedora-t7-backup`;
+Fedora T7 Backup risiede in `/home/daniele/projects/fedora-t7-backup`;
 runtime lifecycle `/usr/local/libexec/t7-restic-lifecycle`, repository cifrato
 `/mnt/T7_BACKUP/restic-fedora`, trigger udev, service backup e reminder one-shot.
 Trigger, singola istanza, backup, manutenzione, smontaggio, notifiche e

@@ -5,14 +5,14 @@ slug=sostanze
 name=Sostanze
 status=active
 type=Android app
-repo=/home/daniele/AndroidStudioProjects/Sostanze
+repo=/home/daniele/projects/Sostanze
 remote=git@github.com:gernalix/Sostanze.git
 branch=main
-metadata=/home/daniele/AndroidStudioProjects/Sostanze/dev/project.metadata.json
-human_overview=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/overview.md
-human_roadmap=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/roadmap.md
-human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/changelog.md
-human_troubleshooting=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/troubleshooting.md
+metadata=/home/daniele/projects/Sostanze/dev/project.metadata.json
+human_overview=/home/daniele/MegaVault/human/projects/sostanze/overview.md
+human_roadmap=/home/daniele/MegaVault/human/projects/sostanze/roadmap.md
+human_changelog=/home/daniele/MegaVault/human/projects/sostanze/changelog.md
+human_troubleshooting=/home/daniele/MegaVault/human/projects/sostanze/troubleshooting.md
 template_source=/home/daniele/codex-workspace/android-app-template
 last_prompt=294816
 
@@ -77,7 +77,7 @@ adapted=QuickEventTemplateButton -> DoseActionButton; QuickEventEntryRow -> stoc
 rewritten=storage because prompt requires Room while MTT Events uses SnapshotSqlite custom SQLite; domain rules because medication stock/interactions differ from generic quick events
 
 INV:
-git=repo initialized at /home/daniele/AndroidStudioProjects/Sostanze on branch main
+git=repo originally initialized at /home/daniele/AndroidStudioProjects/Sostanze;canonical path=/home/daniele/projects/Sostanze;branch=main
 identity=namespace/applicationId/package/test assertion must stay com.gernalix.sostanze
 app_name=res string must stay Sostanze until product rename requested
 domain=no hardcoded medical advice or interaction semantics beyond user-entered rules
@@ -86,10 +86,10 @@ device_test=prompt 739284 uses TCL 6102H serial 192.168.1.200:45699; Pixel not u
 ignore=.gitignore excludes build outputs,.gradle,.kotlin,local.properties,APK artifacts,IDE transient files
 
 BUILD:
-cmd=cd /home/daniele/AndroidStudioProjects/Sostanze && ./gradlew --no-daemon --console=plain testDebugUnitTest assembleDebug
+cmd=cd /home/daniele/projects/Sostanze && ./gradlew --no-daemon --console=plain testDebugUnitTest assembleDebug
 result=PASS 2026-06-13 prompt 294816
 version=4
-apk=/home/daniele/AndroidStudioProjects/Sostanze/output/4.apk
+apk=historical:/home/daniele/AndroidStudioProjects/Sostanze/output/4.apk
 apk_sha256=e596fc4dc85ccf55abfea5e923bf9689d9652c2b280d1aed4a231400925c6f66
 warning=stripDebugDebugSymbols cannot strip libandroidx.graphics.path.so; packaged as-is
 env=ANDROID_HOME=/home/daniele/Android/Sdk
@@ -139,14 +139,14 @@ next=full CRUD for prescriptions/interactions,specific interaction target UI,CSV
 later=onboarding,Room schema export/migrations,accessibility/localization polish
 
 LINK:
-repo=/home/daniele/AndroidStudioProjects/Sostanze
-metadata=/home/daniele/AndroidStudioProjects/Sostanze/dev/project.metadata.json
-local_ai=/home/daniele/AndroidStudioProjects/Sostanze/dev/ai/INDEX.md
-template_ai=/home/daniele/codex-workspace/MegaVault/ai/projects/android-app-template.md
-human_overview=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/overview.md
-human_roadmap=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/roadmap.md
-human_changelog=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/changelog.md
-human_troubleshooting=/home/daniele/codex-workspace/MegaVault/human/projects/sostanze/troubleshooting.md
+repo=/home/daniele/projects/Sostanze
+metadata=/home/daniele/projects/Sostanze/dev/project.metadata.json
+local_ai=/home/daniele/projects/Sostanze/dev/ai/INDEX.md
+template_ai=/home/daniele/MegaVault/ai/projects/android-app-template.md
+human_overview=/home/daniele/MegaVault/human/projects/sostanze/overview.md
+human_roadmap=/home/daniele/MegaVault/human/projects/sostanze/roadmap.md
+human_changelog=/home/daniele/MegaVault/human/projects/sostanze/changelog.md
+human_troubleshooting=/home/daniele/MegaVault/human/projects/sostanze/troubleshooting.md
 
 OPEN:
 export_ui=implemented via DocumentsUI picker
