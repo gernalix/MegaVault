@@ -217,6 +217,21 @@
       "confidence": 0.99
     },
     {
+      "semantic_id": "v16.git.global-single-trunk-policy",
+      "category": "gitignore_and_git_hygiene",
+      "source_refs": ["PR2_review", "prompt:816428"],
+      "decision": "INCLUDE",
+      "target_paths": ["ai/MEGAVAULT_PROTOCOL.md", "tests/test_megavault_v16.py"],
+      "requires": ["v16.protocol.authority-router"],
+      "supersedes": ["branch_per_task_default", "team_feature_branch_default"],
+      "conflicts": ["topic_branch_clean_pushed_but_not_canonical"],
+      "invalidates": ["branch_chaining", "unrelated_branch_reuse", "unmerged_branch_accumulation"],
+      "archive_refs": [],
+      "validation": ["global_single_trunk_policy_test", "canonical_disposition_gate"],
+      "status": "VALIDATED",
+      "confidence": 1.0
+    },
+    {
       "semantic_id": "v16.validation.permanent-gates",
       "category": "tests",
       "source_refs": ["prompt:816427"],
@@ -232,7 +247,58 @@
       "confidence": 0.99
     }
   ],
-  "deleted_paths": ["ai/archive/2917AA9_DELETE_MANIFEST.json"],
+  "delete_manifest_path": "ai/archive/2917AA9_DELETE_MANIFEST.json",
+  "deleted_paths": [
+    {
+      "path": "ai/CODE_AUDIT_SOURCES.json",
+      "blob_sha": "ed98271c5290085cbf6e1e27283763637adc1c5a",
+      "archive_location": "ai/archive/sources/CODE_AUDIT_SOURCES.json",
+      "status": "ARCHIVE_ONLY_VERIFIED",
+      "recovery_verified": true
+    },
+    {
+      "path": "ai/ENRICHMENT_SOURCES.json",
+      "blob_sha": "9a26de94e87f298a3a0bbbf7577349cd6bdbb481",
+      "archive_location": "ai/archive/sources/ENRICHMENT_SOURCES.json",
+      "status": "ARCHIVE_ONLY_VERIFIED",
+      "recovery_verified": true
+    },
+    {
+      "path": "ai/MIGRATION_MANIFEST.json",
+      "blob_sha": "9643b37c6505716636588a5a922353b6ac086b36",
+      "archive_location": "ai/archive/sources/MIGRATION_MANIFEST.json",
+      "status": "ARCHIVE_ONLY_VERIFIED",
+      "recovery_verified": true
+    },
+    {
+      "path": "ai/projects/oracle-uptime-kuma.md",
+      "blob_sha": "954a8f207ebebddddd272ea500faaa628f065a5d",
+      "archive_location": "ai/archive/projects_legacy/oracle-uptime-kuma.md",
+      "status": "ARCHIVE_ONLY_VERIFIED",
+      "recovery_verified": true
+    },
+    {
+      "path": "ai/projects/supercontacts.md",
+      "blob_sha": "a9d53b1e1abf39b1b85790ae351eb0baa374874c",
+      "archive_location": "ai/archive/projects_legacy/supercontacts.md",
+      "status": "ARCHIVE_ONLY_VERIFIED",
+      "recovery_verified": true
+    },
+    {
+      "path": "ai/reports/prompt_582941_activitywatch_reboot_after.md",
+      "blob_sha": "a5291f0499503f9ba8809a60df5c07f242ea9117",
+      "archive_location": "ai/archive/reports/prompt_582941_activitywatch_reboot_after.md",
+      "status": "ARCHIVE_ONLY_VERIFIED",
+      "recovery_verified": true
+    },
+    {
+      "path": "dev/ai/infrastructure/telegram_notify_audit.md",
+      "blob_sha": "89e3cfbd7e923953560629f07308784b68d2ae8e",
+      "archive_location": "dev/ai/archive/infrastructure/telegram_notify_audit_legacy.md",
+      "status": "ARCHIVED_AND_REVALIDATED",
+      "recovery_verified": true
+    }
+  ],
   "archival_refs": [
     {
       "id": "safety-bundle:prompt-816427",
@@ -250,6 +316,8 @@
     "protocol_version": "PASS",
     "delete_manifest": "PASS",
     "archive_recovery": "PASS",
+    "global_single_trunk_policy": "PASS",
+    "primary_repo_semantic_git_import": "PASS",
     "references": "PASS",
     "secret_scan": "PASS",
     "python_compile": "PASS",

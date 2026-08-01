@@ -445,11 +445,11 @@ Root_cause=Le evoluzioni v14-v16 furono pubblicate su branch Codex divergenti se
 Sistemi_coinvolti=MegaVault;origin/master;branch Codex;protocollo;timeline SQLite+Markdown;Git worktree
 Alert_coinvolti=VERSION=13_su_master;task_avviati_da_VERSION=16_non_canonico;git_status_dirty;PR_1_ancestry_obsoleta
 Tentativi_effettuati=Audit baseline read-only;classificazione semantica c50fdbc;bundle dei commit locali unici;ricostruzione da origin/master senza merge o cherry-pick monolitico;archiviazione dei sette blob 2917aa9;test determinismo repo+worktree.
-Soluzione_finale=Branch codex/megavault-v16-reconciliation basato esattamente su e5f128b con protocollo VERSION=16,manifest macchina-verificabile,generatore append-only deterministico,sidecar cleanup,ignore policy e gate permanenti;promozione a master subordinata a review/merge umano della draft PR.
+Soluzione_finale=Branch codex/megavault-v16-reconciliation basato esattamente su e5f128b con protocollo VERSION=16,manifest macchina-verificabile,generatore append-only deterministico,import Git primary-repo con esclusione dei soli commit generated-only,sidecar cleanup,ignore policy,gate permanenti e policy globale trunk-based single-developer;promozione a master subordinata a review/merge della PR 2.
 Commit_correlati=4876843;12bf2bd;b949d12;58bd3db;6010550;5622c97;59073f9;38d6aa8;c50fdbc;prompt_816427_branch
 Prompt_correlati=816427
 Tempo_totale_di_impatto=2026-07-09_to_2026-08-01_and_until_PR_merge
-Note=V17 7e5df747 esclusa. Due commit locali unici preservati nel bundle esterno SHA256 1e0df2bb7545c266f1d3f08fc815eda4c7f768e624cd550b3bc5f4fee08156a7. Owner repository SuperContacts resta UNKNOWN con fallback archivio v33.
+Note=V17 7e5df747 esclusa dalla fase v16. Due commit locali unici preservati nel bundle esterno SHA256 1e0df2bb7545c266f1d3f08fc815eda4c7f768e624cd550b3bc5f4fee08156a7. Owner repository SuperContacts resta UNKNOWN con fallback archivio v33. La policy vieta branch-per-task,branch chaining,riuso estraneo e successo dichiarato prima dell'integrazione canonica o defer esplicito.
 
 INCIDENT:
 Incident_ID=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION

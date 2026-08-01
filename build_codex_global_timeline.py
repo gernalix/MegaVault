@@ -59,10 +59,12 @@ SKIP_DIRS = {
     "tmp",
     "temp",
 }
-SKIP_FILENAMES = {
+GENERATED_TIMELINE_PATHS = {
     "codex_global_timeline.md",
     "codex_global_timeline_ai.md",
     "codex_global_timeline.sqlite",
+}
+SKIP_FILENAMES = GENERATED_TIMELINE_PATHS | {
     "codex_global_timeline.sqlite-shm",
     "codex_global_timeline.sqlite-wal",
 }
@@ -660,13 +662,29 @@ def run_git(repo: Path, args: list[str], timeout: int = 30) -> str:
 
 def events_from_git(repo: Path, discovered_at: str, max_commits: int) -> list[Event]:
     branch = run_git(repo, ["rev-parse", "--abbrev-ref", "HEAD"]).strip()
-    log = run_git(repo, ["log", f"--max-count={max_commits}", "--date=short", "--pretty=format:%H%x1f%ad%x1f%s%x1f%D"], timeout=90)
+    log = run_git(
+        repo,
+        [
+            "log",
+            f"--max-count={max_commits}",
+            "--date=short",
+            "--pretty=format:%x1e%H%x1f%ad%x1f%s%x1f%D",
+            "--name-only",
+        ],
+        timeout=90,
+    )
     events: list[Event] = []
-    for line in log.splitlines():
-        parts = line.split("\x1f")
+    for record in log.split("\x1e"):
+        lines = [line.strip() for line in record.splitlines() if line.strip()]
+        if not lines:
+            continue
+        parts = lines[0].split("\x1f")
         if len(parts) < 3:
             continue
         commit_hash, event_date, subject = parts[:3]
+        changed_paths = set(lines[1:])
+        if changed_paths and changed_paths <= GENERATED_TIMELINE_PATHS:
+            continue
         discovered_at = stable_timestamp(event_date)
         refs = parts[3] if len(parts) > 3 else ""
         project = slugify(repo.name)
@@ -699,7 +717,7 @@ def events_from_git(repo: Path, discovered_at: str, max_commits: int) -> list[Ev
                 version_code=version_code,
                 status=status,
                 confidence=0.96,
-                notes=truncate(f"refs={refs}", 180),
+                notes=truncate(f"refs={refs};changed_paths={len(changed_paths)}", 180),
             )
         )
     return events
@@ -1202,12 +1220,7 @@ def build(args: argparse.Namespace) -> int:
 
     git_events = 0
     if not args.no_git:
-        primary_repo = git_root(primary_root)
         for repo in discover_git_repos(source_roots):
-            # Importing this repository's HEAD would make every generator commit
-            # recursively change its own canonical output.
-            if primary_repo is not None and repo == primary_repo:
-                continue
             for event in events_from_git(repo, "", args.max_git_commits):
                 git_events += 1
                 events_by_id[event.id] = event

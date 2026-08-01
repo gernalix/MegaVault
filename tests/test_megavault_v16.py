@@ -54,13 +54,65 @@ class ProtocolV16Test(unittest.TestCase):
         self.assertEqual("PASS", manifest["validation"]["semantic_include_coverage"])
 
     def test_deleted_blobs_and_archive_pointers_resolve(self) -> None:
+        reconciliation = json.loads(MANIFEST.read_text(encoding="utf-8"))
         manifest = json.loads(DELETE_MANIFEST.read_text(encoding="utf-8"))
+        self.assertEqual("ai/archive/2917AA9_DELETE_MANIFEST.json", reconciliation["delete_manifest_path"])
+        self.assertEqual(7, len(reconciliation["deleted_paths"]))
         self.assertEqual(7, len(manifest["deleted_paths"]))
-        for item in manifest["deleted_paths"]:
+        reconciliation_by_path = {item["path"]: item for item in reconciliation["deleted_paths"]}
+        delete_by_path = {item["path"]: item for item in manifest["deleted_paths"]}
+        self.assertEqual(set(delete_by_path), set(reconciliation_by_path))
+        for path, item in delete_by_path.items():
+            summary = reconciliation_by_path[path]
+            for field in ("blob_sha", "archive_location", "status"):
+                self.assertEqual(item[field], summary[field], f"{path}: {field}")
+            self.assertIs(summary["recovery_verified"], True)
             archive = REPO / item["archive_location"]
             self.assertTrue(archive.is_file(), item["archive_location"])
             self.assertRegex(item["blob_sha"], r"^[0-9a-f]{40}$")
             self.assertIn(item["status"], {"ARCHIVE_ONLY_VERIFIED", "ARCHIVED_AND_REVALIDATED"})
+            archive_blob = subprocess.run(
+                ["git", "hash-object", str(archive)], cwd=REPO, text=True, capture_output=True, check=True
+            ).stdout.strip()
+            self.assertEqual(item["blob_sha"], archive_blob, path)
+
+    def test_global_single_developer_trunk_policy(self) -> None:
+        text = PROTOCOL.read_text(encoding="utf-8")
+        required = {
+            "GLOBAL_GIT_MODEL": "trunk_based_single_developer",
+            "GIT_POLICY_SCOPE": "all_projects,all_repositories,past_present_future",
+            "NEW_REPO_CANONICAL_BRANCH": "main",
+            "EXISTING_REPO_CANONICAL_BRANCH": "resolved_operational_branch",
+            "OPERATIVE_BRANCH_COUNT": "1",
+            "DEFAULT_WORK_BRANCH": "canonical_branch",
+            "DIRECT_CANONICAL_WORK": "default",
+            "ROLLBACK_MECHANISM": "commit_history",
+            "NEW_BRANCH_DEFAULT": "forbidden",
+            "NEW_BRANCH_PER_TASK": "forbidden",
+            "BRANCH_CHAINING": "forbidden",
+            "UNRELATED_BRANCH_REUSE": "forbidden",
+            "TEAM_FEATURE_BRANCH_WORKFLOW": "not_default",
+            "TEMP_BRANCH": "exception",
+            "TEMP_BRANCH_ALLOWED_IF": "explicit_user_request,parallel_work_strictly_required,high_risk_isolation_strictly_required",
+            "TEMP_BRANCH_JUSTIFICATION": "mandatory",
+            "TEMP_BRANCH_BASE": "canonical_branch",
+            "TEMP_BRANCH_FINALIZATION": "integrate_into_canonical+delete",
+            "TEMP_BRANCH_LIFETIME": "minimum",
+            "UNMERGED_BRANCH_ACCUMULATION": "forbidden",
+            "TASK_COMPLETE_REQUIRES": "canonical_branch_updated_or_explicit_user_defer",
+            "CANONICAL_SYNC_REQUIRED": "yes",
+            "STALE_BRANCH_AUDIT_REQUIRED": "before_branch_creation",
+            "FINAL_REPORT_BRANCH_FIELDS": "repository,canonical_branch,current_branch,temporary_branch_reason,integration_status,cleanup_status",
+        }
+        pairs = dict(
+            line.split("=", 1)
+            for line in text.splitlines()
+            if line and not line.startswith("#") and "=" in line
+        )
+        for key, value in required.items():
+            self.assertEqual(value, pairs.get(key), key)
+        self.assertEqual("integrate_into_canonical+delete", pairs["TEMP_BRANCH_FINALIZATION"])
+        self.assertIn("canonical_branch_updated", pairs["TASK_COMPLETE_REQUIRES"])
 
     def test_git_hygiene_policy(self) -> None:
         text = (REPO / ".gitignore").read_text(encoding="utf-8")

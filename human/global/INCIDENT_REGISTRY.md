@@ -256,6 +256,6 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 
 - Periodo: `2026-07-09`–`2026-08-01` e fino al merge della PR v16; stato `MITIGATED_PENDING_DRAFT_PR`, gravita' `HIGH`.
 - Root cause: master era rimasto a VERSION=13 mentre le revisioni v14-v16 erano finite su branch Codex divergenti; gli output timeline dipendevano da orologio/mtime e WAL, e cache/private/secrets/sidecar non erano ignorati completamente.
-- Fix: ricostruzione semantica da `origin/master=e5f128b`, protocollo VERSION=16, sette blob rimossi archiviati, bundle dei commit locali unici, generatore append-only deterministico e test permanenti repo/worktree.
+- Fix: ricostruzione semantica da `origin/master=e5f128b`, protocollo VERSION=16, sette blob rimossi archiviati, bundle dei commit locali unici, generatore append-only deterministico con commit semantici del repository primario e policy globale trunk-based single-developer.
 - Limite: v16 diventa canonica su master soltanto dopo review e merge umano della draft PR; v17 e' esplicitamente esclusa.
 - Manifest: `ai/V16_RECONCILIATION_MANIFEST.json`; delete manifest: `ai/archive/2917AA9_DELETE_MANIFEST.json`.

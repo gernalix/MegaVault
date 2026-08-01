@@ -42,6 +42,7 @@ class DeterministicTimelineTest(unittest.TestCase):
         (self.repo / "codex_global_timeline.md").write_text("self output", encoding="utf-8")
         run(["git", "add", ".gitignore", "tracked.md", "codex_global_timeline.md"], self.repo)
         run(["git", "commit", "-qm", "fixture"], self.repo)
+        self.semantic_commit = run(["git", "rev-parse", "HEAD"], self.repo).stdout.strip()
         (self.repo / "untracked.json").write_text('{"summary":"untracked event 2026-08-01"}\n', encoding="utf-8")
         for directory in ("ignored", "private", "secrets"):
             target = self.repo / directory
@@ -51,19 +52,18 @@ class DeterministicTimelineTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.temporary.cleanup()
 
-    def build(self, root: Path | None = None, output: Path | None = None) -> subprocess.CompletedProcess[str]:
-        return run(
-            [
+    def build(self, root: Path | None = None, output: Path | None = None, include_git: bool = False) -> subprocess.CompletedProcess[str]:
+        command = [
                 sys.executable,
                 str(BUILDER),
                 "--primary-root",
                 str(root or self.repo),
                 "--output-dir",
                 str(output or self.output),
-                "--no-git",
-            ],
-            REPO,
-        )
+            ]
+        if not include_git:
+            command.append("--no-git")
+        return run(command, REPO)
 
     def test_normal_repo_is_append_only_filtered_and_byte_stable(self) -> None:
         first = self.build()
@@ -110,6 +110,37 @@ class DeterministicTimelineTest(unittest.TestCase):
         self.assertEqual(first_hashes, hashes(output))
         self.assertIn("database_changed=no", second.stdout)
         self.assertTrue((worktree / ".git").is_file())
+
+    def test_primary_semantic_commit_imported_once_and_generated_only_excluded(self) -> None:
+        (self.repo / "codex_global_timeline.md").write_text("generated-only update\n", encoding="utf-8")
+        run(["git", "add", "codex_global_timeline.md"], self.repo)
+        run(["git", "commit", "-qm", "docs: refresh generated timeline"], self.repo)
+        generated_commit = run(["git", "rev-parse", "HEAD"], self.repo).stdout.strip()
+
+        self.build(include_git=True)
+        first_hashes = hashes(self.output)
+        second = self.build(include_git=True)
+        self.assertEqual(first_hashes, hashes(self.output))
+        self.assertIn("database_changed=no", second.stdout)
+
+        conn = sqlite3.connect(self.output / "codex_global_timeline.sqlite")
+        try:
+            semantic_count = conn.execute(
+                "SELECT count(*) FROM timeline_events WHERE source_kind='git_log' AND commit_hash=?",
+                (self.semantic_commit,),
+            ).fetchone()[0]
+            generated_count = conn.execute(
+                "SELECT count(*) FROM timeline_events WHERE source_kind='git_log' AND commit_hash=?",
+                (generated_commit,),
+            ).fetchone()[0]
+            duplicate_ids = conn.execute(
+                "SELECT count(*) FROM (SELECT id FROM timeline_events GROUP BY id HAVING count(*) > 1)"
+            ).fetchone()[0]
+        finally:
+            conn.close()
+        self.assertEqual(1, semantic_count)
+        self.assertEqual(0, generated_count)
+        self.assertEqual(0, duplicate_ids)
 
 
 if __name__ == "__main__":
