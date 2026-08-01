@@ -19,5 +19,5 @@ Automazione locale per aggiornare ogni giorno le sorgenti winget e installare gl
 - AI doc: [AI doc](../../../ai/projects/windows-winget-daily-update.md)
 - Metadata: assente
 - Legacy docs: assenti
-- Repository/cartella: [maintenance](../../../../windows/maintenance)
-- Script: [winget_daily_update.ps1](../../../../windows/maintenance/winget_daily_update.ps1)
+- Repository/cartella: maintenance (`../../../../windows/maintenance`; status=UNKNOWN)
+- Script: winget_daily_update.ps1 (`../../../../windows/maintenance/winget_daily_update.ps1`; status=UNKNOWN)

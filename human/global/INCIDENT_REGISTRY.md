@@ -193,14 +193,31 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Stato finale: Host DOWN corretto per swap; Storage DOWN corretto per spazio Seagate; Network, Services e Software UP.
 - Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471853.md`.
 
+## ZRAM_OCCUPANCY_MISCLASSIFIED_AS_MEMORY_PRESSURE
+
+- Timestamp: dal `2026-07-14T10:15:00Z` al recovery `2026-07-18T18:40:34Z`; stato `RESOLVED`, gravita' `HIGH`.
+- Sintomo: Fedora Host risultava DOWN per la sola percentuale di zram occupata.
+- Root cause: `swap.used_percent` equiparava memoria compressa utile a pressione memoria senza verificare MemAvailable, PSI, velocita' swap, reclaim o OOM.
+- Fix: Fedora System Monitor mantiene zram informativa e genera alert soltanto da `memory.pressure_level` composto; il comportamento resta valido nella 1.3.1.
+- Verifica: MemAvailable 68,752%, PSI zero, pressione zero, rapporto compressione 2,857x, writeback e OOM delta zero.
+- Commit MegaVault `c36f1fcf`; commit progetto `7f91e2316887`; attività `962417`.
+
+## AUTOKEY_UINPUT_STALE_DEVICE_BUSY_LOOP
+
+- Timestamp: `2026-07-14T18:35:00Z`–`18:49:50Z`; stato storico `MITIGATED`, gravita' `HIGH`.
+- Sintomo: AutoKey usava circa il 99% di un core e scriveva traceback continui; CPU 84–89 C e ventole circa 4.480 RPM.
+- Root cause: un device evdev era scomparso, ma il flush loop uinput continuava a leggerlo e generava `ENODEV` senza rimuoverlo o applicare backoff.
+- Mitigazione allora applicata: stop/start controllato del solo servizio. AutoKey e' stato successivamente rimosso e sostituito da Espanso, quindi il rischio non e' piu' operativo.
+- Sorgente: `/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_614283.md`; commit `fd1344f`.
+
 ## AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
 
-- Timestamp: `2026-07-13`; stato `MITIGATED`, gravita' `HIGH` fino al collaudo post-login.
+- Timestamp: `2026-07-13` - `2026-07-14`; stato `RESOLVED`, gravita' massima `HIGH`.
 - Sintomo visivo: il launcher RPM esisteva, ma AutoKey restava senza finestra evidente e dipendeva da una tray icon non mostrata da GNOME.
 - Causa funzionale: Fedora AutoKey 0.96 usa XRecord ed e' limitato a X11/XWayland. Il fork Wayland 0.97.4 catturava l'input, ma GNOME 50 scartava il dispositivo virtuale per assi `EV_ABS` tablet incompleti; inoltre `wl-paste` poteva attendere senza limite con clipboard vuota.
-- Fix: COPR firmato `dlk/autokey` 0.97.4, estensione GNOME 50, accesso `input`/uinput, launcher e servizio utente unici, wrapper reversibile che filtra soltanto `EV_ABS` e limita la lettura clipboard a un secondo. Nessun file RPM e' stato modificato.
-- Verifica: hotkey e frase clipboard PASS in GNOME Text Editor Wayland, Chrome Wayland nativo e Zenity XWayland; GUI visibile e singola istanza PASS. Logout/login, caricamento reale dell'estensione, apertura dal menu e autostart restano pendenti per evitare perdita di lavoro.
-- Report: `ai/reports/prompt_638417_autokey_wayland.md`; checklist: `~/.local/bin/autokey-post-login-638417-check`.
+- Esito finale: nell'attivita' `582941` AutoKey e' stato rimosso completamente e sostituito con Espanso Wayland. Sono stati eliminati pacchetti, COPR, servizio utente, launcher, wrapper, estensione GNOME, config, cache e log AutoKey; backup in `/home/daniele/backups/autokey/582941-20260714T222324+0200`.
+- Verifica: nessun processo o pacchetto AutoKey residuo; `espanso.service` attivo e abilitato; 3 match migrati verificati con iniezione Espanso in finestra GTK temporanea; trigger digitati da tastiera virtuale verificati per `aktest638417x` e `adr`, con separatore finale conservato.
+- Report: `ai/reports/prompt_638417_autokey_wayland.md` e `ai/reports/activity_582941_autokey_to_espanso.md`.
 
 ## VLC_FEDORA_FLATPAK_FAKE_OPENH264
 
@@ -211,6 +228,16 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Verifica: lo stesso campione MP4 H.264 Baseline falliva prima con `Unable to create decoder`; dopo il fix VLC `avcodec` ha ricevuto il primo frame, il rendering video e' terminato con codice 0, `ffmpeg` e `ffplay` sono PASS, `dnf check` e `flatpak repair --dry-run` sono PASS.
 - Limiti: file originale non fornito; `mpv` non installato; `libpostproc` host assente ma non necessario per H.264.
 - Report: `ai/reports/prompt_684271_vlc_h264_fedora.md`.
+
+## GNOME_IDLE_SUSPEND_WIFI_SLEEP
+
+- Timestamp UTC confermati: dal `2026-07-22T20:35:44Z` al `2026-07-22T23:39:36Z`; stato `RESOLVED`, gravita' `HIGH`; warning: test runtime fisico a batteria non eseguito.
+- Sintomo: dopo inattivita' il display si spegneva e il Wi-Fi si disconnetteva.
+- Root cause: `idle-delay=0` disabilitava il blanking desktop, ma GNOME Power conservava un secondo criterio indipendente: dopo 900 secondi eseguiva `suspend` sia con alimentatore sia a batteria. Il journal prova che NetworkManager disconnetteva `wlp2s0` con motivo `sleeping` subito dopo la richiesta di sospensione. Inoltre il powersave Wi-Fi era realmente attivo.
+- Fix: timeout AC e batteria a `0`, azione inattiva `nothing`, idle dim disabilitato; drop-in globale NetworkManager `wifi.powersave=2` e powersave ath11k corrente disattivato. Sospensione, ibernazione e blocco manuali restano disponibili.
+- Verifica: 600,594 secondi continui di inattivita' reale con pannello `DPMS=On`, Wi-Fi associato, powersave `off`, gateway raggiungibile e nessun nuovo evento suspend/disconnect. Prova fisica su AC; configurazione batteria verificata ma alimentatore non scollegato.
+- Backup: `/home/daniele/.local/state/activity-641827/backups/20260723T020636+0200`.
+- Report: `ai/reports/activity_641827_display_wifi_idle.md`.
 
 ## SECURE_BOOT_DRACUT_LUKS_UNLOCK_NOT_PERSISTED
 
@@ -224,3 +251,11 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Stato protetto: Secure Boot resta disabilitato; nessun reboot. LUKS, partizioni, chiavi, kernel, initramfs, BLS originali, GRUB e `grubenv` sono invariati.
 - Limite residuo: un timeout dracut normale prima della root non entra nel journal interno o in pstore; occorre fotografare o filmare la console diagnostica.
 - Report: `ai/reports/activity_214587_secure_boot_dracut_forensics.md`; preparazione: `/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_948315.md`.
+
+## MEGAVAULT_V16_BASELINE_DIVERGENCE_DIRTY_STATE
+
+- Periodo: `2026-07-09`–`2026-08-01` e fino al merge della PR v16; stato `MITIGATED_PENDING_DRAFT_PR`, gravita' `HIGH`.
+- Root cause: master era rimasto a VERSION=13 mentre le revisioni v14-v16 erano finite su branch Codex divergenti; gli output timeline dipendevano da orologio/mtime e WAL, e cache/private/secrets/sidecar non erano ignorati completamente.
+- Fix: ricostruzione semantica da `origin/master=e5f128b`, protocollo VERSION=16, sette blob rimossi archiviati, bundle dei commit locali unici, generatore append-only deterministico e test permanenti repo/worktree.
+- Limite: v16 diventa canonica su master soltanto dopo review e merge umano della draft PR; v17 e' esplicitamente esclusa.
+- Manifest: `ai/V16_RECONCILIATION_MANIFEST.json`; delete manifest: `ai/archive/2917AA9_DELETE_MANIFEST.json`.

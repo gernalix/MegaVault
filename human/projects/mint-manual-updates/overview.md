@@ -21,7 +21,7 @@ Servizio user systemd v9 con un solo updater ufficiale per Linux Mint: sistema, 
 
 ## Link
 
-- AI doc: [AI doc](../../../ai/projects/mint-manual-updates.md)
-- Metadata: [dev/project.metadata.json](../../../../mint-manual-updates/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../mint-manual-updates/dev/legacy)
-- Repository: [repo path](../../../../mint-manual-updates)
+- AI doc: AI doc (`../../../ai/projects/mint-manual-updates.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../mint-manual-updates/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../mint-manual-updates/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../mint-manual-updates`; status=UNKNOWN)

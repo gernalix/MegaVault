@@ -15,7 +15,7 @@ Servizio leggero user-level per monitorare la spedizione `XT329499807TS`.
 - Script/build: `parcel_tracker.sh`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/parcel-tracker.md)
-- Metadata: [dev/project.metadata.json](../../../../parcel-tracker/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../parcel-tracker/dev/legacy)
-- Repository: [repo path](../../../../parcel-tracker)
+- AI doc: AI doc (`../../../ai/projects/parcel-tracker.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../parcel-tracker/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../parcel-tracker/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../parcel-tracker`; status=UNKNOWN)

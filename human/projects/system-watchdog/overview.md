@@ -15,7 +15,7 @@ Persistent heartbeat sender for a Uptime Kuma push monitor.
 - Script/build: `install.sh,logs.sh,status.sh,uninstall.sh`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/system-watchdog.md)
-- Metadata: [dev/project.metadata.json](../../../../system_watchdog/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../system_watchdog/dev/legacy)
-- Repository: [repo path](../../../../system_watchdog)
+- AI doc: AI doc (`../../../ai/projects/system-watchdog.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../system_watchdog/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../system_watchdog/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../system_watchdog`; status=UNKNOWN)

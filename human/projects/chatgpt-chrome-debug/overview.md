@@ -15,7 +15,7 @@ ChatGPT Chrome Redirect Debug Toolkit
 - Script/build: `START_DEBUGGING.sh,scripts/common.sh,scripts/dashboard.sh,scripts/install_user_services.sh,package.json`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/chatgpt-chrome-debug.md)
-- Metadata: [dev/project.metadata.json](../../../../chatgpt-chrome-debug/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../chatgpt-chrome-debug/dev/legacy)
-- Repository: [repo path](../../../../chatgpt-chrome-debug)
+- AI doc: AI doc (`../../../ai/projects/chatgpt-chrome-debug.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../chatgpt-chrome-debug/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../chatgpt-chrome-debug/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../chatgpt-chrome-debug`; status=UNKNOWN)

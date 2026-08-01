@@ -1,6 +1,6 @@
 # Project Index Extended
 
-Aggiornato: 2026-07-14. Autorita' operativa: [PROJECT_INDEX_EXTENDED AI](../../ai/global/PROJECT_INDEX_EXTENDED.md).
+Aggiornato: 2026-08-01. Autorita' operativa: [GLOBAL_INDEX AI](../../ai/GLOBAL_INDEX.md); questo file e' una vista umana derivata.
 
 ## Relazione verificata su Fedora
 

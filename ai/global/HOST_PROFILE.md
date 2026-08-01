@@ -5,7 +5,7 @@ MODE=codex_first
 FORMAT=ultracompressed
 AUTHORITY=hardware_constraints
 UPDATED=2026-07-30T16:49:28+02:00
-SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716+activity_948315+activity_562941
+SOURCE=Fedora_live_hostnamectl+uname+findmnt+lsblk+tool_versions+environment+user_context+activity_847263+activity_593184+activity_846271+activity_583921+activity_684219+activity_826417+activity_483716+activity_948315+activity_562941+activity_641827+activity_614283
 
 META:
 host=fedora
@@ -41,7 +41,7 @@ gpu=Radeon_780M_integrated
 constraints=laptop_power/thermal_profile,verify_sudo_requirement,use_Fedora_commands_and_mounts
 
 STORAGE_CURRENT_FEDORA:
-root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=844GiB mounts=/,/home
+root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=844GiB mounts=/,/home options=nodiscard weekly_fstrim=yes monthly_readonly_scrub=yes snapper=root_only activity=962417
 nvme=KXG8AZNV1T02_LA_KIOXIA size=953.9GiB
 external_seagate=/run/media/daniele/Seagate Expansion Drive ntfs size=3.5TiB source=udisks_encrypted_volume_mapping
 external_ntfs=/run/media/daniele/09FA16D309FA16D3 size=155.9GiB role=UNKNOWN
@@ -90,9 +90,15 @@ project_rule=project_or_remote_paths_never_override_HOST_SYSTEM_CURRENT
 MONITORING_CURRENT:
 prometheus=/usr/bin/prometheus;version=3.13.0;service=enabled+active;bind=127.0.0.1:9090;retention=30d_or_5GB;activity=826417
 node_exporter=/usr/bin/node_exporter;version=1.11.1;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
-diagnostics=/usr/local/bin/fedora-diagnostics;version=1.2.0;default=7d;archive=single_sanitized_0600_ZIP;activity=826417+614283+948315
+diagnostics=/usr/local/bin/fedora-diagnostics;version=1.2.0;default=7d;fan_analysis=optional_historical_CPU+GPU+fan+power+process_attribution;archive=single_sanitized_0600_ZIP;activity=826417+614283+948315
+diagnostics_telemetry=fedora-diagnostics-telemetry.timer+oneshot;cadence=30s;textfile=Node_Exporter;new_port=none;activity=614283
 secureboot_forensics=/usr/local/sbin/fedora-secureboot-forensics-capture;unit=fedora-secureboot-forensics-capture.service_enabled+inactive;output=/var/log/fedora-secureboot-forensics_root_only;BLS=separate_non_default_7.1.5_forensics_948315;Secure_Boot=disabled;reboot=not_run
 relationship=Prometheus_historical_metrics;Uptime_Kuma_synthetic_UP_DOWN_unchanged;fedora-system-monitor_readonly_target=127.0.0.1:9109
+
+POWER_POLICY_CURRENT:
+desktop=GNOME_Wayland;idle-delay=0;idle-dim=false;sleep-inactive-ac-timeout=0;sleep-inactive-ac-type=nothing;sleep-inactive-battery-timeout=0;sleep-inactive-battery-type=nothing;manual_suspend_targets=preserved_unmasked;manual_lock_key=Super_L;verified=2026-07-23;activity=641827
+wifi=wlp2s0_QCNFA765_ath11k_pci;NetworkManager_global_wifi.powersave=2;iw_power_save=off;PCI_runtime_control=on;rfkill=unblocked;verified=2026-07-23;activity=641827
+power_stack=tuned+tuned-ppd_active;profile=throughput-performance;power-profiles-daemon=absent;TLP=absent;logind_IdleAction=ignore;activity=641827
 
 REMOTE_ACCESS_CURRENT:
 client=RustDesk;version=1.4.9;install=official_x86_64_RPM_via_DNF;path=/usr/bin/rustdesk

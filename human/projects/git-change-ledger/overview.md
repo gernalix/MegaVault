@@ -31,7 +31,7 @@ The report highlights dirty repos, local commits not pushed, large changed files
 
 ## Links
 
-- AI doc: [../../../ai/projects/git-change-ledger.md](../../../ai/projects/git-change-ledger.md)
-- Metadata: [../../../../git-change-ledger/dev/project.metadata.json](../../../../git-change-ledger/dev/project.metadata.json)
-- Repo: [../../../../git-change-ledger](../../../../git-change-ledger)
+- AI doc: ../../../ai/projects/git-change-ledger.md (`../../../ai/projects/git-change-ledger.md`; status=UNKNOWN)
+- Metadata: ../../../../git-change-ledger/dev/project.metadata.json (`../../../../git-change-ledger/dev/project.metadata.json`; status=UNKNOWN)
+- Repo: ../../../../git-change-ledger (`../../../../git-change-ledger`; status=UNKNOWN)
 - Legacy docs: none

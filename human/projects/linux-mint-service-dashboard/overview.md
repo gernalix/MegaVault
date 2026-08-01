@@ -23,7 +23,7 @@ Dashboard locale read-only per i servizi operativi importanti di questo host Lin
 - Test: `python3 -m unittest tests/test_dashboard.py`; `DASHBOARD_URL=http://127.0.0.1:8881/ node tests/playwright-smoke.js`.
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/linux-mint-service-dashboard.md)
-- Metadata: [dev/project.metadata.json](../../../../linux-mint-service-dashboard/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../linux-mint-service-dashboard/dev/legacy)
-- Repository: [repo path](../../../../linux-mint-service-dashboard)
+- AI doc: AI doc (`../../../ai/projects/linux-mint-service-dashboard.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../linux-mint-service-dashboard/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../linux-mint-service-dashboard/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../linux-mint-service-dashboard`; status=UNKNOWN)

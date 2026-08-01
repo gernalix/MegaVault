@@ -3,7 +3,7 @@ VERSION=10
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=Fedora_systemd_live_2026-07-26+HOST_PROFILE+activity_482731+activity_418732+activity_593184+activity_471852+activity_471853+activity_826417+activity_731904
+SOURCE=Fedora_systemd_live_2026-07-26+HOST_PROFILE+activity_482731+activity_418732+activity_593184+activity_471852+activity_471853+activity_826417+activity_731904+activity_962417+activity_731842
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/ALERT_REGISTRY.md
@@ -18,18 +18,20 @@ alert_migration=not_revalidated
 
 FEDORA_SYSTEM_MONITOR_KUMA:
 source=fedora-system-monitor;credentials=/etc/fedora-system-monitor/uptime-kuma.toml;mode=root:root_0600;transport=HTTP_existing_infrastructure;runtime_cookie_dependency=none
-monitor=Fedora_Host;id=39;heartbeat=180s;mapping=CPU+memory+swap+temperature+kernel+OOM
-monitor=Fedora_Storage;id=40;heartbeat=480s;mapping=filesystem+SMART+IO+mount+devices
+monitor=Fedora_Host;id=39;heartbeat=180s;mapping=CPU+composite_memory_pressure+zram_diagnostics+temperature+kernel+OOM
+monitor=Fedora_Storage;id=40;heartbeat=480s;mapping=filesystem+detailed_SMART+Btrfs+IO+mount+devices
 monitor=Fedora_Network;id=41;heartbeat=180s;mapping=Internet+gateway+WiFi+VPN+NetworkManager
 monitor=Fedora_Services;id=42;heartbeat=180s;mapping=failed_units+restart+restart_loop
 monitor=Fedora_Software;id=43;heartbeat=5400s;mapping=updates+transactions+inventory
 delivery_audit_1.0.1=atomic_alert_transition+endpoint_flock+post_delivery_reconciliation;slow_DOWN_recovery_order=DOWN_then_UP_PASS;real_current_health_heartbeat=delivered;false_transition_final_gate=none
 delivery_audit_1.1.0=stable_WiFi_key+bidirectional_sensor_recovery+valid_filesystem_floor+FUSE_inode_suppression+original_replay_time+clean_journal_IO_recovery+terminal_DNF_retry+endpoint_snapshot_refresh;all_five_real_pushes=delivered
 delivery_audit_1.1.1=active_metric_alert_refresh+unsafe_removal_mountpoint_reconciliation+remote_Kuma_SQLite_readback;real_pushes=delivered
+delivery_audit_1.2.0=zram_occupancy_informational+MemAvailable_PSI_swap_rate_reclaim_OOM_pressure+detailed_SMART+battery+Btrfs;minute+daily=ok;Host_false_swap_alert=recovered;activity=962417
 delivery_audit_1.3.1=smart_check_failed_permission_false_positive_resolved;zero_active_SMART_alerts;zero_false_Kuma_transitions;real_SMART_health_and_filesystem_alerts_preserved;activity=482731
 anti_spam=persistent_dedup+duration_gate+hysteresis+cooldown+aggregation+single_recovery
 verification=all_five_real_UP_delivered+Software_controlled_DOWN_HTTP_200+recovery_UP_HTTP_200
 current_2026_07_14=Host_DOWN_truthful+Storage_DOWN_truthful+Network_UP+Services_UP+Software_UP;Host_reason=swap_used_percent_warning_about_39_percent;Storage_reason=Seagate_5.2273_percent_free_below_recovery;unsafe_removal=recovered;Kuma_readback=remote_SQLite_ok
+current_2026_07_18=Host_UP+Storage_DOWN_truthful+Network_UP+Services_UP+Software_UP;memory_available=68.752_percent;PSI=0;pressure_level=0;zram_ratio=2.857;Storage_reason=Seagate_2.8_percent_free+unsafe_removal_history
 security=push_URLs_not_in_repo_or_logs;HTTP_transport_risk_documented
 
 FEDORA_SYSTEM_MONITOR_TELEGRAM:
@@ -55,6 +57,7 @@ independence=Uptime_Kuma_monitors+heartbeat+thresholds+credentials_unchanged;Pro
 
 ORACLE_BACKUP_REMOTE:
 host=150.230.148.128;source=oracle-backup-healthcheck+oracle-backup-monitor+oracle-backup-remote-quota;verified=2026-07-26;activity=731904
+uptime_kuma=2.4.0;container=running;monitors=5;data_preserved=yes;activity=731842
 current=backup_state_OK+remote_quota_OK_3.25GiB+remote_retention_OK+local_fallback_quota_OK+root_usage_53percent+root_free_21.1GiB
 cleared=REMOTE_DEGRADED_absent+StorageLimitExceeded_absent+last_failed_repos_empty+last_remote_error_empty
 delivery=recovery_notification_PASS_after_output_redaction

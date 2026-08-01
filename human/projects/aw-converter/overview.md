@@ -15,7 +15,7 @@ UNKNOWN: source docs do not state a clear purpose.
 - Script/build: `UNKNOWN`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/aw-converter.md)
-- Metadata: [dev/project.metadata.json](../../../../aw-converter/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../aw-converter/dev/legacy)
-- Repository: [repo path](../../../../aw-converter)
+- AI doc: AI doc (`../../../ai/projects/aw-converter.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../aw-converter/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../aw-converter/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../aw-converter`; status=UNKNOWN)

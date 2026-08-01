@@ -9,4 +9,4 @@
 - Monitor obsoleti disattivabili senza cancellare storico.
 - Collegamento servizi locali tramite URL push segreti in env file fuori da Git.
 - Verifica push tramite HTTP 200 e heartbeat fresco nel DB Kuma.
-- Runbook AI completo in `ai/projects/oracle-uptime-kuma.md`.
+- Autorita' corrente: [GLOBAL_INDEX](../../../ai/GLOBAL_INDEX.md), [Service Registry](../../../ai/global/SERVICE_REGISTRY.md) e [Alert Registry](../../../ai/global/ALERT_REGISTRY.md). Snapshot storico: [oracle-uptime-kuma](../../../ai/archive/projects_legacy/oracle-uptime-kuma.md).

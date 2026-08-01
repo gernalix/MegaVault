@@ -2,8 +2,8 @@
 
 La guida operativa corrente vive nel repository:
 
-- [troubleshooting](../../../projects/oracle-backup-service/docs/human/troubleshooting.md)
-- [runbook](../../../projects/oracle-backup-service/docs/ai/OPERATIONS.md)
+- troubleshooting (`../../../projects/oracle-backup-service/docs/human/troubleshooting.md`; status=owner_repo_verified_local_2026-08-01)
+- runbook (`../../../projects/oracle-backup-service/docs/ai/OPERATIONS.md`; status=owner_repo_verified_local_2026-08-01)
 
 Stato sano atteso:
 

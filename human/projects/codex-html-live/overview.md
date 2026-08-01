@@ -15,7 +15,7 @@ Live HTML archive for Codex JSONL sessions: watches session files and renders br
 - Script/build: `UNKNOWN`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/codex-html-live.md)
-- Metadata: [dev/project.metadata.json](../../../../codex-html-live/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../codex-html-live/dev/legacy)
-- Repository: [repo path](../../../../codex-html-live)
+- AI doc: AI doc (`../../../ai/projects/codex-html-live.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../codex-html-live/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../codex-html-live/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../codex-html-live`; status=UNKNOWN)

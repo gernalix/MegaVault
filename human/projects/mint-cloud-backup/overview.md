@@ -24,7 +24,7 @@ Linux Mint root backup to Backblaze B2 through restic, with monitor, localhost d
 - Invariante: non stampare segreti e non modificare credenziali senza prova.
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/mint-cloud-backup.md)
-- Metadata: [dev/project.metadata.json](../../../../../codex-projects/mint-cloud-backup/dev/project.metadata.json)
-- Repository: [repo path](../../../../../codex-projects/mint-cloud-backup)
-- Repo docs: [docs](../../../../../codex-projects/mint-cloud-backup/docs)
+- AI doc: AI doc (`../../../ai/projects/mint-cloud-backup.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../../codex-projects/mint-cloud-backup/dev/project.metadata.json`; status=UNKNOWN)
+- Repository: repo path (`../../../../../codex-projects/mint-cloud-backup`; status=UNKNOWN)
+- Repo docs: docs (`../../../../../codex-projects/mint-cloud-backup/docs`; status=UNKNOWN)

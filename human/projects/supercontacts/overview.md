@@ -23,7 +23,7 @@ Android contacts app backed by Room/SQLite; repo files and tests cover contact C
 - Script/build: `tools/build-finalize.ps1,tools/build-finalize.sh,tools/codex_guardrails.ps1,tools/codex_guardrails.py,app/build.gradle.kts,build.gradle.kts,gradle.properties,settings.gradle.kts`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/supercontacts.md)
-- Metadata: [dev/project.metadata.json](../../../../SuperContacts/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../SuperContacts/dev/legacy)
-- Repository: [repo path](../../../../SuperContacts)
+- Owner repository corrente: `UNKNOWN` dopo verifica locale dei path candidati.
+- Snapshot storico più recente noto: [SuperContacts v33](../../../ai/archive/projects_legacy/supercontacts-v33.md).
+- Snapshot precedente v30: [SuperContacts legacy](../../../ai/archive/projects_legacy/supercontacts.md).
+- Repository: repo path (`../../../../SuperContacts`; status=UNKNOWN)

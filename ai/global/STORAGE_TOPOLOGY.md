@@ -3,7 +3,7 @@ VERSION=11
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-26+activity_482731+activity_418732+activity_593184+activity_842731+activity_583921+activity_684219+activity_826417+activity_731904
+SOURCE=HOST_PROFILE+findmnt+df+lsblk_2026-07-26+activity_482731+activity_418732+activity_593184+activity_842731+activity_583921+activity_684219+activity_826417+activity_731904+activity_962417+activity_731842
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/STORAGE_TOPOLOGY.md
@@ -11,7 +11,10 @@ HUMAN=../../human/global/STORAGE_TOPOLOGY.md
 CURRENT_FEDORA:
 host=fedora
 machine=Lenovo_ThinkPad_P14s_Gen_5_AMD
-root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=844GiB mounts=/,/home
+root=/dev/mapper/luks-0c261c5f-02dd-484f-b266-13ff4ee02abb btrfs encrypted size=951.3GiB available=844GiB mounts=/,/home options=nodiscard
+root_subvolumes=root_ID256+home_ID257;Snapper=root_only;boot_compatibility=GRUB_rootflags_subvol_root+separate_ext4_/boot;activity=962417
+root_snapshots=Snapper_timeline+DNF5_pre_transaction;retention=hourly6+daily7+weekly4+monthly3+number10;cleanup=enabled;home_excluded=yes
+root_health=monthly_readonly_scrub_enabled;manual_scrub_41.18GiB_zero_errors;device_stats_all_zero;weekly_fstrim_enabled;continuous_discard=disabled
 home=/home/daniele
 monitor_db=/var/lib/fedora-system-monitor/monitor.sqlite3;schema=2;WAL=yes;backup=/var/lib/fedora-system-monitor/backups;retention=enabled;integrity=ok_2026-07-26;Telegram_baselines=dedup_state.notification
 prometheus_tsdb=/var/lib/prometheus/metrics2;retention=30d_or_5GB_first;size_growth_measured_about_96.9KiB_per_minute;projection_about_4.2GiB_per_30d;activity=826417
@@ -34,7 +37,7 @@ repository=/mnt/T7_BACKUP/restic-fedora;id=5872c043e0;snapshots=2;full_check_his
 credential=/etc/credstore.encrypted/t7-restic-password;mode=root_root_0600;plaintext=systemd_tmpfs_only;external_escrow=pending_user
 rotated_media_rule=mount_paths_and_device_names_can_change;re-enumerate_before_conclusion
 t7_rule=name_T7+backup_target_T7_BACKUP;identify_by_model+serial+uuid+separate_mount;never_assume_/dev/sdX;sync+normal_unmount_before_safe_disconnect_notice
-remote_oracle=host=150.230.148.128;repository=rclone:oci:bucket-20260206-0730/oraclevm;repository_id=7fd0c92d9f;used=3.25GiB;quota_status=OK;retention=prewrite_every_3600s+keep_last_22;backup_snapshot=685d4861;check=PASS;restore_/etc/hostname=PASS;verified=2026-07-26;activity=731904
+remote_oracle=host=150.230.148.128;repository=rclone:oci:bucket-20260206-0730/oraclevm;repository_id=7fd0c92d9f;snapshots=8;latest=186673bf;used=4.53GiB;quota_status=OK;retention=prewrite_every_3600s+keep_last_22;check=PASS;restore_/etc/hostname=PASS;rollback_archives=verified;verified=2026-07-26;activity=731904+731842
 
 CONSTRAINTS:
 constraint=current_local_paths_use_/home/daniele_and_/run/media/daniele

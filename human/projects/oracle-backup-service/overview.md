@@ -2,9 +2,9 @@
 
 La documentazione operativa è stata migrata nel repository proprietario:
 
-- [overview](../../../projects/oracle-backup-service/docs/human/overview.md)
-- [operations](../../../projects/oracle-backup-service/docs/ai/OPERATIONS.md)
-- [incidenti](../../../projects/oracle-backup-service/docs/ai/INCIDENT_REGISTRY.md)
+- overview (`../../../projects/oracle-backup-service/docs/human/overview.md`; status=owner_repo_verified_local_2026-08-01)
+- operations (`../../../projects/oracle-backup-service/docs/ai/OPERATIONS.md`; status=owner_repo_verified_local_2026-08-01)
+- incidenti (`../../../projects/oracle-backup-service/docs/ai/INCIDENT_REGISTRY.md`; status=owner_repo_verified_local_2026-08-01)
 
 Stato verificato il 26 luglio 2026:
 

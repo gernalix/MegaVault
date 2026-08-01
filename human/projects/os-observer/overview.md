@@ -15,7 +15,7 @@ Linux Mint black-box recorder: user-systemd timer records read-only telemetry in
 - Script/build: `os_observer.sh,os_observer_autofix_dashboard.sh,os_observer_cleanup.sh,os_observer_dashboard.sh`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/os-observer.md)
-- Metadata: [dev/project.metadata.json](../../../../os-observer/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../os-observer/dev/legacy)
-- Repository: [repo path](../../../../os-observer)
+- AI doc: AI doc (`../../../ai/projects/os-observer.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../os-observer/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../os-observer/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../os-observer`; status=UNKNOWN)

@@ -15,7 +15,7 @@ Prompt #438 setup for controlling Codex from an Android phone through:
 - Script/build: `UNKNOWN`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/remote-codex-phone.md)
-- Metadata: [dev/project.metadata.json](../../../../remote-codex-phone/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../remote-codex-phone/dev/legacy)
-- Repository: [repo path](../../../../remote-codex-phone)
+- AI doc: AI doc (`../../../ai/projects/remote-codex-phone.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../remote-codex-phone/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../remote-codex-phone/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../remote-codex-phone`; status=UNKNOWN)

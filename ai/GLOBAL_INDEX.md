@@ -52,6 +52,7 @@ project=mint-manual-updates;repo=legacy:/home/daniele/codex-workspace/mint-manua
 project=mint-update-tracker;repo=legacy:/home/daniele/codex-workspace/mint-update-tracker;ai=projects/LEGACY.md;status=legacy_Mint
 project=multitimetracker;repo=/home/daniele/projects/MultiTimeTracker;ai=/home/daniele/projects/MultiTimeTracker/dev/ai/FEDORA_SETUP.md;context=projects/multitimetracker.md;branch=codex/731684-fedora-environment-adaptation;head=971649d7e20df057fe7ca523868673bab2357e0d;status=active
 project=oracle-backup-service;repo=/home/daniele/MegaVault/projects/oracle-backup-service;ai=../projects/oracle-backup-service/docs/ai/PROJECT.md;context=projects/oracle-backup-service.md;branch=codex/731904-oracle-remote-recovery;head=cf9cc16;status=active_remote_healthy
+project=vm_oracle;repo=/home/daniele/MegaVault/projects/vm_oracle;ai=../projects/vm_oracle/docs/ai/PROJECT.md;branch=codex/731842-full-vm-update;head=f93ec92;status=remote_runtime_PASS_CON_WARNING
 project=oracle-uptime-kuma;repo=remote:ubuntu@150.230.148.128;ai=global/SERVICE_REGISTRY.md+global/ALERT_REGISTRY.md;status=remote_runtime
 project=os-observer;repo=legacy:/home/daniele/codex-workspace/os-observer;ai=projects/LEGACY.md;status=legacy_Mint
 project=owntracks-watcher;repo=remote:ubuntu@150.230.148.128:/home/ubuntu/bots/owntracks_http_server;ai=projects/owntracks-watcher.md;status=remote_runtime
@@ -60,7 +61,7 @@ project=remote-codex-phone;repo=legacy:/home/daniele/codex-workspace/remote-code
 project=remote-opt-oracle-backup;repo=legacy:/home/daniele/codex-workspace/projects/vm_oracle/remote_opt_oracle_backup;ai=projects/oracle-backup-service.md;status=superseded
 project=soldi;repo=UNKNOWN_FEDORA;legacy_repo=/home/daniele/AndroidStudioProjects/Soldi;ai=projects/soldi.md;status=preimpl_context
 project=sostanze;repo=UNKNOWN_FEDORA;legacy_repo=/home/daniele/AndroidStudioProjects/Sostanze;ai=projects/sostanze.md;status=premigration_context
-project=supercontacts;repo=UNKNOWN_FEDORA;legacy_repo=/home/daniele/codex-workspace/SuperContacts;ai=UNKNOWN_FEDORA;legacy_ai=/home/daniele/codex-workspace/SuperContacts/docs/ai;status=revalidate_path
+project=supercontacts;repo=UNKNOWN_FEDORA;owner_repo=UNKNOWN;legacy_repo=/home/daniele/codex-workspace/SuperContacts_absent_at_2026-08-01;ai=UNKNOWN_FEDORA;archive=archive/projects_legacy/supercontacts-v33.md;status=archive_fallback_revalidate_owner
 project=surface-recovery-hardening;repo=legacy:/home/daniele/codex-workspace/surface-recovery-hardening;ai=projects/surface-recovery-hardening.md;status=legacy_recovery_reference
 project=system-watchdog;repo=legacy:/home/daniele/codex-workspace/system_watchdog;ai=projects/LEGACY.md;status=disabled
 project=windows-flight-recorder;repo=Windows:C:\Users\seste\Documents\windows\system_logger;ai=projects/windows-flight-recorder.md;status=remote_host

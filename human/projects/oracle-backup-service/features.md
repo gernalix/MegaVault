@@ -8,4 +8,4 @@
 - Registro incidenti SQLite con eventi append-only.
 - Alert deduplicati e output di trasporto redatto.
 
-Dettagli correnti: [documentazione proprietaria](../../../projects/oracle-backup-service/docs/ai/PROJECT.md).
+Dettagli correnti: documentazione proprietaria (`../../../projects/oracle-backup-service/docs/ai/PROJECT.md`; status=owner_repo_verified_local_2026-08-01).

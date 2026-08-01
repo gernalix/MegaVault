@@ -70,6 +70,7 @@ tool=/opt/oracle_backup/incident_registry.py
 incidents=OCI_STORAGE_LIMIT_EXCEEDED,OCI_REMOTE_REPOSITORY_CORRUPT,ORACLE_ROOT_DISK_PRESSURE,TELEGRAM_TRANSPORT_SECRET_DISCLOSURE
 status_2026_07_26=OCI_STORAGE_LIMIT_EXCEEDED_RESOLVED+OCI_REMOTE_REPOSITORY_CORRUPT_RESOLVED+TELEGRAM_TRANSPORT_SECRET_DISCLOSURE_MITIGATED
 owner_docs=/home/daniele/MegaVault/projects/oracle-backup-service/docs/ai/INCIDENT_REGISTRY.md
+maintenance_731842=credential_argv_exposure_mitigated+Telegram_and_Cloudflare_rotation_required+telegram_media_environment_fixed+software_audit_boot_watchdog_transient_resolved;owner_docs=/home/daniele/MegaVault/projects/vm_oracle/docs/ai/INCIDENT_REGISTRY.md
 activity=731904
 
 INCIDENT:
@@ -292,19 +293,19 @@ INCIDENT:
 Incident_ID=AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
 Titolo=AutoKey unusable on Fedora 44 GNOME Wayland
 Data_prima_comparsa_UTC=2026-07-13T07:39:00Z
-Data_ultima_comparsa_UTC=2026-07-13T08:21:00Z
-Numero_occorrenze=1
+Data_ultima_comparsa_UTC=2026-07-14T20:23:24Z
+Numero_occorrenze=2
 Gravita_massima=HIGH
-Stato=MITIGATED
+Stato=RESOLVED
 Root_cause=Fedora autokey 0.96 is X11-only;AutoKey for Wayland 0.97.4 additionally cloned incomplete EV_ABS tablet axes into one uinput device so GNOME Shell 50/libinput rejected the entire virtual device;its synchronous wl-paste read could also block when no clipboard owner existed.
 Sistemi_coinvolti=Fedora 44 host;GNOME Shell 50.3;AutoKey;libinput;uinput;wl-clipboard
 Alert_coinvolti=GNOME launcher not apparent;XRecord-only native input failure;libinput missing tablet capabilities;ownerless wl-paste hang
-Tentativi_effettuati=Baseline package,desktop,tray,process,journal,coredump,config,window,extension,alternate install and environment inventory;real kernel input into GTK Wayland and Zenity XWayland;official source/release/COPR audit;fork uinput and clipboard trace;Chrome native Wayland isolated QA.
-Soluzione_finale=Signed dlk/autokey COPR 0.97.4;GNOME 50 extension;input group and udev access;single user launcher and graphical-session systemd service;user wrapper filters invalid EV_ABS and bounds wl-paste to one second without modifying RPM files.
+Tentativi_effettuati=Baseline package,desktop,tray,process,journal,coredump,config,window,extension,alternate install and environment inventory;real kernel input into GTK Wayland and Zenity XWayland;official source/release/COPR audit;fork uinput and clipboard trace;Chrome native Wayland isolated QA;later fan/power diagnostics found recurring ENODEV uinput loop;activity_582941 removed AutoKey and migrated text expansion to Espanso.
+Soluzione_finale=AutoKey packages,service,launcher,wrapper,GNOME extension,config,cache,logs,and dlk/autokey COPR removed;configuration backed up at /home/daniele/backups/autokey/582941-20260714T222324+0200;Espanso Wayland 2.3.0 installed as user service with migrated text expansions.
 Commit_correlati=this MegaVault activity commit
-Prompt_correlati=638417
-Tempo_totale_di_impatto=Unknown before report;technical repair and current-session core validation completed 2026-07-13T08:21:00Z
-Note=GTK Wayland,Chrome Wayland,and Zenity XWayland hotkey+clipboard phrase tests PASS;GUI visible and single instance PASS. Real GNOME extension discovery,menu launch,service autostart,and persistence after logout/login remain pending because forcing logout risked user work. SQLite incident updated and backed up at /home/daniele/sync_root/db/backups/incident_registry.activity-638417.pre-update.20260713T082100Z.sqlite.
+Prompt_correlati=638417,582941
+Tempo_totale_di_impatto=Unknown before report;runtime risk eliminated by removal on 2026-07-14T20:23:24Z
+Note=Activity_582941 verified no AutoKey package/process/user unit/repo remains, espanso.service active+enabled, no listening ports, migrated Espanso matches inject in a GTK temp window, and virtual-keyboard trigger typing expands with the expected word separator.
 
 INCIDENT:
 Incident_ID=VLC_FEDORA_FLATPAK_FAKE_OPENH264
@@ -343,6 +344,78 @@ Tempo_totale_di_impatto=2026-07-10T10:30:53Z to 2026-07-26T12:08:27Z for false w
 Note=Internal KIOXIA health PASS with media errors 0 and T7 health PASS through sntasmedia;two Seagate USB SAT disks remained intentionally asleep. An explicit T7 error-log probe during investigation caused two successful UAS resets and was stopped;it is separate from the historical cause. Project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md
 
 INCIDENT:
+Incident_ID=ZRAM_OCCUPANCY_MISCLASSIFIED_AS_MEMORY_PRESSURE
+Titolo=Fedora Host marked DOWN for normal compressed zram occupancy
+Data_prima_comparsa_UTC=2026-07-14T10:15:00Z
+Data_ultima_comparsa_UTC=2026-07-18T18:40:34Z
+Numero_occorrenze=1 persistent false category state
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=Fedora System Monitor 1.1.1 alerted directly on swap.used_percent,which measured normal zram occupancy without requiring evidence from MemAvailable,PSI,swap rate,reclaim,or OOM.
+Sistemi_coinvolti=Fedora 44 host;zram-generator;fedora-system-monitor;SQLite;Uptime Kuma Fedora Host ID39
+Alert_coinvolti=swap.used_percent;Fedora Host ID39
+Tentativi_effettuati=Live zram configuration and compression audit;MemAvailable and PSI baseline;vmstat swap/reclaim/OOM sampling;7-day Prometheus history;installed minute and daily collector tests.
+Soluzione_finale=Fedora System Monitor 1.2.0 keeps zram use informational and alerts only on composite memory.pressure_level using independent pressure evidence;legacy swap threshold keys migrate safely. Later 1.3.1 retains this behavior.
+Commit_correlati=c36f1fcf55fdaa6e06675a588068189198f203d4;project=7f91e2316887
+Prompt_correlati=962417
+Tempo_totale_di_impatto=User-visible Host false warning persisted from the prior audit until recovery at 2026-07-18T18:40:34Z.
+Note=Post-fix memory available 68.752 percent,PSI zero,pressure level zero,zram compression 2.857x,writeback zero,OOM delta zero;Storage alerts remain separate and real. Project evidence=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_962417.md
+
+INCIDENT:
+Incident_ID=AUTOKEY_UINPUT_STALE_DEVICE_BUSY_LOOP
+Titolo=AutoKey stale input device caused CPU and fan runaway
+Data_prima_comparsa_UTC=2026-07-14T18:35:00Z
+Data_ultima_comparsa_UTC=2026-07-14T18:49:50Z
+Numero_occorrenze=1
+Gravita_massima=HIGH
+Stato=MITIGATED_HISTORICAL_AUTOKEY_REMOVED
+Root_cause=AutoKey for Wayland 0.97.4 retained a disappeared evdev device in its uinput flush set;repeated read calls raised ENODEV and the exception loop had no device removal or backoff,consuming one CPU and writing tracebacks continuously.
+Sistemi_coinvolti=Fedora 44 host;AutoKey for Wayland;uinput;evdev;systemd-journald;thermal cooling
+Alert_coinvolti=CPU_84_89C;fans_about4480RPM;AutoKey_99pct_CPU+about3MB_s_journal_writes
+Tentativi_effettuati=Five-minute no-benchmark CPU/frequency/temperature/fan/GPU/power/interrupt/process baseline;bounded AutoKey journal;controlled three-minute stop/start comparison;post-deploy five-minute measurement.
+Soluzione_finale=Controlled autokey.service stop/start rebuilt the device set and restored AutoKey about0.2pct CPU,post-window CPU average62.2C,and fan average2975RPM;AutoKey was subsequently removed and replaced by Espanso in activity 582941.
+Commit_correlati=fd1344fdafdf9e0639c03af247652c4adf35c9d9
+Prompt_correlati=614283
+Tempo_totale_di_impatto=At least 2026-07-14T18:35:00Z to controlled restart at 2026-07-14T18:49:50Z;earlier start UNKNOWN
+Note=Historical incident; recurrence through AutoKey is no longer operationally applicable. SQLite upsert integrity=ok;backup=/home/daniele/sync_root/db/backups/incident_registry.activity-614283.pre-update.20260714T194000Z.sqlite;source=/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_614283.md.
+
+INCIDENT:
+Incident_ID=ESPANSO_WAYLAND_PRECOMPOSITOR_START_RACE
+Titolo=Espanso risultava attivo ma non espandeva su GNOME Wayland
+Data_prima_comparsa_UTC=2026-07-15T07:55:19Z
+Data_ultima_comparsa_UTC=2026-07-26T12:25:25Z
+Numero_occorrenze=multiple_boots_exact_count_UNKNOWN
+Gravita_massima=MEDIUM
+Stato=RESOLVED
+Root_cause=La user unit era abilitata sotto default.target mentre linger era attivo;systemd avviava Espanso prima del compositor GNOME Wayland. Il worker falliva con NoCompositor e i retry potevano lasciare un worker parzialmente inizializzato, attivo per systemd ma privo di EVDEVInjector e accesso a /dev/uinput.
+Sistemi_coinvolti=Fedora_44;GNOME_Wayland;systemd_user;Espanso_2.3.0;evdev;uinput
+Alert_coinvolti=trigger_cdd_non_espanso;worker_NoCompositor_panic;servizio_active_ma_backend_incompleto
+Tentativi_effettuati=Inventario installazione e sessione;validazione YAML e regole;ricerca duplicati;processi,fd,device,permessi,gruppi,variabili,log Espanso e journal multi-boot;riavvio controllato a sessione matura;matrice GTK Wayland;test XTerm XWayland separato.
+Soluzione_finale=Unit utente spostata da default.target a graphical-session.target con PartOf=graphical-session.target;nessun loop,delay,aggiornamento,reinstallazione o modifica al testo del match. Dopo stop/start il singolo worker inizializza EVDEVSource,EVDEVInjector e WaylandFallbackClipboard.
+Commit_correlati=9be9196bb9dee7334a0dc7d63c90e02e4f07a5ea
+Prompt_correlati=573814
+Tempo_totale_di_impatto=intermittente_dal_primo_log_disponibile_2026-07-15_fino_alla_correzione_2026-07-26
+Note=GTK Wayland ha completato 30/30 rilevamenti ed espansioni. XTerm XWayland non ha superato il test di iniezione clipboard; Chrome non e stato rivalidato e un logout/login reale non e stato forzato per non interrompere la sessione. Report=docs/ai/REPORT_573814.md;backup=/home/daniele/backups/espanso/573814-20260726T201952+0200.
+
+INCIDENT:
+Incident_ID=GNOME_IDLE_SUSPEND_WIFI_SLEEP
+Titolo=GNOME inactivity suspension turned off the display and disconnected WiFi
+Data_prima_comparsa_UTC=2026-07-22T20:35:44Z
+Data_ultima_comparsa_UTC=2026-07-22T23:39:36Z
+Numero_occorrenze=4 confirmed suspend sequences in current boot before fix
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=GNOME Settings Daemon Power retained Fedora defaults of 900 seconds plus suspend for both AC and battery even though desktop idle-delay was already zero; each idle suspend caused NetworkManager to disconnect wlp2s0 explicitly with reason sleeping. Separately the WiFi profile inherited default powersave and the ath11k driver reported power save on.
+Sistemi_coinvolti=Fedora 44 host;GNOME Wayland;gnome-settings-daemon Power;systemd-logind;systemd sleep targets;NetworkManager;wlp2s0;ath11k_pci;QCNFA765
+Alert_coinvolti=User-visible display off and WiFi disconnected after inactivity;system journal suspend and NetworkManager sleeping transitions
+Tentativi_effettuati=Targeted audit of gsettings,dconf,schema defaults,GNOME idle and power plugin,Mutter DPMS,extensions,PPD/TuneD/TLP,logind,sleep targets,inhibitors,NetworkManager,iw,rfkill,driver,modinfo,modprobe,udev,kernel command line,PCI runtime PM,ASPM relevance and journal causality;real continuous idle test.
+Soluzione_finale=Set GNOME AC and battery inactive timeouts to zero and actions to nothing,disabled idle dimming,kept idle-delay zero and every manual sleep target unmasked;added NetworkManager global wifi.powersave=2,then reloaded,reapplied and disabled current ath11k link powersave. No BIOS,kernel,udev,modprobe,logind,tuned or profile edits were needed.
+Commit_correlati=d5ab6578e1fa98d68db9323c64a594b863afe25f
+Prompt_correlati=641827
+Tempo_totale_di_impatto=At least four confirmed suspensions between 2026-07-22T20:35:44Z and 2026-07-22T23:39:36Z; earlier user-visible duration UNKNOWN.
+Note=Post-fix continuous idle reached 600594 ms with Mutter PowerSaveMode 0,eDP-1 DPMS On,wlp2s0 associated,power save off,gateway reachable and zero suspend or sleeping-disconnect markers. AC was physically online; battery policy readback is correct but a physical unplugged 10-minute run was not performed. Backups are under /home/daniele/.local/state/activity-641827/backups/20260723T020636+0200.
+
+INCIDENT:
 Incident_ID=SECURE_BOOT_DRACUT_LUKS_UNLOCK_NOT_PERSISTED
 Titolo=Boot Fedora con Secure Boot raggiunge dracut ma il Btrfs dentro LUKS non compare
 Data_prima_comparsa_UTC=2026-07-30T03:01:36Z_to_2026-07-30T03:10:52Z;exact_UNKNOWN
@@ -359,6 +432,24 @@ Commit_correlati=activity_214587_MegaVault_commit;activity_948315_MegaVault_comm
 Prompt_correlati=731846;214587;948315
 Tempo_totale_di_impatto=Un singolo tentativo nel gap tra arresto pulito 2026-07-30T03:01:36Z e avvio corrente 2026-07-30T03:10:52Z; durata esatta UNKNOWN
 Note=Origine FSID provata da /var/log/anaconda/storage.log mkfs.btrfs del 2026-07-07. Secure Boot corrente disabilitato. Nessun reboot activity 948315. Pstore EFI e journal persistente gia operativi ma un timeout dracut normale pre-root resta volatile; foto/video console obbligatori. Sources=ai/reports/activity_214587_secure_boot_dracut_forensics.md;/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_948315.md
+
+INCIDENT:
+Incident_ID=MEGAVAULT_V16_BASELINE_DIVERGENCE_DIRTY_STATE
+Titolo=Baseline canonica ferma a VERSION=13 mentre le sessioni operavano su linee v16 divergenti e spesso dirty
+Data_prima_comparsa_UTC=2026-07-09T00:00:00Z
+Data_ultima_comparsa_UTC=2026-08-01T00:00:00Z
+Numero_occorrenze=multiple_exact_count_UNKNOWN
+Gravita_massima=HIGH
+Stato=MITIGATED_PENDING_DRAFT_PR
+Root_cause=Le evoluzioni v14-v16 furono pubblicate su branch Codex divergenti senza promozione a master;la timeline veniva aggiornata tramite commit generated-only e il builder usava orologio/mtime,scansioni implicite,delete-on-missing e WAL persistente;cache,private,secrets e sidecar non erano coperti integralmente da .gitignore.
+Sistemi_coinvolti=MegaVault;origin/master;branch Codex;protocollo;timeline SQLite+Markdown;Git worktree
+Alert_coinvolti=VERSION=13_su_master;task_avviati_da_VERSION=16_non_canonico;git_status_dirty;PR_1_ancestry_obsoleta
+Tentativi_effettuati=Audit baseline read-only;classificazione semantica c50fdbc;bundle dei commit locali unici;ricostruzione da origin/master senza merge o cherry-pick monolitico;archiviazione dei sette blob 2917aa9;test determinismo repo+worktree.
+Soluzione_finale=Branch codex/megavault-v16-reconciliation basato esattamente su e5f128b con protocollo VERSION=16,manifest macchina-verificabile,generatore append-only deterministico,sidecar cleanup,ignore policy e gate permanenti;promozione a master subordinata a review/merge umano della draft PR.
+Commit_correlati=4876843;12bf2bd;b949d12;58bd3db;6010550;5622c97;59073f9;38d6aa8;c50fdbc;prompt_816427_branch
+Prompt_correlati=816427
+Tempo_totale_di_impatto=2026-07-09_to_2026-08-01_and_until_PR_merge
+Note=V17 7e5df747 esclusa. Due commit locali unici preservati nel bundle esterno SHA256 1e0df2bb7545c266f1d3f08fc815eda4c7f768e624cd550b3bc5f4fee08156a7. Owner repository SuperContacts resta UNKNOWN con fallback archivio v33.
 
 INCIDENT:
 Incident_ID=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION

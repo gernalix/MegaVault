@@ -83,5 +83,10 @@ activity=739482;topic=XFCE_window_tiling_initial;status=SUPERSEDED_BY_FINAL;sour
 activity=739482;topic=XFCE_window_tiling;status=PASS;source=git:0b1fc4b8:ai/reports/prompt_739482_xfce_window_tiling_report_20260610.md+git:0b1fc4b8:ai/reports/prompt_739482_final_report.md
 record=2026-07-05_strano_anello_decommission;status=PASS_DECOMMISSIONED;source=git:0b1fc4b8:ai/reports/strano_anello_decommission_20260705_1634.md
 
+V16_RECONCILIATION:
+activity=864237;topic=Pixel_8a_battery_diagnosis;status=HISTORICAL_VALID;source=ai/reports/activity_864237_pixel_8a_battery.md;source_commit=e951f897489de175e090abe6b2b80d53f725a251
+activity=582941;topic=ActivityWatch_post_reboot_evidence;status=HISTORICAL_EVIDENCE;source=ai/archive/reports/prompt_582941_activitywatch_reboot_after.md;current_state=ai/reports/activity_592184_activitywatch_fedora44_wayland.md
+record=2917aa9_deleted_paths;status=RECOVERED_TO_ARCHIVE;manifest=ai/archive/2917AA9_DELETE_MANIFEST.json
+
 RULE:
 rule=full_closed_detail_exists_in_Git;do_not_recreate_per-activity_files

@@ -35,6 +35,6 @@ Questo progetto documenta e supporta le operazioni di recovery del Surface Linux
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/surface-recovery-hardening.md)
-- Metadata: [dev/project.metadata.json](../../../../surface-recovery-hardening/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../surface-recovery-hardening/dev/legacy)
-- Repository: [repo path](../../../../surface-recovery-hardening)
+- Metadata: dev/project.metadata.json (`../../../../surface-recovery-hardening/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../surface-recovery-hardening/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../surface-recovery-hardening`; status=UNKNOWN)

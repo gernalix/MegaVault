@@ -4,7 +4,7 @@ STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
 UPDATED=2026-07-26T20:09:12+02:00
-SOURCE=tool_versions_live_2026-07-18+HOST_PROFILE+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417+activity_483716+activity_592184+activity_593814
+SOURCE=tool_versions_live_2026-07-18+HOST_PROFILE+task_481726_live_install_validation+activity_847263_live_install_validation+activity_581204+activity_593184+activity_471852+activity_471853+activity_846271+activity_583921+activity_684219+activity_638417+activity_735184+activity_684271+activity_487361+activity_846219+activity_826417+activity_483716+activity_592184+activity_593814+activity_582941+activity_573814+activity_614283+activity_731842
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/SOFTWARE_INVENTORY.md
@@ -26,16 +26,18 @@ tool=flatpak;path=PATH;critical=no_for_Android_Studio_after_activity_483716
 tool=OpenSSH;path=/usr/bin/ssh;version=10.2p1;config_dir=/home/daniele/.ssh;config_dir_status=absent;critical=yes
 tool=Docker;path=missing;service=absent;version=not_installed;critical=no
 tool=Podman;path=/usr/bin/podman;version=5.8.4;critical=no;role=optional_container_runtime
-tool=Fedora_System_Monitor;version=1.1.1;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;features=dashboard+timeline+trends+service_history+prometheus_optional;status=installed+enabled+audited;activity=471853
+tool=Fedora_System_Monitor;version=1.3.1;project=/home/daniele/MegaVault/projects/fedora-system-monitor;runtime=/usr/local/libexec/fedora-system-monitor;cli=/usr/local/bin/fedora-system-monitor;features=dashboard+timeline+trends+service_history+prometheus_optional+composite_memory_pressure+detailed_SMART+battery_health+Btrfs_health+filesystem_Telegram_delta;status=installed+enabled+audited;activity=962417+418732+482731
 tool=Prometheus;version=3.13.0-1.fc44;package=official_Fedora_updates;path=/usr/bin/prometheus;service=enabled+active;bind=127.0.0.1:9090;activity=826417
 tool=Node_Exporter;version=1.11.1-1.fc44;package=official_Fedora_updates;path=/usr/bin/node_exporter;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
-tool=Fedora_Diagnostics;version=1.0.0;project=/home/daniele/projects/fedora-diagnostics;path=/usr/local/bin/fedora-diagnostics;runtime=/usr/local/lib/fedora-diagnostics;status=installed+functional+fault_tested;activity=826417
+tool=Fedora_Diagnostics;version=1.2.0;project=/home/daniele/projects/fedora-diagnostics;path=/usr/local/bin/fedora-diagnostics;runtime=/usr/local/lib/fedora-diagnostics;features=fan_analysis+30s_textfile_telemetry+bounded_top_process_attribution+secureboot_forensics;status=installed+functional+fault_tested;activity=826417+614283+948315
 tool=Fedora_External_Updater;version=0.1.0;project=/home/daniele/projects/fedora-external-updater;cli=/usr/local/bin/fedora-external-updater;status=installed+root_user_timers_enabled+manual_PASS;policy=complementary_safe_external_updates_no_project_dependency_updates;activity=846219
 tool=Restic;path=/usr/bin/restic;version=0.19.0;project=/home/daniele/MegaVault/projects/fedora-t7-backup;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+encrypted+udev_connect_automated+conditional_check_prune+unmount+restore_tested;activity=684219
 package=smartmontools;version=7.5-6.fc44;role=storage_health;preexisting=yes
 package=nvme-cli;version=2.16-2.fc44;role=NVMe_health;preexisting=yes
 package=lm_sensors;version=3.6.0-24.fc44;role=temperature;preexisting=yes
 package=sqlite;version=3.51.2-1.fc44;role=database_CLI;preexisting=yes
+packages=snapper_0.13.0+btrfsmaintenance_0.5.2+libdnf5-plugin-actions_5.4.2.1;role=Btrfs_root_snapshots+monthly_scrub+DNF5_pre_transaction_snapshot;installed_by_activity=962417
+repository=Terra;state=disabled;reason=unused+metadata_signature_failure;backup=/var/backups/activity-962417/terra.repo.before;activity=962417
 packages=python3-snappy_0.7.3+python3-cramjam_2.11.0+python3-socketio_5.16.3+python3-bidict_0.23.1+python3-engineio_4.13.3+python3-simple-websocket_1.1.0+python3-wsproto_1.2.0;role=one_time_Kuma_admin_API;installed_by_activity=593184;runtime_collector_dependency=no
 
 DESKTOP_APPS_CURRENT:
@@ -72,11 +74,12 @@ asset=veracrypt-1.26.29-Fedora-44-x86_64.rpm;source=https://launchpad.net/veracr
 validation=veracrypt_--text_--version_returns_1.26.29;desktop_file_valid;GUI_process+AT-SPI_frame_detected;storage_or_volume_changes=none
 warning=plain_GUI_mode_veracrypt_--version_waits_for_GUI_event_loop;use_--text_--version_for_CLI;GTK_scale_factor_critical_nonfatal_at_launch
 event_date=2026-07-12;summary=VeraCrypt_1.26.29_official_Fedora_44_GUI_RPM_checksum_signature_DNF_CLI_menu_GUI_validated;status=PASS_WITH_WARNING;source_ref=activity_581204
-app=AutoKey_for_Wayland;version=0.97.4-0.fc44;install=signed_COPR_dlk_autokey_RPM+user_compat_wrapper;upstream=https://github.com/dlk3/autokey-wayland;release=v0.97.4;commit=a41c8a0a145ee00ffb7e197c3b5dd26a3e946e7e;path=/usr/bin/autokey-gtk;wrapper=/home/daniele/.local/libexec/autokey-wayland-fedora44;desktop=/home/daniele/.local/share/applications/autokey-gtk.desktop;gnome_visible_logical_entries=1;icon=autokey;extension=autokey-gnome-extension@autokey_shell_45-50;status=native_Wayland_core_tests_PASS+post_login_pending
-compatibility=wrapper_filters_invalid_EV_ABS_from_combined_uinput_device_for_GNOME50_libinput+adds_1s_timeout_for_ownerless_wl-paste;RPM_files_unmodified;relative_mouse+keyboard_preserved;absolute_uinput_axes_filtered
-dependencies=gnome-extensions-app_50.2+python3-magic_0.4.27+python3-pyasyncore_1.0.4+python3-pydbus_0.6.0+preexisting_wl-clipboard_python3-evdev_python3-pyudev;removed_replaced_dependency=python3-file-magic;xautomation=not_installed_X11_only_optional
-tests=GTK_Wayland_hotkey+clipboard_phrase_PASS;Chrome_native_Wayland_hotkey+clipboard_phrase_PASS;Zenity_XWayland_hotkey+clipboard_phrase_PASS;GUI_visible+single_instance_PASS;real_extension+menu_launch+systemd_autostart_after_logout_login=PENDING
-event_date=2026-07-13;summary=AutoKey_0.97.4_Wayland_installed_hardened_and_native_input_validated;status=PENDING_TEST_POST_LOGIN;source_ref=activity_638417
+app=AutoKey_for_Wayland;version=removed;previous_version=0.97.4-0.fc44;previous_install=signed_COPR_dlk_autokey_RPM+user_compat_wrapper;status=removed_after_uinput_evdev_ENODEV_loop;packages_removed=autokey-gtk+autokey-common;repo_removed=dlk/autokey_COPR;user_files_removed=autokey.service+wrapper+desktop+GNOME_extension+config+cache+logs;backup=/home/daniele/backups/autokey/582941-20260714T222324+0200;activity=582941
+app=Espanso;version=2.3.0;package=espanso-wayland-2.3.0-1.fc44.x86_64;install=Terra_RPM;path=/usr/bin/espanso;config=/home/daniele/.config/espanso;runtime=/home/daniele/.cache/espanso;service=espanso.service;status=PASS_WITH_WARNING;migration_source=activity_582941
+backend=EVDEVSource+EVDEVInjector+WaylandFallbackClipboard;keyboard_layout=it;binary_capability=cap_dac_override_ep;startup=user_systemd_graphical_session_target+PartOf_graphical_session;duplicate_autostart=none
+tests=YAML_all_PASS+single_cdd_rule_PASS+GTK_native_Wayland_30_of_30_trigger_expansions+controlled_reload_restart_stop_start_PASS;warning=XTerm_XWayland_injection_failed+Chrome_not_revalidated+fresh_login_pending
+event_date=2026-07-26;summary=Espanso_pre_compositor_startup_race_fixed_without_version_or_match_text_changes;status=PASS_WITH_WARNING;source_ref=activity_573814
+event_date=2026-07-14;summary=AutoKey_stale_evdev_ENODEV_busy_loop_identified+controlled_restart_restored_low_CPU_and_fan;status=MITIGATED_HISTORICAL;source_ref=activity_614283
 app=ActivityWatch;version=v0.13.2;install=official_ActivityWatch_GitHub_linux_x86_64_zip_user_flat;path=/home/daniele/.local/opt/activitywatch;dashboard=http://127.0.0.1:5600;desktop=none;status=ACTIVE_VERIFIED
 asset=activitywatch-v0.13.2-linux-x86_64.zip;sha256=8f62b10babf8a8f108cbdf7267c02fbc1ce2a970fa9535f230b3416b803e3360;release=https://github.com/ActivityWatch/activitywatch/releases/tag/v0.13.2;latest_stable_verified=yes;prerelease_v0.14.0b1_excluded=yes;published_checksum_or_signature=none_found
 wayland=standard_aw-qt_watchers_disabled;aw-awatcher_0.3.3_official_RPM_active;focused-window-dbus_v11_enabled+active;no_proxy_no_timer_no_watchdog
@@ -93,6 +96,15 @@ tool=Android_SDK;path=/home/daniele/Android/Sdk;ANDROID_HOME=/home/daniele/Andro
 tool=adb;path=/home/daniele/Android/Sdk/platform-tools/adb;version=1.0.41/37.0.0-14910828;critical=yes
 tool=sdkmanager;path=/home/daniele/Android/Sdk/cmdline-tools/latest/bin/sdkmanager;critical=yes
 tool=Gradle;path=project_wrapper_preferred;version=project_specific;critical=yes
+
+REMOTE_ORACLE_VM:
+host=150.230.148.128;os=Ubuntu_22.04.5;kernel=6.8.0-1058-oracle;activity=731842
+tool=python;path=/usr/bin/python3;version=3.10.12;project_site=user_global;venv=none;pip_check=PASS
+tool=pip;scope=ubuntu_user_global;version=26.1.2;setuptools=83.0.0;wheel=0.47.0;lock=/home/daniele/MegaVault/projects/vm_oracle/python/requirements-global.lock.txt
+tool=Docker;version=29.6.2;compose=5.3.1;containerd=2.2.6
+tool=Node;version=22.23.1;npm=10.9.8;Codex_CLI=0.145.0;corepack=0.35.0;npm_12_major=suspended
+tool=Restic;path=/usr/local/bin/restic;version=0.19.1;source=official_checksum_verified
+tool=rclone;path=/usr/bin/rclone;version=1.74.4;status=current
 
 FEDORA_OPERATIONS:
 package_ops=dnf

@@ -15,7 +15,7 @@ Current host note: Fedora Linux 44 Workstation on Lenovo ThinkPad P14s Gen 5 AMD
 - Extended project index: [global/PROJECT_INDEX_EXTENDED.md](global/PROJECT_INDEX_EXTENDED.md)
 - Global Codex timeline: [../codex_global_timeline.md](../codex_global_timeline.md)
 - Global Codex timeline AI view: [../codex_global_timeline_ai.md](../codex_global_timeline_ai.md)
-- Project docs migration plan: [../ai/PROJECT_DOCS_MIGRATION_PLAN.md](../ai/PROJECT_DOCS_MIGRATION_PLAN.md)
+- Canonical project router: [../ai/GLOBAL_INDEX.md](../ai/GLOBAL_INDEX.md)
 - Project list: [PROJECTS.md](PROJECTS.md)
 - Enrichment report: [ENRICHMENT_REPORT.md](ENRICHMENT_REPORT.md)
 - Migration report: [MIGRATION_REPORT.md](MIGRATION_REPORT.md)

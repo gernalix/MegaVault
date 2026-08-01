@@ -17,6 +17,6 @@ Monitor locale Mint per verificare lo stato Codex CLI, leggere la cache locale q
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/codex-token-watcher.md)
-- Metadata: [dev/project.metadata.json](../../../../codex-token-watcher/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../codex-token-watcher/dev/legacy)
-- Repository: [repo path](../../../../codex-token-watcher)
+- Metadata: dev/project.metadata.json (`../../../../codex-token-watcher/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../codex-token-watcher/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../codex-token-watcher`; status=UNKNOWN)

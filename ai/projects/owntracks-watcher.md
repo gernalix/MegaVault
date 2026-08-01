@@ -127,7 +127,7 @@ meta=../../../owntracks-watcher/dev/project.metadata.json
 human=../../human/projects/owntracks-watcher/overview.md
 legacy=../../../owntracks-watcher/dev/legacy
 repo=../../../owntracks-watcher
-oracle_kuma=oracle-uptime-kuma.md
+oracle_kuma=../GLOBAL_INDEX.md+../global/SERVICE_REGISTRY.md+../global/ALERT_REGISTRY.md;archive=../archive/projects_legacy/oracle-uptime-kuma.md
 OPEN:
 open=Exact pre-reinstall Android Device ID value is not stored in DB; only persisted device series is tid/device value ta.
 open=No local/remote Git remote exists for placeholder repo /home/daniele/codex-workspace/owntracks-watcher; MegaVault doc is synced, runtime lives on Oracle VM.

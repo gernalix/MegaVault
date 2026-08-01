@@ -15,7 +15,7 @@ UNKNOWN: source docs do not state a clear purpose.
 - Script/build: `UNKNOWN`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/installa-app.md)
-- Metadata: [dev/project.metadata.json](../../../../installa-app/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../installa-app/dev/legacy)
-- Repository: [repo path](../../../../installa-app)
+- AI doc: AI doc (`../../../ai/projects/installa-app.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../installa-app/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../installa-app/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../installa-app`; status=UNKNOWN)
