@@ -52,7 +52,7 @@ project=mint-cloud-backup;repo=legacy:/home/daniele/codex-projects/mint-cloud-ba
 project=mint-freeze-forensics;repo=legacy:/home/daniele/codex-workspace/mint-freeze-forensics;ai=projects/LEGACY.md;status=legacy_Mint
 project=mint-manual-updates;repo=legacy:/home/daniele/codex-workspace/mint-manual-updates;ai=projects/LEGACY.md;status=legacy_Mint
 project=mint-update-tracker;repo=legacy:/home/daniele/codex-workspace/mint-update-tracker;ai=projects/LEGACY.md;status=legacy_Mint
-project=multitimetracker;repo=/home/daniele/projects/MultiTimeTracker;ai=/home/daniele/projects/MultiTimeTracker/dev/ai/FEDORA_SETUP.md;context=projects/multitimetracker.md;branch=codex/731684-fedora-environment-adaptation;head=971649d7e20df057fe7ca523868673bab2357e0d;status=active
+project=multitimetracker;repo=/home/daniele/projects/MultiTimeTracker;ai=/home/daniele/projects/MultiTimeTracker/dev/ai/FEDORA_SETUP.md;context=projects/multitimetracker.md;branch=main;head=70f5ab9b2d99236c1e7a29cbd042ee2e0f27af1f;status=active+single_trunk+bitwarden_signing_verified+pixel_v538
 project=oracle-backup-service;repo=/home/daniele/projects/oracle-backup-service;ai=/home/daniele/projects/oracle-backup-service/docs/ai/PROJECT.md;context=projects/oracle-backup-service.md;branch=main;head=3479d69;status=active_remote_healthy
 project=vm_oracle;repo=/home/daniele/projects/vm_oracle;ai=/home/daniele/projects/vm_oracle/docs/ai/PROJECT.md;branch=main;head=53c06b0;status=remote_runtime_PASS_CON_WARNING+single_trunk+secret_path_verified
 project=oracle-uptime-kuma;repo=remote:ubuntu@150.230.148.128;ai=global/SERVICE_REGISTRY.md+global/ALERT_REGISTRY.md;status=remote_runtime

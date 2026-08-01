@@ -26,3 +26,12 @@ ORACLE_CONSUMER=telegram_insert_bot;status=pending_serial_discovery
 ORACLE_VALIDATION=owner_mode+key_parse+sha256+fingerprint+direct_SSH+alias_SSH+SCP_read_only_PASS
 ORACLE_REMOTE_MUTATION=none
 ORACLE_VERIFIED=2026-08-01
+MULTITIMER_ENV=/home/daniele/.config/codex/secrets/multitimer.env
+MULTITIMER_ENV_OWNER=daniele:daniele
+MULTITIMER_ENV_MODE=600
+MULTITIMER_BITWARDEN_ITEM=MultiTimeTracker Play Store Signing;uuid=1cda2c3d-422d-4b16-a29e-b47100574349;fields=login.password,key_alias,key_password,attachment
+MULTITIMER_BITWARDEN_ITEM=MultiTimeTracker Pixel Direct-Update Signing Key;uuid=f6a323da-7feb-4b0b-ac13-b48b00c893ae;fields=alias,store_password,key_password,attachment
+MULTITIMER_CONSUMER=/home/daniele/projects/MultiTimeTracker/app/build.gradle.kts;status=verified
+MULTITIMER_SECRET_FILES=separate_files;mode=600;tracked=no
+MULTITIMER_VALIDATION=two_item_fingerprint+signed_APK_AAB+Pixel_in_place+secret_scan_PASS
+MULTITIMER_VERIFIED=2026-08-01
