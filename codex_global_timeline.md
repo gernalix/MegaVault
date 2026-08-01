@@ -2,7 +2,7 @@
 
 Generated: 2026-08-01T00:00:00+00:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 1068
+Total events: 1074
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -12,7 +12,7 @@ Total events: 1068
 
 | Value | Events |
 |---|---:|
-| megavault | 195 |
+| megavault | 200 |
 | amici-fb | 168 |
 | multitimetracker | 80 |
 | luoghi-app | 78 |
@@ -45,12 +45,12 @@ Total events: 1068
 | remote-codex-phone | 10 |
 | remote-opt-oracle-backup | 10 |
 | system-watchdog | 10 |
+| windows | 10 |
 | windowtabnotes | 10 |
 | git-change-ledger | 9 |
 | maintenance-486 | 9 |
 | mint-freeze-forensics | 9 |
 | surface-recovery-hardening | 9 |
-| windows | 9 |
 | android-app-template | 8 |
 | facedownassup-downloader | 8 |
 | pixel-8a | 8 |
@@ -71,23 +71,23 @@ Total events: 1068
 
 | Value | Events |
 |---|---:|
-| security | 351 |
+| security | 355 |
 | backup | 314 |
-| docs | 98 |
+| docs | 99 |
 | release | 81 |
 | bugfix | 73 |
 | testing | 72 |
 | automation | 40 |
 | infra | 20 |
-| migration | 15 |
+| migration | 16 |
 | performance | 4 |
 
 ### Events by importance
 
 | Value | Events |
 |---|---:|
-| P1 | 579 |
-| P0 | 244 |
+| P1 | 580 |
+| P0 | 249 |
 | P2 | 217 |
 | P3 | 28 |
 
@@ -95,10 +95,10 @@ Total events: 1068
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 390 |
-| WARN | 237 |
-| PASS | 235 |
-| OPEN | 116 |
+| UNKNOWN | 391 |
+| PASS | 238 |
+| WARN | 238 |
+| OPEN | 117 |
 | FAIL | 90 |
 
 
@@ -123,19 +123,22 @@ Total events: 1068
 | 2026-08-01 | maintenance-486 | maintenance-486 maintenance-486 Overview | testing | OPEN | P3 | report | markdown | maintenance-486 Overview |
 | 2026-08-01 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
-| 2026-08-01 | megavault | Git PATH | release | UNKNOWN | P0 | release | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
-| 2026-08-01 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | FINAL_PERMANENT |
+| 2026-08-01 | megavault | Git PATH | security | UNKNOWN | P0 | protocol_update | json | V17 PROTOCOL SEMANTIC MAP |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-08-01 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | FINAL_PERMANENT |
+| 2026-08-01 | megavault | Git PATH | security | UNKNOWN | P0 | protocol_update | json | V17 PROTOCOL SEMANTIC MAP |
 | 2026-08-01 | megavault | Git PATH | release | UNKNOWN | P0 | release | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
 | 2026-08-01 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
 | 2026-08-01 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
+| 2026-08-01 | megavault | MegaVault v17 | docs | PASS | P0 | git_commit | git_log | protocol: publish canonical MegaVault v17 |
 | 2026-08-01 | multitimetracker | MTT Activity 483716 Android | security | WARN | P0 | protocol_update | markdown | Activity 483716 Android Studio User Migration |
 | 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
 | 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
@@ -143,11 +146,13 @@ Total events: 1068
 | 2026-08-01 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
 | 2026-08-01 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
 | 2026-08-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
+| 2026-08-01 | windows | windows v33 | security | OPEN | P0 | protocol_update | markdown | GLOBAL_INDEX |
 | 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
 | 2026-07-31 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fba00-074b-7120-a1aa-9d333f3ace56 |
 | 2026-07-31 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora USB HDD spin-down and lid-suspend diagnosis |
 | 2026-07-31 | rollout-summaries | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Diagnosi spin-down HDD USB Fedora 44 completata con PASS CON WARNING |
 | 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-30 | megavault | MegaVault REPORTS_LATEST | security | WARN | P0 | protocol_update | markdown | REPORTS_LATEST |
 | 2026-07-30 | megavault | MegaVault v16 | security | WARN | P0 | protocol_update | markdown | REPORTS_LATEST |
 | 2026-07-30 | multitimetracker | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Telegram notification helper audit and chat_id API extension completed |
 | 2026-07-30 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fb077-d65c-7723-a46e-a55e740bd5df |
@@ -375,7 +380,7 @@ Total events: 1068
 | 1970-01-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
 
 ## Projects
-- `megavault`: 195 events; latest=2026-08-01; label=Codex Timeline
+- `megavault`: 200 events; latest=2026-08-01; label=Codex Timeline
 - `amici-fb`: 168 events; latest=2026-08-01; label=Amici FB amici 2026
 - `multitimetracker`: 80 events; latest=2026-08-01; label=MTT Activity 483716 Android
 - `luoghi-app`: 78 events; latest=2026-07-27; label=luoghi-app v16
@@ -408,12 +413,12 @@ Total events: 1068
 - `remote-codex-phone`: 10 events; latest=2026-08-01; label=Android Tests
 - `remote-opt-oracle-backup`: 10 events; latest=2026-08-01; label=remote-opt-oracle-backup remote_opt_oracle_backup Overview
 - `system-watchdog`: 10 events; latest=2026-08-01; label=system-watchdog system_watchdog Overview
+- `windows`: 10 events; latest=2026-08-01; label=windows v33
 - `windowtabnotes`: 10 events; latest=2026-08-01; label=windowtabnotes v23
 - `git-change-ledger`: 9 events; latest=2026-08-01; label=Git PATH
 - `maintenance-486`: 9 events; latest=2026-08-01; label=maintenance-486 maintenance-486 Overview
 - `mint-freeze-forensics`: 9 events; latest=2026-07-09; label=mint-freeze-forensics Features
 - `surface-recovery-hardening`: 9 events; latest=2026-07-09; label=surface-recovery-hardening surface-recovery-hardening Features
-- `windows`: 9 events; latest=2026-07-26; label=Veeam T7
 - `android-app-template`: 8 events; latest=2026-07-09; label=android-app-template Android App Template
 - `facedownassup-downloader`: 8 events; latest=2026-08-01; label=facedownassup-downloader facedownassup-downloader
 - `pixel-8a`: 8 events; latest=2026-08-01; label=Git PATH
@@ -451,17 +456,21 @@ Total events: 1068
 | 2026-08-01 | maintenance-486 | maintenance-486 maintenance-486 Overview | testing | OPEN | P3 | report | markdown | maintenance-486 Overview |
 | 2026-08-01 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | FINAL_PERMANENT |
+| 2026-08-01 | megavault | Git PATH | security | UNKNOWN | P0 | protocol_update | json | V17 PROTOCOL SEMANTIC MAP |
 | 2026-08-01 | megavault | Git PATH | release | UNKNOWN | P0 | release | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
 | 2026-08-01 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
 | 2026-08-01 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
+| 2026-08-01 | megavault | MegaVault v17 | docs | PASS | P0 | git_commit | git_log | protocol: publish canonical MegaVault v17 |
 | 2026-08-01 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
 | 2026-08-01 | megavault | Git PATH | security | WARN | P1 | report | markdown | activity 641827 display wifi idle |
 | 2026-08-01 | megavault | Git PATH | security | UNKNOWN | P1 | report | markdown | TELEGRAM_NOTIFY_AUDIT |
 | 2026-08-01 | megavault | MegaVault Audit Telegram Notify | security | OPEN | P1 | doc_event | markdown | Audit Telegram Notify |
 | 2026-08-01 | megavault | MegaVault v0 | backup | FAIL | P1 | backup | markdown | activity 592184 activitywatch fedora44 wayland |
 | 2026-08-01 | megavault | MegaVault v16 | bugfix | PASS | P1 | git_commit | git_log | fix: address v16 reconciliation review gates |
+| 2026-08-01 | megavault | MegaVault v16 | migration | PASS | P1 | git_commit | git_log | Merge pull request #2 from codex/megavault-v16-reconciliation |
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | reconcile: establish MegaVault v16 foundation |
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | reconcile: complete canonical MegaVault v16 baseline |
 | 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | docs: record v16 review gate evidence |
@@ -490,6 +499,7 @@ Total events: 1068
 | 2026-08-01 | supercontacts | SC v30 | backup | OPEN | P1 | report | json | 2917AA9 DELETE MANIFEST |
 | 2026-08-01 | supercontacts | SC v33 | backup | UNKNOWN | P1 | report | markdown | ARCHIVE_INDEX |
 | 2026-08-01 | system-watchdog | system-watchdog system_watchdog Overview | automation | OPEN | P2 | doc_event | markdown | system_watchdog Overview |
+| 2026-08-01 | windows | windows v33 | security | OPEN | P0 | protocol_update | markdown | GLOBAL_INDEX |
 | 2026-08-01 | windows-winget-daily-update | Winget Windows Winget Daily | automation | OPEN | P2 | doc_event | markdown | Windows Winget Daily Update Overview |
 | 2026-08-01 | windowtabnotes | windowtabnotes v23 | release | WARN | P1 | release | markdown | WindowTabNotes Overview |
 | 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
@@ -507,6 +517,7 @@ Total events: 1068
 | 2026-07-30 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
 | 2026-07-30 | amici-fb | Amici FB amici_fb Fedora | automation | UNKNOWN | P2 | report | markdown | amici_fb Fedora |
 | 2026-07-30 | megavault | Codex Timeline | docs | PASS | P0 | git_commit | git_log | docs: refresh global Codex timeline |
+| 2026-07-30 | megavault | MegaVault REPORTS_LATEST | security | WARN | P0 | protocol_update | markdown | REPORTS_LATEST |
 | 2026-07-30 | megavault | MegaVault v16 | security | WARN | P0 | protocol_update | markdown | REPORTS_LATEST |
 | 2026-07-30 | megavault | MegaVault ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS | backup | PASS | P1 | report | markdown | ACTIVITY_214587_SECURE_BOOT_DRACUT_FORENSICS |
 | 2026-07-30 | megavault | MegaVault ACTIVITY_562941_SECURE_BOOT_FINAL_READONLY_VERIFICATION | security | WARN | P1 | doc_event | markdown | ACTIVITY_562941_SECURE_BOOT_FINAL_READONLY_VERIFICATION |
