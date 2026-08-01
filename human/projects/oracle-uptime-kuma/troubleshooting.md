@@ -3,7 +3,7 @@
 Connessione:
 
 ```bash
-ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key ubuntu@150.230.148.128
+ssh oracle-vm
 cd /opt/uptime-kuma
 sudo docker ps --filter name=uptime-kuma
 curl -sS -I --max-time 10 http://127.0.0.1:3002/dashboard
@@ -13,8 +13,7 @@ sudo sqlite3 -readonly /opt/uptime-kuma/data/kuma.db 'PRAGMA integrity_check;'
 Accesso amministrativo:
 
 ```bash
-ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key \
-  -L 3001:127.0.0.1:3002 ubuntu@150.230.148.128
+ssh -L 3001:127.0.0.1:3002 oracle-vm
 ```
 
 Aprire `http://150.230.148.128:3001/dashboard`. In alternativa, aprire `http://127.0.0.1:3001` dopo aver avviato il tunnel SSH.

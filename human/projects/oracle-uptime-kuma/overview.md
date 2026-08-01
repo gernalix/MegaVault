@@ -13,8 +13,7 @@ Kuma resta legato localmente a `127.0.0.1:3002`; Nginx espone `150.230.148.128:3
 Il tunnel SSH resta disponibile come accesso alternativo:
 
 ```bash
-ssh -i /home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key \
-  -L 3001:127.0.0.1:3002 ubuntu@150.230.148.128
+ssh -L 3001:127.0.0.1:3002 oracle-vm
 ```
 
 Runtime verificato il 2026-06-15:

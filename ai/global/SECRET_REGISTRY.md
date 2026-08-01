@@ -20,7 +20,7 @@ ORACLE_OLD_PATH=/home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa
 ORACLE_OLD_PATH_STATUS=preserved_pending_remaining_consumer_migration
 ORACLE_CONSUMER=ssh_config;status=verified
 ORACLE_CONSUMER=oracle-backup-service;status=verified
-ORACLE_CONSUMER=vm_oracle;status=pending_serial_migration
+ORACLE_CONSUMER=vm_oracle;status=verified;helper=/home/daniele/projects/vm_oracle/scripts/oracle_ssh.sh
 ORACLE_CONSUMER=datasette5;status=pending_serial_discovery
 ORACLE_CONSUMER=telegram_insert_bot;status=pending_serial_discovery
 ORACLE_VALIDATION=owner_mode+key_parse+sha256+fingerprint+direct_SSH+alias_SSH+SCP_read_only_PASS
