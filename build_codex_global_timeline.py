@@ -10,10 +10,11 @@ import shutil
 import sqlite3
 import subprocess
 import sys
+import tempfile
 import unicodedata
 from collections import Counter, defaultdict
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -58,10 +59,12 @@ SKIP_DIRS = {
     "tmp",
     "temp",
 }
-SKIP_FILENAMES = {
+GENERATED_TIMELINE_PATHS = {
     "codex_global_timeline.md",
     "codex_global_timeline_ai.md",
     "codex_global_timeline.sqlite",
+}
+SKIP_FILENAMES = GENERATED_TIMELINE_PATHS | {
     "codex_global_timeline.sqlite-shm",
     "codex_global_timeline.sqlite-wal",
 }
@@ -69,6 +72,12 @@ MAX_SAMPLE_CHARS = 900_000
 MAX_SUMMARY_CHARS = 180
 MAX_REPORT_SUMMARY_CHARS = 150
 DEFAULT_GIT_MAX_COMMITS = 2500
+SCHEMA_COLUMNS = (
+    "id", "event_date", "discovered_at", "project", "category", "importance",
+    "label_short", "event_type", "summary", "source_path", "source_kind",
+    "branch", "commit_hash", "artifact_path", "apk_name", "version_name",
+    "version_code", "status", "confidence", "notes",
+)
 
 SECRET_PATTERNS = [
     re.compile(r"(?i)\bBearer\s+[A-Za-z0-9._~+/=-]{12,}"),
@@ -121,8 +130,9 @@ class Event:
     notes: str
 
 
-def now_iso() -> str:
-    return datetime.now().astimezone().replace(microsecond=0).isoformat()
+def stable_timestamp(event_date: str) -> str:
+    """Return a content-derived UTC timestamp; never consult the wall clock."""
+    return f"{event_date}T00:00:00+00:00"
 
 
 def ascii_clean(text: str) -> str:
@@ -206,10 +216,12 @@ def extract_date(path: Path, content: str) -> tuple[str, float]:
         match = re.search(r"\b(20\d{2})(\d{2})(\d{2})\b", text)
         if match and valid_date(match.group(1), match.group(2), match.group(3)):
             return f"{match.group(1)}-{match.group(2)}-{match.group(3)}", 0.88
-    try:
-        return datetime.fromtimestamp(path.stat().st_mtime).date().isoformat(), 0.55
-    except OSError:
-        return datetime.now().date().isoformat(), 0.35
+    # Git metadata is stable across checkouts; filesystem mtimes are not.
+    git_date = run_git(path.parent, ["log", "-1", "--format=%cs", "--", str(path)])
+    candidate = git_date.strip()
+    if re.fullmatch(r"20\d{2}-\d{2}-\d{2}", candidate):
+        return candidate, 0.72
+    return "1970-01-01", 0.20
 
 
 def valid_date(year: str, month: str, day: str) -> bool:
@@ -510,7 +522,7 @@ def source_kind(path: Path) -> str:
     return suffix or "file"
 
 
-def event_from_file(path: Path, root: Path, discovered_at: str) -> Event | None:
+def event_from_file(path: Path, root: Path, discovered_at: str = "") -> Event | None:
     if path.name in SKIP_FILENAMES or path.suffix.lower() not in SOURCE_EXTENSIONS:
         return None
     content = read_sample(path)
@@ -518,6 +530,7 @@ def event_from_file(path: Path, root: Path, discovered_at: str) -> Event | None:
         return None
     summary = extract_summary(path, content)
     event_date, date_conf = extract_date(path, content)
+    discovered_at = stable_timestamp(event_date)
     project = infer_project(path, content, root)
     status = infer_status(content)
     category = infer_category(path, content, summary)
@@ -556,24 +569,9 @@ def event_from_file(path: Path, root: Path, discovered_at: str) -> Event | None:
     )
 
 
-def discover_source_roots(extra_roots: list[Path]) -> list[Path]:
-    roots: list[Path] = [BASE_DIR]
-    home = Path.home()
-    documents = home / "Documents"
-    codex = home / ".codex"
-    if documents.exists():
-        for name in ["MegaVault", "Megavault 2", "megavault_content_aware_merge_20260705"]:
-            candidate = documents / name
-            if candidate.exists():
-                roots.append(candidate)
-        for candidate in documents.iterdir():
-            if candidate.is_dir() and re.match(r"(?i)^mega.?vault", candidate.name):
-                roots.append(candidate)
-    for candidate in [codex / "memories", codex / "sessions"]:
-        if candidate.exists():
-            roots.append(candidate)
-    roots.extend(extra_roots)
-    return dedupe_paths(roots)
+def discover_source_roots(primary_root: Path, extra_roots: list[Path]) -> list[Path]:
+    """Use only explicit roots; live Codex sessions are intentionally absent."""
+    return dedupe_paths([primary_root, *extra_roots])
 
 
 def dedupe_paths(paths: list[Path]) -> list[Path]:
@@ -591,39 +589,48 @@ def dedupe_paths(paths: list[Path]) -> list[Path]:
     return result
 
 
+def git_root(path: Path) -> Path | None:
+    output = run_git(path, ["rev-parse", "--show-toplevel"]).strip()
+    return Path(output).resolve() if output else None
+
+
+def is_safe_source_path(relative: Path) -> bool:
+    parts = {part.lower() for part in relative.parts}
+    if parts & {name.lower() for name in SKIP_DIRS}:
+        return False
+    if parts & {"private", "secrets", ".codex", "sessions"}:
+        return False
+    if relative.name in SKIP_FILENAMES:
+        return False
+    return relative.suffix.lower() in SOURCE_EXTENSIONS
+
+
 def iter_source_files(root: Path) -> list[Path]:
+    """Return tracked and untracked/non-ignored files from a Git repo/worktree."""
+    repo = git_root(root)
+    if repo is None:
+        raise RuntimeError(f"source root is not a Git repository or worktree: {root}")
+    raw = run_git(repo, ["ls-files", "-co", "--exclude-standard", "-z"])
     files: list[Path] = []
-    for dirpath, dirnames, filenames in os.walk(root):
-        dirnames[:] = [name for name in dirnames if name not in SKIP_DIRS and not name.endswith(".egg-info")]
-        for filename in filenames:
-            path = Path(dirpath) / filename
-            if path.name in SKIP_FILENAMES:
+    for item in raw.split("\0"):
+        if not item:
+            continue
+        relative = Path(item)
+        path = repo / relative
+        if not is_safe_source_path(relative) or not path.is_file():
+            continue
+        try:
+            if path.stat().st_size <= 0:
                 continue
-            if path.suffix.lower() not in SOURCE_EXTENSIONS:
-                continue
-            try:
-                if path.stat().st_size <= 0:
-                    continue
-            except OSError:
-                continue
-            files.append(path)
-    return files
+        except OSError:
+            continue
+        files.append(path)
+    return sorted(files, key=lambda item: item.as_posix())
 
 
-def discover_git_repos() -> list[Path]:
-    roots: list[Path] = [BASE_DIR]
-    documents = Path.home() / "Documents"
-    if documents.exists():
-        roots.append(documents)
-    repos: list[Path] = []
-    for root in dedupe_paths(roots):
-        for dirpath, dirnames, _filenames in os.walk(root):
-            if ".git" in dirnames:
-                repos.append(Path(dirpath))
-                dirnames[:] = []
-                continue
-            dirnames[:] = [name for name in dirnames if name not in SKIP_DIRS]
-    return dedupe_paths(repos)
+def discover_git_repos(source_roots: list[Path]) -> list[Path]:
+    """Resolve both normal repositories and linked worktrees via Git itself."""
+    return dedupe_paths([repo for root in source_roots if (repo := git_root(root)) is not None])
 
 
 def find_git() -> str:
@@ -655,13 +662,30 @@ def run_git(repo: Path, args: list[str], timeout: int = 30) -> str:
 
 def events_from_git(repo: Path, discovered_at: str, max_commits: int) -> list[Event]:
     branch = run_git(repo, ["rev-parse", "--abbrev-ref", "HEAD"]).strip()
-    log = run_git(repo, ["log", f"--max-count={max_commits}", "--date=short", "--pretty=format:%H%x1f%ad%x1f%s%x1f%D"], timeout=90)
+    log = run_git(
+        repo,
+        [
+            "log",
+            f"--max-count={max_commits}",
+            "--date=short",
+            "--pretty=format:%x1e%H%x1f%ad%x1f%s%x1f%D",
+            "--name-only",
+        ],
+        timeout=90,
+    )
     events: list[Event] = []
-    for line in log.splitlines():
-        parts = line.split("\x1f")
+    for record in log.split("\x1e"):
+        lines = [line.strip() for line in record.splitlines() if line.strip()]
+        if not lines:
+            continue
+        parts = lines[0].split("\x1f")
         if len(parts) < 3:
             continue
         commit_hash, event_date, subject = parts[:3]
+        changed_paths = set(lines[1:])
+        if changed_paths and changed_paths <= GENERATED_TIMELINE_PATHS:
+            continue
+        discovered_at = stable_timestamp(event_date)
         refs = parts[3] if len(parts) > 3 else ""
         project = slugify(repo.name)
         summary = truncate(subject, MAX_SUMMARY_CHARS)
@@ -693,7 +717,7 @@ def events_from_git(repo: Path, discovered_at: str, max_commits: int) -> list[Ev
                 version_code=version_code,
                 status=status,
                 confidence=0.96,
-                notes=truncate(f"refs={refs}", 180),
+                notes=truncate(f"refs={refs};changed_paths={len(changed_paths)}", 180),
             )
         )
     return events
@@ -736,6 +760,113 @@ def connect_db() -> sqlite3.Connection:
     conn.execute("CREATE INDEX IF NOT EXISTS idx_timeline_importance ON timeline_events(importance)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_timeline_status ON timeline_events(status)")
     return conn
+
+
+def checkpoint_existing_db(path: Path) -> None:
+    """Materialize any valid WAL, then leave no transient SQLite sidecars."""
+    if path.exists():
+        conn = sqlite3.connect(path)
+        try:
+            conn.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+        finally:
+            conn.close()
+    for suffix in ("-wal", "-shm"):
+        sidecar = Path(f"{path}{suffix}")
+        if sidecar.exists():
+            sidecar.unlink()
+
+
+def load_existing_events(path: Path) -> list[Event]:
+    if not path.exists():
+        return []
+    conn = sqlite3.connect(path)
+    conn.row_factory = sqlite3.Row
+    try:
+        table = conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name='timeline_events'"
+        ).fetchone()
+        if table is None:
+            return []
+        return [Event(**{column: row[column] for column in SCHEMA_COLUMNS}) for row in conn.execute("SELECT * FROM timeline_events")]
+    finally:
+        conn.close()
+
+
+def create_schema(conn: sqlite3.Connection) -> None:
+    conn.execute(
+        """
+        CREATE TABLE timeline_events (
+            id TEXT PRIMARY KEY,
+            event_date TEXT NOT NULL,
+            discovered_at TEXT NOT NULL,
+            project TEXT NOT NULL,
+            category TEXT NOT NULL,
+            importance TEXT NOT NULL,
+            label_short TEXT NOT NULL,
+            event_type TEXT NOT NULL,
+            summary TEXT NOT NULL,
+            source_path TEXT NOT NULL,
+            source_kind TEXT NOT NULL,
+            branch TEXT,
+            commit_hash TEXT,
+            artifact_path TEXT,
+            apk_name TEXT,
+            version_name TEXT,
+            version_code TEXT,
+            status TEXT NOT NULL,
+            confidence REAL NOT NULL,
+            notes TEXT
+        )
+        """
+    )
+    conn.execute("CREATE INDEX idx_timeline_event_date ON timeline_events(event_date)")
+    conn.execute("CREATE INDEX idx_timeline_project ON timeline_events(project)")
+    conn.execute("CREATE INDEX idx_timeline_category ON timeline_events(category)")
+    conn.execute("CREATE INDEX idx_timeline_importance ON timeline_events(importance)")
+    conn.execute("CREATE INDEX idx_timeline_status ON timeline_events(status)")
+
+
+def write_deterministic_db(path: Path, events: list[Event]) -> bool:
+    """Rebuild canonically, replacing the target only when its bytes change."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    os.close(fd)
+    temporary = Path(temporary_name)
+    try:
+        conn = sqlite3.connect(temporary)
+        try:
+            conn.execute("PRAGMA page_size=4096")
+            conn.execute("PRAGMA auto_vacuum=NONE")
+            conn.execute("PRAGMA journal_mode=DELETE")
+            conn.execute("PRAGMA synchronous=FULL")
+            create_schema(conn)
+            placeholders = ",".join("?" for _ in SCHEMA_COLUMNS)
+            columns = ",".join(SCHEMA_COLUMNS)
+            rows = [tuple(getattr(event, column) for column in SCHEMA_COLUMNS) for event in sorted(events, key=lambda item: item.id)]
+            conn.executemany(f"INSERT INTO timeline_events ({columns}) VALUES ({placeholders})", rows)
+            conn.commit()
+            conn.execute("VACUUM")
+        finally:
+            conn.close()
+        if path.exists() and path.read_bytes() == temporary.read_bytes():
+            return False
+        os.replace(temporary, path)
+        return True
+    finally:
+        if temporary.exists():
+            temporary.unlink()
+
+
+def merge_append_only(existing: list[Event], discovered: list[Event]) -> list[Event]:
+    """Preserve all historical rows and add only new, non-equivalent events."""
+    by_id = {event.id: event for event in existing}
+    equivalence = {event_equivalence_key(event) for event in existing}
+    for event in sorted(discovered, key=lambda item: item.id):
+        if event.id in by_id or event_equivalence_key(event) in equivalence:
+            continue
+        by_id[event.id] = event
+        equivalence.add(event_equivalence_key(event))
+    return list(by_id.values())
 
 
 def upsert_events(conn: sqlite3.Connection, events: list[Event]) -> None:
@@ -877,9 +1008,17 @@ def table_escape(value: object, limit: int = 0) -> str:
     return text
 
 
+def write_if_changed(path: Path, content: str) -> bool:
+    encoded = content.encode("utf-8")
+    if path.exists() and path.read_bytes() == encoded:
+        return False
+    path.write_bytes(encoded)
+    return True
+
+
 def write_reports(conn: sqlite3.Connection, source_roots: list[Path]) -> None:
     events = fetch_events(conn)
-    generated_at = now_iso()
+    generated_at = stable_timestamp(max((row["event_date"] for row in events), default="1970-01-01"))
     by_project = Counter(row["project"] for row in events)
     by_category = Counter(row["category"] for row in events)
     by_importance = Counter(row["importance"] for row in events)
@@ -919,7 +1058,7 @@ def write_reports(conn: sqlite3.Connection, source_roots: list[Path]) -> None:
     lines.append("")
     lines.append("## Complete Timeline")
     lines.extend(event_table(events))
-    REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    write_if_changed(REPORT_PATH, "\n".join(lines) + "\n")
 
     ai_lines = [
         "# Global Codex Timeline AI",
@@ -940,7 +1079,7 @@ def write_reports(conn: sqlite3.Connection, source_roots: list[Path]) -> None:
                 ]
             )
         )
-    AI_REPORT_PATH.write_text("\n".join(ai_lines) + "\n", encoding="utf-8")
+    write_if_changed(AI_REPORT_PATH, "\n".join(ai_lines) + "\n")
 
 
 def counter_lines(title: str, counter: Counter[str]) -> list[str]:
@@ -1063,28 +1202,36 @@ def print_milestones(conn: sqlite3.Connection) -> None:
 
 
 def build(args: argparse.Namespace) -> int:
-    discovered_at = now_iso()
-    source_roots = discover_source_roots([Path(item) for item in args.source_root])
+    global DB_PATH, REPORT_PATH, AI_REPORT_PATH
+    primary_root = Path(args.primary_root).resolve()
+    output_dir = Path(args.output_dir).resolve()
+    DB_PATH = output_dir / "codex_global_timeline.sqlite"
+    REPORT_PATH = output_dir / "codex_global_timeline.md"
+    AI_REPORT_PATH = output_dir / "codex_global_timeline_ai.md"
+    source_roots = discover_source_roots(primary_root, [Path(item) for item in args.source_root])
     events_by_id: dict[str, Event] = {}
     file_count = 0
     for root in source_roots:
         for path in iter_source_files(root):
             file_count += 1
-            event = event_from_file(path, root, discovered_at)
+            event = event_from_file(path, root)
             if event is not None:
                 events_by_id[event.id] = event
 
     git_events = 0
     if not args.no_git:
-        for repo in discover_git_repos():
-            for event in events_from_git(repo, discovered_at, args.max_git_commits):
+        for repo in discover_git_repos(source_roots):
+            for event in events_from_git(repo, "", args.max_git_commits):
                 git_events += 1
                 events_by_id[event.id] = event
 
     deduped_events = dedupe_events(list(events_by_id.values()))
-    conn = connect_db()
-    with conn:
-        upsert_events(conn, deduped_events)
+    checkpoint_existing_db(DB_PATH)
+    existing_events = load_existing_events(DB_PATH)
+    complete_events = merge_append_only(existing_events, deduped_events)
+    database_changed = write_deterministic_db(DB_PATH, complete_events)
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
     write_reports(conn, source_roots)
     validation = validate(conn)
 
@@ -1093,6 +1240,8 @@ def build(args: argparse.Namespace) -> int:
     print(f"source_files_scanned={file_count}")
     print(f"events_discovered_this_run={len(events_by_id)}")
     print(f"events_after_equivalence_dedupe={len(deduped_events)}")
+    print(f"events_preserved_from_history={len(existing_events)}")
+    print(f"database_changed={'yes' if database_changed else 'no'}")
     print(f"git_events_discovered={git_events}")
     for key, value in validation.items():
         print(f"{key}={value}")
@@ -1120,7 +1269,9 @@ def build(args: argparse.Namespace) -> int:
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build the mandatory Global Codex Timeline.")
+    parser.add_argument("--primary-root", default=str(BASE_DIR), help="Primary Git repository or worktree root.")
     parser.add_argument("--source-root", action="append", default=[], help="Extra source root to scan recursively.")
+    parser.add_argument("--output-dir", default=str(BASE_DIR), help="Directory for the three canonical outputs.")
     parser.add_argument("--no-git", action="store_true", help="Skip local git log import.")
     parser.add_argument("--max-git-commits", type=int, default=DEFAULT_GIT_MAX_COMMITS, help="Max commits imported per local repository.")
     return parser.parse_args(argv)

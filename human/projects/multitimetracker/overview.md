@@ -21,9 +21,9 @@ MultiTimeTracker is a local-first Android time tracker. The main data lives in t
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/multitimetracker.md)
-- Metadata: [dev/project.metadata.json](../../../../projects/MultiTimeTracker/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../projects/MultiTimeTracker/dev/legacy)
-- Repository: [repo path](../../../../projects/MultiTimeTracker)
+- Metadata: dev/project.metadata.json (`../../../../projects/MultiTimeTracker/dev/project.metadata.json`; status=owner_repo_verified_local_2026-08-01)
+- Legacy docs: dev/legacy (`../../../../projects/MultiTimeTracker/dev/legacy`; status=owner_repo_verified_local_2026-08-01)
+- Repository: repo path (`../../../../projects/MultiTimeTracker`; status=owner_repo_verified_local_2026-08-01)
 
 ---
 

@@ -1,4 +1,4 @@
-VERSION=3
+VERSION=4
 STATUS=FINAL_PERMANENT
 FORMAT=ultracompressed
 AUDIENCE=codex
@@ -36,12 +36,17 @@ ANDROID_TOOLING_AUTONOMY=yes
 SDK_INSTALL_ALLOWED=yes
 ADB_INSTALL_ALLOWED=yes
 BUILD_BLOCKED=auto_repair
-HOST_WINDOWS_PRIMARY=yes
-WINDOWS_ANDROID_STUDIO=C:\Program Files\Android\Android Studio\bin\studio64.exe
-WINDOWS_ANDROID_SDK=C:\Users\seste\AppData\Local\Android\Sdk
-WINDOWS_ADB=C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe
-WINDOWS_SHELL=pwsh/PowerShell
-LEGACY_LINUX_SDK_PATHS=historical_or_project_specific_only
+HOST_FEDORA_PRIMARY=yes
+FEDORA_ANDROID_STUDIO=/home/daniele/.local/bin/android-studio;install=user_official_Google_archive;writable_by_daniele=yes
+FEDORA_ANDROID_SDK=/home/daniele/Android/Sdk
+FEDORA_ADB=/home/daniele/Android/Sdk/platform-tools/adb
+FEDORA_SDKMANAGER=/home/daniele/Android/Sdk/cmdline-tools/latest/bin/sdkmanager
+FEDORA_JAVA_HOME=/usr/lib/jvm/java-25-openjdk
+FEDORA_ANDROID_HOME=/home/daniele/Android/Sdk
+FEDORA_ANDROID_SDK_ROOT=/home/daniele/Android/Sdk
+FEDORA_SHELL=bash
+FEDORA_PACKAGE_MANAGER=dnf
+NON_FEDORA_TOOLING=project_specific_only;never_current_host_default
 
 # BUILD
 DEFAULT_BUILD=./gradlew assembleDebug

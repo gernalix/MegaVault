@@ -1,53 +1,60 @@
 # NETWORK_TOPOLOGY
-VERSION=2
+VERSION=9
 STATUS=ACTIVE
 MODE=codex_first
 FORMAT=ultracompressed
-SOURCE=HOST_PROFILE_2026-07-05+legacy_Kuma_docs
+SOURCE=HOST_PROFILE+ip_live_2026-07-10+adb_live_2026-07-10+activity_638214+activity_593184+activity_593804+activity_471853+activity_826417+activity_731904+activity_641827+activity_731842
 PROTOCOL=../MEGAVAULT_PROTOCOL.md
 HOST_PROFILE=HOST_PROFILE.md
 HUMAN=../../human/global/NETWORK_TOPOLOGY.md
 
-LOCAL_HOST:
-host=DANIELE_PC
+LOCAL_FEDORA:
+host=fedora
 machine=Lenovo_ThinkPad_P14s_Gen_5_AMD
-os=Windows_11_Pro
-lan_ip=UNKNOWN_not_scanned
-tailscale=UNKNOWN_not_scanned
+os=Fedora_Linux_44_Workstation
 loopback=127.0.0.1
-rule=do_not_use_old_Surface_IP_as_current_host_without_live_ipconfig
 
-REMOTE_NODES:
-node=oracle_vm
-host=ubuntu@150.230.148.128
-roles=uptime_kuma,oracle_backup,remote_monitoring
-kuma_admin=ssh_tunnel http://127.0.0.1:3001 -> VM 127.0.0.1:3002
-kuma_public_push=http://150.230.148.128:3001/api/push/<token>
-kuma_db=/opt/uptime-kuma/data/kuma.db
-ssh_key_windows=UNKNOWN
-ssh_key_legacy_linux=/home/daniele/codex-workspace/projects/vm_oracle/ssh-key-2026-02-01.key
+MONITORING_EGRESS:
+source=fedora-system-monitor;destination=150.230.148.128:3001;protocol=HTTP;purpose=Uptime_Kuma_push_only;categories=system+storage+network+services+software;credentials=root_only;payload=no_sensitive_data;firewall_change=none;delivery_verified=2026-07-14;admin_readback=remote_SQLite_ok
+source=fedora-system-monitor-prometheus;destination=127.0.0.1:9109;protocol=HTTP;purpose=optional_local_metrics;default_state=disabled;external_exposure=none;verified=2026-07-13
+source=prometheus;destination=127.0.0.1:9090;protocol=HTTP;purpose=local_UI+official_query_API+self_metrics;external_exposure=none;firewall_change=none;verified=2026-07-14;activity=826417
+source=prometheus-node-exporter;destination=127.0.0.1:9100;protocol=HTTP;purpose=local_Fedora_host_metrics;external_exposure=none;firewall_change=none;verified=2026-07-14;activity=826417
+relation=Prometheus_scrapes_127.0.0.1:9090+9100+9109;Uptime_Kuma_egress_independent+unchanged;SSH_tunnel_future_compatible_not_configured
+risk=HTTP_does_not_protect_push_endpoint_or_status_from_on_path_observers;HTTPS_migration_recommended
+wifi_interface=wlp2s0
+wifi_state=UP
+wifi_power_policy=NetworkManager_global_wifi.powersave_2+iw_power_save_off;driver=ath11k_pci;PCI_runtime_control=on;verified=2026-07-23;activity=641827
+lan_ipv4=192.168.1.231/24
+default_gateway=192.168.1.1
+ethernet_interface=enp1s0f0
+ethernet_state=DOWN
+tailscale=not_installed_or_not_in_PATH
 
 ANDROID_NETWORK:
-adb=C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe
-device=Pixel_8a;role=ADB_Wi-Fi/USB;addr=UNKNOWN_current;verify=adb devices -l
-device=TCL_6102H;role=ADB_Wi-Fi/USB;addr=UNKNOWN_current;verify=adb devices -l
-constraint=mDNS/IP_cache_not_proof
-
-LEGACY_2026-06_SURFACE_MINT:
-status=historical_not_primary
-legacy_host=daniele-Surface-Pro;lan=192.168.1.97;tailscale=100.68.141.10
-wifi=Alaska_5G
-kuma_push_sources=cloud_backup,mint-home-backup,amici_fb,disk-usage-monitor,parcel-tracker,software_audit_mint,freeze_monitors
-disabled_monitors=mint_heartbeat,rsync-transfer,codex-token-watcher
-rule=Surface_IPs,Mint_services,/home_paths are legacy unless reverified
+adb=/home/daniele/Android/Sdk/platform-tools/adb
+adb_daemon=daniele_user_server+127.0.0.1:5037+LIBADBMDNS
+adb_keeper=adb-device-keeper.service;enabled+active;docs=ADB_DEVICE_KEEPER.md
+connected_devices=Pixel_8a+TCL_6102H
+pixel=Google_Pixel_8a+Android_17+ADB_WiFi_2.0+dynamic_mDNS
+tcl=TCL_6102H+Android_12+legacy_ADB_WiFi+verified_endpoint_cache_fallback
+endpoint_snapshot_2026-07-10=Pixel_192.168.1.37:37355+TCL_192.168.1.200:32921;dynamic_not_authoritative
+verify=adb_devices_-l
+constraint=mDNS_or_cached_IP_is_not_device_proof
 
 CONSTRAINTS:
-constraint=do_not_print_Kuma_push_URL_tokens
-constraint=Kuma_DOWN_is_signal_not_truth
-constraint=do_not_assume_Oracle_reachable_without_live_ssh_or_http_check
-constraint=network_facts_drift_fast_verify_before_use
+constraint=network_facts_drift_fast;verify_before_use
+constraint=do_not_expose_tokens+credentials+private_keys
+constraint=remote_nodes_require_separate_live_verification
+constraint=ADB_connect_candidates_require_allowlist_identity_verification
+
+ORACLE_VM_SSH:
+host=150.230.148.128;alias=oracle-vm;user=ubuntu;remote_hostname=instance-20260201-1126;remote_os=Ubuntu_22.04.5_oracle_kernel_6.8.0-1058-oracle;ssh_key_path=/home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa;ssh_command=ssh_-i_/home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa_-o_IdentitiesOnly=yes_ubuntu@150.230.148.128;public_key_fingerprint=SHA256:cmihWRlHSLgX1YGGRx7zukWWql3Am4rCqCx/Hp27uXU;host_key=ED25519_SHA256:jeMdcW+n3CdSv33xHSLgLx8tO4L4Pk3h6ziTgre0wUE;verified=2026-07-26;activity=593804+731904+731842
+rule=private_key_never_in_docs_prompts_logs_git;secret_material_stored_only_under_ignored_protected_MegaVault_secrets_path
+
+ORACLE_VM_SSH:
+host=150.230.148.128;alias=oracle-vm;user=ubuntu;remote_hostname=instance-20260201-1126;remote_os=Ubuntu_22.04_oracle_kernel_6.8.0-1054-oracle;ssh_key_path=/home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa;ssh_command=ssh_-i_/home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa_-o_IdentitiesOnly=yes_ubuntu@150.230.148.128;public_key_fingerprint=SHA256:cmihWRlHSLgX1YGGRx7zukWWql3Am4rCqCx/Hp27uXU;host_key=ED25519_SHA256:jeMdcW+n3CdSv33xHSLgLx8tO4L4Pk3h6ziTgre0wUE;verified=2026-07-26;activity=593804+731904
+rule=private_key_never_in_docs_prompts_logs_git;secret_material_stored_only_under_ignored_protected_MegaVault_secrets_path
 
 OPEN:
-open=current_LAN_IP_UNKNOWN
-open=current_Tailscale_state_UNKNOWN
-open=current_Oracle_SSH_key_Windows_path_UNKNOWN
+open=current_external_IP_UNKNOWN
+open=Android_device_addresses_and_ports_drift+verify_live

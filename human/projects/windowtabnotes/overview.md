@@ -40,7 +40,7 @@ Root repository: `WindowTabNotes/`.
 - Verifica Firefox: `system/bin/windowtabnotes native-debug --browser firefox --firefox-extension-id windowtabnotes@local --json`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/windowtabnotes.md)
-- Metadata: [dev/project.metadata.json](../../../../WindowTabNotes/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../WindowTabNotes/dev/legacy)
-- Repository: [repo path](../../../../WindowTabNotes)
+- AI doc: AI doc (`../../../ai/projects/windowtabnotes.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../WindowTabNotes/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../WindowTabNotes/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../WindowTabNotes`; status=UNKNOWN)

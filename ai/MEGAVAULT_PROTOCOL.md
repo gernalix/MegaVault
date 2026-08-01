@@ -1,4 +1,4 @@
-VERSION=13
+VERSION=16
 STATUS=FINAL_PERMANENT
 MODE=codex_first
 FORMAT=ultracompressed
@@ -48,9 +48,36 @@ FINAL_GATE=verify_capsulization_before_final
 # HOST_PROFILE
 HOST_PROFILE=mandatory
 HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
-READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>project.metadata.json>docs/ai
-HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux
+READ_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>HOST_PROFILE>project.metadata.json>docs/ai
+HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux,android
 UNKNOWN_RULE=mark_UNKNOWN
+
+# HOST_SYSTEM_CURRENT
+CURRENT_OS=Fedora_Linux_44_Workstation
+CURRENT_HOST=fedora
+CURRENT_USER=daniele
+CURRENT_HOME=/home/daniele
+CURRENT_MEGAVAULT_ROOT=/home/daniele/MegaVault
+CURRENT_SHELL=bash
+CURRENT_PACKAGE_MANAGER=dnf
+CURRENT_SERVICE_MANAGER=systemd
+CURRENT_PATH_STYLE=/home/daniele/...
+CURRENT_ANDROID_STUDIO=user_official_Google_archive;/home/daniele/.local/opt/android-studio;version=2026.1.2;build=AI-261.25134.95.2612.15822958;writable_by_daniele=yes
+CURRENT_ANDROID_SDK=/home/daniele/Android/Sdk
+CURRENT_JAVA_HOME=/usr/lib/jvm/java-25-openjdk
+CURRENT_CODEX_CLI=/usr/local/bin/codex;version=0.144.1
+CURRENT_GH_CLI=/usr/bin/gh;version=2.94.0
+CURRENT_PYTHON=/usr/bin/python3;version=3.14.6
+CURRENT_PIP=/usr/bin/pip;version=26.0.1
+CURRENT_PIPX=/usr/bin/pipx;version=1.15.0
+CURRENT_UV=/usr/bin/uv;version=0.11.26
+CURRENT_SSH=/usr/bin/ssh;version=OpenSSH_10.2p1
+CURRENT_SSH_DIR=~/.ssh;resolved=/home/daniele/.ssh;status=absent
+CURRENT_DOCKER=not_installed
+CURRENT_CONTAINER_RUNTIME=/usr/bin/podman;version=5.8.4;role=optional
+CURRENT_CODEX_RULE=use_Fedora_paths+bash+dnf_for_local_host_operations
+NON_FEDORA_LOCAL_PATH_RULE=never_use_as_current_local_path
+REMOTE_PATH_RULE=keep_remote_host_paths_bound_to_their_named_host
 
 # CENTRALIZATION
 CANONICAL_GENERAL=ai/MEGAVAULT_PROTOCOL.md
@@ -62,7 +89,7 @@ CANONICAL_NETWORK=ai/global/NETWORK_TOPOLOGY.md
 CANONICAL_STORAGE=ai/global/STORAGE_TOPOLOGY.md
 CANONICAL_ALERT=ai/global/ALERT_REGISTRY.md
 CANONICAL_INCIDENT=ai/global/INCIDENT_REGISTRY.md
-CANONICAL_PROJECT_INDEX=ai/PROJECT_INDEX.md+ai/global/PROJECT_INDEX_EXTENDED.md
+CANONICAL_PROJECT_INDEX=ai/GLOBAL_INDEX.md;role=mandatory_canonical_router;read=immediately_after_protocol
 CANONICAL_CODEX_TIMELINE_DB=codex_global_timeline.sqlite
 CANONICAL_CODEX_TIMELINE_REPORT=codex_global_timeline.md
 CANONICAL_CODEX_TIMELINE_AI=codex_global_timeline_ai.md
@@ -80,7 +107,7 @@ HISTORICAL_EXCEPTION=reports,changelogs,state_snapshots,premigration_docs_preser
 ANDROID_PROTOCOL=ai/ANDROID_PROTOCOL.md
 ANDROID_AUTHORITY=mandatory
 ANDROID_REQUIRED_FOR=android_projects,android_builds,android_releases,android_tooling
-ANDROID_READ_ORDER=MEGAVAULT_PROTOCOL>HOST_PROFILE>ANDROID_PROTOCOL>metadata>docs/ai
+ANDROID_READ_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>HOST_PROFILE>ANDROID_PROTOCOL>metadata>docs/ai
 
 # SOURCE_PRIORITY
 SRC_ORDER=HOST_PROFILE>metadata>code_reality>docs_ai>docs_human>legacy
@@ -89,15 +116,46 @@ IF_STALE=update_from_code
 INVENT_FACTS=forbidden
 
 # ENTRY
-ENTRY_ORDER=clean_check>protocol>host_profile>metadata>docs_ai>targeted_inspection>reuse>implementation
+ENTRY_ORDER=protocol>global_index>clean_check>host_profile>metadata>docs_ai>targeted_inspection>reuse>implementation
+PROTOCOL_READ=allowed_before_any_operational_command
 ENTRY_FORBID=repo_wide_scan,human_as_source,blind_copy
 
 # GIT
-CLEAN_REQUIRED=before+after
+GLOBAL_GIT_MODEL=trunk_based_single_developer
+GIT_POLICY_SCOPE=all_projects,all_repositories,past_present_future
+NEW_REPO_CANONICAL_BRANCH=main
+EXISTING_REPO_CANONICAL_BRANCH=resolved_operational_branch
+CANONICAL_BRANCH_RESOLUTION=semantic_completeness+validity;name+commit_recency_insufficient
+OPERATIVE_BRANCH_COUNT=1
+DEFAULT_WORK_BRANCH=canonical_branch
+DIRECT_CANONICAL_WORK=default
+ROLLBACK_MECHANISM=commit_history
+NEW_BRANCH_DEFAULT=forbidden
+NEW_BRANCH_PER_TASK=forbidden
+BRANCH_CHAINING=forbidden
+UNRELATED_BRANCH_REUSE=forbidden
+TEAM_FEATURE_BRANCH_WORKFLOW=not_default
+PR_REQUIRED=not_for_normal_single_developer_work
+TEMP_BRANCH=exception
+TEMP_BRANCH_ALLOWED_IF=explicit_user_request,parallel_work_strictly_required,high_risk_isolation_strictly_required
+TEMP_BRANCH_JUSTIFICATION=mandatory
+TEMP_BRANCH_BASE=canonical_branch
+TEMP_BRANCH_FINALIZATION=integrate_into_canonical+delete
+TEMP_BRANCH_LIFETIME=minimum
+UNMERGED_BRANCH_ACCUMULATION=forbidden
+ALTERNATE_BRANCH_VALID_WORK=reconcile_before_removal
+TASK_COMPLETE_REQUIRES=canonical_branch_updated_or_explicit_user_defer
+CANONICAL_DISPOSITION_REQUIRED=merged,open_PR,explicit_user_defer
+CANONICAL_SYNC_REQUIRED=yes
+STALE_BRANCH_AUDIT_REQUIRED=before_branch_creation
+CLEAN_PUSHED_TOPIC_BRANCH_SUCCESS=forbidden
+FINAL_REPORT_BRANCH_FIELDS=repository,canonical_branch,current_branch,temporary_branch_reason,integration_status,cleanup_status
+CLEAN_REQUIRED=before_any_modification+after
 REMOTE_REQUIRED=yes
 SYNC_REQUIRED=yes
 PUSH_REQUIRED=yes
 DIRTY_STATE=protocol_violation
+USER_PUSH_OVERRIDE=explicit_no_push_request_must_be_honored_and_reported_as_local_only
 
 # DOCS
 AI_DOCS=docs/ai/*
@@ -135,7 +193,7 @@ SECRET_COMMIT=forbidden
 DESTRUCTIVE_ACTION=require_explicit_user_intent
 
 # DB
-SQLITE_DEFAULT=/home/ubuntu/sync_root/db/
+SQLITE_DEFAULT=/home/daniele/sync_root/db/
 DB_DOC_REQUIRED=yes
 GLOBAL_TIMELINE_SQLITE_DEFAULT=codex_global_timeline.sqlite
 
@@ -144,7 +202,7 @@ INCIDENT_REGISTRY=mandatory_all_projects
 INCIDENT_AI=docs/ai/INCIDENT_REGISTRY.md
 INCIDENT_HUMAN=docs/human/INCIDENT_REGISTRY.md
 INCIDENT_GLOBAL=ai/global/INCIDENT_REGISTRY.md;only_if_global_aspecific_or_cross_project_index
-INCIDENT_SQLITE_DEFAULT=/home/ubuntu/sync_root/db/incident_registry.sqlite
+INCIDENT_SQLITE_DEFAULT=/home/daniele/sync_root/db/incident_registry.sqlite
 INCIDENT_SCHEMA=incidents+incident_events
 INCIDENT_ID_RULE=root_cause_stable_slug
 INCIDENT_FORBID=symptom_spam_ids
@@ -166,7 +224,8 @@ TIMELINE_CONTENT=synthetic_metadata_only
 TIMELINE_SOURCE_REF=required
 TIMELINE_DEDUP=required_no_duplicate_events
 TIMELINE_SCRIPT=build_codex_global_timeline.py
-TIMELINE_SCRIPT_REQ=idempotent,rerunnable,no_internet,no_admin,redact_secrets
+TIMELINE_SCRIPT_REQ=idempotent,rerunnable,append_only,git_worktree_safe,explicit_roots,tracked+untracked_nonignored_only,exclude_ignored+private+secrets+cache+live_sessions+self_outputs+self_HEAD,stable_order+labels+content_timestamps,write_if_changed,no_op_upserts,sqlite_checkpoint+sidecar_cleanup,no_internet,no_admin,redact_secrets
+TIMELINE_DETERMINISM_GATE=unchanged_inputs=>byte_identical_outputs+second_run_git_noop
 TIMELINE_LABEL_RULE=max_4_words
 TIMELINE_CATEGORY_SET=feature,bugfix,performance,release,infra,docs,qa,migration,automation,security,backup,testing
 TIMELINE_IMPORTANCE_SET=P0,P1,P2,P3

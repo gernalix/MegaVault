@@ -30,6 +30,6 @@
 - Headless/no Mint access: print ready `scp`, `rsync`, and Mint clipboard commands.
 
 ## Links
-- AI doc: [AI doc](../../../ai/projects/megavault-project-exporter.md)
-- Metadata: [dev/project.metadata.json](../../../../megavault-project-exporter/dev/project.metadata.json)
-- Repository: [repo path](../../../../megavault-project-exporter)
+- AI doc: AI doc (`../../../ai/projects/megavault-project-exporter.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../megavault-project-exporter/dev/project.metadata.json`; status=UNKNOWN)
+- Repository: repo path (`../../../../megavault-project-exporter`; status=UNKNOWN)

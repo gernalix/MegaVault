@@ -1,5 +1,16 @@
 # ARCHIVE_INDEX
-
-status=active
-entries=none_currently_verified
-note=created 2026-06-13 because MEGAVAULT_PROTOCOL VERSION=9 requires archive discovery before new project registration
+STATUS=ACTIVE
+FORMAT=ultracompressed
+PURPOSE=historical_navigation_not_operational_authority
+RULE=archive_files_are_not_active_sources_of_truth
+PROMPT_ID=816427
+UPDATED=2026-08-01
+ENTRY=sources/CODE_AUDIT_SOURCES.json;blob=ed98271c5290085cbf6e1e27283763637adc1c5a;source=4450694;status=HISTORICAL
+ENTRY=sources/ENRICHMENT_SOURCES.json;blob=9a26de94e87f298a3a0bbbf7577349cd6bdbb481;source=4450694;status=HISTORICAL
+ENTRY=sources/MIGRATION_MANIFEST.json;blob=9643b37c6505716636588a5a922353b6ac086b36;source=4450694;status=HISTORICAL_SNAPSHOT
+ENTRY=projects_legacy/oracle-uptime-kuma.md;blob=954a8f207ebebddddd272ea500faaa628f065a5d;source=4450694;status=HISTORICAL
+ENTRY=projects_legacy/supercontacts.md;blob=a9d53b1e1abf39b1b85790ae351eb0baa374874c;source=4450694;status=HISTORICAL_V30
+ENTRY=projects_legacy/supercontacts-v33.md;blob=cd05d9ec29bc6588219d597d113b3965f310a8ac;source=2b965d4;status=LATEST_KNOWN_HISTORICAL
+ENTRY=reports/prompt_582941_activitywatch_reboot_after.md;blob=a5291f0499503f9ba8809a60df5c07f242ea9117;source=4450694;status=HISTORICAL_EVIDENCE
+ENTRY=../../dev/ai/archive/infrastructure/telegram_notify_audit_legacy.md;blob=89e3cfbd7e923953560629f07308784b68d2ae8e;source=4450694;status=HISTORICAL
+DELETE_MANIFEST=2917AA9_DELETE_MANIFEST.json

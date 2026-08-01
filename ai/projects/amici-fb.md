@@ -9,7 +9,7 @@ verified_at=2026-06-25T16:44:23+02:00
 protocol=MEGAVAULT_PROTOCOL.md:v3
 
 PURPOSE:
-Windows 11 automation that opens Facebook with Playwright, snapshots the friend list to CSV, stores SQLite state, computes CSV diffs, writes scheduler logs, and optionally reports to Telegram and Uptime Kuma.
+purpose=Windows_11_Playwright_Facebook_friend_snapshot>CSV+SQLite+diff+scheduler_logs+optional_Telegram+Kuma
 
 STACK:
 lang=Python,CMD,PowerShell
@@ -66,28 +66,28 @@ latest_diag=C:\codex_clean_repos\amici_fb\data\browser_diag_2026-06-25T144337Z
 local_db=C:\codex_clean_repos\amici_fb\data\amici_fb.sqlite3 or C:\codex_clean_repos\amici_fb\amici_fb.sqlite3 when legacy file exists
 
 DNB:
-Do not bypass Facebook login or 2FA.
-Do not kill unrelated Chrome/Edge/Codex processes.
-Do not delete local data while removing files from Git tracking; use git rm --cached for runtime state.
-Do not push project changes without explicit confirmation.
-Do not reintroduce Linux cron/systemd launchers as active Windows instructions.
+dnb=no_login_or_2FA_bypass
+dnb=no_unrelated_Chrome+Edge+Codex_kill
+dnb=preserve_local_data;use_git_rm_--cached_for_runtime_state
+dnb=no_push_without_explicit_confirmation
+dnb=no_Linux_cron+systemd_as_current_Windows_instructions
 
 BUG:
-2026-06-25 root cause: the user-observed Running task had already finished by inspection; LastTaskResult=1. The log showed Facebook redirected /me and /me/friends to the saved-profile/device-login page. The old detector misclassified it as consent because the normal Facebook footer contains Cookies. Clicking Continue looped until manual 2FA refreshed the Playwright session.
+root_cause_2026-06-25=task_already_finished+LastTaskResult_1;saved_profile_redirect_misclassified_as_consent_due_footer_Cookies;Continue_loop_until_manual_2FA_refresh
 fix=Added precise profile_chooser detection, removed generic cookie/consent false positives, added bounded profile chooser click attempts, added --login-wait-seconds for console-free manual login refresh, reduced task ExecutionTimeLimit to PT45M, and untracked runtime data/session files from Git index.
 
 RISK:
-Facebook can expire or challenge the saved session again; use --login --login-wait-seconds 600 to refresh.
-Telegram is not configured on this machine; runs succeed but Telegram messages are skipped.
-Task Scheduler Operational event log is disabled and could not be enabled without elevation.
-The registered task uses Interactive logon because Windows denied S4U registration in this user context.
+risk=session_expiry_or_challenge;recovery=--login_--login-wait-seconds_600
+risk=Telegram_unconfigured;impact=messages_skipped_run_succeeds
+risk=Task_Scheduler_Operational_log_disabled;elevation_required
+risk=Interactive_logon_required;reason=S4U_registration_denied
 
 ROAD:
-Commit pending project changes after review.
-Push only after user confirmation.
-Monitor next 09:00 scheduled run.
-Optionally configure Telegram environment values.
-Keep data and fb_storage_state.json out of future commits.
+next=commit_pending_changes_after_review
+next=push_only_after_user_confirmation
+next=monitor_next_09:00_run
+optional=configure_Telegram_env
+invariant=keep_data+fb_storage_state.json_untracked
 
 MIGRATION:
 date=2026-06-25

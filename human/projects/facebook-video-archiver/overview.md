@@ -15,7 +15,7 @@ Start here for Codex/operator work on `facebook-video-archiver`.
 - Script/build: `facebook_video_archiver.sh`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/facebook-video-archiver.md)
-- Metadata: [dev/project.metadata.json](../../../../facebook-video-archiver/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../facebook-video-archiver/dev/legacy)
-- Repository: [repo path](../../../../facebook-video-archiver)
+- AI doc: AI doc (`../../../ai/projects/facebook-video-archiver.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../facebook-video-archiver/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../facebook-video-archiver/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../facebook-video-archiver`; status=UNKNOWN)

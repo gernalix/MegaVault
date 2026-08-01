@@ -1,79 +1,17 @@
-# oracle-backup-service Troubleshooting
+# Oracle backup service — troubleshooting
 
-## Problemi e sintomi rilevati nel codice
-- scripts/backup.sh:2:set -euo pipefail
-- scripts/backup.sh:13:LAST_REMOTE_ERROR_FILE="$STATE_DIR/last_remote_error"
-- scripts/backup.sh:14:LAST_REMOTE_FAILURE_EPOCH_FILE="$STATE_DIR/last_remote_failure_epoch"
-- scripts/backup.sh:36:RESTIC_BACKUP_TIMEOUT_SECONDS="${RESTIC_BACKUP_TIMEOUT_SECONDS:-5400}"
-- scripts/backup.sh:37:RESTIC_PRUNE_TIMEOUT_SECONDS="${RESTIC_PRUNE_TIMEOUT_SECONDS:-3600}"
-- scripts/backup.sh:38:REMOTE_PREFLIGHT_FAILURE_COOLDOWN_SECONDS="${REMOTE_PREFLIGHT_FAILURE_COOLDOWN_SECONDS:-21600}"
-- scripts/backup.sh:82:cleanup_failed_snapshot() {
-- scripts/backup.sh:96:cleanup_failed_snapshot
-- scripts/check_backup_health.py:20:LAST_FAILED_REPOS_FILE = STATE_DIR / "last_failed_repos"
-- scripts/check_backup_health.py:22:LAST_REMOTE_ERROR_FILE = STATE_DIR / "last_remote_error"
-- scripts/check_backup_health.py:37:except FileNotFoundError:
-- scripts/check_backup_health.py:45:except Exception:
-- scripts/check_backup_health.py:52:except ValueError:
-- scripts/check_backup_health.py:69:except ValueError:
-- scripts/check_backup_health.py:77:except Exception:
-- scripts/check_backup_health.py:87:except Exception as exc:
-- scripts/oracle-backup-healthcheck.sh:2:set -euo pipefail
-- scripts/oracle-backup-healthcheck.sh:12:LAST_FAILED_REPOS_FILE="/var/lib/oracle_backup/last_failed_repos"
+La guida operativa corrente vive nel repository:
 
-## Comandi/verifiche utili trovati
-- scripts/check_remote_quota.py:1:#!/usr/bin/env python3
-- scripts/prune.sh:1:#!/usr/bin/env bash
-- scripts/prune.sh:7:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
-- scripts/prune.sh:51:if timeout --kill-after=60s "$RESTIC_PRUNE_TIMEOUT_SECONDS" restic -r "$repo" unlock && \
-- scripts/prune.sh:53:restic -r "$repo" forget \
-- scripts/prune.sh:58:restic -r "$repo" prune \
+- troubleshooting (`../../../projects/oracle-backup-service/docs/human/troubleshooting.md`; status=owner_repo_verified_local_2026-08-01)
+- runbook (`../../../projects/oracle-backup-service/docs/ai/OPERATIONS.md`; status=owner_repo_verified_local_2026-08-01)
 
-## Stato 2026-06-05
-- Quota remota OCI ancora critica: `oci:bucket-20260206-0730` usa `22.262 GBytes` (`23903533548` bytes), soglia critical `21 GiB`, limite assunto `22 GiB`.
-- Repo remoto `rclone:oci:bucket-20260206-0730/oraclevm`: 837 snapshot `oracle-vm,autosnap-5min`, dal 2026-05-02 al 2026-05-05.
-- Policy configurata: `RESTIC_KEEP_LAST=48`, `RESTIC_FORGET_GROUP_BY=host,tags`. Esistono snapshot prunabili secondo policy, ma restic standard non riesce a creare il lock perche' il backend rifiuta upload su `locks/...` con `StorageLimitExceeded`.
-- Non eseguire prune distruttivo con `--no-lock` senza approvazione esplicita o temporaneo aumento quota. Prima scelta sicura: ottenere headroom quota, poi eseguire `/opt/oracle_backup/prune.sh`.
-- Fallback locale valido: `/var/lib/oracle_backup/emergency_repo`, 27 snapshot, circa 9.572 GiB raw-data. Non cancellare finche' il remoto e' degradato.
-- Pulizia `/` applicata senza toccare backup/DB: `apt-get clean`, `journalctl --vacuum-size=300M`, compressione `/var/log/syslog.1` in `/var/log/syslog.1.gz`; spazio passato da 6.6G liberi/86% a 7.5G liberi/84%.
+Stato sano atteso:
 
-## Stato 2026-06-13
-- Prima del cleanup `#918472`: `/` era 98% con circa 1.2G liberi; `/var/lib/oracle_backup/emergency_repo` era 14G fisici, 82 snapshot locali, 13.337GiB raw-data.
-- Cleanup applicato solo al repo fallback locale: `restic -r /var/lib/oracle_backup/emergency_repo forget ...` seguito da `prune`; nessun repo remoto e' stato toccato.
-- Dopo il cleanup: `emergency_repo` e' 3.9G fisici, 11 snapshot locali, 3.805GiB raw-data; `/` e' 75% con circa 12G liberi.
-- Preflight quota finale `#918472`: `local_fallback_quota_status=OK`, dettaglio `repo 3.81 GiB < soft 4.00 GiB, hard 5.00 GiB; root free 11.30 GiB`. Valore operativo superato da `#847261`: hard quota 7G, soft 5.6G.
-- Stato healthcheck finale: WARNING/`REMOTE_DEGRADED`, non CRITICAL quota. OCI remoto resta `StorageLimitExceeded`, quindi il sistema resta degradato ma controllato.
-- Docker/Kuma non impattato: `sudo docker exec uptime-kuma true` passa.
+- `last_backup_status=OK`;
+- `last_successful_repo=rclone:oci:bucket-20260206-0730/oraclevm`;
+- `last_failed_repos` e `last_remote_error` vuoti;
+- `remote_retention_status=OK` o `SKIPPED_RECENT`;
+- quota OCI sotto warning;
+- backup, check e restore riusciti.
 
-## Stato dopo `#847261`
-- Root cause remota: `oci:bucket-20260206-0730` resta CRITICAL a `22.262 GBytes` / `23903533548` bytes; `oraclevm/data` usa `22.222 GBytes`.
-- Repo remoto non affidabile: `oraclevm/index` ha 0 oggetti; `restic check --no-lock` riporta pack non referenziati e tree mancanti. Senza quota/headroom non si puo' rebuildare/prunare in modo standard; il reset distruttivo del prefisso remoto richiede decisione esplicita di perdita dati.
-- Fix locale applicato: preflight destinazioni prima degli snapshot SQLite; se OCI non e' scrivibile, fallback in streaming e niente snapshot on-disk trattenuti.
-- Parametri correnti: `LOCAL_FALLBACK_KEEP_LAST=11`, `LOCAL_FALLBACK_MAX_GB=7`, `SQLITE_SNAPSHOTS_RETENTION_COUNT=0`, `SQLITE_SNAPSHOTS_MIN_KEEP=0`.
-- Validazione: backup manuale rc=0 `REMOTE_DEGRADED`; healthcheck dry-run rc=0 WARNING; monitor dry-run rc=0 WARNING; quota fallback OK; nessuna unità `oracle-backup*` failed.
-- Incident DB: `/home/ubuntu/sync_root/db/incident_registry.sqlite`.
-
-Comandi utili:
-
-```bash
-sudo cat /var/lib/oracle_backup/local_fallback_quota_status
-sudo cat /var/lib/oracle_backup/local_fallback_quota_last_error
-sudo python3 -m json.tool /var/lib/oracle_backup/local_fallback_quota_state.json
-sudo ORACLE_BACKUP_HEALTHCHECK_DRY_RUN=1 /usr/local/bin/oracle-backup-healthcheck.sh
-sudo BACKUP_MONITOR_DRY_RUN=1 /opt/oracle_backup/check_backup_health.py
-sudo restic -r /var/lib/oracle_backup/emergency_repo snapshots --tag oracle-vm
-```
-
-## Safety prima di correggere
-- scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
-- Non cancellare `/var/lib/oracle_backup/emergency_repo`, `/var/lib/oracle_backup/sqlite_snapshots`, DB SQLite, WAL/SHM o repo restic per liberare spazio senza snapshot/verifica e policy documentata.
-- scripts/backup.sh:24:export RESTIC_PASSWORD
-- scripts/backup.sh:59:if [[ "${FORCE_ORACLE_BACKUP:-0}" != "1" && "$last_any_success" =~ ^[0-9]+$ && "$MIN_BACKUP_INTERVAL_SECONDS" -gt 0 ]]; then
-- scripts/backup.sh:68:exec 9>"$RESTIC_RUN_LOCK"
-- scripts/backup.sh:69:if ! flock -n 9; then
-- scripts/backup.sh:85:rm -rf -- "$snap_run_dir"
-- scripts/backup.sh:92:kill "$heartbeat_pid" 2>/dev/null // true
-- scripts/backup.sh:105:ORACLE_BACKUP_LOCK_HELD=1 /opt/oracle_backup/prune_local_snapshots.sh // true
-- scripts/backup.sh:4:ENV_FILE="/etc/oracle_backup/oracle_backup.env"
-- scripts/backup.sh:5:STATE_DIR="/var/lib/oracle_backup"
-- scripts/backup.sh:6:LOG_DIR="/var/log/oracle_backup"
-- scripts/backup.sh:8:RESTIC_RUN_LOCK="$STATE_DIR/restic-job.lock"
+Non cancellare il fallback locale e non alzare le soglie per nascondere `REMOTE_DEGRADED`. Un URL Telegram completo in un errore deve essere trattato come esposizione di credenziale.

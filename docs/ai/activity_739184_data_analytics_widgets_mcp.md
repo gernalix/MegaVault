@@ -1,0 +1,25 @@
+# Activity 739184 Data Analytics Widgets MCP
+activity_id=739184
+event_date=2026-07-14
+status=PASS_WITH_WARNING
+category=bugfix
+importance=P1
+host=fedora
+scope=Codex_CLI_0.144.4_dataAnalyticsWidgets_MCP_plugin_startup
+codex=/usr/local/bin/codex;version=0.144.4;cwd=/home;model=gpt-5.5;reasoning=high
+config_origin=/home/daniele/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599/.mcp.json
+mcp_server=dataAnalyticsWidgets;transport=stdio;cwd=plugin_root;command=node;args=./mcp/server.cjs --stdio
+runtime=/usr/bin/node;version=v22.22.2
+root_cause=/home/daniele/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599/assets/datascience.png_missing;server_cjs_loads_assetDataUrl_datascience_png_before_initialize;Node_ENOENT_closes_stdio_before_initialize_response
+initial_manual_fail=cwd_plugin_root_exit_1_stderr_ENOENT_assets_datascience_png;cwd_home_exit_1_MODULE_NOT_FOUND_/home/mcp/server.cjs_expected_only_if_wrong_cwd
+fix=generated_missing_assets/datascience.png_from_existing_assets/datascience.svg_with_ImageMagick;no_model_change;no_timeout_change;no_disable;no_package_update
+backup_plugin=/home/daniele/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599/backups/activity_739184_20260714T140237+0200
+backup_megavault=/home/daniele/MegaVault/backups/activity_739184_20260714T140520+0200
+manual_handshake=PASS;initialize_server=data-analytics-widgets;protocol=2024-11-05;version=0.2.8-13ceeea1f599;tools=validate_artifact,render_artifact,export_artifact_package,render_chart,render_table;resources=3;stderr_empty=yes
+codex_mcp_list=PASS;result=no_user_mcp_servers_configured;plugin_mcp_not_listed_by_codex_mcp_list_per_official_manual_plugin_servers_are_plugin_launched
+codex_doctor=PASS;17_ok_1_idle_0_warn_0_fail;config_loaded;MCP_servers_0;state_databases_healthy
+codex_yolo_real_start=PASS;two_script_tty_runs_exit_0_inside_timeout_wrapper;no_matches=MCP_startup_incomplete,connection_closed_initialize_response,failed_dataAnalyticsWidgets
+other_mcp=PASS_WITH_SCOPE;no_user_configured_MCP_servers;only_plugin_server_found_was_dataAnalyticsWidgets;preexisting_old_sessions_still_have_live_node_mcp_processes
+risk=remote_plugin_refresh_or_reinstall_could_replace_cache_and_drop_regenerated_png_if_upstream_package_still_lacks_asset
+repo_state=MegaVault_dirty_preexisting_unrelated_deletions_and_gitignore_change_not_touched
+source_ref=activity_739184

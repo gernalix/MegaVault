@@ -3,10 +3,10 @@
 Host-local Android helper project for Linux Mint.
 
 ## Links
-- AI doc: [android.md](../../../ai/projects/android.md)
-- Metadata: [project.metadata.json](../../../../projects/android/dev/project.metadata.json)
-- Legacy metadata: [.codexmeta](../../../../projects/android/.codexmeta)
-- Repository path: [projects/android](../../../../projects/android)
+- AI doc: android.md (`../../../ai/projects/android.md`; status=UNKNOWN)
+- Metadata: project.metadata.json (`../../../../projects/android/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy metadata: .codexmeta (`../../../../projects/android/.codexmeta`; status=UNKNOWN)
+- Repository path: projects/android (`../../../../projects/android`; status=UNKNOWN)
 
 ## ADB Wi-Fi Auto-Connect
 - Project path: `/home/daniele/codex-workspace/projects/android`

@@ -15,7 +15,7 @@ Remote Oracle backup script set for restic backup/prune/systemd units under the 
 - Script/build: `prune.sh`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/remote-opt-oracle-backup.md)
-- Metadata: [dev/project.metadata.json](../../../../projects/vm_oracle/remote_opt_oracle_backup/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../projects/vm_oracle/remote_opt_oracle_backup/dev/legacy)
-- Repository: [repo path](../../../../projects/vm_oracle/remote_opt_oracle_backup)
+- AI doc: AI doc (`../../../ai/projects/remote-opt-oracle-backup.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../projects/vm_oracle/remote_opt_oracle_backup/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../projects/vm_oracle/remote_opt_oracle_backup/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../projects/vm_oracle/remote_opt_oracle_backup`; status=UNKNOWN)

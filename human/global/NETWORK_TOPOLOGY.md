@@ -1,25 +1,22 @@
 # Topologia rete globale
 
-Aggiornato: 2026-07-05. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/global/NETWORK_TOPOLOGY.md).
+Aggiornato: 2026-07-14. Autorita' operativa: [NETWORK_TOPOLOGY AI](../../ai/global/NETWORK_TOPOLOGY.md).
 
-## Host corrente
+## Fedora corrente
 
-- Host primario: `DANIELE_PC`, Windows 11 Pro su ThinkPad P14s Gen 5 AMD.
-- IP LAN/Tailscale correnti: non verificati in questo passaggio.
-- Non usare il vecchio IP Surface `192.168.1.97` come stato corrente senza `ipconfig`/verifica live.
+- Host `fedora`, Fedora Linux 44 Workstation sul ThinkPad P14s Gen 5 AMD.
+- Wi-Fi `wlp2s0` attivo con IPv4 `192.168.1.231/24`; gateway predefinito `192.168.1.1`.
+- Ethernet `enp1s0f0` down; Tailscale non rilevato nel PATH.
+- Loopback `127.0.0.1`.
 
-## Oracle VM/Kuma
+Fedora System Monitor invia esclusivamente heartbeat e stati sintetici all'istanza Uptime Kuma esistente su `150.230.148.128:3001`, senza modifiche firewall. Gli endpoint sono root-only e i messaggi non contengono dati sensibili. Il readback operativo e' stato verificato via SQLite remoto sulla VM Oracle. Il collegamento attuale e' HTTP e va migrato a HTTPS per proteggere il trasporto.
 
-- Nodo remoto: `ubuntu@150.230.148.128`.
-- Ruoli: Uptime Kuma, backup Oracle, monitoraggio remoto.
-- DB Kuma: `/opt/uptime-kuma/data/kuma.db` sul runtime remoto Linux.
-- Path chiave SSH Windows: unknown; vecchio path Linux solo storico.
+Prometheus (`127.0.0.1:9090`), Node Exporter (`127.0.0.1:9100`) e l'exporter read-only Fedora System Monitor (`127.0.0.1:9109`) sono raggiungibili solo da localhost. Non sono state aggiunte regole firewall. L'accesso futuro tramite tunnel SSH resta possibile senza cambiare i binding; nessun tunnel e' configurato ora. Prometheus e Kuma funzionano indipendentemente.
 
 ## Android
 
-- ADB Windows: `C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe`.
-- Pixel 8a/TCL: indirizzi correnti unknown; verificare con `adb devices -l`.
+ADB usa `/home/daniele/Android/Sdk/platform-tools/adb`. Il server utente condiviso ascolta solo su `127.0.0.1:5037`; `adb-device-keeper.service` e' abilitato e attivo e gestisce Pixel 8a e TCL 6102H senza dipendere da Android Studio.
 
-## Storico
+Il Pixel Android 17 pubblica regolarmente il servizio mDNS dinamico. Il TCL Android 12 non lo ha pubblicato durante le verifiche, quindi il servizio conserva anche l'ultimo endpoint con identita' verificata. Vedere [ADB Device Keeper](ADB_DEVICE_KEEPER.md).
 
-Surface/Linux Mint, Tailscale `100.68.141.10`, servizi push Mint e monitor Kuma Mint sono snapshot storici o specifici di progetto.
+Gli indirizzi di rete cambiano: verificarli live prima dell'uso. Nomi mDNS e IP in cache non provano che un device Android sia raggiungibile.

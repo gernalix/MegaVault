@@ -20,6 +20,6 @@ OwnTracks Android invia posizioni via HTTP a un ricevitore Flask sulla VM Oracle
 
 ## Link
 - AI doc: [AI doc](../../../ai/projects/owntracks-watcher.md)
-- Metadata: [dev/project.metadata.json](../../../../owntracks-watcher/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../owntracks-watcher/dev/legacy)
-- Repository: [repo path](../../../../owntracks-watcher)
+- Metadata: dev/project.metadata.json (`../../../../owntracks-watcher/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../owntracks-watcher/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../owntracks-watcher`; status=UNKNOWN)

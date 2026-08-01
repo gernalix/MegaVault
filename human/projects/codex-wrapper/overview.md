@@ -15,7 +15,7 @@ UNKNOWN: source docs do not state a clear purpose.
 - Script/build: `UNKNOWN`
 
 ## Link
-- AI doc: [AI doc](../../../ai/projects/codex-wrapper.md)
-- Metadata: [dev/project.metadata.json](../../../../codex-wrapper/dev/project.metadata.json)
-- Legacy docs: [dev/legacy](../../../../codex-wrapper/dev/legacy)
-- Repository: [repo path](../../../../codex-wrapper)
+- AI doc: AI doc (`../../../ai/projects/codex-wrapper.md`; status=UNKNOWN)
+- Metadata: dev/project.metadata.json (`../../../../codex-wrapper/dev/project.metadata.json`; status=UNKNOWN)
+- Legacy docs: dev/legacy (`../../../../codex-wrapper/dev/legacy`; status=UNKNOWN)
+- Repository: repo path (`../../../../codex-wrapper`; status=UNKNOWN)

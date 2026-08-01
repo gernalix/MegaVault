@@ -10,4 +10,4 @@ Browser-check uses Firefox cookies for a redacted `yt-dlp` probe by default and 
 
 Safety boundary: no DRM bypass, no paywall bypass, no credential attacks, no brute force, no exploit attempts, no aggressive crawling, and no full signed media URLs in reports.
 
-Links: [AI doc](../../../ai/projects/facedownassup-downloader.md), [metadata](../../../../facedownassup-downloader/dev/project.metadata.json), [repo](../../../../facedownassup-downloader), [README](../../../../facedownassup-downloader/README.md).
+Links: [AI doc](../../../ai/projects/facedownassup-downloader.md), metadata (`../../../../facedownassup-downloader/dev/project.metadata.json`; status=UNKNOWN), repo (`../../../../facedownassup-downloader`; status=UNKNOWN), README (`../../../../facedownassup-downloader/README.md`; status=UNKNOWN).
