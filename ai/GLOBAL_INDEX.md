@@ -69,6 +69,7 @@ project=system-watchdog;repo=legacy:/home/daniele/codex-workspace/system_watchdo
 project=windows-flight-recorder;repo=Windows:C:\Users\seste\Documents\windows\system_logger;ai=projects/windows-flight-recorder.md;status=remote_host
 project=windows-winget-daily-update;repo=Windows:C:\Users\seste\Documents\windows\maintenance;ai=projects/windows-winget-daily-update.md;status=remote_host
 project=windowtabnotes;repo=remote:https://github.com/gernalix/WindowTabNotes;ai=projects/LEGACY.md;status=abandoned_local_remote_preserved
+project=wordpulse;repo=/home/daniele/projects/wordpulse;ai=/home/daniele/projects/wordpulse/docs/ai/PROJECT.md;branch=main;status=active
 
 OPEN:
 open=legacy:/home/daniele/codex-workspace paths are historical;verify before use
