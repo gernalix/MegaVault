@@ -61,7 +61,7 @@ project=owntracks-watcher;repo=remote:ubuntu@150.230.148.128:/home/ubuntu/bots/o
 project=parcel-tracker;repo=legacy:/home/daniele/codex-workspace/parcel-tracker;ai=projects/LEGACY.md;status=legacy
 project=remote-codex-phone;repo=legacy:/home/daniele/codex-workspace/remote-codex-phone;ai=projects/LEGACY.md;status=legacy
 project=remote-opt-oracle-backup;repo=legacy:/home/daniele/codex-workspace/projects/vm_oracle/remote_opt_oracle_backup;ai=projects/oracle-backup-service.md;status=superseded
-project=soldi;repo=UNKNOWN_FEDORA;legacy_repo=/home/daniele/AndroidStudioProjects/Soldi;ai=projects/soldi.md;status=preimpl_context
+project=soldi;repo=/home/daniele/projects/Soldi;ai=projects/soldi.md;branch=main;head=b85c8d2350e084dfd7798a738d348ade58a45b1c;status=active+single_trunk+Pixel_v9
 project=sostanze;repo=UNKNOWN_FEDORA;legacy_repo=/home/daniele/AndroidStudioProjects/Sostanze;ai=projects/sostanze.md;status=premigration_context
 project=supercontacts;repo=UNKNOWN_FEDORA;owner_repo=UNKNOWN;legacy_repo=/home/daniele/codex-workspace/SuperContacts_absent_at_2026-08-01;ai=UNKNOWN_FEDORA;archive=archive/projects_legacy/supercontacts-v33.md;status=archive_fallback_revalidate_owner
 project=surface-recovery-hardening;repo=legacy:/home/daniele/codex-workspace/surface-recovery-hardening;ai=projects/surface-recovery-hardening.md;status=legacy_recovery_reference
