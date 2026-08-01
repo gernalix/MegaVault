@@ -1,4 +1,4 @@
-VERSION=8
+VERSION=5
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -67,10 +67,7 @@ bootstrap=new project initializes AI doc, human doc, SQLite path/config, and upd
 ORACLE_BACKUP_REFERENCE:
 db=/home/ubuntu/sync_root/db/incident_registry.sqlite
 tool=/opt/oracle_backup/incident_registry.py
-incidents=OCI_STORAGE_LIMIT_EXCEEDED,OCI_REMOTE_REPOSITORY_CORRUPT,ORACLE_ROOT_DISK_PRESSURE,TELEGRAM_TRANSPORT_SECRET_DISCLOSURE
-status_2026_07_26=OCI_STORAGE_LIMIT_EXCEEDED_RESOLVED+OCI_REMOTE_REPOSITORY_CORRUPT_RESOLVED+TELEGRAM_TRANSPORT_SECRET_DISCLOSURE_MITIGATED
-owner_docs=/home/daniele/MegaVault/projects/oracle-backup-service/docs/ai/INCIDENT_REGISTRY.md
-activity=731904
+incidents=OCI_STORAGE_LIMIT_EXCEEDED,OCI_REMOTE_REPOSITORY_CORRUPT,ORACLE_ROOT_DISK_PRESSURE
 
 INCIDENT:
 Incident_ID=CODEX_SQLITE_WAL_T7_ROOT_GROWTH
@@ -145,24 +142,6 @@ Tempo_totale_di_impatto=about 11 minutes for the confirmed Spark-source runtime 
 Note=Post-fix evidence: dry-run and real service run both read five_hour_left=49 percent and weekly_left=57 percent from rateLimits.primary/rateLimits.secondary; user screenshot after fix showed the same values. First post-fix notification marks previous 5h as unavailable because the stored previous source was Spark and must not be compared to the main quota.
 
 INCIDENT:
-Incident_ID=CODEX_WEEKLY_LIMIT_MONITOR_QUOTA_SCHEMA_CHANGE
-Titolo=Oracle VM Codex quota monitor failed after 5h window removal and primary weekly schema change
-Data_prima_comparsa_UTC=2026-07-12T18:28:00Z
-Data_ultima_comparsa_UTC=2026-07-14T17:48:27Z
-Numero_occorrenze=recurring_every_poll_until_fix
-Gravita_massima=HIGH
-Stato=RESOLVED
-Root_cause=Codex app-server account/rateLimits/read stopped returning the previous 300-minute main 5h window and changed codex primary to a 10080-minute window while secondary became null; the watcher still required secondary as weekly and kept obsolete last_five_hour state.
-Sistemi_coinvolti=Oracle VM instance-20260201-1126; codex-weekly-limit-monitor.service; /home/ubuntu/codex/automazione/codex_weekly_limit_monitor; /home/ubuntu/telegram_notify.py; Codex app-server account/rateLimits/read
-Alert_coinvolti=Codex quota Telegram notifications; codex_weekly_limit_monitor runtime log/state
-Tentativi_effettuati=Read MegaVault protocol and host profile; found active monitor by systemd, process tree, logs, state, config, helper path, and source JSON-RPC; observed live redacted payload; backed up runtime files; deployed generic category parser and state migration; ran deterministic tests, dry-run real source, controlled real service restart, and no-duplicate restart verification.
-Soluzione_finale=Monitor now parses dynamic quota categories from actual rateLimits/rateLimitsByLimitId windows, skips null windows, maps codex 10080-minute window to Weekly, emits Telegram only for present categories, removes obsolete last_five_hour state, preserves last valid categories on errors, keeps telegram_notify.py as the only Telegram helper, and documents UTC dd/mm/yy hh:mm timestamps.
-Commit_correlati=this_MegaVault_report_commit
-Prompt_correlati=738416
-Tempo_totale_di_impatto=At least 2026-07-12T18:28:00Z to 2026-07-14T17:48:27Z based on monitor logs/state; previous successful state was 2026-07-12T18:13:53Z and errors repeated until fix.
-Note=Post-fix evidence: state version=3, last_error empty, categories weekly left=82 reset=20/07/26 07:18 and GPT-5.3-Codex-Spark left=100; no last_five_hour_* keys; real Telegram notification sent once for Weekly 94% -> 82%; second restart did not resend.
-
-INCIDENT:
 Incident_ID=EXTERNAL_NTFS_DISCONNECT_DURING_MOUNTED_IO
 Titolo=External NTFS volume disappeared during mounted I/O
 Data_prima_comparsa_UTC=2026-07-09T17:07:00Z
@@ -179,24 +158,6 @@ Commit_correlati=fedora-system-monitor activity 593184
 Prompt_correlati=593184
 Tempo_totale_di_impatto=approximately 10 seconds until observed remount
 Note=No physical disconnect or destructive reproduction was attempted; device serial and filesystem UUID are intentionally omitted from documentation; project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
-
-INCIDENT:
-Incident_ID=CODEX_DATA_ANALYTICS_WIDGETS_MISSING_PNG
-Titolo=Codex Data Analytics plugin MCP closed initialize response due missing PNG asset
-Data_prima_comparsa_UTC=2026-07-14T11:30:01Z
-Data_ultima_comparsa_UTC=2026-07-14T12:03:44Z
-Numero_occorrenze=1 confirmed current startup failure
-Gravita_massima=MEDIUM
-Stato=RESOLVED
-Root_cause=The plugin-provided MCP server dataAnalyticsWidgets in /home/daniele/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599 loaded assets/datascience.png during module initialization, but that asset was absent from the installed cache; Node threw ENOENT before replying to MCP initialize, so Codex reported connection closed: initialize response.
-Sistemi_coinvolti=Fedora host; Codex CLI 0.144.4; OpenAI curated Data Analytics plugin 0.2.8-13ceeea1f599; node /usr/bin/node v22.22.2
-Alert_coinvolti=Codex startup banner MCP startup incomplete failed dataAnalyticsWidgets
-Tentativi_effettuati=Read MEGAVAULT_PROTOCOL and HOST_PROFILE; captured Fedora/Codex versions, codex mcp help/list/get, doctor, plugin config, process cwd/env, journal/systemd state, plugin .mcp.json, server.cjs, package manifests, manual server stdout/stderr/exit/duration before and after fix, official Codex manual MCP section, and two real codex --yolo launches.
-Soluzione_finale=Regenerated /home/daniele/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599/assets/datascience.png from the bundled datascience.svg using ImageMagick; no MCP disable, model change, timeout change, retry change, package update, or config replacement.
-Commit_correlati=none_local_cache_repair
-Prompt_correlati=739184
-Tempo_totale_di_impatto=active at task start until local cache repair and two clean Codex launches on 2026-07-14T12:03:44Z
-Note=Backups: plugin backup activity_739184_20260714T140237+0200 and MegaVault registry backup activity_739184_20260714T140520+0200. Residual warning: remote plugin refresh or reinstall could replace the local cache if upstream still lacks the asset.
 
 INCIDENT:
 Incident_ID=T7_MOUNTPOINT_FELL_THROUGH_TO_INTERNAL_ROOT
@@ -271,24 +232,6 @@ Tempo_totale_di_impatto=Stale state persisted from first installation until 2026
 Note=Host,Network,Services,Software healthy after fix;Storage intentionally DOWN for Seagate 3.6754 percent free and unmatched unsafe removal;fresh Kuma admin readback pending because Chrome JWT was rejected;project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md
 
 INCIDENT:
-Incident_ID=KUMA_HOST_STORAGE_REAL_STATE_471853
-Titolo=Fedora System Monitor Host and Storage red states were real after Seagate cleanup
-Data_prima_comparsa_UTC=2026-07-14T12:15:00Z
-Data_ultima_comparsa_UTC=2026-07-14T12:23:02Z
-Numero_occorrenze=1 audit follow-up
-Gravita_massima=HIGH
-Stato=RESOLVED_WITH_REAL_ALERTS_REMAINING
-Root_cause=Host had real swap.used_percent warning near 39 percent;Storage had Seagate filesystem.free_percent 5.2273 below recovery threshold;unsafe_device_removal was stale because mount point was present again
-Sistemi_coinvolti=Fedora host;fedora-system-monitor;SQLite;Uptime Kuma Oracle VM
-Alert_coinvolti=Fedora Host ID39;Fedora Storage ID40;swap.used_percent;filesystem.free_percent;unsafe_device_removal
-Tentativi_effettuati=Live DB queries;df/findmnt;minute+five_minute+fifteen_minute collectors;remote Kuma SQLite readback;systemd+udev+selftest
-Soluzione_finale=Fedora System Monitor 1.1.1 refreshes active metric alerts and reconciles unsafe-removal alerts when findmnt proves the recorded mount point is present
-Commit_correlati=fedora-system-monitor activity 471853
-Prompt_correlati=471853
-Tempo_totale_di_impatto=User-visible red state persisted until real conditions were distinguished and stale unsafe removal recovered;exact UI duration UNKNOWN
-Note=Final state Host DOWN truthful for swap warning;Storage DOWN truthful for Seagate free space;Network/Services/Software UP;project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471853.md
-
-INCIDENT:
 Incident_ID=AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
 Titolo=AutoKey unusable on Fedora 44 GNOME Wayland
 Data_prima_comparsa_UTC=2026-07-13T07:39:00Z
@@ -323,57 +266,3 @@ Commit_correlati=this MegaVault activity commit
 Prompt_correlati=684271
 Tempo_totale_di_impatto=UNKNOWN before report;technical repair and validation completed 2026-07-13T19:00:00Z
 Note=Original user file path was not supplied,so a controlled MP4/H264 Baseline/yuv420p/AAC LC sample proved the same generic failure and fix. mpv was not installed and was not added only as a test dependency. Host libpostproc is absent but unrelated to H264 and disabled in both VLC builds. Old lowercase Flatpak app data remains preserved at /home/daniele/.var/app/org.videolan.vlc.
-
-INCIDENT:
-Incident_ID=SMART_SERVICE_CAPABILITY_FALSE_POSITIVE
-Titolo=Fedora System Monitor registrava falsi smart_check_failed su NVMe interno e Samsung T7
-Data_prima_comparsa_UTC=2026-07-10T10:30:53Z
-Data_ultima_comparsa_UTC=2026-07-26T12:08:27Z
-Numero_occorrenze=156
-Gravita_massima=MEDIUM
-Stato=RESOLVED
-Root_cause=Il collector hourly rimuoveva CAP_SYS_ADMIN necessaria all NVMe nativo e CAP_SYS_RAWIO necessaria al passthrough SCSI del bridge USB NVMe ASMedia del T7
-Sistemi_coinvolti=Fedora 44 host;fedora-system-monitor;KIOXIA NVMe interno;Samsung T7 Shield USB NVMe;SQLite;systemd
-Alert_coinvolti=smart_check_failed warning events;zero active SMART alerts;zero false Kuma transitions
-Tentativi_effettuati=Database reconstruction;lsblk+findmnt+udevadm+smartctl scan-open;capability-isolated transient units;SMART and NVMe health,error,self-test,temperature and kernel journal checks
-Soluzione_finale=Fedora System Monitor 1.3.1 scopes CAP_SYS_ADMIN and CAP_SYS_RAWIO only to hourly and daily,records bounded diagnostic output,skips absent or unsupported devices,and avoids the ASMedia error-log page while preserving health and self-test monitoring
-Commit_correlati=fedora-system-monitor activity 482731
-Prompt_correlati=482731
-Tempo_totale_di_impatto=2026-07-10T10:30:53Z to 2026-07-26T12:08:27Z for false warning event generation
-Note=Internal KIOXIA health PASS with media errors 0 and T7 health PASS through sntasmedia;two Seagate USB SAT disks remained intentionally asleep. An explicit T7 error-log probe during investigation caused two successful UAS resets and was stopped;it is separate from the historical cause. Project source=/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md
-
-INCIDENT:
-Incident_ID=SECURE_BOOT_DRACUT_LUKS_UNLOCK_NOT_PERSISTED
-Titolo=Boot Fedora con Secure Boot raggiunge dracut ma il Btrfs dentro LUKS non compare
-Data_prima_comparsa_UTC=2026-07-30T03:01:36Z_to_2026-07-30T03:10:52Z;exact_UNKNOWN
-Data_ultima_comparsa_UTC=2026-07-30T03:01:36Z_to_2026-07-30T03:10:52Z;exact_UNKNOWN
-Numero_occorrenze=1
-Gravita_massima=HIGH
-Stato=OPEN
-Root_cause=Il riferimento mostrato da dracut non e obsoleto: e il FSID Btrfs corrente passato dalle opzioni BLS e compare solo dopo apertura LUKS. Il guasto a monte del tentativo fallito e delimitato a mancata scoperta NVMe/LUKS oppure richiesta cryptsetup fallita o terminata, ma il boot initramfs non monto la root e non lascio journal o rdsosreport persistenti; la causa dinamica esatta e quindi UNKNOWN.
-Sistemi_coinvolti=Fedora 44;UEFI Secure Boot;shim;GRUB;BLS;kernel 7.1.x;dracut;NVMe interno;LUKS2;Btrfs
-Alert_coinvolti=/dev/disk/by-uuid/6ff76a46-6614-4ac6-b1fa-a9590f09c709 does not exist;Not all disks have been found;dracut emergency mode
-Tentativi_effettuati=32 boot journal verificati;artefatti dracut,rdsosreport,pstore,coredump e kdump cercati;UUID tracciato in fstab,kernel cmdline,BLS,GRUB,generatori,EFI e binari;quattro initramfs estratti in tmpfs con lsinitrd e hash invariati;selezione BLS,grubenv,ordine EFI,fallback,firme e moduli verificati;activity 948315 ha armato collector first-successful-boot e BLS diagnostica separata con output console.
-Soluzione_finale=Causa ancora OPEN. Preparata raccolta forense reversibile: archivio automatico root-only dopo il primo boot riuscito e BLS non predefinita sullo stesso kernel/initramfs con soli parametri debug; LUKS,partizioni,Secure Boot,chiavi,kernel,initramfs,BLS originali,GRUB e grubenv invariati.
-Commit_correlati=activity_214587_MegaVault_commit;activity_948315_MegaVault_commit
-Prompt_correlati=731846;214587;948315
-Tempo_totale_di_impatto=Un singolo tentativo nel gap tra arresto pulito 2026-07-30T03:01:36Z e avvio corrente 2026-07-30T03:10:52Z; durata esatta UNKNOWN
-Note=Origine FSID provata da /var/log/anaconda/storage.log mkfs.btrfs del 2026-07-07. Secure Boot corrente disabilitato. Nessun reboot activity 948315. Pstore EFI e journal persistente gia operativi ma un timeout dracut normale pre-root resta volatile; foto/video console obbligatori. Sources=ai/reports/activity_214587_secure_boot_dracut_forensics.md;/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_948315.md
-
-INCIDENT:
-Incident_ID=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION
-Titolo=Pixel 8a restringeva i dati in background di WhatsApp e ritardava le notifiche
-Data_prima_comparsa_UTC=2026-07-02T03:14:07Z
-Data_ultima_comparsa_UTC=2026-07-26T18:28:58Z
-Numero_occorrenze=2
-Gravita_massima=HIGH
-Stato=RESOLVED
-Root_cause=Android NetworkPolicyManager aveva nuovamente assegnato all UID 10363 di com.whatsapp policy 1 REJECT_METERED_BACKGROUND; il push poteva funzionare in primo piano o su WiFi non misurato ma veniva negato in background sui percorsi misurati.
-Sistemi_coinvolti=Google Pixel 8a;Android 17;com.whatsapp;Google Play Services FCM;NetworkPolicyManager
-Alert_coinvolti=notifiche WhatsApp assenti o ritardate in background;nessun alert automatico
-Tentativi_effettuati=Recuperata diagnosi 2026-07-02 dai commit 856efce e 33f13ae;verificati identita ADB,permesso,canali,appops,batteria,Doze,standby,Data Saver,rete,DND,GMS,servizi e logcat;due test reali esterni.
-Soluzione_finale=Rimossa la blacklist per il solo UID WhatsApp e aggiunta allowlist dati misurati persistente;policy finale 4 ALLOW_METERED_BACKGROUND;nessuna modifica a dati,cache,account,chat,backup,DND,Doze o canali.
-Commit_correlati=856efce;33f13ae;activity_473821_MegaVault_commit
-Prompt_correlati=473821
-Tempo_totale_di_impatto=UNKNOWN tra la ricomparsa della policy e il fix 2026-07-26;la prima occorrenza fu risolta il 2026-07-02
-Note=Test finale 2026-07-26 20:28:37-20:29:24 CEST: Pixel sempre Dozing, push C2DM alle 20:28:58, GcmFGService avviato, due record Android mIntercept false e mHidden false. Il writer che ha reintrodotto policy 1 non e conservato nei log. Due record WhatsApp distinti furono intercettati il 2026-07-25 da DND manuale, comportamento atteso non modificato. SQLite globale integro ma non aggiornato manualmente perche il registro impone upsert automatici e non offre un updater globale. Source=ai/reports/activity_473821_pixel_whatsapp_notifications.md

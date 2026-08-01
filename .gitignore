@@ -1,0 +1,11 @@
+/projects/
+private/
+secrets/
+**/secrets/
+oracle-vm-rsa
+access.env
+codex_global_timeline.sqlite-shm
+codex_global_timeline.sqlite-wal
+__pycache__/
+*.py[cod]
+.pytest_cache/

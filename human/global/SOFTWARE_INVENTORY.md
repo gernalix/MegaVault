@@ -1,21 +1,33 @@
 # Inventario software globale
 
-Aggiornato: 2026-07-05. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
+Aggiornato: 2026-07-14. Autorita' operativa: [SOFTWARE_INVENTORY AI](../../ai/global/SOFTWARE_INVENTORY.md).
 
-## Tool Windows verificati
+## Tool Fedora verificati
 
-- PowerShell 7: `C:\Program Files\PowerShell\7\pwsh.exe`, versione `7.6.3`.
-- Git: `C:\Program Files\Git\cmd\git.exe`, versione `2.55.0.windows.2`.
-- Android Studio: `C:\Program Files\Android\Android Studio\bin\studio64.exe`.
-- Android SDK/ADB: `C:\Users\seste\AppData\Local\Android\Sdk\platform-tools\adb.exe`, ADB `1.0.41 / 37.0.0-14910828`.
-- Veeam Agent: servizio Windows `VeeamEndpointBackupSvc` running/automatic.
+- Bash 5.3.9, DNF 5.4.2.1, systemd 259 e Git 2.55.0 dai path di sistema.
+- GitHub CLI 2.94.0 in `/usr/bin/gh`; Codex CLI 0.144.1 si avvia direttamente da `/usr/local/bin/codex` nel PTY nativo di Ptyxis, senza wrapper o cattura automatica.
+- Python 3.14.6, pip 26.0.1, pipx 1.15.0 e uv 0.11.26.
+- OpenJDK 25.0.3 con `JAVA_HOME=/usr/lib/jvm/java-25-openjdk`.
+- OpenSSH 10.2p1 in `/usr/bin/ssh`; il path standard `~/.ssh` (`/home/daniele/.ssh`) non e' ancora presente.
+- Docker non e' installato e non ha una unit systemd; Podman 5.8.4 e' disponibile come runtime opzionale.
+- Fedora System Monitor 1.1.1 e' installato in `/usr/local/libexec/fedora-system-monitor` con CLI `/usr/local/bin/fedora-system-monitor`; include dashboard, timeline, trend, storico servizi e Prometheus locale opzionale. I watcher Host/Storage e i cinque push Kuma sono stati verificati live nell'attivita' 471853.
+- Restic 0.19.0 e' installato in `/usr/bin/restic`; repository cifrato T7,
+  avvio automatico udev al collegamento, manutenzione condizionale, smontaggio e
+  notifiche sono verificati nell'attivita' 684219; check completo e restore
+  restano verificati dall'attivita' 583921.
+- Smartmontools 7.5, nvme-cli 2.16, lm_sensors 3.6 e SQLite 3.51 erano gia' disponibili. L'attivita' 593184 ha aggiunto i pacchetti Fedora Python Socket.IO e compressione necessari soltanto al provisioning amministrativo Kuma; i collector ordinari restano standard-library.
+- Android Studio Flatpak `com.google.AndroidStudio` 2026.1.1.10; avvio con `flatpak run com.google.AndroidStudio`.
+- VLC 3.0.23 e' installato una sola volta come Flatpak Flathub `org.videolan.VLC`. Il precedente Flatpak Fedora `org.videolan.vlc` usava nel runtime Fedora una libreria `noopenh264` fittizia e non poteva creare il decoder H.264; e' stato sostituito nell'attivita' `684271`. La decodifica H.264 FFmpeg, il rendering video, il linkage dei plugin e l'integrita' Flatpak sono verificati. Nessun RPM multimediale e' stato modificato.
+- Android SDK: `/home/daniele/Android/Sdk`; ADB `1.0.41 / 37.0.0-14910828`; `sdkmanager` sotto `cmdline-tools/latest/bin`.
+- Per Gradle usare il wrapper del progetto.
+- Obsidian 1.12.7 e' installato per il solo utente come AppImage in `~/.local/opt/obsidian/Obsidian.AppImage`, con voce GNOME e icona locali; l'avvio e la presenza nel menu Applicazioni sono verificati. La compatibilita' AppImage richiede `fuse-libs.x86_64` 2.9.9-25.fc44.
+- RustDesk 1.4.9 e' installato dal RPM x86_64 della release GitHub ufficiale tramite DNF in `/usr/bin/rustdesk`. Il digest GitHub coincide con lo SHA-256 locale; l'RPM non ha firma OpenPGP. Esiste una sola voce GNOME visibile e il secondo desktop file e' il link handler nascosto. Il servizio e' abilitato e attivo; l'ID persiste al riavvio del servizio e il rendezvous ufficiale e' raggiungibile. La password permanente va scelta e inserita manualmente in RustDesk, senza riportarla nei documenti. Per aggiornare ripetere selezione e verifica dell'RPM stabile ufficiale, poi `sudo dnf install ./rustdesk-<version>.rpm`; per rimuovere usare `sudo dnf remove rustdesk` senza cancellare configurazioni se non richiesto.
+- VeraCrypt 1.26.29 e' installato dal GUI RPM ufficiale Fedora 44 x86_64 tramite DNF. SHA-256 e firma RPM coincidono con le fonti ufficiali; voce Applicazioni e avvio GUI sono verificati. Per la versione CLI usare `veracrypt --text --version`: senza `--text`, l'opzione entra nel ciclo eventi GUI. Il lancio produce un warning GTK non fatale sullo scale factor.
+- AutoKey for Wayland 0.97.4 e' installato dal COPR firmato `dlk/autokey` (release/commit `v0.97.4`, `a41c8a0a145ee00ffb7e197c3b5dd26a3e946e7e`). Un wrapper utente in `~/.local/libexec/autokey-wayland-fedora44` evita che GNOME 50 scarti il dispositivo uinput per assi tablet incompleti e impedisce il blocco di `wl-paste` quando la clipboard non ha proprietario; nessun file RPM e' modificato. Hotkey ed espansione clipboard sono verificate in GTK Wayland, Chrome Wayland e Zenity XWayland. Launcher logico unico, icona e GUI sono verificati; caricamento reale dell'estensione GNOME e autostart systemd attendono il prossimo logout/login (attivita' `638417`).
+- ActivityWatch v0.13.2 e' installato dallo ZIP Linux x86_64 ufficiale GitHub in `~/.local/opt/activitywatch`. `activitywatch.service` avvia server/dashboard su `127.0.0.1:5600`; `activitywatch-wayland-watcher.service` e' pronto per il prossimo login e usa l'RPM ufficiale `aw-awatcher` 0.3.3 con Focused Window D-Bus v11. AFK diretto verificato, tracking finestra attende il caricamento dell'estensione GNOME al prossimo login; stato `PENDENTE_POST_LOGIN` (attivita' `735804`).
 
-## Unknown/TODO
+Per il Fedora corrente usare Bash, `dnf`, `systemctl`, `findmnt`, `lsblk` e `df`. Tool e path remoti non descrivono il runtime locale.
 
-- Java e Gradle globali non riverificati; preferire wrapper Gradle dei progetti.
-- GitHub Desktop non verificato; fallback Git CLI disponibile.
-- Backblaze Windows client non rilevato nel controllo default.
+## TODO
 
-## Storico
-
-Tool Linux come `systemctl`, `/usr/bin/git`, `/home/daniele/Android/Sdk`, `restic` locale Mint e path `/home/...` sono legacy, remoti o project-specific.
+La password Restic deve ancora essere salvata manualmente nel password manager. La directory SSH andra' creata solo quando necessaria, con permessi appropriati.

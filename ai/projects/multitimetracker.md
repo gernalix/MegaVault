@@ -1,15 +1,16 @@
 META:
 name=MultiTimeTracker
 slug=multitimetracker
-path=/home/daniele/codex-workspace/projects/MultiTimeTracker
+path=/home/daniele/projects/MultiTimeTracker
 remote=https://github.com/gernalix/MultiTimeTracker.git
-branch=codex/v488-release-safe-ui-lockdown
-verified_commit=9c7510d
-verified_at=2026-06-15T16:02:18+02:00
+branch=codex/731684-fedora-environment-adaptation
+verified_commit=971649d7e20df057fe7ca523868673bab2357e0d
+verified_at=2026-07-18T19:32:46+02:00
+metadata=/home/daniele/projects/MultiTimeTracker/dev/project.metadata.json
 protocol=MEGAVAULT_PROTOCOL.md:v11
 merge_20260705=retains_local_v527_v534_persistence_capsule_device_history_and_adds_github_master_v535_play_store_readiness_below
-current_github_branch=master
-current_github_commit=44c2b33e53ce98e02f95437bd5bc7eb3f16aa688
+historical_github_branch_20260705=master
+historical_github_commit_20260705=44c2b33e53ce98e02f95437bd5bc7eb3f16aa688
 PURPOSE:
 purpose=local-first Android time tracker. data= the app SQLite database, with sessions and shared tags as the core model
 STACK:
@@ -55,15 +56,15 @@ backup=v525: SqliteVault creates stable primary/temp/emergency database files wi
 backup=v528 prompt #739284: root cause was valid DB import rollback on runtime activation-signature after counts matched; import no longer rolls back a validated DB for runtime activation mismatch, export validates tmp/promoted SAF DB with integrity/schema/critical counts, internal restore compares current->candidate before promotion, settings mirror is preserved into old candidates, and ForensicLog records export/import/recovery failures
 backup=v529 prompt #418762: runtime snapshot saves ignore only legacy derived `tasks` drops because `tasks` is compatibility data rebuilt from running sessions; complete import/replace candidates still validate `tasks` N>0->0. SAF stable export no longer promotes via DocumentFile.renameTo; it writes/validates tmp, bak, then primary copy, and manual export runs on Dispatchers.IO to avoid UI ANR.
 backup=v531 prompt #947381: SQLite SAF export has one safe path: WAL checkpoint or abort, source integrity_check, tmp copy, tmp integrity_check, bak update, bak integrity_check, primary promotion, final integrity_check. Restore tries `multitimer.db` then `multitimer.db.bak`, never tmp. MultiDbVaults uses same stable pipeline. Autoexport is single-flight/coalesced via PersistentMutationTracker with 1200ms debounce; sync metadata writes do not retrigger export loops. SyncStatusStore tracks last_database_mutation_at UTC/Z, last_successful_export_at, last_export_attempt_at, status/error/file/integrity and AppTopBar shows ✅/⟳/❌/⚠.
-ui_v532 prompt #284739: Now, Events, Since When, Chains and shared AppTopBar screens show SyncStatusStore-backed sync status persistently; drawer content remains unmounted until user opens it and open is delayed one frame to avoid startup flash while preserving manual drawer open.
-picker_v532 prompt #284739: shared MttDateTimePickerDialog replaces Android DatePickerDialog/TimePickerDialog flows in SessionEditDialog, QuickEventsScreen entry/macro timestamps, LifePeriodsScreen start/end, and AppRoot Time Machine. MttDatePickerDialog replaces Timeline date-only filters. Picker UX is calendar above, large hour/minute inputs, numeric keyboard, Enter confirms from time fields, no required OK button.
-startup_v533 prompt #739421: first-run SAF/folder prompt rendering is gated by setupCheckComplete. Unknown setup state renders a silent placeholder and cannot compose the choose-folder dialog for a single frame; prompt appears only after BackupFolderStore.ensureSavedTreeWritable completes and a real missing-folder state is stable. Regression is covered by FirstRunSetupPromptGateTest.
-picker_v534 prompt #582941: MttDateTimePickerDialog now owns hour/minute TextField inputs instead of Material3 TimeInput, wiring IME Done plus hardware Enter/NumpadEnter to the same valid-time commit path. Invalid hour/minute values keep the dialog open and mark the field error. Shared callers remain SessionEditDialog, QuickEventsScreen, LifePeriodsScreen, and AppRoot Time Machine.
-startup_v536 prompt #startup_perf_pixel: Application.onCreate traces cold process; Activity first frame is separated from Home readiness. Startup now prefetches open sessions from session SQLite tables immediately after first frame, uses HomeLoadState Loading/ReadyWithData/ReadyEmpty/Error, never renders false empty Now while first load is unresolved, and defers full DataIntegrityGate/snapshot/auto-consistency/quick-event schema/vault flag after Home session fast path. Active session rows use sessions/session_tags first; tag names/active-tag aggregates are enriched by full snapshot.
-startup_v536_postfix_check: AuthoritativeSessionRuntimeTest covers fast-path vs full-snapshot convergence for 0/1/multiple active sessions, multiple tags, tagParents, since-when/lifePeriods, and legacy snapshot/session-table bootstrap. DeviceTest clone uses distinct public provider authority to avoid Pixel install conflict while production authority remains com.example.multitimetracker.api.
-capsulization_v537 prompt #capsule_20260706: branch selected codex/sesso-app-mtt-api because no local/remote branch, tag, or ref with MTT_VERSION=546 was found; highest verified line was v536, so patch bumped linearly to v537. HEAD capsulization score 100/100; whole-history score 96/100 until removed helper token is rotated and historical refs are cleaned.
-capsulization_v537_fixes: removed tracked root/debug artifacts and secret-bearing tools/mtt_helper.ini; added tools/mtt_helper.example.ini; hardened BackupFolderStore saved-tree readable/writable checks to reject non-directory stale roots; added startup no-false-empty error regression; added device import/export/startup restore regression proving valid internal SQLite is not overwritten by differing SAF vault at startup; updated Windows project metadata and AGENTS paths.
-capsulization_v537_tests: PASS hardcoded UI string gate; PASS testDebugUnitTest; PASS lintDebug; PASS assembleDebug; PASS TCL/6102H Android 12 deviceTest targeted PersistenceImportExportTest+BackupFolderStoreTest 27 tests, 1 skipped fixture, 0 failed; PASS TCL debug APK install+MainActivity cold launch; APK C:/Users/seste/Documents/MTT/artifacts/537.apk SHA256 EB35A8DEA363AA77001674840EB28DAD5FED8401DF299E181B1D6038B5B727DF.
+ui_v532_prompt_284739=Now+Events+Since_When+Chains+AppTopBar_persistent_SyncStatusStore_status;drawer_unmounted_until_open+one_frame_delay
+picker_v532_prompt_284739=MttDateTimePickerDialog_shared_by_SessionEditDialog+QuickEvents+LifePeriods+Time_Machine;MttDatePickerDialog_for_Timeline;calendar+large_numeric_time+Enter_commit
+startup_v533_prompt_739421=setupCheckComplete_gate;silent_unknown_state;prompt_only_after_ensureSavedTreeWritable+stable_missing;test=FirstRunSetupPromptGateTest
+picker_v534_prompt_582941=owned_hour+minute_TextFields;IME_Done+Enter+NumpadEnter;invalid_values_keep_open+error;shared_callers_preserved
+startup_v536_prompt_startup_perf_pixel=trace_cold_process;separate_first_frame+Home_ready;prefetch_sessions/session_tags;HomeLoadState_loading+data+empty+error;no_false_empty;defer_full_gates;full_snapshot_enrichment
+startup_v536_postfix_check=AuthoritativeSessionRuntimeTest_fast/full_convergence_0+1+many_sessions+tags+parents+since_when+life_periods+legacy_bootstrap;deviceTest_distinct_provider_authority
+capsulization_v537_prompt_20260706=selected_codex/sesso-app-mtt-api;MTT_VERSION_546_absent;v536>v537;HEAD=100/100;history=96/100_pending_token_rotation+ref_cleanup
+capsulization_v537_fixes=removed_root+debug+secret_mtt_helper.ini;added_example;hardened_SAF_tree_validation;added_startup+device_import/export/restore_regressions;updated_Windows_metadata+AGENTS
+capsulization_v537_tests=PASS_UI_string_gate+unit+lint+assemble+TCL_Android12_27_tests_1_skip_0_fail+APK_install+cold_launch;apk=C:/Users/seste/Documents/MTT/artifacts/537.apk;sha256=EB35A8DEA363AA77001674840EB28DAD5FED8401DF299E181B1D6038B5B727DF
 audit_log=v525 prompt #728419: AUDIT_LOG bridge removed from MainViewModel; filters, event refresh, clear and undo moved to AuditLogCapsuleViewModel with source/JVM boundary tests and Pixel clone validation
 since_when=v525 prompt #462918: post-capsulization audit found LifePeriod CRUD still root-owned; moved to SinceWhenCapsuleViewModel, extended CapsuleBoundaryOwnershipTest and added SinceWhenCapsuleViewModelTest
 FLOW:
@@ -180,8 +181,6 @@ legacy=../../../projects/MultiTimeTracker/dev/legacy
 repo=../../../projects/MultiTimeTracker
 OPEN:
 open=capsulization_feature_ownership: 100 percent strict including SINCE_WHEN after prompt #462918; MainViewModel still supplies shared composition/infrastructure APIs to capsules
-
----
 
 ## MERGED_GITHUB_BRANCH_20260705
 

@@ -1,38 +1,26 @@
 # Data Registry
 
-Registro leggibile dei database e degli stati locali rilevanti. Il file AI autorevole e' [DATA_REGISTRY.md](../../ai/global/DATA_REGISTRY.md).
+Aggiornato: 2026-07-26. Autorita' operativa: [DATA_REGISTRY AI](../../ai/global/DATA_REGISTRY.md).
 
-Nota corrente 2026-07-05: host primario Windows 11 Pro su Lenovo ThinkPad P14s Gen 5 AMD; path host reali sotto `C:\Users\seste\Documents`. I path `/home`, `/media`, `/mnt` qui sotto sono legacy, remoti Linux, o project-specific finche' non riverificati.
+## Fedora corrente
 
-## SQLite principali
+Il database globale verificato e' `/home/daniele/MegaVault/codex_global_timeline.sqlite`, sorgente canonica della timeline Codex.
 
-- `software_audit.db`: `/home/ubuntu/sync_root/db/software_audit.db`, owner `mint-update-tracker`, con WAL/SHM presenti.
-- `codex_usage.sqlite3`: `~/.local/share/codex-usage-monitor/codex_usage.sqlite3`, owner `codex-token-watcher`.
-- `terminal_logger.sqlite`: `~/.local/share/terminal-logger/db/terminal_logger.sqlite`, owner `terminal-logger`.
-- `windowtabnotes.sqlite3`: `~/.local/share/windowtabnotes/windowtabnotes.sqlite3`, owner `windowtabnotes`.
-- `amici_fb.sqlite3`: `/home/daniele/codex-workspace/scripts/amici_fb/amici_fb.sqlite3`, owner `amici-fb`.
-- `parcel_tracker.sqlite3`: `/home/daniele/codex-workspace/parcel-tracker/parcel_tracker.sqlite3`, owner `parcel-tracker`.
-- `peewee-sqlite.v2.db`: `~/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db`, owner `activitywatch`.
-- `disk_usage_monitor.sqlite`: `/home/daniele/sync_root/db/disk_usage_monitor.sqlite`, owner `disk-usage-monitor`, include `delta_notification_state` per il riferimento notifiche delta.
-- `git_change_ledger.sqlite3`: `/home/daniele/sync_root/db/git_change_ledger.sqlite3`, owner `git-change-ledger`, rebuildable by rerunning `git-change-ledger scan`.
-- `kuma.db`: `/opt/uptime-kuma/data/kuma.db` sulla VM Oracle, verificato live in sola lettura il 2026-06-10 con WAL/SHM presenti e integrity `ok`.
+Fedora System Monitor usa `/var/lib/fedora-system-monitor/monitor.sqlite3`, schema 2 in WAL, con integrita', foreign key e indici verificati e backup online sotto `/var/lib/fedora-system-monitor/backups`. Al gate dell'attivita' 684219 misurava 325.328.896 byte: una prova prima/dopo ha aggiunto 113 metriche, di cui 24 righe filesystem, e un'esecuzione collector `ok` nel DB canonico. Le metriche raw disponibili iniziano il 10 luglio 2026 e gli eventi ricostruiti dal journal il 7 luglio; il backfill completo non ha trovato righe affidabili mancanti. La retention aggrega soltanto giorni UTC completi prima della cancellazione e conserva permanentemente gli eventi software. Il benchmark sintetico proietta circa 485 MB a 14 giorni, 943 MB a 60, 1,08 GB a 180 e 1,16 GB a un anno; l'upper bound dei backup completi configurati è 39,3 GB prima della compressione filesystem.
 
-## Stato non SQLite
+Prometheus usa `/var/lib/prometheus/metrics2`, owner `prometheus`, con retention 30 giorni e limite 5 GB. `fedora-diagnostics` non copia questa TSDB: usa l'API ufficiale e crea un singolo ZIP `0600` con CSV, JSON e checksum nella destinazione scelta dall'utente. Gli archivi restano dati manuali dell'utente e non hanno upload o retention automatica.
 
-- `mint-freeze-forensics`: JSONL e prove freeze sotto `~/.local/state/mint-freeze-forensics`.
-- `mint-cloud-backup`: JSON di stato e progresso sotto `/var/lib/mint-cloud-backup`.
-- `home-backup`: snapshot su `/media/daniele/Seagate6TB2/home-backups`.
-- `oracle-vm-offloads`: snapshot SQLite, manifest e sha256 Oracle VM sotto `/media/daniele/Seagate6TB2/oracle-vm-offloads`, incluso nei backup home futuri in `external/oracle-vm-offloads/`.
-- `surface-recovery-hardening`: destinazione transfer su `/media/daniele/Seagate6TB2/vecchio disco`.
+Il registro incidenti globale previsto dal protocollo e' inizializzato in `/home/daniele/sync_root/db/incident_registry.sqlite`, modo `0600`, con tabelle `incidents` e `incident_events` e integrita' verificata.
 
-## Esclusioni sensibili
+Il repository Restic cifrato corrente e' `/mnt/T7_BACKUP/restic-fedora` sul T7.
+Contiene 2 snapshot; la lettura integrale storica di 3.955 pack, il controllo
+corrente 5% di 198 pack e il restore SHA-256 sono PASS. L'ultimo snapshot
+verificato e' `3082eb92`. Prima di ogni snapshot il DB Fedora System Monitor
+viene copiato online e verificato nel manifest
+`/var/lib/t7-restic-backup/manifest`.
 
-I DB di profili browser, cookie, login e cache di strumenti sono stati riconosciuti come dati sensibili o interni al tool, non come verita' progettuale da centralizzare.
+I precedenti path Fedora attesi per codex usage monitor, terminal logger, WindowTabNotes, ActivityWatch, disk usage monitor e git change ledger non esistono al controllo. Questo indica soltanto che i dati non risultano migrati o installati nei path attesi; non prova una perdita dati.
 
-## Data loss
+## Regole
 
-- High impact: `windowtabnotes.sqlite3`, `kuma.db`, snapshot home e destinazione transfer.
-- High impact: `oracle-vm-offloads`, per snapshot SQLite e manifest Oracle VM.
-- Medium impact: `software_audit.db`, `terminal_logger.sqlite`, `amici_fb.sqlite3`, ActivityWatch, disk monitor e stati backup/freeze.
-- Low impact: `codex_usage.sqlite3`, `parcel_tracker.sqlite3`, `git_change_ledger.sqlite3`, storici Android update.
-- Secrets: non verificati nei DB live; `terminal_logger.sqlite`, note utente, ActivityWatch, Kuma e dati home/transfer restano `UNKNOWN` o sensibili per contenuto possibile.
+Registrare un database come corrente solo dopo verifica di path, owner, schema e backup. Per task documentali non modificare DB di progetto; leggere SQLite in sola lettura quando possibile e trattare profili browser, cookie e note utente come sensibili.

@@ -1,41 +1,29 @@
 # Service Registry
 
-Mappa globale dei servizi e timer infrastrutturali. Le righe Mint sono snapshot legacy verificati il 2026-06-08. Il file AI autorevole e' [SERVICE_REGISTRY.md](../../ai/global/SERVICE_REGISTRY.md).
+Aggiornato: 2026-07-26. Autorita' operativa: [SERVICE_REGISTRY AI](../../ai/global/SERVICE_REGISTRY.md).
 
-Nota corrente 2026-07-05: host primario Windows 11 Pro su Lenovo ThinkPad P14s Gen 5 AMD. Il current host usa Windows Service Control Manager/Task Scheduler, non systemd; le righe systemd Mint sotto sono snapshot legacy, remote o project-specific finche' non riverificate.
+## Fedora corrente
 
-## Dashboard locali
+Il system manager e lo user manager systemd risultano `running`. Tra i servizi rilevanti verificati sono attivi NetworkManager, firewalld, DNF daemon, fwupd, smartd, systemd-oomd, udisks2 e GDM; nella sessione utente sono attivi GNOME, Flatpak portal, PipeWire, WirePlumber e XDG portal.
 
-- `system-service-dashboard.service`: user service attivo su `http://127.0.0.1:8788`, dashboard locale read-only dei servizi.
-- `mint-cloud-backup-dashboard.service`: system service attivo su `http://127.0.0.1:8765`, dashboard del backup cloud Mint.
+Timer di sistema rilevanti: `dnf-makecache`, `fstrim`, `logrotate` e `systemd-tmpfiles-clean`.
 
-## Servizi user principali
+Fedora System Monitor 1.3.0 è verificato e attivo: daemon journal, lifecycle, collector, quattro timer, path software e template udev sono operativi. Le esecuzioni più recenti di `minute`, `five_minute`, `fifteen_minute`, `hourly`, `daily`, `weekly` e `software_event` sono tutte `ok`; una prova prima/dopo ha confermato una nuova scrittura nel DB SQLite canonico. Il collector filesystem esistente controlla ogni cinque minuti i filesystem reali e usa `telegram_notify.py` per variazioni cumulative di almeno 1 GiB, senza nuovi servizi o timer. Dashboard, timeline, trend e storico servizi leggono il DB esistente. Il suo exporter read-only su `127.0.0.1:9109` e' ora avviato come dipendenza di Prometheus, senza modificare collector o Kuma. I 107 test e 18 self-check passano; soltanto il collector giornaliero conserva `CAP_SYS_ADMIN` per NVMe.
 
-- Attivi: `adb-wifi-autoconnect`, `aw-server`, `aw-watcher-afk`, `aw-watcher-window`, `aw-watcher-media-player`, `chatgpt-chrome-live-logger`, `codex-html-live`, `mint-freeze-forensics`, `mint-update-tracker`, `system-service-dashboard`, `terminal-logger-codex`, `transfer-vecchio-disco-adaptive-throttle`, `windowtabnotes`, `x11vnc-real-display`.
-- Timer attivi: `amici_fb`, `android-sdk-auto-update`, `codex-sqlite-wal-maintenance`, `home-backup-kuma-push`, `home-backup-retention-kuma-push`, `home-incremental-backup`, `mint-manual-updates`, `mint-resource-guardian`, `mint-update-tracker`, `mint-xfce-layout-guard`, `parcel-tracker`, `terminal-logger-codex-snapshot`, `terminal-logger-maintenance`.
-- Falliti al momento della discovery: `amici_fb.service`, `android-sdk-auto-update.service`, `terminal-logger-maintenance.service`.
+Prometheus 3.13.0 (`prometheus.service`) e Node Exporter 1.11.1 (`prometheus-node-exporter.service`) sono abilitati e attivi, con restart su errore e listener esclusivamente `127.0.0.1:9090` e `127.0.0.1:9100`. Prometheus conserva al massimo 30 giorni o 5 GB. `fedora-diagnostics` e' un comando manuale. L'unita' separata `fedora-secureboot-forensics-capture.service` e' abilitata ma inattiva: al primo boot riuscito crea un solo archivio forense root-only se la directory non ne contiene gia' uno; non e' un timer o monitor periodico.
 
-## Servizi system principali
+Fedora T7 Backup e' installato e testato: il collegamento del seriale T7 corretto
+attiva via udev `t7-restic-backup.service`, che monta, verifica, esegue backup e
+manutenzioni dovute, sincronizza, smonta e notifica. I vecchi timer periodici
+sono rimossi; `t7-restic-reminder.timer` e' un one-shot a 30 minuti dopo un
+successo. Il doppio evento e' bloccato da lock in `/run`; log in journal.
 
-- Attivi: `mint-cloud-backup-dashboard`, `mint-cloud-backup-monitor`, `remote-recovery-tmux`, `surface-no-suspend`, `transfer-usb-io-watchdog`.
-- Timer system attivi: `disk-usage-monitor`, `dpkg-db-backup`, `mint-cloud-backup`, `mint-cloud-backup-kuma-push`, `mintupdate-automation-autoremove`, `mintupdate-automation-upgrade`.
+Il servizio utente `adb-device-keeper.service` e' abilitato e attivo per mantenere disponibili via ADB Wi-Fi il Pixel 8a e il TCL 6102H. Il linger di `daniele` e' attivo per eseguirlo anche senza sessione grafica. Dettagli e comandi: [ADB Device Keeper](ADB_DEVICE_KEEPER.md).
 
-## Ownership rifinita
+`autokey.service` e' l'unico autostart AutoKey: unita' utente abilitata su `graphical-session.target`, con restart solo su errore e wrapper `~/.local/libexec/autokey-wayland-fedora44`. Non creare anche un autostart XDG e non avviare direttamente `/usr/bin/autokey-gtk`. Nella sessione corrente resta intenzionalmente inattivo: il gruppo `input` e l'estensione GNOME appena installata saranno acquisiti al prossimo login; il collaudo post-login dell'attivita' `638417` e' ancora pendente.
 
-- `terminal-logger`: repo locale `/home/daniele/terminal-logger`.
-- `codex-sqlite-wal-maintenance`: script locale `/home/daniele/.local/bin/codex-sqlite-wal-maintenance`, owner operativo `disk-usage-monitor` per incidente T7/root.
-- `disk-usage-monitor`: repo locale `/home/daniele/disk_usage_monitor`.
-- `mint-xfce-layout-guard`: owner `surface-recovery-hardening`.
-- `x11vnc-real-display`: artefatti runtime in `/home/daniele/remote_real_display_482`.
-- `ActivityWatch`: install locale/tool third-party; nessun repo MegaVault verificato. Runtime user systemd: `aw-server.service` su `default.target`; watcher `aw-watcher-afk`, `aw-watcher-window`, `aw-watcher-media-player` su target grafico ActivityWatch avviato al login XFCE.
+`rustdesk.service` e' l'unico meccanismo di avvio RustDesk: servizio di sistema abilitato e attivo, con server e tray utente quando la sessione grafica esiste. Non aggiungere autostart XDG o unita' utente duplicate. Su Wayland il servizio persiste dopo logout/boot, ma la schermata GDM pre-login non e' controllabile; l'accesso torna utilizzabile soltanto dopo un login grafico compatibile. L'`ExecStop` ufficiale usa un match `pkill` ampio: eseguire restart/stop in un comando separato da altri comandi RustDesk con opzioni.
 
-## Criticality
+## Stato progetti
 
-- Critical: backup home/cloud, freeze forensics, mint update tracker, transfer USB/I/O guard e throttle.
-- Important: dashboard, terminal logger, WindowTabNotes, ADB Wi-Fi, disk usage monitor, Codex SQLite WAL guard, parcel tracker e guard XFCE.
-- Optional/obsolete: watcher o timer disabilitati/legacy come `codex-usage-monitor` e `rsync-uptime-kuma-push`.
-
-## Vincoli
-
-- I servizi desktop/autostart e i servizi di pacchetti generici non sono elencati come infrastruttura di progetto salvo relazione diretta.
-- Le unita' Oracle VM non sono state verificate live: SSH verso la VM e' andato in timeout.
+Fedora System Monitor e Fedora T7 Backup sono servizi di progetto MegaVault verificati sul Fedora corrente. Per gli altri progetti usare `systemctl` o `systemctl --user` e verificare unit, stato, enablement e path `ExecStart` prima di documentarli come attivi.

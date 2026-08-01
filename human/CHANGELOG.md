@@ -1,5 +1,11 @@
 # MegaVault Changelog
 
+- 2026-07-14: attività `471853` Fedora System Monitor 1.1.1: diagnosticati Host DOWN per swap warning reale e Storage DOWN per Seagate al 5,2273% libero; corretti refresh alert attivi e recovery `unsafe_device_removal` su mount point presente; readback Kuma remoto SQLite completato.
+- 2026-07-14: attività `593804` configurato accesso SSH permanente alla VM Oracle Cloud `oracle-vm` (`ubuntu@150.230.148.128`) con chiave RSA protetta in MegaVault `secrets/oracle-cloud/`, host key verificata e test SSH reale completato; nessun PEM documentato.
+- 2026-07-10: audit mirato attività `593184`, Fedora System Monitor 1.0.1: corretti instance udev, race cache/remove e alert/Kuma, capability systemd eccessive, bucket retention incompleti, merge aggregati e full VACUUM bloccante; 84 test, unità live e benchmark SQLite verificati.
+- 2026-07-10: attività `593184` Fedora System Monitor 1.0.0: installati monitoraggio permanente Python/SQLite/systemd, collector ed eventi hardware/software, alert con recovery e cinque Push Monitor Kuma verificati; aggiornati indici, registri globali, incidente NTFS e timeline canonica.
+- 2026-07-09: verifica finale migrazione Fedora: certificati protocollo/host profile e toolchain live (`codex`, `gh`, Python/pip/pipx/uv, OpenSSH, systemd, Podman); Docker marcato non installato; mapping storage reso Fedora-native e record Surface marcato legacy.
+- 2026-07-09: documentazione globale adattata al nuovo host Fedora 44; introdotto `HOST_SYSTEM_CURRENT`, allineati path `/home/daniele`, Bash/DNF, Android SDK/OpenJDK, storage/rete/systemd live e registri AI ultracompressi; dati host non Fedora rimossi dalle viste canoniche correnti e lasciati alla cronologia Git.
 - 2026-07-06: Global Codex Timeline resa obbligatoria nel protocollo; aggiunti SQLite canonico, builder idempotente, viste Markdown generate e gate finale `Timeline globale aggiornata`.
 - 2026-06-13: `#729184` disk-usage-monitor: aggiunta notifica Telegram aggregata per delta spazio usato >=1 GiB binario, con baseline separata `delta_notification_state` e test asciutti `delta-test-plus/minus`.
 - 2026-06-13: `#384729` disk-usage-monitor: chiarito che il monitor e' timer 24/7 + service oneshot, aggiunti `status`/`dry-run`, rinforzate unit systemd e logging per disco.

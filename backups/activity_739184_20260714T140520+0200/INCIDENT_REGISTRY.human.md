@@ -38,41 +38,6 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - `RESOLVED`: causa eliminata e verificata.
 - `ACCEPTED`: rischio noto accettato per vincolo documentato.
 
-## PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION
-
-- Prima occorrenza: `2026-07-02`; ricomparsa e nuova risoluzione:
-  `2026-07-26`; stato `RESOLVED`, gravita' `HIGH`, 2 occorrenze.
-- Sintomo: molte notifiche WhatsApp arrivavano in ritardo o solo aprendo
-  l'app, soprattutto quando il Pixel usava una rete mobile/misurata.
-- Root cause: l'UID corrente di WhatsApp era tornato nella blacklist Android
-  dei dati in background (`REJECT_METERED_BACKGROUND`).
-- Fix: rimossa la blacklist e abilitati i dati mobili senza restrizioni solo
-  per WhatsApp. Nessun dato, cache, account, chat o backup e' stato toccato.
-- Verifica: dopo force-stop e riapertura, un messaggio reale e' arrivato mentre
-  il Pixel restava in `Dozing`; FCM ha avviato WhatsApp e Android ha pubblicato
-  due record non intercettati e non nascosti.
-- Riconoscimento rapido: ricavare l'UID con `adb shell cmd package list
-  packages -U com.whatsapp`, poi controllare `adb shell cmd netpolicy list
-  restrict-background-blacklist`. L'UID WhatsApp non deve comparire.
-- Nota DND: due notifiche del 25 luglio furono bloccate mentre Non disturbare
-  era stato attivato manualmente. Le regole DND non sono state cambiate.
-- Report: `ai/reports/activity_473821_pixel_whatsapp_notifications.md`.
-
-## SMART_SERVICE_CAPABILITY_FALSE_POSITIVE
-
-- Timestamp UTC: `2026-07-10T10:30:53Z`–`2026-07-26T12:08:27Z`.
-- Stato: `RESOLVED`, gravita' `MEDIUM`, 156 occorrenze.
-- Sintomo: `smart_check_failed` ripetuto per NVMe KIOXIA interno e Samsung T7,
-  senza alert SMART attivo o transizione Kuma falsa.
-- Root cause: al collector orario mancavano `CAP_SYS_ADMIN` per NVMe nativo e
-  `CAP_SYS_RAWIO` per il bridge USB-NVMe ASMedia.
-- Fix: Fedora System Monitor 1.3.1 limita entrambe le capability a
-  `hourly`/`daily`, registra diagnostica strutturata, salta assenti/non
-  compatibili e non interroga l'error log che blocca il bridge T7.
-- Verifica: KIOXIA e T7 SMART `PASS`, zero nuovi falsi eventi, SQLite/systemd/
-  udev/self-check verdi; due Seagate addormentati restano non risvegliati.
-- Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/REPORT_482731.md`.
-
 ## CODEX_SQLITE_WAL_T7_ROOT_GROWTH
 - Timestamp UTC: 2026-06-13T19:13:08Z
 - Detection source: Disk Usage Monitor su `/dev/sda2` montato `/`.
@@ -111,14 +76,6 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Telegram: resta usato solo `/home/ubuntu/telegram_notify.py`; nessun token o chat id stampato.
 - Report: `ai/reports/codex_weekly_limit_real_5h_source_fix_20260705.md`.
 
-## CODEX_WEEKLY_LIMIT_MONITOR_QUOTA_SCHEMA_CHANGE
-- Timestamp UTC: 2026-07-14T17:48:27Z.
-- Sintomo: dal 2026-07-12 il monitor Oracle VM falliva ogni poll con `Missing secondary rate limit window` e non aggiornava piu' correttamente le notifiche quote.
-- Root cause: `account/rateLimits/read` non espone piu' la vecchia finestra main 5h da 300 minuti; `rateLimits.primary` ora e' una finestra da 10080 minuti, `secondary` e' `null`, e `codex_bengalfox` e' una categoria separata `GPT-5.3-Codex-Spark`.
-- Fix: parser generico per categorie reali, rimozione/migrazione stato `last_five_hour_*`, Telegram costruito solo da categorie presenti, timestamp UTC in formato `dd/mm/yy hh:mm`.
-- Verifica: test locali PASS, dry-run reale senza send PASS, notifica reale singola `Weekly 94% -> 82%`, service enabled+active, nessun timer dedicato perche' il watch loop interno programma il prossimo poll.
-- Report: `ai/reports/prompt_738416_codex_quota_monitor_schema_change.md`.
-
 ## EXTERNAL_NTFS_DISCONNECT_DURING_MOUNTED_IO
 - Timestamp UTC: `2026-07-09T17:07:00Z`.
 - Sintomo: un volume NTFS esterno montato e' scomparso durante I/O; `ntfs-3g` ha registrato errori di sync e chiusura.
@@ -128,16 +85,6 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Prossimo controllo: verificare cavo, alimentazione e diagnostica del disco prima di scritture lunghe.
 - Sicurezza test: nessun dispositivo e' stato scollegato fisicamente e non e' stata tentata una riproduzione distruttiva.
 - Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/INCIDENT_REGISTRY.md`.
-
-## CODEX_DATA_ANALYTICS_WIDGETS_MISSING_PNG
-
-- Timestamp UTC: `2026-07-14T12:03:44Z`; stato `RESOLVED`, gravita' `MEDIUM`.
-- Sintomo: `codex --yolo` mostrava `MCP startup incomplete (failed: dataAnalyticsWidgets)` e `connection closed: initialize response`.
-- Root cause: il plugin Data Analytics installato in `~/.codex/plugins/cache/openai-curated-remote/data-analytics/0.2.8-13ceeea1f599` avviava `node ./mcp/server.cjs --stdio`; il server caricava `assets/datascience.png` prima dell'handshake MCP, ma il PNG mancava e Node usciva con `ENOENT`.
-- Fix: rigenerato solo `assets/datascience.png` dal `datascience.svg` gia' incluso nel plugin. Nessun server disabilitato, nessun cambio modello/YOLO/timeout/retry e nessun update pacchetti.
-- Verifica: handshake manuale PASS con 5 tool e 3 risorse; `codex doctor` PASS `17 ok`, `0 warn`, `0 fail`; due avvii reali `codex --yolo` da `/home` senza l'errore MCP.
-- Backup: plugin `activity_739184_20260714T140237+0200`; MegaVault registry `activity_739184_20260714T140520+0200`.
-- Warning: un refresh/reinstall del plugin potrebbe sovrascrivere la cache locale se il pacchetto remoto resta privo dello stesso asset.
 
 ## T7_MOUNTPOINT_FELL_THROUGH_TO_INTERNAL_ROOT
 
@@ -184,15 +131,6 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Stato finale: Host, Network, Services e Software sani; Storage resta correttamente rosso per Seagate al 3,6754% libero e unsafe removal senza riconnessione.
 - Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471852.md`.
 
-## KUMA_HOST_STORAGE_REAL_STATE_471853
-
-- Timestamp: `2026-07-14`; stato `RESOLVED_WITH_REAL_ALERTS_REMAINING`, gravita' `HIGH`.
-- Sintomo: Fedora Host alternava DOWN e Fedora Storage restava DOWN dopo il cleanup del Seagate.
-- Causa reale: Host aveva swap warning reale circa 39%; Storage aveva Seagate al 5,2273% libero, ancora sotto recovery. Un alert `unsafe_device_removal` era stale perché il mount point era di nuovo presente.
-- Fix: Fedora System Monitor 1.1.1 aggiorna gli alert metrici attivi e chiude unsafe-removal quando `findmnt` prova il ritorno del mount point.
-- Stato finale: Host DOWN corretto per swap; Storage DOWN corretto per spazio Seagate; Network, Services e Software UP.
-- Sorgente: `/home/daniele/MegaVault/projects/fedora-system-monitor/docs/ai/AUDIT_471853.md`.
-
 ## AUTOKEY_FEDORA44_WAYLAND_INPUT_BLOCKED
 
 - Timestamp: `2026-07-13`; stato `MITIGATED`, gravita' `HIGH` fino al collaudo post-login.
@@ -211,16 +149,3 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Verifica: lo stesso campione MP4 H.264 Baseline falliva prima con `Unable to create decoder`; dopo il fix VLC `avcodec` ha ricevuto il primo frame, il rendering video e' terminato con codice 0, `ffmpeg` e `ffplay` sono PASS, `dnf check` e `flatpak repair --dry-run` sono PASS.
 - Limiti: file originale non fornito; `mpv` non installato; `libpostproc` host assente ma non necessario per H.264.
 - Report: `ai/reports/prompt_684271_vlc_h264_fedora.md`.
-
-## SECURE_BOOT_DRACUT_LUKS_UNLOCK_NOT_PERSISTED
-
-- Finestra UTC: tra `2026-07-30T03:01:36Z` e `03:10:52Z`; stato `OPEN`, gravita' `HIGH`.
-- Sintomo: con Secure Boot attivo dracut ha atteso `/dev/disk/by-uuid/6ff76a46-6614-4ac6-b1fa-a9590f09c709` ed e' entrato in emergency mode.
-- Identita' provata: l'UUID non e' obsoleto. E' il FSID Btrfs corrente creato da Anaconda dentro `/dev/nvme0n1p3`, cifrato LUKS2 con UUID `0c261c5f-02dd-484f-b266-13ff4ee02abb`.
-- Meccanismo: la entry BLS passa `root=UUID=6ff...`; dracut lo converte nel link `by-uuid`. Il link compare soltanto dopo che NVMe e' disponibile e cryptsetup apre LUKS.
-- Limite probatorio: il boot fallito non ha montato la root e non ha lasciato boot ID, journal initramfs, `rdsosreport`, pstore o dump persistenti. Non si puo' distinguere offline tra mancata scoperta NVMe/LUKS e richiesta cryptsetup fallita o terminata.
-- Verifiche: tutti i quattro initramfs, BLS, cmdline, grubenv, ordine EFI, fallback, firme shim/GRUB/kernel e moduli storage sono coerenti; l'UUID Btrfs non e' incorporato negli initramfs.
-- Preparazione activity 948315: collector automatico root-only al primo boot riuscito e entry BLS diagnostica separata sullo stesso kernel/initramfs, senza `rhgb quiet`.
-- Stato protetto: Secure Boot resta disabilitato; nessun reboot. LUKS, partizioni, chiavi, kernel, initramfs, BLS originali, GRUB e `grubenv` sono invariati.
-- Limite residuo: un timeout dracut normale prima della root non entra nel journal interno o in pstore; occorre fotografare o filmare la console diagnostica.
-- Report: `ai/reports/activity_214587_secure_boot_dracut_forensics.md`; preparazione: `/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_948315.md`.
