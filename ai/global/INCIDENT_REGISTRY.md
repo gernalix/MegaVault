@@ -215,7 +215,7 @@ Soluzione_finale=Every operation requires separate mountpoint, ext4, expected UU
 Commit_correlati=fedora-t7-backup activity 583921
 Prompt_correlati=583921
 Tempo_totale_di_impatto=no backup write occurred; unsafe state detected before implementation
-Note=Isolated absent simulation exited 21 and preserved internal entry count 0 to 0; subsequent real T7 backup succeeded; project source=/home/daniele/MegaVault/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md
+Note=Isolated absent simulation exited 21 and preserved internal entry count 0 to 0; subsequent real T7 backup succeeded; project source=/home/daniele/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md
 
 INCIDENT:
 Incident_ID=T7_LIFECYCLE_MOUNT_NAMESPACE
@@ -233,7 +233,7 @@ Soluzione_finale=The lifecycle manages the global systemd mount without service 
 Commit_correlati=fedora-t7-backup 55d310db67eaff1ee2dc15884213311e1269f2f4
 Prompt_correlati=684219
 Tempo_totale_di_impatto=approximately 3 minutes during controlled installation validation; no retained repository corruption and final jobs succeeded
-Note=Real udev replay created f7682be7 and later tests created a989e8fd and 3082eb92; all successful jobs synced and unmounted. Project source=/home/daniele/MegaVault/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md
+Note=Real udev replay created f7682be7 and later tests created a989e8fd and 3082eb92; all successful jobs synced and unmounted. Project source=/home/daniele/projects/fedora-t7-backup/docs/ai/INCIDENT_REGISTRY.md
 
 INCIDENT:
 Incident_ID=ANDROID_STUDIO_FLATPAK_STALE_DIRECTORYLOCK_SOCKET

@@ -31,7 +31,7 @@ tool=Prometheus;version=3.13.0-1.fc44;package=official_Fedora_updates;path=/usr/
 tool=Node_Exporter;version=1.11.1-1.fc44;package=official_Fedora_updates;path=/usr/bin/node_exporter;service=prometheus-node-exporter.enabled+active;bind=127.0.0.1:9100;activity=826417
 tool=Fedora_Diagnostics;version=1.2.0;project=/home/daniele/projects/fedora-diagnostics;path=/usr/local/bin/fedora-diagnostics;runtime=/usr/local/lib/fedora-diagnostics;features=fan_analysis+30s_textfile_telemetry+bounded_top_process_attribution+secureboot_forensics;status=installed+functional+fault_tested;activity=826417+614283+948315
 tool=Fedora_External_Updater;version=0.1.0;project=/home/daniele/projects/fedora-external-updater;cli=/usr/local/bin/fedora-external-updater;status=installed+root_user_timers_enabled+manual_PASS;policy=complementary_safe_external_updates_no_project_dependency_updates;activity=846219
-tool=Restic;path=/usr/bin/restic;version=0.19.0;project=/home/daniele/MegaVault/projects/fedora-t7-backup;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+encrypted+udev_connect_automated+conditional_check_prune+unmount+restore_tested;activity=684219
+tool=Restic;path=/usr/bin/restic;version=0.19.0;project=/home/daniele/projects/fedora-t7-backup;repository=/mnt/T7_BACKUP/restic-fedora;status=installed+encrypted+udev_connect_automated+conditional_check_prune+unmount+restore_tested;activity=684219
 package=smartmontools;version=7.5-6.fc44;role=storage_health;preexisting=yes
 package=nvme-cli;version=2.16-2.fc44;role=NVMe_health;preexisting=yes
 package=lm_sensors;version=3.6.0-24.fc44;role=temperature;preexisting=yes
