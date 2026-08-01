@@ -1,6 +1,6 @@
 # Global Codex Timeline AI
 generated_at=2026-08-01T00:00:00+00:00
-total_events=1077
+total_events=1078
 format=event_date|project|label_short|category|status|importance
 2026-08-01|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-08-01|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
@@ -36,6 +36,7 @@ format=event_date|project|label_short|category|status|importance
 2026-08-01|megavault|MegaVault v16|bugfix|PASS|P1
 2026-08-01|megavault|MegaVault v16|migration|PASS|P1
 2026-08-01|megavault|MegaVault docs finalize single-trunk|docs|PASS|P2
+2026-08-01|megavault|MegaVault docs record timeline|docs|PASS|P2
 2026-08-01|megavault|MegaVault v16|docs|PASS|P2
 2026-08-01|megavault|MegaVault v16|docs|PASS|P2
 2026-08-01|megavault|MegaVault v16|docs|PASS|P2
