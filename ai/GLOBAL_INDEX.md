@@ -10,7 +10,7 @@ validate=python3 ../megavault.py validate
 project_lookup=python3 ../megavault.py project <alias-or-slug>
 
 ROUTING:
-project_id=resolve_only_from_sqlite:project_aliases->projects
+project_id=resolve_only_from_sqlite:project_aliases->projects;integer_primary_key
 repositories=sqlite:repositories
 hosts=sqlite:hosts
 services=sqlite:services

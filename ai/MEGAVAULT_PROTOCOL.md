@@ -8,7 +8,7 @@ PURPOSE:
 purpose=minimal_MegaVault_contract
 truth_model=Git_history;megavault.sqlite_structured_facts;Markdown_bootstrap_only;code_behavior
 duplicate_truth=forbidden
-project_id_source=megavault.sqlite:projects+project_aliases_only
+project_id_source=megavault.sqlite:projects+project_aliases_only;INTEGER_PRIMARY_KEY
 
 READ_ORDER:
 1=ai/MEGAVAULT_PROTOCOL.md
@@ -30,7 +30,7 @@ path=megavault.sqlite
 schema_source=sqlite_schema
 required_tables=projects,permanent_ids,project_aliases,repositories,hosts,integrations,services,secret_refs,data_assets,incidents,incident_events,events,knowledge_notes
 foreign_keys=must_pass
-project_lifecycle=never_delete_project;archive_only;never_reuse_project_id
+project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense
 secret_values=never_store;reference_paths_only
 
 MARKDOWN:

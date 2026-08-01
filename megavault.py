@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import os
 import re
 import sqlite3
 import sys
@@ -81,14 +80,11 @@ def validate() -> int:
     if fk_errors:
         errors.append(f"foreign_key_check failed: {fk_errors!r}")
 
-    ids = [row[0] for row in conn.execute("select project_id from projects order by project_id")]
-    if not ids or any(not re.fullmatch(r"P[0-9]{4}", value) for value in ids):
-        errors.append("project_id format violation")
+    ids = [row[0] for row in conn.execute("select project_id from projects")]
+    if not ids or any(not isinstance(value, int) or value <= 0 for value in ids):
+        errors.append("project_id must be positive integers")
     if len(ids) != len(set(ids)):
         errors.append("duplicate project_id")
-    expected = [f"P{i:04d}" for i in range(1, len(ids) + 1)]
-    if ids != expected:
-        errors.append("project_id range is not dense from P0001")
 
     alias_dupes = conn.execute(
         "select alias, count(*) from project_aliases group by alias having count(*) > 1"
