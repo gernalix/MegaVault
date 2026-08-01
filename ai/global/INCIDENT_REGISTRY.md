@@ -440,16 +440,16 @@ Data_prima_comparsa_UTC=2026-07-09T00:00:00Z
 Data_ultima_comparsa_UTC=2026-08-01T00:00:00Z
 Numero_occorrenze=multiple_exact_count_UNKNOWN
 Gravita_massima=HIGH
-Stato=MITIGATED_PENDING_DRAFT_PR
+Stato=RESOLVED
 Root_cause=Le evoluzioni v14-v16 furono pubblicate su branch Codex divergenti senza promozione a master;la timeline veniva aggiornata tramite commit generated-only e il builder usava orologio/mtime,scansioni implicite,delete-on-missing e WAL persistente;cache,private,secrets e sidecar non erano coperti integralmente da .gitignore.
 Sistemi_coinvolti=MegaVault;origin/master;branch Codex;protocollo;timeline SQLite+Markdown;Git worktree
 Alert_coinvolti=VERSION=13_su_master;task_avviati_da_VERSION=16_non_canonico;git_status_dirty;PR_1_ancestry_obsoleta
 Tentativi_effettuati=Audit baseline read-only;classificazione semantica c50fdbc;bundle dei commit locali unici;ricostruzione da origin/master senza merge o cherry-pick monolitico;archiviazione dei sette blob 2917aa9;test determinismo repo+worktree.
-Soluzione_finale=Branch codex/megavault-v16-reconciliation basato esattamente su e5f128b con protocollo VERSION=16,manifest macchina-verificabile,generatore append-only deterministico,import Git primary-repo con esclusione dei soli commit generated-only,sidecar cleanup,ignore policy,gate permanenti e policy globale trunk-based single-developer;promozione a master subordinata a review/merge della PR 2.
-Commit_correlati=4876843;12bf2bd;b949d12;58bd3db;6010550;5622c97;59073f9;38d6aa8;c50fdbc;prompt_816427_branch
-Prompt_correlati=816427
-Tempo_totale_di_impatto=2026-07-09_to_2026-08-01_and_until_PR_merge
-Note=V17 7e5df747 esclusa dalla fase v16. Due commit locali unici preservati nel bundle esterno SHA256 1e0df2bb7545c266f1d3f08fc815eda4c7f768e624cd550b3bc5f4fee08156a7. Owner repository SuperContacts resta UNKNOWN con fallback archivio v33. La policy vieta branch-per-task,branch chaining,riuso estraneo e successo dichiarato prima dell'integrazione canonica o defer esplicito.
+Soluzione_finale=PR 2 corretta con import una-volta dei commit semantici primary-repo,esclusione dei soli commit generated-only,delete manifest 7/7 e policy trunk-based globale;merge commit e4b24d1 su master;VERSION=17 ricostruita semanticamente con copertura 214/214 e lint permanente senza cherry-pick della linea storica.
+Commit_correlati=4876843;12bf2bd;b949d12;58bd3db;6010550;5622c97;59073f9;38d6aa8;c50fdbc;0774200;76b44d2;287dddb;e4b24d1
+Prompt_correlati=816427;816428
+Tempo_totale_di_impatto=2026-07-09_to_2026-08-01T16:14:15+02:00
+Note=PR 1 resta chiusa e non mergiata. Due commit locali unici preservati nel bundle esterno SHA256 1e0df2bb7545c266f1d3f08fc815eda4c7f768e624cd550b3bc5f4fee08156a7. Owner repository SuperContacts resta UNKNOWN con fallback archivio v33. La policy vieta branch-per-task,branch chaining,riuso estraneo e successo dichiarato prima dell'integrazione canonica o defer esplicito.
 
 INCIDENT:
 Incident_ID=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION

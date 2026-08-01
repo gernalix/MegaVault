@@ -14,16 +14,16 @@ MANIFEST = REPO / "ai" / "V16_RECONCILIATION_MANIFEST.json"
 DELETE_MANIFEST = REPO / "ai" / "archive" / "2917AA9_DELETE_MANIFEST.json"
 
 
-class ProtocolV16Test(unittest.TestCase):
+class CanonicalMegaVaultTest(unittest.TestCase):
     def test_protocol_version_authority_and_read_order(self) -> None:
         text = PROTOCOL.read_text(encoding="utf-8")
-        self.assertEqual(1, len(re.findall(r"(?m)^VERSION=16$", text)))
-        self.assertNotRegex(text, r"(?im)(?:VERSION|PROTOCOL_VERSION)=17\b")
-        self.assertIn("READ_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>HOST_PROFILE>project.metadata.json>docs/ai", text)
-        self.assertIn("ENTRY_ORDER=protocol>global_index>clean_check>host_profile>metadata>docs_ai>targeted_inspection>reuse>implementation", text)
+        self.assertEqual(1, len(re.findall(r"(?m)^VERSION=17$", text)))
+        self.assertNotRegex(text, r"(?m)^VERSION=16$")
+        self.assertIn("FORMAT=ultracompressed_key_value", text)
+        self.assertIn("ENTRY_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>clean_check>HOST_PROFILE_if_required>ANDROID_PROTOCOL_if_required>project.metadata.json>docs/ai>targeted_inspection>reuse>implementation", text)
         self.assertIn("SRC_ORDER=HOST_PROFILE>metadata>code_reality>docs_ai>docs_human>legacy", text)
-        self.assertIn("P6=no_duplicate_truth", text)
-        self.assertIn("P18=unknown_explicit", text)
+        self.assertIn("DUPLICATE_TRUTH=forbidden", text)
+        self.assertIn("UNKNOWN_RULE=mark_UNKNOWN", text)
         for path in (
             "global/HOST_PROFILE.md",
             "global/SERVICE_REGISTRY.md",
@@ -35,6 +35,35 @@ class ProtocolV16Test(unittest.TestCase):
         ):
             self.assertIn(path, INDEX.read_text(encoding="utf-8"))
             self.assertTrue((REPO / "ai" / path).is_file())
+
+    def test_protocol_v17_lint_and_semantic_coverage(self) -> None:
+        result = subprocess.run(
+            ["python3", "protocol_lint.py", "--json"],
+            cwd=REPO,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        lint = json.loads(result.stdout)
+        self.assertEqual("PASS", lint["status"])
+        self.assertEqual([], lint["errors"])
+        self.assertEqual(214, lint["semantic_coverage"]["covered"])
+        self.assertEqual(214, lint["semantic_coverage"]["required"])
+        self.assertEqual(100.0, lint["semantic_coverage"]["percent"])
+        for field in ("lines", "words", "bytes", "estimated_tokens"):
+            self.assertLess(lint["metrics"]["after"][field], lint["metrics"]["before"][field])
+        self.assertEqual(
+            {
+                "duplicate_keys",
+                "contradictory_keys",
+                "unreachable_rules",
+                "missing_required_fields",
+                "naming_inconsistency",
+                "semantic_coverage",
+                "branch_policy_coverage",
+            },
+            set(lint["checks"]),
+        )
 
     def test_reconciliation_manifest_is_complete_and_machine_verifiable(self) -> None:
         manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
@@ -113,6 +142,11 @@ class ProtocolV16Test(unittest.TestCase):
             self.assertEqual(value, pairs.get(key), key)
         self.assertEqual("integrate_into_canonical+delete", pairs["TEMP_BRANCH_FINALIZATION"])
         self.assertIn("canonical_branch_updated", pairs["TASK_COMPLETE_REQUIRES"])
+        self.assertEqual("mandatory_final_report_section", pairs["OPTIMIZATION_OPPORTUNITIES"])
+        self.assertEqual(
+            "root_cause,impact,estimated_future_savings,one_time_fix,priority,confidence,status",
+            pairs["INSIGHT_ITEM_FIELDS"],
+        )
 
     def test_git_hygiene_policy(self) -> None:
         text = (REPO / ".gitignore").read_text(encoding="utf-8")

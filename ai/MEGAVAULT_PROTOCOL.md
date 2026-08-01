@@ -1,41 +1,37 @@
-VERSION=16
+VERSION=17
 STATUS=FINAL_PERMANENT
 MODE=codex_first
-FORMAT=ultracompressed
+FORMAT=ultracompressed_key_value
 AUDIENCE=codex
 PURPOSE=global_doc_constitution
 SCOPE=all_projects,all_tasks,all_docs
 AUTHORITY=mandatory
-
-# CORE
-P1=ai_authoritative
-P2=human_derived
-P3=legacy_historical
-P4=project_docs_local
-P5=max_info_density
-P6=no_duplicate_truth
-P7=no_invented_knowledge
-P8=doc_debt=tech_debt
-P9=code>docs
-P10=metadata+ai_doc=>productive
-P11=clean_git_required
-P12=docs_before_final
-P13=reuse_before_rewrite
-P14=archive_default
-P15=tooling_autonomy
-P16=branch_documented
-P17=large_artifacts_outside_vault
-P18=unknown_explicit
-P19=human_not_operational
-P20=sync_state_required
-P21=host_profile_required
-P22=remote_clean_pushed_required
-P23=incident_registry_required
-P24=megavault_global_only
-P25=global_codex_timeline_required
-P26=execution_insights_required
-
-# CAPSULES
+AI_SOURCE=authoritative
+HUMAN_SOURCE=derived
+LEGACY_SOURCE=historical
+PROJECT_DOC_RULE=project_specific_docs_live_in_project_repo_docs
+INFO_DENSITY=max
+DUPLICATE_TRUTH=forbidden
+INVENT_FACTS=forbidden
+DOC_DEBT=technical_debt
+CODE_DOC_PRIORITY=code>docs
+PRODUCTIVE_CONTEXT=metadata+ai_doc
+CLEAN_REQUIRED=before_any_modification+after
+DOCS_BEFORE_FINAL=mandatory
+REUSE=preferred
+REWRITE=last_resort
+ARCHIVE_DEFAULT=yes
+TOOLING_AUTONOMY=yes
+LARGE_ARTIFACT_LOCATION=outside_megavault
+UNKNOWN_RULE=mark_UNKNOWN
+HUMAN_SOURCE_FORBID=primary_operational_source
+SYNC_REQUIRED=yes
+HOST_PROFILE=mandatory
+REMOTE_REQUIRED=yes
+PUSH_REQUIRED=yes
+INCIDENT_REGISTRY=mandatory_all_projects
+GLOBAL_TIMELINE=mandatory_all_codex_tasks
+EXECUTION_INSIGHTS=mandatory
 CAPSULIZATION=mandatory_all_projects
 CAPSULE_TARGET=100_percent
 NEW_CODE=capsule_only
@@ -44,42 +40,9 @@ UI_DIRECT_DEPENDENCY=forbidden
 CROSS_MODULE_ACCESS=through_capsules_only
 LEGACY_REFACTOR=progressively_until_100_percent
 FINAL_GATE=verify_capsulization_before_final
-
-# HOST_PROFILE
-HOST_PROFILE=mandatory
 HOST_PROFILE_PATH=ai/global/HOST_PROFILE.md
-READ_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>HOST_PROFILE>project.metadata.json>docs/ai
+ENTRY_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>clean_check>HOST_PROFILE_if_required>ANDROID_PROTOCOL_if_required>project.metadata.json>docs/ai>targeted_inspection>reuse>implementation
 HOST_PROFILE_REQUIRED_FOR=system,automation,monitoring,performance,backup,storage,linux,android
-UNKNOWN_RULE=mark_UNKNOWN
-
-# HOST_SYSTEM_CURRENT
-CURRENT_OS=Fedora_Linux_44_Workstation
-CURRENT_HOST=fedora
-CURRENT_USER=daniele
-CURRENT_HOME=/home/daniele
-CURRENT_MEGAVAULT_ROOT=/home/daniele/MegaVault
-CURRENT_SHELL=bash
-CURRENT_PACKAGE_MANAGER=dnf
-CURRENT_SERVICE_MANAGER=systemd
-CURRENT_PATH_STYLE=/home/daniele/...
-CURRENT_ANDROID_STUDIO=user_official_Google_archive;/home/daniele/.local/opt/android-studio;version=2026.1.2;build=AI-261.25134.95.2612.15822958;writable_by_daniele=yes
-CURRENT_ANDROID_SDK=/home/daniele/Android/Sdk
-CURRENT_JAVA_HOME=/usr/lib/jvm/java-25-openjdk
-CURRENT_CODEX_CLI=/usr/local/bin/codex;version=0.144.1
-CURRENT_GH_CLI=/usr/bin/gh;version=2.94.0
-CURRENT_PYTHON=/usr/bin/python3;version=3.14.6
-CURRENT_PIP=/usr/bin/pip;version=26.0.1
-CURRENT_PIPX=/usr/bin/pipx;version=1.15.0
-CURRENT_UV=/usr/bin/uv;version=0.11.26
-CURRENT_SSH=/usr/bin/ssh;version=OpenSSH_10.2p1
-CURRENT_SSH_DIR=~/.ssh;resolved=/home/daniele/.ssh;status=absent
-CURRENT_DOCKER=not_installed
-CURRENT_CONTAINER_RUNTIME=/usr/bin/podman;version=5.8.4;role=optional
-CURRENT_CODEX_RULE=use_Fedora_paths+bash+dnf_for_local_host_operations
-NON_FEDORA_LOCAL_PATH_RULE=never_use_as_current_local_path
-REMOTE_PATH_RULE=keep_remote_host_paths_bound_to_their_named_host
-
-# CENTRALIZATION
 CANONICAL_GENERAL=ai/MEGAVAULT_PROTOCOL.md
 CANONICAL_ANDROID=ai/ANDROID_PROTOCOL.md
 CANONICAL_HOST=ai/global/HOST_PROFILE.md
@@ -90,37 +53,22 @@ CANONICAL_STORAGE=ai/global/STORAGE_TOPOLOGY.md
 CANONICAL_ALERT=ai/global/ALERT_REGISTRY.md
 CANONICAL_INCIDENT=ai/global/INCIDENT_REGISTRY.md
 CANONICAL_PROJECT_INDEX=ai/GLOBAL_INDEX.md;role=mandatory_canonical_router;read=immediately_after_protocol
-CANONICAL_CODEX_TIMELINE_DB=codex_global_timeline.sqlite
-CANONICAL_CODEX_TIMELINE_REPORT=codex_global_timeline.md
-CANONICAL_CODEX_TIMELINE_AI=codex_global_timeline_ai.md
 MEGAVAULT_CONTENT=global_protocols,global_registries,global_indices,host_profile,topology,service_registry,data_registry,network_registry,storage_registry,global_guides
 MEGAVAULT_FORBID=project_specific_docs_accumulation
 PROJECT_DOC_ROOT=project_repo/docs
 PROJECT_AI_DOCS=docs/ai/
 PROJECT_HUMAN_DOCS=docs/human/
-PROJECT_DOC_RULE=project_specific_docs_live_in_project_repo_docs
 DUPLICATION_RULE=do_not_repeat_global_rules_in_project_docs_unless_project_specific
 GLOBAL_INDEX_EXCEPTION=megavault_may_keep_global_indices_registries_pointing_to_project_docs
 HISTORICAL_EXCEPTION=reports,changelogs,state_snapshots,premigration_docs_preserve_context
-
-# ANDROID
 ANDROID_PROTOCOL=ai/ANDROID_PROTOCOL.md
 ANDROID_AUTHORITY=mandatory
 ANDROID_REQUIRED_FOR=android_projects,android_builds,android_releases,android_tooling
-ANDROID_READ_ORDER=MEGAVAULT_PROTOCOL>GLOBAL_INDEX>HOST_PROFILE>ANDROID_PROTOCOL>metadata>docs/ai
-
-# SOURCE_PRIORITY
 SRC_ORDER=HOST_PROFILE>metadata>code_reality>docs_ai>docs_human>legacy
 IF_CONFLICT=prefer_higher_priority
 IF_STALE=update_from_code
-INVENT_FACTS=forbidden
-
-# ENTRY
-ENTRY_ORDER=protocol>global_index>clean_check>host_profile>metadata>docs_ai>targeted_inspection>reuse>implementation
 PROTOCOL_READ=allowed_before_any_operational_command
 ENTRY_FORBID=repo_wide_scan,human_as_source,blind_copy
-
-# GIT
 GLOBAL_GIT_MODEL=trunk_based_single_developer
 GIT_POLICY_SCOPE=all_projects,all_repositories,past_present_future
 NEW_REPO_CANONICAL_BRANCH=main
@@ -150,55 +98,31 @@ CANONICAL_SYNC_REQUIRED=yes
 STALE_BRANCH_AUDIT_REQUIRED=before_branch_creation
 CLEAN_PUSHED_TOPIC_BRANCH_SUCCESS=forbidden
 FINAL_REPORT_BRANCH_FIELDS=repository,canonical_branch,current_branch,temporary_branch_reason,integration_status,cleanup_status
-CLEAN_REQUIRED=before_any_modification+after
-REMOTE_REQUIRED=yes
-SYNC_REQUIRED=yes
-PUSH_REQUIRED=yes
 DIRTY_STATE=protocol_violation
 USER_PUSH_OVERRIDE=explicit_no_push_request_must_be_honored_and_reported_as_local_only
-
-# DOCS
-AI_DOCS=docs/ai/*
-HUMAN_DOCS=docs/human/*
-AI_SOURCE=authoritative
-HUMAN_SOURCE=derived
-HUMAN_SOURCE_FORBID=primary_operational_source
 PROJECT_REQ=metadata,docs_ai,human_overview,human_roadmap,human_changelog,human_troubleshooting,links
 PROJECT_DOCS_IN_MEGAVAULT=forbidden_except_global_index_registry_pointer
 PREMIGRATION_PROJECT_DOCS_IN_MEGAVAULT=migration_debt_do_not_move_without_plan
-
-# AI_DOC
 AI_DOC_REQ=META,PURPOSE,STACK,MAP,ARCH,FLOW,INV,BUILD,TEST,DATA,DNB,BUG,RISK,ROAD,LINK,OPEN
 LANG=key_value
 LINE_RULE=1_line=1_fact
-
-# UPDATE
 UPDATE_AI_WHEN=arch,db,build,test,import_export,backup,versioning,release,ops,security,incident_registry
 UPDATE_HUMAN_WHEN=ux,workflow,roadmap,changelog
 UPDATE_GLOBAL_TIMELINE_WHEN=every_codex_task_before_final
 DOC_CHECK_REQUIRED=yes
-
-# REUSE
-REUSE=preferred
-REWRITE=last_resort
-
-# TOOLING
-TOOLING_AUTONOMY=yes
 DEPENDENCY_AUTONOMY=yes
 MISSING_DEPENDENCY=auto_install
 BROKEN_DEPENDENCY=repair
-
-# SECURITY
 SECRET_COMMIT=forbidden
+SECRET_KUMA_FILE=/home/daniele/.config/codex/secrets/kuma.env
+SECRET_GITHUB_AUTH=gh_or_/home/daniele/.config/codex/secrets/github.env
+SECRET_TELEGRAM_FILE=/home/daniele/.config/codex/secrets/telegram.env
+SECRET_READ=only_when_current_task_requires_service
+SECRET_PATH_REPROMPT=forbidden
+SECRET_EXPOSURE=forbidden_in_prompt,visible_commands,output,logs,reports,repository
 DESTRUCTIVE_ACTION=require_explicit_user_intent
-
-# DB
 SQLITE_DEFAULT=/home/daniele/sync_root/db/
 DB_DOC_REQUIRED=yes
-GLOBAL_TIMELINE_SQLITE_DEFAULT=codex_global_timeline.sqlite
-
-# INCIDENT_REGISTRY
-INCIDENT_REGISTRY=mandatory_all_projects
 INCIDENT_AI=docs/ai/INCIDENT_REGISTRY.md
 INCIDENT_HUMAN=docs/human/INCIDENT_REGISTRY.md
 INCIDENT_GLOBAL=ai/global/INCIDENT_REGISTRY.md;only_if_global_aspecific_or_cross_project_index
@@ -209,9 +133,6 @@ INCIDENT_FORBID=symptom_spam_ids
 INCIDENT_UPDATE=automatic_healthcheck_monitor_fix
 INCIDENT_BOOTSTRAP=required_new_project
 INCIDENT_SIGNIFICANT_BUG=must_register
-
-# GLOBAL_CODEX_TIMELINE
-GLOBAL_TIMELINE=mandatory_all_codex_tasks
 TIMELINE_SCOPE=all_projects,all_tasks,all_completed_codex_work
 TIMELINE_DB=codex_global_timeline.sqlite;canonical_source
 TIMELINE_REPORT=codex_global_timeline.md;generated_from_db
@@ -224,39 +145,35 @@ TIMELINE_CONTENT=synthetic_metadata_only
 TIMELINE_SOURCE_REF=required
 TIMELINE_DEDUP=required_no_duplicate_events
 TIMELINE_SCRIPT=build_codex_global_timeline.py
-TIMELINE_SCRIPT_REQ=idempotent,rerunnable,append_only,git_worktree_safe,explicit_roots,tracked+untracked_nonignored_only,exclude_ignored+private+secrets+cache+live_sessions+self_outputs+self_HEAD,stable_order+labels+content_timestamps,write_if_changed,no_op_upserts,sqlite_checkpoint+sidecar_cleanup,no_internet,no_admin,redact_secrets
+TIMELINE_SCRIPT_REQ=idempotent,rerunnable,append_only,git_worktree_safe,explicit_roots,tracked+untracked_nonignored_only,exclude_ignored+private+secrets+cache+live_sessions+self_outputs+self_HEAD+generated_only_commits,include_primary_semantic_commits_once,stable_order+labels+content_timestamps,write_if_changed,no_op_upserts,sqlite_checkpoint+sidecar_cleanup,no_internet,no_admin,redact_secrets
 TIMELINE_DETERMINISM_GATE=unchanged_inputs=>byte_identical_outputs+second_run_git_noop
 TIMELINE_LABEL_RULE=max_4_words
 TIMELINE_CATEGORY_SET=feature,bugfix,performance,release,infra,docs,qa,migration,automation,security,backup,testing
 TIMELINE_IMPORTANCE_SET=P0,P1,P2,P3
 TIMELINE_FINAL_GATE=run_before_final_response
-
-# VERSIONING
 VERSIONING_DOC_REQUIRED=yes
 VERSION_SKIP=forbidden
 ANDROID_VERSIONING_SEE=ai/ANDROID_PROTOCOL.md
-
-# EXECUTION_INSIGHTS
-EXECUTION_INSIGHTS=mandatory
-REPORT_ALL_BLOCKERS=yes
-REPORT_ALL_WORKAROUNDS=yes
-REPORT_RESOLVED_BLOCKERS=yes
-REPORT_UNRESOLVED_BLOCKERS=yes
-REPORT_GENERIC_BLOCKERS=mandatory
-GENERIC_BLOCKER=any_issue_likely_to_affect_future_tasks
-BLOCKER_INCLUDE=root_cause,impact,workaround,resolution,status
+INSIGHT_SCOPE=resolved_blockers,unresolved_blockers,workarounds,retries,correctable_bottlenecks_encountered,relevant_bottlenecks_inferred,optimization_opportunities
+INSIGHT_ITEM_FIELDS=root_cause,impact,estimated_future_savings,one_time_fix,priority,confidence,status
+INSIGHT_STATUS_SET=resolved,unresolved,not_applied,UNKNOWN
+INSIGHT_PRIORITY_SET=P0,P1,P2,P3
+INSIGHT_CONFIDENCE=explicit
+BLOCKER_ITEM_FIELDS=root_cause,impact,workaround,resolution,status
 BLOCKER_FORBID=silent_workaround,silent_retry,silent_skip
 BLOCKER_PURPOSE=identify_global_improvements
-
-# FINAL_REPORT
-FINAL_REPORT_REQ=files_changed,tests,test_result,docs,global_timeline,repo_status,commit,push,sync_state,execution_insights
+OPTIMIZATION_SCOPE=token,time,reasoning,IO,scans,documentation,metadata,indexing,caching,tooling,automation,prompt,architecture
+OPTIMIZATION_OPPORTUNITIES=mandatory_final_report_section
+OPTIMIZATION_ITEM_FIELDS=root_cause,impact,estimated_future_savings,one_time_fix,priority,confidence,status
+FINAL_REPORT_REQ=files_changed,tests,test_result,docs,global_timeline,repo_status,commit,push,sync_state,execution_insights,blockers,optimization_opportunities
 FINAL_REPORT_FORBID=silent_failure,false_success,silent_workaround,silent_retry,silent_skip
-
-# VALIDATION
-VALIDATE=metadata,docs_ai,docs_human,links,global_timeline_updated,git_clean,remote_sync
-
-# FINAL_CHECKLIST
+PROTOCOL_LINT=mandatory
+PROTOCOL_LINT_TOOL=protocol_lint.py
+PROTOCOL_LINT_CHECKS=duplicate_keys,contradictory_keys,unreachable_rules,missing_required_fields,naming_inconsistency,semantic_coverage,branch_policy_coverage
+PROTOCOL_SEMANTIC_BASELINE_REF=e4b24d1d2d3a1234a6fcdd829750e5518790599b
+PROTOCOL_SEMANTIC_BASELINE_GIT_BLOB=30cf9aa1e45e07e16c50a97c14026f5021af7d37
+PROTOCOL_SEMANTIC_BASELINE_SHA256=0f534bc1ceb8ae7f1c8855e7877d3695e5bf84aa12f5299465d1ac98262278db
+PROTOCOL_SEMANTIC_MAP=ai/V17_PROTOCOL_SEMANTIC_MAP.json
+VALIDATE=metadata,docs_ai,docs_human,links,global_timeline_updated,git_clean,remote_sync,protocol_semantic_coverage,protocol_coherence,read_order,token_reduction
 CHECK_GLOBAL_TIMELINE_BOX=[ ] Timeline globale aggiornata
-
-# SUCCESS
 SUCCESS=modify_project_from_metadata+docs_ai_without_repo_wide_scan+global_timeline_updated
