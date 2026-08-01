@@ -22,6 +22,7 @@ task=recent_open_result;read=reports/LATEST.md
 task=historical_result;read=reports/ARCHIVE.md+git_history
 task=project;read=this_catalog>project.metadata.json>project_repo/docs/ai
 task=repository_location|canonical_local_path|git_model;read=global/REPOSITORY_LOCATION_REGISTRY.json
+task=secret_path|secret_consumer|private_key;read=global/SECRET_REGISTRY.md
 
 PROJECTS:
 project=MegaVault;repo=/home/daniele/MegaVault;ai=MEGAVAULT_PROTOCOL.md+GLOBAL_STATE.md
@@ -52,7 +53,7 @@ project=mint-freeze-forensics;repo=legacy:/home/daniele/codex-workspace/mint-fre
 project=mint-manual-updates;repo=legacy:/home/daniele/codex-workspace/mint-manual-updates;ai=projects/LEGACY.md;status=legacy_Mint
 project=mint-update-tracker;repo=legacy:/home/daniele/codex-workspace/mint-update-tracker;ai=projects/LEGACY.md;status=legacy_Mint
 project=multitimetracker;repo=/home/daniele/projects/MultiTimeTracker;ai=/home/daniele/projects/MultiTimeTracker/dev/ai/FEDORA_SETUP.md;context=projects/multitimetracker.md;branch=codex/731684-fedora-environment-adaptation;head=971649d7e20df057fe7ca523868673bab2357e0d;status=active
-project=oracle-backup-service;repo=/home/daniele/MegaVault/projects/oracle-backup-service;ai=../projects/oracle-backup-service/docs/ai/PROJECT.md;context=projects/oracle-backup-service.md;branch=codex/731904-oracle-remote-recovery;head=cf9cc16;status=active_remote_healthy
+project=oracle-backup-service;repo=/home/daniele/projects/oracle-backup-service;ai=/home/daniele/projects/oracle-backup-service/docs/ai/PROJECT.md;context=projects/oracle-backup-service.md;branch=main;head=3479d69;status=active_remote_healthy
 project=vm_oracle;repo=/home/daniele/MegaVault/projects/vm_oracle;ai=../projects/vm_oracle/docs/ai/PROJECT.md;branch=codex/731842-full-vm-update;head=f93ec92;status=remote_runtime_PASS_CON_WARNING
 project=oracle-uptime-kuma;repo=remote:ubuntu@150.230.148.128;ai=global/SERVICE_REGISTRY.md+global/ALERT_REGISTRY.md;status=remote_runtime
 project=os-observer;repo=legacy:/home/daniele/codex-workspace/os-observer;ai=projects/LEGACY.md;status=legacy_Mint

@@ -69,7 +69,7 @@ db=/home/ubuntu/sync_root/db/incident_registry.sqlite
 tool=/opt/oracle_backup/incident_registry.py
 incidents=OCI_STORAGE_LIMIT_EXCEEDED,OCI_REMOTE_REPOSITORY_CORRUPT,ORACLE_ROOT_DISK_PRESSURE,TELEGRAM_TRANSPORT_SECRET_DISCLOSURE
 status_2026_07_26=OCI_STORAGE_LIMIT_EXCEEDED_RESOLVED+OCI_REMOTE_REPOSITORY_CORRUPT_RESOLVED+TELEGRAM_TRANSPORT_SECRET_DISCLOSURE_MITIGATED
-owner_docs=/home/daniele/MegaVault/projects/oracle-backup-service/docs/ai/INCIDENT_REGISTRY.md
+owner_docs=/home/daniele/projects/oracle-backup-service/docs/ai/INCIDENT_REGISTRY.md
 maintenance_731842=credential_argv_exposure_mitigated+Telegram_and_Cloudflare_rotation_required+telegram_media_environment_fixed+software_audit_boot_watchdog_transient_resolved;owner_docs=/home/daniele/MegaVault/projects/vm_oracle/docs/ai/INCIDENT_REGISTRY.md
 activity=731904
 

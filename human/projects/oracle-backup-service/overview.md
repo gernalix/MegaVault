@@ -2,14 +2,14 @@
 
 La documentazione operativa è stata migrata nel repository proprietario:
 
-- overview (`../../../projects/oracle-backup-service/docs/human/overview.md`; status=owner_repo_verified_local_2026-08-01)
-- operations (`../../../projects/oracle-backup-service/docs/ai/OPERATIONS.md`; status=owner_repo_verified_local_2026-08-01)
-- incidenti (`../../../projects/oracle-backup-service/docs/ai/INCIDENT_REGISTRY.md`; status=owner_repo_verified_local_2026-08-01)
+- overview (`../../../../projects/oracle-backup-service/docs/human/overview.md`; status=owner_repo_verified_local_2026-08-01)
+- operations (`../../../../projects/oracle-backup-service/docs/ai/OPERATIONS.md`; status=owner_repo_verified_local_2026-08-01)
+- incidenti (`../../../../projects/oracle-backup-service/docs/ai/INCIDENT_REGISTRY.md`; status=owner_repo_verified_local_2026-08-01)
 
 Stato verificato il 26 luglio 2026:
 
-- repository: `/home/daniele/MegaVault/projects/oracle-backup-service`;
-- ramo: `codex/731904-oracle-remote-recovery`;
+- repository: `/home/daniele/projects/oracle-backup-service`;
+- ramo: `main`;
 - VM: `ubuntu@150.230.148.128`;
 - backup remoto OCI: OK, snapshot `685d4861`;
 - `restic check`: OK;
@@ -20,9 +20,13 @@ Stato verificato il 26 luglio 2026:
 Accesso:
 
 ```bash
-ssh -i /home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa \
-  -o IdentitiesOnly=yes \
-  ubuntu@150.230.148.128
+oracle_env=/home/daniele/.config/codex/secrets/oracle.env
+test -r "$oracle_env" || exit 1
+set -a; . "$oracle_env"; set +a
+test -r "$ORACLE_KEY_FILE" || exit 1
+ssh -i "$ORACLE_KEY_FILE" -p "$ORACLE_PORT" \
+  -o BatchMode=yes -o IdentitiesOnly=yes \
+  "$ORACLE_USER@$ORACLE_HOST"
 ```
 
-Il contenuto della chiave non deve mai essere copiato in MegaVault o Git.
+`oracle.env` e la chiave privata separata restano fuori dai repository, entrambi `0600`; contenuti e valori non devono mai entrare in MegaVault o Git.

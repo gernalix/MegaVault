@@ -1,9 +1,14 @@
 # oracle-backup-service Changelog
 
+## 2026-08-01 — goal 816429
+
+- Checkout canonico spostato in `/home/daniele/projects/oracle-backup-service`; i 14 commit validi laterali sono stati integrati in `main`, i branch storici archiviati e rimossi, default GitHub confermato `main`.
+- Accesso SSH migrato a `oracle.env` + chiave separata sotto `/home/daniele/.config/codex/secrets`; fingerprint, SSH, alias e SCP read-only verificati senza modifica remota.
+
 ## 2026-07-26 — attività 731904
 
 - Nuovo checkout Fedora in `/home/daniele/MegaVault/projects/oracle-backup-service`, ramo `codex/731904-oracle-remote-recovery`, push completato.
-- SSH verificato con `/home/daniele/MegaVault/secrets/oracle-cloud/oracle-vm-rsa`.
+- SSH verificato con la chiave Oracle allora registrata; percorso sostituito dal layout canonico del goal 816429.
 - Vecchio repository OCI provato corrotto, inventariato e sostituito dopo restore valido dal fallback.
 - Nuovo repository `7fd0c92d9f`: backup remoto `685d4861`, check e restore PASS.
 - Retention remota preventiva accoppiata al backup, `keep-last=22`; quota finale 3,25 GiB OK.
