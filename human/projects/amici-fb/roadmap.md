@@ -2,9 +2,9 @@
 
 ## Ora
 
-- Usare solo `C:\codex_clean_repos\amici_fb` come repository Git valido.
-- Lasciare intatto `C:\codex\amici_fb` come export storico.
-- Eseguire tramite Python globale e Task Scheduler Windows.
+- Usare solo `/home/daniele/projects/amici_fb` come checkout Git canonico.
+- Trattare `C:\codex_clean_repos\amici_fb` e `C:\codex\amici_fb` come copie/runtime Windows esterne, non come branch operativi Fedora.
+- Su Fedora eseguire tramite Python di sistema e `amici-fb.timer`; le istruzioni Task Scheduler restano storiche per Windows.
 - Mantenere `.env` e `data\` fuori dal versionamento futuro.
 - Tenere fuori dai commit `fb_storage_state.json`, `amici_fb.sqlite3`, log e
   output generati.

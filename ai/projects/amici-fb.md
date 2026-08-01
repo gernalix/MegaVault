@@ -1,12 +1,16 @@
 META:
 name=amici_fb
 slug=amici-fb
-path=C:\codex_clean_repos\amici_fb
-linux_export=C:\codex\amici_fb
+status=MIGRATED_POINTER
+authority=/home/daniele/projects/amici_fb/docs/ai/ARCHITECTURE.md
+path=/home/daniele/projects/amici_fb
+windows_runtime_snapshot=C:\codex_clean_repos\amici_fb
+windows_export_snapshot=C:\codex\amici_fb
 remote=https://github.com/gernalix/amici_fb.git
-branch=master
-verified_at=2026-06-25T16:44:23+02:00
-protocol=MEGAVAULT_PROTOCOL.md:v3
+branch=main
+verified_at=2026-08-01
+protocol=MEGAVAULT_PROTOCOL.md:v17
+content_below=historical_Windows_snapshot_2026-06-25;current_truth=owner_repo_docs
 
 PURPOSE:
 purpose=Windows_11_Playwright_Facebook_friend_snapshot>CSV+SQLite+diff+scheduler_logs+optional_Telegram+Kuma
@@ -42,7 +46,7 @@ FLOW:
 9=Close browser/context/page/DB in cleanup; runner sends Kuma OK/down and returns correct exit code.
 
 INV:
-valid_repo=C:\codex_clean_repos\amici_fb
+valid_repo=/home/daniele/projects/amici_fb
 invalid_git_source=C:\codex\amici_fb must remain a file snapshot only
 task_name=amici_fb Daily Snapshot 0900
 task_state_required=Ready after each run
@@ -117,5 +121,5 @@ scheduled=2026-06-25T16:43:35+02:00 duration 47.424s LastTaskResult 0; task retu
 
 LINK:
 human=../../human/projects/amici-fb/overview.md
-repo=C:\codex_clean_repos\amici_fb
-metadata=C:\codex_clean_repos\amici_fb\dev\project.metadata.json
+repo=/home/daniele/projects/amici_fb
+metadata=/home/daniele/projects/amici_fb/dev/project.metadata.json

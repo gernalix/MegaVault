@@ -26,7 +26,7 @@ task=secret_path|secret_consumer|private_key;read=global/SECRET_REGISTRY.md
 
 PROJECTS:
 project=MegaVault;repo=/home/daniele/MegaVault;ai=MEGAVAULT_PROTOCOL.md+GLOBAL_STATE.md
-project=amici-fb;repo=Windows:C:\codex_clean_repos\amici_fb;ai=projects/amici-fb.md;status=remote_host
+project=amici-fb;repo=/home/daniele/projects/amici_fb;ai=/home/daniele/projects/amici_fb/docs/ai/ARCHITECTURE.md;context=projects/amici-fb.md;branch=main;status=active_fedora
 project=android;repo=legacy:/home/daniele/codex-workspace/projects/android;ai=global/ADB_DEVICE_KEEPER.md;status=superseded
 project=android-app-template;repo=legacy:/home/daniele/codex-workspace/android-app-template;ai=projects/android-app-template.md;status=active_revalidate_path
 project=android-sdk-auto-update;repo=legacy:/home/daniele/codex-workspace/android-sdk-auto-update;ai=projects/LEGACY.md;status=legacy

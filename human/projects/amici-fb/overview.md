@@ -1,10 +1,17 @@
 # amici_fb Overview
 
-`amici_fb` e' ora migrato su Windows 11.
+Il checkout Git canonico di `amici_fb` è `/home/daniele/projects/amici_fb`, con runtime Fedora/systemd documentato nel repository proprietario. Le informazioni Windows sotto restano uno snapshot storico del 25 giugno 2026.
 
-## Stato corrente
+## Stato corrente Fedora
 
-- Repository Git valido: `C:\codex_clean_repos\amici_fb`
+- Repository Git canonico: `/home/daniele/projects/amici_fb`
+- Branch unico: `main`
+- Timer: `amici-fb.timer`, enabled e active/waiting il 1 agosto 2026
+- Documentazione: `/home/daniele/projects/amici_fb/docs/`
+
+## Snapshot Windows 2026-06-25
+
+- Copia runtime Windows allora verificata: `C:\codex_clean_repos\amici_fb`
 - Export Linux conservato: `C:\codex\amici_fb`
 - Remote ufficiale: `https://github.com/gernalix/amici_fb`
 - Data migrazione: `2026-06-25`
