@@ -2,7 +2,7 @@
 
 Generated: 2026-08-01T00:00:00+00:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 1031
+Total events: 1068
 
 ## Source Roots
 - `/home/daniele/MegaVault`
@@ -12,50 +12,50 @@ Total events: 1031
 
 | Value | Events |
 |---|---:|
-| megavault | 187 |
+| megavault | 195 |
 | amici-fb | 168 |
-| multitimetracker | 79 |
+| multitimetracker | 80 |
 | luoghi-app | 78 |
 | rollout-summaries | 39 |
 | oracle-backup-service | 32 |
 | 2026 | 26 |
+| supercontacts | 26 |
 | luoghi | 25 |
 | fedora-system-monitor | 24 |
-| supercontacts | 21 |
 | wordpulse | 18 |
+| oracle-uptime-kuma | 16 |
 | fedora-t7-backup | 15 |
-| oracle-uptime-kuma | 15 |
 | vm-oracle | 15 |
+| windows-winget-daily-update | 13 |
+| owntracks-watcher | 12 |
 | windows-flight-recorder | 12 |
-| windows-winget-daily-update | 12 |
-| owntracks-watcher | 11 |
-| megavault-project-exporter | 10 |
-| android | 9 |
-| aw-converter | 9 |
-| chatgpt-chrome-debug | 9 |
-| codex-html-live | 9 |
-| codex-token-watcher | 9 |
-| codex-wrapper | 9 |
-| facebook-video-archiver | 9 |
-| installa-app | 9 |
-| linux-mint-service-dashboard | 9 |
+| megavault-project-exporter | 11 |
+| android | 10 |
+| aw-converter | 10 |
+| chatgpt-chrome-debug | 10 |
+| codex-html-live | 10 |
+| codex-token-watcher | 10 |
+| codex-wrapper | 10 |
+| facebook-video-archiver | 10 |
+| installa-app | 10 |
+| linux-mint-service-dashboard | 10 |
+| mint-manual-updates | 10 |
+| os-observer | 10 |
+| parcel-tracker | 10 |
+| remote-codex-phone | 10 |
+| remote-opt-oracle-backup | 10 |
+| system-watchdog | 10 |
+| windowtabnotes | 10 |
+| git-change-ledger | 9 |
+| maintenance-486 | 9 |
 | mint-freeze-forensics | 9 |
-| mint-manual-updates | 9 |
-| os-observer | 9 |
-| parcel-tracker | 9 |
-| remote-codex-phone | 9 |
-| remote-opt-oracle-backup | 9 |
 | surface-recovery-hardening | 9 |
-| system-watchdog | 9 |
 | windows | 9 |
-| windowtabnotes | 9 |
 | android-app-template | 8 |
-| git-change-ledger | 8 |
-| maintenance-486 | 8 |
+| facedownassup-downloader | 8 |
 | pixel-8a | 8 |
 | soldi | 8 |
 | sostanze | 8 |
-| facedownassup-downloader | 7 |
 | grindr-web-exporter | 6 |
 | docs | 3 |
 | mint-cloud-backup | 2 |
@@ -71,13 +71,13 @@ Total events: 1031
 
 | Value | Events |
 |---|---:|
-| security | 339 |
-| backup | 306 |
-| docs | 95 |
-| release | 79 |
-| bugfix | 72 |
-| testing | 65 |
-| automation | 36 |
+| security | 351 |
+| backup | 314 |
+| docs | 98 |
+| release | 81 |
+| bugfix | 73 |
+| testing | 72 |
+| automation | 40 |
 | infra | 20 |
 | migration | 15 |
 | performance | 4 |
@@ -86,20 +86,20 @@ Total events: 1031
 
 | Value | Events |
 |---|---:|
-| P1 | 561 |
-| P0 | 239 |
-| P2 | 210 |
-| P3 | 21 |
+| P1 | 579 |
+| P0 | 244 |
+| P2 | 217 |
+| P3 | 28 |
 
 ### Events by status
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 387 |
-| WARN | 234 |
-| PASS | 228 |
-| OPEN | 93 |
-| FAIL | 89 |
+| UNKNOWN | 390 |
+| WARN | 237 |
+| PASS | 235 |
+| OPEN | 116 |
+| FAIL | 90 |
 
 
 ## Recent Events
@@ -109,35 +109,40 @@ Total events: 1031
 | 2026-08-01 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 31T194614Z vs 2026 08 01T070000Z |
 | 2026-08-01 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
 | 2026-08-01 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-08-01 | android | android android Overview | security | OPEN | P1 | doc_event | markdown | android Overview |
+| 2026-08-01 | aw-converter | aw-converter aw-converter Overview | testing | OPEN | P3 | qa | markdown | aw-converter Overview |
+| 2026-08-01 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Overview | backup | OPEN | P1 | backup | markdown | chatgpt-chrome-debug Overview |
+| 2026-08-01 | codex-html-live | codex-html-live codex-html-live Overview | testing | OPEN | P3 | qa | markdown | codex-html-live Overview |
+| 2026-08-01 | codex-token-watcher | codex-token-watcher codex-token-watcher Overview | security | OPEN | P1 | doc_event | markdown | codex-token-watcher Overview |
+| 2026-08-01 | codex-wrapper | codex-wrapper codex-wrapper Overview | testing | OPEN | P3 | qa | markdown | codex-wrapper Overview |
+| 2026-08-01 | facebook-video-archiver | facebook-video-archiver v4 | testing | OPEN | P3 | qa | markdown | facebook-video-archiver Overview |
+| 2026-08-01 | facedownassup-downloader | facedownassup-downloader facedownassup-downloader | security | OPEN | P1 | report | markdown | facedownassup-downloader |
+| 2026-08-01 | git-change-ledger | Git PATH | security | OPEN | P1 | report | markdown | git-change-ledger |
+| 2026-08-01 | installa-app | installa-app installa-app Overview | testing | OPEN | P3 | qa | markdown | installa-app Overview |
+| 2026-08-01 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Overview | automation | OPEN | P2 | doc_event | markdown | linux-mint-service-dashboard Overview |
+| 2026-08-01 | maintenance-486 | maintenance-486 maintenance-486 Overview | testing | OPEN | P3 | report | markdown | maintenance-486 Overview |
 | 2026-08-01 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
-| 2026-08-01 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
-| 2026-08-01 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
-| 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
-| 2026-08-01 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
-| 2026-08-01 | megavault | MegaVault Audit Telegram Notify | security | OPEN | P1 | doc_event | markdown | Audit Telegram Notify |
-| 2026-08-01 | megavault | MegaVault v0 | backup | FAIL | P1 | backup | markdown | activity 592184 activitywatch fedora44 wayland |
-| 2026-08-01 | multitimetracker | MTT Activity 483716 Android | security | WARN | P0 | protocol_update | markdown | Activity 483716 Android Studio User Migration |
-| 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
-| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
-| 2026-08-01 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
-| 2026-08-01 | oracle-backup-service | Oracle Backup Oracle backup | backup | UNKNOWN | P1 | backup | markdown | Oracle backup service funzionalita |
-| 2026-08-01 | oracle-backup-service | Oracle Backup Oracle backup | security | UNKNOWN | P1 | doc_event | markdown | Oracle backup service |
-| 2026-08-01 | oracle-backup-service | Oracle Backup Oracle backup | backup | UNKNOWN | P1 | backup | markdown | Oracle backup service roadmap |
-| 2026-08-01 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
+| 2026-08-01 | megavault | Git PATH | release | UNKNOWN | P0 | release | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
+| 2026-08-01 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
 | 2026-08-01 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
+| 2026-08-01 | megavault | Git PATH | release | UNKNOWN | P0 | release | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
+| 2026-08-01 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
 | 2026-08-01 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
 | 2026-08-01 | multitimetracker | MTT Activity 483716 Android | security | WARN | P0 | protocol_update | markdown | Activity 483716 Android Studio User Migration |
 | 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
 | 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
+| 2026-08-01 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-08-01 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
+| 2026-08-01 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
+| 2026-08-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
 | 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
 | 2026-07-31 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fba00-074b-7120-a1aa-9d333f3ace56 |
 | 2026-07-31 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora USB HDD spin-down and lid-suspend diagnosis |
@@ -370,50 +375,50 @@ Total events: 1031
 | 1970-01-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
 
 ## Projects
-- `megavault`: 187 events; latest=2026-08-01; label=Codex Timeline
+- `megavault`: 195 events; latest=2026-08-01; label=Codex Timeline
 - `amici-fb`: 168 events; latest=2026-08-01; label=Amici FB amici 2026
-- `multitimetracker`: 79 events; latest=2026-08-01; label=MTT Activity 483716 Android
+- `multitimetracker`: 80 events; latest=2026-08-01; label=MTT Activity 483716 Android
 - `luoghi-app`: 78 events; latest=2026-07-27; label=luoghi-app v16
 - `rollout-summaries`: 39 events; latest=2026-07-31; label=Codex Timeline
 - `oracle-backup-service`: 32 events; latest=2026-08-01; label=Oracle Backup Oracle backup
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
+- `supercontacts`: 26 events; latest=2026-08-01; label=SC app-debug.apk
 - `luoghi`: 25 events; latest=2026-07-26; label=Codex Timeline
 - `fedora-system-monitor`: 24 events; latest=2026-07-26; label=fedora-system-monitor 418732
-- `supercontacts`: 21 events; latest=2026-08-01; label=SC v33
 - `wordpulse`: 18 events; latest=2026-07-30; label=Android Tests
+- `oracle-uptime-kuma`: 16 events; latest=2026-08-01; label=Kuma Features
 - `fedora-t7-backup`: 15 events; latest=2026-07-12; label=fedora-t7-backup project.metadata
-- `oracle-uptime-kuma`: 15 events; latest=2026-07-26; label=Git PATH
 - `vm-oracle`: 15 events; latest=2026-07-27; label=Git PATH
+- `windows-winget-daily-update`: 13 events; latest=2026-08-01; label=Winget Windows Winget Daily
+- `owntracks-watcher`: 12 events; latest=2026-08-01; label=Android Tests
 - `windows-flight-recorder`: 12 events; latest=2026-07-09; label=WFR Windows 11 autonomous
-- `windows-winget-daily-update`: 12 events; latest=2026-07-09; label=Git PATH
-- `owntracks-watcher`: 11 events; latest=2026-07-09; label=Android Tests
-- `megavault-project-exporter`: 10 events; latest=2026-07-09; label=megavault-project-exporter v3
-- `android`: 9 events; latest=2026-07-09; label=android v0
-- `aw-converter`: 9 events; latest=2026-07-09; label=aw-converter aw-converter Features
-- `chatgpt-chrome-debug`: 9 events; latest=2026-07-09; label=chatgpt-chrome-debug chatgpt-chrome-debug Features
-- `codex-html-live`: 9 events; latest=2026-07-09; label=codex-html-live codex-html-live Features
-- `codex-token-watcher`: 9 events; latest=2026-07-09; label=codex-token-watcher codex-token-watcher Overview
-- `codex-wrapper`: 9 events; latest=2026-07-09; label=codex-wrapper codex-wrapper Features
-- `facebook-video-archiver`: 9 events; latest=2026-07-09; label=facebook-video-archiver facebook-video-archiver Features
-- `installa-app`: 9 events; latest=2026-07-09; label=installa-app installa-app Features
-- `linux-mint-service-dashboard`: 9 events; latest=2026-07-09; label=linux-mint-service-dashboard linux-mint-service-dashboard Features
+- `megavault-project-exporter`: 11 events; latest=2026-08-01; label=Git PATH
+- `android`: 10 events; latest=2026-08-01; label=android android Overview
+- `aw-converter`: 10 events; latest=2026-08-01; label=aw-converter aw-converter Overview
+- `chatgpt-chrome-debug`: 10 events; latest=2026-08-01; label=chatgpt-chrome-debug chatgpt-chrome-debug Overview
+- `codex-html-live`: 10 events; latest=2026-08-01; label=codex-html-live codex-html-live Overview
+- `codex-token-watcher`: 10 events; latest=2026-08-01; label=codex-token-watcher codex-token-watcher Overview
+- `codex-wrapper`: 10 events; latest=2026-08-01; label=codex-wrapper codex-wrapper Overview
+- `facebook-video-archiver`: 10 events; latest=2026-08-01; label=facebook-video-archiver v4
+- `installa-app`: 10 events; latest=2026-08-01; label=installa-app installa-app Overview
+- `linux-mint-service-dashboard`: 10 events; latest=2026-08-01; label=linux-mint-service-dashboard linux-mint-service-dashboard Overview
+- `mint-manual-updates`: 10 events; latest=2026-08-01; label=mint-manual-updates v9
+- `os-observer`: 10 events; latest=2026-08-01; label=os-observer os-observer Overview
+- `parcel-tracker`: 10 events; latest=2026-08-01; label=parcel-tracker parcel-tracker Overview
+- `remote-codex-phone`: 10 events; latest=2026-08-01; label=Android Tests
+- `remote-opt-oracle-backup`: 10 events; latest=2026-08-01; label=remote-opt-oracle-backup remote_opt_oracle_backup Overview
+- `system-watchdog`: 10 events; latest=2026-08-01; label=system-watchdog system_watchdog Overview
+- `windowtabnotes`: 10 events; latest=2026-08-01; label=windowtabnotes v23
+- `git-change-ledger`: 9 events; latest=2026-08-01; label=Git PATH
+- `maintenance-486`: 9 events; latest=2026-08-01; label=maintenance-486 maintenance-486 Overview
 - `mint-freeze-forensics`: 9 events; latest=2026-07-09; label=mint-freeze-forensics Features
-- `mint-manual-updates`: 9 events; latest=2026-07-09; label=mint-manual-updates mint-manual-updates Roadmap
-- `os-observer`: 9 events; latest=2026-07-09; label=os-observer os-observer Features
-- `parcel-tracker`: 9 events; latest=2026-07-09; label=parcel-tracker parcel-tracker Features
-- `remote-codex-phone`: 9 events; latest=2026-07-09; label=remote-codex-phone remote-codex-phone Features
-- `remote-opt-oracle-backup`: 9 events; latest=2026-07-09; label=remote-opt-oracle-backup remote_opt_oracle_backup Features
 - `surface-recovery-hardening`: 9 events; latest=2026-07-09; label=surface-recovery-hardening surface-recovery-hardening Features
-- `system-watchdog`: 9 events; latest=2026-07-09; label=system-watchdog system_watchdog Features
 - `windows`: 9 events; latest=2026-07-26; label=Veeam T7
-- `windowtabnotes`: 9 events; latest=2026-07-09; label=windowtabnotes v20
 - `android-app-template`: 8 events; latest=2026-07-09; label=android-app-template Android App Template
-- `git-change-ledger`: 8 events; latest=2026-07-09; label=Git PATH
-- `maintenance-486`: 8 events; latest=2026-07-09; label=maintenance-486 maintenance-486 Features
+- `facedownassup-downloader`: 8 events; latest=2026-08-01; label=facedownassup-downloader facedownassup-downloader
 - `pixel-8a`: 8 events; latest=2026-08-01; label=Git PATH
 - `soldi`: 8 events; latest=2026-08-01; label=Android Tests
 - `sostanze`: 8 events; latest=2026-07-09; label=Sostanze 4.apk
-- `facedownassup-downloader`: 7 events; latest=2026-07-09; label=facedownassup-downloader facedownassup-downloader
 - `grindr-web-exporter`: 6 events; latest=2026-07-09; label=grindr-web-exporter Grindr Web Exporter
 - `docs`: 3 events; latest=2026-07-26; label=docs 573814 Espanso intermittente
 - `mint-cloud-backup`: 2 events; latest=2026-06-06; label=mint-cloud-backup mint-cloud-backup Changelog
@@ -432,24 +437,61 @@ Total events: 1031
 | 2026-08-01 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 31T194614Z vs 2026 08 01T070000Z |
 | 2026-08-01 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
 | 2026-08-01 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-08-01 | android | android android Overview | security | OPEN | P1 | doc_event | markdown | android Overview |
+| 2026-08-01 | aw-converter | aw-converter aw-converter Overview | testing | OPEN | P3 | qa | markdown | aw-converter Overview |
+| 2026-08-01 | chatgpt-chrome-debug | chatgpt-chrome-debug chatgpt-chrome-debug Overview | backup | OPEN | P1 | backup | markdown | chatgpt-chrome-debug Overview |
+| 2026-08-01 | codex-html-live | codex-html-live codex-html-live Overview | testing | OPEN | P3 | qa | markdown | codex-html-live Overview |
+| 2026-08-01 | codex-token-watcher | codex-token-watcher codex-token-watcher Overview | security | OPEN | P1 | doc_event | markdown | codex-token-watcher Overview |
+| 2026-08-01 | codex-wrapper | codex-wrapper codex-wrapper Overview | testing | OPEN | P3 | qa | markdown | codex-wrapper Overview |
+| 2026-08-01 | facebook-video-archiver | facebook-video-archiver v4 | testing | OPEN | P3 | qa | markdown | facebook-video-archiver Overview |
+| 2026-08-01 | facedownassup-downloader | facedownassup-downloader facedownassup-downloader | security | OPEN | P1 | report | markdown | facedownassup-downloader |
+| 2026-08-01 | git-change-ledger | Git PATH | security | OPEN | P1 | report | markdown | git-change-ledger |
+| 2026-08-01 | installa-app | installa-app installa-app Overview | testing | OPEN | P3 | qa | markdown | installa-app Overview |
+| 2026-08-01 | linux-mint-service-dashboard | linux-mint-service-dashboard linux-mint-service-dashboard Overview | automation | OPEN | P2 | doc_event | markdown | linux-mint-service-dashboard Overview |
+| 2026-08-01 | maintenance-486 | maintenance-486 maintenance-486 Overview | testing | OPEN | P3 | report | markdown | maintenance-486 Overview |
 | 2026-08-01 | megavault | Codex Timeline | migration | UNKNOWN | P0 | report | markdown | MegaVault Human Index |
 | 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
+| 2026-08-01 | megavault | Git PATH | release | UNKNOWN | P0 | release | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
+| 2026-08-01 | megavault | Git PATH | security | PASS | P0 | protocol_update | markdown | ACTIVITY_816428_MEGAVAULT_FINAL_CANONICALIZATION |
 | 2026-08-01 | megavault | MegaVault 1.apk | backup | PASS | P0 | release | markdown | CORE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE | release | PASS | P0 | release | markdown | ACTIVITY_593814_LOGSEQ_FEDORA_APPIMAGE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
 | 2026-08-01 | megavault | Codex Timeline | backup | FAIL | P1 | backup | markdown | Project Index Extended |
+| 2026-08-01 | megavault | Git PATH | security | WARN | P1 | report | markdown | activity 641827 display wifi idle |
+| 2026-08-01 | megavault | Git PATH | security | UNKNOWN | P1 | report | markdown | TELEGRAM_NOTIFY_AUDIT |
 | 2026-08-01 | megavault | MegaVault Audit Telegram Notify | security | OPEN | P1 | doc_event | markdown | Audit Telegram Notify |
 | 2026-08-01 | megavault | MegaVault v0 | backup | FAIL | P1 | backup | markdown | activity 592184 activitywatch fedora44 wayland |
+| 2026-08-01 | megavault | MegaVault v16 | bugfix | PASS | P1 | git_commit | git_log | fix: address v16 reconciliation review gates |
+| 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | reconcile: establish MegaVault v16 foundation |
+| 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | reconcile: complete canonical MegaVault v16 baseline |
+| 2026-08-01 | megavault | MegaVault v16 | docs | PASS | P2 | git_commit | git_log | docs: record v16 review gate evidence |
+| 2026-08-01 | megavault-project-exporter | Git PATH | backup | OPEN | P1 | backup | markdown | megavault-project-exporter Overview |
+| 2026-08-01 | mint-manual-updates | mint-manual-updates v9 | backup | OPEN | P1 | backup | markdown | mint-manual-updates Overview |
 | 2026-08-01 | multitimetracker | MTT Activity 483716 Android | security | WARN | P0 | protocol_update | markdown | Activity 483716 Android Studio User Migration |
 | 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
 | 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
+| 2026-08-01 | multitimetracker | MTT v4 | security | WARN | P0 | changelog | json | MIGRATION MANIFEST |
 | 2026-08-01 | multitimetracker | MTT v4 | security | PASS | P1 | report | markdown | MegaVault Projects |
 | 2026-08-01 | oracle-backup-service | Oracle Backup Oracle backup | backup | UNKNOWN | P1 | backup | markdown | Oracle backup service funzionalita |
 | 2026-08-01 | oracle-backup-service | Oracle Backup Oracle backup | security | UNKNOWN | P1 | doc_event | markdown | Oracle backup service |
 | 2026-08-01 | oracle-backup-service | Oracle Backup Oracle backup | backup | UNKNOWN | P1 | backup | markdown | Oracle backup service roadmap |
+| 2026-08-01 | oracle-uptime-kuma | Kuma Features | backup | UNKNOWN | P1 | backup | markdown | Features |
+| 2026-08-01 | os-observer | os-observer os-observer Overview | backup | OPEN | P1 | backup | markdown | os-observer Overview |
+| 2026-08-01 | owntracks-watcher | Android Tests | security | OPEN | P1 | doc_event | markdown | owntracks-watcher Overview |
+| 2026-08-01 | parcel-tracker | parcel-tracker parcel-tracker Overview | automation | OPEN | P2 | doc_event | markdown | parcel-tracker Overview |
 | 2026-08-01 | pixel-8a | Git PATH | security | WARN | P0 | protocol_update | markdown | ADB_DEVICE_KEEPER |
+| 2026-08-01 | remote-codex-phone | Android Tests | testing | OPEN | P3 | qa | markdown | remote-codex-phone Overview |
+| 2026-08-01 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Overview | backup | OPEN | P1 | backup | markdown | remote_opt_oracle_backup Overview |
 | 2026-08-01 | soldi | Android Tests | backup | PASS | P1 | backup | markdown | SOLDI |
+| 2026-08-01 | supercontacts | SC app-debug.apk | security | PASS | P0 | release | markdown | Android contacts app backed by Room/SQLite; repo files and tests cover contact CRUD, tags, initiatives, photos, field descriptions, address suggest... |
+| 2026-08-01 | supercontacts | SC v16 | security | PASS | P0 | protocol_update | json | V16 RECONCILIATION MANIFEST |
+| 2026-08-01 | supercontacts | SC v1 | security | FAIL | P1 | report | json | CODE AUDIT SOURCES |
+| 2026-08-01 | supercontacts | SC v23 | backup | OPEN | P1 | backup | markdown | SuperContacts Overview |
+| 2026-08-01 | supercontacts | SC v30 | backup | OPEN | P1 | report | json | 2917AA9 DELETE MANIFEST |
 | 2026-08-01 | supercontacts | SC v33 | backup | UNKNOWN | P1 | report | markdown | ARCHIVE_INDEX |
+| 2026-08-01 | system-watchdog | system-watchdog system_watchdog Overview | automation | OPEN | P2 | doc_event | markdown | system_watchdog Overview |
+| 2026-08-01 | windows-winget-daily-update | Winget Windows Winget Daily | automation | OPEN | P2 | doc_event | markdown | Windows Winget Daily Update Overview |
+| 2026-08-01 | windowtabnotes | windowtabnotes v23 | release | WARN | P1 | release | markdown | WindowTabNotes Overview |
 | 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
 | 2026-07-31 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 31T194614Z |
 | 2026-07-31 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 30T070001Z vs 2026 07 31T194614Z |
