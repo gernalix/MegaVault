@@ -224,3 +224,12 @@ La tabella `incident_events` mantiene la cronologia completa degli eventi. Gli i
 - Stato protetto: Secure Boot resta disabilitato; nessun reboot. LUKS, partizioni, chiavi, kernel, initramfs, BLS originali, GRUB e `grubenv` sono invariati.
 - Limite residuo: un timeout dracut normale prima della root non entra nel journal interno o in pstore; occorre fotografare o filmare la console diagnostica.
 - Report: `ai/reports/activity_214587_secure_boot_dracut_forensics.md`; preparazione: `/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_948315.md`.
+
+## MEGAVAULT_TASK_FINALIZATION_DIRTY_STATE
+
+- Finestra UTC: `2026-08-01T09:11:28Z` - `09:32:27Z`; stato `RESOLVED`, gravita' `HIGH`.
+- Sintomo: tre finalizzazioni consecutive hanno lasciato modifiche valide a protocollo, documentazione Kuma e timeline senza commit/push; il task successivo iniziava quindi con MegaVault dirty.
+- Root cause: chiusura Git omessa e generatore timeline auto-referenziale/non idempotente per timestamp corrente, scansione di sessioni vive e file ignorati, import del proprio `HEAD` e upsert SQLite non condizionale.
+- Fix: modifiche valide preservate e committate; fonti predefinite limitate al perimetro Git, self-Git escluso, storia append-only, timestamp stabile, upsert e report no-op a dati invariati, WAL/SHM e cache ignorati, test doppio permanente.
+- Verifica tecnica: mappa semantica v16-v17 completa, test unitari e due build timeline byte-identiche; clean/push/sync sono gate post-commit riportati nella risposta finale.
+- Report: `ai/reports/activity_20260801_megavault_dirty_state_protocol_v17.md`.

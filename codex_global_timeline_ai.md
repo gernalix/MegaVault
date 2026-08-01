@@ -1,14 +1,30 @@
 # Global Codex Timeline AI
-generated_at=2026-08-01T10:36:24+02:00
-total_events=869
+generated_at=2026-08-01T12:12:05+02:00
+total_events=902
 format=event_date|project|label_short|category|status|importance
 2026-08-01|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-08-01|amici-fb|Amici FB diff 2026|backup|UNKNOWN|P1
+2026-08-01|amici-fb|Amici FB trace|security|FAIL|P1
 2026-08-01|amici-fb|Amici FB trace|backup|FAIL|P1
 2026-08-01|amici-fb|Amici FB my facebook|docs|UNKNOWN|P2
+2026-08-01|megavault|Codex Timeline|security|PASS|P0
+2026-08-01|megavault|Codex Timeline|security|PASS|P0
 2026-08-01|megavault|MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE|security|WARN|P0
+2026-08-01|megavault|MegaVault v17|security|OPEN|P0
+2026-08-01|megavault|MegaVault v17|security|PASS|P0
+2026-08-01|megavault|MegaVault docs record uptime|infra|PASS|P1
 2026-08-01|multitimetracker|MTT v1|security|WARN|P0
 2026-08-01|multitimetracker|MTT v13|security|WARN|P0
+2026-08-01|multitimetracker|MTT v13|security|WARN|P0
+2026-08-01|multitimetracker|MTT v13|security|WARN|P0
+2026-08-01|multitimetracker|MTT v13|security|WARN|P0
+2026-08-01|oracle-backup-service|Oracle Backup Changelog|backup|UNKNOWN|P1
+2026-08-01|oracle-backup-service|Oracle Backup Document Oracle|backup|PASS|P1
+2026-08-01|oracle-backup-service|Oracle Backup Fix Oracle|backup|PASS|P1
+2026-08-01|oracle-backup-service|Oracle Backup oracle-backup-service|security|FAIL|P1
+2026-08-01|oracle-backup-service|Oracle Backup Registro incidenti|security|FAIL|P1
+2026-08-01|oracle-backup-service|Oracle Backup Troubleshooting|backup|FAIL|P1
+2026-08-01|windows|Git PATH|security|OPEN|P0
 2026-07-31|amici-fb|Amici FB trace|backup|FAIL|P0
 2026-07-31|amici-fb|Amici FB amici 2026|backup|UNKNOWN|P1
 2026-07-31|amici-fb|Amici FB diff 2026|backup|OPEN|P1
@@ -136,6 +152,8 @@ format=event_date|project|label_short|category|status|importance
 2026-07-26|oracle-backup-service|Codex Timeline|backup|OPEN|P1
 2026-07-26|oracle-backup-service|Git PATH|security|PASS|P1
 2026-07-26|oracle-backup-service|Oracle Backup Changelog|backup|UNKNOWN|P1
+2026-07-26|oracle-backup-service|Oracle Backup Fix OCI|backup|PASS|P1
+2026-07-26|oracle-backup-service|Oracle Backup Link Oracle|backup|PASS|P1
 2026-07-26|oracle-backup-service|Oracle Backup Oracle backup|backup|UNKNOWN|P1
 2026-07-26|oracle-backup-service|Oracle Backup Oracle backup|backup|UNKNOWN|P1
 2026-07-26|oracle-backup-service|Oracle Backup Oracle backup|security|UNKNOWN|P1
@@ -205,7 +223,6 @@ format=event_date|project|label_short|category|status|importance
 2026-07-18|legacy|Git PATH|security|OPEN|P1
 2026-07-18|luoghi|Luoghi v2|security|WARN|P0
 2026-07-18|luoghi|Luoghi v2|security|WARN|P0
-2026-07-18|megavault|Codex Timeline|security|PASS|P0
 2026-07-18|megavault|Git PATH|security|WARN|P0
 2026-07-18|megavault|MegaVault docs align protocol|docs|PASS|P0
 2026-07-18|megavault|MegaVault v0|backup|FAIL|P1
@@ -712,8 +729,11 @@ format=event_date|project|label_short|category|status|importance
 2026-07-03|wordpulse|wordpulse 2|release|UNKNOWN|P1
 2026-07-03|wordpulse|wordpulse WordPulse Correction Bottleneck|security|PASS|P1
 2026-07-03|wordpulse|wordpulse WordPulse Scientific Curation|bugfix|PASS|P1
+2026-07-02|pixel-8a|pixel-8a v16|security|WARN|P0
 2026-07-02|pixel-8a|Android Tests|security|WARN|P1
 2026-07-02|wordpulse|wordpulse 1|release|UNKNOWN|P1
+2026-06-29|oracle-backup-service|Oracle Backup Fix local|backup|PASS|P1
+2026-06-29|oracle-backup-service|Oracle Backup Fix project|backup|PASS|P1
 2026-06-29|oracle-backup-service|Oracle Backup v2|security|WARN|P1
 2026-06-28|megavault|MegaVault Add Pixel Buds|infra|PASS|P1
 2026-06-27|megavault|MegaVault Add Windows Flight|infra|PASS|P1
@@ -759,6 +779,9 @@ format=event_date|project|label_short|category|status|importance
 2026-06-13|mint-manual-updates|mint-manual-updates v9|backup|WARN|P1
 2026-06-13|multitimetracker|MTT Audit Telegram MegaVault|security|FAIL|P1
 2026-06-13|oracle-backup-service|Git PATH|backup|WARN|P1
+2026-06-13|oracle-backup-service|Oracle Backup Add local|backup|PASS|P1
+2026-06-13|oracle-backup-service|Oracle Backup Fix fallback|backup|PASS|P1
+2026-06-13|oracle-backup-service|Oracle Backup Fix oracle|backup|PASS|P1
 2026-06-13|owntracks-watcher|owntracks-watcher v9|security|WARN|P0
 2026-06-13|owntracks-watcher|Android Tests|automation|FAIL|P1
 2026-06-13|sostanze|Sostanze 4.apk|backup|WARN|P1
@@ -767,6 +790,7 @@ format=event_date|project|label_short|category|status|importance
 2026-06-10|codex-token-watcher|codex-token-watcher codex-token-watcher Features|security|UNKNOWN|P1
 2026-06-10|git-change-ledger|Git PATH|automation|UNKNOWN|P2
 2026-06-10|mint-freeze-forensics|mint-freeze-forensics v1|backup|UNKNOWN|P1
+2026-06-10|oracle-backup-service|Oracle Backup Fix low-space|backup|PASS|P1
 2026-06-10|oracle-uptime-kuma|Kuma Roadmap|performance|WARN|P2
 2026-06-10|surface-recovery-hardening|surface-recovery-hardening v2|security|PASS|P0
 2026-06-10|windowtabnotes|windowtabnotes v22|backup|UNKNOWN|P1
@@ -830,12 +854,20 @@ format=event_date|project|label_short|category|status|importance
 2026-06-01|megavault|MegaVault v525|docs|PASS|P2
 2026-06-01|megavault|MegaVault Add megavault metadata|docs|PASS|P3
 2026-06-01|multitimetracker|MTT 537.apk|security|WARN|P0
+2026-06-01|oracle-backup-service|Oracle Backup Add megavault|backup|PASS|P1
 2026-06-01|os-observer|os-observer os-observer Changelog|bugfix|UNKNOWN|P2
 2026-06-01|parcel-tracker|parcel-tracker parcel-tracker Changelog|bugfix|UNKNOWN|P2
 2026-06-01|remote-codex-phone|remote-codex-phone remote-codex-phone Changelog|bugfix|UNKNOWN|P2
 2026-06-01|remote-opt-oracle-backup|remote-opt-oracle-backup remote_opt_oracle_backup Changelog|backup|UNKNOWN|P1
 2026-06-01|supercontacts|SC v20|backup|UNKNOWN|P1
 2026-06-01|system-watchdog|system-watchdog system_watchdog Changelog|bugfix|UNKNOWN|P2
+2026-05-10|oracle-backup-service|Oracle Backup fix healthcheck|backup|PASS|P1
+2026-05-10|oracle-backup-service|Oracle Backup fix oracle|backup|PASS|P1
+2026-05-10|oracle-backup-service|Oracle Backup stabilize oracle|backup|PASS|P1
+2026-05-08|oracle-backup-service|Oracle Backup Deduplicate oracle|backup|PASS|P1
+2026-05-08|oracle-backup-service|Oracle Backup Keep remote|backup|PASS|P1
+2026-05-06|oracle-backup-service|Oracle Backup Document oracle|backup|PASS|P1
+2026-05-06|oracle-backup-service|Oracle Backup Harden local|backup|PASS|P1
 2026-02-06|oracle-backup-service|Oracle Backup v2|security|PASS|P0
 2026-02-06|oracle-backup-service|Git PATH|backup|WARN|P1
 2026-02-06|oracle-backup-service|Git PATH|security|WARN|P1
@@ -843,6 +875,7 @@ format=event_date|project|label_short|category|status|importance
 2026-02-06|oracle-backup-service|Oracle Backup v2|security|WARN|P1
 2026-02-05|vm-oracle|vm-oracle ENV /home/ubuntu/.venv|backup|UNKNOWN|P1
 2026-02-01|maintenance-486|maintenance-486 maintenance-486 Troubleshooting|release|UNKNOWN|P1
+2026-02-01|oracle-backup-service|Git PATH|security|PASS|P1
 2026-02-01|oracle-backup-service|Git PATH|security|PASS|P1
 2026-02-01|oracle-uptime-kuma|Kuma Troubleshooting|security|FAIL|P1
 2026-02-01|vm-oracle|vm-oracle REPORT_731842 aggiornamento completo|security|WARN|P0

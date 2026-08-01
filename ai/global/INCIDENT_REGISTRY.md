@@ -1,4 +1,4 @@
-VERSION=8
+VERSION=9
 STATUS=MANDATORY_STANDARD
 MODE=codex_first
 FORMAT=ultracompressed
@@ -359,6 +359,24 @@ Commit_correlati=activity_214587_MegaVault_commit;activity_948315_MegaVault_comm
 Prompt_correlati=731846;214587;948315
 Tempo_totale_di_impatto=Un singolo tentativo nel gap tra arresto pulito 2026-07-30T03:01:36Z e avvio corrente 2026-07-30T03:10:52Z; durata esatta UNKNOWN
 Note=Origine FSID provata da /var/log/anaconda/storage.log mkfs.btrfs del 2026-07-07. Secure Boot corrente disabilitato. Nessun reboot activity 948315. Pstore EFI e journal persistente gia operativi ma un timeout dracut normale pre-root resta volatile; foto/video console obbligatori. Sources=ai/reports/activity_214587_secure_boot_dracut_forensics.md;/home/daniele/projects/fedora-diagnostics/docs/ai/AUDIT_948315.md
+
+INCIDENT:
+Incident_ID=MEGAVAULT_TASK_FINALIZATION_DIRTY_STATE
+Titolo=Task MegaVault conclusi con documenti e timeline validi non committati
+Data_prima_comparsa_UTC=2026-08-01T09:11:28Z
+Data_ultima_comparsa_UTC=2026-08-01T09:32:27Z
+Numero_occorrenze=3_finalizzazioni_nella_stessa_sessione
+Gravita_massima=HIGH
+Stato=RESOLVED
+Root_cause=Il task segreti e i due follow-up Kuma hanno eseguito la finalizzazione documentale senza stage/commit/push; inoltre il generatore timeline importava sessioni Codex vive,directory Git-ignored e il proprio HEAD,aggiornava ogni riga SQLite anche se invariata e inseriva un timestamp wall-clock in ogni report,creando dirty state auto-referenziale a ogni run o commit.
+Sistemi_coinvolti=MegaVault Git;ai/MEGAVAULT_PROTOCOL.md;human/projects/oracle-uptime-kuma/overview.md;build_codex_global_timeline.py;codex_global_timeline.sqlite;report timeline Markdown
+Alert_coinvolti=git_status_dirty_at_task_entry;protocol VERSION 16 DIRTY_STATE=protocol_violation;final_report_false_closure_risk
+Tentativi_effettuati=Stato porcelain v1/v2;diff e stat;log e reflog;timeline SQLite e schema;registri incidenti;sessione Codex 019fbc93-e731-7362-accc-508fd283ea99;due run pre-fix con hash tutti diversi;test unitari e due run post-fix byte-identici.
+Soluzione_finale=Conservate le due modifiche documentali valide;generatore limitato a fonti tracked o untracked non ignorate e root esplicite;sessioni vive rimosse dai default;self-Git escluso;storia resa append-only;upsert no-op;timestamp derivato dai dati;scritture report condizionali;WAL checkpoint TRUNCATE;sidecar/cache ignorati;test idempotenza permanente;protocollo v17 rende blocker e optimization_opportunities obbligatori.
+Commit_correlati=this_activity_commit
+Prompt_correlati=019fbc93-e731-7362-accc-508fd283ea99;megavault_dirty_state_protocol_v17_20260801
+Tempo_totale_di_impatto=Almeno 2026-08-01T09:11:28Z fino alla chiusura Git verificata di questo task
+Note=La timeline SQLite e i due report sono artefatti canonici da tracciare,non file da ignorare. I sidecar -wal/-shm restano ignorati. Nessun reset,cancellazione o sovrascrittura di modifiche preesistenti e stata usata. Source=ai/reports/activity_20260801_megavault_dirty_state_protocol_v17.md
 
 INCIDENT:
 Incident_ID=PIXEL_WHATSAPP_METERED_BACKGROUND_RESTRICTION

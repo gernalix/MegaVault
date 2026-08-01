@@ -1,25 +1,23 @@
 # Global Codex Timeline
 
-Generated: 2026-08-01T10:36:24+02:00
+Generated: 2026-08-01T12:12:05+02:00
 SQLite canonical source: `/home/daniele/MegaVault/codex_global_timeline.sqlite`
-Total events: 869
+Total events: 902
 
 ## Source Roots
 - `/home/daniele/MegaVault`
-- `/home/daniele/.codex/memories`
-- `/home/daniele/.codex/sessions`
 
 ## Statistics
 ### Events by project
 
 | Value | Events |
 |---|---:|
-| megavault | 173 |
-| amici-fb | 165 |
+| megavault | 177 |
+| amici-fb | 166 |
 | luoghi-app | 78 |
-| multitimetracker | 69 |
+| multitimetracker | 72 |
+| oracle-backup-service | 50 |
 | rollout-summaries | 39 |
-| oracle-backup-service | 27 |
 | 2026 | 26 |
 | fedora-system-monitor | 24 |
 | luoghi | 22 |
@@ -28,11 +26,11 @@ Total events: 869
 | vm-oracle | 15 |
 | oracle-uptime-kuma | 14 |
 | supercontacts | 10 |
-| windows | 8 |
+| windows | 9 |
+| pixel-8a | 7 |
 | windows-winget-daily-update | 7 |
 | codex-token-watcher | 6 |
 | owntracks-watcher | 6 |
-| pixel-8a | 6 |
 | surface-recovery-hardening | 6 |
 | windows-flight-recorder | 6 |
 | android | 5 |
@@ -73,14 +71,14 @@ Total events: 869
 
 | Value | Events |
 |---|---:|
-| security | 282 |
-| backup | 262 |
+| security | 294 |
+| backup | 282 |
 | docs | 93 |
 | bugfix | 65 |
 | release | 58 |
 | testing | 49 |
 | automation | 27 |
-| infra | 16 |
+| infra | 17 |
 | migration | 13 |
 | performance | 4 |
 
@@ -88,8 +86,8 @@ Total events: 869
 
 | Value | Events |
 |---|---:|
-| P1 | 453 |
-| P0 | 219 |
+| P1 | 478 |
+| P0 | 227 |
 | P2 | 184 |
 | P3 | 13 |
 
@@ -97,11 +95,11 @@ Total events: 869
 
 | Value | Events |
 |---|---:|
-| UNKNOWN | 321 |
-| PASS | 217 |
-| WARN | 210 |
-| FAIL | 66 |
-| OPEN | 55 |
+| UNKNOWN | 322 |
+| PASS | 239 |
+| WARN | 214 |
+| FAIL | 70 |
+| OPEN | 57 |
 
 
 ## Recent Events
@@ -109,31 +107,39 @@ Total events: 869
 |---|---|---|---|---|---|---|---|---|
 | 2026-08-01 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 08 01T070000Z |
 | 2026-08-01 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 31T194614Z vs 2026 08 01T070000Z |
+| 2026-08-01 | amici-fb | Amici FB trace | security | FAIL | P1 | doc_event | log | trace |
 | 2026-08-01 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
 | 2026-08-01 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | FINAL_PERMANENT |
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
+| 2026-08-01 | megavault | MegaVault v17 | security | OPEN | P0 | protocol_update | markdown | IN_PROGRESS_UNTIL_COMMIT_PUSH_SYNC |
+| 2026-08-01 | megavault | MegaVault v17 | security | PASS | P0 | protocol_update | markdown | PASS_TECHNICAL;GIT_CLOSURE=reported_in_final_response |
+| 2026-08-01 | megavault | MegaVault docs record uptime | infra | PASS | P1 | git_commit | git_log | docs: record uptime kuma api probe |
 | 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | codex_log | 019fbcc1-0409-7643-a5d0-ad5da5979b7d |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbcb3-ff6f-7063-a932-e480a624d8dc |
 | 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
-| 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
-| 2026-07-31 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 31T194614Z |
-| 2026-07-31 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 30T070001Z vs 2026 07 31T194614Z |
-| 2026-07-31 | amici-fb | Amici FB facebook friends | bugfix | UNKNOWN | P2 | doc_event | txt | facebook friends goto failure.state |
-| 2026-07-31 | amici-fb | Amici FB facebook me | bugfix | UNKNOWN | P2 | doc_event | txt | facebook me goto failure.state |
-| 2026-07-31 | amici-fb | Amici FB facebook me | docs | UNKNOWN | P2 | doc_event | txt | facebook me consent.state |
-| 2026-07-31 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fba00-074b-7120-a1aa-9d333f3ace56 |
-| 2026-07-31 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora USB HDD spin-down and lid-suspend diagnosis |
-| 2026-07-31 | rollout-summaries | Codex Timeline | security | WARN | P0 | protocol_update | markdown | Diagnosi spin-down HDD USB Fedora 44 completata con PASS CON WARNING |
-| 2026-07-30 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 30T070001Z |
-| 2026-07-30 | amici-fb | Amici FB amici_fb | security | UNKNOWN | P1 | report | markdown | amici_fb |
-| 2026-07-30 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 29T213950Z vs 2026 07 30T070001Z |
-| 2026-07-30 | amici-fb | Amici FB trace | backup | UNKNOWN | P1 | backup | log | trace |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc93-e731-7362-accc-508fd283ea99 |
+| 2026-08-01 | oracle-backup-service | Oracle Backup Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
+| 2026-08-01 | oracle-backup-service | Oracle Backup Document Oracle | backup | PASS | P1 | git_commit | git_log | Document Oracle backup timeout recovery |
+| 2026-08-01 | oracle-backup-service | Oracle Backup Fix Oracle | backup | PASS | P1 | git_commit | git_log | Fix Oracle backup timeout diagnostics |
+| 2026-08-01 | oracle-backup-service | Oracle Backup oracle-backup-service | security | FAIL | P1 | report | markdown | oracle-backup-service |
 
 ## P0 Milestones
 | Date | Project | Label | Category | Status | Importance | Type | Source | Summary |
 |---|---|---|---|---|---|---|---|---|
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | FINAL_PERMANENT |
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
+| 2026-08-01 | megavault | MegaVault v17 | security | OPEN | P0 | protocol_update | markdown | IN_PROGRESS_UNTIL_COMMIT_PUSH_SYNC |
+| 2026-08-01 | megavault | MegaVault v17 | security | PASS | P0 | protocol_update | markdown | PASS_TECHNICAL;GIT_CLOSURE=reported_in_final_response |
 | 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | codex_log | 019fbcc1-0409-7643-a5d0-ad5da5979b7d |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbcb3-ff6f-7063-a932-e480a624d8dc |
 | 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc93-e731-7362-accc-508fd283ea99 |
+| 2026-08-01 | windows | Git PATH | security | OPEN | P0 | protocol_update | markdown | GLOBAL_INDEX |
 | 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
 | 2026-07-31 | multitimetracker | MTT v1 | security | WARN | P0 | protocol_update | codex_log | 019fba00-074b-7120-a1aa-9d333f3ace56 |
 | 2026-07-31 | multitimetracker | MTT v3 | security | WARN | P0 | protocol_update | markdown | Task Group: Fedora USB HDD spin-down and lid-suspend diagnosis |
@@ -197,7 +203,6 @@ Total events: 869
 | 2026-07-18 | fedora-system-monitor | fedora-system-monitor v16 | security | WARN | P0 | protocol_update | markdown | AUDIT 962417 |
 | 2026-07-18 | luoghi | Luoghi v2 | security | WARN | P0 | protocol_update | codex_log | 019f766c-a541-7360-8295-7880c83f5454 |
 | 2026-07-18 | luoghi | Luoghi v2 | security | WARN | P0 | protocol_update | codex_log | 019f766e-6b68-79c1-9313-a2f1d5aeea8a |
-| 2026-07-18 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-18 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | activity_684327_expressvpn_fedora |
 | 2026-07-18 | megavault | MegaVault docs align protocol | docs | PASS | P0 | git_commit | git_log | docs: align protocol entry order |
 | 2026-07-18 | multitimetracker | Git PATH | security | WARN | P0 | protocol_update | markdown | ACTIVITY_847261_AI_DOCS_CONSOLIDATION |
@@ -337,6 +342,7 @@ Total events: 869
 | 2026-07-05 | luoghi-app | luoghi-app 1.apk | security | WARN | P0 | release | markdown | Luoghi Initial Build Report |
 | 2026-07-05 | luoghi-app | luoghi-app 2.apk | security | WARN | P0 | release | markdown | Luoghi v2 - autocomplete, SAF autoexport, capsule |
 | 2026-07-05 | luoghi-app | luoghi-app 4.apk | backup | PASS | P0 | release | markdown | Luoghi v4 autocomplete keyboard freeze real fix |
+| 2026-07-02 | pixel-8a | pixel-8a v16 | security | WARN | P0 | protocol_update | markdown | Incident Registry |
 | 2026-06-27 | windows-winget-daily-update | Winget v3 | backup | PASS | P0 | protocol_update | markdown | Daily Windows package source refresh and upgrade automation via winget |
 | 2026-06-25 | amici-fb | Amici FB v3 | security | FAIL | P0 | protocol_update | markdown | Windows_11_Playwright_Facebook_friend_snapshot>CSV+SQLite+diff+scheduler_logs+optional_Telegram+Kuma |
 | 2026-06-17 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MERGED_GITHUB_BRANCH_20260705 |
@@ -352,12 +358,12 @@ Total events: 869
 | 2026-02-01 | vm-oracle | vm-oracle REPORT_731842 aggiornamento completo | security | WARN | P0 | protocol_update | markdown | REPORT_731842 aggiornamento completo VM Oracle Ubuntu |
 
 ## Projects
-- `megavault`: 173 events; latest=2026-08-01; label=MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE
-- `amici-fb`: 165 events; latest=2026-08-01; label=Amici FB amici 2026
+- `megavault`: 177 events; latest=2026-08-01; label=Codex Timeline
+- `amici-fb`: 166 events; latest=2026-08-01; label=Amici FB amici 2026
 - `luoghi-app`: 78 events; latest=2026-07-27; label=luoghi-app v16
-- `multitimetracker`: 69 events; latest=2026-08-01; label=MTT v1
+- `multitimetracker`: 72 events; latest=2026-08-01; label=MTT v1
+- `oracle-backup-service`: 50 events; latest=2026-08-01; label=Oracle Backup Changelog
 - `rollout-summaries`: 39 events; latest=2026-07-31; label=Codex Timeline
-- `oracle-backup-service`: 27 events; latest=2026-07-26; label=Android Tests
 - `2026`: 26 events; latest=2026-07-18; label=2026 v537
 - `fedora-system-monitor`: 24 events; latest=2026-07-26; label=fedora-system-monitor 418732
 - `luoghi`: 22 events; latest=2026-07-26; label=Codex Timeline
@@ -366,11 +372,11 @@ Total events: 869
 - `vm-oracle`: 15 events; latest=2026-07-27; label=Git PATH
 - `oracle-uptime-kuma`: 14 events; latest=2026-07-26; label=Git PATH
 - `supercontacts`: 10 events; latest=2026-07-27; label=Git PATH
-- `windows`: 8 events; latest=2026-07-26; label=Veeam T7
+- `windows`: 9 events; latest=2026-08-01; label=Git PATH
+- `pixel-8a`: 7 events; latest=2026-07-30; label=Git PATH
 - `windows-winget-daily-update`: 7 events; latest=2026-07-09; label=Git PATH
 - `codex-token-watcher`: 6 events; latest=2026-07-09; label=codex-token-watcher codex-token-watcher Overview
 - `owntracks-watcher`: 6 events; latest=2026-07-09; label=Android Tests
-- `pixel-8a`: 6 events; latest=2026-07-30; label=Git PATH
 - `surface-recovery-hardening`: 6 events; latest=2026-07-09; label=surface-recovery-hardening surface-recovery-hardening Features
 - `windows-flight-recorder`: 6 events; latest=2026-07-09; label=WFR Windows 11 autonomous
 - `android`: 5 events; latest=2026-07-09; label=android v0
@@ -412,11 +418,27 @@ Total events: 869
 |---|---|---|---|---|---|---|---|---|
 | 2026-08-01 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 08 01T070000Z |
 | 2026-08-01 | amici-fb | Amici FB diff 2026 | backup | UNKNOWN | P1 | backup | csv | diff 2026 07 31T194614Z vs 2026 08 01T070000Z |
+| 2026-08-01 | amici-fb | Amici FB trace | security | FAIL | P1 | doc_event | log | trace |
 | 2026-08-01 | amici-fb | Amici FB trace | backup | FAIL | P1 | backup | log | trace |
 | 2026-08-01 | amici-fb | Amici FB my facebook | docs | UNKNOWN | P2 | doc_event | txt | my facebook id |
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | FINAL_PERMANENT |
+| 2026-08-01 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-08-01 | megavault | MegaVault ACTIVITY_801001_UPTIME_KUMA_API_PROBE | security | WARN | P0 | protocol_update | markdown | ACTIVITY_801001_UPTIME_KUMA_API_PROBE |
+| 2026-08-01 | megavault | MegaVault v17 | security | OPEN | P0 | protocol_update | markdown | IN_PROGRESS_UNTIL_COMMIT_PUSH_SYNC |
+| 2026-08-01 | megavault | MegaVault v17 | security | PASS | P0 | protocol_update | markdown | PASS_TECHNICAL;GIT_CLOSURE=reported_in_final_response |
+| 2026-08-01 | megavault | MegaVault docs record uptime | infra | PASS | P1 | git_commit | git_log | docs: record uptime kuma api probe |
 | 2026-08-01 | multitimetracker | MTT v1 | security | WARN | P0 | changelog | codex_log | 019fbc1e-73d3-7dd3-ac64-5a8ed9a1131b |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | protocol_update | codex_log | 019fbcc1-0409-7643-a5d0-ad5da5979b7d |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbcb3-ff6f-7063-a932-e480a624d8dc |
 | 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc72-e5ca-7271-81b4-d86da506a3a3 |
+| 2026-08-01 | multitimetracker | MTT v13 | security | WARN | P0 | changelog | codex_log | 019fbc93-e731-7362-accc-508fd283ea99 |
+| 2026-08-01 | oracle-backup-service | Oracle Backup Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
+| 2026-08-01 | oracle-backup-service | Oracle Backup Document Oracle | backup | PASS | P1 | git_commit | git_log | Document Oracle backup timeout recovery |
+| 2026-08-01 | oracle-backup-service | Oracle Backup Fix Oracle | backup | PASS | P1 | git_commit | git_log | Fix Oracle backup timeout diagnostics |
+| 2026-08-01 | oracle-backup-service | Oracle Backup oracle-backup-service | security | FAIL | P1 | report | markdown | oracle-backup-service |
+| 2026-08-01 | oracle-backup-service | Oracle Backup Registro incidenti | security | FAIL | P1 | doc_event | markdown | Registro incidenti |
+| 2026-08-01 | oracle-backup-service | Oracle Backup Troubleshooting | backup | FAIL | P1 | backup | markdown | Troubleshooting |
+| 2026-08-01 | windows | Git PATH | security | OPEN | P0 | protocol_update | markdown | GLOBAL_INDEX |
 | 2026-07-31 | amici-fb | Amici FB trace | backup | FAIL | P0 | backup | log | trace |
 | 2026-07-31 | amici-fb | Amici FB amici 2026 | backup | UNKNOWN | P1 | backup | csv | amici 2026 07 31T194614Z |
 | 2026-07-31 | amici-fb | Amici FB diff 2026 | backup | OPEN | P1 | backup | csv | diff 2026 07 30T070001Z vs 2026 07 31T194614Z |
@@ -544,6 +566,8 @@ Total events: 869
 | 2026-07-26 | oracle-backup-service | Codex Timeline | backup | OPEN | P1 | backup | markdown | GLOBAL_STATE |
 | 2026-07-26 | oracle-backup-service | Git PATH | security | PASS | P1 | doc_event | markdown | MIGRATED_POINTER |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Changelog | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
+| 2026-07-26 | oracle-backup-service | Oracle Backup Fix OCI | backup | PASS | P1 | git_commit | git_log | Fix OCI remote backup capacity recovery |
+| 2026-07-26 | oracle-backup-service | Oracle Backup Link Oracle | backup | PASS | P1 | git_commit | git_log | Link Oracle backup incident records |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Oracle backup | backup | UNKNOWN | P1 | backup | markdown | Oracle backup service roadmap |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Oracle backup | backup | UNKNOWN | P1 | backup | markdown | Oracle backup service funzionalita |
 | 2026-07-26 | oracle-backup-service | Oracle Backup Oracle backup | security | UNKNOWN | P1 | doc_event | markdown | Oracle backup service |
@@ -613,7 +637,6 @@ Total events: 869
 | 2026-07-18 | legacy | Git PATH | security | OPEN | P1 | doc_event | markdown | PROJECTS_LEGACY |
 | 2026-07-18 | luoghi | Luoghi v2 | security | WARN | P0 | protocol_update | codex_log | 019f766c-a541-7360-8295-7880c83f5454 |
 | 2026-07-18 | luoghi | Luoghi v2 | security | WARN | P0 | protocol_update | codex_log | 019f766e-6b68-79c1-9313-a2f1d5aeea8a |
-| 2026-07-18 | megavault | Codex Timeline | security | PASS | P0 | changelog | markdown | CORE |
 | 2026-07-18 | megavault | Git PATH | security | WARN | P0 | protocol_update | markdown | activity_684327_expressvpn_fedora |
 | 2026-07-18 | megavault | MegaVault docs align protocol | docs | PASS | P0 | git_commit | git_log | docs: align protocol entry order |
 | 2026-07-18 | megavault | MegaVault v0 | backup | FAIL | P1 | backup | markdown | activity 592184 activitywatch fedora44 wayland |
@@ -1120,8 +1143,11 @@ Total events: 869
 | 2026-07-03 | wordpulse | wordpulse 2 | release | UNKNOWN | P1 | release | json | 2 |
 | 2026-07-03 | wordpulse | wordpulse WordPulse Correction Bottleneck | security | PASS | P1 | doc_event | markdown | WordPulse Correction And Bottleneck Audit |
 | 2026-07-03 | wordpulse | wordpulse WordPulse Scientific Curation | bugfix | PASS | P1 | doc_event | markdown | WordPulse Scientific Curation |
+| 2026-07-02 | pixel-8a | pixel-8a v16 | security | WARN | P0 | protocol_update | markdown | Incident Registry |
 | 2026-07-02 | pixel-8a | Android Tests | security | WARN | P1 | report | markdown | Incident Registry |
 | 2026-07-02 | wordpulse | wordpulse 1 | release | UNKNOWN | P1 | release | json | 1 |
+| 2026-06-29 | oracle-backup-service | Oracle Backup Fix local | backup | PASS | P1 | git_commit | git_log | Fix local fallback retention quota block |
+| 2026-06-29 | oracle-backup-service | Oracle Backup Fix project | backup | PASS | P1 | git_commit | git_log | Fix project metadata documentation links |
 | 2026-06-29 | oracle-backup-service | Oracle Backup v2 | security | WARN | P1 | report | markdown | oracle-backup healthcheck critical fix - 2026-06-29 |
 | 2026-06-28 | megavault | MegaVault Add Pixel Buds | infra | PASS | P1 | git_commit | git_log | Add Pixel Buds Windows audio routing report |
 | 2026-06-27 | megavault | MegaVault Add Windows Flight | infra | PASS | P1 | git_commit | git_log | Add Windows Flight Recorder docs |
@@ -1167,6 +1193,9 @@ Total events: 869
 | 2026-06-13 | mint-manual-updates | mint-manual-updates v9 | backup | WARN | P1 | changelog | markdown | mint-manual-updates Changelog |
 | 2026-06-13 | multitimetracker | MTT Audit Telegram MegaVault | security | FAIL | P1 | doc_event | markdown | Audit Telegram MegaVault |
 | 2026-06-13 | oracle-backup-service | Git PATH | backup | WARN | P1 | changelog | markdown | Changelog |
+| 2026-06-13 | oracle-backup-service | Oracle Backup Add local | backup | PASS | P1 | git_commit | git_log | Add local fallback quota guard |
+| 2026-06-13 | oracle-backup-service | Oracle Backup Fix fallback | backup | PASS | P1 | git_commit | git_log | Fix fallback quota healthcheck recovery |
+| 2026-06-13 | oracle-backup-service | Oracle Backup Fix oracle | backup | PASS | P1 | git_commit | git_log | Fix oracle backup fallback incidents |
 | 2026-06-13 | owntracks-watcher | owntracks-watcher v9 | security | WARN | P0 | protocol_update | markdown | Private OwnTracks Android HTTP receiver on Oracle VM; stores location payloads in SQLite for Datasette/history views. |
 | 2026-06-13 | owntracks-watcher | Android Tests | automation | FAIL | P1 | changelog | markdown | owntracks-watcher Changelog |
 | 2026-06-13 | sostanze | Sostanze 4.apk | backup | WARN | P1 | release | markdown | sostanze |
@@ -1175,6 +1204,7 @@ Total events: 869
 | 2026-06-10 | codex-token-watcher | codex-token-watcher codex-token-watcher Features | security | UNKNOWN | P1 | doc_event | markdown | codex-token-watcher Features |
 | 2026-06-10 | git-change-ledger | Git PATH | automation | UNKNOWN | P2 | changelog | markdown | git-change-ledger Changelog |
 | 2026-06-10 | mint-freeze-forensics | mint-freeze-forensics v1 | backup | UNKNOWN | P1 | changelog | markdown | Changelog |
+| 2026-06-10 | oracle-backup-service | Oracle Backup Fix low-space | backup | PASS | P1 | git_commit | git_log | Fix low-space sqlite fallback backup |
 | 2026-06-10 | oracle-uptime-kuma | Kuma Roadmap | performance | WARN | P2 | doc_event | markdown | Roadmap |
 | 2026-06-10 | surface-recovery-hardening | surface-recovery-hardening v2 | security | PASS | P0 | protocol_update | markdown | Linux Mint Surface recovery + rsync-transfer operations for Seagate 4TB BitLocker -> Seagate6TB2 ext4 copy. |
 | 2026-06-10 | windowtabnotes | windowtabnotes v22 | backup | UNKNOWN | P1 | changelog | markdown | WindowTabNotes Changelog |
@@ -1238,12 +1268,20 @@ Total events: 869
 | 2026-06-01 | megavault | MegaVault v525 | docs | PASS | P2 | git_commit | git_log | Update MultiTimeTracker v525 docs |
 | 2026-06-01 | megavault | MegaVault Add megavault metadata | docs | PASS | P3 | git_commit | git_log | Add megavault metadata and archive legacy docs |
 | 2026-06-01 | multitimetracker | MTT 537.apk | security | WARN | P0 | release | markdown | MultiTimeTracker Changelog |
+| 2026-06-01 | oracle-backup-service | Oracle Backup Add megavault | backup | PASS | P1 | git_commit | git_log | Add megavault metadata and archive legacy docs |
 | 2026-06-01 | os-observer | os-observer os-observer Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | os-observer Changelog |
 | 2026-06-01 | parcel-tracker | parcel-tracker parcel-tracker Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | parcel-tracker Changelog |
 | 2026-06-01 | remote-codex-phone | remote-codex-phone remote-codex-phone Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | remote-codex-phone Changelog |
 | 2026-06-01 | remote-opt-oracle-backup | remote-opt-oracle-backup remote_opt_oracle_backup Changelog | backup | UNKNOWN | P1 | changelog | markdown | remote_opt_oracle_backup Changelog |
 | 2026-06-01 | supercontacts | SC v20 | backup | UNKNOWN | P1 | changelog | markdown | SuperContacts Changelog |
 | 2026-06-01 | system-watchdog | system-watchdog system_watchdog Changelog | bugfix | UNKNOWN | P2 | changelog | markdown | system_watchdog Changelog |
+| 2026-05-10 | oracle-backup-service | Oracle Backup fix healthcheck | backup | PASS | P1 | git_commit | git_log | fix healthcheck running backup noise |
+| 2026-05-10 | oracle-backup-service | Oracle Backup fix oracle | backup | PASS | P1 | git_commit | git_log | fix oracle backup degraded healthcheck state handling |
+| 2026-05-10 | oracle-backup-service | Oracle Backup stabilize oracle | backup | PASS | P1 | git_commit | git_log | stabilize oracle backup under micro vm load |
+| 2026-05-08 | oracle-backup-service | Oracle Backup Deduplicate oracle | backup | PASS | P1 | git_commit | git_log | Deduplicate oracle backup healthcheck alerts |
+| 2026-05-08 | oracle-backup-service | Oracle Backup Keep remote | backup | PASS | P1 | git_commit | git_log | Keep remote degraded age out of alert worsening |
+| 2026-05-06 | oracle-backup-service | Oracle Backup Document oracle | backup | PASS | P1 | git_commit | git_log | Document oracle backup service fallback |
+| 2026-05-06 | oracle-backup-service | Oracle Backup Harden local | backup | PASS | P1 | git_commit | git_log | Harden local fallback backups |
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | PASS | P0 | protocol_update | markdown | DATA_REGISTRY |
 | 2026-02-06 | oracle-backup-service | Git PATH | backup | WARN | P1 | report | markdown | Troubleshooting |
 | 2026-02-06 | oracle-backup-service | Git PATH | security | WARN | P1 | report | markdown | oracle-backup-service |
@@ -1251,6 +1289,7 @@ Total events: 869
 | 2026-02-06 | oracle-backup-service | Oracle Backup v2 | security | WARN | P1 | report | markdown | Operations |
 | 2026-02-05 | vm-oracle | vm-oracle ENV /home/ubuntu/.venv | backup | UNKNOWN | P1 | backup | txt | ENV /home/ubuntu/.venv |
 | 2026-02-01 | maintenance-486 | maintenance-486 maintenance-486 Troubleshooting | release | UNKNOWN | P1 | release | markdown | maintenance-486 Troubleshooting |
+| 2026-02-01 | oracle-backup-service | Git PATH | security | PASS | P1 | doc_event | markdown | 2026.08.01.1 |
 | 2026-02-01 | oracle-backup-service | Git PATH | security | PASS | P1 | doc_event | markdown | 2026.07.26.1 |
 | 2026-02-01 | oracle-uptime-kuma | Kuma Troubleshooting | security | FAIL | P1 | doc_event | markdown | Troubleshooting |
 | 2026-02-01 | vm-oracle | vm-oracle REPORT_731842 aggiornamento completo | security | WARN | P0 | protocol_update | markdown | REPORT_731842 aggiornamento completo VM Oracle Ubuntu |

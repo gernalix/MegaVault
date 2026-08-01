@@ -557,23 +557,9 @@ def event_from_file(path: Path, root: Path, discovered_at: str) -> Event | None:
 
 
 def discover_source_roots(extra_roots: list[Path]) -> list[Path]:
-    roots: list[Path] = [BASE_DIR]
-    home = Path.home()
-    documents = home / "Documents"
-    codex = home / ".codex"
-    if documents.exists():
-        for name in ["MegaVault", "Megavault 2", "megavault_content_aware_merge_20260705"]:
-            candidate = documents / name
-            if candidate.exists():
-                roots.append(candidate)
-        for candidate in documents.iterdir():
-            if candidate.is_dir() and re.match(r"(?i)^mega.?vault", candidate.name):
-                roots.append(candidate)
-    for candidate in [codex / "memories", codex / "sessions"]:
-        if candidate.exists():
-            roots.append(candidate)
-    roots.extend(extra_roots)
-    return dedupe_paths(roots)
+    # Live Codex sessions and unrelated home trees are mutable inputs. Import
+    # them only when the caller names them explicitly with --source-root.
+    return dedupe_paths([BASE_DIR, *extra_roots])
 
 
 def dedupe_paths(paths: list[Path]) -> list[Path]:
@@ -592,6 +578,29 @@ def dedupe_paths(paths: list[Path]) -> list[Path]:
 
 
 def iter_source_files(root: Path) -> list[Path]:
+    git_root = run_git(root, ["rev-parse", "--show-toplevel"]).strip()
+    if git_root:
+        try:
+            is_repo_root = Path(git_root).resolve() == root.resolve()
+        except OSError:
+            is_repo_root = False
+        if is_repo_root:
+            listed = run_git(root, ["ls-files", "--cached", "--others", "--exclude-standard", "-z"])
+            files: list[Path] = []
+            for relative in listed.split("\0"):
+                if not relative:
+                    continue
+                path = root / relative
+                if path.name in SKIP_FILENAMES or path.suffix.lower() not in SOURCE_EXTENSIONS:
+                    continue
+                try:
+                    if not path.is_file() or path.stat().st_size <= 0:
+                        continue
+                except OSError:
+                    continue
+                files.append(path)
+            return sorted(files)
+
     files: list[Path] = []
     for dirpath, dirnames, filenames in os.walk(root):
         dirnames[:] = [name for name in dirnames if name not in SKIP_DIRS and not name.endswith(".egg-info")]
@@ -607,19 +616,24 @@ def iter_source_files(root: Path) -> list[Path]:
             except OSError:
                 continue
             files.append(path)
-    return files
+    return sorted(files)
 
 
-def discover_git_repos() -> list[Path]:
-    roots: list[Path] = [BASE_DIR]
-    documents = Path.home() / "Documents"
-    if documents.exists():
-        roots.append(documents)
+def discover_git_repos(source_roots: list[Path]) -> list[Path]:
     repos: list[Path] = []
-    for root in dedupe_paths(roots):
+    base_resolved = BASE_DIR.resolve()
+    for root in dedupe_paths(source_roots):
         for dirpath, dirnames, _filenames in os.walk(root):
             if ".git" in dirnames:
-                repos.append(Path(dirpath))
+                repo = Path(dirpath)
+                try:
+                    is_self = repo.resolve() == base_resolved
+                except OSError:
+                    is_self = False
+                # Importing this repository's own commits makes the generated
+                # timeline permanently one commit behind and therefore dirty.
+                if not is_self:
+                    repos.append(repo)
                 dirnames[:] = []
                 continue
             dirnames[:] = [name for name in dirnames if name not in SKIP_DIRS]
@@ -703,6 +717,8 @@ def connect_db() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA synchronous=NORMAL")
+    conn.execute("PRAGMA busy_timeout=5000")
     conn.execute("PRAGMA foreign_keys=ON")
     conn.execute(
         """
@@ -751,7 +767,7 @@ def upsert_events(conn: sqlite3.Connection, events: list[Event]) -> None:
         )
         ON CONFLICT(id) DO UPDATE SET
             event_date=excluded.event_date,
-            discovered_at=timeline_events.discovered_at,
+            discovered_at=excluded.discovered_at,
             project=excluded.project,
             category=excluded.category,
             importance=excluded.importance,
@@ -769,24 +785,28 @@ def upsert_events(conn: sqlite3.Connection, events: list[Event]) -> None:
             status=excluded.status,
             confidence=excluded.confidence,
             notes=excluded.notes
+        WHERE timeline_events.event_date IS NOT excluded.event_date
+           OR timeline_events.project IS NOT excluded.project
+           OR timeline_events.category IS NOT excluded.category
+           OR timeline_events.importance IS NOT excluded.importance
+           OR timeline_events.label_short IS NOT excluded.label_short
+           OR timeline_events.event_type IS NOT excluded.event_type
+           OR timeline_events.summary IS NOT excluded.summary
+           OR timeline_events.source_path IS NOT excluded.source_path
+           OR timeline_events.source_kind IS NOT excluded.source_kind
+           OR timeline_events.branch IS NOT excluded.branch
+           OR timeline_events.commit_hash IS NOT excluded.commit_hash
+           OR timeline_events.artifact_path IS NOT excluded.artifact_path
+           OR timeline_events.apk_name IS NOT excluded.apk_name
+           OR timeline_events.version_name IS NOT excluded.version_name
+           OR timeline_events.version_code IS NOT excluded.version_code
+           OR timeline_events.status IS NOT excluded.status
+           OR timeline_events.confidence IS NOT excluded.confidence
+           OR timeline_events.notes IS NOT excluded.notes
     """
     conn.executemany(sql, [event.__dict__ for event in events])
-    sync_current_event_set(conn, [event.id for event in events])
     delete_equivalent_duplicates(conn)
     conn.commit()
-
-
-def sync_current_event_set(conn: sqlite3.Connection, event_ids: list[str]) -> None:
-    conn.execute("CREATE TEMP TABLE IF NOT EXISTS current_timeline_event_ids (id TEXT PRIMARY KEY)")
-    conn.execute("DELETE FROM current_timeline_event_ids")
-    conn.executemany("INSERT OR IGNORE INTO current_timeline_event_ids(id) VALUES (?)", [(event_id,) for event_id in event_ids])
-    conn.execute(
-        """
-        DELETE FROM timeline_events
-        WHERE id NOT IN (SELECT id FROM current_timeline_event_ids)
-        """
-    )
-    conn.execute("DROP TABLE current_timeline_event_ids")
 
 
 def event_equivalence_key(event: Event) -> tuple[str, str, str, str, str, str]:
@@ -879,7 +899,10 @@ def table_escape(value: object, limit: int = 0) -> str:
 
 def write_reports(conn: sqlite3.Connection, source_roots: list[Path]) -> None:
     events = fetch_events(conn)
-    generated_at = now_iso()
+    latest = conn.execute(
+        "SELECT discovered_at FROM timeline_events ORDER BY julianday(discovered_at) DESC, discovered_at DESC LIMIT 1"
+    ).fetchone()
+    generated_at = latest[0] if latest else "UNKNOWN"
     by_project = Counter(row["project"] for row in events)
     by_category = Counter(row["category"] for row in events)
     by_importance = Counter(row["importance"] for row in events)
@@ -919,7 +942,7 @@ def write_reports(conn: sqlite3.Connection, source_roots: list[Path]) -> None:
     lines.append("")
     lines.append("## Complete Timeline")
     lines.extend(event_table(events))
-    REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    write_if_changed(REPORT_PATH, "\n".join(lines) + "\n")
 
     ai_lines = [
         "# Global Codex Timeline AI",
@@ -940,7 +963,16 @@ def write_reports(conn: sqlite3.Connection, source_roots: list[Path]) -> None:
                 ]
             )
         )
-    AI_REPORT_PATH.write_text("\n".join(ai_lines) + "\n", encoding="utf-8")
+    write_if_changed(AI_REPORT_PATH, "\n".join(ai_lines) + "\n")
+
+
+def write_if_changed(path: Path, content: str) -> None:
+    try:
+        if path.read_text(encoding="utf-8") == content:
+            return
+    except OSError:
+        pass
+    path.write_text(content, encoding="utf-8")
 
 
 def counter_lines(title: str, counter: Counter[str]) -> list[str]:
@@ -1076,7 +1108,7 @@ def build(args: argparse.Namespace) -> int:
 
     git_events = 0
     if not args.no_git:
-        for repo in discover_git_repos():
+        for repo in discover_git_repos(source_roots):
             for event in events_from_git(repo, discovered_at, args.max_git_commits):
                 git_events += 1
                 events_by_id[event.id] = event
@@ -1087,6 +1119,7 @@ def build(args: argparse.Namespace) -> int:
         upsert_events(conn, deduped_events)
     write_reports(conn, source_roots)
     validation = validate(conn)
+    conn.execute("PRAGMA wal_checkpoint(TRUNCATE)")
 
     print("Global Codex Timeline build")
     print(f"source_roots={len(source_roots)}")

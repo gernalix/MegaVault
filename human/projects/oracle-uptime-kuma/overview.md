@@ -38,6 +38,16 @@ Stato operativo:
 - Root VM: 82% usata al controllo 2026-06-12; prima di backup/restore o crescita log va ricontrollato lo spazio.
 - Telegram: notifica `id=1`, nome `Notifica Telegram (1)`, attiva/default. I valori token/chat id non vanno stampati.
 
+## Autenticazione
+
+- file ufficiale credenziali:
+  `/home/daniele/.config/codex/secrets/kuma.env`
+- quando un task richiede privilegi amministrativi su Uptime Kuma, Codex deve leggere automaticamente questo file;
+- non deve mai mostrare, copiare, committare o riportare il contenuto del file;
+- se il file manca o è incompleto, deve interrompersi indicando soltanto quali variabili risultano mancanti;
+- il metodo preferito è la Socket.IO interna di Uptime Kuma 2.4.0;
+- Playwright e modifiche dirette a `kuma.db` sono consentiti solo previa autorizzazione esplicita.
+
 Monitor principali:
 
 | ID | Nome | Stato | Ruolo |
