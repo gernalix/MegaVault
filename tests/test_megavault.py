@@ -1,10 +1,15 @@
 import subprocess
 import unittest
 import sqlite3
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(ROOT))
+import megavault  # noqa: E402
+PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
 
 
 class MegaVaultTests(unittest.TestCase):
@@ -36,6 +41,18 @@ class MegaVaultTests(unittest.TestCase):
         ).fetchone()
         self.assertIsInstance(value, int)
         self.assertEqual(storage_type, "integer")
+
+    def test_protocol_semantic_guard_detects_critical_removal(self):
+        text = PROTOCOL.read_text(encoding="utf-8")
+        broken = text.replace("CAPSULIZATION=mandatory_all_projects\n", "", 1)
+        errors = megavault.protocol_semantic_errors(broken)
+        self.assertIn(
+            "protocol_semantic_missing:capsulization:CAPSULIZATION=mandatory_all_projects",
+            errors,
+        )
+
+    def test_secret_scan_has_zero_hits(self):
+        self.assertEqual([], megavault.secret_scan_errors(megavault.git_tracked()))
 
 
 if __name__ == "__main__":
