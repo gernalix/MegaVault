@@ -13,7 +13,88 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
+CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
+DEFAULT_CANONICAL_TAGS = {
+    "alerts": "observable alerting, monitor red states, or notification signals",
+    "android": "Android platform or Android application runtime",
+    "android_studio": "Android Studio IDE/runtime",
+    "autokey": "AutoKey automation/input tool",
+    "backup": "backup or restore workflow",
+    "boot": "bootloader, initramfs, or startup path",
+    "btrfs": "Btrfs filesystem",
+    "codec": "media codec or decoder behavior",
+    "codex": "Codex CLI, plugins, logs, or quota tooling",
+    "data_analytics": "Data Analytics plugin or related workflow",
+    "disk": "disk usage or disk I/O condition",
+    "espanso": "Espanso text expansion tool",
+    "fedora": "Fedora host, desktop, or system service",
+    "fedora_system_monitor": "Fedora System Monitor project/runtime",
+    "flatpak": "Flatpak packaging/runtime",
+    "git": "Git repository or branch state",
+    "gnome": "GNOME desktop/session behavior",
+    "input": "keyboard, mouse, compositor input, or automation input path",
+    "luks": "LUKS encrypted block device",
+    "megavault": "MegaVault repository, protocol, schema, or canonical data",
+    "metered": "metered network/background data policy",
+    "monitor": "monitoring service or quota monitor",
+    "multitimer": "MultiTimeTracker app/project",
+    "network": "network connectivity or network service state",
+    "notifications": "notification delivery, channel, listener, or user alert path",
+    "ntfs": "NTFS filesystem or ntfs-3g path",
+    "oracle": "Oracle VM or Oracle infrastructure",
+    "performance": "CPU, thermal, fan, or resource runaway",
+    "persistence": "state persistence, export, or durable mutation behavior",
+    "pixel": "Google Pixel device family",
+    "plugin": "Codex/OpenAI plugin runtime",
+    "protocol": "MegaVault protocol/bootstrap contract",
+    "quota": "usage/quota accounting",
+    "secure_boot": "Secure Boot or signed boot chain",
+    "silent": "silent, muted, or no-sound alert behavior",
+    "sleep": "suspend, idle, screen-off, or dozing behavior",
+    "smart": "SMART health checks or disk-health telemetry",
+    "sqlite": "SQLite database, WAL, schema, or query behavior",
+    "storage": "storage device, mount, filesystem capacity, or external volume",
+    "swap": "swap or zram memory pressure accounting",
+    "systemd": "systemd service/timer/user unit behavior",
+    "t7": "Samsung T7 external SSD",
+    "telegram": "Telegram notification integration",
+    "vlc": "VLC media player",
+    "wayland": "Wayland compositor/session behavior",
+    "whatsapp": "WhatsApp app/service behavior",
+    "wifi": "WiFi interface or wireless connectivity",
+    "zram": "zram compressed swap device",
+}
+DEFAULT_TAG_ALIASES = {
+    "com.whatsapp": "whatsapp",
+    "com.whatsapp 2.26.29.73": "whatsapp",
+    "notification": "notifications",
+    "notifiche": "notifications",
+    "notifica": "notifications",
+    "notificationmanager": "notifications",
+    "notisave": "notifications",
+    "xiaomi wearable": "notifications",
+    "tasker": "notifications",
+    "no_sound": "silent",
+    "muted": "silent",
+    "silent_notification": "silent",
+    "audioservice": "notifications",
+    "pixel_8a": "pixel",
+    "pixel 8a": "pixel",
+    "google pixel 8a": "pixel",
+    "android 17": "android",
+    "metered_background": "metered",
+    "networkpolicymanager": "metered",
+    "fedora 44": "fedora",
+    "fedora 44 host": "fedora",
+    "fedora host": "fedora",
+    "gnome wayland": "wayland",
+    "gnome_wayland": "wayland",
+    "sqlite wal": "sqlite",
+    "samsung t7": "t7",
+    "samsung t7 shield usb nvme": "t7",
+    "zram-generator": "zram",
+}
 ROOT_ALLOWLIST = {
     ".git",
     ".gitignore",
@@ -86,7 +167,19 @@ REQUIRED_PROTOCOL_FAMILIES = {
         "project_docs=owner_repo_docs_code_tests;MegaVault_only_global_transversal_knowledge",
     ),
     "incident_policy": (
-        "incidents=store_in_megavault.sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;id=sqlite_autoincrement_occurrence;semantic_links=canonical_tags_only;forbid=problem_family|recurring_incidents|automatic_merge|tag_hierarchy;status=OPEN|MITIGATED|RESOLVED|ACCEPTED",
+        "identity=one_observed_occurrence",
+        "id=SQLite_AUTOINCREMENT;immediate;unique;never_reused",
+        "same_symptom_same_cause_new_time=new_incident",
+        "cause=nullable;UNKNOWN_allowed;does_not_affect_id",
+        "merge=forbidden",
+        "linking=canonical_tags_only",
+        "source=megavault.sqlite:tags+tag_aliases",
+        "reuse_existing=mandatory",
+        "free_text=forbidden",
+        "new_tag=only_if_no_canonical_or_alias_match",
+        "format=lowercase_atomic",
+        "aliases=search_only;canonical_link_only",
+        "incident_search=tag_intersection+text",
     ),
     "final_reporting": (
         "final_fields=files_changed,tests,test_result,docs_or_MegaVault_updates,repo_status,commit,push,sync_state,branch_fields,execution_insights,blockers,optimization_opportunities,remaining_unresolved",
@@ -141,10 +234,19 @@ def incident_id_is_integer(conn: sqlite3.Connection) -> bool:
 
 
 def normalize_tag_name(name: str) -> str:
-    normalized = " ".join(name.strip().split())
+    normalized = " ".join(name.strip().lower().split())
     if not normalized:
         raise ValueError("tag name must not be empty")
     return normalized
+
+
+def normalize_canonical_tag_name(name: str) -> str:
+    canonical = normalize_tag_name(name)
+    if not CANONICAL_TAG_RE.fullmatch(canonical):
+        raise ValueError(
+            "canonical tag must be lowercase atomic: /^[a-z][a-z0-9_]*$/"
+        )
+    return canonical
 
 
 def resolve_tag(conn: sqlite3.Connection, name_or_alias: str) -> tuple[int, str] | None:
@@ -172,7 +274,7 @@ def resolve_tag(conn: sqlite3.Connection, name_or_alias: str) -> tuple[int, str]
 def create_tag(
     conn: sqlite3.Connection, name: str, description: str | None = None
 ) -> tuple[int, str]:
-    canonical = normalize_tag_name(name)
+    canonical = normalize_canonical_tag_name(name)
     row = conn.execute(
         "select tag_id, name from tags where name=? collate nocase",
         (canonical,),
@@ -206,6 +308,13 @@ def resolve_or_create_tag(
     if resolved:
         return resolved
     return create_tag(conn, name_or_alias, description)
+
+
+def ensure_default_incident_taxonomy(conn: sqlite3.Connection) -> None:
+    for name, description in DEFAULT_CANONICAL_TAGS.items():
+        create_tag(conn, name, description)
+    for alias, tag_name in DEFAULT_TAG_ALIASES.items():
+        add_tag_alias(conn, alias, tag_name)
 
 
 def add_tag_alias(conn: sqlite3.Connection, alias: str, tag_name_or_id: str | int) -> tuple[str, int]:
@@ -253,7 +362,10 @@ def add_tag_alias(conn: sqlite3.Connection, alias: str, tag_name_or_id: str | in
 def link_incident_tag(
     conn: sqlite3.Connection, incident_id: int, name_or_alias: str
 ) -> tuple[int, str]:
-    tag_id, canonical_name = resolve_or_create_tag(conn, name_or_alias)
+    resolved = resolve_tag(conn, name_or_alias)
+    if not resolved:
+        raise ValueError(f"tag or alias not found: {name_or_alias!r}")
+    tag_id, canonical_name = resolved
     conn.execute(
         "insert or ignore into incident_tags(incident_id, tag_id) values (?, ?)",
         (incident_id, tag_id),
@@ -513,6 +625,7 @@ def migrate_incident_schema(conn: sqlite3.Connection) -> bool:
         )
         migrated = True
     create_incident_tables(conn)
+    ensure_default_incident_taxonomy(conn)
     backfilled = backfill_legacy_incident_tags(conn)
     conn.execute(
         "insert or replace into schema_meta(key, value) values ('schema_version', ?)",
@@ -532,9 +645,16 @@ def backfill_legacy_incident_tags(conn: sqlite3.Connection) -> bool:
         """
     ).fetchall():
         for token in split_legacy_tag_tokens(systems) + split_legacy_tag_tokens(alerts):
-            tag_id, _ = resolve_or_create_tag(
-                conn, token, "deterministic import from legacy incident fields"
-            )
+            resolved = resolve_tag(conn, token)
+            if resolved:
+                tag_id = resolved[0]
+            else:
+                try:
+                    tag_id, _ = create_tag(
+                        conn, token, "deterministic import from legacy incident fields"
+                    )
+                except ValueError:
+                    continue
             before = conn.total_changes
             conn.execute(
                 "insert or ignore into incident_tags(incident_id, tag_id) values (?, ?)",
@@ -653,6 +773,30 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
     ).fetchall()
     if alias_name_conflicts:
         errors.append(f"tag alias conflicts with canonical name: {alias_name_conflicts!r}")
+    invalid_tags = conn.execute(
+        "select tag_id, name from tags where name not glob '[a-z]*'"
+    ).fetchall()
+    invalid_tags.extend(
+        [
+            row
+            for row in conn.execute("select tag_id, name from tags").fetchall()
+            if not CANONICAL_TAG_RE.fullmatch(str(row[1]))
+        ]
+    )
+    if invalid_tags:
+        unique_invalid = sorted(set((int(row[0]), str(row[1])) for row in invalid_tags))
+        errors.append(f"non-canonical tag names: {unique_invalid!r}")
+    untagged_incidents = conn.execute(
+        """
+        select i.incident_id
+        from incidents i
+        left join incident_tags it on it.incident_id=i.incident_id
+        where it.incident_id is null
+        order by i.incident_id
+        """
+    ).fetchall()
+    if untagged_incidents:
+        errors.append(f"incidents missing canonical tags: {untagged_incidents!r}")
     schema_version = conn.execute(
         "select value from schema_meta where key='schema_version'"
     ).fetchone()
@@ -822,13 +966,62 @@ def print_incident_rows(rows: list[sqlite3.Row | tuple]) -> None:
         )
 
 
-def tag_command(args: argparse.Namespace) -> int:
+def tag_list_command() -> int:
     conn = connect()
-    with conn:
-        tag_id, canonical_name = resolve_or_create_tag(conn, args.name, args.description)
+    for tag_id, name, description in conn.execute(
+        "select tag_id, name, coalesce(description, '') from tags order by name"
+    ):
+        print(f"tag_id={tag_id};name={name};description={description}")
+    return 0
+
+
+def tag_resolve_command(term: str) -> int:
+    conn = connect()
+    resolved = resolve_tag(conn, term)
+    if not resolved:
+        print(f"TAG=NOT_FOUND term={term}", file=sys.stderr)
+        return 1
+    tag_id, canonical_name = resolved
     print(f"tag_id={tag_id}")
     print(f"name={canonical_name}")
     return 0
+
+
+def tag_create_command(name: str, description: str | None = None) -> int:
+    conn = connect()
+    resolved = resolve_tag(conn, name)
+    if resolved:
+        tag_id, canonical_name = resolved
+    else:
+        with conn:
+            tag_id, canonical_name = create_tag(conn, name, description)
+    print(f"tag_id={tag_id}")
+    print(f"name={canonical_name}")
+    return 0
+
+
+def tag_command(args: argparse.Namespace) -> int:
+    if not args.tag_args:
+        print("TAG=FAIL missing subcommand or tag name", file=sys.stderr)
+        return 2
+    if args.tag_args[0] == "list":
+        if len(args.tag_args) != 1:
+            print("TAG=FAIL usage: megavault.py tag list", file=sys.stderr)
+            return 2
+        return tag_list_command()
+    if args.tag_args[0] == "resolve":
+        if len(args.tag_args) != 2:
+            print("TAG=FAIL usage: megavault.py tag resolve <term>", file=sys.stderr)
+            return 2
+        return tag_resolve_command(args.tag_args[1])
+    if len(args.tag_args) != 1:
+        print("TAG=FAIL usage: megavault.py tag <name>", file=sys.stderr)
+        return 2
+    try:
+        return tag_create_command(args.tag_args[0], args.description)
+    except (TagConflictError, ValueError) as exc:
+        print(f"TAG=FAIL {exc}", file=sys.stderr)
+        return 1
 
 
 def tag_alias_command(args: argparse.Namespace) -> int:
@@ -856,8 +1049,69 @@ def incident_tag_command(args: argparse.Namespace) -> int:
 
 def incident_search_command(args: argparse.Namespace) -> int:
     conn = connect()
-    rows = search_incidents_by_tags(conn, args.tag)
+    tags = args.tags or args.tag or []
+    rows = search_incidents_by_tags(conn, tags)
     print_incident_rows(rows)
+    return 0
+
+
+def incident_command(args: argparse.Namespace) -> int:
+    conn = connect()
+    row = conn.execute(
+        """
+        select incident_id, title, status, first_seen_utc, last_seen_utc,
+               severity, root_cause, resolution_summary, systems, alerts,
+               prompt_refs, source_ref
+        from incidents
+        where incident_id=?
+        """,
+        (args.incident_id,),
+    ).fetchone()
+    if not row:
+        print(f"INCIDENT=NOT_FOUND incident_id={args.incident_id}", file=sys.stderr)
+        return 1
+    labels = (
+        "incident_id",
+        "title",
+        "status",
+        "first_seen_utc",
+        "last_seen_utc",
+        "severity",
+        "root_cause",
+        "resolution_summary",
+        "systems",
+        "alerts",
+        "prompt_refs",
+        "source_ref",
+    )
+    for label, value in zip(labels, row):
+        print(f"{label}={value or ''}")
+    tags = conn.execute(
+        """
+        select t.name
+        from incident_tags it
+        join tags t on t.tag_id=it.tag_id
+        where it.incident_id=?
+        order by t.name
+        """,
+        (args.incident_id,),
+    ).fetchall()
+    print("tags=" + ",".join(str(tag[0]) for tag in tags))
+    related = conn.execute(
+        """
+        select other.incident_id, other.title, count(*) as shared_tags
+        from incident_tags current
+        join incident_tags other_tags on other_tags.tag_id=current.tag_id
+        join incidents other on other.incident_id=other_tags.incident_id
+        where current.incident_id=? and other.incident_id<>?
+        group by other.incident_id
+        order by shared_tags desc, other.incident_id desc
+        limit 10
+        """,
+        (args.incident_id, args.incident_id),
+    ).fetchall()
+    for incident_id, title, shared_tags in related:
+        print(f"related_incident_id={incident_id};shared_tags={shared_tags};title={title}")
     return 0
 
 
@@ -894,7 +1148,7 @@ def main(argv: list[str] | None = None) -> int:
     project_parser = sub.add_parser("project")
     project_parser.add_argument("alias")
     tag_parser = sub.add_parser("tag")
-    tag_parser.add_argument("name")
+    tag_parser.add_argument("tag_args", nargs="+")
     tag_parser.add_argument("--description")
     tag_alias_parser = sub.add_parser("tag-alias")
     tag_alias_parser.add_argument("alias")
@@ -902,8 +1156,11 @@ def main(argv: list[str] | None = None) -> int:
     incident_tag_parser = sub.add_parser("incident-tag")
     incident_tag_parser.add_argument("incident_id", type=int)
     incident_tag_parser.add_argument("tag")
+    incident_parser = sub.add_parser("incident")
+    incident_parser.add_argument("incident_id", type=int)
     incident_search_parser = sub.add_parser("incident-search")
-    incident_search_parser.add_argument("--tag", action="append", required=True)
+    incident_search_parser.add_argument("tags", nargs="*")
+    incident_search_parser.add_argument("--tag", action="append")
     incident_create_parser = sub.add_parser("incident-create")
     incident_create_parser.add_argument("--title", required=True)
     incident_create_parser.add_argument("--status", required=True)
@@ -933,6 +1190,8 @@ def main(argv: list[str] | None = None) -> int:
         return tag_alias_command(args)
     if args.cmd == "incident-tag":
         return incident_tag_command(args)
+    if args.cmd == "incident":
+        return incident_command(args)
     if args.cmd == "incident-search":
         return incident_search_command(args)
     if args.cmd == "incident-create":

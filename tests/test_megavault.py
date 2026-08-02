@@ -55,6 +55,104 @@ class MegaVaultTests(unittest.TestCase):
     def test_secret_scan_has_zero_hits(self):
         self.assertEqual([], megavault.secret_scan_errors(megavault.git_tracked()))
 
+    def test_sqlite_integrity_and_foreign_keys_pass(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        conn.execute("PRAGMA foreign_keys=ON")
+        self.assertEqual("ok", conn.execute("PRAGMA integrity_check").fetchone()[0])
+        self.assertEqual([], conn.execute("PRAGMA foreign_key_check").fetchall())
+
+    def test_current_incident_taxonomy_is_migrated(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        incident_ids = [
+            row[0] for row in conn.execute("select incident_id from incidents order by incident_id")
+        ]
+        self.assertEqual(list(range(1, 25)), incident_ids)
+        self.assertEqual(
+            24,
+            conn.execute(
+                """
+                select count(*)
+                from incidents i
+                where exists (
+                  select 1 from incident_tags it where it.incident_id=i.incident_id
+                )
+                """
+            ).fetchone()[0],
+        )
+        expected = {
+            16: {"whatsapp", "notifications", "pixel", "metered"},
+            17: {"whatsapp", "notifications", "pixel", "silent"},
+            24: {"whatsapp", "notifications", "pixel", "silent"},
+        }
+        for incident_id, tags in expected.items():
+            actual = {
+                row[0]
+                for row in conn.execute(
+                    """
+                    select t.name
+                    from incident_tags it
+                    join tags t on t.tag_id=it.tag_id
+                    where it.incident_id=?
+                    """,
+                    (incident_id,),
+                )
+            }
+            self.assertEqual(tags, actual)
+        obsolete = {
+            "com.whatsapp",
+            "com.whatsapp 2.26.29.73",
+            "AudioService",
+            "NotificationManager",
+            "Android 17",
+            "Pixel 8a",
+        }
+        linked = {
+            row[0]
+            for row in conn.execute(
+                """
+                select distinct t.name
+                from incident_tags it
+                join tags t on t.tag_id=it.tag_id
+                """
+            )
+        }
+        self.assertTrue(obsolete.isdisjoint(linked))
+
+    def test_cli_tag_lookup_and_incident_search(self):
+        resolved = self.run_tool("tag", "resolve", "com.whatsapp")
+        self.assertEqual(resolved.returncode, 0, resolved.stderr)
+        self.assertIn("name=whatsapp", resolved.stdout)
+
+        silent_alias = self.run_tool("tag", "silent_notification")
+        self.assertEqual(silent_alias.returncode, 0, silent_alias.stderr)
+        self.assertIn("name=silent", silent_alias.stdout)
+
+        listed = self.run_tool("tag", "list")
+        self.assertEqual(listed.returncode, 0, listed.stderr)
+        self.assertIn("name=whatsapp", listed.stdout)
+        self.assertIn("name=notifications", listed.stdout)
+
+        incident = self.run_tool("incident", "16")
+        self.assertEqual(incident.returncode, 0, incident.stderr)
+        self.assertIn("incident_id=16", incident.stdout)
+        self.assertIn("tags=metered,notifications,pixel,whatsapp", incident.stdout)
+
+        whatsapp_notifications = self.run_tool(
+            "incident-search", "whatsapp", "notifications"
+        )
+        self.assertEqual(whatsapp_notifications.returncode, 0, whatsapp_notifications.stderr)
+        self.assertIn("incident_id=16;", whatsapp_notifications.stdout)
+        self.assertIn("incident_id=17;", whatsapp_notifications.stdout)
+        self.assertIn("incident_id=24;", whatsapp_notifications.stdout)
+
+        whatsapp_silent = self.run_tool(
+            "incident-search", "whatsapp", "notifications", "silent"
+        )
+        self.assertEqual(whatsapp_silent.returncode, 0, whatsapp_silent.stderr)
+        self.assertNotIn("incident_id=16;", whatsapp_silent.stdout)
+        self.assertIn("incident_id=17;", whatsapp_silent.stdout)
+        self.assertIn("incident_id=24;", whatsapp_silent.stdout)
+
     def legacy_incident_conn(self):
         conn = sqlite3.connect(":memory:")
         conn.execute("PRAGMA foreign_keys=OFF")
@@ -176,6 +274,13 @@ class MegaVaultTests(unittest.TestCase):
             ).fetchone()[0],
         )
 
+    def test_canonical_tag_format_rejects_free_text(self):
+        conn = self.migrated_incident_conn()
+        with self.assertRaises(ValueError):
+            megavault.create_tag(conn, "silent notification")
+        with self.assertRaises(ValueError):
+            megavault.create_tag(conn, "audio.service")
+
     def test_multi_tag_search_uses_and_semantics(self):
         conn = self.migrated_incident_conn()
         self.register_tags(conn, "whatsapp", "notifications", "pixel", "silent")
@@ -197,10 +302,12 @@ class MegaVaultTests(unittest.TestCase):
         self.assertNotIn(whatsapp, ids)
         self.assertNotIn(pixel_silent, ids)
         megavault.add_tag_alias(conn, "muted", "silent")
-        self.assertEqual(
-            [pixel_silent],
-            [row[0] for row in megavault.search_incidents_by_tags(conn, ["PIXEL", "MUTED"])],
-        )
+        muted_pixel_ids = {
+            row[0] for row in megavault.search_incidents_by_tags(conn, ["PIXEL", "MUTED"])
+        }
+        self.assertIn(pixel_silent, muted_pixel_ids)
+        self.assertNotIn(whatsapp, muted_pixel_ids)
+        self.assertNotIn(both, muted_pixel_ids)
 
 
 if __name__ == "__main__":

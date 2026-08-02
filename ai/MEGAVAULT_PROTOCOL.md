@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=21
+VERSION=22
 STATUS=AUTHORITATIVE_BOOTSTRAP
 MODE=codex_first
 FORMAT=ultracompact_key_value
@@ -59,6 +59,23 @@ project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_u
 secret_values=never_store;reference_paths_only
 events=mandatory_for_completed_Daniele_project_or_system_work;store=megavault.sqlite:events
 incidents=store_in_megavault.sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;id=sqlite_autoincrement_occurrence;semantic_links=canonical_tags_only;tag_creation=explicit_only;association=existing_tag_or_alias_only;forbid=problem_family|recurring_incidents|automatic_merge|tag_hierarchy;status=OPEN|MITIGATED|RESOLVED|ACCEPTED
+
+INCIDENTS:
+identity=one_observed_occurrence
+id=SQLite_AUTOINCREMENT;immediate;unique;never_reused
+same_symptom_same_cause_new_time=new_incident
+cause=nullable;UNKNOWN_allowed;does_not_affect_id
+merge=forbidden
+linking=canonical_tags_only
+
+TAGS:
+source=megavault.sqlite:tags+tag_aliases
+reuse_existing=mandatory
+free_text=forbidden
+new_tag=only_if_no_canonical_or_alias_match
+format=lowercase_atomic
+aliases=search_only;canonical_link_only
+incident_search=tag_intersection+text
 
 MARKDOWN:
 allowed=ai/MEGAVAULT_PROTOCOL.md,ai/GLOBAL_INDEX.md,legacy/README.md

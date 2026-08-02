@@ -68,6 +68,13 @@ class StrictTagPolicyTests(unittest.TestCase):
             self.conn.execute("SELECT incident_id, tag_id FROM incident_tags").fetchall(),
         )
 
+    def test_alias_prevents_redundant_canonical_tag(self):
+        tag_id, _ = megavault.create_tag(self.conn, "silent")
+        megavault.add_tag_alias(self.conn, "silent_notification", tag_id)
+        self.assertEqual((tag_id, "silent"), megavault.resolve_tag(self.conn, "silent_notification"))
+        with self.assertRaises(megavault.TagConflictError):
+            megavault.create_tag(self.conn, "silent_notification")
+
     def test_incident_create_rolls_back_when_any_tag_is_unknown(self):
         megavault.create_tag(self.conn, "known")
         before = self.conn.execute("SELECT count(*) FROM incidents").fetchone()[0]
