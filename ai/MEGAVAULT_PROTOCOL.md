@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=19
+VERSION=20
 STATUS=AUTHORITATIVE_BOOTSTRAP
 MODE=codex_first
 FORMAT=ultracompact_key_value
@@ -53,12 +53,12 @@ FINAL_GATE=verify_capsulization_before_final
 DATABASE:
 path=megavault.sqlite
 schema_source=sqlite_schema
-required_tables=projects,permanent_ids,project_aliases,repositories,hosts,integrations,services,secret_refs,data_assets,incidents,incident_events,events,knowledge_notes
+required_tables=projects,permanent_ids,project_aliases,repositories,hosts,integrations,services,secret_refs,data_assets,incidents,incident_events,tags,tag_aliases,incident_tags,events,knowledge_notes
 foreign_keys=must_pass
 project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense
 secret_values=never_store;reference_paths_only
 events=mandatory_for_completed_Daniele_project_or_system_work;store=megavault.sqlite:events
-incidents=store_in_megavault.sqlite:incidents+incident_events;id=root_cause_stable_slug;forbid=symptom_spam_ids;status=OPEN|MITIGATED|RESOLVED|ACCEPTED
+incidents=store_in_megavault.sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;id=sqlite_autoincrement_occurrence;semantic_links=canonical_tags_only;forbid=problem_family|recurring_incidents|automatic_merge|tag_hierarchy;status=OPEN|MITIGATED|RESOLVED|ACCEPTED
 
 MARKDOWN:
 allowed=ai/MEGAVAULT_PROTOCOL.md,ai/GLOBAL_INDEX.md,legacy/README.md

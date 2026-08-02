@@ -1,5 +1,5 @@
 # GLOBAL_INDEX
-VERSION=3
+VERSION=4
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
@@ -16,7 +16,7 @@ hosts=sqlite:hosts
 services=sqlite:services
 integrations=sqlite:integrations
 secrets=sqlite:secret_refs;values_never_stored
-incidents=sqlite:incidents+incident_events
+incidents=sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;and_search=multi_tag
 timeline=sqlite:events
 legacy=../legacy/README.md;non_authoritative;explicit_historical_request_only
 
