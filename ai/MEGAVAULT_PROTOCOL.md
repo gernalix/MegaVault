@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=20
+VERSION=21
 STATUS=AUTHORITATIVE_BOOTSTRAP
 MODE=codex_first
 FORMAT=ultracompact_key_value
@@ -58,7 +58,7 @@ foreign_keys=must_pass
 project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense
 secret_values=never_store;reference_paths_only
 events=mandatory_for_completed_Daniele_project_or_system_work;store=megavault.sqlite:events
-incidents=store_in_megavault.sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;id=sqlite_autoincrement_occurrence;semantic_links=canonical_tags_only;forbid=problem_family|recurring_incidents|automatic_merge|tag_hierarchy;status=OPEN|MITIGATED|RESOLVED|ACCEPTED
+incidents=store_in_megavault.sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;id=sqlite_autoincrement_occurrence;semantic_links=canonical_tags_only;tag_creation=explicit_only;association=existing_tag_or_alias_only;forbid=problem_family|recurring_incidents|automatic_merge|tag_hierarchy;status=OPEN|MITIGATED|RESOLVED|ACCEPTED
 
 MARKDOWN:
 allowed=ai/MEGAVAULT_PROTOCOL.md,ai/GLOBAL_INDEX.md,legacy/README.md
