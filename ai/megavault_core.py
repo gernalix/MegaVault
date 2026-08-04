@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 5
+SCHEMA_VERSION = 6
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -774,7 +774,9 @@ def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
         elif repository_kind == "remote_repository":
             remote_url = normalize_remote_url(location)
         elif repository_kind in {"runtime", "remote_host"}:
-            host_id, runtime_path = repository_runtime_parts(location)
+            parsed_host_id, parsed_runtime_path = repository_runtime_parts(location)
+            host_id = parsed_host_id or host_id
+            runtime_path = parsed_runtime_path or runtime_path
         elif repository_kind == "legacy":
             worktree_path = None
             legacy_path = Path(location.removeprefix("legacy:"))
@@ -876,6 +878,7 @@ def ensure_codex_project_index_view(conn: sqlite3.Connection) -> None:
               r.repository_kind,
               h.name AS host_name,
               r.runtime_path,
+              r.branch,
               r.status,
               row_number() OVER (
                 PARTITION BY r.project_id
@@ -917,20 +920,21 @@ def ensure_codex_project_index_view(conn: sqlite3.Connection) -> None:
           p.project_id,
           p.slug,
           CASE
-            WHEN p.archived=1 THEN 'archived'
-            WHEN worktree.worktree_path IS NOT NULL
-              OR runtime_service.runtime_path IS NOT NULL
+            WHEN p.archived=1 THEN 'ARCHIVED'
+            WHEN worktree.worktree_path IS NOT NULL THEN 'LOCAL'
+            WHEN runtime_service.runtime_path IS NOT NULL
               OR runtime_repo.host_name IS NOT NULL
+              OR runtime_repo.runtime_path IS NOT NULL
               OR remote_repo.remote_url IS NOT NULL
-              THEN 'active'
-            WHEN legacy_project.project_id IS NOT NULL THEN 'missing'
-            ELSE 'unresolved'
+              THEN 'REMOTE_ONLY'
+            WHEN legacy_project.project_id IS NOT NULL THEN 'MISSING'
+            ELSE 'MISSING'
           END AS project_status,
           p.archived,
           COALESCE(worktree.host_name, runtime_service.host_name, runtime_repo.host_name) AS canonical_host,
           worktree.worktree_path AS canonical_worktree,
           COALESCE(worktree.repository_kind, remote_repo.repository_kind, runtime_repo.repository_kind, 'legacy') AS repository_kind,
-          COALESCE(worktree.branch, remote_repo.branch) AS canonical_branch,
+          COALESCE(worktree.branch, remote_repo.branch, runtime_repo.branch) AS canonical_branch,
           COALESCE(remote_repo.remote_url, worktree.remote_url) AS remote_url,
           COALESCE(worktree.head, remote_repo.head) AS head,
           COALESCE(worktree.status, remote_repo.status, runtime_repo.status) AS repository_status,
@@ -982,6 +986,88 @@ def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
         """
     )
     ensure_codex_project_index_view(conn)
+    stable_remote_facts = (
+        ("R0031", "H0002", "/opt/uptime-kuma", None),
+        ("R0033", "H0002", "/home/ubuntu/bots/owntracks_http_server", "main"),
+    )
+    for repository_id, host_id, runtime_path, branch in stable_remote_facts:
+        before = conn.total_changes
+        conn.execute(
+            """
+            update repositories
+            set host_id=?,
+                runtime_path=coalesce(runtime_path, ?),
+                branch=coalesce(branch, ?)
+            where repository_id=?
+              and (
+                host_id is not ?
+                or runtime_path is null
+                or (branch is null and ? is not null)
+              )
+            """,
+            (host_id, runtime_path, branch, repository_id, host_id, branch),
+        )
+        changed = changed or conn.total_changes > before
+    for project_id, classification in conn.execute(
+        """
+        WITH project_classification AS (
+          SELECT
+            p.project_id,
+            CASE
+              WHEN EXISTS (
+                SELECT 1
+                FROM repositories local_repo
+                WHERE local_repo.project_id=p.project_id
+                  AND local_repo.repository_kind='local_worktree'
+                  AND local_repo.canonical=1
+                  AND local_repo.worktree_path IS NOT NULL
+              ) THEN 'LOCAL'
+              WHEN EXISTS (
+                SELECT 1
+                FROM repositories remote_repo
+                WHERE remote_repo.project_id=p.project_id
+                  AND remote_repo.repository_kind IN ('runtime', 'remote_host', 'remote_repository')
+                  AND (
+                    remote_repo.host_id IS NOT NULL
+                    OR remote_repo.runtime_path IS NOT NULL
+                    OR remote_repo.remote_url IS NOT NULL
+                  )
+              )
+              OR EXISTS (
+                SELECT 1
+                FROM services service
+                WHERE service.project_id=p.project_id
+                  AND service.runtime_path IS NOT NULL
+              ) THEN 'REMOTE_ONLY'
+              ELSE 'MISSING'
+            END AS classification
+          FROM projects p
+          WHERE p.archived=0
+        )
+        SELECT project_id, classification
+        FROM project_classification
+        WHERE classification<>'LOCAL'
+        ORDER BY project_id
+        """
+    ).fetchall():
+        before = conn.total_changes
+        conn.execute(
+            "update projects set status=? where project_id=? and status is not ?",
+            (classification, project_id, classification),
+        )
+        changed = changed or conn.total_changes > before
+        before = conn.total_changes
+        conn.execute(
+            """
+            update repositories
+            set status=?
+            where project_id=?
+              and repository_kind<>'local_worktree'
+              and status is not ?
+            """,
+            (classification, project_id, classification),
+        )
+        changed = changed or conn.total_changes > before
     before = conn.total_changes
     conn.execute(
         "update projects set status='active' where project_id=23 and status<>'active'"
@@ -1120,6 +1206,16 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
         ).fetchall()
         if duplicate_view_rows:
             errors.append(f"codex_project_index duplicate rows: {duplicate_view_rows!r}")
+        invalid_project_statuses = conn.execute(
+            """
+            select project_id, project_status
+            from codex_project_index
+            where project_status not in ('LOCAL', 'REMOTE_ONLY', 'MISSING', 'ARCHIVED')
+            order by project_id
+            """
+        ).fetchall()
+        if invalid_project_statuses:
+            errors.append(f"codex_project_index invalid statuses: {invalid_project_statuses!r}")
     if "repository_kind" in repository_columns:
         ambiguous_worktrees = conn.execute(
             """
@@ -1401,12 +1497,18 @@ def project_show_command(project_id: int) -> int:
     return 0
 
 
-def project_path_command(project_id: int) -> int:
+def project_path_command(project_id: int, status_only: bool = False) -> int:
     conn = connect()
     row = project_index_row(conn, project_id)
     if not row:
+        if status_only:
+            print("ABSENT")
+            return 1
         print(f"PROJECT_PATH=NOT_FOUND project_id={project_id}", file=sys.stderr)
         return 1
+    if status_only:
+        print(row[2])
+        return 0
     ambiguous = conn.execute(
         """
         select count(*)
@@ -1422,7 +1524,7 @@ def project_path_command(project_id: int) -> int:
         print(f"PROJECT_PATH=AMBIGUOUS project_id={project_id}", file=sys.stderr)
         return 1
     path = row[5]
-    if not path:
+    if row[2] != "LOCAL" or not path:
         print(f"PROJECT_PATH=ABSENT project_id={project_id}", file=sys.stderr)
         return 1
     print(path)
@@ -1662,6 +1764,7 @@ def main(argv: list[str] | None = None) -> int:
     project_show_parser = sub.add_parser("project-show")
     project_show_parser.add_argument("project_id", type=int)
     project_path_parser = sub.add_parser("project-path")
+    project_path_parser.add_argument("--status", action="store_true")
     project_path_parser.add_argument("project_id", type=int)
     tag_parser = sub.add_parser("tag")
     tag_parser.add_argument("tag_args", nargs="+")
@@ -1705,7 +1808,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "project-show":
         return project_show_command(args.project_id)
     if args.cmd == "project-path":
-        return project_path_command(args.project_id)
+        return project_path_command(args.project_id, args.status)
     if args.cmd == "tag":
         return tag_command(args)
     if args.cmd == "tag-alias":

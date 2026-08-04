@@ -102,7 +102,7 @@ class MegaVaultTests(unittest.TestCase):
         ).fetchone()
         self.assertEqual(
             (
-                "active",
+                "LOCAL",
                 "fedora",
                 "/home/daniele/MegaVault",
                 "local_worktree",
@@ -116,13 +116,13 @@ class MegaVaultTests(unittest.TestCase):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
         row = conn.execute(
             """
-            select runtime_host, runtime_path
+            select project_status, runtime_host, runtime_path
             from codex_project_index
             where project_id=42
             """
         ).fetchone()
         self.assertEqual(
-            ("oracle-vm", "/home/ubuntu/sync_root/bots/telegram_insert_bot"),
+            ("LOCAL", "oracle-vm", "/home/ubuntu/sync_root/bots/telegram_insert_bot"),
             row,
         )
 
@@ -134,8 +134,69 @@ class MegaVaultTests(unittest.TestCase):
         missing = conn.execute(
             "select project_status, canonical_worktree from codex_project_index where project_id=3"
         ).fetchone()
-        self.assertEqual(("archived", "legacy"), archived)
-        self.assertEqual(("missing", None), missing)
+        self.assertEqual(("ARCHIVED", "legacy"), archived)
+        self.assertEqual(("MISSING", None), missing)
+
+    def test_codex_index_uses_deterministic_project_statuses(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        statuses = {
+            row[0]
+            for row in conn.execute("select distinct project_status from codex_project_index")
+        }
+        self.assertLessEqual(statuses, {"LOCAL", "REMOTE_ONLY", "MISSING", "ARCHIVED"})
+        generic = conn.execute(
+            """
+            select project_id
+            from codex_project_index
+            where project_status not in ('LOCAL', 'REMOTE_ONLY', 'MISSING', 'ARCHIVED')
+            """
+        ).fetchall()
+        self.assertEqual([], generic)
+
+    def test_codex_index_resolves_remote_only_projects(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        rows = conn.execute(
+            """
+            select project_id, project_status, canonical_host, canonical_worktree,
+                   runtime_host, runtime_path, canonical_branch
+            from codex_project_index
+            where project_id in (31, 33, 44, 45)
+            order by project_id
+            """
+        ).fetchall()
+        self.assertEqual(
+            [
+                (31, "REMOTE_ONLY", "oracle-vm", None, "oracle-vm", "/opt/uptime-kuma", None),
+                (
+                    33,
+                    "REMOTE_ONLY",
+                    "oracle-vm",
+                    None,
+                    "oracle-vm",
+                    "/home/ubuntu/bots/owntracks_http_server",
+                    "main",
+                ),
+                (
+                    44,
+                    "REMOTE_ONLY",
+                    "windows-host",
+                    None,
+                    "windows-host",
+                    r"C:\Users\seste\Documents\windows\system_logger",
+                    None,
+                ),
+                (
+                    45,
+                    "REMOTE_ONLY",
+                    "windows-host",
+                    None,
+                    "windows-host",
+                    r"C:\Users\seste\Documents\windows\maintenance",
+                    None,
+                ),
+            ],
+            rows,
+        )
 
     def test_project_path_cli(self):
         resolved = self.run_tool("project-path", "23")
@@ -145,6 +206,27 @@ class MegaVaultTests(unittest.TestCase):
         missing = self.run_tool("project-path", "3")
         self.assertNotEqual(missing.returncode, 0)
         self.assertIn("PROJECT_PATH=ABSENT", missing.stderr)
+
+        remote = self.run_tool("project-path", "31")
+        self.assertNotEqual(remote.returncode, 0)
+        self.assertIn("PROJECT_PATH=ABSENT", remote.stderr)
+
+    def test_project_path_status_cli(self):
+        local = self.run_tool("project-path", "--status", "23")
+        self.assertEqual(local.returncode, 0, local.stderr)
+        self.assertEqual("LOCAL", local.stdout.strip())
+
+        remote = self.run_tool("project-path", "--status", "31")
+        self.assertEqual(remote.returncode, 0, remote.stderr)
+        self.assertEqual("REMOTE_ONLY", remote.stdout.strip())
+
+        missing = self.run_tool("project-path", "--status", "3")
+        self.assertEqual(missing.returncode, 0, missing.stderr)
+        self.assertEqual("MISSING", missing.stdout.strip())
+
+        absent = self.run_tool("project-path", "--status", "99999")
+        self.assertNotEqual(absent.returncode, 0)
+        self.assertEqual("ABSENT", absent.stdout.strip())
 
     def test_project_index_migration_is_idempotent_and_preserves_counts(self):
         source = sqlite3.connect(ROOT / "megavault.sqlite")
