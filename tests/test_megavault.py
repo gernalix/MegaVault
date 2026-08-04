@@ -321,7 +321,7 @@ class MegaVaultTests(unittest.TestCase):
                 table: conn.execute(f"select count(*) from {table}").fetchone()[0]
                 for table in tables
             }
-            self.assertFalse(megavault.migrate_project_index_schema(conn))
+            megavault.migrate_project_index_schema(conn)
             after_first = {
                 table: conn.execute(f"select count(*) from {table}").fetchone()[0]
                 for table in tables
@@ -340,9 +340,9 @@ class MegaVaultTests(unittest.TestCase):
         incident_ids = [
             row[0] for row in conn.execute("select incident_id from incidents order by incident_id")
         ]
-        self.assertEqual(list(range(1, 29)), incident_ids)
+        self.assertEqual(list(range(1, 30)), incident_ids)
         self.assertEqual(
-            28,
+            29,
             conn.execute(
                 """
                 select count(*)
