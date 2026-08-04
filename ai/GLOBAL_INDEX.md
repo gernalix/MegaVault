@@ -1,5 +1,5 @@
 # GLOBAL_INDEX
-VERSION=5
+VERSION=6
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
@@ -13,7 +13,9 @@ ROUTING:
 project_id=resolve_only_from_sqlite:project_aliases->projects;integer_primary_key
 repositories=sqlite:repositories
 codex_project_index=sqlite:codex_project_index;one_row_per_project;deterministic_row_number
-project_cli=python3 ../megavault.py project-list|project-show PROJECT_ID|project-path PROJECT_ID|project-path --status PROJECT_ID
+codex_work_queue=sqlite:codex_work_queue;LOCAL+REMOTE_ONLY_only;operational_fields
+codex_status_views=sqlite:codex_remote_projects|codex_missing_projects|codex_archived_projects
+project_cli=python3 ../megavault.py project-list|project-work-queue|project-remote|project-missing|project-archived|project-show PROJECT_ID|project-path PROJECT_ID|project-path --status PROJECT_ID
 hosts=sqlite:hosts
 services=sqlite:services
 integrations=sqlite:integrations

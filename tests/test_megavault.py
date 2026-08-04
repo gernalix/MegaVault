@@ -198,6 +198,71 @@ class MegaVaultTests(unittest.TestCase):
             rows,
         )
 
+    def test_codex_retrieval_views_are_compact_and_status_scoped(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        expected = {
+            "codex_work_queue": 21,
+            "codex_remote_projects": 4,
+            "codex_missing_projects": 7,
+            "codex_archived_projects": 20,
+        }
+        for view_name, count in expected.items():
+            actual = conn.execute(f"select count(*) from {view_name}").fetchone()[0]
+            self.assertEqual(count, actual, view_name)
+
+        work_statuses = {
+            row[0] for row in conn.execute("select distinct project_status from codex_work_queue")
+        }
+        self.assertEqual({"LOCAL", "REMOTE_ONLY"}, work_statuses)
+        work_columns = [
+            row[1] for row in conn.execute("PRAGMA table_info(codex_work_queue)")
+        ]
+        self.assertEqual(
+            [
+                "project_id",
+                "slug",
+                "project_status",
+                "canonical_host",
+                "canonical_worktree",
+                "runtime_host",
+                "runtime_path",
+                "canonical_branch",
+                "remote_url",
+            ],
+            work_columns,
+        )
+
+    def test_project_retrieval_cli_commands(self):
+        work_queue = self.run_tool("project-work-queue")
+        self.assertEqual(work_queue.returncode, 0, work_queue.stderr)
+        work_lines = work_queue.stdout.strip().splitlines()
+        self.assertEqual(21, len(work_lines))
+        self.assertTrue(work_lines[0].startswith("project_id=1;slug=amici-fb;"))
+        self.assertIn("project_status=LOCAL", work_lines[0])
+        self.assertNotIn("project_status=MISSING", work_queue.stdout)
+        self.assertNotIn("project_status=ARCHIVED", work_queue.stdout)
+
+        remote = self.run_tool("project-remote")
+        self.assertEqual(remote.returncode, 0, remote.stderr)
+        remote_lines = remote.stdout.strip().splitlines()
+        self.assertEqual(4, len(remote_lines))
+        self.assertTrue(all("project_status=REMOTE_ONLY" in line for line in remote_lines))
+
+        missing = self.run_tool("project-missing")
+        self.assertEqual(missing.returncode, 0, missing.stderr)
+        missing_lines = missing.stdout.strip().splitlines()
+        self.assertEqual(7, len(missing_lines))
+        self.assertEqual(
+            "project_id=3;slug=android-app-template;project_status=MISSING",
+            missing_lines[0],
+        )
+
+        archived = self.run_tool("project-archived")
+        self.assertEqual(archived.returncode, 0, archived.stderr)
+        archived_lines = archived.stdout.strip().splitlines()
+        self.assertEqual(20, len(archived_lines))
+        self.assertEqual("project_id=2;slug=android;project_status=ARCHIVED", archived_lines[0])
+
     def test_project_path_cli(self):
         resolved = self.run_tool("project-path", "23")
         self.assertEqual(resolved.returncode, 0, resolved.stderr)

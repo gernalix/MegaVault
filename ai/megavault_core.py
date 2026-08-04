@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 6
+SCHEMA_VERSION = 7
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -155,8 +155,10 @@ REQUIRED_PROTOCOL_FAMILIES = {
     ),
     "secret_policy": (
         "secret_values=never_store;reference_paths_only",
-        "secrets=no_prompt_echo,no_command_echo,no_secret_values_in_logs_reports_repo_history",
-        "secret_handling=read_only_when_task_requires;canonical_paths_from_database;reprompt_for_known_path_forbidden;rotation_manual_explicit_only",
+        "SECRETS:",
+        "values=never_store_in_MegaVault_or_Git",
+        "secrets=follow_SECRETS_section",
+        "secret_handling=read_only_when_task_requires;canonical_root_first;canonical_paths_from_database;reprompt_for_known_path_forbidden;rotation_manual_explicit_only",
     ),
     "project_id_authority": (
         "project_id_source=megavault.sqlite:projects+project_aliases_only;INTEGER_PRIMARY_KEY",
@@ -824,6 +826,21 @@ def normalized_sql(value: str | None) -> str:
     return " ".join((value or "").split())
 
 
+def ensure_view(conn: sqlite3.Connection, name: str, view_sql: str) -> None:
+    current = conn.execute(
+        """
+        select sql
+        from sqlite_master
+        where type='view' and name=?
+        """,
+        (name,),
+    ).fetchone()
+    if current and normalized_sql(current[0]) == normalized_sql(view_sql):
+        return
+    conn.execute(f"DROP VIEW IF EXISTS {name}")
+    conn.execute(view_sql)
+
+
 def ensure_codex_project_index_view(conn: sqlite3.Connection) -> None:
     view_sql = """
         CREATE VIEW codex_project_index AS
@@ -956,8 +973,80 @@ def ensure_codex_project_index_view(conn: sqlite3.Connection) -> None:
     ).fetchone()
     if current and normalized_sql(current[0]) == normalized_sql(view_sql):
         return
-    conn.execute("DROP VIEW IF EXISTS codex_project_index")
-    conn.execute(view_sql)
+    for dependent_view in (
+        "codex_work_queue",
+        "codex_remote_projects",
+        "codex_missing_projects",
+        "codex_archived_projects",
+    ):
+        conn.execute(f"DROP VIEW IF EXISTS {dependent_view}")
+    ensure_view(conn, "codex_project_index", view_sql)
+
+
+def ensure_codex_retrieval_views(conn: sqlite3.Connection) -> None:
+    operational_fields = """
+          project_id,
+          slug,
+          project_status,
+          canonical_host,
+          canonical_worktree,
+          runtime_host,
+          runtime_path,
+          canonical_branch,
+          remote_url
+    """
+    ensure_view(
+        conn,
+        "codex_work_queue",
+        f"""
+        CREATE VIEW codex_work_queue AS
+        SELECT
+{operational_fields}
+        FROM codex_project_index
+        WHERE project_status IN ('LOCAL', 'REMOTE_ONLY')
+        ORDER BY project_id
+        """,
+    )
+    ensure_view(
+        conn,
+        "codex_remote_projects",
+        f"""
+        CREATE VIEW codex_remote_projects AS
+        SELECT
+{operational_fields}
+        FROM codex_project_index
+        WHERE project_status='REMOTE_ONLY'
+        ORDER BY project_id
+        """,
+    )
+    ensure_view(
+        conn,
+        "codex_missing_projects",
+        """
+        CREATE VIEW codex_missing_projects AS
+        SELECT
+          project_id,
+          slug,
+          project_status
+        FROM codex_project_index
+        WHERE project_status='MISSING'
+        ORDER BY project_id
+        """,
+    )
+    ensure_view(
+        conn,
+        "codex_archived_projects",
+        """
+        CREATE VIEW codex_archived_projects AS
+        SELECT
+          project_id,
+          slug,
+          project_status
+        FROM codex_project_index
+        WHERE project_status='ARCHIVED'
+        ORDER BY project_id
+        """,
+    )
 
 
 def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
@@ -986,6 +1075,7 @@ def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
         """
     )
     ensure_codex_project_index_view(conn)
+    ensure_codex_retrieval_views(conn)
     stable_remote_facts = (
         ("R0031", "H0002", "/opt/uptime-kuma", None),
         ("R0033", "H0002", "/home/ubuntu/bots/owntracks_http_server", "main"),
@@ -1216,6 +1306,48 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
         ).fetchall()
         if invalid_project_statuses:
             errors.append(f"codex_project_index invalid statuses: {invalid_project_statuses!r}")
+        retrieval_view_rules = (
+            (
+                "codex_work_queue",
+                "select count(*) from codex_project_index where project_status in ('LOCAL', 'REMOTE_ONLY')",
+                "project_status in ('LOCAL', 'REMOTE_ONLY')",
+            ),
+            (
+                "codex_remote_projects",
+                "select count(*) from codex_project_index where project_status='REMOTE_ONLY'",
+                "project_status='REMOTE_ONLY'",
+            ),
+            (
+                "codex_missing_projects",
+                "select count(*) from codex_project_index where project_status='MISSING'",
+                "project_status='MISSING'",
+            ),
+            (
+                "codex_archived_projects",
+                "select count(*) from codex_project_index where project_status='ARCHIVED'",
+                "project_status='ARCHIVED'",
+            ),
+        )
+        for view_name, expected_sql, status_predicate in retrieval_view_rules:
+            if not table_exists(conn, view_name):
+                errors.append(f"missing {view_name} view")
+                continue
+            expected_count = conn.execute(expected_sql).fetchone()[0]
+            actual_count = conn.execute(f"select count(*) from {view_name}").fetchone()[0]
+            if actual_count != expected_count:
+                errors.append(
+                    f"{view_name} row count mismatch: expected={expected_count} actual={actual_count}"
+                )
+            invalid_rows = conn.execute(
+                f"""
+                select project_id, project_status
+                from {view_name}
+                where not ({status_predicate})
+                order by project_id
+                """
+            ).fetchall()
+            if invalid_rows:
+                errors.append(f"{view_name} invalid rows: {invalid_rows!r}")
     if "repository_kind" in repository_columns:
         ambiguous_worktrees = conn.execute(
             """
@@ -1466,6 +1598,39 @@ def project_list_command() -> int:
                 row[6] or "",
             )
         )
+    return 0
+
+
+def print_project_retrieval_rows(rows: list[sqlite3.Row | tuple], fields: tuple[str, ...]) -> None:
+    for row in rows:
+        print(";".join(f"{field}={value if value is not None else ''}" for field, value in zip(fields, row)))
+
+
+CODEX_WORK_QUEUE_FIELDS = (
+    "project_id",
+    "slug",
+    "project_status",
+    "canonical_host",
+    "canonical_worktree",
+    "runtime_host",
+    "runtime_path",
+    "canonical_branch",
+    "remote_url",
+)
+CODEX_STATUS_LIST_FIELDS = ("project_id", "slug", "project_status")
+
+
+def project_view_command(view_name: str, fields: tuple[str, ...]) -> int:
+    conn = connect()
+    field_sql = ", ".join(fields)
+    rows = conn.execute(
+        f"""
+        select {field_sql}
+        from {view_name}
+        order by project_id
+        """
+    ).fetchall()
+    print_project_retrieval_rows(rows, fields)
     return 0
 
 
@@ -1761,6 +1926,10 @@ def main(argv: list[str] | None = None) -> int:
     project_parser = sub.add_parser("project")
     project_parser.add_argument("alias")
     sub.add_parser("project-list")
+    sub.add_parser("project-work-queue")
+    sub.add_parser("project-remote")
+    sub.add_parser("project-missing")
+    sub.add_parser("project-archived")
     project_show_parser = sub.add_parser("project-show")
     project_show_parser.add_argument("project_id", type=int)
     project_path_parser = sub.add_parser("project-path")
@@ -1805,6 +1974,14 @@ def main(argv: list[str] | None = None) -> int:
         return project(args.alias)
     if args.cmd == "project-list":
         return project_list_command()
+    if args.cmd == "project-work-queue":
+        return project_view_command("codex_work_queue", CODEX_WORK_QUEUE_FIELDS)
+    if args.cmd == "project-remote":
+        return project_view_command("codex_remote_projects", CODEX_WORK_QUEUE_FIELDS)
+    if args.cmd == "project-missing":
+        return project_view_command("codex_missing_projects", CODEX_STATUS_LIST_FIELDS)
+    if args.cmd == "project-archived":
+        return project_view_command("codex_archived_projects", CODEX_STATUS_LIST_FIELDS)
     if args.cmd == "project-show":
         return project_show_command(args.project_id)
     if args.cmd == "project-path":

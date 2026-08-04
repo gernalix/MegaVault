@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=25
+VERSION=26
 STATUS=AUTHORITATIVE_BOOTSTRAP
 MODE=codex_first
 FORMAT=ultracompact_key_value
@@ -58,7 +58,9 @@ codex_index_view=codex_project_index
 codex_index_fields=project_id,slug,project_status,archived,canonical_host,canonical_worktree,repository_kind,canonical_branch,remote_url,head,repository_status,runtime_host,runtime_path
 codex_index_status=LOCAL|REMOTE_ONLY|MISSING|ARCHIVED
 codex_index_rule=one_row_per_project;row_number_ordered_by_canonical_then_id;no_group_by_arbitrary_values
-codex_cli=project-list;project-show_PROJECT_ID;project-path_PROJECT_ID;project-path_--status_PROJECT_ID
+codex_work_queue_view=codex_work_queue;LOCAL+REMOTE_ONLY_only;fields=project_id,slug,project_status,canonical_host,canonical_worktree,runtime_host,runtime_path,canonical_branch,remote_url
+codex_status_views=codex_remote_projects,codex_missing_projects,codex_archived_projects
+codex_cli=project-list;project-work-queue;project-remote;project-missing;project-archived;project-show_PROJECT_ID;project-path_PROJECT_ID;project-path_--status_PROJECT_ID
 project_path_stdout=canonical_worktree_only;nonzero_if_absent_or_ambiguous
 project_path_status_stdout=LOCAL|REMOTE_ONLY|MISSING|ARCHIVED|ABSENT;single_token_only
 foreign_keys=must_pass
