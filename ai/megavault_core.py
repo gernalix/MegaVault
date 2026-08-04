@@ -762,7 +762,10 @@ def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
             path = Path(location)
             if (path / ".git").exists():
                 next_branch = git_value(location, "branch", "--show-current") or branch
-                next_head = git_value(location, "rev-parse", "HEAD") or head
+                if path.resolve() == ROOT.resolve():
+                    next_head = None
+                else:
+                    next_head = git_value(location, "rev-parse", "HEAD") or head
                 remote_url = normalize_remote_url(
                     git_value(location, "remote", "get-url", "origin")
                 )
