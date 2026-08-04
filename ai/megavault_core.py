@@ -818,10 +818,12 @@ def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
     return changed
 
 
+def normalized_sql(value: str | None) -> str:
+    return " ".join((value or "").split())
+
+
 def ensure_codex_project_index_view(conn: sqlite3.Connection) -> None:
-    conn.execute("DROP VIEW IF EXISTS codex_project_index")
-    conn.execute(
-        """
+    view_sql = """
         CREATE VIEW codex_project_index AS
         WITH
         worktree AS (
@@ -941,7 +943,17 @@ def ensure_codex_project_index_view(conn: sqlite3.Connection) -> None:
         LEFT JOIN runtime_service ON runtime_service.project_id=p.project_id
         LEFT JOIN legacy_project ON legacy_project.project_id=p.project_id
         """
-    )
+    current = conn.execute(
+        """
+        select sql
+        from sqlite_master
+        where type='view' and name='codex_project_index'
+        """
+    ).fetchone()
+    if current and normalized_sql(current[0]) == normalized_sql(view_sql):
+        return
+    conn.execute("DROP VIEW IF EXISTS codex_project_index")
+    conn.execute(view_sql)
 
 
 def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
@@ -993,10 +1005,15 @@ def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
         """
     )
     changed = changed or conn.total_changes > before
-    conn.execute(
-        "insert or replace into schema_meta(key, value) values ('schema_version', ?)",
-        (str(SCHEMA_VERSION),),
-    )
+    current_version = conn.execute(
+        "select value from schema_meta where key='schema_version'"
+    ).fetchone()
+    if not current_version or current_version[0] != str(SCHEMA_VERSION):
+        conn.execute(
+            "insert or replace into schema_meta(key, value) values ('schema_version', ?)",
+            (str(SCHEMA_VERSION),),
+        )
+        changed = True
     return changed
 
 
