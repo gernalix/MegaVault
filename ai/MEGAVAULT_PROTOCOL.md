@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=26
+VERSION=27
 STATUS=AUTHORITATIVE_BOOTSTRAP
 MODE=codex_first
 FORMAT=ultracompact_key_value
@@ -79,6 +79,18 @@ lookup=canonical_root_first;secret_refs_for_exact_file_and_metadata
 access=read_only_when_task_requires
 handling=no_prompt_echo,no_command_echo,no_secret_values_in_logs_reports_repo_history
 rotation=manual_explicit_only
+
+BITWARDEN:
+cli=bw
+procedure=megavault.sqlite:knowledge_notes:bitwarden_cli_secure_workflow
+locked=stop_and_request_local_user_unlock
+forbid=master_password_capture|master_password_prompt_echo|session_print|session_commit|secret_values_in_report_git_megavault_shell_history
+session=temporary_local_only
+sync=before_and_after
+write=upsert_idempotent_no_duplicates
+verify=field_names_and_attachment_presence_only_no_values
+attachments=stream_or_fifo_or_equivalent_no_persistent_plaintext_temp
+finish=cleanup+bw_lock
 
 INCIDENTS:
 identity=one_observed_occurrence
