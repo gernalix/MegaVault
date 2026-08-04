@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=22
+VERSION=23
 STATUS=AUTHORITATIVE_BOOTSTRAP
 MODE=codex_first
 FORMAT=ultracompact_key_value
@@ -54,6 +54,11 @@ DATABASE:
 path=megavault.sqlite
 schema_source=sqlite_schema
 required_tables=projects,permanent_ids,project_aliases,repositories,hosts,integrations,services,secret_refs,data_assets,incidents,incident_events,tags,tag_aliases,incident_tags,events,knowledge_notes
+codex_index_view=codex_project_index
+codex_index_fields=project_id,slug,project_status,archived,canonical_host,canonical_worktree,repository_kind,canonical_branch,remote_url,head,repository_status,runtime_host,runtime_path
+codex_index_rule=one_row_per_project;row_number_ordered_by_canonical_then_id;no_group_by_arbitrary_values
+codex_cli=project-list;project-show_PROJECT_ID;project-path_PROJECT_ID
+project_path_stdout=canonical_worktree_only;nonzero_if_absent_or_ambiguous
 foreign_keys=must_pass
 project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense
 secret_values=never_store;reference_paths_only

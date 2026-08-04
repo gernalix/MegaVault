@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import re
 import sqlite3
+import subprocess
 import sys
 from pathlib import Path
 
@@ -13,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -225,6 +226,15 @@ def table_exists(conn: sqlite3.Connection, table: str) -> bool:
         ).fetchone()
         is not None
     )
+
+
+def ensure_column(
+    conn: sqlite3.Connection, table: str, column: str, definition: str
+) -> bool:
+    if column in table_columns(conn, table):
+        return False
+    conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
+    return True
 
 
 def incident_id_is_integer(conn: sqlite3.Connection) -> bool:
@@ -664,11 +674,333 @@ def backfill_legacy_incident_tags(conn: sqlite3.Connection) -> bool:
     return changed
 
 
+def normalize_remote_url(value: str | None) -> str | None:
+    if not value:
+        return None
+    value = value.strip()
+    if value.startswith("remote:"):
+        value = value.removeprefix("remote:")
+    if value.endswith(".git"):
+        value = value[:-4]
+    return value or None
+
+
+def git_value(path: str, *args: str) -> str | None:
+    proc = subprocess.run(
+        ["git", "-C", path, *args],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    value = proc.stdout.strip()
+    if proc.returncode != 0:
+        return None
+    return value or None
+
+
+def repository_runtime_parts(location: str) -> tuple[str | None, str | None]:
+    raw = location.removeprefix("remote:")
+    if raw.startswith("ubuntu@"):
+        _, _, path = raw.partition(":")
+        return "H0002", path or None
+    if location.startswith("Windows:"):
+        return "H0003", location.removeprefix("Windows:") or None
+    return None, None
+
+
+def infer_repository_kind(kind: str, location: str) -> str:
+    if kind == "local":
+        return "local_worktree"
+    if kind == "legacy" or location.startswith("legacy:"):
+        return "legacy"
+    if location.startswith("remote:http"):
+        return "remote_repository"
+    if location.startswith("Windows:"):
+        return "remote_host"
+    if kind == "remote" or location.startswith("remote:"):
+        return "runtime"
+    return kind
+
+
+def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
+    changed = False
+    rows = conn.execute(
+        """
+        select repository_id, location, kind, branch, head, status, canonical,
+               repository_kind, host_id, worktree_path, remote_url, runtime_path
+        from repositories
+        order by repository_id
+        """
+    ).fetchall()
+    for row in rows:
+        (
+            repository_id,
+            location,
+            kind,
+            branch,
+            head,
+            status,
+            canonical,
+            current_repository_kind,
+            current_host_id,
+            current_worktree_path,
+            current_remote_url,
+            current_runtime_path,
+        ) = row
+        repository_kind = infer_repository_kind(kind, location)
+        host_id = current_host_id
+        worktree_path = current_worktree_path
+        remote_url = current_remote_url
+        runtime_path = current_runtime_path
+        next_branch = branch
+        next_head = head
+
+        if repository_kind == "local_worktree":
+            host_id = "H0001"
+            worktree_path = location
+            path = Path(location)
+            if (path / ".git").exists():
+                next_branch = git_value(location, "branch", "--show-current") or branch
+                next_head = git_value(location, "rev-parse", "HEAD") or head
+                remote_url = normalize_remote_url(
+                    git_value(location, "remote", "get-url", "origin")
+                )
+            if path.exists() and not status:
+                status = "present"
+        elif repository_kind == "remote_repository":
+            remote_url = normalize_remote_url(location)
+        elif repository_kind in {"runtime", "remote_host"}:
+            host_id, runtime_path = repository_runtime_parts(location)
+        elif repository_kind == "legacy":
+            worktree_path = None
+            legacy_path = Path(location.removeprefix("legacy:"))
+            if not legacy_path.exists():
+                canonical = 0
+
+        values = (
+            repository_kind,
+            host_id,
+            worktree_path,
+            remote_url,
+            runtime_path,
+            next_branch,
+            next_head,
+            canonical,
+            repository_id,
+        )
+        before = conn.total_changes
+        conn.execute(
+            """
+            update repositories
+            set repository_kind=?,
+                host_id=?,
+                worktree_path=?,
+                remote_url=?,
+                runtime_path=?,
+                branch=?,
+                head=?,
+                canonical=?
+            where repository_id=?
+              and (
+                repository_kind is not ? or host_id is not ? or
+                worktree_path is not ? or remote_url is not ? or
+                runtime_path is not ? or branch is not ? or head is not ? or
+                canonical is not ?
+              )
+            """,
+            (*values[:-1], repository_id, *values[:-1]),
+        )
+        changed = changed or conn.total_changes > before
+    return changed
+
+
+def ensure_codex_project_index_view(conn: sqlite3.Connection) -> None:
+    conn.execute("DROP VIEW IF EXISTS codex_project_index")
+    conn.execute(
+        """
+        CREATE VIEW codex_project_index AS
+        WITH
+        worktree AS (
+          SELECT *
+          FROM (
+            SELECT
+              r.project_id,
+              r.repository_kind,
+              h.name AS host_name,
+              r.worktree_path,
+              r.remote_url,
+              r.branch,
+              r.head,
+              r.status,
+              row_number() OVER (
+                PARTITION BY r.project_id
+                ORDER BY r.canonical DESC, r.repository_id
+              ) AS rn
+            FROM repositories r
+            LEFT JOIN hosts h ON h.host_id=r.host_id
+            WHERE r.repository_kind='local_worktree'
+              AND r.worktree_path IS NOT NULL
+          )
+          WHERE rn=1
+        ),
+        remote_repo AS (
+          SELECT *
+          FROM (
+            SELECT
+              r.project_id,
+              r.repository_kind,
+              r.remote_url,
+              r.branch,
+              r.head,
+              r.status,
+              row_number() OVER (
+                PARTITION BY r.project_id
+                ORDER BY r.canonical DESC, r.repository_id
+              ) AS rn
+            FROM repositories r
+            WHERE r.remote_url IS NOT NULL
+          )
+          WHERE rn=1
+        ),
+        runtime_repo AS (
+          SELECT *
+          FROM (
+            SELECT
+              r.project_id,
+              r.repository_kind,
+              h.name AS host_name,
+              r.runtime_path,
+              r.status,
+              row_number() OVER (
+                PARTITION BY r.project_id
+                ORDER BY r.canonical DESC, r.repository_id
+              ) AS rn
+            FROM repositories r
+            LEFT JOIN hosts h ON h.host_id=r.host_id
+            WHERE r.repository_kind IN ('runtime', 'remote_host')
+          )
+          WHERE rn=1
+        ),
+        runtime_service AS (
+          SELECT *
+          FROM (
+            SELECT
+              s.project_id,
+              h.name AS host_name,
+              s.runtime_path,
+              row_number() OVER (
+                PARTITION BY s.project_id
+                ORDER BY
+                  CASE WHEN s.state LIKE '%removed%' OR s.state LIKE '%not-found%' THEN 1 ELSE 0 END,
+                  CASE WHEN h.kind='remote_server' THEN 0 ELSE 1 END,
+                  s.service_id
+              ) AS rn
+            FROM services s
+            LEFT JOIN hosts h ON h.host_id=s.host_id
+            WHERE s.project_id IS NOT NULL
+              AND s.runtime_path IS NOT NULL
+          )
+          WHERE rn=1
+        ),
+        legacy_project AS (
+          SELECT DISTINCT project_id
+          FROM repositories
+          WHERE repository_kind='legacy'
+        )
+        SELECT
+          p.project_id,
+          p.slug,
+          CASE
+            WHEN p.archived=1 THEN 'archived'
+            WHEN worktree.worktree_path IS NOT NULL
+              OR runtime_service.runtime_path IS NOT NULL
+              OR runtime_repo.host_name IS NOT NULL
+              OR remote_repo.remote_url IS NOT NULL
+              THEN 'active'
+            WHEN legacy_project.project_id IS NOT NULL THEN 'missing'
+            ELSE 'unresolved'
+          END AS project_status,
+          p.archived,
+          COALESCE(worktree.host_name, runtime_service.host_name, runtime_repo.host_name) AS canonical_host,
+          worktree.worktree_path AS canonical_worktree,
+          COALESCE(worktree.repository_kind, remote_repo.repository_kind, runtime_repo.repository_kind, 'legacy') AS repository_kind,
+          COALESCE(worktree.branch, remote_repo.branch) AS canonical_branch,
+          COALESCE(remote_repo.remote_url, worktree.remote_url) AS remote_url,
+          COALESCE(worktree.head, remote_repo.head) AS head,
+          COALESCE(worktree.status, remote_repo.status, runtime_repo.status) AS repository_status,
+          COALESCE(runtime_service.host_name, runtime_repo.host_name) AS runtime_host,
+          COALESCE(runtime_service.runtime_path, runtime_repo.runtime_path) AS runtime_path
+        FROM projects p
+        LEFT JOIN worktree ON worktree.project_id=p.project_id
+        LEFT JOIN remote_repo ON remote_repo.project_id=p.project_id
+        LEFT JOIN runtime_repo ON runtime_repo.project_id=p.project_id
+        LEFT JOIN runtime_service ON runtime_service.project_id=p.project_id
+        LEFT JOIN legacy_project ON legacy_project.project_id=p.project_id
+        """
+    )
+
+
+def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
+    changed = False
+    if not table_exists(conn, "repositories"):
+        return False
+    changed = ensure_column(conn, "repositories", "repository_kind", "TEXT") or changed
+    changed = ensure_column(
+        conn,
+        "repositories",
+        "host_id",
+        "TEXT REFERENCES hosts(host_id) ON UPDATE CASCADE ON DELETE SET NULL",
+    ) or changed
+    changed = ensure_column(conn, "repositories", "worktree_path", "TEXT") or changed
+    changed = ensure_column(conn, "repositories", "remote_url", "TEXT") or changed
+    changed = ensure_column(conn, "repositories", "runtime_path", "TEXT") or changed
+    changed = refresh_repository_index_rows(conn) or changed
+    execute_statements(
+        conn,
+        """
+        CREATE INDEX IF NOT EXISTS idx_repositories_project_kind
+          ON repositories(project_id, repository_kind, canonical, repository_id);
+        CREATE UNIQUE INDEX IF NOT EXISTS idx_repositories_one_canonical_worktree
+          ON repositories(project_id)
+          WHERE repository_kind='local_worktree' AND canonical=1;
+        """
+    )
+    ensure_codex_project_index_view(conn)
+    before = conn.total_changes
+    conn.execute(
+        "update projects set status='active' where project_id=23 and status<>'active'"
+    )
+    changed = changed or conn.total_changes > before
+    before = conn.total_changes
+    conn.execute(
+        "update repositories set status='active' where project_id=23 and status<>'active'"
+    )
+    changed = changed or conn.total_changes > before
+    before = conn.total_changes
+    conn.execute(
+        """
+        insert or ignore into data_assets(
+            data_asset_id, project_id, host_id, name, asset_type, path, status, notes
+        )
+        values (
+            'DATA0011', 23, 'H0001', 'megavault.sqlite', 'sqlite',
+            '/home/daniele/MegaVault/megavault.sqlite', 'canonical', 'PROMPT_ID=731604'
+        )
+        """
+    )
+    changed = changed or conn.total_changes > before
+    conn.execute(
+        "insert or replace into schema_meta(key, value) values ('schema_version', ?)",
+        (str(SCHEMA_VERSION),),
+    )
+    return changed
+
+
 def git_tracked() -> list[str]:
     git_dir = ROOT / ".git"
     if not git_dir.exists():
         return []
-    import subprocess
 
     proc = subprocess.run(
         ["git", "-C", str(ROOT), "ls-files"],
@@ -739,6 +1071,47 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
     if missing:
         errors.append(f"missing required tables: {missing}")
         return errors
+    repository_columns = table_columns(conn, "repositories")
+    for column in (
+        "repository_kind",
+        "host_id",
+        "worktree_path",
+        "remote_url",
+        "runtime_path",
+    ):
+        if column not in repository_columns:
+            errors.append(f"repositories missing operational column: {column}")
+    if not table_exists(conn, "codex_project_index"):
+        errors.append("missing codex_project_index view")
+    else:
+        project_count = conn.execute("select count(*) from projects").fetchone()[0]
+        view_count = conn.execute("select count(*) from codex_project_index").fetchone()[0]
+        if view_count != project_count:
+            errors.append(
+                f"codex_project_index row count mismatch: projects={project_count} view={view_count}"
+            )
+        duplicate_view_rows = conn.execute(
+            """
+            select project_id, count(*)
+            from codex_project_index
+            group by project_id
+            having count(*)<>1
+            """
+        ).fetchall()
+        if duplicate_view_rows:
+            errors.append(f"codex_project_index duplicate rows: {duplicate_view_rows!r}")
+    if "repository_kind" in repository_columns:
+        ambiguous_worktrees = conn.execute(
+            """
+            select project_id, count(*)
+            from repositories
+            where repository_kind='local_worktree' and canonical=1
+            group by project_id
+            having count(*) > 1
+            """
+        ).fetchall()
+        if ambiguous_worktrees:
+            errors.append(f"ambiguous canonical worktrees: {ambiguous_worktrees!r}")
     if not incident_id_is_integer(conn):
         errors.append("incidents.incident_id must be INTEGER PRIMARY KEY")
     incident_columns = table_columns(conn, "incidents")
@@ -925,6 +1298,117 @@ def project(alias: str) -> int:
     return 0
 
 
+CODEX_PROJECT_FIELDS = (
+    "project_id",
+    "slug",
+    "project_status",
+    "archived",
+    "canonical_host",
+    "canonical_worktree",
+    "repository_kind",
+    "canonical_branch",
+    "remote_url",
+    "head",
+    "repository_status",
+    "runtime_host",
+    "runtime_path",
+)
+
+
+def project_index_row(conn: sqlite3.Connection, project_id: int) -> sqlite3.Row | tuple | None:
+    return conn.execute(
+        """
+        select project_id, slug, project_status, archived, canonical_host,
+               canonical_worktree, repository_kind, canonical_branch, remote_url,
+               head, repository_status, runtime_host, runtime_path
+        from codex_project_index
+        where project_id=?
+        """,
+        (project_id,),
+    ).fetchone()
+
+
+def project_list_command() -> int:
+    conn = connect()
+    for row in conn.execute(
+        """
+        select project_id, slug, project_status, canonical_host, canonical_worktree,
+               runtime_host, runtime_path
+        from codex_project_index
+        order by project_id
+        """
+    ):
+        print(
+            "project_id={};slug={};project_status={};canonical_host={};"
+            "canonical_worktree={};runtime_host={};runtime_path={}".format(
+                row[0],
+                row[1],
+                row[2],
+                row[3] or "",
+                row[4] or "",
+                row[5] or "",
+                row[6] or "",
+            )
+        )
+    return 0
+
+
+def project_show_command(project_id: int) -> int:
+    conn = connect()
+    row = project_index_row(conn, project_id)
+    if not row:
+        print(f"PROJECT=NOT_FOUND project_id={project_id}", file=sys.stderr)
+        return 1
+    for label, value in zip(CODEX_PROJECT_FIELDS, row):
+        print(f"{label}={value if value is not None else ''}")
+    services = conn.execute(
+        """
+        select coalesce(h.name, ''), s.name, coalesce(s.scope, ''),
+               coalesce(s.unit, ''), coalesce(s.runtime_path, ''),
+               coalesce(s.state, '')
+        from services s
+        left join hosts h on h.host_id=s.host_id
+        where s.project_id=?
+        order by s.service_id
+        """,
+        (project_id,),
+    ).fetchall()
+    for host, name, scope, unit, runtime_path, state in services:
+        print(
+            f"service={name};host={host};scope={scope};unit={unit};"
+            f"runtime_path={runtime_path};state={state}"
+        )
+    return 0
+
+
+def project_path_command(project_id: int) -> int:
+    conn = connect()
+    row = project_index_row(conn, project_id)
+    if not row:
+        print(f"PROJECT_PATH=NOT_FOUND project_id={project_id}", file=sys.stderr)
+        return 1
+    ambiguous = conn.execute(
+        """
+        select count(*)
+        from repositories
+        where project_id=?
+          and repository_kind='local_worktree'
+          and canonical=1
+          and worktree_path is not null
+        """,
+        (project_id,),
+    ).fetchone()[0]
+    if ambiguous > 1:
+        print(f"PROJECT_PATH=AMBIGUOUS project_id={project_id}", file=sys.stderr)
+        return 1
+    path = row[5]
+    if not path:
+        print(f"PROJECT_PATH=ABSENT project_id={project_id}", file=sys.stderr)
+        return 1
+    print(path)
+    return 0
+
+
 def migrate_database() -> int:
     conn = sqlite3.connect(DB)
     conn.isolation_level = None
@@ -932,7 +1416,14 @@ def migrate_database() -> int:
         conn.execute("PRAGMA legacy_alter_table=ON")
         conn.execute("PRAGMA foreign_keys=OFF")
         conn.execute("BEGIN")
-        changed = migrate_incident_schema(conn)
+        schema_version = conn.execute(
+            "select value from schema_meta where key='schema_version'"
+        ).fetchone()
+        incident_schema_current = schema_version and int(schema_version[0]) >= 4
+        changed = False
+        if not incident_schema_current or not incident_id_is_integer(conn):
+            changed = migrate_incident_schema(conn)
+        changed = migrate_project_index_schema(conn) or changed
         conn.execute("COMMIT")
     except Exception:
         if conn.in_transaction:
@@ -1147,6 +1638,11 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("migrate")
     project_parser = sub.add_parser("project")
     project_parser.add_argument("alias")
+    sub.add_parser("project-list")
+    project_show_parser = sub.add_parser("project-show")
+    project_show_parser.add_argument("project_id", type=int)
+    project_path_parser = sub.add_parser("project-path")
+    project_path_parser.add_argument("project_id", type=int)
     tag_parser = sub.add_parser("tag")
     tag_parser.add_argument("tag_args", nargs="+")
     tag_parser.add_argument("--description")
@@ -1184,6 +1680,12 @@ def main(argv: list[str] | None = None) -> int:
         return migrate_database()
     if args.cmd == "project":
         return project(args.alias)
+    if args.cmd == "project-list":
+        return project_list_command()
+    if args.cmd == "project-show":
+        return project_show_command(args.project_id)
+    if args.cmd == "project-path":
+        return project_path_command(args.project_id)
     if args.cmd == "tag":
         return tag_command(args)
     if args.cmd == "tag-alias":

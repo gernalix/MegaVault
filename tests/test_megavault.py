@@ -1,6 +1,7 @@
 import sqlite3
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -60,6 +61,132 @@ class MegaVaultTests(unittest.TestCase):
         conn.execute("PRAGMA foreign_keys=ON")
         self.assertEqual("ok", conn.execute("PRAGMA integrity_check").fetchone()[0])
         self.assertEqual([], conn.execute("PRAGMA foreign_key_check").fetchall())
+
+    def test_codex_project_index_has_one_row_per_project(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        project_count = conn.execute("select count(*) from projects").fetchone()[0]
+        index_count = conn.execute("select count(*) from codex_project_index").fetchone()[0]
+        self.assertEqual(project_count, index_count)
+        duplicates = conn.execute(
+            """
+            select project_id
+            from codex_project_index
+            group by project_id
+            having count(*) <> 1
+            """
+        ).fetchall()
+        self.assertEqual([], duplicates)
+
+    def test_no_ambiguous_canonical_worktree(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        ambiguous = conn.execute(
+            """
+            select project_id
+            from repositories
+            where repository_kind='local_worktree' and canonical=1
+            group by project_id
+            having count(*) > 1
+            """
+        ).fetchall()
+        self.assertEqual([], ambiguous)
+
+    def test_codex_index_resolves_local_project(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        row = conn.execute(
+            """
+            select project_status, canonical_host, canonical_worktree,
+                   repository_kind, canonical_branch, remote_url
+            from codex_project_index
+            where project_id=23
+            """
+        ).fetchone()
+        self.assertEqual(
+            (
+                "active",
+                "fedora",
+                "/home/daniele/MegaVault",
+                "local_worktree",
+                "master",
+                "https://github.com/gernalix/MegaVault",
+            ),
+            row,
+        )
+
+    def test_codex_index_resolves_remote_deploy(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        row = conn.execute(
+            """
+            select runtime_host, runtime_path
+            from codex_project_index
+            where project_id=42
+            """
+        ).fetchone()
+        self.assertEqual(
+            ("oracle-vm", "/home/ubuntu/sync_root/bots/telegram_insert_bot"),
+            row,
+        )
+
+    def test_codex_index_classifies_archived_and_legacy_missing(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        archived = conn.execute(
+            "select project_status, repository_kind from codex_project_index where project_id=2"
+        ).fetchone()
+        missing = conn.execute(
+            "select project_status, canonical_worktree from codex_project_index where project_id=3"
+        ).fetchone()
+        self.assertEqual(("archived", "legacy"), archived)
+        self.assertEqual(("missing", None), missing)
+
+    def test_project_path_cli(self):
+        resolved = self.run_tool("project-path", "23")
+        self.assertEqual(resolved.returncode, 0, resolved.stderr)
+        self.assertEqual("/home/daniele/MegaVault", resolved.stdout.strip())
+
+        missing = self.run_tool("project-path", "3")
+        self.assertNotEqual(missing.returncode, 0)
+        self.assertIn("PROJECT_PATH=ABSENT", missing.stderr)
+
+    def test_project_index_migration_is_idempotent_and_preserves_counts(self):
+        source = sqlite3.connect(ROOT / "megavault.sqlite")
+        with tempfile.TemporaryDirectory() as tmp:
+            copy_path = Path(tmp) / "megavault-copy.sqlite"
+            copy = sqlite3.connect(copy_path)
+            source.backup(copy)
+            copy.close()
+
+            conn = sqlite3.connect(copy_path)
+            conn.execute("PRAGMA foreign_keys=ON")
+            tables = (
+                "projects",
+                "project_aliases",
+                "repositories",
+                "hosts",
+                "services",
+                "data_assets",
+                "incidents",
+                "incident_events",
+                "tags",
+                "tag_aliases",
+                "incident_tags",
+                "events",
+            )
+            before = {
+                table: conn.execute(f"select count(*) from {table}").fetchone()[0]
+                for table in tables
+            }
+            self.assertFalse(megavault.migrate_project_index_schema(conn))
+            after_first = {
+                table: conn.execute(f"select count(*) from {table}").fetchone()[0]
+                for table in tables
+            }
+            self.assertEqual(before, after_first)
+            self.assertFalse(megavault.migrate_project_index_schema(conn))
+            after_second = {
+                table: conn.execute(f"select count(*) from {table}").fetchone()[0]
+                for table in tables
+            }
+            self.assertEqual(before, after_second)
+            self.assertEqual([], conn.execute("PRAGMA foreign_key_check").fetchall())
 
     def test_current_incident_taxonomy_is_migrated(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
