@@ -16,6 +16,7 @@ READ_ORDER:
 3=python3 megavault.py validate
 4=query megavault.sqlite for project/host/service/secret/incident facts
 5=target_repository_code/docs_only_when_needed
+read_once_per_task_session=yes_unless_files_changed_or_scope_explicitly_changes
 
 GIT:
 canonical_branch=origin_HEAD_or_current_trunk
@@ -42,13 +43,14 @@ venv_without_override=protocol_violation
 
 CAPSULIZATION:
 CAPSULIZATION=mandatory_all_projects
-CAPSULE_TARGET=100_percent
+CAPSULE_TARGET=progressive
 NEW_CODE=capsule_only
 SHARED_LOGIC=capsule_only
 UI_DIRECT_DEPENDENCY=forbidden
 CROSS_MODULE_ACCESS=through_capsules_only
-LEGACY_REFACTOR=progressively_until_100_percent
-FINAL_GATE=verify_capsulization_before_final
+LEGACY_REFACTOR=reduce_when_benefit_exceeds_cost_risk
+LEGACY_RESIDUALS=document_and_verify
+FINAL_GATE=verify_capsule_first_boundaries_and_documented_residuals_before_final
 
 DATABASE:
 path=megavault.sqlite

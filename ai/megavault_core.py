@@ -128,13 +128,14 @@ TRACKED_FORBIDDEN_FILES = {
 REQUIRED_PROTOCOL_FAMILIES = {
     "capsulization": (
         "CAPSULIZATION=mandatory_all_projects",
-        "CAPSULE_TARGET=100_percent",
+        "CAPSULE_TARGET=progressive",
         "NEW_CODE=capsule_only",
         "SHARED_LOGIC=capsule_only",
         "UI_DIRECT_DEPENDENCY=forbidden",
         "CROSS_MODULE_ACCESS=through_capsules_only",
-        "LEGACY_REFACTOR=progressively_until_100_percent",
-        "FINAL_GATE=verify_capsulization_before_final",
+        "LEGACY_REFACTOR=reduce_when_benefit_exceeds_cost_risk",
+        "LEGACY_RESIDUALS=document_and_verify",
+        "FINAL_GATE=verify_capsule_first_boundaries_and_documented_residuals_before_final",
     ),
     "python_environment": (
         "PYTHON:",
