@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 import sqlite3
 import subprocess
@@ -14,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
+TEXT_EXPORT = ROOT / "ai" / "MEGAVAULT_EXPORT.txt"
 SCHEMA_VERSION = 7
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
@@ -126,6 +128,12 @@ TRACKED_FORBIDDEN_FILES = {
     "build_codex_global_timeline.py",
     "protocol_lint.py",
 }
+TEXT_EXPORT_SECRET_PATTERNS = (
+    re.compile(r"\b\d{6,}:[A-Za-z0-9_-]{20,}\b"),
+    re.compile(r"\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b"),
+    re.compile(r"\bgh[pousr]_[A-Za-z0-9_]{20,}\b"),
+    re.compile(r"\beyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\b"),
+)
 REQUIRED_PROTOCOL_FAMILIES = {
     "capsulization": (
         "CAPSULIZATION=mandatory_all_projects",
@@ -1210,6 +1218,104 @@ def git_tracked() -> list[str]:
     return [line for line in proc.stdout.splitlines() if line]
 
 
+def export_redact(value: object) -> str:
+    text = "" if value is None else str(value)
+    text = text.replace("\x00", " ")
+    for pattern in TEXT_EXPORT_SECRET_PATTERNS:
+        text = pattern.sub("[REDACTED]", text)
+    return " ".join(text.split())
+
+
+def export_line(prefix: str, row: sqlite3.Row, fields: tuple[str, ...]) -> str:
+    parts = []
+    for field in fields:
+        value = export_redact(row[field])
+        if value:
+            parts.append(f"{field}={value}")
+    return f"{prefix}|" + ";".join(parts)
+
+
+def deterministic_text_export(conn: sqlite3.Connection) -> str:
+    conn.row_factory = sqlite3.Row
+    lines = [
+        "# MEGAVAULT_EXPORT",
+        "generated=deterministic_from_megavault.sqlite",
+        "authority=megavault.sqlite",
+        "secrets=redacted_or_reference_only",
+        "",
+    ]
+    sections: tuple[tuple[str, str, tuple[str, ...]], ...] = (
+        (
+            "projects",
+            "select project_id, slug, name, status, archived from projects order by project_id",
+            ("project_id", "slug", "name", "status", "archived"),
+        ),
+        (
+            "repositories",
+            "select repository_id, project_id, location, repository_kind, branch, head, status, runtime_path from repositories order by project_id, repository_id",
+            ("repository_id", "project_id", "location", "repository_kind", "branch", "head", "status", "runtime_path"),
+        ),
+        (
+            "services",
+            "select service_id, project_id, host_id, name, scope, unit, runtime_path, state, purpose, source_ref from services order by project_id, service_id",
+            ("service_id", "project_id", "host_id", "name", "scope", "unit", "runtime_path", "state", "purpose", "source_ref"),
+        ),
+        (
+            "data_assets",
+            "select data_asset_id, project_id, host_id, name, asset_type, path, status from data_assets order by project_id, data_asset_id",
+            ("data_asset_id", "project_id", "host_id", "name", "asset_type", "path", "status"),
+        ),
+        (
+            "events",
+            "select event_id, event_date, project_id, category, importance, label_short, event_type, summary, source_path, branch, commit_hash, status from events order by event_date, event_id",
+            ("event_id", "event_date", "project_id", "category", "importance", "label_short", "event_type", "summary", "source_path", "branch", "commit_hash", "status"),
+        ),
+        (
+            "knowledge_notes",
+            "select note_id, project_id, topic, source_ref, status from knowledge_notes order by project_id, note_id",
+            ("note_id", "project_id", "topic", "source_ref", "status"),
+        ),
+    )
+    for name, sql, fields in sections:
+        rows = conn.execute(sql).fetchall()
+        lines.append(f"[{name}] count={len(rows)}")
+        lines.extend(export_line(name, row, fields) for row in rows)
+        lines.append("")
+    body = "\n".join(lines).rstrip() + "\n"
+    digest = hashlib.sha256(body.encode("utf-8")).hexdigest()
+    return body + f"sha256_without_footer={digest}\n"
+
+
+def export_text_command(args: argparse.Namespace) -> int:
+    output = Path(args.output) if args.output else TEXT_EXPORT
+    conn = connect()
+    try:
+        text = deterministic_text_export(conn)
+    finally:
+        conn.close()
+    output.write_text(text, encoding="utf-8")
+    print(f"TEXT_EXPORT=OK path={output} bytes={len(text.encode('utf-8'))}")
+    return 0
+
+
+def verify_text_export_command(args: argparse.Namespace) -> int:
+    path = Path(args.path) if args.path else TEXT_EXPORT
+    if not path.exists():
+        print(f"TEXT_EXPORT=FAIL missing={path}", file=sys.stderr)
+        return 1
+    conn = connect()
+    try:
+        expected = deterministic_text_export(conn)
+    finally:
+        conn.close()
+    actual = path.read_text(encoding="utf-8")
+    if actual != expected:
+        print(f"TEXT_EXPORT=FAIL stale_or_modified path={path}", file=sys.stderr)
+        return 1
+    print(f"TEXT_EXPORT=PASS path={path}")
+    return 0
+
+
 def protocol_semantic_errors(raw: str | None = None) -> list[str]:
     errors: list[str] = []
     if raw is None:
@@ -1925,6 +2031,10 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("validate")
     sub.add_parser("migrate")
+    export_text_parser = sub.add_parser("export-text")
+    export_text_parser.add_argument("--output")
+    verify_text_parser = sub.add_parser("verify-text-export")
+    verify_text_parser.add_argument("--path")
     project_parser = sub.add_parser("project")
     project_parser.add_argument("alias")
     sub.add_parser("project-list")
@@ -1972,6 +2082,10 @@ def main(argv: list[str] | None = None) -> int:
         return validate()
     if args.cmd == "migrate":
         return migrate_database()
+    if args.cmd == "export-text":
+        return export_text_command(args)
+    if args.cmd == "verify-text-export":
+        return verify_text_export_command(args)
     if args.cmd == "project":
         return project(args.alias)
     if args.cmd == "project-list":

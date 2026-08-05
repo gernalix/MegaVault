@@ -29,6 +29,7 @@ INCIDENT_POLICY = (
 _core.ROOT = ROOT
 _core.DB = DB
 _core.PROTOCOL = PROTOCOL
+_core.TEXT_EXPORT = ROOT / "ai" / "MEGAVAULT_EXPORT.txt"
 _core.REQUIRED_PROTOCOL_FAMILIES["incident_policy"] = INCIDENT_POLICY
 
 
@@ -116,6 +117,7 @@ globals().update(
         "ROOT": ROOT,
         "DB": DB,
         "PROTOCOL": PROTOCOL,
+        "TEXT_EXPORT": ROOT / "ai" / "MEGAVAULT_EXPORT.txt",
         "INCIDENT_POLICY": INCIDENT_POLICY,
         "connect": connect,
         "link_incident_tag": link_incident_tag,
