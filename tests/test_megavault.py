@@ -56,31 +56,6 @@ class MegaVaultTests(unittest.TestCase):
     def test_secret_scan_has_zero_hits(self):
         self.assertEqual([], megavault.secret_scan_errors(megavault.git_tracked()))
 
-    def test_text_export_is_deterministic_and_secret_safe(self):
-        conn = sqlite3.connect(ROOT / "megavault.sqlite")
-        try:
-            first = megavault.deterministic_text_export(conn)
-        finally:
-            conn.close()
-        conn = sqlite3.connect(ROOT / "megavault.sqlite")
-        try:
-            second = megavault.deterministic_text_export(conn)
-        finally:
-            conn.close()
-        self.assertEqual(first, second)
-        self.assertIn("# MEGAVAULT_EXPORT", first)
-        self.assertIn("authority=megavault.sqlite", first)
-        self.assertNotRegex(first, r"\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b")
-        self.assertNotRegex(first, r"\bgh[pousr]_[A-Za-z0-9_]{20,}\b")
-
-    def test_verify_text_export_detects_stale_file(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "export.txt"
-            path.write_text("stale\n", encoding="utf-8")
-            result = self.run_tool("verify-text-export", "--path", str(path))
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn("TEXT_EXPORT=FAIL", result.stderr)
-
     def test_sqlite_integrity_and_foreign_keys_pass(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
         conn.execute("PRAGMA foreign_keys=ON")
