@@ -1,4 +1,6 @@
+import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 from ai import reporting
 
@@ -10,9 +12,11 @@ def test_finish_task_delegates_to_shared_library(monkeypatch) -> None:
         captured.update(plain=plain, technical=technical, **kwargs)
         return {"plain_message_parts": 1}
 
-    import telegram_notify
-
-    monkeypatch.setattr(telegram_notify, "send_task_reports", fake_send_task_reports)
+    monkeypatch.setitem(
+        sys.modules,
+        "telegram_notify",
+        SimpleNamespace(send_task_reports=fake_send_task_reports),
+    )
     result = reporting.finish_task(
         "plain",
         "technical",
