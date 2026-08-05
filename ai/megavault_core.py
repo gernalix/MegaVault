@@ -98,6 +98,7 @@ DEFAULT_TAG_ALIASES = {
 }
 ROOT_ALLOWLIST = {
     ".git",
+    ".github",
     ".gitignore",
     "ai",
     "legacy",
