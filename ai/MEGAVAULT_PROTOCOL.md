@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=27
+VERSION=28
 STATUS=AUTHORITATIVE_BOOTSTRAP
 MODE=codex_first
 FORMAT=ultracompact_key_value
@@ -147,6 +147,16 @@ final_fields=files_changed,tests,test_result,docs_or_MegaVault_updates,repo_stat
 blockers=root_cause,impact,workaround,resolution,status;silent_workaround_retry_skip=forbidden
 optimization=root_cause,impact,estimated_future_savings,one_time_fix,priority,confidence,status;section=mandatory
 success_forbid=silent_failure,false_success,unverified_PASS
+telegram_final_report=mandatory_after_final_text_is_complete
+telegram_library=telegram_notify.py_top_level_package
+telegram_api=telegram_notify.send_final_report
+telegram_content=verbatim_complete_final_report;no_summary;no_truncation
+telegram_long_report=numbered_messages_plus_temporary_txt_attachment
+telegram_title=Codex_Final_Report+PROMPT_ID_when_available
+telegram_secrets=forbidden_in_message_attachment_logs
+telegram_failure=must_report_locally;must_not_claim_notification_PASS;task_result_preserved
+telegram_final_fields=TELEGRAM_NOTIFICATION_PASS_or_FAIL,TELEGRAM_MESSAGE_PARTS,TELEGRAM_ATTACHMENT_SENT
+telegram_cli=python3_-m_telegram_notify_--final-report-file_REPORT_PATH_TITLE
 
 VALIDATION:
 command=python3 megavault.py validate
