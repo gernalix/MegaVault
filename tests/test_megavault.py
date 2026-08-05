@@ -340,9 +340,9 @@ class MegaVaultTests(unittest.TestCase):
         incident_ids = [
             row[0] for row in conn.execute("select incident_id from incidents order by incident_id")
         ]
-        self.assertEqual(list(range(1, 30)), incident_ids)
+        self.assertEqual(list(range(1, 31)), incident_ids)
         self.assertEqual(
-            29,
+            30,
             conn.execute(
                 """
                 select count(*)
