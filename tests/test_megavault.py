@@ -340,9 +340,9 @@ class MegaVaultTests(unittest.TestCase):
         incident_ids = [
             row[0] for row in conn.execute("select incident_id from incidents order by incident_id")
         ]
-        self.assertEqual(list(range(1, 34)), incident_ids)
+        self.assertEqual(list(range(1, 35)), incident_ids)
         self.assertEqual(
-            33,
+            34,
             conn.execute(
                 """
                 select count(*)
@@ -358,6 +358,7 @@ class MegaVaultTests(unittest.TestCase):
             17: {"whatsapp", "notifications", "pixel", "silent"},
             24: {"whatsapp", "notifications", "pixel", "silent"},
             33: {"whatsapp", "notifications", "pixel", "silent", "android", "bug"},
+            34: {"security", "datasette", "oracle", "authentication"},
         }
         for incident_id, tags in expected.items():
             actual = {
