@@ -1,5 +1,5 @@
 # GLOBAL_INDEX
-VERSION=7
+VERSION=8
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
@@ -8,7 +8,8 @@ all=MEGAVAULT_PROTOCOL.md
 facts=../megavault.sqlite
 validate=python3 ../megavault.py validate
 project_lookup=python3 ../megavault.py project <alias-or-slug>
-report_finish=python3 reporting.py --plain-file FINAL_REPORT_PLAIN.txt --technical-file FINAL_REPORT_TECHNICAL.txt --prompt-id PROMPT_ID
+execution_default=FAST
+report_finish_STRICT=python3 reporting.py --plain-file FINAL_REPORT_PLAIN.txt --technical-file FINAL_REPORT_TECHNICAL.txt --prompt-id PROMPT_ID
 
 ROUTING:
 project_id=resolve_only_from_sqlite:project_aliases->projects;integer_primary_key
@@ -23,10 +24,12 @@ integrations=sqlite:integrations
 secrets=sqlite:secret_refs;values_never_stored
 incidents=sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;and_search=multi_tag
 timeline=sqlite:events
-reporting=reporting.py->telegram_notify.send_task_reports;all_projects;plain_message+plain_attachment+technical_attachment
+reporting=FAST:compact_final_no_files;STANDARD:plain_plus_optional_technical;STRICT:reporting.py_paired_reports
 legacy=../legacy/README.md;non_authoritative;explicit_historical_request_only
 
 RULE:
 if_fact_missing=verify_live_or_mark_UNKNOWN
 if_conflict=sqlite_current_fact_beats_deleted_markdown;Git_history_for_past_reports
-report_finish_required=after_both_verified_reports_are_written;failure_must_be_reported_locally
+execution_mode=lowest_safe_mode;FAST_default;promote_only_with_concrete_evidence
+report_finish_required=STRICT_only;STANDARD_when_report_files_created;FAST_bypass
+stop_when_acceptance_pass=yes
