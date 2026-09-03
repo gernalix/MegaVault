@@ -201,7 +201,7 @@ class MegaVaultTests(unittest.TestCase):
     def test_codex_retrieval_views_are_compact_and_status_scoped(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
         expected = {
-            "codex_work_queue": 22,
+            "codex_work_queue": 23,
             "codex_remote_projects": 4,
             "codex_missing_projects": 7,
             "codex_archived_projects": 20,
@@ -236,7 +236,7 @@ class MegaVaultTests(unittest.TestCase):
         work_queue = self.run_tool("project-work-queue")
         self.assertEqual(work_queue.returncode, 0, work_queue.stderr)
         work_lines = work_queue.stdout.strip().splitlines()
-        self.assertEqual(22, len(work_lines))
+        self.assertEqual(23, len(work_lines))
         self.assertTrue(work_lines[0].startswith("project_id=1;slug=amici-fb;"))
         self.assertIn("project_status=LOCAL", work_lines[0])
         self.assertNotIn("project_status=MISSING", work_queue.stdout)
