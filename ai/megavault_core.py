@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 7
+SCHEMA_VERSION = 8
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -1051,6 +1051,334 @@ def ensure_codex_retrieval_views(conn: sqlite3.Connection) -> None:
     )
 
 
+PROJECT_CONTEXT_COMPONENTS = (
+    (
+        8,
+        "usage_monitor_entrypoint",
+        "python_entrypoint",
+        "/home/daniele/projects/codex-usage-monitor/codex_usage_monitor.py",
+        "Collects Codex usage limits, persists SQLite snapshots, and dispatches eligible Telegram notifications.",
+    ),
+    (
+        8,
+        "session_archive_entrypoint",
+        "python_entrypoint",
+        "/home/daniele/projects/codex-usage-monitor/codex_session_archive.py",
+        "Imports native Codex session JSONL into private raw, normalized, markdown, manifest, and SQLite archive outputs.",
+    ),
+    (
+        8,
+        "curated_vault_entrypoint",
+        "python_entrypoint",
+        "/home/daniele/projects/codex-usage-monitor/codex_curated_vault.py",
+        "Builds compact AI-readable session memory from normalized archive records.",
+    ),
+    (
+        8,
+        "systemd_units",
+        "systemd_config",
+        "/home/daniele/projects/codex-usage-monitor/systemd",
+        "Defines Oracle quota monitor service/timer and Fedora user session archive service/timer.",
+    ),
+    (
+        23,
+        "core_cli_schema_validator",
+        "python_module",
+        "/home/daniele/MegaVault/ai/megavault_core.py",
+        "Owns MegaVault schema migrations, canonical views, validator checks, and CLI commands.",
+    ),
+    (
+        23,
+        "strict_tag_wrapper",
+        "python_module",
+        "/home/daniele/MegaVault/ai/strict_tag_wrapper.py",
+        "Wraps incident tag policy and exports the canonical megavault.py command surface.",
+    ),
+    (
+        23,
+        "canonical_sqlite",
+        "sqlite_database",
+        "/home/daniele/MegaVault/megavault.sqlite",
+        "Canonical structured facts for projects, repositories, services, incidents, data assets, and Codex context.",
+    ),
+    (
+        23,
+        "targeted_tests",
+        "test_suite",
+        "/home/daniele/MegaVault/tests/test_megavault.py",
+        "Focused tests for validation, project routing views, migrations, and compact context retrieval.",
+    ),
+    (
+        49,
+        "android_app_module",
+        "gradle_module",
+        "/home/daniele/projects/PersonalHub/app",
+        "Android application shell; reads version.txt for versionCode/versionName and names debug APK as <version>.apk.",
+    ),
+    (
+        49,
+        "core_database_module",
+        "gradle_module",
+        "/home/daniele/projects/PersonalHub/core/database",
+        "Single Room database, SAF import/export, rollback, auto-export, and Datasette sync boundary.",
+    ),
+    (
+        49,
+        "feature_modules",
+        "gradle_modules",
+        "/home/daniele/projects/PersonalHub/feature",
+        "Included feature modules: luoghi, multitimetracker, sostanze, supercontacts, and wordpulse.",
+    ),
+    (
+        49,
+        "operating_rules",
+        "project_manifest",
+        "/home/daniele/projects/PersonalHub/AGENTS.md",
+        "Stable project rules for version increments, single personalhub.db, import/export safety, and APK naming.",
+    ),
+)
+
+
+PROJECT_CONTEXT_OPERATIONS = (
+    (
+        8,
+        "monitor_once",
+        "/usr/bin/python3 /home/ubuntu/codex-usage-monitor/codex_usage_monitor.py once",
+        "Collect one Oracle-hosted Codex usage snapshot and notify only eligible changes.",
+        "oracle-vm",
+        "/home/ubuntu/codex-usage-monitor",
+        "medium",
+        "Uses app-server source and runtime SQLite; keep secrets in configured env files, never in chat.",
+    ),
+    (
+        8,
+        "monitor_status",
+        "python3 codex_usage_monitor.py status",
+        "Read latest monitor SQLite state as JSON.",
+        "fedora",
+        "/home/daniele/projects/codex-usage-monitor",
+        "low",
+        "Read-oriented status command; initializes schema if needed.",
+    ),
+    (
+        8,
+        "session_archive_import",
+        "python3 codex_session_archive.py --archive-root /home/daniele/.local/share/codex-session-archive import",
+        "Import native Codex sessions into the private Fedora archive.",
+        "fedora",
+        "/home/daniele/projects/codex-usage-monitor",
+        "medium",
+        "Systemd user service also runs task costs and curated vault after import.",
+    ),
+    (
+        8,
+        "session_archive_verify",
+        "python3 codex_session_archive.py --archive-root /home/daniele/.local/share/codex-session-archive verify",
+        "Verify archived session hashes and normalized JSONL parsing.",
+        "fedora",
+        "/home/daniele/projects/codex-usage-monitor",
+        "low",
+        "Use before trusting archive records for future context.",
+    ),
+    (
+        23,
+        "validate",
+        "PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate",
+        "Run MegaVault integrity, FK, schema, protocol, registry, and secret-scan checks.",
+        "fedora",
+        "/home/daniele/MegaVault",
+        "low",
+        "Required final gate after MegaVault changes.",
+    ),
+    (
+        23,
+        "migrate",
+        "PYTHONDONTWRITEBYTECODE=1 python3 megavault.py migrate",
+        "Apply idempotent SQLite migrations and canonical view refreshes.",
+        "fedora",
+        "/home/daniele/MegaVault",
+        "medium",
+        "Run against existing DB only when schema or derived canonical facts changed.",
+    ),
+    (
+        23,
+        "unit_tests",
+        "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -q",
+        "Run MegaVault standard-library tests.",
+        "fedora",
+        "/home/daniele/MegaVault",
+        "low",
+        "Targeted suite covers migration idempotence and CLI retrieval.",
+    ),
+    (
+        23,
+        "project_context",
+        "PYTHONDONTWRITEBYTECODE=1 python3 megavault.py codex-project-context PROJECT_ID",
+        "Print compact routing, component, and operation context for one project_id.",
+        "fedora",
+        "/home/daniele/MegaVault",
+        "low",
+        "Use before exploring a governed checkout.",
+    ),
+    (
+        49,
+        "unit_tests",
+        "./gradlew test",
+        "Run JVM/unit tests for PersonalHub modules.",
+        "fedora",
+        "/home/daniele/projects/PersonalHub",
+        "low",
+        "Use before Android package or database behavior claims.",
+    ),
+    (
+        49,
+        "assemble_debug",
+        "./gradlew assembleDebug --no-configuration-cache",
+        "Build signed debug APK named from version.txt.",
+        "fedora",
+        "/home/daniele/projects/PersonalHub",
+        "medium",
+        "APK/device tasks require canonical Android signing env and no configuration cache.",
+    ),
+    (
+        49,
+        "connected_android_tests",
+        "./gradlew connectedDebugAndroidTest --no-configuration-cache",
+        "Run emulator/device integration tests for DB export/import and app flows.",
+        "fedora",
+        "/home/daniele/projects/PersonalHub",
+        "high",
+        "Requires live adb target; do not claim device validation without live evidence.",
+    ),
+)
+
+
+def ensure_project_context_schema(conn: sqlite3.Connection) -> bool:
+    changed = False
+    before = conn.total_changes
+    execute_statements(
+        conn,
+        """
+        CREATE TABLE IF NOT EXISTS project_components (
+          component_id INTEGER PRIMARY KEY AUTOINCREMENT,
+          project_id INTEGER NOT NULL REFERENCES projects(project_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+          component TEXT NOT NULL,
+          type TEXT NOT NULL,
+          path TEXT NOT NULL,
+          purpose TEXT NOT NULL,
+          UNIQUE(project_id, component)
+        );
+        CREATE INDEX IF NOT EXISTS idx_project_components_project
+          ON project_components(project_id, type, component);
+        CREATE TABLE IF NOT EXISTS project_operations (
+          operation_id INTEGER PRIMARY KEY AUTOINCREMENT,
+          project_id INTEGER NOT NULL REFERENCES projects(project_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+          operation TEXT NOT NULL,
+          command TEXT NOT NULL,
+          scope TEXT NOT NULL,
+          host TEXT,
+          workdir TEXT,
+          risk_level TEXT NOT NULL CHECK(risk_level IN ('low', 'medium', 'high')),
+          notes TEXT,
+          UNIQUE(project_id, operation)
+        );
+        CREATE INDEX IF NOT EXISTS idx_project_operations_project
+          ON project_operations(project_id, risk_level, operation);
+        """
+    )
+    changed = changed or conn.total_changes > before
+    for row in PROJECT_CONTEXT_COMPONENTS:
+        before = conn.total_changes
+        conn.execute(
+            """
+            INSERT INTO project_components(project_id, component, type, path, purpose)
+            VALUES (?, ?, ?, ?, ?)
+            ON CONFLICT(project_id, component) DO UPDATE SET
+              type=excluded.type,
+              path=excluded.path,
+              purpose=excluded.purpose
+            WHERE type IS NOT excluded.type
+               OR path IS NOT excluded.path
+               OR purpose IS NOT excluded.purpose
+            """,
+            row,
+        )
+        changed = changed or conn.total_changes > before
+    for row in PROJECT_CONTEXT_OPERATIONS:
+        before = conn.total_changes
+        conn.execute(
+            """
+            INSERT INTO project_operations(
+              project_id, operation, command, scope, host, workdir, risk_level, notes
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(project_id, operation) DO UPDATE SET
+              command=excluded.command,
+              scope=excluded.scope,
+              host=excluded.host,
+              workdir=excluded.workdir,
+              risk_level=excluded.risk_level,
+              notes=excluded.notes
+            WHERE command IS NOT excluded.command
+               OR scope IS NOT excluded.scope
+               OR host IS NOT excluded.host
+               OR workdir IS NOT excluded.workdir
+               OR risk_level IS NOT excluded.risk_level
+               OR notes IS NOT excluded.notes
+            """,
+            row,
+        )
+        changed = changed or conn.total_changes > before
+    ensure_view(
+        conn,
+        "codex_project_context",
+        """
+        CREATE VIEW codex_project_context AS
+        SELECT
+          i.project_id,
+          i.slug,
+          i.project_status,
+          i.canonical_host,
+          i.canonical_worktree,
+          i.runtime_host,
+          i.runtime_path,
+          i.canonical_branch,
+          i.remote_url,
+          coalesce((
+            SELECT group_concat(component_line, '|')
+            FROM (
+              SELECT component || ':' || type || ':' || path || ':' || purpose AS component_line
+              FROM project_components pc
+              WHERE pc.project_id=i.project_id
+              ORDER BY component
+            )
+          ), '') AS components,
+          coalesce((
+            SELECT group_concat(operation_line, '|')
+            FROM (
+              SELECT operation || ':' || risk_level || ':' || coalesce(host, '') || ':' ||
+                     coalesce(workdir, '') || ':' || command || ':' || scope ||
+                     CASE WHEN notes IS NULL OR notes='' THEN '' ELSE ':' || notes END AS operation_line
+              FROM project_operations po
+              WHERE po.project_id=i.project_id
+              ORDER BY operation
+            )
+          ), '') AS operations
+        FROM codex_project_index i
+        """
+    )
+    current_version = conn.execute(
+        "select value from schema_meta where key='schema_version'"
+    ).fetchone()
+    if not current_version or current_version[0] != str(SCHEMA_VERSION):
+        conn.execute(
+            "insert or replace into schema_meta(key, value) values ('schema_version', ?)",
+            (str(SCHEMA_VERSION),),
+        )
+        changed = True
+    return changed
+
+
 def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
     changed = False
     if not table_exists(conn, "repositories"):
@@ -1186,10 +1514,9 @@ def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
     current_version = conn.execute(
         "select value from schema_meta where key='schema_version'"
     ).fetchone()
-    if not current_version or current_version[0] != str(SCHEMA_VERSION):
+    if not current_version or int(current_version[0]) < 7:
         conn.execute(
-            "insert or replace into schema_meta(key, value) values ('schema_version', ?)",
-            (str(SCHEMA_VERSION),),
+            "insert or replace into schema_meta(key, value) values ('schema_version', '7')"
         )
         changed = True
     return changed
@@ -1264,6 +1591,8 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
         "incident_tags",
         "events",
         "knowledge_notes",
+        "project_components",
+        "project_operations",
     }
     missing = sorted(table for table in required_tables if not table_exists(conn, table))
     if missing:
@@ -1362,6 +1691,55 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
         ).fetchall()
         if ambiguous_worktrees:
             errors.append(f"ambiguous canonical worktrees: {ambiguous_worktrees!r}")
+    for table in ("project_components", "project_operations"):
+        if table_exists(conn, table):
+            unexpected_context_projects = conn.execute(
+                f"""
+                select distinct project_id
+                from {table}
+                where project_id not in (8, 23, 49)
+                order by project_id
+                """
+            ).fetchall()
+            if unexpected_context_projects:
+                errors.append(
+                    f"{table} contains out-of-scope project_id rows: {unexpected_context_projects!r}"
+                )
+    if table_exists(conn, "project_components"):
+        component_counts = dict(
+            conn.execute(
+                """
+                select project_id, count(*)
+                from project_components
+                group by project_id
+                """
+            ).fetchall()
+        )
+        for project_id in (8, 23, 49):
+            if component_counts.get(project_id, 0) == 0:
+                errors.append(f"project_components missing project_id={project_id}")
+    if table_exists(conn, "project_operations"):
+        operation_counts = dict(
+            conn.execute(
+                """
+                select project_id, count(*)
+                from project_operations
+                group by project_id
+                """
+            ).fetchall()
+        )
+        for project_id in (8, 23, 49):
+            if operation_counts.get(project_id, 0) == 0:
+                errors.append(f"project_operations missing project_id={project_id}")
+    if not table_exists(conn, "codex_project_context"):
+        errors.append("missing codex_project_context view")
+    else:
+        context_count = conn.execute("select count(*) from codex_project_context").fetchone()[0]
+        project_count = conn.execute("select count(*) from projects").fetchone()[0]
+        if context_count != project_count:
+            errors.append(
+                f"codex_project_context row count mismatch: projects={project_count} view={context_count}"
+            )
     if not incident_id_is_integer(conn):
         errors.append("incidents.incident_id must be INTEGER PRIMARY KEY")
     incident_columns = table_columns(conn, "incidents")
@@ -1509,6 +1887,8 @@ def validate() -> int:
             "tag_aliases",
             "incident_tags",
             "events",
+            "project_components",
+            "project_operations",
         )
     }
     print("VALIDATE=PASS " + " ".join(f"{key}={value}" for key, value in counts.items()))
@@ -1664,6 +2044,40 @@ def project_show_command(project_id: int) -> int:
     return 0
 
 
+CODEX_PROJECT_CONTEXT_FIELDS = (
+    "project_id",
+    "slug",
+    "project_status",
+    "canonical_host",
+    "canonical_worktree",
+    "runtime_host",
+    "runtime_path",
+    "canonical_branch",
+    "remote_url",
+    "components",
+    "operations",
+)
+
+
+def codex_project_context_command(project_id: int) -> int:
+    conn = connect()
+    row = conn.execute(
+        """
+        select project_id, slug, project_status, canonical_host, canonical_worktree,
+               runtime_host, runtime_path, canonical_branch, remote_url,
+               components, operations
+        from codex_project_context
+        where project_id=?
+        """,
+        (project_id,),
+    ).fetchone()
+    if not row:
+        print(f"CODEX_PROJECT_CONTEXT=NOT_FOUND project_id={project_id}", file=sys.stderr)
+        return 1
+    print_project_retrieval_rows([row], CODEX_PROJECT_CONTEXT_FIELDS)
+    return 0
+
+
 def project_path_command(project_id: int, status_only: bool = False) -> int:
     conn = connect()
     row = project_index_row(conn, project_id)
@@ -1713,6 +2127,7 @@ def migrate_database() -> int:
         if not incident_schema_current or not incident_id_is_integer(conn):
             changed = migrate_incident_schema(conn)
         changed = migrate_project_index_schema(conn) or changed
+        changed = ensure_project_context_schema(conn) or changed
         conn.execute("COMMIT")
     except Exception:
         if conn.in_transaction:
@@ -1932,6 +2347,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("project-remote")
     sub.add_parser("project-missing")
     sub.add_parser("project-archived")
+    project_context_parser = sub.add_parser("codex-project-context")
+    project_context_parser.add_argument("project_id", type=int)
     project_show_parser = sub.add_parser("project-show")
     project_show_parser.add_argument("project_id", type=int)
     project_path_parser = sub.add_parser("project-path")
@@ -1984,6 +2401,8 @@ def main(argv: list[str] | None = None) -> int:
         return project_view_command("codex_missing_projects", CODEX_STATUS_LIST_FIELDS)
     if args.cmd == "project-archived":
         return project_view_command("codex_archived_projects", CODEX_STATUS_LIST_FIELDS)
+    if args.cmd == "codex-project-context":
+        return codex_project_context_command(args.project_id)
     if args.cmd == "project-show":
         return project_show_command(args.project_id)
     if args.cmd == "project-path":

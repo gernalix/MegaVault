@@ -232,6 +232,67 @@ class MegaVaultTests(unittest.TestCase):
             work_columns,
         )
 
+    def test_codex_project_context_schema_is_scoped_and_populated(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        component_counts = dict(
+            conn.execute(
+                """
+                select project_id, count(*)
+                from project_components
+                group by project_id
+                order by project_id
+                """
+            ).fetchall()
+        )
+        operation_counts = dict(
+            conn.execute(
+                """
+                select project_id, count(*)
+                from project_operations
+                group by project_id
+                order by project_id
+                """
+            ).fetchall()
+        )
+        self.assertEqual({8: 4, 23: 4, 49: 4}, component_counts)
+        self.assertEqual({8: 4, 23: 4, 49: 3}, operation_counts)
+        self.assertEqual(
+            [],
+            conn.execute(
+                """
+                select project_id from project_components where project_id not in (8, 23, 49)
+                union
+                select project_id from project_operations where project_id not in (8, 23, 49)
+                """
+            ).fetchall(),
+        )
+
+    def test_codex_project_context_view_combines_routing_components_and_operations(self):
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        row = conn.execute(
+            """
+            select slug, canonical_worktree, components, operations
+            from codex_project_context
+            where project_id=49
+            """
+        ).fetchone()
+        self.assertEqual("personalhub", row[0])
+        self.assertEqual("/home/daniele/projects/PersonalHub", row[1])
+        self.assertIn("core_database_module:gradle_module:", row[2])
+        self.assertIn("feature_modules:gradle_modules:", row[2])
+        self.assertIn("assemble_debug:medium:fedora:", row[3])
+        self.assertIn("./gradlew assembleDebug --no-configuration-cache", row[3])
+
+    def test_codex_project_context_cli_returns_one_compact_row(self):
+        result = self.run_tool("codex-project-context", "23")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        lines = result.stdout.strip().splitlines()
+        self.assertEqual(1, len(lines))
+        self.assertTrue(lines[0].startswith("project_id=23;slug=megavault;"))
+        self.assertIn("components=", lines[0])
+        self.assertIn("operations=", lines[0])
+        self.assertIn("project_context:low:fedora:/home/daniele/MegaVault:", lines[0])
+
     def test_project_retrieval_cli_commands(self):
         work_queue = self.run_tool("project-work-queue")
         self.assertEqual(work_queue.returncode, 0, work_queue.stderr)
@@ -322,12 +383,14 @@ class MegaVaultTests(unittest.TestCase):
                 for table in tables
             }
             megavault.migrate_project_index_schema(conn)
+            megavault.ensure_project_context_schema(conn)
             after_first = {
                 table: conn.execute(f"select count(*) from {table}").fetchone()[0]
                 for table in tables
             }
             self.assertEqual(before, after_first)
             self.assertFalse(megavault.migrate_project_index_schema(conn))
+            self.assertFalse(megavault.ensure_project_context_schema(conn))
             after_second = {
                 table: conn.execute(f"select count(*) from {table}").fetchone()[0]
                 for table in tables
