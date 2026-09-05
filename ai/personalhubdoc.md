@@ -109,6 +109,7 @@ PASS=acceptance_verified+required_validation+commit_push_when_required
 FAST=one_compact_final:result|scope|tests/verification|commit_push|blocker
 STANDARD=one_plain_report+technical_detail_only_if_material
 STRICT=plain+technical_when_needed;include_changes|tests|result|repo|commit|push|blockers|unresolved
+bottlenecks=include_all_encountered_problem_solving_bottlenecks_resolved_or_unresolved;for_each=brief_obstacle|impact|status|resolution_or_remaining_blocker;never_omit_resolved;no_private_chain_of_thought
 plain=Italian_default;short;ordinary_words;no_unneeded_paths|hashes|commands|jargon
 telegram=python3_-m_telegram_notify;package=/usr/local/lib/python3.14/site-packages/telegram_notify;config=/home/daniele/.config/codex/secrets/telegram.env
 terminal_notification=exactly_one_per_prompt/goal_unless_PH_rule_overrides
