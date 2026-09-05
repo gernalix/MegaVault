@@ -106,6 +106,12 @@ ROOT_ALLOWLIST = {
     "megavault.sqlite",
     "tests",
 }
+ALLOWED_TRACKED_MARKDOWN = {
+    "ai/MEGAVAULT_PROTOCOL.md",
+    "ai/GLOBAL_INDEX.md",
+    "ai/personalhubdoc.md",
+    "legacy/README.md",
+}
 TRACKED_FORBIDDEN_PREFIXES = (
     "human/",
     "docs/",
@@ -1858,9 +1864,8 @@ def validate() -> int:
         if re.search(r"(^|/)(access\\.env|oracle-vm-rsa|.*secret.*|.*token.*)$", path, re.I):
             errors.append(f"tracked secret-like path: {path}")
 
-    allowed_md = {"ai/MEGAVAULT_PROTOCOL.md", "ai/GLOBAL_INDEX.md", "legacy/README.md"}
     tracked_md = {path for path in tracked if path.endswith(".md")}
-    extra_md = sorted(tracked_md - allowed_md)
+    extra_md = sorted(tracked_md - ALLOWED_TRACKED_MARKDOWN)
     if extra_md:
         errors.append(f"extra tracked markdown: {extra_md}")
 

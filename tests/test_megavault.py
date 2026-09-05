@@ -56,6 +56,27 @@ class MegaVaultTests(unittest.TestCase):
     def test_secret_scan_has_zero_hits(self):
         self.assertEqual([], megavault.secret_scan_errors(megavault.git_tracked()))
 
+    def test_tracked_markdown_allowlist_accepts_personalhub_bootstrap(self):
+        tracked_md = {
+            "ai/MEGAVAULT_PROTOCOL.md",
+            "ai/GLOBAL_INDEX.md",
+            "ai/personalhubdoc.md",
+            "legacy/README.md",
+        }
+        extra_md = sorted(tracked_md - megavault.ALLOWED_TRACKED_MARKDOWN)
+        self.assertEqual([], extra_md)
+
+    def test_tracked_markdown_allowlist_rejects_unrelated_markdown(self):
+        tracked_md = {
+            "ai/MEGAVAULT_PROTOCOL.md",
+            "ai/GLOBAL_INDEX.md",
+            "ai/personalhubdoc.md",
+            "legacy/README.md",
+            "ai/unrelated.md",
+        }
+        extra_md = sorted(tracked_md - megavault.ALLOWED_TRACKED_MARKDOWN)
+        self.assertEqual(["ai/unrelated.md"], extra_md)
+
     def test_sqlite_integrity_and_foreign_keys_pass(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
         conn.execute("PRAGMA foreign_keys=ON")
