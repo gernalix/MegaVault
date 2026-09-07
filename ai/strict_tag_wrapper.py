@@ -36,8 +36,8 @@ class TagNotFoundError(ValueError):
     """Raised when an incident references an unregistered tag or alias."""
 
 
-def connect(path: Path | str = DB) -> sqlite3.Connection:
-    conn = sqlite3.connect(path)
+def connect(path: Path | str | None = None) -> sqlite3.Connection:
+    conn = sqlite3.connect(path or DB)
     conn.execute("PRAGMA foreign_keys=ON")
     return conn
 

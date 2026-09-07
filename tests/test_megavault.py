@@ -4,11 +4,14 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(ROOT))
+from ai import megavault_core  # noqa: E402
+from ai import strict_tag_wrapper  # noqa: E402
 import megavault  # noqa: E402
 
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
@@ -374,6 +377,45 @@ class MegaVaultTests(unittest.TestCase):
         absent = self.run_tool("project-path", "--status", "99999")
         self.assertNotEqual(absent.returncode, 0)
         self.assertEqual("ABSENT", absent.stdout.strip())
+
+    def test_register_github_repo_is_idempotent(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = Path(tmp) / "megavault.sqlite"
+            tmp_db.write_bytes((ROOT / "megavault.sqlite").read_bytes())
+            worktree = Path(tmp) / "projects" / "example-new-repo"
+            args = [
+                "register-github-repo",
+                "--owner",
+                "gernalix",
+                "--name",
+                "example-new-repo",
+                "--remote-url",
+                "https://github.com/gernalix/example-new-repo",
+                "--default-branch",
+                "main",
+                "--worktree",
+                str(worktree),
+            ]
+            with (
+                mock.patch.object(megavault, "DB", tmp_db),
+                mock.patch.object(megavault_core, "DB", tmp_db),
+                mock.patch.object(strict_tag_wrapper, "DB", tmp_db),
+            ):
+                first = megavault.main(args)
+                second = megavault.main(args)
+            conn = sqlite3.connect(tmp_db)
+            project_count = conn.execute("select count(*) from projects where slug='example-new-repo'").fetchone()[0]
+            repo_count = conn.execute(
+                "select count(*) from repositories where remote_url='https://github.com/gernalix/example-new-repo'"
+            ).fetchone()[0]
+            permanent_count = conn.execute(
+                "select count(*) from permanent_ids where entity_type='project' and canonical_key='example-new-repo'"
+            ).fetchone()[0]
+            self.assertEqual(first, 0)
+            self.assertEqual(second, 0)
+            self.assertEqual(project_count, 1)
+            self.assertEqual(repo_count, 1)
+            self.assertEqual(permanent_count, 1)
 
     def test_project_index_migration_is_idempotent_and_preserves_counts(self):
         source = sqlite3.connect(ROOT / "megavault.sqlite")

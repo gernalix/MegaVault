@@ -2117,6 +2117,117 @@ def project_path_command(project_id: int, status_only: bool = False) -> int:
     return 0
 
 
+def normalize_github_remote(url: str) -> str:
+    text = url.strip()
+    if text.startswith("git@github.com:"):
+        text = "https://github.com/" + text.removeprefix("git@github.com:")
+    text = text.removesuffix(".git").rstrip("/")
+    return text.lower()
+
+
+def repo_slug(owner: str, name: str) -> str:
+    slug = name.strip().lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", slug).strip("-")
+    if not slug:
+        raise ValueError("empty repository slug")
+    return slug
+
+
+def next_repository_id(conn: sqlite3.Connection) -> str:
+    max_id = 0
+    for (repository_id,) in conn.execute("select repository_id from repositories"):
+        match = re.fullmatch(r"R(\d+)", str(repository_id))
+        if match:
+            max_id = max(max_id, int(match.group(1)))
+    return f"R{max_id + 1:04d}"
+
+
+def find_registered_github_repo(conn: sqlite3.Connection, *, slug: str, remote_url: str, worktree: str) -> sqlite3.Row | None:
+    normalized = normalize_github_remote(remote_url)
+    for row in conn.execute(
+        """
+        select p.project_id, p.slug, r.repository_id, r.remote_url, r.worktree_path
+        from projects p
+        left join repositories r on r.project_id=p.project_id
+        where p.slug=? or r.worktree_path=?
+        """,
+        (slug, worktree),
+    ):
+        return row
+    for row in conn.execute(
+        """
+        select p.project_id, p.slug, r.repository_id, r.remote_url, r.worktree_path
+        from repositories r
+        join projects p on p.project_id=r.project_id
+        where r.remote_url is not null
+        """
+    ):
+        if normalize_github_remote(str(row[3])) == normalized:
+            return row
+    alias_row = conn.execute(
+        """
+        select p.project_id, p.slug, null as repository_id, null as remote_url, null as worktree_path
+        from project_aliases a
+        join projects p on p.project_id=a.project_id
+        where a.alias in (?, ?)
+        """,
+        (slug, normalized.removeprefix("https://github.com/")),
+    ).fetchone()
+    return alias_row
+
+
+def register_github_repo_command(args: argparse.Namespace) -> int:
+    owner = args.owner.strip()
+    name = args.name.strip()
+    remote_url = args.remote_url.strip()
+    default_branch = args.default_branch.strip() or "UNKNOWN"
+    worktree = str(Path(args.worktree).expanduser())
+    slug = repo_slug(owner, name)
+    if normalize_github_remote(remote_url) != f"https://github.com/{owner.lower()}/{name.lower()}":
+        print("REGISTER_GITHUB_REPO=FAIL remote_url_owner_name_mismatch", file=sys.stderr)
+        return 2
+    conn = connect()
+    existing = find_registered_github_repo(conn, slug=slug, remote_url=remote_url, worktree=worktree)
+    if existing:
+        print(f"project_id={existing[0]}")
+        print(f"slug={existing[1]}")
+        print("status=already_registered")
+        return 0
+    with conn:
+        project_id = int(conn.execute("select coalesce(max(project_id), 0) + 1 from projects").fetchone()[0])
+        repository_id = next_repository_id(conn)
+        conn.execute(
+            """
+            insert into projects(project_id, slug, name, status, archived, created_source, notes)
+            values(?, ?, ?, 'active', 0, 'github_autosync', ?)
+            """,
+            (project_id, slug, name, f"Auto-registered from https://github.com/{owner}/{name}; unknown facts intentionally omitted."),
+        )
+        conn.execute(
+            """
+            insert into permanent_ids(entity_type, entity_id, canonical_key, created_at_utc)
+            values('project', ?, ?, strftime('%Y-%m-%dT%H:%M:%SZ','now'))
+            """,
+            (project_id, slug),
+        )
+        conn.execute("insert into project_aliases(alias, project_id) values(?, ?)", (slug, project_id))
+        conn.execute(
+            """
+            insert into repositories(
+                repository_id, project_id, location, kind, branch, head, status,
+                canonical, repository_kind, host_id, worktree_path, remote_url, runtime_path
+            )
+            values(?, ?, ?, 'local', ?, null, 'active', 1, 'local_worktree', 'H0001', ?, ?, null)
+            """,
+            (repository_id, project_id, worktree, None if default_branch == "UNKNOWN" else default_branch, worktree, remote_url.removesuffix(".git")),
+        )
+    print(f"project_id={project_id}")
+    print(f"slug={slug}")
+    print(f"repository_id={repository_id}")
+    print("status=created")
+    return 0
+
+
 def migrate_database() -> int:
     conn = sqlite3.connect(DB)
     conn.isolation_level = None
@@ -2359,6 +2470,12 @@ def main(argv: list[str] | None = None) -> int:
     project_path_parser = sub.add_parser("project-path")
     project_path_parser.add_argument("--status", action="store_true")
     project_path_parser.add_argument("project_id", type=int)
+    register_github_parser = sub.add_parser("register-github-repo")
+    register_github_parser.add_argument("--owner", required=True)
+    register_github_parser.add_argument("--name", required=True)
+    register_github_parser.add_argument("--remote-url", required=True)
+    register_github_parser.add_argument("--default-branch", required=True)
+    register_github_parser.add_argument("--worktree", required=True)
     tag_parser = sub.add_parser("tag")
     tag_parser.add_argument("tag_args", nargs="+")
     tag_parser.add_argument("--description")
@@ -2412,6 +2529,8 @@ def main(argv: list[str] | None = None) -> int:
         return project_show_command(args.project_id)
     if args.cmd == "project-path":
         return project_path_command(args.project_id, args.status)
+    if args.cmd == "register-github-repo":
+        return register_github_repo_command(args)
     if args.cmd == "tag":
         return tag_command(args)
     if args.cmd == "tag-alias":
