@@ -1,231 +1,157 @@
 # MEGAVAULT_PROTOCOL
-VERSION=36
-STATUS=AUTHORITATIVE_BOOTSTRAP
-MODE=codex_first
-FORMAT=ultracompact_key_value
+VERSION=37
+STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
+MODE=codex_conditional
 
-PURPOSE:
-purpose=minimal_MegaVault_contract
-truth_model=Git_history;megavault.sqlite_structured_facts;Markdown_bootstrap_only;code_behavior
-duplicate_truth=forbidden
-project_id_source=megavault.sqlite:projects+project_aliases_only;INTEGER_PRIMARY_KEY
+## Scopo
 
-EXECUTION:
-modes=FAST|STANDARD|STRICT
-default=FAST
-selection=lowest_mode_safely_satisfying_user_scope
-FAST=localized_low_risk_work;minimal_context;minimal_diff;targeted_validation;compact_completion
-STANDARD=multi_file_or_cross_component_work;broader_validation_when_material
-STRICT=database_migration|destructive_action|security_sensitive|large_refactor|critical_infrastructure|explicit_user_request
-promotion=only_with_concrete_task_evidence;state_reason_once;no_speculative_promotion
-demotion=allowed_when_discovered_risk_does_not_materialize
-token_efficiency=mandatory_all_modes
-exploration=start_from_directly_relevant_files_and_known_authoritative_facts;expand_only_to_resolve_a_blocker_or_required_uncertainty
-repo_wide_scan=forbidden_in_FAST_unless_target_cannot_be_located_narrowly
-reuse=verified_session_facts_and_outputs_must_not_be_re-read_or_re-run_unless_changed
-commands=prefer_one_discriminating_query_or_test_over_multiple_exploratory_equivalents
-batching=group_direct_starting_file_reads+coherent_edits+targeted_tests_when_practical;serial_round_trips_only_for_new_evidence
-tool_calls=localized_prelocalized_no_unexpected_failure_target<=50_soft;exceed_only_for_new_dependency|blocker|failed_test|unmet_acceptance
-state_probes=do_not_repeat_git_status|git_diff|git_log|identical_reads|searches|equivalent_tests_if_state_unchanged;one_final_state_diff_check_normally_sufficient
-retry=forbidden_without_new_evidence_or_changed_state
-out_of_scope=report_briefly_only_if_material;do_not_fix_or_investigate_unless_blocking
-refactor_cleanup=forbidden_unless_required_by_user_scope_or_correctness
-tests=smallest_sufficient_validation_first;expand_only_on_failure,risk,release_requirement,or_cross_component_impact
-acceptance=define_from_user_request+governing_invariants
-stop_when_acceptance_pass=yes;after_PASS_only_required_commit_push_event_and_mode_reporting
-reassurance_after_PASS=forbidden;do_not_reopen_verified_files_or_run_optional_audits_after_acceptance
-parallelism=same_project_overlapping_work_serial_by_default;parallel_only_when_independent_and_savings_exceed_duplicate_bootstrap_or_conflict_cost
+MegaVault e' necessario solo quando il task richiede project context persistente, `project_id`, fatti canonici su progetti/host/servizi/repository/integrazioni/segreti/incidenti, regole conservate qui, infrastruttura, o aggiornamenti a MegaVault.
 
-READ_ORDER:
-1=ai/MEGAVAULT_PROTOCOL.md
-2=ai/GLOBAL_INDEX.md
-3=python3 megavault.py validate
-4=query megavault.sqlite for project/host/service/secret/incident facts
-5=target_repository_code/docs_only_when_needed
-read_once_per_task_session=yes_unless_files_changed_or_scope_explicitly_changes
-FAST_read=do_not_expand_steps_4_5_beyond_task_relevance
+Per task locali banali o gia' localizzati, non consultare MegaVault: usa `/home/daniele/.codex/AGENTS.md` e i file direttamente pertinenti.
 
-GIT:
-canonical_branch=origin_HEAD_or_current_trunk
-model=trunk_based_single_developer;operative_branches=1
-direct_canonical_work=default
-branch_creation=forbidden_unless_explicit_user_or_parallel_or_high_risk_strict
-per_task_branch=forbidden
-branch_chaining=forbidden
-temp_branch=justify+base_canonical+integrate_delete+minimum_lifetime
-dirty_tree_before_modification=forbidden
-fetch_pull_before_large_refactor=required
-tag_before_destructive_refactor=required
-commit_push_before_final=required_unless_user_explicitly_forbids
-push_discipline=normal_codex_task:no_intermediate_push_unless_task_explicitly_requires;after_acceptance_per_modified_repo:commit_final->single_push_final->single_head_upstream_verification->STOP;failed_push_or_verify:investigate_only_concrete_blocker,no_identical_retry_without_new_evidence
-autosync_boundary=external_autosync_never_replaces_codex_commit_push;post_task_git_guard=passive_safety_only_no_commit_merge_rebase_reset_pull_push
-new_gernalix_repo_registration=before_PASS_register_new_or_in_scope_unrepresented_gernalix_repo_in_megavault.sqlite_with_permanent_project_id_min_verified_metadata_no_duplicates_no_invented_facts
-rollback=Git_commit_history+pre_refactor_tag
-final_branch_fields=repository,canonical_branch,current_branch,temp_branch_reason,integration_status,cleanup_status
+## Modalita'
 
-PYTHON:
-env=global
-isolation=forbidden
-tools=venv|virtualenv|pipenv|poetry|uv
-override=user_explicit_request
-packages=reuse_global>install_global
-venv_without_override=protocol_violation
+- `FAST`: default per lavoro localizzato, basso rischio, con contesto gia' sufficiente. Usa solo fatti/file MegaVault pertinenti.
+- `STANDARD`: per lavoro multi-file, cross-component, o quando servono piu' fonti MegaVault correlate.
+- `STRICT`: per migrazioni dati, azioni distruttive, sicurezza/segreti, infrastruttura critica, grandi refactor, o richiesta esplicita dell'utente.
 
-CAPSULIZATION:
-CAPSULIZATION=mandatory_all_projects
-CAPSULE_TARGET=progressive
-NEW_CODE=capsule_only
-SHARED_LOGIC=capsule_only
-UI_DIRECT_DEPENDENCY=forbidden
-CROSS_MODULE_ACCESS=through_capsules_only
-LEGACY_REFACTOR=reduce_when_benefit_exceeds_cost_risk
-LEGACY_RESIDUALS=document_and_verify
-FINAL_GATE=verify_capsule_first_boundaries_and_documented_residuals_before_final
+Usa sempre la modalita' piu' bassa che soddisfa in sicurezza lo scope. Promuovi solo con evidenza concreta; declassa se il rischio non si materializza.
 
-DATABASE:
-path=megavault.sqlite
-schema_source=sqlite_schema
-required_tables=projects,permanent_ids,project_aliases,repositories,hosts,integrations,services,secret_refs,data_assets,incidents,incident_events,tags,tag_aliases,incident_tags,events,knowledge_notes
-codex_index_view=codex_project_index
-codex_index_fields=project_id,slug,project_status,archived,canonical_host,canonical_worktree,repository_kind,canonical_branch,remote_url,head,repository_status,runtime_host,runtime_path
-codex_index_status=LOCAL|REMOTE_ONLY|MISSING|ARCHIVED
-codex_index_rule=one_row_per_project;row_number_ordered_by_canonical_then_id;no_group_by_arbitrary_values
-codex_work_queue_view=codex_work_queue;LOCAL+REMOTE_ONLY_only;fields=project_id,slug,project_status,canonical_host,canonical_worktree,runtime_host,runtime_path,canonical_branch,remote_url
-codex_status_views=codex_remote_projects,codex_missing_projects,codex_archived_projects
-codex_cli=project-list;project-work-queue;project-remote;project-missing;project-archived;project-show_PROJECT_ID;project-path_PROJECT_ID;project-path_--status_PROJECT_ID
-project_path_stdout=canonical_worktree_only;nonzero_if_absent_or_ambiguous
-project_path_status_stdout=LOCAL|REMOTE_ONLY|MISSING|ARCHIVED|ABSENT;single_token_only
-foreign_keys=must_pass
-project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense
-secret_values=never_store;reference_paths_only
-events=mandatory_for_completed_Daniele_project_or_system_work;store=megavault.sqlite:events
-incidents=store_in_megavault.sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;id=sqlite_autoincrement_occurrence;semantic_links=canonical_tags_only;tag_creation=explicit_only;association=existing_tag_or_alias_only;forbid=problem_family|recurring_incidents|automatic_merge|tag_hierarchy;status=OPEN|MITIGATED|RESOLVED|ACCEPTED
+## Fonti e Precedenza
 
-SECRETS:
-canonical_root=/home/daniele/.config/codex/secrets
-scope=all_secrets_all_projects
-outside_canonical_root=forbidden_unless_explicitly_documented_exception
-values=never_store_in_MegaVault_or_Git
-references=megavault.sqlite:secret_refs
-lookup=canonical_root_first;secret_refs_for_exact_file_and_metadata
-access=read_only_when_task_requires
-handling=no_prompt_echo,no_command_echo,no_secret_values_in_logs_reports_repo_history
-rotation=manual_explicit_only
+Fonti autorevoli:
 
-BITWARDEN:
-cli=bw
-procedure=megavault.sqlite:knowledge_notes:bitwarden_cli_secure_workflow
-locked=stop_and_request_local_user_unlock
-forbid=master_password_capture|master_password_prompt_echo|session_print|session_commit|secret_values_in_report_git_megavault_shell_history
-session=temporary_local_only
-sync=before_and_after
-write=upsert_idempotent_no_duplicates
-verify=field_names_and_attachment_presence_only_no_values
-attachments=stream_or_fifo_or_equivalent_no_persistent_plaintext_temp
-finish=cleanup+bw_lock
+1. Git history per stato storico dei repository;
+2. `/home/daniele/MegaVault/megavault.sqlite` per fatti strutturati correnti;
+3. Markdown in `ai/` solo come bootstrap/protocollo;
+4. comportamento reale del codice o del sistema verificato live.
 
-INCIDENTS:
-identity=one_observed_occurrence
-id=SQLite_AUTOINCREMENT;immediate;unique;never_reused
-same_symptom_same_cause_new_time=new_incident
-cause=nullable;UNKNOWN_allowed;does_not_affect_id
-merge=forbidden
-linking=canonical_tags_only
+Precedenza:
 
-TAGS:
-source=megavault.sqlite:tags+tag_aliases
-reuse_existing=mandatory
-free_text=forbidden
-new_tag=only_if_no_canonical_or_alias_match
-format=lowercase_atomic
-aliases=search_only;canonical_link_only
-incident_search=tag_intersection+text
+- `megavault.sqlite` batte markdown cancellato o duplicato per fatti correnti strutturati.
+- I project docs vivono nel repository proprietario; MegaVault conserva solo conoscenza globale, trasversale o di routing.
+- Non inventare fatti mancanti: verifica live o registra `UNKNOWN`.
+- I valori dei segreti non vanno mai in MegaVault, Git, log o report; solo riferimenti.
 
-MARKDOWN:
-allowed=ai/MEGAVAULT_PROTOCOL.md,ai/GLOBAL_INDEX.md,legacy/README.md
-forbidden=reports_done,human_mirror,project_docs_in_MegaVault,generated_timeline_markdown,duplicate_registries
-project_docs=owner_repo_docs_code_tests;MegaVault_only_global_transversal_knowledge
-legacy=non_authoritative;consult_only_on_explicit_historical_request
+## Project Identity
 
-ANDROID:
-required_for=android_projects,android_builds,android_releases,android_tooling
-project_docs=owner_repo_docs;no_android_wide_duplication_unless_project_specific
-new_app=template_only;rename_package_app;verify_gradle_manifest_strings;build_debug;commit_push
-version=version.txt_integer_monotonic;derive_versionCode_versionName_apk_name;home_v_visible;skip_reuse_forbidden
-data=internal_db;all_app_data_exportable;backup_before_risky_data_change
-saf_sqlite=autoexport_all_app_data_on_db_change;atomic;validate_after_write;failure_visible;preserve_last_good;test_required
-datetime=UTC_Z_storage;local_device_ui;db_export_UTC_Z;conversion_tests_required
-i18n=en+it;no_hardcoded_user_visible_text;missing_translation_blocker
-build_test=gradle_wrapper;unit+integration+smoke+device_when_relevant;FAST_uses_only_relevant_subset_unless_release_or_risk_requires_more;install_launch_no_crash_when_device_validation_required
-emulator_discovery=adb_devices_first;running_emulator=serial_prefix_emulator-+state_device;serial=live_detected_never_hardcoded
-emulator_boot=only_if_device_test_required_and_no_running_emulator;resolve_emulator_binary_from_live_Android_SDK;list_AVDs_live;select_project_or_user_preferred_AVD_if_known_else_best_matching_AVD;launch;wait_for_adb_state_device+sys.boot_completed=1
-emulator_target=all_adb_actions_use_-s_LIVE_SERIAL;install_launch_logcat_must_target_same_serial;do_not_substitute_physical_device_when_user_prefers_emulator
-emulator_failure=report_blocker_with_adb_state+boot_state+launch_error;never_claim_device_test_PASS_without_live_device_evidence
-physical_pixel=physical_Google_Pixel_only;detect_live_with_adb+getprop;exclude_emulator;serial_never_hardcoded
-pixel_test_notify=mandatory_for_each_contiguous_testing_phase_that_uses_physical_Pixel;overrides_general_task_notification_enablement
-pixel_test_pre=send_Telegram_exact:"smetti di usare il telefono";after_confirmed_send_wait_exactly_5_seconds_before_first_Pixel_test_interaction
-pixel_test_pre_failure=do_not_begin_or_touch_physical_Pixel_for_testing;report_notification_blocker
-pixel_test_post=after_testing_phase_ends_send_Telegram_exact:"testing finito";send_after_PASS_or_FAIL_if_phase_started
-pixel_test_post_failure=report_notification_failure;preserve_actual_test_result
-personalhub_final_pixel_install=after_successful_install_of_final_PersonalHub_APK_on_physical_Pixel_send_Telegram_exact:"PH installato";do_not_send_for_intermediate_test_APKs
-personalhub_final_pixel_install_failure=do_not_send_PH_installato_if_install_failed;report_install_failure_normally
-pixel_notification_order=pre_message->5s_wait->Pixel_testing;PH_installato_immediately_after_successful_final_PH_install_if_applicable;testing_finito_when_testing_phase_ends
-release_report=version_old_new,version_file,apk_name,apk_path,signing,tests,docs,commit,push,sync_state
+Se `project_id=N` e' fornito, risolverlo solo da `megavault.sqlite`; non inferirlo da nomi, path, memoria o somiglianze.
 
-OPERATING_RULES:
-verify_live_state_for_current_facts=yes
-do_not_invent_facts=yes
-unknown_policy=store_UNKNOWN_not_guess
-host_runtime=verify_live_paths_units_mounts_before_current_claims;Fedora_paths_default;remote_paths_never_override_local
-services=systemctl_for_system_units;systemctl_--user_for_user_units;verify_live_before_documenting_runtime;no_duplicate_autostarts
-alerts=signals_not_remediation_authority;verify_sender_timer_delivery_destination_before_active
-data=read_SQLite_readonly_when_possible;verify_path_owner_schema_backup_before_current_registration
-secrets=follow_SECRETS_section
-secret_handling=read_only_when_task_requires;canonical_root_first;canonical_paths_from_database;reprompt_for_known_path_forbidden;rotation_manual_explicit_only
-destructive_action=allowed_only_when_user_intent_explicit_or_item_reconstructible_from_Git/code/SQLite
-dependency_action=reuse_existing_first;auto_install_global_only_when_task_requires;no_isolated_env_without_override
+Tabelle/view principali:
 
-REPORTING:
-mode_dependent=yes
-success_forbid=silent_failure,false_success,unverified_PASS
-FAST_reports=single_compact_completion
-FAST_fields=result_PASS_or_FAIL,scope_completed,tests_or_verification,commit_push,blocker_if_any
-FAST_files=none_required
-FAST_telegram=single_compact_message_when_task_notifications_are_enabled;no_report_attachments
-FAST_optimization_section=omit_unless_material_new_reusable_saving_found
-STANDARD_reports=single_plain_report_plus_technical_details_only_when_material_to_review_or_debug
-STRICT_reports=2_parallel_reports_same_verified_task_state
-technical_report=STRICT_complete_machine_and_expert_detail_for_assistant_review
-technical_final_fields=files_changed,tests,test_result,docs_or_MegaVault_updates,repo_status,commit,push,sync_state,branch_fields,execution_insights,blockers,optimization_opportunities,remaining_unresolved
-blockers=root_cause,impact,workaround,resolution,status;silent_workaround_retry_skip=forbidden
-optimization=root_cause,impact,estimated_future_savings,one_time_fix,priority,confidence,status;section=mandatory;mandatory_STRICT;optional_FAST_STANDARD
-plain_report=STANDARD_STRICT_primary_user_message;Italian_unless_user_requests_other_language
-plain_style=grandmother_level;ordinary_words;short_sentences;no_programming_jargon;no_paths;no_hashes;no_commands;no_internal_identifiers_except_PROMPT_ID
-plain_required_sections=STRICT_only:what_was_requested,why_it_mattered,what_was_completed_with_percentage,token_use_low_medium_high,further_prompts_yes_or_no,important_user_information
-plain_completion_percentage=honest_integer_0_to_100_against_original_requested_scope;never_invent
-plain_token_use=use_measured_usage_when_available;otherwise_qualitative_estimate_only;never_invent_exact_count
-report_files=STRICT:FINAL_REPORT_TECHNICAL.txt,FINAL_REPORT_PLAIN.txt;STANDARD_optional;FAST_none
-reporting_py=STRICT_required;STANDARD_only_when_report_files_created;FAST_bypass
-telegram_library=telegram_notify_top_level_package;canonical_path=/usr/local/lib/python3.14/site-packages/telegram_notify;invoke=python3_-m_telegram_notify;config=/home/daniele/.config/codex/secrets/telegram.env;shared_cross_project=yes;prefer_global_package_over_project_helpers_unless_project_explicitly_requires_otherwise
-task_telegram_default=enabled_unless_project_specific_rule_explicitly_overrides
-task_telegram_terminal=exactly_one_notification_per_prompt_or_goal_terminal_state
-task_telegram_format=<chat_title>_—_<status>
-task_telegram_status=successo|pausa|fail
-task_telegram_successo=original_goal_completed_and_required_acceptance_verified
-task_telegram_pausa=execution_stopped_awaiting_user_action|permission|external_dependency|temporary_blocker_and_task_remains_resumable
-task_telegram_fail=terminal_unsuccessful_result_or_required_acceptance_unmet
-task_telegram_title=actual_Codex_Desktop_auto_chat_title_when_exposed_by_session_metadata
-task_telegram_title_fallback=prompt_or_goal_title_when_actual_desktop_title_is_not_accessible;never_invent_desktop_title
-task_telegram_send=after_terminal_state_is_known_and_before_final_response_when_possible
-task_telegram_duplicate=forbidden
-telegram_STRICT=plain_message_then_technical_attachment
-telegram_STANDARD=plain_message;attachment_only_if_material
-telegram_FAST=one_compact_message_only
-telegram_secrets=forbidden_in_reports_messages_attachments_logs
-telegram_failure=must_report_locally;must_not_claim_notification_PASS;task_result_preserved
+- `projects`, `project_aliases`, `repositories`;
+- `hosts`, `services`, `integrations`, `secret_refs`;
+- `incidents`, `incident_events`, `tags`, `tag_aliases`, `incident_tags`;
+- `events`, `knowledge_notes`, `data_assets`;
+- `codex_project_index`, `codex_work_queue`, `codex_remote_projects`, `codex_missing_projects`, `codex_archived_projects`.
 
-VALIDATION:
-command=python3 megavault.py validate
-checks=sqlite_integrity,foreign_keys,project_ids,alias_resolution,root_allowlist,no_competing_registries,no_tracked_secret_paths,no_generated_markdown_timeline,semantic_rule_families,secret_scan=0
-FAST_validation=run_once_at_bootstrap;do_not_repeat_if_clean_and_MegaVault_unchanged
-success=required_validation_for_mode+clean_git_after_commit+push
+CLI utile:
+
+```bash
+python3 /home/daniele/MegaVault/megavault.py project-list
+python3 /home/daniele/MegaVault/megavault.py project-work-queue
+python3 /home/daniele/MegaVault/megavault.py project-show PROJECT_ID
+python3 /home/daniele/MegaVault/megavault.py project-path PROJECT_ID
+python3 /home/daniele/MegaVault/megavault.py project-path --status PROJECT_ID
+python3 /home/daniele/MegaVault/megavault.py validate
+```
+
+`project-path` stampa solo il worktree canonico e fallisce se assente o ambiguo. `project-path --status` stampa un solo token: `LOCAL`, `REMOTE_ONLY`, `MISSING`, `ARCHIVED` o `ABSENT`.
+
+## Lettura Operativa
+
+Per task MegaVault:
+
+1. leggere questo file;
+2. leggere solo la parte pertinente di `ai/GLOBAL_INDEX.md` se serve routing compatto;
+3. interrogare `megavault.sqlite` per i fatti richiesti;
+4. aprire repository, docs o codice target solo quando il fatto MegaVault non basta o il task lo richiede;
+5. validare con `megavault.py validate` dopo modifiche a schema, dati o viste.
+
+Non rileggere file o query gia' verificati nella sessione se lo stato non e' cambiato.
+
+## Aggiornamenti MegaVault
+
+- Non cancellare progetti: archiviarli.
+- Non riusare mai un `project_id` o un permanent id.
+- Abilitare e rispettare foreign keys.
+- Nuovi repository gernalix in scope e non rappresentati vanno registrati prima del PASS, con metadati minimi verificati e senza duplicati.
+- `events` e' obbligatorio per lavoro completato su progetti/sistemi Daniele quando serve traccia persistente.
+- Markdown consentito in MegaVault: `ai/MEGAVAULT_PROTOCOL.md`, `ai/GLOBAL_INDEX.md`, `legacy/README.md`.
+- `legacy/` e' non autorevole e si consulta solo per richiesta storica esplicita.
+
+## Segreti e Bitwarden
+
+- Root canonica segreti: `/home/daniele/.config/codex/secrets`.
+- MegaVault conserva solo riferimenti in `secret_refs`, mai valori.
+- Accesso ai segreti solo quando richiesto dal task; lettura minima; nessun echo in prompt, comandi, log, report o Git.
+- Rotazione solo su richiesta manuale esplicita.
+- Per Bitwarden usare `bw`; se bloccato, fermarsi e chiedere sblocco locale. Non acquisire master password, session token o valori segreti in chat.
+- Sincronizzare `bw` prima e dopo scritture; verificare nomi campo e presenza allegati, non valori.
+
+## Incidenti e Tag
+
+- Ogni incidente e' una occorrenza osservata, con ID SQLite autoincrementale mai riusato.
+- Stesso sintomo/stessa causa in un nuovo momento e' un nuovo incidente.
+- `cause` puo' essere `UNKNOWN`; non blocca l'identita'.
+- Merge vietato.
+- Collegare incidenti solo a tag canonici esistenti o alias; niente free-text.
+- Creare un nuovo tag solo se non esiste canonical/alias adatto.
+
+## Regole Daniele Conservate Qui
+
+Usare questa sezione solo quando il task tocca davvero il dominio indicato.
+
+### Python
+
+Usare l'ambiente globale. `venv`, `virtualenv`, `pipenv`, `poetry` e `uv` sono vietati salvo richiesta esplicita dell'utente. Riusa pacchetti globali prima di installare altro.
+
+### Servizi e Host
+
+Verificare live path, mount, unita' systemd e host runtime prima di documentare stato corrente. Usare `systemctl` per unita' di sistema e `systemctl --user` per unita' utente. Evitare autostart duplicati.
+
+### Database
+
+Ispezionare schema/path live prima di query o migrazioni. Per SQLite live/concorrenziale preferire `.backup`; preservare WAL/SHM quando rilevanti.
+
+### Android
+
+- Project docs nel repo proprietario; MegaVault conserva solo regole trasversali.
+- `version.txt` e' sorgente unica per versioni Android Daniele quando presente.
+- Storage timestamp: UTC `Z`; UI locale dispositivo; test di conversione richiesti quando il task tocca date/ore.
+- i18n `en` + `it`; niente testo visibile hardcoded.
+- Usare Gradle wrapper del progetto.
+- Scoprire emulatori/dispositivi live con `adb devices`; non hardcodare seriali.
+- Per emulatori, usare solo seriale live `emulator-*` in stato `device`; avviare emulator solo se il test dispositivo e' richiesto e non ce n'e' uno attivo.
+- Non sostituire un Pixel fisico con emulator se il task richiede Pixel fisico.
+- Non dichiarare device test PASS senza evidenza live sul dispositivo richiesto.
+
+### Physical Pixel
+
+Per test su Pixel fisico:
+
+1. inviare Telegram esatto `smetti di usare il telefono`;
+2. attendere 5 secondi dopo invio confermato;
+3. eseguire la fase di test;
+4. inviare Telegram esatto `testing finito` quando la fase termina.
+
+Per install finale PersonalHub riuscito su Pixel fisico, inviare subito Telegram esatto `PH installato`. Se la notifica pre-test fallisce, non toccare il Pixel e riportare blocker.
+
+### Telegram Task Notifications
+
+Quando le notifiche task sono abilitate e non sovrascritte da regola progetto, inviare una sola notifica terminale per prompt/goal:
+
+- formato: `<titolo chat> - <stato>`;
+- stati: `successo`, `pausa`, `fail`;
+- usare il titolo reale Codex Desktop se disponibile, altrimenti titolo prompt/goal senza inventare.
+
+## Git Per MegaVault
+
+Per modifiche al repository MegaVault:
+
+- lavorare sul branch canonico corrente salvo richiesta diversa;
+- non creare branch per task ordinari;
+- se il worktree e' sporco prima delle modifiche, preservare le modifiche non correlate;
+- dopo acceptance e validazione richiesta, fare un commit finale e un push finale, salvo divieto esplicito dell'utente.
+
+Per altri repository, seguire l'entrypoint generale e le regole del repository target; usare MegaVault solo per identita'/routing/fatti necessari.
