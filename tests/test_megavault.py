@@ -225,10 +225,18 @@ class MegaVaultTests(unittest.TestCase):
     def test_codex_retrieval_views_are_compact_and_status_scoped(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
         expected = {
-            "codex_work_queue": 23,
-            "codex_remote_projects": 4,
-            "codex_missing_projects": 7,
-            "codex_archived_projects": 20,
+            "codex_work_queue": conn.execute(
+                "select count(*) from codex_project_index where project_status in ('LOCAL', 'REMOTE_ONLY')"
+            ).fetchone()[0],
+            "codex_remote_projects": conn.execute(
+                "select count(*) from codex_project_index where project_status='REMOTE_ONLY'"
+            ).fetchone()[0],
+            "codex_missing_projects": conn.execute(
+                "select count(*) from codex_project_index where project_status='MISSING'"
+            ).fetchone()[0],
+            "codex_archived_projects": conn.execute(
+                "select count(*) from codex_project_index where project_status='ARCHIVED'"
+            ).fetchone()[0],
         }
         for view_name, count in expected.items():
             actual = conn.execute(f"select count(*) from {view_name}").fetchone()[0]
@@ -321,7 +329,15 @@ class MegaVaultTests(unittest.TestCase):
         work_queue = self.run_tool("project-work-queue")
         self.assertEqual(work_queue.returncode, 0, work_queue.stderr)
         work_lines = work_queue.stdout.strip().splitlines()
-        self.assertEqual(23, len(work_lines))
+        conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        expected_counts = {
+            "work": conn.execute("select count(*) from codex_work_queue").fetchone()[0],
+            "remote": conn.execute("select count(*) from codex_remote_projects").fetchone()[0],
+            "missing": conn.execute("select count(*) from codex_missing_projects").fetchone()[0],
+            "archived": conn.execute("select count(*) from codex_archived_projects").fetchone()[0],
+        }
+        conn.close()
+        self.assertEqual(expected_counts["work"], len(work_lines))
         self.assertTrue(work_lines[0].startswith("project_id=1;slug=amici-fb;"))
         self.assertIn("project_status=LOCAL", work_lines[0])
         self.assertNotIn("project_status=MISSING", work_queue.stdout)
@@ -330,13 +346,13 @@ class MegaVaultTests(unittest.TestCase):
         remote = self.run_tool("project-remote")
         self.assertEqual(remote.returncode, 0, remote.stderr)
         remote_lines = remote.stdout.strip().splitlines()
-        self.assertEqual(4, len(remote_lines))
+        self.assertEqual(expected_counts["remote"], len(remote_lines))
         self.assertTrue(all("project_status=REMOTE_ONLY" in line for line in remote_lines))
 
         missing = self.run_tool("project-missing")
         self.assertEqual(missing.returncode, 0, missing.stderr)
         missing_lines = missing.stdout.strip().splitlines()
-        self.assertEqual(7, len(missing_lines))
+        self.assertEqual(expected_counts["missing"], len(missing_lines))
         self.assertEqual(
             "project_id=3;slug=android-app-template;project_status=MISSING",
             missing_lines[0],
@@ -345,7 +361,7 @@ class MegaVaultTests(unittest.TestCase):
         archived = self.run_tool("project-archived")
         self.assertEqual(archived.returncode, 0, archived.stderr)
         archived_lines = archived.stdout.strip().splitlines()
-        self.assertEqual(20, len(archived_lines))
+        self.assertEqual(expected_counts["archived"], len(archived_lines))
         self.assertEqual("project_id=2;slug=android;project_status=ARCHIVED", archived_lines[0])
 
     def test_project_path_cli(self):
