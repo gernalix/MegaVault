@@ -5,6 +5,7 @@ on:
     paths:
       - "ai/operational_indexes.py"
       - "megavault.py"
+      - ".github/workflows/sync-operational-index.yml"
 
 permissions:
   contents: write
@@ -32,6 +33,74 @@ jobs:
 
       - name: Show Telegram index
         run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py telegram-index
+
+      - name: Inspect ownership and historical Kuma facts
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          conn = sqlite3.connect('megavault.sqlite')
+          conn.row_factory = sqlite3.Row
+
+          def rows(sql, params=()):
+              for row in conn.execute(sql, params):
+                  print(dict(row))
+
+          print('[projects likely relevant]')
+          rows("""
+              select project_id, slug, name, status, archived
+              from projects
+              where project_id=31
+                 or lower(slug) like '%kuma%'
+                 or lower(name) like '%kuma%'
+                 or lower(slug) like '%telegram%'
+                 or lower(name) like '%telegram%'
+                 or lower(slug) like '%media%'
+                 or lower(name) like '%media%'
+              order by project_id
+          """)
+
+          print('[SVC0061 raw]')
+          rows("select * from services where service_id='SVC0061'")
+
+          print('[Kuma integrations raw]')
+          rows("""
+              select * from integrations
+              where lower(coalesce(type,'') || ' ' || coalesce(name,'') || ' ' ||
+                          coalesce(endpoint_ref,'') || ' ' || coalesce(notes,'')) like '%kuma%'
+              order by integration_id
+          """)
+
+          print('[Kuma services raw]')
+          rows("""
+              select * from services
+              where lower(coalesce(name,'') || ' ' || coalesce(scope,'') || ' ' ||
+                          coalesce(unit,'') || ' ' || coalesce(runtime_path,'') || ' ' ||
+                          coalesce(purpose,'') || ' ' || coalesce(source_ref,'')) like '%kuma%'
+              order by service_id
+          """)
+
+          for table in ('events', 'knowledge_notes'):
+              print(f'[{table} rows containing kuma]')
+              columns = [r['name'] for r in conn.execute(f'pragma table_info({table})')]
+              text_columns = [
+                  r['name'] for r in conn.execute(f'pragma table_info({table})')
+                  if 'TEXT' in (r['type'] or '').upper()
+              ]
+              if not text_columns:
+                  continue
+              predicate = ' or '.join(
+                  f"lower(coalesce(\"{column}\",'')) like '%kuma%'"
+                  for column in text_columns
+              )
+              query = f"select * from {table} where {predicate} limit 50"
+              for row in conn.execute(query):
+                  data = dict(row)
+                  for key, value in list(data.items()):
+                      if isinstance(value, str) and len(value) > 1000:
+                          data[key] = value[:1000] + '…'
+                  print(data)
+          PY
 
       - name: Show unmapped operational evidence
         shell: bash
