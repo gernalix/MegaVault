@@ -1,5 +1,5 @@
 # PERSONALHUB_BOOTSTRAP
-VERSION=11
+VERSION=12
 SOURCE=self_contained_PH
 GLOBAL_FALLBACK=MEGAVAULT_PROTOCOL@36+GLOBAL_INDEX@8
 STATUS=PH_SPECIALIZED_BOOTSTRAP
@@ -35,7 +35,7 @@ STANDARD=material_multi_file_or_cross_component
 STRICT=db_migration|destructive|security|large_refactor|critical_infra|explicit_user
 promote=concrete_evidence_only
 tokens=start_from_known_facts+direct_files;expand_only_for_blocker|required_uncertainty
-locate=known_path|symbol|component_first;narrow_search_then_expand_only_if_not_found
+locate=.codex/CODE_MAP.tsv->matched_files->narrow_symbol|path_search->repo_wide_fallback;repo_wide_only_if_map_missing|stale|insufficient
 repo_wide_scan=forbidden_in_FAST_unless_target_not_locatable_narrowly
 reuse=verified_session_facts;no_reread/rerun_if_unchanged
 batch=coherent_reads+edits+tests;avoid_tool_roundtrips_without_new_evidence
