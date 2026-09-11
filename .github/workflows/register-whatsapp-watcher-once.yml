@@ -1,0 +1,56 @@
+name: Register whatsapp-watcher once
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .github/workflows/register-whatsapp-watcher-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Register repository and validate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          output="$(python3 megavault.py register-github-repo \
+            --owner gernalix \
+            --name whatsapp-watcher \
+            --remote-url https://github.com/gernalix/whatsapp-watcher \
+            --default-branch main \
+            --worktree /home/daniele/projects/whatsapp-watcher)"
+          printf '%s\n' "$output"
+
+          python3 megavault.py validate
+
+          if git diff --quiet -- megavault.sqlite; then
+            echo "MegaVault already contained whatsapp-watcher; no DB commit needed."
+            exit 0
+          fi
+
+          project_id="$(printf '%s\n' "$output" | sed -n 's/^project_id=//p' | head -n1)"
+          test -n "$project_id"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add megavault.sqlite
+          git commit -m "Register whatsapp-watcher in MegaVault (project_id=${project_id})"
+          git push origin HEAD:master
