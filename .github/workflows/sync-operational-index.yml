@@ -1,0 +1,44 @@
+name: Sync operational indexes
+
+on:
+  push:
+    paths:
+      - "ai/operational_indexes.py"
+      - "megavault.py"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Migrate operational indexes
+        run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py operational-index-migrate
+
+      - name: Validate operational indexes
+        run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py operational-index-validate
+
+      - name: Persist updated SQLite
+        shell: bash
+        run: |
+          git add megavault.sqlite
+          if git diff --cached --quiet; then
+            echo "No SQLite changes to persist"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync MegaVault operational indexes"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

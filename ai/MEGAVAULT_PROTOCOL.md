@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=37
+VERSION=38
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -43,7 +43,11 @@ Tabelle/view principali:
 - `hosts`, `services`, `integrations`, `secret_refs`;
 - `incidents`, `incident_events`, `tags`, `tag_aliases`, `incident_tags`;
 - `events`, `knowledge_notes`, `data_assets`;
-- `codex_project_index`, `codex_work_queue`, `codex_remote_projects`, `codex_missing_projects`, `codex_archived_projects`.
+- `codex_project_index`, `codex_work_queue`, `codex_remote_projects`, `codex_missing_projects`, `codex_archived_projects`;
+- `kuma_monitor_index` per routing Uptime Kuma con spiegazione e `project_id`;
+- `telegram_notification_capability_index` come evidenza granulare e `telegram_notification_project_index` come indice una-riga-per-progetto.
+
+Gli indici Kuma/Telegram sono view derivate: non sono registri duplicati. Correggere sempre `services`, `integrations`, `project_components` o `project_operations` alla fonte, poi rigenerare le view. Non correggere manualmente le view.
 
 CLI utile:
 
@@ -53,10 +57,18 @@ python3 /home/daniele/MegaVault/megavault.py project-work-queue
 python3 /home/daniele/MegaVault/megavault.py project-show PROJECT_ID
 python3 /home/daniele/MegaVault/megavault.py project-path PROJECT_ID
 python3 /home/daniele/MegaVault/megavault.py project-path --status PROJECT_ID
+python3 /home/daniele/MegaVault/megavault.py kuma-index
+python3 /home/daniele/MegaVault/megavault.py kuma-index --project-id PROJECT_ID
+python3 /home/daniele/MegaVault/megavault.py telegram-index
+python3 /home/daniele/MegaVault/megavault.py telegram-index --project-id PROJECT_ID
+python3 /home/daniele/MegaVault/megavault.py operational-index-migrate
+python3 /home/daniele/MegaVault/megavault.py operational-index-validate
 python3 /home/daniele/MegaVault/megavault.py validate
 ```
 
 `project-path` stampa solo il worktree canonico e fallisce se assente o ambiguo. `project-path --status` stampa un solo token: `LOCAL`, `REMOTE_ONLY`, `MISSING`, `ARCHIVED` o `ABSENT`.
+
+`kuma-index` espone ogni evidenza Kuma con progetto, host, stato e spiegazione. `telegram-index` restituisce una riga per progetto con stato della capacita' ed evidenze aggregate. `operational-index-validate` fallisce se trova entry Kuma/Telegram senza `project_id` o entry Kuma senza spiegazione documentata.
 
 ## Lettura Operativa
 
@@ -65,8 +77,9 @@ Per task MegaVault:
 1. leggere questo file;
 2. leggere solo la parte pertinente di `ai/GLOBAL_INDEX.md` se serve routing compatto;
 3. interrogare `megavault.sqlite` per i fatti richiesti;
-4. aprire repository, docs o codice target solo quando il fatto MegaVault non basta o il task lo richiede;
-5. validare con `megavault.py validate` dopo modifiche a schema, dati o viste.
+4. per Uptime Kuma o notifiche Telegram usare prima le view/CLI dedicate e aprire repo specifici solo se l'indice non basta;
+5. aprire repository, docs o codice target solo quando il fatto MegaVault non basta o il task lo richiede;
+6. validare con `megavault.py validate` dopo modifiche a schema, dati o viste; se toccano Kuma/Telegram, eseguire anche `operational-index-migrate` e `operational-index-validate`.
 
 Non rileggere file o query gia' verificati nella sessione se lo stato non e' cambiato.
 
@@ -79,6 +92,7 @@ Non rileggere file o query gia' verificati nella sessione se lo stato non e' cam
 - `events` e' obbligatorio per lavoro completato su progetti/sistemi Daniele quando serve traccia persistente.
 - Markdown consentito in MegaVault: `ai/MEGAVAULT_PROTOCOL.md`, `ai/GLOBAL_INDEX.md`, `legacy/README.md`.
 - `legacy/` e' non autorevole e si consulta solo per richiesta storica esplicita.
+- Cambi a fatti Kuma/Telegram vanno fatti nelle tabelle canoniche; dopo la modifica rigenerare e validare gli indici operativi.
 
 ## Segreti e Bitwarden
 

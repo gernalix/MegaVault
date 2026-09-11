@@ -1,5 +1,5 @@
 # GLOBAL_INDEX
-VERSION=9
+VERSION=10
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
@@ -22,6 +22,10 @@ project_cli=python3 ../megavault.py project-list|project-work-queue|project-remo
 hosts=sqlite:hosts
 services=sqlite:services
 integrations=sqlite:integrations
+kuma_monitors=sqlite:kuma_monitor_index;derived_from=services+integrations;cli=python3 ../megavault.py kuma-index [--project-id PROJECT_ID]
+telegram_notification_evidence=sqlite:telegram_notification_capability_index;derived_from=integrations+services+project_components+project_operations
+telegram_notifier_projects=sqlite:telegram_notification_project_index;one_row_per_project;cli=python3 ../megavault.py telegram-index [--project-id PROJECT_ID]
+operational_index_maintenance=python3 ../megavault.py operational-index-migrate|operational-index-validate
 secrets=sqlite:secret_refs;values_never_stored
 incidents=sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;and_search=multi_tag
 timeline=sqlite:events
@@ -30,6 +34,7 @@ legacy=../legacy/README.md;non_authoritative;explicit_historical_request_only
 
 RULE:
 if_repo_code_map_exists=use_matching_rows_first;never_read_entire_map_when_target_can_be_grepped;map_is_hint_not_truth;keep_compact_not_exhaustive
+operational_indices=derived_views_only;fix_canonical_source_rows_not_views;Kuma_requires_project_id+explanation;Telegram_project_index_aggregates_capability_evidence
 if_fact_missing=verify_live_or_mark_UNKNOWN
 if_conflict=sqlite_current_fact_beats_deleted_markdown;Git_history_for_past_reports
 execution_mode=lowest_safe_mode;FAST_default;promote_only_with_concrete_evidence
