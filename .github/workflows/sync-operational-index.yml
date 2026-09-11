@@ -29,32 +29,23 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+
           path = Path('tests/test_megavault.py')
           text = path.read_text()
-          old = '''        expected = {
-              "codex_work_queue": 23,
-              "codex_remote_projects": 4,
-              "codex_missing_projects": 7,
-              "codex_archived_projects": 20,
-          }'''
-          new = '''        expected = {
-              "codex_work_queue": conn.execute("select count(*) from codex_project_index where project_status in ('LOCAL','REMOTE_ONLY')").fetchone()[0],
-              "codex_remote_projects": conn.execute("select count(*) from codex_project_index where project_status='REMOTE_ONLY'").fetchone()[0],
-              "codex_missing_projects": conn.execute("select count(*) from codex_project_index where project_status='MISSING'").fetchone()[0],
-              "codex_archived_projects": conn.execute("select count(*) from codex_project_index where project_status='ARCHIVED'").fetchone()[0],
-          }'''
-          if old not in text:
-              raise SystemExit('expected count block not found')
-          text = text.replace(old, new, 1)
           replacements = {
-              '        self.assertEqual(23, len(work_lines))': '        self.assertEqual(sqlite3.connect(ROOT / "megavault.sqlite").execute("select count(*) from codex_work_queue").fetchone()[0], len(work_lines))',
-              '        self.assertEqual(4, len(remote_lines))': '        self.assertEqual(sqlite3.connect(ROOT / "megavault.sqlite").execute("select count(*) from codex_remote_projects").fetchone()[0], len(remote_lines))',
-              '        self.assertEqual(7, len(missing_lines))': '        self.assertEqual(sqlite3.connect(ROOT / "megavault.sqlite").execute("select count(*) from codex_missing_projects").fetchone()[0], len(missing_lines))',
-              '        self.assertEqual(20, len(archived_lines))': '        self.assertEqual(sqlite3.connect(ROOT / "megavault.sqlite").execute("select count(*) from codex_archived_projects").fetchone()[0], len(archived_lines))',
+              '"codex_work_queue": 23,': '"codex_work_queue": conn.execute("select count(*) from codex_project_index where project_status in (\'LOCAL\',\'REMOTE_ONLY\')").fetchone()[0],',
+              '"codex_remote_projects": 4,': '"codex_remote_projects": conn.execute("select count(*) from codex_project_index where project_status=\'REMOTE_ONLY\'").fetchone()[0],',
+              '"codex_missing_projects": 7,': '"codex_missing_projects": conn.execute("select count(*) from codex_project_index where project_status=\'MISSING\'").fetchone()[0],',
+              '"codex_archived_projects": 20,': '"codex_archived_projects": conn.execute("select count(*) from codex_project_index where project_status=\'ARCHIVED\'").fetchone()[0],',
+              'self.assertEqual(23, len(work_lines))': 'self.assertEqual(sqlite3.connect(ROOT / "megavault.sqlite").execute("select count(*) from codex_work_queue").fetchone()[0], len(work_lines))',
+              'self.assertEqual(4, len(remote_lines))': 'self.assertEqual(sqlite3.connect(ROOT / "megavault.sqlite").execute("select count(*) from codex_remote_projects").fetchone()[0], len(remote_lines))',
+              'self.assertEqual(7, len(missing_lines))': 'self.assertEqual(sqlite3.connect(ROOT / "megavault.sqlite").execute("select count(*) from codex_missing_projects").fetchone()[0], len(missing_lines))',
+              'self.assertEqual(20, len(archived_lines))': 'self.assertEqual(sqlite3.connect(ROOT / "megavault.sqlite").execute("select count(*) from codex_archived_projects").fetchone()[0], len(archived_lines))',
           }
           for before, after in replacements.items():
-              if before not in text:
-                  raise SystemExit(f'missing test line: {before}')
+              count = text.count(before)
+              if count != 1:
+                  raise SystemExit(f'expected exactly one match for {before!r}, found {count}')
               text = text.replace(before, after, 1)
           path.write_text(text)
           PY
