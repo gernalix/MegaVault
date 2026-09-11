@@ -30,6 +30,11 @@ jobs:
       - name: Validate operational indexes
         run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py operational-index-validate
 
+      - name: Validate MegaVault and tests
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -q
+
       - name: Show indexes
         run: |
           PYTHONDONTWRITEBYTECODE=1 python3 megavault.py kuma-index
