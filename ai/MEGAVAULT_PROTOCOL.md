@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=39
+VERSION=40
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -198,3 +198,63 @@ Per modifiche al repository MegaVault:
 - dopo acceptance e validazione richiesta, fare un commit finale e un push finale, salvo divieto esplicito dell'utente.
 
 Per altri repository, seguire l'entrypoint generale e le regole del repository target; usare MegaVault solo per identita'/routing/fatti necessari.
+
+## Machine semantic contract
+
+Questi marker sono il contratto machine-readable verificato da `megavault.py validate`; non sostituiscono le spiegazioni sopra.
+
+```text
+CAPSULIZATION=mandatory_all_projects
+CAPSULE_TARGET=progressive
+NEW_CODE=capsule_only
+SHARED_LOGIC=capsule_only
+UI_DIRECT_DEPENDENCY=forbidden
+CROSS_MODULE_ACCESS=through_capsules_only
+LEGACY_REFACTOR=reduce_when_benefit_exceeds_cost_risk
+LEGACY_RESIDUALS=document_and_verify
+FINAL_GATE=verify_capsule_first_boundaries_and_documented_residuals_before_final
+PYTHON:
+env=global
+isolation=forbidden
+tools=venv|virtualenv|pipenv|poetry|uv
+override=user_explicit_request
+packages=reuse_global>install_global
+venv_without_override=protocol_violation
+model=trunk_based_single_developer;operative_branches=1
+direct_canonical_work=default
+per_task_branch=forbidden
+branch_chaining=forbidden
+commit_push_before_final=required_unless_user_explicitly_forbids
+final_branch_fields=repository,canonical_branch,current_branch,temp_branch_reason,integration_status,cleanup_status
+secret_values=never_store;reference_paths_only
+SECRETS:
+values=never_store_in_MegaVault_or_Git
+secrets=follow_SECRETS_section
+secret_handling=read_only_when_task_requires;canonical_root_first;canonical_paths_from_database;reprompt_for_known_path_forbidden;rotation_manual_explicit_only
+project_id_source=megavault.sqlite:projects+project_aliases_only;INTEGER_PRIMARY_KEY
+project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense
+duplicate_truth=forbidden
+forbidden=reports_done,human_mirror,project_docs_in_MegaVault,generated_timeline_markdown,duplicate_registries
+project_docs=owner_repo_docs_code_tests;MegaVault_only_global_transversal_knowledge
+identity=one_observed_occurrence
+id=SQLite_AUTOINCREMENT;immediate;unique;never_reused
+same_symptom_same_cause_new_time=new_incident
+cause=nullable;UNKNOWN_allowed;does_not_affect_id
+merge=forbidden
+linking=canonical_tags_only
+source=megavault.sqlite:tags+tag_aliases
+reuse_existing=mandatory
+free_text=forbidden
+new_tag=only_if_no_canonical_or_alias_match
+format=lowercase_atomic
+aliases=search_only;canonical_link_only
+incident_search=tag_intersection+text
+final_fields=files_changed,tests,test_result,docs_or_MegaVault_updates,repo_status,commit,push,sync_state,branch_fields,execution_insights,blockers,optimization_opportunities,remaining_unresolved
+blockers=root_cause,impact,workaround,resolution,status;silent_workaround_retry_skip=forbidden
+optimization=root_cause,impact,estimated_future_savings,one_time_fix,priority,confidence,status;section=mandatory
+success_forbid=silent_failure,false_success,unverified_PASS
+required_for=android_projects,android_builds,android_releases,android_tooling
+version=version.txt_integer_monotonic;derive_versionCode_versionName_apk_name;home_v_visible;skip_reuse_forbidden
+saf_sqlite=autoexport_all_app_data_on_db_change;atomic;validate_after_write;failure_visible;preserve_last_good;test_required
+i18n=en+it;no_hardcoded_user_visible_text;missing_translation_blocker
+```
