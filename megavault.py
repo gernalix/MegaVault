@@ -7,10 +7,14 @@ from ai.strict_tag_wrapper import *  # noqa: F401,F403
 from ai.strict_tag_wrapper import main as _core_main
 from ai.operational_indexes import dispatch as _dispatch_operational
 from ai.operational_indexes import migrate_operational_indexes
+from ai.workflow_events import dispatch as _dispatch_workflow_events
 
 
 def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
+    event_result = _dispatch_workflow_events(args)
+    if event_result is not None:
+        return event_result
     # Operational-index commands are intentionally handled before the core CLI.
     operational_result = _dispatch_operational(args)
     if operational_result is not None:
