@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=40
+VERSION=41
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -152,6 +152,39 @@ Usare l'ambiente globale. `venv`, `virtualenv`, `pipenv`, `poetry` e `uv` sono v
 ### Servizi e Host
 
 Verificare live path, mount, unita' systemd e host runtime prima di documentare stato corrente. Usare `systemctl` per unita' di sistema e `systemctl --user` per unita' utente. Evitare autostart duplicati.
+
+### Infrastruttura STRICT e cutover
+
+Quando un task `STRICT` modifica rete, listener, reverse proxy, tunnel, firewall,
+TLS/DNS, autostart, Docker networking o un runtime critico:
+
+1. prima di qualsiasi mutazione eseguire un singolo preflight read-only della
+   catena end-to-end; se il repository proprietario offre un helper di audit,
+   usarlo invece di ricostruire lo stesso inventario con molti comandi separati;
+2. il preflight deve coprire almeno host/runtime canonico, listener e processi
+   proprietari, firewall/esposizione pubblica, DNS, proxy, backend locale,
+   unita' system e user rilevanti, tunnel/connettori e relativi autostart,
+   configurazioni/identita' del tunnel e stato del worktree;
+3. risolvere prima duplicazioni o ambiguita' di ownership/autostart. Non assumere
+   che piu' processi simili siano un errore: verificare se appartengono davvero
+   allo stesso tunnel/configurazione;
+4. prima del cutover creare backup consistente e verificabile e rollback
+   idempotente. Il rollback deve fissare le identita' che cambiano col contesto
+   (per esempio project name Compose) e usare readiness bounded, non sleep
+   arbitrari;
+5. un HTTP `2xx`, una UI raggiungibile o uno stato precedente non bastano a
+   dichiarare PASS. Per push, heartbeat o pipeline asincrone usare un
+   nonce/correlation marker univoco e verificarne il readback nel DB/log/stato
+   autorevole del destinatario;
+6. quando scheduling o heartbeat fanno parte del task, verificare almeno due
+   cicli reali prima del PASS;
+7. mantenere il percorso legacy finche' il nuovo percorso non supera il gate
+   end-to-end dal producer al destinatario;
+8. dopo un fallimento non ripetere lo stesso comando/probe senza nuova evidenza
+   o una modifica che cambi l'ipotesi. Classificare prima il livello responsabile
+   e fare il successivo controllo minimo discriminante;
+9. dopo il PASS fermarsi: niente audit aggiuntivi, esplorazione generale o
+   cleanup fuori scope.
 
 ### Database
 
