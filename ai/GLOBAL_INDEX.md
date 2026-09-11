@@ -1,5 +1,5 @@
 # GLOBAL_INDEX
-VERSION=10
+VERSION=11
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
@@ -22,9 +22,11 @@ project_cli=python3 ../megavault.py project-list|project-work-queue|project-remo
 hosts=sqlite:hosts
 services=sqlite:services
 integrations=sqlite:integrations
-kuma_monitors=sqlite:kuma_monitor_index;derived_from=services+integrations;cli=python3 ../megavault.py kuma-index [--project-id PROJECT_ID]
-telegram_notification_evidence=sqlite:telegram_notification_capability_index;derived_from=integrations+services+project_components+project_operations
+kuma_monitors=sqlite:kuma_monitors+kuma_monitor_projects->kuma_monitor_index;inventory_status=operational_inventory_meta:kuma_monitors;cli=python3 ../megavault.py kuma-index
+kuma_sync=python3 ../megavault.py kuma-sync-sqlite --source-db PATH [--integration-id INT0002] [--host-id HOST_ID];complete_after=kuma-map+kuma-describe+kuma-finalize
+telegram_notification_evidence=sqlite:telegram_project_capabilities+integrations+services+project_components+project_operations->telegram_notification_capability_index
 telegram_notifier_projects=sqlite:telegram_notification_project_index;one_row_per_project;cli=python3 ../megavault.py telegram-index [--project-id PROJECT_ID]
+telegram_shared_infrastructure=sqlite:telegram_shared_infrastructure_index;global_helpers_need_no_project_id
 operational_index_maintenance=python3 ../megavault.py operational-index-migrate|operational-index-validate
 secrets=sqlite:secret_refs;values_never_stored
 incidents=sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;and_search=multi_tag
@@ -34,7 +36,9 @@ legacy=../legacy/README.md;non_authoritative;explicit_historical_request_only
 
 RULE:
 if_repo_code_map_exists=use_matching_rows_first;never_read_entire_map_when_target_can_be_grepped;map_is_hint_not_truth;keep_compact_not_exhaustive
-operational_indices=derived_views_only;fix_canonical_source_rows_not_views;Kuma_requires_project_id+explanation;Telegram_project_index_aggregates_capability_evidence
+kuma_completeness=claim_only_when operational_inventory_meta:kuma_monitors status=COMPLETE;live_monitor_state_from_uptime_kuma_db_not_events_or_history;target_refs_must_be_secret_safe
+telegram_project_index=project_scoped_capabilities_only;null_project_id_shared_infrastructure_is_valid_and_separate
+operational_indices=views_are_derived;fix_canonical_source_tables_not_views
 if_fact_missing=verify_live_or_mark_UNKNOWN
 if_conflict=sqlite_current_fact_beats_deleted_markdown;Git_history_for_past_reports
 execution_mode=lowest_safe_mode;FAST_default;promote_only_with_concrete_evidence

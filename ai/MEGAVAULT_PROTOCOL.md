@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=38
+VERSION=39
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -44,12 +44,48 @@ Tabelle/view principali:
 - `incidents`, `incident_events`, `tags`, `tag_aliases`, `incident_tags`;
 - `events`, `knowledge_notes`, `data_assets`;
 - `codex_project_index`, `codex_work_queue`, `codex_remote_projects`, `codex_missing_projects`, `codex_archived_projects`;
-- `kuma_monitor_index` per routing Uptime Kuma con spiegazione e `project_id`;
-- `telegram_notification_capability_index` come evidenza granulare e `telegram_notification_project_index` come indice una-riga-per-progetto.
+- `kuma_monitors`, `kuma_monitor_projects`, `operational_inventory_meta`, `kuma_monitor_index`;
+- `telegram_project_capabilities`, `telegram_notification_capability_index`, `telegram_notification_project_index`, `telegram_shared_infrastructure_index`.
 
-Gli indici Kuma/Telegram sono view derivate: non sono registri duplicati. Correggere sempre `services`, `integrations`, `project_components` o `project_operations` alla fonte, poi rigenerare le view. Non correggere manualmente le view.
+Gli indici operativi sono strutturati in SQLite. Le view sono derivate: correggere i dati sorgente, non le view.
 
-CLI utile:
+### Uptime Kuma
+
+`kuma_monitor_index` rappresenta monitor reali, non la sola istanza/server Kuma. Lo stato di completezza e' in `operational_inventory_meta` con `inventory_key='kuma_monitors'`.
+
+Regole:
+
+- non dichiarare l'indice completo se lo stato non e' `COMPLETE`;
+- lo stato corrente dei monitor deve provenire dal DB live/backup recente di Uptime Kuma, non da `events`, vecchi report o Git history;
+- `kuma-sync-sqlite` importa solo campi necessari e salva target sanitizzati; token push, query segrete e URL sensibili non vanno salvati;
+- ogni monitor corrente deve avere almeno un `project_id` in `kuma_monitor_projects` e una spiegazione non `UNKNOWN` prima di `kuma-finalize`;
+- un monitor puo' dipendere da piu' progetti;
+- monitor non piu' presenti restano storicizzati con `seen_in_last_sync=0`.
+
+CLI:
+
+```bash
+python3 /home/daniele/MegaVault/megavault.py kuma-index
+python3 /home/daniele/MegaVault/megavault.py kuma-sync-sqlite --source-db PATH [--integration-id INT0002] [--host-id HOST_ID]
+python3 /home/daniele/MegaVault/megavault.py kuma-map --monitor-key KEY --project-id PROJECT_ID
+python3 /home/daniele/MegaVault/megavault.py kuma-describe --monitor-key KEY --purpose "..."
+python3 /home/daniele/MegaVault/megavault.py kuma-finalize
+```
+
+### Telegram
+
+`telegram_notification_project_index` e' l'indice una-riga-per-progetto dei progetti per cui esiste evidenza di capacita' Telegram. L'evidenza deriva da `telegram_project_capabilities`, `integrations`, `services`, `project_components` e `project_operations`.
+
+`telegram_shared_infrastructure_index` contiene helper/integrazioni Telegram globali senza `project_id`. Un helper condiviso non deve essere forzato artificialmente su un progetto. La presenza dell'infrastruttura condivisa, da sola, non significa che tutti i progetti possano inviare notifiche.
+
+CLI:
+
+```bash
+python3 /home/daniele/MegaVault/megavault.py telegram-index
+python3 /home/daniele/MegaVault/megavault.py telegram-index --project-id PROJECT_ID
+```
+
+## CLI Generale
 
 ```bash
 python3 /home/daniele/MegaVault/megavault.py project-list
@@ -57,18 +93,12 @@ python3 /home/daniele/MegaVault/megavault.py project-work-queue
 python3 /home/daniele/MegaVault/megavault.py project-show PROJECT_ID
 python3 /home/daniele/MegaVault/megavault.py project-path PROJECT_ID
 python3 /home/daniele/MegaVault/megavault.py project-path --status PROJECT_ID
-python3 /home/daniele/MegaVault/megavault.py kuma-index
-python3 /home/daniele/MegaVault/megavault.py kuma-index --project-id PROJECT_ID
-python3 /home/daniele/MegaVault/megavault.py telegram-index
-python3 /home/daniele/MegaVault/megavault.py telegram-index --project-id PROJECT_ID
 python3 /home/daniele/MegaVault/megavault.py operational-index-migrate
 python3 /home/daniele/MegaVault/megavault.py operational-index-validate
 python3 /home/daniele/MegaVault/megavault.py validate
 ```
 
 `project-path` stampa solo il worktree canonico e fallisce se assente o ambiguo. `project-path --status` stampa un solo token: `LOCAL`, `REMOTE_ONLY`, `MISSING`, `ARCHIVED` o `ABSENT`.
-
-`kuma-index` espone ogni evidenza Kuma con progetto, host, stato e spiegazione. `telegram-index` restituisce una riga per progetto con stato della capacita' ed evidenze aggregate. `operational-index-validate` fallisce se trova entry Kuma/Telegram senza `project_id` o entry Kuma senza spiegazione documentata.
 
 ## Lettura Operativa
 
@@ -77,9 +107,9 @@ Per task MegaVault:
 1. leggere questo file;
 2. leggere solo la parte pertinente di `ai/GLOBAL_INDEX.md` se serve routing compatto;
 3. interrogare `megavault.sqlite` per i fatti richiesti;
-4. per Uptime Kuma o notifiche Telegram usare prima le view/CLI dedicate e aprire repo specifici solo se l'indice non basta;
+4. per Kuma o Telegram usare prima gli indici/CLI dedicati;
 5. aprire repository, docs o codice target solo quando il fatto MegaVault non basta o il task lo richiede;
-6. validare con `megavault.py validate` dopo modifiche a schema, dati o viste; se toccano Kuma/Telegram, eseguire anche `operational-index-migrate` e `operational-index-validate`.
+6. validare con `megavault.py validate` dopo modifiche a schema/dati; per Kuma/Telegram eseguire anche `operational-index-migrate` e `operational-index-validate`.
 
 Non rileggere file o query gia' verificati nella sessione se lo stato non e' cambiato.
 
@@ -90,9 +120,8 @@ Non rileggere file o query gia' verificati nella sessione se lo stato non e' cam
 - Abilitare e rispettare foreign keys.
 - Nuovi repository gernalix in scope e non rappresentati vanno registrati prima del PASS, con metadati minimi verificati e senza duplicati.
 - `events` e' obbligatorio per lavoro completato su progetti/sistemi Daniele quando serve traccia persistente.
-- Markdown consentito in MegaVault: `ai/MEGAVAULT_PROTOCOL.md`, `ai/GLOBAL_INDEX.md`, `legacy/README.md`.
+- Markdown consentito in MegaVault: `ai/MEGAVAULT_PROTOCOL.md`, `ai/GLOBAL_INDEX.md`, `ai/personalhubdoc.md`, `legacy/README.md`.
 - `legacy/` e' non autorevole e si consulta solo per richiesta storica esplicita.
-- Cambi a fatti Kuma/Telegram vanno fatti nelle tabelle canoniche; dopo la modifica rigenerare e validare gli indici operativi.
 
 ## Segreti e Bitwarden
 
