@@ -27,6 +27,25 @@ jobs:
       - name: Migrate operational indexes
         run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py operational-index-migrate
 
+      - name: Show Kuma index
+        run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py kuma-index
+
+      - name: Show Telegram index
+        run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py telegram-index
+
+      - name: Show unmapped operational evidence
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          conn = sqlite3.connect('megavault.sqlite')
+          for view in ('kuma_monitor_index', 'telegram_notification_capability_index'):
+              print(f'[{view}]')
+              cols = [row[1] for row in conn.execute(f'pragma table_info({view})')]
+              for row in conn.execute(f'select * from {view} where project_id is null'):
+                  print(dict(zip(cols, row)))
+          PY
+
       - name: Validate operational indexes
         run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py operational-index-validate
 
