@@ -11,6 +11,7 @@ from ai.operational_indexes import migrate_operational_indexes
 
 def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
+    # Operational-index commands are intentionally handled before the core CLI.
     operational_result = _dispatch_operational(args)
     if operational_result is not None:
         return operational_result
