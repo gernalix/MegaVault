@@ -31,6 +31,8 @@ operational_index_maintenance=python3 ../megavault.py operational-index-migrate|
 secrets=sqlite:secret_refs;values_never_stored
 incidents=sqlite:incidents+incident_events+tags+tag_aliases+incident_tags;and_search=multi_tag
 timeline=sqlite:events
+event_create=python3 ../megavault.py event-create --project-id PROJECT_ID --category CATEGORY --type TYPE --status STATUS --summary SUMMARY [--metadata JSON_OBJECT]
+event_validate=python3 ../megavault.py event-validate (--event-id EVENT_ID|--project-id PROJECT_ID);scoped_only;machine_json
 reporting=FAST:compact_final_no_files;STANDARD:plain_plus_optional_technical;STRICT:reporting.py_paired_reports
 legacy=../legacy/README.md;non_authoritative;explicit_historical_request_only
 
@@ -39,6 +41,7 @@ if_repo_code_map_exists=use_matching_rows_first;never_read_entire_map_when_targe
 kuma_completeness=claim_only_when operational_inventory_meta:kuma_monitors status=COMPLETE;live_monitor_state_from_uptime_kuma_db_not_events_or_history;target_refs_must_be_secret_safe
 telegram_project_index=project_scoped_capabilities_only;null_project_id_shared_infrastructure_is_valid_and_separate
 operational_indices=views_are_derived;fix_canonical_source_tables_not_views
+event_write=use_event-create_not_raw_sql;metadata_must_be_json_object;validate_changed_event_or_project_with_event-validate;global_validate_reserved_for_explicit_audit_or_final_required_gate
 if_fact_missing=verify_live_or_mark_UNKNOWN
 if_conflict=sqlite_current_fact_beats_deleted_markdown;Git_history_for_past_reports
 execution_mode=lowest_safe_mode;FAST_default;promote_only_with_concrete_evidence
