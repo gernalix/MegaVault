@@ -1,5 +1,5 @@
 # GLOBAL_INDEX
-VERSION=8
+VERSION=9
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
@@ -14,6 +14,7 @@ report_finish_STRICT=python3 reporting.py --plain-file FINAL_REPORT_PLAIN.txt --
 ROUTING:
 project_id=resolve_only_from_sqlite:project_aliases->projects;integer_primary_key
 repositories=sqlite:repositories
+repo_code_map=optional_repo_file:.codex/CODE_MAP.tsv;semantic_routing_hints;search_matching_rows_before_source_search;open_only_matched_paths;fallback_to_narrow_search_if_missing_or_stale
 codex_project_index=sqlite:codex_project_index;one_row_per_project;deterministic_row_number
 codex_work_queue=sqlite:codex_work_queue;LOCAL+REMOTE_ONLY_only;operational_fields
 codex_status_views=sqlite:codex_remote_projects|codex_missing_projects|codex_archived_projects
@@ -28,6 +29,7 @@ reporting=FAST:compact_final_no_files;STANDARD:plain_plus_optional_technical;STR
 legacy=../legacy/README.md;non_authoritative;explicit_historical_request_only
 
 RULE:
+if_repo_code_map_exists=use_matching_rows_first;never_read_entire_map_when_target_can_be_grepped;map_is_hint_not_truth;keep_compact_not_exhaustive
 if_fact_missing=verify_live_or_mark_UNKNOWN
 if_conflict=sqlite_current_fact_beats_deleted_markdown;Git_history_for_past_reports
 execution_mode=lowest_safe_mode;FAST_default;promote_only_with_concrete_evidence
