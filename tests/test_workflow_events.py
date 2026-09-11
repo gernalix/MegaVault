@@ -50,6 +50,33 @@ class WorkflowEventTests(unittest.TestCase):
                 self.assertEqual(0, workflow_events.dispatch(["event-validate", "--event-id", event_id]))
                 self.assertEqual(0, workflow_events.dispatch(["event-validate", "--project-id", "23"]))
 
+    def test_event_create_supports_canonical_legacy_schema(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            db = Path(tmp) / "megavault.sqlite"
+            conn = sqlite3.connect(db)
+            conn.executescript(
+                """
+                create table projects(project_id integer primary key, slug text not null);
+                insert into projects values(23, 'megavault');
+                create table events(
+                  event_id text primary key, event_date text not null, discovered_at text not null,
+                  project_id integer not null references projects(project_id),
+                  project_label_original text not null, category text not null,
+                  importance text not null, label_short text not null, event_type text not null,
+                  summary text not null, source_path text not null, source_kind text not null,
+                  status text not null, confidence real not null, notes text
+                );
+                """
+            )
+            conn.close()
+            with mock.patch.object(workflow_events, "DB", db):
+                self.assertEqual(0, workflow_events.dispatch([
+                    "event-create", "--project-id", "23", "--category", "code",
+                    "--type", "task_complete", "--status", "PASS", "--summary", "done",
+                    "--metadata", '{"prompt_id":"418562"}',
+                ]))
+                self.assertEqual(0, workflow_events.dispatch(["event-validate", "--project-id", "23"]))
+
     def test_invalid_metadata_is_atomic(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             db = self.make_db(Path(tmp))

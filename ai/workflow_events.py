@@ -20,7 +20,7 @@ FIELD_CANDIDATES: dict[str, tuple[str, ...]] = {
     "event_type": ("event_type", "type"),
     "status": ("status",),
     "summary": ("summary", "description", "detail"),
-    "event_time_utc": ("event_time_utc", "created_at_utc", "timestamp_utc", "created_at"),
+    "event_time_utc": ("event_time_utc", "discovered_at", "created_at_utc", "timestamp_utc", "created_at", "event_date"),
     "metadata": ("metadata_json", "metadata", "details_json", "details", "notes"),
 }
 REQUIRED_FIELDS = ("project_id", "category", "event_type", "status", "summary", "event_time_utc")
@@ -100,16 +100,36 @@ def create_event(
         raise ValueError("project_id_invalid")
     if not _project_exists(conn, project_id):
         raise ValueError("project_not_found")
+    now = _utc_now()
     values: dict[str, Any] = {
         schema["project_id"]: project_id,
         schema["category"]: _text(category, "category"),
         schema["event_type"]: _text(event_type, "type"),
         schema["status"]: _text(status, "status"),
         schema["summary"]: _text(summary, "summary"),
-        schema["event_time_utc"]: _utc_now(),
+        schema["event_time_utc"]: now,
     }
     if metadata_json is not None and "metadata" in schema:
         values[schema["metadata"]] = metadata_json
+
+    # The canonical database predates the compact workflow-events schema and
+    # has additional required provenance columns. Populate only those known
+    # legacy fields when present, leaving compact/newer schemas unchanged.
+    columns_info = _columns(conn, "events")
+    project = conn.execute("select slug from projects where project_id=?", (project_id,)).fetchone()
+    legacy_defaults: dict[str, Any] = {
+        "event_date": now[:10],
+        "discovered_at": now,
+        "project_label_original": str(project[0]),
+        "importance": "normal",
+        "label_short": _text(summary, "summary")[:120],
+        "source_path": "ai/workflow_events.py",
+        "source_kind": "workflow_event_cli",
+        "confidence": 1.0,
+    }
+    for column, value in legacy_defaults.items():
+        if column in columns_info and column not in values:
+            values[column] = value
 
     id_column = schema.get("event_id")
     id_is_integer_pk = False

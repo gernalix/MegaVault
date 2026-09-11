@@ -190,7 +190,15 @@ class MegaVaultTests(unittest.TestCase):
         ).fetchall()
         self.assertEqual(
             [
-                (31, "REMOTE_ONLY", "oracle-vm", None, "oracle-vm", "/opt/uptime-kuma", None),
+                (
+                    31,
+                    "REMOTE_ONLY",
+                    "oracle-vm",
+                    None,
+                    "oracle-vm",
+                    "/etc/caddy/Caddyfile+/etc/cloudflared/config.yml+/opt/uptime-kuma",
+                    None,
+                ),
                 (
                     33,
                     "REMOTE_ONLY",
