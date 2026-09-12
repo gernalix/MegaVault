@@ -37,7 +37,9 @@ Ownership:
 
 Keep Telegram on the standard cloud Bot API. If the final APK is at or below 50 MiB, deliver it directly as a Telegram document. If it is larger, publish it as the current APK asset on the stable PersonalHub development prerelease `personalhub-dev-apk` and send the GitHub Release link through Telegram. PersonalHub is private, so that link requires GitHub authentication unless repository visibility changes.
 
-Secrets such as bot token and chat/destination remain outside Git. `telegram_notify` does not need a configurable Local Bot API endpoint for this workflow, and there is no >50 MiB Telegram runtime acceptance test anymore.
+Secrets such as bot token and chat/destination remain outside Git. `telegram_notify` does not need a configurable Local Bot API endpoint for this workflow.
+
+A real end-to-end large-artifact smoke path exists at `tools/smoke_large_apk_delivery.py`. It must use a **real PersonalHub APK >50 MiB** (valid APK/ZIP containing `AndroidManifest.xml`), authenticated `gh`, the isolated prerelease `personalhub-dev-apk-smoke`, and a real Telegram notification. Do not fabricate/pad a non-APK fixture merely to force this branch. The smoke release is separate from the production prerelease so a test cannot replace the current production APK.
 
 For the stable prerelease, upload the replacement APK **before** deleting the previous APK asset. Only after the upload succeeds should old APK assets be removed and release metadata updated. An upload failure must leave the last known-good APK available.
 
@@ -49,7 +51,7 @@ Preferred PersonalHub release sequence:
 2. one final signed debug build after the code is stable;
 3. verify version/signature/hash once;
 4. install that exact APK on Pixel;
-5. deliver the APK through `telegram_notify` if it is at or below 50 MiB, otherwise publish it to the stable GitHub prerelease and send that link through `telegram_notify`;
+5. if the APK is `>50 MiB`, run the isolated real smoke once on those same bytes; then perform the single production delivery: direct Telegram document when `<=50 MiB`, otherwise stable GitHub prerelease asset + Telegram link;
 6. perform required MegaVault/roadmap terminal writes;
 7. stop.
 
