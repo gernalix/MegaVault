@@ -23,7 +23,7 @@ The desired local tooling is a small task lease/lock used by Codex sessions, wit
 
 Default final delivery artifact: canonically signed **debug** APK `<version>.apk` unless a specific task requires release behavior.
 
-Do not run R8/minification, ABI stripping, APK post-processing or manual re-signing solely because a transport rejects the APK size. Transport constraints must be fixed at the delivery layer. After final gates pass, the artifact is immutable: the exact same bytes are installed on the Pixel and delivered to Telegram.
+Do not run R8/minification, ABI stripping, APK post-processing or manual re-signing solely because a transport rejects the APK size. Transport constraints must be fixed at the delivery layer. After final gates pass, the artifact is immutable: the exact same bytes are installed on the Pixel and delivered either directly through Telegram or through the GitHub Release fallback.
 
 ## Telegram delivery architecture
 
@@ -31,19 +31,15 @@ Do not create a dedicated repository just for large APK delivery.
 
 Ownership:
 
-- shared `telegram_notify`: cloud Bot API notification client;
+- shared `telegram_notify`: standard cloud Bot API notification/document client;
 - PersonalHub: APK delivery policy and GitHub Release fallback for large APKs;
 - `gernalix/vm_oracle`: no self-hosted Telegram Bot API service for this workflow.
 
-Keep Telegram on the standard cloud Bot API. If the final APK is at or below
-50 MB, deliver it directly as a Telegram document. If it is larger, publish it
-as the current APK asset on the stable PersonalHub development prerelease and
-send the GitHub Release link through Telegram. PersonalHub is private, so that
-link requires GitHub authentication unless repository visibility changes.
+Keep Telegram on the standard cloud Bot API. If the final APK is at or below 50 MiB, deliver it directly as a Telegram document. If it is larger, publish it as the current APK asset on the stable PersonalHub development prerelease `personalhub-dev-apk` and send the GitHub Release link through Telegram. PersonalHub is private, so that link requires GitHub authentication unless repository visibility changes.
 
-Secrets such as bot token and chat/destination remain outside Git.
+Secrets such as bot token and chat/destination remain outside Git. `telegram_notify` does not need a configurable Local Bot API endpoint for this workflow, and there is no >50 MiB Telegram runtime acceptance test anymore.
 
-The shared notifier should accept/configure one base endpoint, send documents through it, and preserve the existing destination/config semantics. A runtime acceptance test must send a temporary file larger than the cloud 50 MB limit and then delete the temporary file.
+For the stable prerelease, upload the replacement APK **before** deleting the previous APK asset. Only after the upload succeeds should old APK assets be removed and release metadata updated. An upload failure must leave the last known-good APK available.
 
 ## Release workflow
 
@@ -53,7 +49,7 @@ Preferred PersonalHub release sequence:
 2. one final signed debug build after the code is stable;
 3. verify version/signature/hash once;
 4. install that exact APK on Pixel;
-5. deliver the APK through `telegram_notify` if it is at or below 50 MB, otherwise publish it to the stable GitHub prerelease and send that link through `telegram_notify`;
+5. deliver the APK through `telegram_notify` if it is at or below 50 MiB, otherwise publish it to the stable GitHub prerelease and send that link through `telegram_notify`;
 6. perform required MegaVault/roadmap terminal writes;
 7. stop.
 
@@ -65,4 +61,6 @@ For a sequence of PersonalHub tasks, use a campaign: intermediate phases perform
 
 GPT-5.5 medium is the default for pre-localized implementation/verification. GPT-5.6 Sol medium remains appropriate for schema migration/data-safety work or genuinely cross-module architectural failures.
 
-`roadmap_guard.py complete` returning `push_verified=git_push_exit_0` is terminal proof for the roadmap push; do not spend tool calls on follow-up status/rev-parse/fetch checks.
+For long-running builds or external processes, prefer one blocking wait or sparse status checks; do not spend model/tool round-trips repeatedly reporting unchanged progress.
+
+`roadmap_guard.py complete` returning `push_verified=git_push_exit_0` is terminal proof for the normal selected-task path. If an implementation is already pushata but the roadmap has advanced and `complete` returns `prompt_identity_mismatch`, use the guard's dedicated `reconcile` flow rather than reproducing its bookkeeping manually. A successful `complete` or `reconcile` push is terminal proof; do not spend tool calls on follow-up status/rev-parse/fetch checks.
