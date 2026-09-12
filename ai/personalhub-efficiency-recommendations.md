@@ -31,13 +31,17 @@ Do not create a dedicated repository just for large APK delivery.
 
 Ownership:
 
-- `gernalix/vm_oracle`: deployment/service configuration for a self-hosted Telegram Bot API server;
-- shared `telegram_notify`: transport client; it must support a configurable Bot API base URL while preserving existing callers;
-- PersonalHub and other producer projects: no Telegram size-specific logic.
+- shared `telegram_notify`: cloud Bot API notification client;
+- PersonalHub: APK delivery policy and GitHub Release fallback for large APKs;
+- `gernalix/vm_oracle`: no self-hosted Telegram Bot API service for this workflow.
 
-Use Telegram's official open-source local Bot API server in `--local` mode. Telegram documents local-mode uploads up to 2000 MB. The cloud Bot API remains size-limited, so a large-file failure must not trigger an alternate PersonalHub build. Switching a bot from the cloud Bot API to the local server requires the official `logOut` transition procedure.
+Keep Telegram on the standard cloud Bot API. If the final APK is at or below
+50 MB, deliver it directly as a Telegram document. If it is larger, publish it
+as the current APK asset on the stable PersonalHub development prerelease and
+send the GitHub Release link through Telegram. PersonalHub is private, so that
+link requires GitHub authentication unless repository visibility changes.
 
-Secrets (`api_id`, `api_hash`, bot token, chat/destination) remain outside Git. The server should bind only as broadly as necessary; expose it through the existing VM security model rather than opening an unauthenticated public endpoint.
+Secrets such as bot token and chat/destination remain outside Git.
 
 The shared notifier should accept/configure one base endpoint, send documents through it, and preserve the existing destination/config semantics. A runtime acceptance test must send a temporary file larger than the cloud 50 MB limit and then delete the temporary file.
 
@@ -49,7 +53,7 @@ Preferred PersonalHub release sequence:
 2. one final signed debug build after the code is stable;
 3. verify version/signature/hash once;
 4. install that exact APK on Pixel;
-5. deliver that exact APK through `telegram_notify` using the local Bot API;
+5. deliver the APK through `telegram_notify` if it is at or below 50 MB, otherwise publish it to the stable GitHub prerelease and send that link through `telegram_notify`;
 6. perform required MegaVault/roadmap terminal writes;
 7. stop.
 
