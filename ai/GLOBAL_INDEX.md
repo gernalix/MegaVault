@@ -1,5 +1,5 @@
 # GLOBAL_INDEX
-VERSION=14
+VERSION=15
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
@@ -14,6 +14,7 @@ codex_selector=model_and_reasoning_metadata_are_operator_guidance_only;Codex_Des
 codex_reasoning=LOW_only_linear_mechanical_no_significant_runtime_decisions_or_conditional_blockers;MEDIUM_default_for_operational_decisions_invariants_blockers_ADB_systemd_Git_filesystem_external_tools_multi_stage_verification;HIGH_only_with_concrete_complexity_or_risk
 codex_model=GPT-5.5_for_bounded_tasks;GPT-5.6_Sol_for_cross_module_architecture_schema_migrations_undo_audit_data_risk_or_when_stronger_reasoning_is_material
 report_finish_STRICT=python3 reporting.py --plain-file FINAL_REPORT_PLAIN.txt --technical-file FINAL_REPORT_TECHNICAL.txt --prompt-id PROMPT_ID
+personalhub_efficiency=personalhub-efficiency-recommendations.md
 
 ROUTING:
 project_id=resolve_only_from_sqlite:project_aliases->projects;integer_primary_key
