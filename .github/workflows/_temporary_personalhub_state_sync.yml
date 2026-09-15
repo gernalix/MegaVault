@@ -1,0 +1,38 @@
+name: Temporary PersonalHub state sync
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .github/workflows/_temporary_personalhub_state_sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  record-personalhub-state:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Record PersonalHub event
+        run: |
+          python3 megavault.py event-create \
+            --project-id 49 \
+            --category git \
+            --type branch_consolidation_startup_fix \
+            --status completed \
+            --summary "PersonalHub consolidated to main-only; startup Timer legacy repair deferred post-first-frame; Pixel startup verification queued as PROMPT_ID=734581." \
+            --metadata '{"canonical_branch":"main","remaining_branches":["main"],"personalhub_main_sha":"651ce5f3d59fc04dd442f66fee8a2ee04ea373a6","roadmap_prompt_id":734581,"startup_baseline_ms":13293}'
+          python3 megavault.py event-validate --project-id 49
+      - name: Commit authoritative database
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add megavault.sqlite
+          git diff --cached --quiet && exit 0
+          git commit -m "Record PersonalHub branch consolidation and startup fix"
+          git push origin HEAD:master
