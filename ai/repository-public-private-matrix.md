@@ -1,7 +1,7 @@
 # Repository public/private matrix
 
 Updated: 2026-09-16
-Status: **publication audit executed; visibility applied fail-closed**
+Status: **publication audit v2 executed; target visibility applied**
 
 Purpose: decide which repositories may safely become public so repeatable GitHub Actions can use free standard hosted runners, while keeping personal data, operational infrastructure and account/session material private.
 
@@ -17,8 +17,8 @@ The audit may downgrade any `PUBLIC_AFTER_AUDIT` repository to `PRIVATE`. A `PRI
 
 | Repository | Current visibility | Baseline recommendation | Audit priority | Rationale | audit_status | secret_findings | sensitive_artifacts | history_clean | required_remediation | final_recommendation | publication_ready | confidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| PersonalHub | private | PUBLIC_AFTER_AUDIT | P0 | Main active software project; large CI benefit if clean. | PASS_WITH_REMEDIATION | gitleaks:0 | paths:11; workflows:0 | no | remove or prove sensitive artifacts are synthetic/non-private before republication | PRIVATE | no | high |
-| codex-usage-monitor | private | PUBLIC_AFTER_AUDIT | P0 | Reusable Python tooling; high CI benefit. | PASS_WITH_REMEDIATION | gitleaks:0 | paths:7; workflows:2 | no | remove or prove sensitive artifacts are synthetic/non-private before republication; tighten workflow trigger/permission/action pinning risks before republication | PRIVATE | no | high |
+| PersonalHub | public | PUBLIC_AFTER_AUDIT | P0 | Main active software project; large CI benefit if clean. | PASS | gitleaks:0 | paths:6; workflows:0 | yes |  | PUBLIC | yes | high |
+| codex-usage-monitor | public | PUBLIC_AFTER_AUDIT | P0 | Reusable Python tooling; high CI benefit. | PASS | gitleaks:0 | paths:0; workflows:2 | yes |  | PUBLIC | yes | high |
 | github-autosync | public | PUBLIC_AFTER_AUDIT | P0 | Reusable automation; deterministic tests. | PASS | gitleaks:0 | paths:0; workflows:0 | yes |  | PUBLIC | yes | high |
 | workflowy-import | public | PUBLIC_AFTER_AUDIT | P0 | Code can be public if exports, DBs, URLs and credentials are absent. | PASS | gitleaks:0 | paths:0; workflows:0 | yes |  | PUBLIC | yes | high |
 | MultiTimeTracker | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
@@ -46,7 +46,7 @@ The audit may downgrade any `PUBLIC_AFTER_AUDIT` repository to `PRIVATE`. A `PRI
 | HabitTracker | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
 | HabitTracker2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
 | real_timer_plugin | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
-| codex-roadmap | private | PUBLIC_AFTER_AUDIT | P0 | Intentionally public workflow repo; audit for accidental secrets/private references. | PASS_WITH_REMEDIATION | gitleaks:0 | paths:8; workflows:2 | no | remove or prove sensitive artifacts are synthetic/non-private before republication; tighten workflow trigger/permission/action pinning risks before republication | PRIVATE | no | high |
+| codex-roadmap | public | PUBLIC_AFTER_AUDIT | P0 | Intentionally public workflow repo; audit for accidental secrets/private references. | PASS | gitleaks:0 | paths:0; workflows:2 | yes |  | PUBLIC | yes | high |
 | gernalix.github.io | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
 | my-notes | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
 | my-notes2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |

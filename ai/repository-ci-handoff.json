@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
-  "generated_by_prompt_id": 940316,
-  "generated_at_utc": "2026-09-16T07:42:37.926369Z",
+  "schema_version": 2,
+  "generated_by_prompt_id": 731845,
+  "generated_at_utc": "2026-09-16T08:04:34.505757Z",
   "next_executor": "chatgpt_github",
   "repositories": [
     {
@@ -13,10 +13,12 @@
     },
     {
       "name": "codex-roadmap",
-      "visibility": "PRIVATE",
+      "visibility": "PUBLIC",
       "default_branch": "main",
-      "audit_status": "PASS_WITH_REMEDIATION",
-      "publication_ready": "no"
+      "audit_status": "PASS",
+      "publication_ready": "yes",
+      "scanned_head_sha": "d8112b2efd520a1d765962c7578035c1c7d8c974",
+      "visibility_apply_status": "verified_public"
     },
     {
       "name": "codex-usage",
@@ -27,10 +29,12 @@
     },
     {
       "name": "codex-usage-monitor",
-      "visibility": "PRIVATE",
+      "visibility": "PUBLIC",
       "default_branch": "main",
-      "audit_status": "PASS_WITH_REMEDIATION",
-      "publication_ready": "no"
+      "audit_status": "PASS",
+      "publication_ready": "yes",
+      "scanned_head_sha": "d2623b0e29509d01e1f0c968d37214554e5fdd91",
+      "visibility_apply_status": "verified_public"
     },
     {
       "name": "datasette5",
@@ -90,10 +94,12 @@
     },
     {
       "name": "PersonalHub",
-      "visibility": "PRIVATE",
+      "visibility": "PUBLIC",
       "default_branch": "main",
-      "audit_status": "PASS_WITH_REMEDIATION",
-      "publication_ready": "no"
+      "audit_status": "PASS",
+      "publication_ready": "yes",
+      "scanned_head_sha": "a71d52e0b856df6c2d337839cfcb7ea4f954a1da",
+      "visibility_apply_status": "verified_public"
     },
     {
       "name": "salute",

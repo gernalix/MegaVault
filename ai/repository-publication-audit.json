@@ -1,10 +1,12 @@
 {
-  "schema_version": 1,
-  "generated_by_prompt_id": 940316,
-  "generated_at_utc": "2026-09-16T07:42:37.926369Z",
+  "schema_version": 2,
+  "generated_by_prompt_id": 731845,
+  "generated_at_utc": "2026-09-16T08:04:34.505757Z",
   "scanner": {
     "name": "gitleaks",
-    "version": "8.30.1"
+    "version": "8.30.1",
+    "mode": "detect full-history all refs",
+    "raw_reports": "/tmp/gitleaks-*-731845.json redacted"
   },
   "initial_inventory": {
     "repo_count": 18,
@@ -41,18 +43,18 @@
   "counts": {
     "audit_status": {
       "PRIVATE_BY_POLICY": 8,
-      "PASS_WITH_REMEDIATION": 5,
-      "PASS": 5
+      "PASS": 8,
+      "PASS_WITH_REMEDIATION": 2
     },
     "final_recommendation": {
-      "PRIVATE": 13,
-      "PUBLIC": 5
+      "PRIVATE": 10,
+      "PUBLIC": 8
     },
-    "publication_ready_yes": 5,
-    "publication_ready_no": 13,
+    "publication_ready_yes": 8,
+    "publication_ready_no": 10,
     "visibility_apply_status": {
-      "verified_private": 13,
-      "verified_public": 5
+      "verified_private": 10,
+      "verified_public": 8
     }
   },
   "repositories": [
@@ -84,72 +86,55 @@
       "archived": false,
       "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
       "audit_priority": "P0",
-      "current_visibility": "PRIVATE",
-      "audit_status": "PASS_WITH_REMEDIATION",
+      "current_visibility": "PUBLIC",
+      "audit_status": "PASS",
       "secret_findings": {
-        "gitleaks": 0
+        "gitleaks": 0,
+        "result": "clean"
       },
-      "sensitive_artifacts": [
-        {
-          "scope": "current",
-          "path": "completed/codex-per-prompt-token-attribution-local-validation.md",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "current",
-          "path": "completed/megavault-personalhub-bootstrap-token-efficiency-hardening.md",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "current",
-          "path": "completed/personalhub-timer-new-session-canonical-entity-save-bug.md",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "current",
-          "path": "prompts/repository-publication-secret-audit.md",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "prompts/codex-per-prompt-token-attribution-local-validation.md",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "prompts/megavault-personalhub-bootstrap-token-efficiency-hardening.md",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "prompts/personalhub-timer-new-session-canonical-entity-save-bug.md",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "prompts/personalhub-timer-session-tag-picker-ux.md",
-          "category": "sensitive_path"
-        }
-      ],
+      "sensitive_artifacts": [],
       "workflow_risks": [
         {
           "path": ".github/workflows/ci.yml",
-          "risk": "third_party_action_not_sha_pinned",
-          "ref": "actions/checkout@v4"
+          "ref": "actions/checkout@v4",
+          "severity": "advisory",
+          "reason": "github_official_action_mutable_ref",
+          "blocking": false
         },
         {
           "path": ".github/workflows/ci.yml",
-          "risk": "third_party_action_not_sha_pinned",
-          "ref": "actions/setup-python@v5"
+          "ref": "actions/setup-python@v5",
+          "severity": "advisory",
+          "reason": "github_official_action_mutable_ref",
+          "blocking": false
         }
       ],
-      "history_clean": "no",
-      "required_remediation": "remove or prove sensitive artifacts are synthetic/non-private before republication; tighten workflow trigger/permission/action pinning risks before republication",
-      "final_recommendation": "PRIVATE",
-      "publication_ready": "no",
+      "history_clean": "yes",
+      "required_remediation": "",
+      "final_recommendation": "PUBLIC",
+      "publication_ready": "yes",
       "confidence": "high",
-      "visibility_apply_status": "verified_private",
-      "findings_redacted": []
+      "visibility_apply_status": "verified_public",
+      "findings_redacted": [],
+      "scanned_head_sha": "d8112b2efd520a1d765962c7578035c1c7d8c974",
+      "initial_remote_head_sha": "d8112b2efd520a1d765962c7578035c1c7d8c974",
+      "path_findings": [],
+      "workflow_findings": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "ref": "actions/checkout@v4",
+          "severity": "advisory",
+          "reason": "github_official_action_mutable_ref",
+          "blocking": false
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "ref": "actions/setup-python@v5",
+          "severity": "advisory",
+          "reason": "github_official_action_mutable_ref",
+          "blocking": false
+        }
+      ]
     },
     {
       "name": "codex-usage",
@@ -179,67 +164,55 @@
       "archived": false,
       "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
       "audit_priority": "P0",
-      "current_visibility": "PRIVATE",
-      "audit_status": "PASS_WITH_REMEDIATION",
+      "current_visibility": "PUBLIC",
+      "audit_status": "PASS",
       "secret_findings": {
-        "gitleaks": 0
+        "gitleaks": 0,
+        "result": "clean"
       },
-      "sensitive_artifacts": [
-        {
-          "scope": "current",
-          "path": "codex_session_archive.py",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "current",
-          "path": "codex_session_archive_incremental.py",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "current",
-          "path": "scripts/secret_scan.sh",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "current",
-          "path": "systemd/codex-session-archive.service",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "current",
-          "path": "systemd/codex-session-archive.timer",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "src/codex_usage_monitor/sessions/__init__.py",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "src/codex_usage_monitor/sessions/commands.py",
-          "category": "sensitive_path"
-        }
-      ],
+      "sensitive_artifacts": [],
       "workflow_risks": [
         {
           "path": ".github/workflows/ci.yml",
-          "risk": "third_party_action_not_sha_pinned",
-          "ref": "actions/checkout@v4"
+          "ref": "actions/checkout@v4",
+          "severity": "advisory",
+          "reason": "github_official_action_mutable_ref",
+          "blocking": false
         },
         {
           "path": ".github/workflows/ci.yml",
-          "risk": "third_party_action_not_sha_pinned",
-          "ref": "actions/setup-python@v5"
+          "ref": "actions/setup-python@v5",
+          "severity": "advisory",
+          "reason": "github_official_action_mutable_ref",
+          "blocking": false
         }
       ],
-      "history_clean": "no",
-      "required_remediation": "remove or prove sensitive artifacts are synthetic/non-private before republication; tighten workflow trigger/permission/action pinning risks before republication",
-      "final_recommendation": "PRIVATE",
-      "publication_ready": "no",
+      "history_clean": "yes",
+      "required_remediation": "",
+      "final_recommendation": "PUBLIC",
+      "publication_ready": "yes",
       "confidence": "high",
-      "visibility_apply_status": "verified_private",
-      "findings_redacted": []
+      "visibility_apply_status": "verified_public",
+      "findings_redacted": [],
+      "scanned_head_sha": "d2623b0e29509d01e1f0c968d37214554e5fdd91",
+      "initial_remote_head_sha": "d2623b0e29509d01e1f0c968d37214554e5fdd91",
+      "path_findings": [],
+      "workflow_findings": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "ref": "actions/checkout@v4",
+          "severity": "advisory",
+          "reason": "github_official_action_mutable_ref",
+          "blocking": false
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "ref": "actions/setup-python@v5",
+          "severity": "advisory",
+          "reason": "github_official_action_mutable_ref",
+          "blocking": false
+        }
+      ]
     },
     {
       "name": "datasette5",
@@ -428,76 +401,62 @@
       "archived": false,
       "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
       "audit_priority": "P0",
-      "current_visibility": "PRIVATE",
-      "audit_status": "PASS_WITH_REMEDIATION",
+      "current_visibility": "PUBLIC",
+      "audit_status": "PASS",
       "secret_findings": {
-        "gitleaks": 0
+        "gitleaks": 0,
+        "result": "clean"
       },
-      "sensitive_artifacts": [
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "yes",
+      "required_remediation": "",
+      "final_recommendation": "PUBLIC",
+      "publication_ready": "yes",
+      "confidence": "high",
+      "visibility_apply_status": "verified_public",
+      "findings_redacted": [],
+      "scanned_head_sha": "a71d52e0b856df6c2d337839cfcb7ea4f954a1da",
+      "initial_remote_head_sha": "a71d52e0b856df6c2d337839cfcb7ea4f954a1da",
+      "path_findings": [
         {
-          "scope": "current",
-          "path": ".codex/CODE_MAP.tsv",
-          "category": "sensitive_path"
+          "path": "app/src/main/res/xml/backup_rules.xml",
+          "severity": "review",
+          "reason": "backup rules inspected: deny-all Android backup config, no private payload",
+          "blocking": false
         },
         {
-          "scope": "current",
-          "path": "contracts/database/src/main/java/com/wordpulse/app/data/SessionSummaryRow.kt",
-          "category": "sensitive_path"
+          "path": "feature/luoghi/src/main/res/xml/backup_rules.xml",
+          "severity": "review",
+          "reason": "backup rules inspected: exclude-only Android backup config, no private payload",
+          "blocking": false
         },
         {
-          "scope": "current",
-          "path": "contracts/database/src/main/java/com/wordpulse/app/data/WordSession.kt",
-          "category": "sensitive_path"
+          "path": "feature/multitimetracker/src/main/res/xml/backup_rules.xml",
+          "severity": "review",
+          "reason": "backup rules inspected: deny-all Android backup config, no private payload",
+          "blocking": false
         },
         {
-          "scope": "current",
-          "path": "feature/supercontacts/src/main/assets/countries-v1.csv",
-          "category": "sensitive_path"
+          "path": "feature/sostanze/src/main/res/xml/backup_rules.xml",
+          "severity": "review",
+          "reason": "backup rules inspected: template comments only, no private payload",
+          "blocking": false
         },
         {
-          "scope": "current",
-          "path": "feature/wordpulse/src/main/java/com/wordpulse/app/domain/TypingSessionTracker.kt",
-          "category": "sensitive_path"
+          "path": "feature/supercontacts/src/main/res/xml/backup_rules.xml",
+          "severity": "review",
+          "reason": "backup rules inspected: template comments only, no private payload",
+          "blocking": false
         },
         {
-          "scope": "current",
-          "path": "feature/wordpulse/src/main/java/com/wordpulse/app/hub/WordSessionHubAdapter.kt",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "current",
-          "path": "tools/diagnose_timer_legacy_tag_sessions.py",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "core/database/src/main/java/com/wordpulse/app/data/SessionSummaryRow.kt",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "core/database/src/main/java/com/wordpulse/app/data/WordSession.kt",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "feature/wordpulse/src/main/java/com/wordpulse/app/data/SessionSummaryRow.kt",
-          "category": "sensitive_path"
-        },
-        {
-          "scope": "history",
-          "path": "feature/wordpulse/src/main/java/com/wordpulse/app/data/WordSession.kt",
-          "category": "sensitive_path"
+          "path": "feature/wordpulse/src/main/res/xml/backup_rules.xml",
+          "severity": "review",
+          "reason": "backup rules inspected: database exclude rule only, no private payload",
+          "blocking": false
         }
       ],
-      "workflow_risks": [],
-      "history_clean": "no",
-      "required_remediation": "remove or prove sensitive artifacts are synthetic/non-private before republication",
-      "final_recommendation": "PRIVATE",
-      "publication_ready": "no",
-      "confidence": "high",
-      "visibility_apply_status": "verified_private",
-      "findings_redacted": []
+      "workflow_findings": []
     },
     {
       "name": "salute",
@@ -621,5 +580,7 @@
       "PUBLIC": 5
     },
     "archived_count": 0
-  }
+  },
+  "corrects_prompt_id": 940316,
+  "policy_classifier": "/home/daniele/projects/codex-roadmap/tools/repository_publication_policy.py"
 }
