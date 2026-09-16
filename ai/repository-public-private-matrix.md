@@ -23,68 +23,68 @@ The audit may downgrade any `PUBLIC_AFTER_AUDIT` repository to `PRIVATE`. A `PRI
 | workflowy-import | private | PUBLIC_AFTER_AUDIT | P0 | Code can be public if exports, DBs, URLs and credentials are absent. |
 | MultiTimeTracker | private | PUBLIC_AFTER_AUDIT | P1 | Active Android software; substantial CI benefit. |
 | SuperContacts | private | PUBLIC_AFTER_AUDIT | P1 | App code can be public only if no real contact data/export fixtures are tracked. |
-| android-app-template | private | PUBLIC_AFTER_AUDIT | P1 | Generic template; strong public-code candidate. |
+| android-app-template | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | fedora-system-monitor | private | PUBLIC_AFTER_AUDIT | P1 | Generic system tooling if host-specific details/secrets are absent. |
 | fedora-t7-backup | private | PUBLIC_AFTER_AUDIT | P1 | Generic backup logic if no private paths/identifiers/credentials leak. |
-| app_lifecycle_monitor | private | PUBLIC_AFTER_AUDIT | P1 | Small reusable monitor. |
-| codex-session-logger | private | PUBLIC_AFTER_AUDIT | P1 | Code may be reusable; session content itself must remain excluded. |
-| wayland-workspace-switcher | private | PUBLIC_AFTER_AUDIT | P1 | Generic desktop utility. |
-| git-change-ledger | private | PUBLIC_AFTER_AUDIT | P1 | Generic Git utility. |
-| codex_weekly_limit_monitor | private | PUBLIC_AFTER_AUDIT | P1 | Generic monitor if account/session artifacts are excluded. |
+| app_lifecycle_monitor | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| codex-session-logger | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| wayland-workspace-switcher | deleted | RETIRE | — | GitHub remote retired after verified offline archive; local clone preserved due path guard. |
+| git-change-ledger | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| codex_weekly_limit_monitor | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | whatsapp-watcher | private | PUBLIC_AFTER_AUDIT | P1 | Extension code can be public if no session/account material exists. |
-| chatgpt_tab_watcher_v1 | private | PUBLIC_AFTER_AUDIT | P1 | Browser automation code can be public if profiles/cookies/session data are absent. |
-| WindowTabNotes | private | PUBLIC_AFTER_AUDIT | P1 | Generic browser/desktop utility candidate. |
-| android_build_telegram_watch_v1 | private | PUBLIC_AFTER_AUDIT | P1 | Generic automation only if Telegram credentials/chat identifiers are not embedded. |
-| yt_dlp_downloader | private | PUBLIC_AFTER_AUDIT | P1 | Generic downloader if no personal URLs/cookies/history are tracked. |
-| patch_watcher_v1 | private | PUBLIC_AFTER_AUDIT | P2 | Small generic watcher. |
+| chatgpt_tab_watcher_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| WindowTabNotes | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| android_build_telegram_watch_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| yt_dlp_downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| patch_watcher_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | logseq_updates | private | PUBLIC_AFTER_AUDIT | P2 | Generic update helper if no graph/user data are tracked. |
-| file-mtt-automate | private | PUBLIC_AFTER_AUDIT | P2 | Generic automation if paths/data fixtures are sanitized. |
-| typing_tracker | private | PUBLIC_AFTER_AUDIT | P2 | Generic utility if recorded user data are absent. |
-| script_manager | private | PUBLIC_AFTER_AUDIT | P2 | Generic tooling candidate after purpose/content check. |
-| script-edit-tabelle | private | PUBLIC_AFTER_AUDIT | P2 | Generic script candidate if no real DB/data samples are tracked. |
-| gestore_db | private | PUBLIC_AFTER_AUDIT | P2 | Generic DB tooling only if real databases/credentials are absent. |
-| HabitTracker | public | PUBLIC_AFTER_AUDIT | P0 | Already public; audit confirms no historical exposure. |
-| HabitTracker2 | public | PUBLIC_AFTER_AUDIT | P0 | Already public; audit confirms no historical exposure. |
-| real_timer_plugin | public | PUBLIC_AFTER_AUDIT | P0 | Already public reusable code; audit history. |
+| file-mtt-automate | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| typing_tracker | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| script_manager | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| script-edit-tabelle | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| gestore_db | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| HabitTracker | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| HabitTracker2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| real_timer_plugin | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | codex-roadmap | public | PUBLIC_AFTER_AUDIT | P0 | Intentionally public workflow repo; audit for accidental secrets/private references. |
-| gernalix.github.io | public | PUBLIC_AFTER_AUDIT | P0 | Must be public for normal Pages use; audit tracked/history content. |
-| my-notes | public | PRIVATE | P0 | Name/purpose may imply personal content; keep/private unless audit proves it is code-only and intentionally public. |
-| my-notes2 | public | PRIVATE | P0 | Same risk as `my-notes`; currently public so audit is urgent. |
+| gernalix.github.io | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| my-notes | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| my-notes2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | salute | public | PRIVATE | P0 | Potentially sensitive personal-domain repository; no compelling CI/publication benefit established. |
 | MegaVault | private | PRIVATE | P0 | Operational knowledge base, SQLite inventory and infrastructure metadata. |
 | vm_oracle | private | PRIVATE | P0 | Live infrastructure configuration/operations. |
 | codex-usage | private | PRIVATE | P0 | Session/prompt/usage archive can contain private interaction and local metadata. |
 | oracle-backup-service | private | PRIVATE | P0 | Backup/infrastructure topology and operational configuration. |
-| owntracks | private | PRIVATE | P0 | Location-oriented project/data risk. |
+| owntracks | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | amici_fb | private | PRIVATE | P0 | Social/contact-oriented data risk. |
 | telegram_insert_bot | private | PRIVATE | P0 | Bot/chat credentials and personal integration risk. |
-| discord-exporter | private | PRIVATE | P0 | Account/export/session data risk outweighs free-CI benefit. |
-| datasette_sesso | private | PRIVATE | P0 | Potentially sensitive personal dataset/application. |
-| meth-repo | private | PRIVATE | P0 | Sensitive personal-domain repository; no public-CI need established. |
+| discord-exporter | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| datasette_sesso | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| meth-repo | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | datasette5 | private | PRIVATE | P1 | Operational/data-serving repository; likely contains deployment/data context. |
-| surface-recovery-hardening | private | PRIVATE | P1 | Host recovery/security configuration can reveal system-specific details. |
-| mint-freeze-forensics | private | PRIVATE | P1 | Machine-forensics evidence/log context should stay private. |
-| logseq | private | PRIVATE | P1 | Treat Logseq graph/content repositories as personal data by default. |
-| logseq2 | private | PRIVATE | P1 | Treat Logseq graph/content repositories as personal data by default. |
-| logseq3 | private | PRIVATE | P1 | Treat Logseq graph/content repositories as personal data by default. |
-| logseq4 | private | PRIVATE | P1 | Treat Logseq graph/content repositories as personal data by default. |
-| logseq5 | private | PRIVATE | P1 | Treat Logseq graph/content repositories as personal data by default. |
-| logseq6 | private | PRIVATE | P1 | Treat Logseq graph/content repositories as personal data by default. |
-| L16 | private | PRIVATE | P2 | Legacy/unknown-purpose repository; no reason to expose merely for CI. |
-| L17 | private | PRIVATE | P2 | Legacy/unknown-purpose repository; no reason to expose merely for CI. |
-| dash_python2 | private | PRIVATE | P2 | Legacy/low-priority repository; public-CI benefit not established. |
-| dash3 | private | PRIVATE | P2 | Legacy/low-priority repository; public-CI benefit not established. |
-| scriptone | private | PRIVATE | P2 | Purpose/content not sufficiently generic to justify exposure without a separate need. |
-| scriptone4 | private | PRIVATE | P2 | Purpose/content not sufficiently generic to justify exposure without a separate need. |
-| porno_downloader | private | PRIVATE | P2 | Personal-use downloader; no compelling public-CI benefit. |
-| facedownassup-downloader | private | PRIVATE | P2 | Personal-use downloader; no compelling public-CI benefit. |
+| surface-recovery-hardening | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| mint-freeze-forensics | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| logseq | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| logseq2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| logseq3 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| logseq4 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| logseq5 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| logseq6 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| L16 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| L17 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| dash_python2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| dash3 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| scriptone | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| scriptone4 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| porno_downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| facedownassup-downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | livinggaul-x-downloader | private | PRIVATE | P2 | Personal-use downloader; no compelling public-CI benefit. |
-| strano-anello | private | PRIVATE | P2 | Unknown/private-purpose repository; keep private absent a concrete publication need. |
+| strano-anello | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | Soldi | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
 | wordpulse | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
 | Sostanze | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
 | Luoghi | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
-| luoghi-app | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
+| luoghi-app | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 
 ## Audit outcome fields
 

@@ -59,11 +59,13 @@ class MegaVaultTests(unittest.TestCase):
     def test_secret_scan_has_zero_hits(self):
         self.assertEqual([], megavault.secret_scan_errors(megavault.git_tracked()))
 
-    def test_tracked_markdown_allowlist_accepts_personalhub_bootstrap(self):
+    def test_tracked_markdown_allowlist_accepts_authoritative_docs(self):
         tracked_md = {
             "ai/MEGAVAULT_PROTOCOL.md",
             "ai/GLOBAL_INDEX.md",
             "ai/personalhubdoc.md",
+            "ai/repository-public-private-matrix.md",
+            "ai/repository-retention-checklist.md",
             "legacy/README.md",
         }
         extra_md = sorted(tracked_md - megavault.ALLOWED_TRACKED_MARKDOWN)
@@ -156,7 +158,7 @@ class MegaVaultTests(unittest.TestCase):
             "select project_status, repository_kind from codex_project_index where project_id=2"
         ).fetchone()
         missing = conn.execute(
-            "select project_status, canonical_worktree from codex_project_index where project_id=3"
+            "select project_status, canonical_worktree from codex_project_index where project_id=5"
         ).fetchone()
         self.assertEqual(("ARCHIVED", "legacy"), archived)
         self.assertEqual(("MISSING", None), missing)
@@ -362,7 +364,7 @@ class MegaVaultTests(unittest.TestCase):
         missing_lines = missing.stdout.strip().splitlines()
         self.assertEqual(expected_counts["missing"], len(missing_lines))
         self.assertEqual(
-            "project_id=3;slug=android-app-template;project_status=MISSING",
+            "project_id=5;slug=aw-converter;project_status=MISSING",
             missing_lines[0],
         )
 
@@ -377,7 +379,7 @@ class MegaVaultTests(unittest.TestCase):
         self.assertEqual(resolved.returncode, 0, resolved.stderr)
         self.assertEqual("/home/daniele/MegaVault", resolved.stdout.strip())
 
-        missing = self.run_tool("project-path", "3")
+        missing = self.run_tool("project-path", "5")
         self.assertNotEqual(missing.returncode, 0)
         self.assertIn("PROJECT_PATH=ABSENT", missing.stderr)
 
@@ -394,7 +396,7 @@ class MegaVaultTests(unittest.TestCase):
         self.assertEqual(remote.returncode, 0, remote.stderr)
         self.assertEqual("REMOTE_ONLY", remote.stdout.strip())
 
-        missing = self.run_tool("project-path", "--status", "3")
+        missing = self.run_tool("project-path", "--status", "5")
         self.assertEqual(missing.returncode, 0, missing.stderr)
         self.assertEqual("MISSING", missing.stdout.strip())
 

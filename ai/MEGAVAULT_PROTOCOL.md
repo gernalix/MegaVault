@@ -120,7 +120,7 @@ Non rileggere file o query gia' verificati nella sessione se lo stato non e' cam
 - Abilitare e rispettare foreign keys.
 - Nuovi repository gernalix in scope e non rappresentati vanno registrati prima del PASS, con metadati minimi verificati e senza duplicati.
 - `events` e' obbligatorio per lavoro completato su progetti/sistemi Daniele quando serve traccia persistente.
-- Markdown consentito in MegaVault: `ai/MEGAVAULT_PROTOCOL.md`, `ai/GLOBAL_INDEX.md`, `ai/personalhubdoc.md`, `legacy/README.md`.
+- Markdown consentito in MegaVault: `ai/MEGAVAULT_PROTOCOL.md`, `ai/GLOBAL_INDEX.md`, `ai/personalhubdoc.md`, `ai/repository-public-private-matrix.md`, `ai/repository-retention-checklist.md`, `legacy/README.md`.
 - `legacy/` e' non autorevole e si consulta solo per richiesta storica esplicita.
 
 ## Segreti e Bitwarden
