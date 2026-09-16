@@ -1,31 +1,31 @@
 [x] = CONSERVA. [ ] = ARCHIVIA E CANCELLA. Il task successivo non procedera finche questo file non sara stato modificato dall'utente.
 
-- [ ] codex-usage
-- [ ] codex-roadmap
-- [ ] MegaVault
-- [ ] codex-usage-monitor
-- [ ] PersonalHub
-- [ ] fedora-system-monitor
+- [x] codex-usage
+- [x] codex-roadmap
+- [x] MegaVault
+- [x] codex-usage-monitor
+- [x] PersonalHub
+- [x] fedora-system-monitor
 - [ ] wordpulse
-- [ ] vm_oracle
-- [ ] workflowy-import
-- [ ] github-autosync
-- [ ] whatsapp-watcher
-- [ ] amici_fb
-- [ ] fedora-t7-backup
-- [ ] salute
-- [ ] datasette5
+- [x] vm_oracle
+- [x] workflowy-import
+- [x] github-autosync
+- [x] whatsapp-watcher
+- [x] amici_fb
+- [x] fedora-t7-backup
+- [x] salute
+- [x] datasette5
 - [ ] MultiTimeTracker
 - [ ] Soldi
-- [ ] telegram_insert_bot
+- [x] telegram_insert_bot
 - [ ] wayland-workspace-switcher
 - [ ] SuperContacts
 - [ ] luoghi-app
 - [ ] Sostanze
-- [ ] oracle-backup-service
+- [x] oracle-backup-service
 - [ ] codex-session-logger
 - [ ] strano-anello
-- [ ] livinggaul-x-downloader
+- [x] livinggaul-x-downloader
 - [ ] facedownassup-downloader
 - [ ] android-app-template
 - [ ] Luoghi
@@ -43,7 +43,7 @@
 - [ ] owntracks
 - [ ] gestore_db
 - [ ] porno_downloader
-- [ ] logseq_updates
+- [x] logseq_updates
 - [ ] datasette_sesso
 - [ ] patch_watcher_v1
 - [ ] scriptone
