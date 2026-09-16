@@ -81,7 +81,7 @@ The audit may downgrade any `PUBLIC_AFTER_AUDIT` repository to `PRIVATE`. A `PRI
 | livinggaul-x-downloader | private | PRIVATE | P2 | Personal-use downloader; no compelling public-CI benefit. |
 | strano-anello | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | Soldi | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
-| wordpulse | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
+| wordpulse | deleted | RETIRE | — | Retired after verified offline archive and live confirmation that no Pixel package remained; GitHub remote and canonical local clone deleted. |
 | Sostanze | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
 | Luoghi | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
 | luoghi-app | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
