@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "generated_by_prompt_id": 940316,
+  "generated_at_utc": "2026-09-16T07:42:37.926369Z",
+  "scanner": {
+    "name": "gitleaks",
+    "version": "8.30.1"
+  },
+  "initial_inventory": {
+    "repo_count": 18,
+    "visibility_counts": {
+      "PRIVATE": 16,
+      "PUBLIC": 2
+    },
+    "archived_count": 0
+  },
+  "scan_scope": {
+    "audited": [
+      "codex-roadmap",
+      "codex-usage-monitor",
+      "fedora-system-monitor",
+      "fedora-t7-backup",
+      "github-autosync",
+      "logseq_updates",
+      "PersonalHub",
+      "salute",
+      "whatsapp-watcher",
+      "workflowy-import"
+    ],
+    "skipped_private_policy": [
+      "amici_fb",
+      "codex-usage",
+      "datasette5",
+      "livinggaul-x-downloader",
+      "MegaVault",
+      "oracle-backup-service",
+      "telegram_insert_bot",
+      "vm_oracle"
+    ]
+  },
+  "counts": {
+    "audit_status": {
+      "PRIVATE_BY_POLICY": 8,
+      "PASS_WITH_REMEDIATION": 5,
+      "PASS": 5
+    },
+    "final_recommendation": {
+      "PRIVATE": 13,
+      "PUBLIC": 5
+    },
+    "publication_ready_yes": 5,
+    "publication_ready_no": 13,
+    "visibility_apply_status": {
+      "verified_private": 13,
+      "verified_public": 5
+    }
+  },
+  "repositories": [
+    {
+      "name": "amici_fb",
+      "url": "https://github.com/gernalix/amici_fb",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "unknown",
+      "required_remediation": "private baseline and not currently public; scan not required in this campaign",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private"
+    },
+    {
+      "name": "codex-roadmap",
+      "url": "https://github.com/gernalix/codex-roadmap",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [
+        {
+          "scope": "current",
+          "path": "completed/codex-per-prompt-token-attribution-local-validation.md",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "completed/megavault-personalhub-bootstrap-token-efficiency-hardening.md",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "completed/personalhub-timer-new-session-canonical-entity-save-bug.md",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "prompts/repository-publication-secret-audit.md",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "prompts/codex-per-prompt-token-attribution-local-validation.md",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "prompts/megavault-personalhub-bootstrap-token-efficiency-hardening.md",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "prompts/personalhub-timer-new-session-canonical-entity-save-bug.md",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "prompts/personalhub-timer-session-tag-picker-ux.md",
+          "category": "sensitive_path"
+        }
+      ],
+      "workflow_risks": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "risk": "third_party_action_not_sha_pinned",
+          "ref": "actions/checkout@v4"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "risk": "third_party_action_not_sha_pinned",
+          "ref": "actions/setup-python@v5"
+        }
+      ],
+      "history_clean": "no",
+      "required_remediation": "remove or prove sensitive artifacts are synthetic/non-private before republication; tighten workflow trigger/permission/action pinning risks before republication",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private",
+      "findings_redacted": []
+    },
+    {
+      "name": "codex-usage",
+      "url": "https://github.com/gernalix/codex-usage",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "unknown",
+      "required_remediation": "private baseline and not currently public; scan not required in this campaign",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private"
+    },
+    {
+      "name": "codex-usage-monitor",
+      "url": "https://github.com/gernalix/codex-usage-monitor",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [
+        {
+          "scope": "current",
+          "path": "codex_session_archive.py",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "codex_session_archive_incremental.py",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "scripts/secret_scan.sh",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "systemd/codex-session-archive.service",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "systemd/codex-session-archive.timer",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "src/codex_usage_monitor/sessions/__init__.py",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "src/codex_usage_monitor/sessions/commands.py",
+          "category": "sensitive_path"
+        }
+      ],
+      "workflow_risks": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "risk": "third_party_action_not_sha_pinned",
+          "ref": "actions/checkout@v4"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "risk": "third_party_action_not_sha_pinned",
+          "ref": "actions/setup-python@v5"
+        }
+      ],
+      "history_clean": "no",
+      "required_remediation": "remove or prove sensitive artifacts are synthetic/non-private before republication; tighten workflow trigger/permission/action pinning risks before republication",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private",
+      "findings_redacted": []
+    },
+    {
+      "name": "datasette5",
+      "url": "https://github.com/gernalix/datasette5",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P1",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "unknown",
+      "required_remediation": "private baseline and not currently public; scan not required in this campaign",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private"
+    },
+    {
+      "name": "fedora-system-monitor",
+      "url": "https://github.com/gernalix/fedora-system-monitor",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P1",
+      "current_visibility": "PUBLIC",
+      "audit_status": "PASS",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "yes",
+      "required_remediation": "",
+      "final_recommendation": "PUBLIC",
+      "publication_ready": "yes",
+      "confidence": "high",
+      "visibility_apply_status": "verified_public",
+      "findings_redacted": []
+    },
+    {
+      "name": "fedora-t7-backup",
+      "url": "https://github.com/gernalix/fedora-t7-backup",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P1",
+      "current_visibility": "PUBLIC",
+      "audit_status": "PASS",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "yes",
+      "required_remediation": "",
+      "final_recommendation": "PUBLIC",
+      "publication_ready": "yes",
+      "confidence": "high",
+      "visibility_apply_status": "verified_public",
+      "findings_redacted": []
+    },
+    {
+      "name": "github-autosync",
+      "url": "https://github.com/gernalix/github-autosync",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P0",
+      "current_visibility": "PUBLIC",
+      "audit_status": "PASS",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "yes",
+      "required_remediation": "",
+      "final_recommendation": "PUBLIC",
+      "publication_ready": "yes",
+      "confidence": "high",
+      "visibility_apply_status": "verified_public",
+      "findings_redacted": []
+    },
+    {
+      "name": "livinggaul-x-downloader",
+      "url": "https://github.com/gernalix/livinggaul-x-downloader",
+      "default_branch": "master",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P2",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "unknown",
+      "required_remediation": "private baseline and not currently public; scan not required in this campaign",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private"
+    },
+    {
+      "name": "logseq_updates",
+      "url": "https://github.com/gernalix/logseq_updates",
+      "default_branch": "master",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P2",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "secret_findings": {
+        "gitleaks": 1
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "no",
+      "required_remediation": "rotate/revoke potential credentials and clean history before republication",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private",
+      "findings_redacted": [
+        {
+          "rule": "github-pat",
+          "path": "logseq_updates.bat",
+          "commit": "41ff0d119e3c",
+          "scope": "history",
+          "fingerprint": "41ff0d119e3c59d9118ae597"
+        }
+      ]
+    },
+    {
+      "name": "MegaVault",
+      "url": "https://github.com/gernalix/MegaVault",
+      "default_branch": "master",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "unknown",
+      "required_remediation": "private baseline and not currently public; scan not required in this campaign",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private"
+    },
+    {
+      "name": "oracle-backup-service",
+      "url": "https://github.com/gernalix/oracle-backup-service",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "unknown",
+      "required_remediation": "private baseline and not currently public; scan not required in this campaign",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private"
+    },
+    {
+      "name": "PersonalHub",
+      "url": "https://github.com/gernalix/PersonalHub",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [
+        {
+          "scope": "current",
+          "path": ".codex/CODE_MAP.tsv",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "contracts/database/src/main/java/com/wordpulse/app/data/SessionSummaryRow.kt",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "contracts/database/src/main/java/com/wordpulse/app/data/WordSession.kt",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "feature/supercontacts/src/main/assets/countries-v1.csv",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "feature/wordpulse/src/main/java/com/wordpulse/app/domain/TypingSessionTracker.kt",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "feature/wordpulse/src/main/java/com/wordpulse/app/hub/WordSessionHubAdapter.kt",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "current",
+          "path": "tools/diagnose_timer_legacy_tag_sessions.py",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "core/database/src/main/java/com/wordpulse/app/data/SessionSummaryRow.kt",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "core/database/src/main/java/com/wordpulse/app/data/WordSession.kt",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "feature/wordpulse/src/main/java/com/wordpulse/app/data/SessionSummaryRow.kt",
+          "category": "sensitive_path"
+        },
+        {
+          "scope": "history",
+          "path": "feature/wordpulse/src/main/java/com/wordpulse/app/data/WordSession.kt",
+          "category": "sensitive_path"
+        }
+      ],
+      "workflow_risks": [],
+      "history_clean": "no",
+      "required_remediation": "remove or prove sensitive artifacts are synthetic/non-private before republication",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private",
+      "findings_redacted": []
+    },
+    {
+      "name": "salute",
+      "url": "https://github.com/gernalix/salute",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [
+        {
+          "scope": "history",
+          "path": "salute.db",
+          "category": "sensitive_path"
+        }
+      ],
+      "workflow_risks": [],
+      "history_clean": "no",
+      "required_remediation": "remove or prove sensitive artifacts are synthetic/non-private before republication",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private",
+      "findings_redacted": []
+    },
+    {
+      "name": "telegram_insert_bot",
+      "url": "https://github.com/gernalix/telegram_insert_bot",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "unknown",
+      "required_remediation": "private baseline and not currently public; scan not required in this campaign",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private"
+    },
+    {
+      "name": "vm_oracle",
+      "url": "https://github.com/gernalix/vm_oracle",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PRIVATE",
+      "audit_priority": "P0",
+      "current_visibility": "PRIVATE",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "unknown",
+      "required_remediation": "private baseline and not currently public; scan not required in this campaign",
+      "final_recommendation": "PRIVATE",
+      "publication_ready": "no",
+      "confidence": "high",
+      "visibility_apply_status": "verified_private"
+    },
+    {
+      "name": "whatsapp-watcher",
+      "url": "https://github.com/gernalix/whatsapp-watcher",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P1",
+      "current_visibility": "PUBLIC",
+      "audit_status": "PASS",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "yes",
+      "required_remediation": "",
+      "final_recommendation": "PUBLIC",
+      "publication_ready": "yes",
+      "confidence": "high",
+      "visibility_apply_status": "verified_public",
+      "findings_redacted": []
+    },
+    {
+      "name": "workflowy-import",
+      "url": "https://github.com/gernalix/workflowy-import",
+      "default_branch": "main",
+      "archived": false,
+      "baseline_recommendation": "PUBLIC_AFTER_AUDIT",
+      "audit_priority": "P0",
+      "current_visibility": "PUBLIC",
+      "audit_status": "PASS",
+      "secret_findings": {
+        "gitleaks": 0
+      },
+      "sensitive_artifacts": [],
+      "workflow_risks": [],
+      "history_clean": "yes",
+      "required_remediation": "",
+      "final_recommendation": "PUBLIC",
+      "publication_ready": "yes",
+      "confidence": "high",
+      "visibility_apply_status": "verified_public",
+      "findings_redacted": []
+    }
+  ],
+  "final_inventory": {
+    "repo_count": 18,
+    "visibility_counts": {
+      "PRIVATE": 13,
+      "PUBLIC": 5
+    },
+    "archived_count": 0
+  }
+}

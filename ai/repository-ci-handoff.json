@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "generated_by_prompt_id": 940316,
+  "generated_at_utc": "2026-09-16T07:42:37.926369Z",
+  "next_executor": "chatgpt_github",
+  "repositories": [
+    {
+      "name": "amici_fb",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "publication_ready": "no"
+    },
+    {
+      "name": "codex-roadmap",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "publication_ready": "no"
+    },
+    {
+      "name": "codex-usage",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "publication_ready": "no"
+    },
+    {
+      "name": "codex-usage-monitor",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "publication_ready": "no"
+    },
+    {
+      "name": "datasette5",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "publication_ready": "no"
+    },
+    {
+      "name": "fedora-system-monitor",
+      "visibility": "PUBLIC",
+      "default_branch": "main",
+      "audit_status": "PASS",
+      "publication_ready": "yes"
+    },
+    {
+      "name": "fedora-t7-backup",
+      "visibility": "PUBLIC",
+      "default_branch": "main",
+      "audit_status": "PASS",
+      "publication_ready": "yes"
+    },
+    {
+      "name": "github-autosync",
+      "visibility": "PUBLIC",
+      "default_branch": "main",
+      "audit_status": "PASS",
+      "publication_ready": "yes"
+    },
+    {
+      "name": "livinggaul-x-downloader",
+      "visibility": "PRIVATE",
+      "default_branch": "master",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "publication_ready": "no"
+    },
+    {
+      "name": "logseq_updates",
+      "visibility": "PRIVATE",
+      "default_branch": "master",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "publication_ready": "no"
+    },
+    {
+      "name": "MegaVault",
+      "visibility": "PRIVATE",
+      "default_branch": "master",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "publication_ready": "no"
+    },
+    {
+      "name": "oracle-backup-service",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "publication_ready": "no"
+    },
+    {
+      "name": "PersonalHub",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "publication_ready": "no"
+    },
+    {
+      "name": "salute",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PASS_WITH_REMEDIATION",
+      "publication_ready": "no"
+    },
+    {
+      "name": "telegram_insert_bot",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "publication_ready": "no"
+    },
+    {
+      "name": "vm_oracle",
+      "visibility": "PRIVATE",
+      "default_branch": "main",
+      "audit_status": "PRIVATE_BY_POLICY",
+      "publication_ready": "no"
+    },
+    {
+      "name": "whatsapp-watcher",
+      "visibility": "PUBLIC",
+      "default_branch": "main",
+      "audit_status": "PASS",
+      "publication_ready": "yes"
+    },
+    {
+      "name": "workflowy-import",
+      "visibility": "PUBLIC",
+      "default_branch": "main",
+      "audit_status": "PASS",
+      "publication_ready": "yes"
+    }
+  ]
+}

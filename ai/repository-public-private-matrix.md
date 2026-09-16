@@ -1,7 +1,7 @@
 # Repository public/private matrix
 
 Updated: 2026-09-16
-Status: **baseline recommendation; secret/history audit not yet executed**
+Status: **publication audit executed; visibility applied fail-closed**
 
 Purpose: decide which repositories may safely become public so repeatable GitHub Actions can use free standard hosted runners, while keeping personal data, operational infrastructure and account/session material private.
 
@@ -15,76 +15,76 @@ The audit may downgrade any `PUBLIC_AFTER_AUDIT` repository to `PRIVATE`. A `PRI
 
 ## Matrix
 
-| Repository | Current visibility | Baseline recommendation | Audit priority | Rationale |
-| --- | --- | --- | --- | --- |
-| PersonalHub | private | PUBLIC_AFTER_AUDIT | P0 | Main active software project; large CI benefit if clean. |
-| codex-usage-monitor | private | PUBLIC_AFTER_AUDIT | P0 | Reusable Python tooling; high CI benefit. |
-| github-autosync | private | PUBLIC_AFTER_AUDIT | P0 | Reusable automation; deterministic tests. |
-| workflowy-import | private | PUBLIC_AFTER_AUDIT | P0 | Code can be public if exports, DBs, URLs and credentials are absent. |
-| MultiTimeTracker | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
-| SuperContacts | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
-| android-app-template | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| fedora-system-monitor | private | PUBLIC_AFTER_AUDIT | P1 | Generic system tooling if host-specific details/secrets are absent. |
-| fedora-t7-backup | private | PUBLIC_AFTER_AUDIT | P1 | Generic backup logic if no private paths/identifiers/credentials leak. |
-| app_lifecycle_monitor | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| codex-session-logger | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| wayland-workspace-switcher | deleted | RETIRE | — | Retired after verified offline archive and targeted Fedora detach; GitHub remote and explicitly authorized local clone deleted. |
-| git-change-ledger | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| codex_weekly_limit_monitor | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| whatsapp-watcher | private | PUBLIC_AFTER_AUDIT | P1 | Extension code can be public if no session/account material exists. |
-| chatgpt_tab_watcher_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| WindowTabNotes | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| android_build_telegram_watch_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| yt_dlp_downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| patch_watcher_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| logseq_updates | private | PUBLIC_AFTER_AUDIT | P2 | Generic update helper if no graph/user data are tracked. |
-| file-mtt-automate | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| typing_tracker | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| script_manager | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| script-edit-tabelle | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| gestore_db | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| HabitTracker | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| HabitTracker2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| real_timer_plugin | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| codex-roadmap | public | PUBLIC_AFTER_AUDIT | P0 | Intentionally public workflow repo; audit for accidental secrets/private references. |
-| gernalix.github.io | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| my-notes | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| my-notes2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| salute | public | PRIVATE | P0 | Potentially sensitive personal-domain repository; no compelling CI/publication benefit established. |
-| MegaVault | private | PRIVATE | P0 | Operational knowledge base, SQLite inventory and infrastructure metadata. |
-| vm_oracle | private | PRIVATE | P0 | Live infrastructure configuration/operations. |
-| codex-usage | private | PRIVATE | P0 | Session/prompt/usage archive can contain private interaction and local metadata. |
-| oracle-backup-service | private | PRIVATE | P0 | Backup/infrastructure topology and operational configuration. |
-| owntracks | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| amici_fb | private | PRIVATE | P0 | Social/contact-oriented data risk. |
-| telegram_insert_bot | private | PRIVATE | P0 | Bot/chat credentials and personal integration risk. |
-| discord-exporter | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| datasette_sesso | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| meth-repo | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| datasette5 | private | PRIVATE | P1 | Operational/data-serving repository; likely contains deployment/data context. |
-| surface-recovery-hardening | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| mint-freeze-forensics | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| logseq | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| logseq2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| logseq3 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| logseq4 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| logseq5 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| logseq6 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| L16 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| L17 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| dash_python2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| dash3 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| scriptone | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| scriptone4 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| porno_downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| facedownassup-downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| livinggaul-x-downloader | private | PRIVATE | P2 | Personal-use downloader; no compelling public-CI benefit. |
-| strano-anello | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| Soldi | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
-| wordpulse | deleted | RETIRE | — | Retired after verified offline archive and live confirmation that no Pixel package remained; GitHub remote and canonical local clone deleted. |
-| Sostanze | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
-| Luoghi | deleted | RETIRE | — | Legacy repository retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
-| luoghi-app | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
+| Repository | Current visibility | Baseline recommendation | Audit priority | Rationale | audit_status | secret_findings | sensitive_artifacts | history_clean | required_remediation | final_recommendation | publication_ready | confidence |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| PersonalHub | private | PUBLIC_AFTER_AUDIT | P0 | Main active software project; large CI benefit if clean. | PASS_WITH_REMEDIATION | gitleaks:0 | paths:11; workflows:0 | no | remove or prove sensitive artifacts are synthetic/non-private before republication | PRIVATE | no | high |
+| codex-usage-monitor | private | PUBLIC_AFTER_AUDIT | P0 | Reusable Python tooling; high CI benefit. | PASS_WITH_REMEDIATION | gitleaks:0 | paths:7; workflows:2 | no | remove or prove sensitive artifacts are synthetic/non-private before republication; tighten workflow trigger/permission/action pinning risks before republication | PRIVATE | no | high |
+| github-autosync | public | PUBLIC_AFTER_AUDIT | P0 | Reusable automation; deterministic tests. | PASS | gitleaks:0 | paths:0; workflows:0 | yes |  | PUBLIC | yes | high |
+| workflowy-import | public | PUBLIC_AFTER_AUDIT | P0 | Code can be public if exports, DBs, URLs and credentials are absent. | PASS | gitleaks:0 | paths:0; workflows:0 | yes |  | PUBLIC | yes | high |
+| MultiTimeTracker | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| SuperContacts | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| android-app-template | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| fedora-system-monitor | public | PUBLIC_AFTER_AUDIT | P1 | Generic system tooling if host-specific details/secrets are absent. | PASS | gitleaks:0 | paths:0; workflows:0 | yes |  | PUBLIC | yes | high |
+| fedora-t7-backup | public | PUBLIC_AFTER_AUDIT | P1 | Generic backup logic if no private paths/identifiers/credentials leak. | PASS | gitleaks:0 | paths:0; workflows:0 | yes |  | PUBLIC | yes | high |
+| app_lifecycle_monitor | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| codex-session-logger | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| wayland-workspace-switcher | deleted | RETIRE | — | Retired after verified offline archive and targeted Fedora detach; GitHub remote and explicitly authorized local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| git-change-ledger | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| codex_weekly_limit_monitor | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| whatsapp-watcher | public | PUBLIC_AFTER_AUDIT | P1 | Extension code can be public if no session/account material exists. | PASS | gitleaks:0 | paths:0; workflows:0 | yes |  | PUBLIC | yes | high |
+| chatgpt_tab_watcher_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| WindowTabNotes | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| android_build_telegram_watch_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| yt_dlp_downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| patch_watcher_v1 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| logseq_updates | private | PUBLIC_AFTER_AUDIT | P2 | Generic update helper if no graph/user data are tracked. | PASS_WITH_REMEDIATION | gitleaks:1 | paths:0; workflows:0 | no | rotate/revoke potential credentials and clean history before republication | PRIVATE | no | high |
+| file-mtt-automate | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| typing_tracker | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| script_manager | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| script-edit-tabelle | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| gestore_db | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| HabitTracker | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| HabitTracker2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| real_timer_plugin | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| codex-roadmap | private | PUBLIC_AFTER_AUDIT | P0 | Intentionally public workflow repo; audit for accidental secrets/private references. | PASS_WITH_REMEDIATION | gitleaks:0 | paths:8; workflows:2 | no | remove or prove sensitive artifacts are synthetic/non-private before republication; tighten workflow trigger/permission/action pinning risks before republication | PRIVATE | no | high |
+| gernalix.github.io | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| my-notes | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| my-notes2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| salute | private | PRIVATE | P0 | Potentially sensitive personal-domain repository; no compelling CI/publication benefit established. | PASS_WITH_REMEDIATION | gitleaks:0 | paths:1; workflows:0 | no | remove or prove sensitive artifacts are synthetic/non-private before republication | PRIVATE | no | high |
+| MegaVault | private | PRIVATE | P0 | Operational knowledge base, SQLite inventory and infrastructure metadata. | PRIVATE_BY_POLICY | gitleaks:0 | paths:0; workflows:0 | unknown | private baseline and not currently public; scan not required in this campaign | PRIVATE | no | high |
+| vm_oracle | private | PRIVATE | P0 | Live infrastructure configuration/operations. | PRIVATE_BY_POLICY | gitleaks:0 | paths:0; workflows:0 | unknown | private baseline and not currently public; scan not required in this campaign | PRIVATE | no | high |
+| codex-usage | private | PRIVATE | P0 | Session/prompt/usage archive can contain private interaction and local metadata. | PRIVATE_BY_POLICY | gitleaks:0 | paths:0; workflows:0 | unknown | private baseline and not currently public; scan not required in this campaign | PRIVATE | no | high |
+| oracle-backup-service | private | PRIVATE | P0 | Backup/infrastructure topology and operational configuration. | PRIVATE_BY_POLICY | gitleaks:0 | paths:0; workflows:0 | unknown | private baseline and not currently public; scan not required in this campaign | PRIVATE | no | high |
+| owntracks | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| amici_fb | private | PRIVATE | P0 | Social/contact-oriented data risk. | PRIVATE_BY_POLICY | gitleaks:0 | paths:0; workflows:0 | unknown | private baseline and not currently public; scan not required in this campaign | PRIVATE | no | high |
+| telegram_insert_bot | private | PRIVATE | P0 | Bot/chat credentials and personal integration risk. | PRIVATE_BY_POLICY | gitleaks:0 | paths:0; workflows:0 | unknown | private baseline and not currently public; scan not required in this campaign | PRIVATE | no | high |
+| discord-exporter | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| datasette_sesso | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| meth-repo | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| datasette5 | private | PRIVATE | P1 | Operational/data-serving repository; likely contains deployment/data context. | PRIVATE_BY_POLICY | gitleaks:0 | paths:0; workflows:0 | unknown | private baseline and not currently public; scan not required in this campaign | PRIVATE | no | high |
+| surface-recovery-hardening | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| mint-freeze-forensics | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| logseq | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| logseq2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| logseq3 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| logseq4 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| logseq5 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| logseq6 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| L16 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| L17 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| dash_python2 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| dash3 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| scriptone | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| scriptone4 | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| porno_downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| facedownassup-downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| livinggaul-x-downloader | private | PRIVATE | P2 | Personal-use downloader; no compelling public-CI benefit. | PRIVATE_BY_POLICY | gitleaks:0 | paths:0; workflows:0 | unknown | private baseline and not currently public; scan not required in this campaign | PRIVATE | no | high |
+| strano-anello | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| Soldi | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| wordpulse | deleted | RETIRE | — | Retired after verified offline archive and live confirmation that no Pixel package remained; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| Sostanze | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| Luoghi | deleted | RETIRE | — | Legacy repository retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
+| luoghi-app | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. | RETIRED | gitleaks:0 | paths:0; workflows:0 | unknown | retired/deleted repository excluded from publication work | RETIRE | no | high |
 
 ## Audit outcome fields
 
