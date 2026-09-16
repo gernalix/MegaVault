@@ -1,0 +1,118 @@
+name: Apply 805417 boundary refactor
+
+on:
+  push:
+    paths:
+      - .github/workflows/apply-805417-boundary-refactor.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refactor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply deterministic boundary refactor
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from __future__ import annotations
+
+          import ast
+          from pathlib import Path
+
+          root = Path.cwd()
+          core_path = root / "ai" / "megavault_core.py"
+          core = core_path.read_text(encoding="utf-8")
+
+          def replace_once(text: str, old: str, new: str, label: str) -> str:
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{label}: expected 1 match, found {count}")
+              return text.replace(old, new, 1)
+
+          core = replace_once(
+              core,
+              'ROOT = Path(__file__).resolve().parent\nDB = ROOT / "megavault.sqlite"\nPROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"\n',
+              'ROOT = Path(__file__).resolve().parents[1]\nDB = ROOT / "megavault.sqlite"\nPROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"\n',
+              "repo root ownership",
+          )
+          core = replace_once(
+              core,
+              '''class TagConflictError(ValueError):\n    """Raised when a tag alias and canonical tag name would be ambiguous."""\n\n\ndef connect(path: Path | str = DB) -> sqlite3.Connection:\n    conn = sqlite3.connect(path)\n    conn.execute("PRAGMA foreign_keys=ON")\n    return conn\n''',
+              '''class TagConflictError(ValueError):\n    """Raised when a tag alias and canonical tag name would be ambiguous."""\n\n\nclass TagNotFoundError(ValueError):\n    """Raised when incident tagging references an unknown canonical tag or alias."""\n\n\ndef connect(path: Path | str | None = None) -> sqlite3.Connection:\n    conn = sqlite3.connect(path or DB)\n    conn.execute("PRAGMA foreign_keys=ON")\n    return conn\n''',
+              "core exception/connect ownership",
+          )
+          core = replace_once(
+              core,
+              '''def link_incident_tag(\n    conn: sqlite3.Connection, incident_id: int, name_or_alias: str\n) -> tuple[int, str]:\n    resolved = resolve_tag(conn, name_or_alias)\n    if not resolved:\n        raise ValueError(f"tag or alias not found: {name_or_alias!r}")\n    tag_id, canonical_name = resolved\n    conn.execute(\n        "insert or ignore into incident_tags(incident_id, tag_id) values (?, ?)",\n        (incident_id, tag_id),\n    )\n    return tag_id, canonical_name\n''',
+              '''def link_incident_tag(\n    conn: sqlite3.Connection, incident_id: int, name_or_alias: str\n) -> tuple[int, str]:\n    resolved = resolve_tag(conn, name_or_alias)\n    if not resolved:\n        raise TagNotFoundError(\n            f"tag or alias not found: {name_or_alias!r}; "\n            "create it explicitly with 'megavault.py tag'"\n        )\n    tag_id, canonical_name = resolved\n    conn.execute(\n        "insert or ignore into incident_tags(incident_id, tag_id) values (?, ?)",\n        (incident_id, tag_id),\n    )\n    return tag_id, canonical_name\n''',
+              "strict incident tag ownership",
+          )
+          core = replace_once(
+              core,
+              '''def incident_tag_command(args: argparse.Namespace) -> int:\n    conn = connect()\n    with conn:\n        tag_id, canonical_name = link_incident_tag(conn, args.incident_id, args.tag)\n    print(f"incident_id={args.incident_id}")\n    print(f"tag_id={tag_id}")\n    print(f"name={canonical_name}")\n    return 0\n''',
+              '''def incident_tag_command(args: argparse.Namespace) -> int:\n    conn = connect()\n    try:\n        with conn:\n            tag_id, canonical_name = link_incident_tag(conn, args.incident_id, args.tag)\n    except TagNotFoundError as exc:\n        print(f"INCIDENT_TAG=NOT_FOUND {exc}", file=sys.stderr)\n        return 1\n    print(f"incident_id={args.incident_id}")\n    print(f"tag_id={tag_id}")\n    print(f"name={canonical_name}")\n    return 0\n''',
+              "incident tag command ownership",
+          )
+          core = replace_once(
+              core,
+              '''def incident_create_command(args: argparse.Namespace) -> int:\n    conn = connect()\n    with conn:\n        incident_id = create_incident(\n            conn,\n            title=args.title,\n            status=args.status,\n            project_id=args.project_id,\n            first_seen_utc=args.first_seen_utc,\n            last_seen_utc=args.last_seen_utc,\n            severity=args.severity,\n            root_cause=args.root_cause,\n            resolution_summary=args.resolution_summary,\n            systems=args.systems,\n            alerts=args.alerts,\n            prompt_refs=args.prompt_refs,\n            commit_refs=args.commit_refs,\n            notes=args.notes,\n            source_ref=args.source_ref,\n            tags=args.tag,\n        )\n    print(f"incident_id={incident_id}")\n    return 0\n''',
+              '''def incident_create_command(args: argparse.Namespace) -> int:\n    conn = connect()\n    try:\n        with conn:\n            incident_id = create_incident(\n                conn,\n                title=args.title,\n                status=args.status,\n                project_id=args.project_id,\n                first_seen_utc=args.first_seen_utc,\n                last_seen_utc=args.last_seen_utc,\n                severity=args.severity,\n                root_cause=args.root_cause,\n                resolution_summary=args.resolution_summary,\n                systems=args.systems,\n                alerts=args.alerts,\n                prompt_refs=args.prompt_refs,\n                commit_refs=args.commit_refs,\n                notes=args.notes,\n                source_ref=args.source_ref,\n                tags=args.tag,\n            )\n    except TagNotFoundError as exc:\n        print(f"INCIDENT_CREATE=TAG_NOT_FOUND {exc}", file=sys.stderr)\n        return 1\n    print(f"incident_id={incident_id}")\n    return 0\n''',
+              "incident create command ownership",
+          )
+          core_path.write_text(core, encoding="utf-8")
+
+          tree = ast.parse(core)
+          public: list[str] = []
+          for node in tree.body:
+              candidates: list[str] = []
+              if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                  candidates = [node.name]
+              elif isinstance(node, ast.Assign):
+                  candidates = [t.id for t in node.targets if isinstance(t, ast.Name)]
+              elif isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name):
+                  candidates = [node.target.id]
+              for name in candidates:
+                  if not name.startswith("_") and name != "main" and name not in public:
+                      public.append(name)
+
+          def import_block(names: list[str]) -> str:
+              return "\n".join(f"    {name}," for name in names)
+
+          root_module = f'''#!/usr/bin/env python3\n"""Explicit MegaVault composition root."""\n\nfrom __future__ import annotations\n\nimport sys\n\nfrom ai.megavault_core import (\n{import_block(public)}\n)\nfrom ai.megavault_core import main as _core_main\nfrom ai.operational_indexes import dispatch as _dispatch_operational\nfrom ai.operational_indexes import migrate_operational_indexes\nfrom ai.workflow_events import dispatch as _dispatch_workflow_events\n\n\ndef main(argv: list[str] | None = None) -> int:\n    args = list(sys.argv[1:] if argv is None else argv)\n    operational = _dispatch_operational(args)\n    if operational is not None:\n        return operational\n    workflow_events = _dispatch_workflow_events(args)\n    if workflow_events is not None:\n        return workflow_events\n    if args and args[0] == "migrate":\n        result = _core_main(args)\n        if result != 0:\n            return result\n        return migrate_operational_indexes()\n    return _core_main(args)\n\n\nif __name__ == "__main__":\n    raise SystemExit(main())\n'''
+          (root / "megavault.py").write_text(root_module, encoding="utf-8")
+
+          facade_names = [*public, "main"]
+          facade = f'''"""Compatibility facade for the explicit MegaVault core API.\n\nNew runtime composition lives in ``megavault.py`` and policy ownership lives in\n``ai.megavault_core``. This module contains no namespace mutation or monkey-patching.\n"""\n\nfrom ai.megavault_core import (\n{import_block(facade_names)}\n)\n\n__all__ = (\n{''.join(f'    {name!r},\\n' for name in facade_names)}\n)\n'''
+          (root / "ai" / "strict_tag_wrapper.py").write_text(facade, encoding="utf-8")
+
+          architecture_test = '''import ast\nimport unittest\nfrom pathlib import Path\n\n\nROOT = Path(__file__).resolve().parents[1]\n\n\nclass RuntimeBoundaryTests(unittest.TestCase):\n    def test_composition_root_has_no_wildcard_or_wrapper_import(self):\n        path = ROOT / "megavault.py"\n        source = path.read_text(encoding="utf-8")\n        tree = ast.parse(source)\n        wildcard = [\n            node\n            for node in ast.walk(tree)\n            if isinstance(node, ast.ImportFrom)\n            and any(alias.name == "*" for alias in node.names)\n        ]\n        self.assertEqual([], wildcard)\n        self.assertNotIn("strict_tag_wrapper", source)\n        self.assertEqual(\n            ["main"],\n            [node.name for node in tree.body if isinstance(node, ast.FunctionDef)],\n        )\n\n    def test_compatibility_facade_has_no_dynamic_reexport_or_monkeypatch(self):\n        path = ROOT / "ai" / "strict_tag_wrapper.py"\n        source = path.read_text(encoding="utf-8")\n        tree = ast.parse(source)\n        self.assertNotIn("globals()", source)\n        self.assertNotIn("globals().update", source)\n        self.assertFalse(\n            any(\n                isinstance(target, ast.Attribute)\n                for node in ast.walk(tree)\n                if isinstance(node, (ast.Assign, ast.AnnAssign))\n                for target in (node.targets if isinstance(node, ast.Assign) else [node.target])\n            )\n        )\n        wildcard = [\n            node\n            for node in ast.walk(tree)\n            if isinstance(node, ast.ImportFrom)\n            and any(alias.name == "*" for alias in node.names)\n        ]\n        self.assertEqual([], wildcard)\n\n    def test_core_owns_repo_paths_and_strict_incident_policy(self):\n        source = (ROOT / "ai" / "megavault_core.py").read_text(encoding="utf-8")\n        self.assertIn("ROOT = Path(__file__).resolve().parents[1]", source)\n        self.assertIn("class TagNotFoundError(ValueError):", source)\n        self.assertIn("raise TagNotFoundError(", source)\n        self.assertIn("def connect(path: Path | str | None = None)", source)\n\n\nif __name__ == "__main__":\n    unittest.main()\n'''
+          (root / "tests" / "test_runtime_boundaries.py").write_text(architecture_test, encoding="utf-8")
+          PY
+
+      - name: Verify architecture and behavior
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_runtime_boundaries -v
+          PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -q
+          git diff --check
+
+      - name: Commit verified refactor to bootstrap branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-805417-boundary-refactor.yml
+          git add ai/megavault_core.py ai/strict_tag_wrapper.py megavault.py tests/test_runtime_boundaries.py
+          git commit -m "Refactor MegaVault runtime boundaries"
+          git push origin HEAD:${GITHUB_REF_NAME}
