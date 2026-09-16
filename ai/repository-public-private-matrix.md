@@ -21,8 +21,8 @@ The audit may downgrade any `PUBLIC_AFTER_AUDIT` repository to `PRIVATE`. A `PRI
 | codex-usage-monitor | private | PUBLIC_AFTER_AUDIT | P0 | Reusable Python tooling; high CI benefit. |
 | github-autosync | private | PUBLIC_AFTER_AUDIT | P0 | Reusable automation; deterministic tests. |
 | workflowy-import | private | PUBLIC_AFTER_AUDIT | P0 | Code can be public if exports, DBs, URLs and credentials are absent. |
-| MultiTimeTracker | private | PUBLIC_AFTER_AUDIT | P1 | Active Android software; substantial CI benefit. |
-| SuperContacts | private | PUBLIC_AFTER_AUDIT | P1 | App code can be public only if no real contact data/export fixtures are tracked. |
+| MultiTimeTracker | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
+| SuperContacts | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
 | android-app-template | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | fedora-system-monitor | private | PUBLIC_AFTER_AUDIT | P1 | Generic system tooling if host-specific details/secrets are absent. |
 | fedora-t7-backup | private | PUBLIC_AFTER_AUDIT | P1 | Generic backup logic if no private paths/identifiers/credentials leak. |
@@ -80,10 +80,10 @@ The audit may downgrade any `PUBLIC_AFTER_AUDIT` repository to `PRIVATE`. A `PRI
 | facedownassup-downloader | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | livinggaul-x-downloader | private | PRIVATE | P2 | Personal-use downloader; no compelling public-CI benefit. |
 | strano-anello | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| Soldi | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
+| Soldi | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
 | wordpulse | deleted | RETIRE | — | Retired after verified offline archive and live confirmation that no Pixel package remained; GitHub remote and canonical local clone deleted. |
-| Sostanze | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
-| Luoghi | private | RETIRE | — | Standalone app superseded by PersonalHub module. |
+| Sostanze | deleted | RETIRE | — | Retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
+| Luoghi | deleted | RETIRE | — | Legacy repository retired after verified offline archive and user-authorized Pixel uninstall; GitHub remote and canonical local clone deleted. |
 | luoghi-app | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 
 ## Audit outcome fields
