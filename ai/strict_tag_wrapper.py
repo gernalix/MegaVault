@@ -1,130 +1,177 @@
-#!/usr/bin/env python3
-from __future__ import annotations
+"""Compatibility facade for the explicit MegaVault core API.
 
-import sqlite3
-import sys
-from pathlib import Path
+New runtime composition lives in ``megavault.py`` and policy ownership lives in
+``ai.megavault_core``. This module contains no namespace mutation or monkey-patching.
+"""
 
-from ai import megavault_core as _core
-
-ROOT = Path(__file__).resolve().parents[1]
-DB = ROOT / "megavault.sqlite"
-PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-INCIDENT_POLICY = (
-    "identity=one_observed_occurrence",
-    "id=SQLite_AUTOINCREMENT;immediate;unique;never_reused",
-    "same_symptom_same_cause_new_time=new_incident",
-    "cause=nullable;UNKNOWN_allowed;does_not_affect_id",
-    "merge=forbidden",
-    "linking=canonical_tags_only",
-    "source=megavault.sqlite:tags+tag_aliases",
-    "reuse_existing=mandatory",
-    "free_text=forbidden",
-    "new_tag=only_if_no_canonical_or_alias_match",
-    "format=lowercase_atomic",
-    "aliases=search_only;canonical_link_only",
-    "incident_search=tag_intersection+text",
+from ai.megavault_core import (
+    ROOT,
+    DB,
+    PROTOCOL,
+    SCHEMA_VERSION,
+    CANONICAL_TAG_RE,
+    DEFAULT_CANONICAL_TAGS,
+    DEFAULT_TAG_ALIASES,
+    ROOT_ALLOWLIST,
+    ALLOWED_TRACKED_MARKDOWN,
+    TRACKED_FORBIDDEN_PREFIXES,
+    TRACKED_FORBIDDEN_FILES,
+    REQUIRED_PROTOCOL_FAMILIES,
+    SECRET_PATTERNS,
+    TagConflictError,
+    TagNotFoundError,
+    connect,
+    table_columns,
+    table_exists,
+    ensure_column,
+    incident_id_is_integer,
+    normalize_tag_name,
+    normalize_canonical_tag_name,
+    resolve_tag,
+    create_tag,
+    resolve_or_create_tag,
+    ensure_default_incident_taxonomy,
+    add_tag_alias,
+    link_incident_tag,
+    search_incidents_by_tags,
+    split_legacy_tag_tokens,
+    create_incident,
+    execute_statements,
+    create_incident_tables,
+    migrate_incident_schema,
+    backfill_legacy_incident_tags,
+    normalize_remote_url,
+    git_value,
+    repository_runtime_parts,
+    infer_repository_kind,
+    refresh_repository_index_rows,
+    normalized_sql,
+    ensure_view,
+    ensure_codex_project_index_view,
+    ensure_codex_retrieval_views,
+    PROJECT_CONTEXT_COMPONENTS,
+    PROJECT_CONTEXT_OPERATIONS,
+    ensure_project_context_schema,
+    migrate_project_index_schema,
+    git_tracked,
+    protocol_semantic_errors,
+    secret_scan_errors,
+    schema_errors,
+    validate,
+    print_errors,
+    project,
+    CODEX_PROJECT_FIELDS,
+    project_index_row,
+    project_list_command,
+    print_project_retrieval_rows,
+    CODEX_WORK_QUEUE_FIELDS,
+    CODEX_STATUS_LIST_FIELDS,
+    project_view_command,
+    project_show_command,
+    CODEX_PROJECT_CONTEXT_FIELDS,
+    codex_project_context_command,
+    project_path_command,
+    normalize_github_remote,
+    repo_slug,
+    next_repository_id,
+    find_registered_github_repo,
+    register_github_repo_command,
+    migrate_database,
+    print_incident_rows,
+    tag_list_command,
+    tag_resolve_command,
+    tag_create_command,
+    tag_command,
+    tag_alias_command,
+    incident_tag_command,
+    incident_search_command,
+    incident_command,
+    incident_create_command,
+    main,
 )
 
-_core.ROOT = ROOT
-_core.DB = DB
-_core.PROTOCOL = PROTOCOL
-_core.REQUIRED_PROTOCOL_FAMILIES["incident_policy"] = INCIDENT_POLICY
-
-
-class TagNotFoundError(ValueError):
-    """Raised when an incident references an unregistered tag or alias."""
-
-
-def connect(path: Path | str | None = None) -> sqlite3.Connection:
-    conn = sqlite3.connect(path or DB)
-    conn.execute("PRAGMA foreign_keys=ON")
-    return conn
-
-
-def link_incident_tag(
-    conn: sqlite3.Connection, incident_id: int, name_or_alias: str
-) -> tuple[int, str]:
-    resolved = _core.resolve_tag(conn, name_or_alias)
-    if not resolved:
-        raise TagNotFoundError(
-            f"tag or alias not found: {name_or_alias!r}; create it explicitly with 'megavault.py tag'"
-        )
-    tag_id, canonical_name = resolved
-    conn.execute(
-        "insert or ignore into incident_tags(incident_id, tag_id) values (?, ?)",
-        (incident_id, tag_id),
-    )
-    return tag_id, canonical_name
-
-
-def incident_tag_command(args):
-    conn = connect()
-    try:
-        with conn:
-            tag_id, canonical_name = link_incident_tag(conn, args.incident_id, args.tag)
-    except TagNotFoundError as exc:
-        print(f"INCIDENT_TAG=NOT_FOUND {exc}", file=sys.stderr)
-        return 1
-    print(f"incident_id={args.incident_id}")
-    print(f"tag_id={tag_id}")
-    print(f"name={canonical_name}")
-    return 0
-
-
-def incident_create_command(args):
-    conn = connect()
-    try:
-        with conn:
-            incident_id = _core.create_incident(
-                conn,
-                title=args.title,
-                status=args.status,
-                project_id=args.project_id,
-                first_seen_utc=args.first_seen_utc,
-                last_seen_utc=args.last_seen_utc,
-                severity=args.severity,
-                root_cause=args.root_cause,
-                resolution_summary=args.resolution_summary,
-                systems=args.systems,
-                alerts=args.alerts,
-                prompt_refs=args.prompt_refs,
-                commit_refs=args.commit_refs,
-                notes=args.notes,
-                source_ref=args.source_ref,
-                tags=args.tag,
-            )
-    except TagNotFoundError as exc:
-        print(f"INCIDENT_CREATE=TAG_NOT_FOUND {exc}", file=sys.stderr)
-        return 1
-    print(f"incident_id={incident_id}")
-    return 0
-
-
-_core.connect = connect
-_core.link_incident_tag = link_incident_tag
-_core.incident_tag_command = incident_tag_command
-_core.incident_create_command = incident_create_command
-_core.TagNotFoundError = TagNotFoundError
-
-for _name in dir(_core):
-    if not _name.startswith("_"):
-        globals()[_name] = getattr(_core, _name)
-
-globals().update(
-    {
-        "ROOT": ROOT,
-        "DB": DB,
-        "PROTOCOL": PROTOCOL,
-        "INCIDENT_POLICY": INCIDENT_POLICY,
-        "connect": connect,
-        "link_incident_tag": link_incident_tag,
-        "incident_tag_command": incident_tag_command,
-        "incident_create_command": incident_create_command,
-        "TagNotFoundError": TagNotFoundError,
-    }
+__all__ = (
+    'ROOT',
+    'DB',
+    'PROTOCOL',
+    'SCHEMA_VERSION',
+    'CANONICAL_TAG_RE',
+    'DEFAULT_CANONICAL_TAGS',
+    'DEFAULT_TAG_ALIASES',
+    'ROOT_ALLOWLIST',
+    'ALLOWED_TRACKED_MARKDOWN',
+    'TRACKED_FORBIDDEN_PREFIXES',
+    'TRACKED_FORBIDDEN_FILES',
+    'REQUIRED_PROTOCOL_FAMILIES',
+    'SECRET_PATTERNS',
+    'TagConflictError',
+    'TagNotFoundError',
+    'connect',
+    'table_columns',
+    'table_exists',
+    'ensure_column',
+    'incident_id_is_integer',
+    'normalize_tag_name',
+    'normalize_canonical_tag_name',
+    'resolve_tag',
+    'create_tag',
+    'resolve_or_create_tag',
+    'ensure_default_incident_taxonomy',
+    'add_tag_alias',
+    'link_incident_tag',
+    'search_incidents_by_tags',
+    'split_legacy_tag_tokens',
+    'create_incident',
+    'execute_statements',
+    'create_incident_tables',
+    'migrate_incident_schema',
+    'backfill_legacy_incident_tags',
+    'normalize_remote_url',
+    'git_value',
+    'repository_runtime_parts',
+    'infer_repository_kind',
+    'refresh_repository_index_rows',
+    'normalized_sql',
+    'ensure_view',
+    'ensure_codex_project_index_view',
+    'ensure_codex_retrieval_views',
+    'PROJECT_CONTEXT_COMPONENTS',
+    'PROJECT_CONTEXT_OPERATIONS',
+    'ensure_project_context_schema',
+    'migrate_project_index_schema',
+    'git_tracked',
+    'protocol_semantic_errors',
+    'secret_scan_errors',
+    'schema_errors',
+    'validate',
+    'print_errors',
+    'project',
+    'CODEX_PROJECT_FIELDS',
+    'project_index_row',
+    'project_list_command',
+    'print_project_retrieval_rows',
+    'CODEX_WORK_QUEUE_FIELDS',
+    'CODEX_STATUS_LIST_FIELDS',
+    'project_view_command',
+    'project_show_command',
+    'CODEX_PROJECT_CONTEXT_FIELDS',
+    'codex_project_context_command',
+    'project_path_command',
+    'normalize_github_remote',
+    'repo_slug',
+    'next_repository_id',
+    'find_registered_github_repo',
+    'register_github_repo_command',
+    'migrate_database',
+    'print_incident_rows',
+    'tag_list_command',
+    'tag_resolve_command',
+    'tag_create_command',
+    'tag_command',
+    'tag_alias_command',
+    'incident_tag_command',
+    'incident_search_command',
+    'incident_command',
+    'incident_create_command',
+    'main',
 )
-
-
-def main(argv=None):
-    return _core.main(argv)

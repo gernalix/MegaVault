@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
 SCHEMA_VERSION = 8
@@ -220,8 +220,12 @@ class TagConflictError(ValueError):
     """Raised when a tag alias and canonical tag name would be ambiguous."""
 
 
-def connect(path: Path | str = DB) -> sqlite3.Connection:
-    conn = sqlite3.connect(path)
+class TagNotFoundError(ValueError):
+    """Raised when incident tagging references an unknown canonical tag or alias."""
+
+
+def connect(path: Path | str | None = None) -> sqlite3.Connection:
+    conn = sqlite3.connect(path or DB)
     conn.execute("PRAGMA foreign_keys=ON")
     return conn
 
@@ -386,7 +390,10 @@ def link_incident_tag(
 ) -> tuple[int, str]:
     resolved = resolve_tag(conn, name_or_alias)
     if not resolved:
-        raise ValueError(f"tag or alias not found: {name_or_alias!r}")
+        raise TagNotFoundError(
+            f"tag or alias not found: {name_or_alias!r}; "
+            "create it explicitly with 'megavault.py tag'"
+        )
     tag_id, canonical_name = resolved
     conn.execute(
         "insert or ignore into incident_tags(incident_id, tag_id) values (?, ?)",
@@ -2352,8 +2359,12 @@ def tag_alias_command(args: argparse.Namespace) -> int:
 
 def incident_tag_command(args: argparse.Namespace) -> int:
     conn = connect()
-    with conn:
-        tag_id, canonical_name = link_incident_tag(conn, args.incident_id, args.tag)
+    try:
+        with conn:
+            tag_id, canonical_name = link_incident_tag(conn, args.incident_id, args.tag)
+    except TagNotFoundError as exc:
+        print(f"INCIDENT_TAG=NOT_FOUND {exc}", file=sys.stderr)
+        return 1
     print(f"incident_id={args.incident_id}")
     print(f"tag_id={tag_id}")
     print(f"name={canonical_name}")
@@ -2430,25 +2441,29 @@ def incident_command(args: argparse.Namespace) -> int:
 
 def incident_create_command(args: argparse.Namespace) -> int:
     conn = connect()
-    with conn:
-        incident_id = create_incident(
-            conn,
-            title=args.title,
-            status=args.status,
-            project_id=args.project_id,
-            first_seen_utc=args.first_seen_utc,
-            last_seen_utc=args.last_seen_utc,
-            severity=args.severity,
-            root_cause=args.root_cause,
-            resolution_summary=args.resolution_summary,
-            systems=args.systems,
-            alerts=args.alerts,
-            prompt_refs=args.prompt_refs,
-            commit_refs=args.commit_refs,
-            notes=args.notes,
-            source_ref=args.source_ref,
-            tags=args.tag,
-        )
+    try:
+        with conn:
+            incident_id = create_incident(
+                conn,
+                title=args.title,
+                status=args.status,
+                project_id=args.project_id,
+                first_seen_utc=args.first_seen_utc,
+                last_seen_utc=args.last_seen_utc,
+                severity=args.severity,
+                root_cause=args.root_cause,
+                resolution_summary=args.resolution_summary,
+                systems=args.systems,
+                alerts=args.alerts,
+                prompt_refs=args.prompt_refs,
+                commit_refs=args.commit_refs,
+                notes=args.notes,
+                source_ref=args.source_ref,
+                tags=args.tag,
+            )
+    except TagNotFoundError as exc:
+        print(f"INCIDENT_CREATE=TAG_NOT_FOUND {exc}", file=sys.stderr)
+        return 1
     print(f"incident_id={incident_id}")
     return 0
 
