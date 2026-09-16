@@ -28,7 +28,7 @@ The audit may downgrade any `PUBLIC_AFTER_AUDIT` repository to `PRIVATE`. A `PRI
 | fedora-t7-backup | private | PUBLIC_AFTER_AUDIT | P1 | Generic backup logic if no private paths/identifiers/credentials leak. |
 | app_lifecycle_monitor | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | codex-session-logger | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
-| wayland-workspace-switcher | deleted | RETIRE | — | GitHub remote retired after verified offline archive; local clone preserved due path guard. |
+| wayland-workspace-switcher | deleted | RETIRE | — | Retired after verified offline archive and targeted Fedora detach; GitHub remote and explicitly authorized local clone deleted. |
 | git-change-ledger | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | codex_weekly_limit_monitor | deleted | RETIRE | — | Retired after verified offline archive; GitHub remote and canonical local clone deleted. |
 | whatsapp-watcher | private | PUBLIC_AFTER_AUDIT | P1 | Extension code can be public if no session/account material exists. |
