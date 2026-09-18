@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 404846,
-  "request_id": "allocate-personalhub-github-ci-closure-v2-20260919",
-  "status": "allocated"
+  "request_id": "materialize-404846-personalhub-github-ci-closure-v2-20260919",
+  "status": "materialized"
 }
