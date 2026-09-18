@@ -1,6 +1,5 @@
 {
-  "request_id": "materialize-404846-personalhub-github-ci-closure-v2-20260919",
-  "command": "materialize",
-  "prompt_id": 404846,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-github-ci-closure-v2.md"
+  "request_id": "allocate-fedora-external-updater-git-closure-537184-20260919",
+  "command": "allocate",
+  "source": "chatgpt:fedora-external-updater-git-closure-537184"
 }
