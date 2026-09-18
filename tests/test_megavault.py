@@ -1,8 +1,10 @@
+import hashlib
 import sqlite3
 import subprocess
 import sys
 import tempfile
 import unittest
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from unittest import mock
 
@@ -69,6 +71,129 @@ class MegaVaultTests(unittest.TestCase):
         )
         for marker in required:
             self.assertIn(marker, text)
+
+    def prompt_id_temp_db(self, tmp):
+        tmp_db = Path(tmp) / "megavault-prompt-id.sqlite"
+        source = sqlite3.connect(ROOT / "megavault.sqlite")
+        copy = sqlite3.connect(tmp_db)
+        source.backup(copy)
+        copy.close()
+        source.close()
+        conn = sqlite3.connect(tmp_db)
+        conn.execute("PRAGMA foreign_keys=ON")
+        megavault.ensure_prompt_id_schema(conn)
+        conn.commit()
+        conn.close()
+        return tmp_db
+
+    def test_prompt_id_allocator_is_unique_under_concurrency(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                ids = list(
+                    pool.map(
+                        lambda _: megavault.allocate_prompt_id(
+                            tmp_db, source="test-concurrency", project_id=23
+                        ),
+                        range(32),
+                    )
+                )
+            self.assertEqual(32, len(ids))
+            self.assertEqual(32, len(set(ids)))
+            self.assertTrue(all(100000 <= value <= 999999 for value in ids))
+            conn = sqlite3.connect(tmp_db)
+            self.assertEqual(
+                32,
+                conn.execute("select count(*) from prompt_id_registry").fetchone()[0],
+            )
+            self.assertEqual(
+                32,
+                conn.execute(
+                    "select count(*) from prompt_id_events where event_type='allocated'"
+                ).fetchone()[0],
+            )
+
+    def test_prompt_id_revision_always_gets_new_id_even_for_identical_content(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            parent = megavault.allocate_prompt_id(
+                tmp_db, source="test-revision", project_id=23
+            )
+            child = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-revision",
+                project_id=23,
+                parent_prompt_id=parent,
+            )
+            self.assertNotEqual(parent, child)
+            digest = hashlib.sha256(b"identical prompt").hexdigest()
+            megavault.materialize_prompt_id(
+                parent, content_sha256=digest, db_path=tmp_db
+            )
+            megavault.materialize_prompt_id(
+                child, content_sha256=digest, db_path=tmp_db
+            )
+            conn = sqlite3.connect(tmp_db)
+            rows = conn.execute(
+                """
+                select prompt_id, parent_prompt_id, content_sha256, status
+                from prompt_id_registry
+                where prompt_id in (?, ?)
+                order by prompt_id
+                """,
+                (parent, child),
+            ).fetchall()
+            self.assertEqual(2, len(rows))
+            by_id = {row[0]: row for row in rows}
+            self.assertIsNone(by_id[parent][1])
+            self.assertEqual(parent, by_id[child][1])
+            self.assertEqual(digest, by_id[parent][2])
+            self.assertEqual(digest, by_id[child][2])
+            self.assertEqual("materialized", by_id[parent][3])
+            self.assertEqual("materialized", by_id[child][3])
+
+    def test_prompt_id_lifecycle_is_terminal_and_identity_is_immutable(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            prompt_id = megavault.allocate_prompt_id(
+                tmp_db, source="test-lifecycle", project_id=23
+            )
+            digest = hashlib.sha256(b"prompt").hexdigest()
+            megavault.materialize_prompt_id(
+                prompt_id, content_sha256=digest, db_path=tmp_db
+            )
+            megavault.mark_prompt_id_used(prompt_id, db_path=tmp_db)
+            with self.assertRaises(ValueError):
+                megavault.cancel_prompt_id(prompt_id, db_path=tmp_db)
+            conn = sqlite3.connect(tmp_db)
+            conn.execute("PRAGMA foreign_keys=ON")
+            with self.assertRaises(sqlite3.DatabaseError):
+                conn.execute(
+                    "update prompt_id_registry set source='rewritten' where prompt_id=?",
+                    (prompt_id,),
+                )
+            with self.assertRaises(sqlite3.DatabaseError):
+                conn.execute(
+                    "delete from prompt_id_registry where prompt_id=?",
+                    (prompt_id,),
+                )
+            state = conn.execute(
+                "select status from prompt_id_registry where prompt_id=?",
+                (prompt_id,),
+            ).fetchone()[0]
+            self.assertEqual("used", state)
+
+    def test_prompt_id_schema_migration_is_idempotent(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            conn = sqlite3.connect(tmp_db)
+            conn.execute("PRAGMA foreign_keys=ON")
+            self.assertFalse(megavault.ensure_prompt_id_schema(conn))
+            self.assertEqual([], conn.execute("PRAGMA foreign_key_check").fetchall())
+            trigger_count = conn.execute(
+                "select count(*) from sqlite_master where type='trigger' and name like 'prompt_id_%'"
+            ).fetchone()[0]
+            self.assertEqual(8, trigger_count)
 
     def test_secret_scan_has_zero_hits(self):
         self.assertEqual([], megavault.secret_scan_errors(megavault.git_tracked()))
