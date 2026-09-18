@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=49
+VERSION=50
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -50,7 +50,7 @@ Regola assoluta: **una materializzazione di prompt = un nuovo PROMPT_ID unico**.
 - Stati ammessi: `allocated -> materialized -> used`; `allocated -> cancelled`; `materialized -> cancelled`. `used` e `cancelled` sono terminali.
 - Un ID cancellato resta occupato per sempre.
 - Unica eccezione di bootstrap: durante l'attivazione iniziale del registro, gli ID storici gia' materializzati prima dell'allocator vanno importati come riservati tramite `prompt-id backfill`; questa operazione serve solo a impedirne il riuso e non e' ammessa per creare nuovi prompt.
-- Ogni backfill storico deve usare `source=historical-*`. Le righe con tale prefisso sono terminali: normalmente restano `allocated` solo per compatibilita' dello schema; e' ammesso anche `used` per il prompt di bootstrap gia' materializzato durante l'attivazione. In ogni caso `materialize` e `cancel` devono rifiutare qualunque ulteriore transizione. La fonte e' immutabile, quindi un ID storico non puo' essere trasformato in un prompt nuovo.
+- Ogni backfill storico deve usare `source=historical-*`; tale prefisso e' riservato al backfill e l'allocator normale deve rifiutarlo. Le righe con tale prefisso sono terminali: normalmente restano `allocated` solo per compatibilita' dello schema; e' ammesso anche `used` per il prompt di bootstrap gia' materializzato durante l'attivazione. In ogni caso `materialize` e `cancel` devono rifiutare qualunque ulteriore transizione. La fonte e' immutabile, quindi un ID storico non puo' essere trasformato in un prompt nuovo.
 - Per l'attivazione usare gli helper `prompt-id backup` e `prompt-id backfill-sources`: il backup viene creato con nome univoco e permessi `0600` fuori dal worktree, senza `rm` preventivo; il backfill estrae internamente solo gli ID e non riversa history/archivi nel contesto del modello.
 - Per smoke post-migrazione usare `prompt-id smoke --project-id PROJECT_ID`: alloca, verifica e cancella lo stesso ID in una sola invocazione con output stabile `prompt_id=...`/`status=cancelled`; non parsare l'output bare di `allocate` con wrapper shell ad hoc.
 - Fonti durevoli del bootstrap: history di `codex-roadmap`/MegaVault e indice `prompts/<ID>` di `codex-usage`; gli archivi legacy locali vanno ingeriti quando presenti ma un path legacy assente non deve lasciare l'allocator permanentemente disattivato. La copertura storica pre-registro va riportata come tale; dal momento dell'attivazione ogni nuova materializzazione deve passare obbligatoriamente dal registro canonico.
