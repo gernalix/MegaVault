@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 231789,
-  "request_id": "roadmap-opt-workflowy-activation-only-20260919-1",
-  "status": "allocated"
+  "request_id": "materialize-231789-roadmap-opt-20260919",
+  "status": "materialized"
 }
