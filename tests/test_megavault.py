@@ -44,6 +44,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_project_id_is_integer_not_prefixed_text(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         value, storage_type = conn.execute(
             "select project_id, typeof(project_id) from projects where slug='luoghi'"
         ).fetchone()
@@ -75,11 +76,14 @@ class MegaVaultTests(unittest.TestCase):
     def prompt_id_temp_db(self, tmp):
         tmp_db = Path(tmp) / "megavault-prompt-id.sqlite"
         source = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(source.close)
         copy = sqlite3.connect(tmp_db)
+        self.addCleanup(copy.close)
         source.backup(copy)
         copy.close()
         source.close()
         conn = sqlite3.connect(tmp_db)
+        self.addCleanup(conn.close)
         conn.execute("PRAGMA foreign_keys=OFF")
         conn.execute("DROP TABLE IF EXISTS prompt_id_events")
         conn.execute("DROP TABLE IF EXISTS prompt_id_registry")
@@ -105,6 +109,7 @@ class MegaVaultTests(unittest.TestCase):
             self.assertEqual(32, len(set(ids)))
             self.assertTrue(all(100000 <= value <= 999999 for value in ids))
             conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
             self.assertEqual(
                 32,
                 conn.execute("select count(*) from prompt_id_registry").fetchone()[0],
@@ -137,6 +142,7 @@ class MegaVaultTests(unittest.TestCase):
                 child, content_sha256=digest, db_path=tmp_db
             )
             conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
             rows = conn.execute(
                 """
                 select prompt_id, parent_prompt_id, content_sha256, status
@@ -163,6 +169,7 @@ class MegaVaultTests(unittest.TestCase):
             )
             self.assertEqual(0o600, backup.stat().st_mode & 0o777)
             conn = sqlite3.connect(backup)
+            self.addCleanup(conn.close)
             self.assertEqual("ok", conn.execute("PRAGMA integrity_check").fetchone()[0])
             conn.close()
 
@@ -198,6 +205,7 @@ class MegaVaultTests(unittest.TestCase):
             self.assertEqual(0, existing)
             self.assertEqual(1, optional_missing)
             conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
             self.assertEqual(
                 [(345678,), (456789,)],
                 conn.execute(
@@ -222,6 +230,7 @@ class MegaVaultTests(unittest.TestCase):
             )
             self.assertEqual((0, 2), (inserted, existing))
             conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
             rows = conn.execute(
                 "select prompt_id, source, status from prompt_id_registry order by prompt_id"
             ).fetchall()
@@ -243,6 +252,7 @@ class MegaVaultTests(unittest.TestCase):
             )
             self.assertTrue(100000 <= prompt_id <= 999999)
             conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
             try:
                 row = conn.execute(
                     "select status, source, project_id from prompt_id_registry where prompt_id=?",
@@ -266,6 +276,7 @@ class MegaVaultTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 megavault.cancel_prompt_id(prompt_id, db_path=tmp_db)
             conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
             conn.execute("PRAGMA foreign_keys=ON")
             with self.assertRaises(sqlite3.DatabaseError):
                 conn.execute(
@@ -287,6 +298,7 @@ class MegaVaultTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_db = self.prompt_id_temp_db(tmp)
             conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
             conn.execute("PRAGMA foreign_keys=ON")
             self.assertFalse(megavault.ensure_prompt_id_schema(conn))
             self.assertEqual([], conn.execute("PRAGMA foreign_key_check").fetchall())
@@ -323,12 +335,14 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_sqlite_integrity_and_foreign_keys_pass(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         conn.execute("PRAGMA foreign_keys=ON")
         self.assertEqual("ok", conn.execute("PRAGMA integrity_check").fetchone()[0])
         self.assertEqual([], conn.execute("PRAGMA foreign_key_check").fetchall())
 
     def test_codex_project_index_has_one_row_per_project(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         project_count = conn.execute("select count(*) from projects").fetchone()[0]
         index_count = conn.execute("select count(*) from codex_project_index").fetchone()[0]
         self.assertEqual(project_count, index_count)
@@ -344,6 +358,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_no_ambiguous_canonical_worktree(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         ambiguous = conn.execute(
             """
             select project_id
@@ -357,6 +372,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_codex_index_resolves_local_project(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         row = conn.execute(
             """
             select project_status, canonical_host, canonical_worktree,
@@ -379,6 +395,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_codex_index_resolves_remote_deploy(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         row = conn.execute(
             """
             select project_status, runtime_host, runtime_path
@@ -393,6 +410,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_codex_index_classifies_archived_and_legacy_missing(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         archived = conn.execute(
             "select project_status, repository_kind from codex_project_index where project_id=2"
         ).fetchone()
@@ -404,6 +422,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_codex_index_uses_deterministic_project_statuses(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         statuses = {
             row[0]
             for row in conn.execute("select distinct project_status from codex_project_index")
@@ -420,6 +439,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_codex_index_resolves_remote_only_projects(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         rows = conn.execute(
             """
             select project_id, project_status, canonical_host, canonical_worktree,
@@ -473,6 +493,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_codex_retrieval_views_are_compact_and_status_scoped(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         expected = {
             "codex_work_queue": conn.execute(
                 "select count(*) from codex_project_index where project_status in ('LOCAL', 'REMOTE_ONLY')"
@@ -515,6 +536,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_codex_project_context_schema_is_scoped_and_populated(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         component_counts = dict(
             conn.execute(
                 """
@@ -550,6 +572,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_codex_project_context_view_combines_routing_components_and_operations(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         row = conn.execute(
             """
             select slug, canonical_worktree, components, operations
@@ -579,6 +602,7 @@ class MegaVaultTests(unittest.TestCase):
         self.assertEqual(work_queue.returncode, 0, work_queue.stderr)
         work_lines = work_queue.stdout.strip().splitlines()
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         expected_counts = {
             "work": conn.execute("select count(*) from codex_work_queue").fetchone()[0],
             "remote": conn.execute("select count(*) from codex_remote_projects").fetchone()[0],
@@ -669,6 +693,7 @@ class MegaVaultTests(unittest.TestCase):
                 first = megavault.main(args)
                 second = megavault.main(args)
             conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
             project_count = conn.execute("select count(*) from projects where slug='example-new-repo'").fetchone()[0]
             repo_count = conn.execute(
                 "select count(*) from repositories where remote_url='https://github.com/gernalix/example-new-repo'"
@@ -684,13 +709,16 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_project_index_migration_is_idempotent_and_preserves_counts(self):
         source = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(source.close)
         with tempfile.TemporaryDirectory() as tmp:
             copy_path = Path(tmp) / "megavault-copy.sqlite"
             copy = sqlite3.connect(copy_path)
+            self.addCleanup(copy.close)
             source.backup(copy)
             copy.close()
 
             conn = sqlite3.connect(copy_path)
+            self.addCleanup(conn.close)
             conn.execute("PRAGMA foreign_keys=ON")
             tables = (
                 "projects",
@@ -728,6 +756,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_current_incident_taxonomy_is_migrated(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
+        self.addCleanup(conn.close)
         incident_ids = [
             row[0] for row in conn.execute("select incident_id from incidents order by incident_id")
         ]
@@ -822,6 +851,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def legacy_incident_conn(self):
         conn = sqlite3.connect(":memory:")
+        self.addCleanup(conn.close)
         conn.execute("PRAGMA foreign_keys=OFF")
         conn.executescript(
             """
