@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 274656,
-  "request_id": "materialize-274656-codex-usage-status-backfill-deploy-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 609279,
+  "request_id": "allocate-personalhub-places-english-diagnostics-20260919",
+  "status": "allocated"
 }
