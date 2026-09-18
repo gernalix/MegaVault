@@ -15,6 +15,7 @@ from ai import strict_tag_wrapper  # noqa: E402
 import megavault  # noqa: E402
 
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
+PH_BOOTSTRAP = ROOT / "ai" / "personalhubdoc.md"
 
 
 class MegaVaultTests(unittest.TestCase):
@@ -55,6 +56,19 @@ class MegaVaultTests(unittest.TestCase):
             "protocol_semantic_missing:capsulization:CAPSULIZATION=mandatory_all_projects",
             errors,
         )
+
+    def test_personalhub_prompt_id_policy_matches_global_contract(self):
+        text = PH_BOOTSTRAP.read_text(encoding="utf-8")
+        required = (
+            "identity=one_materialized_prompt_one_new_prompt_id_absolute",
+            "revision=any_change_even_single_character_or_minor_rewording=>new_prompt_id",
+            "parentage=parent_prompt_id_only;inherit_parent_id=forbidden",
+            "reuse=forbidden_forever;cancelled_id_remains_reserved;delete=forbidden",
+            "content_sha256=audit_integrity_only;deduplication_or_id_reuse_by_hash=forbidden",
+            "model_generated_unregistered_prompt_id=forbidden",
+        )
+        for marker in required:
+            self.assertIn(marker, text)
 
     def test_secret_scan_has_zero_hits(self):
         self.assertEqual([], megavault.secret_scan_errors(megavault.git_tracked()))
