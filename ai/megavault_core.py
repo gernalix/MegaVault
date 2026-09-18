@@ -5,11 +5,13 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import os
 import re
 import secrets
 import sqlite3
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 
@@ -571,6 +573,224 @@ def parse_prompt_id_file(path: Path | str) -> list[int]:
             raise ValueError(f"invalid PROMPT_ID at line {line_number}: {text!r}")
         values.append(int(text))
     return values
+
+
+
+PROMPT_ID_TEXT_PATTERNS = (
+    re.compile(r"\bPROMPT_ID\s*=\s*(\d{6})\b", re.I),
+    re.compile(r"""["']prompt_id["']\s*:\s*["']?(\d{6})\b""", re.I),
+)
+PROMPT_ID_SCAN_SUFFIXES = {
+    ".md",
+    ".txt",
+    ".json",
+    ".jsonl",
+    ".yaml",
+    ".yml",
+    ".toml",
+    ".py",
+    ".sh",
+    ".kt",
+    ".kts",
+    ".xml",
+    ".csv",
+}
+
+
+def extract_prompt_ids(text: str) -> set[int]:
+    values: set[int] = set()
+    for pattern in PROMPT_ID_TEXT_PATTERNS:
+        values.update(int(match.group(1)) for match in pattern.finditer(text))
+    return values
+
+
+def prompt_ids_from_git_history(repo: Path | str) -> set[int]:
+    root = Path(repo).expanduser()
+    if not (root / ".git").exists():
+        raise ValueError(f"not a git worktree: {root}")
+    proc = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(root),
+            "log",
+            "--all",
+            "-G",
+            "PROMPT_ID",
+            "-p",
+            "--no-ext-diff",
+            "--text",
+            "--format=",
+        ],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(
+            f"git history scan failed for {root}: {proc.stderr.strip()}"
+        )
+    values = extract_prompt_ids(proc.stdout)
+    current = subprocess.run(
+        ["git", "-C", str(root), "grep", "-I", "-h", "-E", "PROMPT_ID|prompt_id", "HEAD"],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if current.returncode not in (0, 1):
+        raise RuntimeError(
+            f"git tree scan failed for {root}: {current.stderr.strip()}"
+        )
+    values.update(extract_prompt_ids(current.stdout))
+    return values
+
+
+def prompt_ids_from_prompt_dir(root: Path | str) -> set[int]:
+    base = Path(root).expanduser()
+    prompts = base / "prompts"
+    if not prompts.is_dir():
+        raise ValueError(f"prompt directory missing: {prompts}")
+    return {
+        int(child.name)
+        for child in prompts.iterdir()
+        if child.is_dir() and re.fullmatch(r"\d{6}", child.name)
+    }
+
+
+def prompt_ids_from_text_tree(root: Path | str, *, max_file_bytes: int = 20_000_000) -> set[int]:
+    base = Path(root).expanduser()
+    if not base.is_dir():
+        raise ValueError(f"text tree missing: {base}")
+    values: set[int] = set()
+    prompt_dir = base / "prompts"
+    if prompt_dir.is_dir():
+        values.update(
+            int(child.name)
+            for child in prompt_dir.iterdir()
+            if child.is_dir() and re.fullmatch(r"\d{6}", child.name)
+        )
+    for path in base.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in PROMPT_ID_SCAN_SUFFIXES:
+            continue
+        try:
+            if path.stat().st_size > max_file_bytes:
+                continue
+            raw = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        values.update(extract_prompt_ids(raw))
+    return values
+
+
+def create_prompt_id_backup(
+    db_path: Path | str | None = None,
+    *,
+    output_dir: Path | str | None = None,
+) -> Path:
+    source_path = Path(db_path or DB)
+    if not source_path.is_file():
+        raise ValueError(f"database missing: {source_path}")
+    target_dir = Path(output_dir).expanduser() if output_dir else Path(tempfile.gettempdir())
+    target_dir.mkdir(parents=True, exist_ok=True)
+    fd, raw_path = tempfile.mkstemp(
+        prefix="megavault-prompt-id-",
+        suffix=".sqlite",
+        dir=target_dir,
+    )
+    os.close(fd)
+    target = Path(raw_path)
+    os.chmod(target, 0o600)
+    source = sqlite3.connect(source_path)
+    destination = sqlite3.connect(target)
+    try:
+        source.backup(destination)
+    except Exception:
+        destination.close()
+        source.close()
+        target.unlink(missing_ok=True)
+        raise
+    else:
+        destination.close()
+        source.close()
+    if target.stat().st_mode & 0o777 != 0o600:
+        target.unlink(missing_ok=True)
+        raise RuntimeError("backup permissions are not 0600")
+    return target
+
+
+def backfill_prompt_ids_from_sources(
+    *,
+    source: str,
+    git_repos: list[str] | None = None,
+    prompt_dir_roots: list[str] | None = None,
+    text_trees: list[str] | None = None,
+    optional_text_trees: list[str] | None = None,
+    required_ids: list[int] | None = None,
+    db_path: Path | str | None = None,
+) -> tuple[int, int, int, int]:
+    values: set[int] = set()
+    source_count = 0
+    optional_missing = 0
+    for repo in git_repos or []:
+        values.update(prompt_ids_from_git_history(repo))
+        source_count += 1
+    for root in prompt_dir_roots or []:
+        values.update(prompt_ids_from_prompt_dir(root))
+        source_count += 1
+    for root in text_trees or []:
+        values.update(prompt_ids_from_text_tree(root))
+        source_count += 1
+    for root in optional_text_trees or []:
+        path = Path(root).expanduser()
+        if not path.is_dir():
+            optional_missing += 1
+            continue
+        values.update(prompt_ids_from_text_tree(path))
+        source_count += 1
+    missing_required = sorted(set(required_ids or []) - values)
+    if missing_required:
+        raise ValueError(f"required PROMPT_ID values missing from sources: {missing_required!r}")
+    if not values:
+        raise ValueError("historical PROMPT_ID discovery returned zero IDs")
+    inserted, existing = backfill_prompt_ids(
+        sorted(values),
+        source=source,
+        db_path=db_path,
+    )
+    return len(values), inserted, existing, optional_missing
+
+
+def prompt_id_backup_command(args: argparse.Namespace) -> int:
+    try:
+        path = create_prompt_id_backup(output_dir=args.output_dir)
+    except (OSError, RuntimeError, ValueError, sqlite3.Error) as exc:
+        print(f"PROMPT_ID_BACKUP=FAIL {exc}", file=sys.stderr)
+        return 1
+    print(f"backup_path={path}")
+    print("mode=0600")
+    return 0
+
+
+def prompt_id_backfill_sources_command(args: argparse.Namespace) -> int:
+    try:
+        total, inserted, existing, optional_missing = backfill_prompt_ids_from_sources(
+            source=args.source,
+            git_repos=args.git_repo,
+            prompt_dir_roots=args.prompt_dir_root,
+            text_trees=args.text_tree,
+            optional_text_trees=args.optional_text_tree,
+            required_ids=args.require_id,
+        )
+    except (OSError, RuntimeError, ValueError, sqlite3.Error) as exc:
+        print(f"PROMPT_ID_BACKFILL_SOURCES=FAIL {exc}", file=sys.stderr)
+        return 1
+    print(f"discovered={total}")
+    print(f"inserted={inserted}")
+    print(f"already_reserved={existing}")
+    print(f"optional_missing={optional_missing}")
+    return 0
 
 
 def prompt_content_sha256(path: Path | str) -> str:
@@ -3042,6 +3262,15 @@ def main(argv: list[str] | None = None) -> int:
     prompt_id_allocate.add_argument("--source", required=True)
     prompt_id_allocate.add_argument("--project-id", type=int)
     prompt_id_allocate.add_argument("--parent-prompt-id", type=int)
+    prompt_id_backup = prompt_id_sub.add_parser("backup")
+    prompt_id_backup.add_argument("--output-dir")
+    prompt_id_backfill_sources = prompt_id_sub.add_parser("backfill-sources")
+    prompt_id_backfill_sources.add_argument("--source", required=True)
+    prompt_id_backfill_sources.add_argument("--git-repo", action="append", default=[])
+    prompt_id_backfill_sources.add_argument("--prompt-dir-root", action="append", default=[])
+    prompt_id_backfill_sources.add_argument("--text-tree", action="append", default=[])
+    prompt_id_backfill_sources.add_argument("--optional-text-tree", action="append", default=[])
+    prompt_id_backfill_sources.add_argument("--require-id", type=int, action="append", default=[])
     prompt_id_backfill = prompt_id_sub.add_parser("backfill")
     prompt_id_backfill.add_argument("--source", required=True)
     prompt_id_backfill.add_argument("--ids-file", required=True)
@@ -3114,6 +3343,10 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "prompt-id":
         if args.prompt_id_cmd == "allocate":
             return prompt_id_allocate_command(args)
+        if args.prompt_id_cmd == "backup":
+            return prompt_id_backup_command(args)
+        if args.prompt_id_cmd == "backfill-sources":
+            return prompt_id_backfill_sources_command(args)
         if args.prompt_id_cmd == "backfill":
             return prompt_id_backfill_command(args)
         if args.prompt_id_cmd == "materialize":
