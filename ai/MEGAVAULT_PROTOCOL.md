@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=42
+VERSION=43
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -32,6 +32,222 @@ Precedenza:
 - I project docs vivono nel repository proprietario; MegaVault conserva solo conoscenza globale, trasversale o di routing.
 - Non inventare fatti mancanti: verifica live o registra `UNKNOWN`.
 - I valori dei segreti non vanno mai in MegaVault, Git, log o report; solo riferimenti.
+
+## PROMPT_ID canonici
+
+Regola assoluta: **una materializzazione di prompt = un nuovo PROMPT_ID unico**.
+
+- Il formato canonico e' un intero di 6 cifre nell'intervallo `100000..999999`.
+- Un PROMPT_ID viene assegnato una sola volta e non viene mai riutilizzato, riciclato, cancellato o trasferito a un altro prompt.
+- Qualsiasi revisione crea un nuovo prompt e quindi un nuovo PROMPT_ID, anche se cambia una sola parola, un solo carattere, il modello/reasoning, o solo metadati operativi che fanno parte del prompt finale.
+- Anche due prompt con contenuto testualmente identico ma materializzati come istanze distinte devono avere PROMPT_ID distinti.
+- La relazione tra una revisione e il prompt-padre si conserva esclusivamente con `parent_prompt_id`; l'ID del padre non si eredita mai.
+- `content_sha256` serve solo per audit/integrita'. Non va mai usato per deduplicare o decidere il riuso di un PROMPT_ID.
+- Il modello linguistico non deve scegliere direttamente il numero. L'allocazione canonica usa CSPRNG di sistema + registro SQLite persistente + vincolo `PRIMARY KEY`.
+- La query preventiva "questo ID e' libero?" non e' una garanzia di unicita'. L'autorita' finale e' l'`INSERT` atomico protetto dal vincolo del database.
+- Per scritture concorrenti usare una transazione SQLite (`BEGIN IMMEDIATE`), generare il candidato con CSPRNG, tentare l'`INSERT`, e rigenerare solo in caso di collisione `PRIMARY KEY`.
+- Se il registro canonico non e' raggiungibile, non generare un ID alternativo non registrato e non dichiararlo definitivo.
+- Stati ammessi: `allocated -> materialized -> used`; `allocated -> cancelled`; `materialized -> cancelled`. `used` e `cancelled` sono terminali.
+- Un ID cancellato resta occupato per sempre.
+
+Schema canonico:
+
+```sql
+CREATE TABLE IF NOT EXISTS prompt_id_registry (
+    prompt_id INTEGER PRIMARY KEY
+        CHECK (prompt_id BETWEEN 100000 AND 999999),
+
+    parent_prompt_id INTEGER
+        REFERENCES prompt_id_registry(prompt_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    project_id INTEGER
+        REFERENCES projects(project_id)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+
+    source TEXT NOT NULL,
+
+    status TEXT NOT NULL DEFAULT 'allocated'
+        CHECK (status IN ('allocated', 'materialized', 'used', 'cancelled')),
+
+    content_sha256 TEXT
+        CHECK (
+            content_sha256 IS NULL OR (
+                length(content_sha256) = 64
+                AND content_sha256 NOT GLOB '*[^0-9a-f]*'
+            )
+        ),
+
+    created_at_utc TEXT NOT NULL
+        DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+
+    materialized_at_utc TEXT,
+    used_at_utc TEXT,
+    cancelled_at_utc TEXT,
+
+    CHECK (parent_prompt_id IS NULL OR parent_prompt_id <> prompt_id),
+
+    CHECK (
+        (
+            status = 'allocated'
+            AND content_sha256 IS NULL
+            AND materialized_at_utc IS NULL
+            AND used_at_utc IS NULL
+            AND cancelled_at_utc IS NULL
+        )
+        OR
+        (
+            status = 'materialized'
+            AND content_sha256 IS NOT NULL
+            AND materialized_at_utc IS NOT NULL
+            AND used_at_utc IS NULL
+            AND cancelled_at_utc IS NULL
+        )
+        OR
+        (
+            status = 'used'
+            AND content_sha256 IS NOT NULL
+            AND materialized_at_utc IS NOT NULL
+            AND used_at_utc IS NOT NULL
+            AND cancelled_at_utc IS NULL
+        )
+        OR
+        (
+            status = 'cancelled'
+            AND used_at_utc IS NULL
+            AND cancelled_at_utc IS NOT NULL
+            AND (
+                (
+                    content_sha256 IS NULL
+                    AND materialized_at_utc IS NULL
+                )
+                OR
+                (
+                    content_sha256 IS NOT NULL
+                    AND materialized_at_utc IS NOT NULL
+                )
+            )
+        )
+    )
+);
+
+CREATE INDEX IF NOT EXISTS idx_prompt_id_parent
+    ON prompt_id_registry(parent_prompt_id);
+
+CREATE INDEX IF NOT EXISTS idx_prompt_id_project_created
+    ON prompt_id_registry(project_id, created_at_utc);
+
+CREATE INDEX IF NOT EXISTS idx_prompt_id_status
+    ON prompt_id_registry(status, created_at_utc);
+
+CREATE TABLE IF NOT EXISTS prompt_id_events (
+    event_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    prompt_id INTEGER NOT NULL
+        REFERENCES prompt_id_registry(prompt_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    event_type TEXT NOT NULL
+        CHECK (event_type IN ('allocated', 'materialized', 'used', 'cancelled')),
+
+    event_at_utc TEXT NOT NULL
+        DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+
+    detail TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_prompt_id_events_prompt
+    ON prompt_id_events(prompt_id, event_id);
+
+CREATE TRIGGER IF NOT EXISTS prompt_id_registry_no_delete
+BEFORE DELETE ON prompt_id_registry
+BEGIN
+    SELECT RAISE(ABORT, 'PROMPT_ID_REUSE_FORBIDDEN');
+END;
+
+CREATE TRIGGER IF NOT EXISTS prompt_id_identity_immutable
+BEFORE UPDATE OF
+    prompt_id,
+    parent_prompt_id,
+    project_id,
+    source,
+    created_at_utc
+ON prompt_id_registry
+WHEN
+    NEW.prompt_id IS NOT OLD.prompt_id
+    OR NEW.parent_prompt_id IS NOT OLD.parent_prompt_id
+    OR NEW.project_id IS NOT OLD.project_id
+    OR NEW.source IS NOT OLD.source
+    OR NEW.created_at_utc IS NOT OLD.created_at_utc
+BEGIN
+    SELECT RAISE(ABORT, 'PROMPT_ID_IDENTITY_IMMUTABLE');
+END;
+
+CREATE TRIGGER IF NOT EXISTS prompt_id_hash_immutable_after_set
+BEFORE UPDATE OF content_sha256 ON prompt_id_registry
+WHEN
+    OLD.content_sha256 IS NOT NULL
+    AND NEW.content_sha256 IS NOT OLD.content_sha256
+BEGIN
+    SELECT RAISE(ABORT, 'PROMPT_ID_CONTENT_IMMUTABLE');
+END;
+
+CREATE TRIGGER IF NOT EXISTS prompt_id_state_transition_guard
+BEFORE UPDATE OF status ON prompt_id_registry
+WHEN
+    NEW.status IS NOT OLD.status
+    AND NOT (
+        (OLD.status = 'allocated' AND NEW.status IN ('materialized', 'cancelled'))
+        OR
+        (OLD.status = 'materialized' AND NEW.status IN ('used', 'cancelled'))
+    )
+BEGIN
+    SELECT RAISE(ABORT, 'PROMPT_ID_INVALID_STATE_TRANSITION');
+END;
+
+CREATE TRIGGER IF NOT EXISTS prompt_id_events_no_update
+BEFORE UPDATE ON prompt_id_events
+BEGIN
+    SELECT RAISE(ABORT, 'PROMPT_ID_EVENT_IMMUTABLE');
+END;
+
+CREATE TRIGGER IF NOT EXISTS prompt_id_events_no_delete
+BEFORE DELETE ON prompt_id_events
+BEGIN
+    SELECT RAISE(ABORT, 'PROMPT_ID_EVENT_IMMUTABLE');
+END;
+
+CREATE TRIGGER IF NOT EXISTS prompt_id_event_allocated
+AFTER INSERT ON prompt_id_registry
+BEGIN
+    INSERT INTO prompt_id_events(prompt_id, event_type)
+    VALUES (NEW.prompt_id, 'allocated');
+END;
+
+CREATE TRIGGER IF NOT EXISTS prompt_id_event_state_change
+AFTER UPDATE OF status ON prompt_id_registry
+WHEN NEW.status IS NOT OLD.status
+BEGIN
+    INSERT INTO prompt_id_events(prompt_id, event_type)
+    VALUES (NEW.prompt_id, NEW.status);
+END;
+```
+
+Il registro e' append-only per l'identita': le transizioni di stato sono consentite, ma l'identita' del prompt e la genealogia non si riscrivono. La materializzazione deve salvare l'hash del contenuto finale nello stesso aggiornamento che porta lo stato a `materialized`.
+
+Machine contract:
+
+```text
+prompt_id_identity=one_materialized_prompt_one_new_id_absolute
+prompt_id_revision=any_textual_or_semantic_change_requires_new_id
+prompt_id_reuse=forbidden_forever
+prompt_id_parentage=parent_prompt_id_only;id_inheritance=forbidden
+prompt_id_allocator=centralized_registry+CSPRNG+SQLite_PRIMARY_KEY+transaction
+prompt_id_content_hash=audit_only;deduplication=forbidden
+```
 
 ## Project Identity
 
