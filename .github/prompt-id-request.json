@@ -1,7 +1,6 @@
 {
-  "request_id": "workflowy-418906-analysis-followup-20260919-1",
+  "request_id": "workflowy-418906-analysis-followup-20260919-2",
   "command": "allocate",
   "source": "chatgpt-analysis-418906-live-smoke-followup",
-  "project_id": 96,
   "parent_prompt_id": 418906
 }
