@@ -1,7 +1,6 @@
 {
-  "request_id": "roadmap-opt-ph-capsule-integration-20260919-1",
+  "request_id": "roadmap-opt-ph-capsule-integration-20260919-2",
   "command": "allocate",
   "source": "chatgpt-roadmap-optimization",
-  "project_id": 49,
-  "parent_prompt_id": 284916
+  "project_id": 49
 }
