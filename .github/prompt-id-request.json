@@ -1,5 +1,6 @@
 {
-  "request_id": "allocate-fedora-external-updater-git-closure-537184-20260919",
-  "command": "allocate",
-  "source": "chatgpt:fedora-external-updater-git-closure-537184"
+  "request_id": "materialize-854653-fedora-external-updater-git-closure-20260919",
+  "command": "materialize",
+  "prompt_id": 854653,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/fedora-external-updater-pip-user-git-closure.md"
 }
