@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
+import secrets
 import sqlite3
 import subprocess
 import sys
@@ -14,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 8
+SCHEMA_VERSION = 9
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -236,6 +238,347 @@ def connect(path: Path | str | None = None) -> sqlite3.Connection:
     conn = sqlite3.connect(path or DB)
     conn.execute("PRAGMA foreign_keys=ON")
     return conn
+
+
+PROMPT_ID_MIN = 100_000
+PROMPT_ID_SPACE = 900_000
+PROMPT_ID_STATUSES = ("allocated", "materialized", "used", "cancelled")
+
+
+def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
+    before = conn.total_changes
+    execute_statements(
+        conn,
+        """
+        CREATE TABLE IF NOT EXISTS prompt_id_registry (
+          prompt_id INTEGER PRIMARY KEY
+            CHECK (prompt_id BETWEEN 100000 AND 999999),
+          parent_prompt_id INTEGER
+            REFERENCES prompt_id_registry(prompt_id)
+            ON UPDATE CASCADE ON DELETE RESTRICT,
+          project_id INTEGER
+            REFERENCES projects(project_id)
+            ON UPDATE CASCADE ON DELETE SET NULL,
+          source TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'allocated'
+            CHECK (status IN ('allocated', 'materialized', 'used', 'cancelled')),
+          content_sha256 TEXT
+            CHECK (
+              content_sha256 IS NULL OR (
+                length(content_sha256)=64
+                AND content_sha256 NOT GLOB '*[^0-9a-f]*'
+              )
+            ),
+          created_at_utc TEXT NOT NULL
+            DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+          materialized_at_utc TEXT,
+          used_at_utc TEXT,
+          cancelled_at_utc TEXT,
+          CHECK (parent_prompt_id IS NULL OR parent_prompt_id <> prompt_id),
+          CHECK (
+            (
+              status='allocated'
+              AND content_sha256 IS NULL
+              AND materialized_at_utc IS NULL
+              AND used_at_utc IS NULL
+              AND cancelled_at_utc IS NULL
+            )
+            OR
+            (
+              status='materialized'
+              AND content_sha256 IS NOT NULL
+              AND materialized_at_utc IS NOT NULL
+              AND used_at_utc IS NULL
+              AND cancelled_at_utc IS NULL
+            )
+            OR
+            (
+              status='used'
+              AND content_sha256 IS NOT NULL
+              AND materialized_at_utc IS NOT NULL
+              AND used_at_utc IS NOT NULL
+              AND cancelled_at_utc IS NULL
+            )
+            OR
+            (
+              status='cancelled'
+              AND used_at_utc IS NULL
+              AND cancelled_at_utc IS NOT NULL
+              AND (
+                (
+                  content_sha256 IS NULL
+                  AND materialized_at_utc IS NULL
+                )
+                OR
+                (
+                  content_sha256 IS NOT NULL
+                  AND materialized_at_utc IS NOT NULL
+                )
+              )
+            )
+          )
+        );
+        CREATE INDEX IF NOT EXISTS idx_prompt_id_parent
+          ON prompt_id_registry(parent_prompt_id);
+        CREATE INDEX IF NOT EXISTS idx_prompt_id_project_created
+          ON prompt_id_registry(project_id, created_at_utc);
+        CREATE INDEX IF NOT EXISTS idx_prompt_id_status
+          ON prompt_id_registry(status, created_at_utc);
+        CREATE TABLE IF NOT EXISTS prompt_id_events (
+          event_id INTEGER PRIMARY KEY AUTOINCREMENT,
+          prompt_id INTEGER NOT NULL
+            REFERENCES prompt_id_registry(prompt_id)
+            ON UPDATE CASCADE ON DELETE RESTRICT,
+          event_type TEXT NOT NULL
+            CHECK (event_type IN ('allocated', 'materialized', 'used', 'cancelled')),
+          event_at_utc TEXT NOT NULL
+            DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+          detail TEXT
+        );
+        CREATE INDEX IF NOT EXISTS idx_prompt_id_events_prompt
+          ON prompt_id_events(prompt_id, event_id);
+        CREATE TRIGGER IF NOT EXISTS prompt_id_registry_no_delete
+        BEFORE DELETE ON prompt_id_registry
+        BEGIN
+          SELECT RAISE(ABORT, 'PROMPT_ID_REUSE_FORBIDDEN');
+        END;
+        CREATE TRIGGER IF NOT EXISTS prompt_id_identity_immutable
+        BEFORE UPDATE OF
+          prompt_id, parent_prompt_id, project_id, source, created_at_utc
+        ON prompt_id_registry
+        WHEN
+          NEW.prompt_id IS NOT OLD.prompt_id
+          OR NEW.parent_prompt_id IS NOT OLD.parent_prompt_id
+          OR NEW.project_id IS NOT OLD.project_id
+          OR NEW.source IS NOT OLD.source
+          OR NEW.created_at_utc IS NOT OLD.created_at_utc
+        BEGIN
+          SELECT RAISE(ABORT, 'PROMPT_ID_IDENTITY_IMMUTABLE');
+        END;
+        CREATE TRIGGER IF NOT EXISTS prompt_id_hash_immutable_after_set
+        BEFORE UPDATE OF content_sha256 ON prompt_id_registry
+        WHEN
+          OLD.content_sha256 IS NOT NULL
+          AND NEW.content_sha256 IS NOT OLD.content_sha256
+        BEGIN
+          SELECT RAISE(ABORT, 'PROMPT_ID_CONTENT_IMMUTABLE');
+        END;
+        CREATE TRIGGER IF NOT EXISTS prompt_id_state_transition_guard
+        BEFORE UPDATE OF status ON prompt_id_registry
+        WHEN
+          NEW.status IS NOT OLD.status
+          AND NOT (
+            (OLD.status='allocated' AND NEW.status IN ('materialized', 'cancelled'))
+            OR
+            (OLD.status='materialized' AND NEW.status IN ('used', 'cancelled'))
+          )
+        BEGIN
+          SELECT RAISE(ABORT, 'PROMPT_ID_INVALID_STATE_TRANSITION');
+        END;
+        CREATE TRIGGER IF NOT EXISTS prompt_id_events_no_update
+        BEFORE UPDATE ON prompt_id_events
+        BEGIN
+          SELECT RAISE(ABORT, 'PROMPT_ID_EVENT_IMMUTABLE');
+        END;
+        CREATE TRIGGER IF NOT EXISTS prompt_id_events_no_delete
+        BEFORE DELETE ON prompt_id_events
+        BEGIN
+          SELECT RAISE(ABORT, 'PROMPT_ID_EVENT_IMMUTABLE');
+        END;
+        CREATE TRIGGER IF NOT EXISTS prompt_id_event_allocated
+        AFTER INSERT ON prompt_id_registry
+        BEGIN
+          INSERT INTO prompt_id_events(prompt_id, event_type)
+          VALUES (NEW.prompt_id, 'allocated');
+        END;
+        CREATE TRIGGER IF NOT EXISTS prompt_id_event_state_change
+        AFTER UPDATE OF status ON prompt_id_registry
+        WHEN NEW.status IS NOT OLD.status
+        BEGIN
+          INSERT INTO prompt_id_events(prompt_id, event_type)
+          VALUES (NEW.prompt_id, NEW.status);
+        END;
+        """,
+    )
+    return conn.total_changes > before
+
+
+def allocate_prompt_id(
+    db_path: Path | str | None = None,
+    *,
+    source: str,
+    project_id: int | None = None,
+    parent_prompt_id: int | None = None,
+    busy_timeout_ms: int = 30_000,
+) -> int:
+    source = source.strip()
+    if not source:
+        raise ValueError("source must not be empty")
+    conn = sqlite3.connect(db_path or DB, timeout=busy_timeout_ms / 1000, isolation_level=None)
+    try:
+        conn.execute("PRAGMA foreign_keys=ON")
+        conn.execute(f"PRAGMA busy_timeout={int(busy_timeout_ms)}")
+        conn.execute("BEGIN IMMEDIATE")
+        if not table_exists(conn, "prompt_id_registry"):
+            raise RuntimeError("prompt_id_registry missing; run 'megavault.py migrate' first")
+        while True:
+            prompt_id = PROMPT_ID_MIN + secrets.randbelow(PROMPT_ID_SPACE)
+            try:
+                conn.execute(
+                    """
+                    INSERT INTO prompt_id_registry(
+                      prompt_id, parent_prompt_id, project_id, source
+                    ) VALUES (?, ?, ?, ?)
+                    """,
+                    (prompt_id, parent_prompt_id, project_id, source),
+                )
+                conn.execute("COMMIT")
+                return prompt_id
+            except sqlite3.IntegrityError:
+                collision = conn.execute(
+                    "select 1 from prompt_id_registry where prompt_id=?",
+                    (prompt_id,),
+                ).fetchone()
+                if collision:
+                    continue
+                raise
+    except Exception:
+        if conn.in_transaction:
+            conn.execute("ROLLBACK")
+        raise
+    finally:
+        conn.close()
+
+
+def prompt_content_sha256(path: Path | str) -> str:
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def materialize_prompt_id(
+    prompt_id: int,
+    *,
+    content_sha256: str,
+    db_path: Path | str | None = None,
+) -> None:
+    digest = content_sha256.strip().lower()
+    if not re.fullmatch(r"[0-9a-f]{64}", digest):
+        raise ValueError("content_sha256 must be exactly 64 lowercase hex characters")
+    conn = connect(db_path)
+    try:
+        with conn:
+            changed = conn.execute(
+                """
+                UPDATE prompt_id_registry
+                SET status='materialized',
+                    content_sha256=?,
+                    materialized_at_utc=strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
+                WHERE prompt_id=? AND status='allocated'
+                """,
+                (digest, prompt_id),
+            ).rowcount
+        if changed != 1:
+            raise ValueError(f"prompt_id not allocatable for materialization: {prompt_id}")
+    finally:
+        conn.close()
+
+
+def mark_prompt_id_used(
+    prompt_id: int,
+    *,
+    db_path: Path | str | None = None,
+) -> None:
+    conn = connect(db_path)
+    try:
+        with conn:
+            changed = conn.execute(
+                """
+                UPDATE prompt_id_registry
+                SET status='used',
+                    used_at_utc=strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
+                WHERE prompt_id=? AND status='materialized'
+                """,
+                (prompt_id,),
+            ).rowcount
+        if changed != 1:
+            raise ValueError(f"prompt_id not materialized or already terminal: {prompt_id}")
+    finally:
+        conn.close()
+
+
+def cancel_prompt_id(
+    prompt_id: int,
+    *,
+    db_path: Path | str | None = None,
+) -> None:
+    conn = connect(db_path)
+    try:
+        with conn:
+            changed = conn.execute(
+                """
+                UPDATE prompt_id_registry
+                SET status='cancelled',
+                    cancelled_at_utc=strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
+                WHERE prompt_id=? AND status IN ('allocated', 'materialized')
+                """,
+                (prompt_id,),
+            ).rowcount
+        if changed != 1:
+            raise ValueError(f"prompt_id not cancellable or already terminal: {prompt_id}")
+    finally:
+        conn.close()
+
+
+def prompt_id_allocate_command(args: argparse.Namespace) -> int:
+    try:
+        prompt_id = allocate_prompt_id(
+            source=args.source,
+            project_id=args.project_id,
+            parent_prompt_id=args.parent_prompt_id,
+        )
+    except (RuntimeError, ValueError, sqlite3.Error) as exc:
+        print(f"PROMPT_ID_ALLOCATE=FAIL {exc}", file=sys.stderr)
+        return 1
+    print(prompt_id)
+    return 0
+
+
+def prompt_id_materialize_command(args: argparse.Namespace) -> int:
+    try:
+        digest = prompt_content_sha256(args.content_file)
+        materialize_prompt_id(args.prompt_id, content_sha256=digest)
+    except (OSError, ValueError, sqlite3.Error) as exc:
+        print(f"PROMPT_ID_MATERIALIZE=FAIL {exc}", file=sys.stderr)
+        return 1
+    print(f"prompt_id={args.prompt_id}")
+    print(f"content_sha256={digest}")
+    print("status=materialized")
+    return 0
+
+
+def prompt_id_mark_used_command(args: argparse.Namespace) -> int:
+    try:
+        mark_prompt_id_used(args.prompt_id)
+    except (ValueError, sqlite3.Error) as exc:
+        print(f"PROMPT_ID_MARK_USED=FAIL {exc}", file=sys.stderr)
+        return 1
+    print(f"prompt_id={args.prompt_id}")
+    print("status=used")
+    return 0
+
+
+def prompt_id_cancel_command(args: argparse.Namespace) -> int:
+    try:
+        cancel_prompt_id(args.prompt_id)
+    except (ValueError, sqlite3.Error) as exc:
+        print(f"PROMPT_ID_CANCEL=FAIL {exc}", file=sys.stderr)
+        return 1
+    print(f"prompt_id={args.prompt_id}")
+    print("status=cancelled")
+    return 0
 
 
 def table_columns(conn: sqlite3.Connection, table: str) -> dict[str, sqlite3.Row | tuple]:
@@ -1616,6 +1959,8 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
         "knowledge_notes",
         "project_components",
         "project_operations",
+        "prompt_id_registry",
+        "prompt_id_events",
     }
     missing = sorted(table for table in required_tables if not table_exists(conn, table))
     if missing:
@@ -1821,6 +2166,60 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
     ).fetchall()
     if untagged_incidents:
         errors.append(f"incidents missing canonical tags: {untagged_incidents!r}")
+    if table_exists(conn, "prompt_id_registry"):
+        invalid_prompt_ids = conn.execute(
+            """
+            select prompt_id
+            from prompt_id_registry
+            where prompt_id < 100000 or prompt_id > 999999
+            order by prompt_id
+            """
+        ).fetchall()
+        if invalid_prompt_ids:
+            errors.append(f"invalid PROMPT_ID values: {invalid_prompt_ids!r}")
+        duplicate_prompt_ids = conn.execute(
+            """
+            select prompt_id, count(*)
+            from prompt_id_registry
+            group by prompt_id
+            having count(*) > 1
+            """
+        ).fetchall()
+        if duplicate_prompt_ids:
+            errors.append(f"duplicate PROMPT_ID values: {duplicate_prompt_ids!r}")
+        orphan_parents = conn.execute(
+            """
+            select child.prompt_id, child.parent_prompt_id
+            from prompt_id_registry child
+            left join prompt_id_registry parent
+              on parent.prompt_id=child.parent_prompt_id
+            where child.parent_prompt_id is not null
+              and parent.prompt_id is null
+            order by child.prompt_id
+            """
+        ).fetchall()
+        if orphan_parents:
+            errors.append(f"orphan PROMPT_ID parents: {orphan_parents!r}")
+        required_prompt_triggers = {
+            "prompt_id_registry_no_delete",
+            "prompt_id_identity_immutable",
+            "prompt_id_hash_immutable_after_set",
+            "prompt_id_state_transition_guard",
+            "prompt_id_events_no_update",
+            "prompt_id_events_no_delete",
+            "prompt_id_event_allocated",
+            "prompt_id_event_state_change",
+        }
+        current_prompt_triggers = {
+            row[0]
+            for row in conn.execute(
+                "select name from sqlite_master where type='trigger' and name like 'prompt_id_%'"
+            )
+        }
+        missing_prompt_triggers = sorted(required_prompt_triggers - current_prompt_triggers)
+        if missing_prompt_triggers:
+            errors.append(f"missing PROMPT_ID triggers: {missing_prompt_triggers!r}")
+
     schema_version = conn.execute(
         "select value from schema_meta where key='schema_version'"
     ).fetchone()
@@ -2261,6 +2660,11 @@ def migrate_database() -> int:
             changed = migrate_incident_schema(conn)
         changed = migrate_project_index_schema(conn) or changed
         changed = ensure_project_context_schema(conn) or changed
+        changed = ensure_prompt_id_schema(conn) or changed
+        conn.execute(
+            "insert or replace into schema_meta(key, value) values ('schema_version', ?)",
+            (str(SCHEMA_VERSION),),
+        )
         conn.execute("COMMIT")
     except Exception:
         if conn.in_transaction:
@@ -2495,6 +2899,19 @@ def main(argv: list[str] | None = None) -> int:
     project_path_parser = sub.add_parser("project-path")
     project_path_parser.add_argument("--status", action="store_true")
     project_path_parser.add_argument("project_id", type=int)
+    prompt_id_parser = sub.add_parser("prompt-id")
+    prompt_id_sub = prompt_id_parser.add_subparsers(dest="prompt_id_cmd", required=True)
+    prompt_id_allocate = prompt_id_sub.add_parser("allocate")
+    prompt_id_allocate.add_argument("--source", required=True)
+    prompt_id_allocate.add_argument("--project-id", type=int)
+    prompt_id_allocate.add_argument("--parent-prompt-id", type=int)
+    prompt_id_materialize = prompt_id_sub.add_parser("materialize")
+    prompt_id_materialize.add_argument("prompt_id", type=int)
+    prompt_id_materialize.add_argument("--content-file", required=True)
+    prompt_id_mark_used = prompt_id_sub.add_parser("mark-used")
+    prompt_id_mark_used.add_argument("prompt_id", type=int)
+    prompt_id_cancel = prompt_id_sub.add_parser("cancel")
+    prompt_id_cancel.add_argument("prompt_id", type=int)
     register_github_parser = sub.add_parser("register-github-repo")
     register_github_parser.add_argument("--owner", required=True)
     register_github_parser.add_argument("--name", required=True)
@@ -2554,6 +2971,16 @@ def main(argv: list[str] | None = None) -> int:
         return project_show_command(args.project_id)
     if args.cmd == "project-path":
         return project_path_command(args.project_id, args.status)
+    if args.cmd == "prompt-id":
+        if args.prompt_id_cmd == "allocate":
+            return prompt_id_allocate_command(args)
+        if args.prompt_id_cmd == "materialize":
+            return prompt_id_materialize_command(args)
+        if args.prompt_id_cmd == "mark-used":
+            return prompt_id_mark_used_command(args)
+        if args.prompt_id_cmd == "cancel":
+            return prompt_id_cancel_command(args)
+        return 2
     if args.cmd == "register-github-repo":
         return register_github_repo_command(args)
     if args.cmd == "tag":
