@@ -1,0 +1,136 @@
+name: PROMPT_ID remote command
+
+on:
+  push:
+    paths:
+      - ".github/prompt-id-request.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: megavault-prompt-id-registry
+  cancel-in-progress: false
+
+jobs:
+  command:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Parse request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+
+          request = json.loads(Path(".github/prompt-id-request.json").read_text(encoding="utf-8"))
+          command = request.get("command")
+          if command not in {"allocate", "materialize"}:
+              raise SystemExit("command must be allocate or materialize")
+          request_id = str(request.get("request_id") or "").strip()
+          if not request_id:
+              raise SystemExit("request_id is required")
+          print(f"command={command}")
+          print(f"request_id={request_id}")
+
+          if command == "allocate":
+              source = str(request.get("source") or "").strip()
+              if not source:
+                  raise SystemExit("source is required for allocate")
+              print(f"source={source}")
+              project_id = request.get("project_id")
+              parent_prompt_id = request.get("parent_prompt_id")
+              print(f"project_id={'' if project_id is None else int(project_id)}")
+              print(f"parent_prompt_id={'' if parent_prompt_id is None else int(parent_prompt_id)}")
+          else:
+              prompt_id = int(request["prompt_id"])
+              content_url = str(request.get("content_url") or "")
+              allowed = "https://raw.githubusercontent.com/gernalix/codex-roadmap/"
+              if not content_url.startswith(allowed):
+                  raise SystemExit("content_url must point to gernalix/codex-roadmap raw content")
+              print(f"prompt_id={prompt_id}")
+              print(f"content_url={content_url}")
+          PY
+
+      - name: Allocate
+        if: steps.request.outputs.command == 'allocate'
+        id: allocate
+        shell: bash
+        env:
+          SOURCE: ${{ steps.request.outputs.source }}
+          PROJECT_ID: ${{ steps.request.outputs.project_id }}
+          PARENT_PROMPT_ID: ${{ steps.request.outputs.parent_prompt_id }}
+        run: |
+          set -euo pipefail
+          args=(prompt-id allocate --source "$SOURCE")
+          if [[ -n "$PROJECT_ID" ]]; then args+=(--project-id "$PROJECT_ID"); fi
+          if [[ -n "$PARENT_PROMPT_ID" ]]; then args+=(--parent-prompt-id "$PARENT_PROMPT_ID"); fi
+          prompt_id="$(python3 megavault.py "${args[@]}")"
+          [[ "$prompt_id" =~ ^[0-9]{6}$ ]]
+          printf 'prompt_id=%s\n' "$prompt_id" >> "$GITHUB_OUTPUT"
+          PROMPT_ID="$prompt_id" REQUEST_ID="${{ steps.request.outputs.request_id }}" python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path(".github/prompt-id-response.json").write_text(
+              json.dumps({
+                  "request_id": os.environ["REQUEST_ID"],
+                  "command": "allocate",
+                  "prompt_id": int(os.environ["PROMPT_ID"]),
+                  "status": "allocated",
+              }, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Materialize
+        if: steps.request.outputs.command == 'materialize'
+        shell: bash
+        env:
+          PROMPT_ID: ${{ steps.request.outputs.prompt_id }}
+          CONTENT_URL: ${{ steps.request.outputs.content_url }}
+          REQUEST_ID: ${{ steps.request.outputs.request_id }}
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location "$CONTENT_URL" --output /tmp/prompt.md
+          grep -Eq "^PROMPT_ID=$PROMPT_ID([[:space:]]|$)" /tmp/prompt.md
+          python3 megavault.py prompt-id materialize "$PROMPT_ID" --content-file /tmp/prompt.md
+          REQUEST_ID="$REQUEST_ID" PROMPT_ID="$PROMPT_ID" python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path(".github/prompt-id-response.json").write_text(
+              json.dumps({
+                  "request_id": os.environ["REQUEST_ID"],
+                  "command": "materialize",
+                  "prompt_id": int(os.environ["PROMPT_ID"]),
+                  "status": "materialized",
+              }, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Validate registry
+        run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate
+
+      - name: Persist registry command
+        shell: bash
+        env:
+          REQUEST_ID: ${{ steps.request.outputs.request_id }}
+        run: |
+          set -euo pipefail
+          git add megavault.sqlite .github/prompt-id-response.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "PROMPT_ID registry command $REQUEST_ID"
+          git push origin "HEAD:$GITHUB_REF_NAME"
