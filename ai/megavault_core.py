@@ -510,6 +510,69 @@ def allocate_prompt_id(
         conn.close()
 
 
+def backfill_prompt_ids(
+    prompt_ids: list[int],
+    *,
+    source: str,
+    db_path: Path | str | None = None,
+    busy_timeout_ms: int = 30_000,
+) -> tuple[int, int]:
+    source = source.strip()
+    if not source:
+        raise ValueError("source must not be empty")
+    normalized = sorted(set(int(value) for value in prompt_ids))
+    invalid = [value for value in normalized if value < PROMPT_ID_MIN or value >= PROMPT_ID_MIN + PROMPT_ID_SPACE]
+    if invalid:
+        raise ValueError(f"invalid historical PROMPT_ID values: {invalid!r}")
+    conn = sqlite3.connect(db_path or DB, timeout=busy_timeout_ms / 1000, isolation_level=None)
+    inserted = 0
+    existing = 0
+    try:
+        conn.execute("PRAGMA foreign_keys=ON")
+        conn.execute(f"PRAGMA busy_timeout={int(busy_timeout_ms)}")
+        conn.execute("BEGIN IMMEDIATE")
+        if not table_exists(conn, "prompt_id_registry"):
+            raise RuntimeError("prompt_id_registry missing; run 'megavault.py migrate' first")
+        for prompt_id in normalized:
+            try:
+                conn.execute(
+                    """
+                    INSERT INTO prompt_id_registry(prompt_id, source)
+                    VALUES (?, ?)
+                    """,
+                    (prompt_id, source),
+                )
+                inserted += 1
+            except sqlite3.IntegrityError:
+                row = conn.execute(
+                    "select prompt_id from prompt_id_registry where prompt_id=?",
+                    (prompt_id,),
+                ).fetchone()
+                if not row:
+                    raise
+                existing += 1
+        conn.execute("COMMIT")
+        return inserted, existing
+    except Exception:
+        if conn.in_transaction:
+            conn.execute("ROLLBACK")
+        raise
+    finally:
+        conn.close()
+
+
+def parse_prompt_id_file(path: Path | str) -> list[int]:
+    values: list[int] = []
+    for line_number, raw in enumerate(Path(path).read_text(encoding="utf-8").splitlines(), 1):
+        text = raw.strip()
+        if not text or text.startswith("#"):
+            continue
+        if not re.fullmatch(r"\d{6}", text):
+            raise ValueError(f"invalid PROMPT_ID at line {line_number}: {text!r}")
+        values.append(int(text))
+    return values
+
+
 def prompt_content_sha256(path: Path | str) -> str:
     digest = hashlib.sha256()
     with Path(path).open("rb") as handle:
@@ -603,6 +666,18 @@ def prompt_id_allocate_command(args: argparse.Namespace) -> int:
         print(f"PROMPT_ID_ALLOCATE=FAIL {exc}", file=sys.stderr)
         return 1
     print(prompt_id)
+    return 0
+
+
+def prompt_id_backfill_command(args: argparse.Namespace) -> int:
+    try:
+        values = parse_prompt_id_file(args.ids_file)
+        inserted, existing = backfill_prompt_ids(values, source=args.source)
+    except (OSError, RuntimeError, ValueError, sqlite3.Error) as exc:
+        print(f"PROMPT_ID_BACKFILL=FAIL {exc}", file=sys.stderr)
+        return 1
+    print(f"inserted={inserted}")
+    print(f"already_reserved={existing}")
     return 0
 
 
@@ -2967,6 +3042,9 @@ def main(argv: list[str] | None = None) -> int:
     prompt_id_allocate.add_argument("--source", required=True)
     prompt_id_allocate.add_argument("--project-id", type=int)
     prompt_id_allocate.add_argument("--parent-prompt-id", type=int)
+    prompt_id_backfill = prompt_id_sub.add_parser("backfill")
+    prompt_id_backfill.add_argument("--source", required=True)
+    prompt_id_backfill.add_argument("--ids-file", required=True)
     prompt_id_materialize = prompt_id_sub.add_parser("materialize")
     prompt_id_materialize.add_argument("prompt_id", type=int)
     prompt_id_materialize.add_argument("--content-file", required=True)
@@ -3036,6 +3114,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "prompt-id":
         if args.prompt_id_cmd == "allocate":
             return prompt_id_allocate_command(args)
+        if args.prompt_id_cmd == "backfill":
+            return prompt_id_backfill_command(args)
         if args.prompt_id_cmd == "materialize":
             return prompt_id_materialize_command(args)
         if args.prompt_id_cmd == "mark-used":
