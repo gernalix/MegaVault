@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-609279-personalhub-english-only-places-diagnostics-20260919",
+  "request_id": "materialize-404846-personalhub-github-ci-closure-v2-20260919",
   "command": "materialize",
-  "prompt_id": 609279,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-english-only-places-diagnostics-ui.md"
+  "prompt_id": 404846,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-github-ci-closure-v2.md"
 }
