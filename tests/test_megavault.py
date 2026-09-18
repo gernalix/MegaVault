@@ -233,6 +233,25 @@ class MegaVaultTests(unittest.TestCase):
                 rows,
             )
 
+    def test_prompt_id_smoke_allocates_and_cancels_one_id(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            prompt_id = megavault.smoke_prompt_id(
+                source="test-smoke",
+                project_id=23,
+                db_path=tmp_db,
+            )
+            self.assertTrue(100000 <= prompt_id <= 999999)
+            conn = sqlite3.connect(tmp_db)
+            try:
+                row = conn.execute(
+                    "select status, source, project_id from prompt_id_registry where prompt_id=?",
+                    (prompt_id,),
+                ).fetchone()
+            finally:
+                conn.close()
+            self.assertEqual(("cancelled", "test-smoke", 23), row)
+
     def test_prompt_id_lifecycle_is_terminal_and_identity_is_immutable(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_db = self.prompt_id_temp_db(tmp)
