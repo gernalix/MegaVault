@@ -1,5 +1,6 @@
 {
-  "request_id": "workflowy-418906-analysis-followup-20260919-3",
-  "command": "allocate",
-  "source": "chatgpt-analysis-418906-live-smoke-followup"
+  "request_id": "workflowy-856234-materialize-20260919-1",
+  "command": "materialize",
+  "prompt_id": 856234,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/workflowy-live-smoke-remote-fix-closure.md"
 }
