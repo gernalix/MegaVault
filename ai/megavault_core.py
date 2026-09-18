@@ -2398,13 +2398,13 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
         select prompt_id, status, source
         from prompt_id_registry
         where source like 'historical-%'
-          and status<>'allocated'
+          and status not in ('allocated', 'used')
         order by prompt_id
         """
     ).fetchall()
     if mutable_historical:
         errors.append(
-            f"historical PROMPT_ID reservations must remain allocated+immutable: {mutable_historical!r}"
+            f"historical PROMPT_ID reservations must remain terminal (allocated or used): {mutable_historical!r}"
         )
 
     repository_columns = table_columns(conn, "repositories")
