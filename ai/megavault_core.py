@@ -236,8 +236,18 @@ class TagNotFoundError(ValueError):
     """Raised when incident tagging references an unknown canonical tag or alias."""
 
 
+class MegaVaultConnection(sqlite3.Connection):
+    """SQLite connection with a defensive finalizer for short-lived CLI reads."""
+
+    def __del__(self) -> None:
+        try:
+            self.close()
+        except Exception:
+            pass
+
+
 def connect(path: Path | str | None = None) -> sqlite3.Connection:
-    conn = sqlite3.connect(path or DB)
+    conn = sqlite3.connect(path or DB, factory=MegaVaultConnection)
     conn.execute("PRAGMA foreign_keys=ON")
     return conn
 
@@ -628,9 +638,8 @@ def prompt_ids_from_git_history(repo: Path | str) -> set[int]:
         check=False,
     )
     if proc.returncode != 0:
-        raise RuntimeError(
-            f"git history scan failed for {root}: {proc.stderr.strip()}"
-        )
+        stderr = proc.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"git history scan failed for {root}: {stderr}")
     values = extract_prompt_ids(proc.stdout.decode("utf-8", errors="ignore"))
     current = subprocess.run(
         ["git", "-C", str(root), "grep", "-I", "-h", "-E", "PROMPT_ID|prompt_id", "HEAD"],
@@ -875,6 +884,41 @@ def cancel_prompt_id(
         conn.close()
 
 
+def smoke_prompt_id(
+    *,
+    source: str = "activation-smoke",
+    project_id: int | None = None,
+    db_path: Path | str | None = None,
+) -> int:
+    prompt_id = allocate_prompt_id(
+        db_path,
+        source=source,
+        project_id=project_id,
+    )
+    conn = connect(db_path)
+    try:
+        row = conn.execute(
+            "select status from prompt_id_registry where prompt_id=?",
+            (prompt_id,),
+        ).fetchone()
+        if not row or row[0] != "allocated":
+            raise RuntimeError(f"PROMPT_ID smoke allocation missing: {prompt_id}")
+    finally:
+        conn.close()
+    cancel_prompt_id(prompt_id, db_path=db_path)
+    conn = connect(db_path)
+    try:
+        row = conn.execute(
+            "select status from prompt_id_registry where prompt_id=?",
+            (prompt_id,),
+        ).fetchone()
+        if not row or row[0] != "cancelled":
+            raise RuntimeError(f"PROMPT_ID smoke cancellation failed: {prompt_id}")
+    finally:
+        conn.close()
+    return prompt_id
+
+
 def prompt_id_allocate_command(args: argparse.Namespace) -> int:
     try:
         prompt_id = allocate_prompt_id(
@@ -932,6 +976,20 @@ def prompt_id_cancel_command(args: argparse.Namespace) -> int:
         print(f"PROMPT_ID_CANCEL=FAIL {exc}", file=sys.stderr)
         return 1
     print(f"prompt_id={args.prompt_id}")
+    print("status=cancelled")
+    return 0
+
+
+def prompt_id_smoke_command(args: argparse.Namespace) -> int:
+    try:
+        prompt_id = smoke_prompt_id(
+            source=args.source,
+            project_id=args.project_id,
+        )
+    except (RuntimeError, ValueError, sqlite3.Error) as exc:
+        print(f"PROMPT_ID_SMOKE=FAIL {exc}", file=sys.stderr)
+        return 1
+    print(f"prompt_id={prompt_id}")
     print("status=cancelled")
     return 0
 
@@ -3281,6 +3339,9 @@ def main(argv: list[str] | None = None) -> int:
     prompt_id_mark_used.add_argument("prompt_id", type=int)
     prompt_id_cancel = prompt_id_sub.add_parser("cancel")
     prompt_id_cancel.add_argument("prompt_id", type=int)
+    prompt_id_smoke = prompt_id_sub.add_parser("smoke")
+    prompt_id_smoke.add_argument("--source", default="activation-smoke")
+    prompt_id_smoke.add_argument("--project-id", type=int)
     register_github_parser = sub.add_parser("register-github-repo")
     register_github_parser.add_argument("--owner", required=True)
     register_github_parser.add_argument("--name", required=True)
@@ -3355,6 +3416,8 @@ def main(argv: list[str] | None = None) -> int:
             return prompt_id_mark_used_command(args)
         if args.prompt_id_cmd == "cancel":
             return prompt_id_cancel_command(args)
+        if args.prompt_id_cmd == "smoke":
+            return prompt_id_smoke_command(args)
         return 2
     if args.cmd == "register-github-repo":
         return register_github_repo_command(args)
