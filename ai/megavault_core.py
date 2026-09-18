@@ -246,7 +246,40 @@ PROMPT_ID_STATUSES = ("allocated", "materialized", "used", "cancelled")
 
 
 def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
-    before = conn.total_changes
+    required_objects = {
+        "table": {"prompt_id_registry", "prompt_id_events"},
+        "index": {
+            "idx_prompt_id_parent",
+            "idx_prompt_id_project_created",
+            "idx_prompt_id_status",
+            "idx_prompt_id_events_prompt",
+        },
+        "trigger": {
+            "prompt_id_registry_no_delete",
+            "prompt_id_identity_immutable",
+            "prompt_id_hash_immutable_after_set",
+            "prompt_id_state_transition_guard",
+            "prompt_id_events_no_update",
+            "prompt_id_events_no_delete",
+            "prompt_id_event_allocated",
+            "prompt_id_event_state_change",
+        },
+    }
+    existing = {
+        kind: {
+            row[0]
+            for row in conn.execute(
+                "select name from sqlite_master where type=?",
+                (kind,),
+            )
+        }
+        for kind in required_objects
+    }
+    changed = any(
+        not names.issubset(existing[kind])
+        for kind, names in required_objects.items()
+    )
+
     execute_statements(
         conn,
         """
@@ -337,11 +370,18 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
         );
         CREATE INDEX IF NOT EXISTS idx_prompt_id_events_prompt
           ON prompt_id_events(prompt_id, event_id);
+        """,
+    )
+
+    triggers = (
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_registry_no_delete
         BEFORE DELETE ON prompt_id_registry
         BEGIN
           SELECT RAISE(ABORT, 'PROMPT_ID_REUSE_FORBIDDEN');
-        END;
+        END
+        """,
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_identity_immutable
         BEFORE UPDATE OF
           prompt_id, parent_prompt_id, project_id, source, created_at_utc
@@ -354,7 +394,9 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
           OR NEW.created_at_utc IS NOT OLD.created_at_utc
         BEGIN
           SELECT RAISE(ABORT, 'PROMPT_ID_IDENTITY_IMMUTABLE');
-        END;
+        END
+        """,
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_hash_immutable_after_set
         BEFORE UPDATE OF content_sha256 ON prompt_id_registry
         WHEN
@@ -362,7 +404,9 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
           AND NEW.content_sha256 IS NOT OLD.content_sha256
         BEGIN
           SELECT RAISE(ABORT, 'PROMPT_ID_CONTENT_IMMUTABLE');
-        END;
+        END
+        """,
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_state_transition_guard
         BEFORE UPDATE OF status ON prompt_id_registry
         WHEN
@@ -374,33 +418,43 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
           )
         BEGIN
           SELECT RAISE(ABORT, 'PROMPT_ID_INVALID_STATE_TRANSITION');
-        END;
+        END
+        """,
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_events_no_update
         BEFORE UPDATE ON prompt_id_events
         BEGIN
           SELECT RAISE(ABORT, 'PROMPT_ID_EVENT_IMMUTABLE');
-        END;
+        END
+        """,
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_events_no_delete
         BEFORE DELETE ON prompt_id_events
         BEGIN
           SELECT RAISE(ABORT, 'PROMPT_ID_EVENT_IMMUTABLE');
-        END;
+        END
+        """,
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_event_allocated
         AFTER INSERT ON prompt_id_registry
         BEGIN
           INSERT INTO prompt_id_events(prompt_id, event_type)
           VALUES (NEW.prompt_id, 'allocated');
-        END;
+        END
+        """,
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_event_state_change
         AFTER UPDATE OF status ON prompt_id_registry
         WHEN NEW.status IS NOT OLD.status
         BEGIN
           INSERT INTO prompt_id_events(prompt_id, event_type)
           VALUES (NEW.prompt_id, NEW.status);
-        END;
+        END
         """,
     )
-    return conn.total_changes > before
+    for trigger_sql in triggers:
+        conn.execute(trigger_sql)
+    return changed
 
 
 def allocate_prompt_id(
@@ -421,7 +475,12 @@ def allocate_prompt_id(
         conn.execute("BEGIN IMMEDIATE")
         if not table_exists(conn, "prompt_id_registry"):
             raise RuntimeError("prompt_id_registry missing; run 'megavault.py migrate' first")
-        while True:
+        allocated_count = conn.execute(
+            "select count(*) from prompt_id_registry"
+        ).fetchone()[0]
+        if allocated_count >= PROMPT_ID_SPACE:
+            raise RuntimeError("PROMPT_ID space exhausted")
+        for _ in range(10_000):
             prompt_id = PROMPT_ID_MIN + secrets.randbelow(PROMPT_ID_SPACE)
             try:
                 conn.execute(
@@ -442,6 +501,7 @@ def allocate_prompt_id(
                 if collision:
                     continue
                 raise
+        raise RuntimeError("PROMPT_ID allocation failed after 10000 collision retries")
     except Exception:
         if conn.in_transaction:
             conn.execute("ROLLBACK")
@@ -2310,6 +2370,8 @@ def validate() -> int:
             "events",
             "project_components",
             "project_operations",
+            "prompt_id_registry",
+            "prompt_id_events",
         )
     }
     print("VALIDATE=PASS " + " ".join(f"{key}={value}" for key, value in counts.items()))
