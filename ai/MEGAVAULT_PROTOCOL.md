@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=45
+VERSION=46
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -337,7 +337,9 @@ python3 /home/daniele/MegaVault/megavault.py validate
 
 ## Lettura Operativa
 
-Per task MegaVault:
+Per task PROMPT_ID gia' pre-localizzati che non toccano altri domini MegaVault, leggere solo le sezioni `PROMPT_ID canonici`, `Database` e `Git Per MegaVault`; non stampare/rileggere l'intero protocollo e non interrogare manualmente lo schema repository quando esiste gia' una CLI canonica. Se emerge un dominio ulteriore, leggere solo la relativa sezione.
+
+Per gli altri task MegaVault:
 
 1. leggere questo file;
 2. leggere solo la parte pertinente di `ai/GLOBAL_INDEX.md` se serve routing compatto;
