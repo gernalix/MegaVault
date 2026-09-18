@@ -152,6 +152,57 @@ class MegaVaultTests(unittest.TestCase):
             self.assertEqual("materialized", by_id[parent][3])
             self.assertEqual("materialized", by_id[child][3])
 
+    def test_prompt_id_backup_is_private_and_integrity_ok(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            backup = megavault.create_prompt_id_backup(
+                ROOT / "megavault.sqlite",
+                output_dir=tmp,
+            )
+            self.assertEqual(0o600, backup.stat().st_mode & 0o777)
+            conn = sqlite3.connect(backup)
+            self.assertEqual("ok", conn.execute("PRAGMA integrity_check").fetchone()[0])
+            conn.close()
+
+    def test_prompt_id_source_backfill_uses_durable_sources_and_optional_missing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            tmp_db = self.prompt_id_temp_db(tmp)
+            repo = root / "roadmap"
+            repo.mkdir()
+            subprocess.run(["git", "-C", str(repo), "init", "-q"], check=True)
+            subprocess.run(["git", "-C", str(repo), "config", "user.email", "test@example.invalid"], check=True)
+            subprocess.run(["git", "-C", str(repo), "config", "user.name", "Test"], check=True)
+            prompt = repo / "prompt.md"
+            prompt.write_text("PROMPT_ID=345678\n", encoding="utf-8")
+            subprocess.run(["git", "-C", str(repo), "add", "prompt.md"], check=True)
+            subprocess.run(["git", "-C", str(repo), "commit", "-q", "-m", "prompt"], check=True)
+
+            usage = root / "codex-usage"
+            (usage / "prompts" / "456789").mkdir(parents=True)
+
+            total, inserted, existing, optional_missing = (
+                megavault.backfill_prompt_ids_from_sources(
+                    source="source-test",
+                    git_repos=[str(repo)],
+                    prompt_dir_roots=[str(usage)],
+                    optional_text_trees=[str(root / "missing-chatgpt-archive")],
+                    required_ids=[345678, 456789],
+                    db_path=tmp_db,
+                )
+            )
+            self.assertEqual(2, total)
+            self.assertEqual(2, inserted)
+            self.assertEqual(0, existing)
+            self.assertEqual(1, optional_missing)
+            conn = sqlite3.connect(tmp_db)
+            self.assertEqual(
+                [(345678,), (456789,)],
+                conn.execute(
+                    "select prompt_id from prompt_id_registry where prompt_id in (345678,456789) order by prompt_id"
+                ).fetchall(),
+            )
+            conn.close()
+
     def test_prompt_id_historical_backfill_reserves_ids_without_reuse(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_db = self.prompt_id_temp_db(tmp)
