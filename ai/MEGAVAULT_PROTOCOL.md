@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=41
+VERSION=42
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -84,6 +84,22 @@ CLI:
 python3 /home/daniele/MegaVault/megavault.py telegram-index
 python3 /home/daniele/MegaVault/megavault.py telegram-index --project-id PROJECT_ID
 ```
+
+## Root canonica dei repository
+
+Per tutti i progetti governati da questo protocollo, eccetto PersonalHub, la root locale canonica dei repository/worktree e' `/home/daniele/projects`.
+
+Regole:
+
+- `megavault.sqlite` resta la fonte autorevole per il path canonico del singolo progetto: quando il progetto e' identificato, risolvere prima il suo path dal DB invece di indovinarlo, riscoprirlo o cercarlo genericamente nel filesystem.
+- Ogni nuovo clone, checkout/worktree operativo e ogni operazione Git o di progetto (`status`, `fetch`, `pull`, `push`, build, test, script, ecc.) deve usare un worktree sotto `/home/daniele/projects`.
+- La discovery locale ordinaria dei progetti e' limitata a `/home/daniele/projects` e ai path esatti registrati in MegaVault. Non scandire altre directory per cercare copie alternative, salvo quando serve verificare un preciso path legacy gia' noto da migrare.
+- Se MegaVault registra un worktree esistente fuori da `/home/daniele/projects`, non considerarlo assente e non crearne una seconda copia: trattarlo come migrazione pendente.
+- Alla prima occasione sicura, spostare il worktree esistente sotto `/home/daniele/projects/<repo>` invece di riclonarlo, preservando `.git`, modifiche locali, file non tracciati e configurazione del repository.
+- Una migrazione e' sicura solo se non interrompe un'altra operazione concorrente e non spezza un runtime/servizio attivo dipendente dal vecchio path. Se non e' sicura nel task corrente, completare solo quanto possibile senza duplicare il repo e migrare alla prima occasione sicura successiva.
+- Subito dopo lo spostamento, aggiornare il path canonico in `megavault.sqlite` e gli eventuali riferimenti path-dependent realmente verificati (per esempio systemd, script, config, bootstrap o documentazione). Verificare il nuovo path prima di rimuovere ogni residuo della vecchia posizione.
+- Non lasciare due copie operative dello stesso repository e non usare symlink permanenti come sostituto della migrazione canonica, salvo richiesta esplicita dell'utente o necessita' transitoria documentata.
+- PersonalHub e' esplicitamente escluso da questa policy e continua a seguire le proprie regole e il proprio path canonico.
 
 ## CLI Generale
 
