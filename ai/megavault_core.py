@@ -174,6 +174,14 @@ REQUIRED_PROTOCOL_FAMILIES = {
         "project_id_source=megavault.sqlite:projects+project_aliases_only;INTEGER_PRIMARY_KEY",
         "project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense",
     ),
+    "prompt_id_policy": (
+        "prompt_id_identity=one_materialized_prompt_one_new_id_absolute",
+        "prompt_id_revision=any_textual_or_semantic_change_requires_new_id",
+        "prompt_id_reuse=forbidden_forever",
+        "prompt_id_parentage=parent_prompt_id_only;id_inheritance=forbidden",
+        "prompt_id_allocator=centralized_registry+CSPRNG+SQLite_PRIMARY_KEY+transaction",
+        "prompt_id_content_hash=audit_only;deduplication=forbidden",
+    ),
     "no_duplicate_truth": (
         "duplicate_truth=forbidden",
         "forbidden=reports_done,human_mirror,project_docs_in_MegaVault,generated_timeline_markdown,duplicate_registries",
