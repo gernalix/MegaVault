@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=43
+VERSION=44
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -49,6 +49,7 @@ Regola assoluta: **una materializzazione di prompt = un nuovo PROMPT_ID unico**.
 - Se il registro canonico non e' raggiungibile, non generare un ID alternativo non registrato e non dichiararlo definitivo.
 - Stati ammessi: `allocated -> materialized -> used`; `allocated -> cancelled`; `materialized -> cancelled`. `used` e `cancelled` sono terminali.
 - Un ID cancellato resta occupato per sempre.
+- Unica eccezione di bootstrap: durante l'attivazione iniziale del registro, gli ID storici gia' materializzati prima dell'allocator vanno importati come riservati tramite `prompt-id backfill`; questa operazione serve solo a impedirne il riuso e non e' ammessa per creare nuovi prompt.
 
 Schema canonico:
 
