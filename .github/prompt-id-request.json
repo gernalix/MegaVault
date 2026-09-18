@@ -1,6 +1,6 @@
 {
-  "request_id": "allocate-fedora-external-updater-persist-537184-20260919",
+  "request_id": "allocate-personalhub-places-english-diagnostics-20260919",
   "command": "allocate",
-  "source": "chatgpt:fedora-external-updater-persist-537184",
-  "project_id": 846219
+  "source": "chatgpt:personalhub-places-english-diagnostics",
+  "project_id": 49
 }
