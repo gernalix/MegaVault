@@ -1,0 +1,7 @@
+{
+  "request_id": "activity-watch-286419-followup-20260918-1",
+  "command": "allocate",
+  "source": "chatgpt-roadmap-followup",
+  "project_id": 15,
+  "parent_prompt_id": 286419
+}
