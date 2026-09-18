@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-223103-roadmap-opt-20260919",
-  "command": "materialize",
-  "prompt_id": 223103,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-shared-alerts-places-tags-integration-v3.md"
+  "request_id": "allocate-personalhub-github-ci-closure-20260919",
+  "command": "allocate",
+  "source": "chatgpt:personalhub-github-ci-closure",
+  "project_id": 49
 }
