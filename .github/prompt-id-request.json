@@ -1,6 +1,7 @@
 {
-  "request_id": "activity-watch-424261-materialize-20260918-1",
-  "command": "materialize",
-  "prompt_id": 424261,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/activity-watch-uploader-runtime-deploy.md"
+  "request_id": "workflowy-418906-analysis-followup-20260919-1",
+  "command": "allocate",
+  "source": "chatgpt-analysis-418906-live-smoke-followup",
+  "project_id": 96,
+  "parent_prompt_id": 418906
 }
