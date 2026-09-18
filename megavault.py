@@ -27,6 +27,8 @@ from ai.megavault_core import (
     PROMPT_ID_STATUSES,
     ensure_prompt_id_schema,
     allocate_prompt_id,
+    backfill_prompt_ids,
+    parse_prompt_id_file,
     prompt_content_sha256,
     materialize_prompt_id,
     mark_prompt_id_used,
