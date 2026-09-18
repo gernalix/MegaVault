@@ -121,6 +121,16 @@ class MegaVaultTests(unittest.TestCase):
                 ).fetchone()[0],
             )
 
+    def test_allocator_rejects_historical_source_namespace(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            with self.assertRaises(ValueError):
+                megavault.allocate_prompt_id(
+                    tmp_db,
+                    source="historical-should-be-backfill-only",
+                    project_id=23,
+                )
+
     def test_prompt_id_revision_always_gets_new_id_even_for_identical_content(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_db = self.prompt_id_temp_db(tmp)
