@@ -192,7 +192,7 @@ class MegaVaultTests(unittest.TestCase):
 
             total, inserted, existing, optional_missing = (
                 megavault.backfill_prompt_ids_from_sources(
-                    source="source-test",
+                    source="historical-source-test",
                     git_repos=[str(repo)],
                     prompt_dir_roots=[str(usage)],
                     optional_text_trees=[str(root / "missing-chatgpt-archive")],
@@ -240,6 +240,33 @@ class MegaVaultTests(unittest.TestCase):
                     (234567, "historical-backfill-test", "allocated"),
                 ],
                 rows,
+            )
+
+    def test_historical_prompt_id_cannot_be_materialized_or_cancelled(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            inserted, existing = megavault.backfill_prompt_ids(
+                [345678],
+                source="historical-lock-test",
+                db_path=tmp_db,
+            )
+            self.assertEqual((1, 0), (inserted, existing))
+            digest = hashlib.sha256(b"replacement prompt").hexdigest()
+            with self.assertRaises(ValueError):
+                megavault.materialize_prompt_id(
+                    345678,
+                    content_sha256=digest,
+                    db_path=tmp_db,
+                )
+            with self.assertRaises(ValueError):
+                megavault.cancel_prompt_id(345678, db_path=tmp_db)
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            self.assertEqual(
+                ("allocated", "historical-lock-test"),
+                conn.execute(
+                    "select status, source from prompt_id_registry where prompt_id=345678"
+                ).fetchone(),
             )
 
     def test_prompt_id_smoke_allocates_and_cancels_one_id(self):
