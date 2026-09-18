@@ -1,7 +1,7 @@
 # PERSONALHUB_BOOTSTRAP
-VERSION=13
+VERSION=14
 SOURCE=self_contained_PH
-GLOBAL_FALLBACK=MEGAVAULT_PROTOCOL@43+GLOBAL_INDEX@8
+GLOBAL_FALLBACK=MEGAVAULT_PROTOCOL@44+GLOBAL_INDEX@8
 STATUS=PH_SPECIALIZED_BOOTSTRAP
 FORMAT=ultracompact_key_value
 
@@ -116,7 +116,8 @@ allocation=CSPRNG_system+canonical_SQLite_registry+PRIMARY_KEY+BEGIN_IMMEDIATE
 precheck_uniqueness=insufficient;INSERT_constraint_is_authority
 model_generated_unregistered_prompt_id=forbidden
 registry_unavailable=no_unregistered_fallback_id;do_not_claim_id_final
-global_schema=MEGAVAULT_PROTOCOL@43:PROMPT_ID_canonici
+historical_backfill=one_time_only;reserve_pre_allocator_ids;never_for_new_prompts
+global_schema=MEGAVAULT_PROTOCOL@44:PROMPT_ID_canonici
 
 SECRETS:
 root=/home/daniele/.config/codex/secrets
