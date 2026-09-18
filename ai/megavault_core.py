@@ -480,6 +480,8 @@ def allocate_prompt_id(
     source = source.strip()
     if not source:
         raise ValueError("source must not be empty")
+    if source.startswith("historical-"):
+        raise ValueError("source prefix 'historical-' is reserved for backfill")
     conn = sqlite3.connect(db_path or DB, timeout=busy_timeout_ms / 1000, isolation_level=None)
     try:
         conn.execute("PRAGMA foreign_keys=ON")
