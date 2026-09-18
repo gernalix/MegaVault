@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=50
+VERSION=51
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -16,6 +16,22 @@ Per task locali banali o gia' localizzati, non consultare MegaVault: usa `/home/
 - `STRICT`: per migrazioni dati, azioni distruttive, sicurezza/segreti, infrastruttura critica, grandi refactor, o richiesta esplicita dell'utente.
 
 Usa sempre la modalita' piu' bassa che soddisfa in sicurezza lo scope. Promuovi solo con evidenza concreta; declassa se il rischio non si materializza.
+
+## Recupero autonomo dei blocker
+
+Il goal e gli acceptance criteria sono il contratto terminale; la procedura iniziale e' adattabile. Un comando, test, build, merge o probe fallito e' normalmente evidenza intermedia da usare per proseguire, non un esito terminale del task.
+
+Regole:
+
+- dopo un failure, raccogliere il minimo artefatto diagnostico sufficiente, identificare la causa piu' locale supportata dall'evidenza, applicare il fix minimo in-scope e riprendere automaticamente il goal originale;
+- e' consentito correggere codice, test, configurazione o wiring adiacente non nominato esplicitamente dal prompt quando e' dimostrato essere la causa necessaria del blocker e resta nello stesso failure domain;
+- non ripetere lo stesso tentativo senza stato cambiato o nuova evidenza; dopo un fix rilanciare prima il leaf gate fallito e poi soltanto i gate finali realmente invalidati;
+- non trasformare il recovery in audit generale, refactor, cleanup o modernizzazione. Espandere scope/discovery solo quanto richiesto dal failure concreto;
+- i budget di tool-call sono obiettivi di efficienza, non motivi per fermare un task corretto: possono essere superati solo a causa di failure o dipendenze nuove osservate, e ogni chiamata extra deve contribuire direttamente a ritirare il blocker;
+- dichiarare `BLOCKED` solo per un hard blocker non risolvibile autonomamente in sicurezza: credenziale/autorizzazione o decisione utente indispensabile, hardware/servizio richiesto realmente indisponibile senza alternativa valida, lock/concorrenza che vieta una mutazione sicura, oppure azione distruttiva/ambigua che richiede consenso esplicito;
+- dichiarare `FAIL` solo quando gli acceptance criteria restano non soddisfatti dopo aver esaurito i recovery in-scope ragionevoli basati su evidenza, oppure quando l'unico fix possibile sarebbe unsafe o fuori scope materiale;
+- un remote advance, dirty work non sovrapposto, test rosso, compile error o configurazione inattesa non sono da soli `BLOCKED`: prima tentare la riconciliazione minima sicura prevista dalle regole del repository;
+- appena tutti gli acceptance criteria sono verificati, terminare senza audit opzionali.
 
 ## Fonti e Precedenza
 
@@ -493,6 +509,12 @@ override=user_explicit_request
 packages=reuse_global>install_global
 venv_without_override=protocol_violation
 model=trunk_based_single_developer;operative_branches=1
+recovery_mode=autonomous_bounded;goal_and_acceptance=terminal_contract;procedure=adaptable
+intermediate_failure=diagnose_minimal_fix_resume_original_goal
+blocked=hard_external_or_user_action_required_only
+fail=reasonable_in_scope_recovery_exhausted_or_safe_fix_impossible
+scope_expansion=evidence_required_minimum_only
+retry=changed_state_or_new_evidence_only
 direct_canonical_work=default
 per_task_branch=forbidden
 branch_chaining=forbidden
