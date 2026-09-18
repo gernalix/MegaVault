@@ -152,6 +152,33 @@ class MegaVaultTests(unittest.TestCase):
             self.assertEqual("materialized", by_id[parent][3])
             self.assertEqual("materialized", by_id[child][3])
 
+    def test_prompt_id_historical_backfill_reserves_ids_without_reuse(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            inserted, existing = megavault.backfill_prompt_ids(
+                [123456, 234567, 123456],
+                source="historical-backfill-test",
+                db_path=tmp_db,
+            )
+            self.assertEqual((2, 0), (inserted, existing))
+            inserted, existing = megavault.backfill_prompt_ids(
+                [123456, 234567],
+                source="historical-backfill-test",
+                db_path=tmp_db,
+            )
+            self.assertEqual((0, 2), (inserted, existing))
+            conn = sqlite3.connect(tmp_db)
+            rows = conn.execute(
+                "select prompt_id, source, status from prompt_id_registry order by prompt_id"
+            ).fetchall()
+            self.assertEqual(
+                [
+                    (123456, "historical-backfill-test", "allocated"),
+                    (234567, "historical-backfill-test", "allocated"),
+                ],
+                rows,
+            )
+
     def test_prompt_id_lifecycle_is_terminal_and_identity_is_immutable(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_db = self.prompt_id_temp_db(tmp)
