@@ -1,6 +1,6 @@
 {
-  "request_id": "allocate-codex-usage-status-backfill-deploy-20260919",
-  "command": "allocate",
-  "source": "chatgpt:codex-usage-status-backfill-deploy",
-  "project_id": 8
+  "request_id": "materialize-274656-codex-usage-status-backfill-deploy-20260919",
+  "command": "materialize",
+  "prompt_id": 274656,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/codex-usage-status-backfill-runtime-deploy.md"
 }
