@@ -1,7 +1,6 @@
 {
-  "request_id": "allocate-personalhub-github-ci-closure-v2-20260919",
-  "command": "allocate",
-  "source": "chatgpt:personalhub-github-ci-closure-v2",
-  "project_id": 49,
-  "parent_prompt_id": 962109
+  "request_id": "materialize-609279-personalhub-english-only-places-diagnostics-20260919",
+  "command": "materialize",
+  "prompt_id": 609279,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-english-only-places-diagnostics-ui.md"
 }
