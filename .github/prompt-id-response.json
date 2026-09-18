@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 424261,
-  "request_id": "activity-watch-424261-materialize-20260918-1",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 856234,
+  "request_id": "workflowy-418906-analysis-followup-20260919-3",
+  "status": "allocated"
 }
