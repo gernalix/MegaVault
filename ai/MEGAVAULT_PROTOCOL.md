@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=51
+VERSION=52
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -16,6 +16,22 @@ Per task locali banali o gia' localizzati, non consultare MegaVault: usa `/home/
 - `STRICT`: per migrazioni dati, azioni distruttive, sicurezza/segreti, infrastruttura critica, grandi refactor, o richiesta esplicita dell'utente.
 
 Usa sempre la modalita' piu' bassa che soddisfa in sicurezza lo scope. Promuovi solo con evidenza concreta; declassa se il rischio non si materializza.
+
+## Disciplina dell'infrastruttura
+
+MegaVault e il tooling Codex sono infrastruttura di supporto, non il prodotto. Il default e' **stabilita'**: non aggiungere nuove tabelle, indici, protocolli, monitor, notifiche, audit o automazioni meta salvo evidenza operativa concreta.
+
+Una modifica meta e' ammessa solo se elimina lavoro manuale ricorrente gia' osservato, elimina una classe di failure/conflitti osservata, riduce un rischio di correttezza/sicurezza/dati, oppure sblocca direttamente un progetto applicativo.
+
+Regole:
+
+- PASS chiude il sottosistema: nessun audit o micro-ottimizzazione successiva senza nuova evidenza reale;
+- telemetria e storico restano automatici e passivi; non creare lavoro solo per completare metriche;
+- analisi approfondita dei prompt solo per FAIL/BLOCKED/UNKNOWN, retry, costo/tool-call anomali, loop/conflitti osservati, bug infrastrutturali o richiesta esplicita;
+- preferire semplificare o rimuovere duplicazioni prima di introdurre un nuovo componente;
+- una regola deve avere una sola fonte autorevole; altri documenti devono rinviare a quella fonte invece di duplicarla integralmente;
+- problemi collaterali non bloccanti: segnalarli, non investigarli nel task corrente;
+- se una feature meta non produce un risparmio o una riduzione di rischio verificabile, non implementarla.
 
 ## Recupero autonomo dei blocker
 
