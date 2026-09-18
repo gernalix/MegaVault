@@ -622,7 +622,7 @@ def prompt_ids_from_git_history(repo: Path | str) -> set[int]:
             "--text",
             "--format=",
         ],
-        text=True,
+        text=False,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         check=False,
@@ -631,7 +631,7 @@ def prompt_ids_from_git_history(repo: Path | str) -> set[int]:
         raise RuntimeError(
             f"git history scan failed for {root}: {proc.stderr.strip()}"
         )
-    values = extract_prompt_ids(proc.stdout)
+    values = extract_prompt_ids(proc.stdout.decode("utf-8", errors="ignore"))
     current = subprocess.run(
         ["git", "-C", str(root), "grep", "-I", "-h", "-E", "PROMPT_ID|prompt_id", "HEAD"],
         text=True,
