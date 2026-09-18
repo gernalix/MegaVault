@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 223103,
-  "request_id": "materialize-223103-roadmap-opt-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 962109,
+  "request_id": "allocate-personalhub-github-ci-closure-20260919",
+  "status": "allocated"
 }
