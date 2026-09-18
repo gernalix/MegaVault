@@ -39,6 +39,7 @@ from ai.megavault_core import (
     materialize_prompt_id,
     mark_prompt_id_used,
     cancel_prompt_id,
+    smoke_prompt_id,
     table_columns,
     table_exists,
     ensure_column,
