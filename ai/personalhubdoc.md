@@ -1,7 +1,7 @@
 # PERSONALHUB_BOOTSTRAP
-VERSION=12
+VERSION=13
 SOURCE=self_contained_PH
-GLOBAL_FALLBACK=MEGAVAULT_PROTOCOL@36+GLOBAL_INDEX@8
+GLOBAL_FALLBACK=MEGAVAULT_PROTOCOL@43+GLOBAL_INDEX@8
 STATUS=PH_SPECIALIZED_BOOTSTRAP
 FORMAT=ultracompact_key_value
 
@@ -101,6 +101,22 @@ project_id=resolve_from_remote_megavault.sqlite:projects+project_aliases_only;ne
 query=task_relevant_rows_only;SQLite_readonly;temporary_remote-fetched_copy_only
 secrets=secret_refs_paths_only;never_values
 events=completed_Daniele_project/system_work->remote_MegaVault_megavault.sqlite:events_via_authoritative_repo_update
+
+PROMPT_IDS:
+format=6_digit_integer_100000..999999
+authority=canonical_MegaVault_prompt_id_registry+allocator
+identity=one_materialized_prompt_one_new_prompt_id_absolute
+revision=any_change_even_single_character_or_minor_rewording=>new_prompt_id
+identical_content_new_materialization=new_prompt_id
+parentage=parent_prompt_id_only;inherit_parent_id=forbidden
+reuse=forbidden_forever;cancelled_id_remains_reserved;delete=forbidden
+lifecycle=allocated>materialized>used|allocated>cancelled|materialized>cancelled;used+cancelled=terminal
+content_sha256=audit_integrity_only;deduplication_or_id_reuse_by_hash=forbidden
+allocation=CSPRNG_system+canonical_SQLite_registry+PRIMARY_KEY+BEGIN_IMMEDIATE
+precheck_uniqueness=insufficient;INSERT_constraint_is_authority
+model_generated_unregistered_prompt_id=forbidden
+registry_unavailable=no_unregistered_fallback_id;do_not_claim_id_final
+global_schema=MEGAVAULT_PROTOCOL@43:PROMPT_ID_canonici
 
 SECRETS:
 root=/home/daniele/.config/codex/secrets
