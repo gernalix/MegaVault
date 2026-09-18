@@ -1,6 +1,6 @@
 {
-  "request_id": "roadmap-opt-workflowy-activation-only-20260919-1",
-  "command": "allocate",
-  "source": "chatgpt-roadmap-optimization",
-  "project_id": 96
+  "request_id": "materialize-231789-roadmap-opt-20260919",
+  "command": "materialize",
+  "prompt_id": 231789,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/workflowy-automation-local-activation-v3.md"
 }
