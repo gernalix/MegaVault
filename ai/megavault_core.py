@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 10
+SCHEMA_VERSION = 9
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -305,8 +305,6 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
             REFERENCES projects(project_id)
             ON UPDATE CASCADE ON DELETE SET NULL,
           source TEXT NOT NULL,
-          reservation_kind TEXT NOT NULL DEFAULT 'normal'
-            CHECK (reservation_kind IN ('normal', 'historical')),
           status TEXT NOT NULL DEFAULT 'allocated'
             CHECK (status IN ('allocated', 'materialized', 'used', 'cancelled')),
           content_sha256 TEXT
@@ -466,23 +464,6 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
         END
         """,
     )
-    reservation_column_added = ensure_column(
-        conn,
-        "prompt_id_registry",
-        "reservation_kind",
-        "TEXT NOT NULL DEFAULT 'normal' CHECK (reservation_kind IN ('normal','historical'))",
-    )
-    changed = changed or reservation_column_added
-    before = conn.total_changes
-    conn.execute(
-        """
-        UPDATE prompt_id_registry
-        SET reservation_kind='historical'
-        WHERE source='historical-pre-allocator'
-          AND reservation_kind<>'historical'
-        """
-    )
-    changed = changed or conn.total_changes > before
     for trigger_sql in triggers:
         conn.execute(trigger_sql)
     return changed
@@ -551,6 +532,8 @@ def backfill_prompt_ids(
     source = source.strip()
     if not source:
         raise ValueError("source must not be empty")
+    if not source.startswith("historical-"):
+        raise ValueError("historical backfill source must start with 'historical-'")
     normalized = sorted(set(int(value) for value in prompt_ids))
     invalid = [value for value in normalized if value < PROMPT_ID_MIN or value >= PROMPT_ID_MIN + PROMPT_ID_SPACE]
     if invalid:
@@ -568,10 +551,8 @@ def backfill_prompt_ids(
             try:
                 conn.execute(
                     """
-                    INSERT INTO prompt_id_registry(
-                      prompt_id, source, reservation_kind
-                    )
-                    VALUES (?, ?, 'historical')
+                    INSERT INTO prompt_id_registry(prompt_id, source)
+                    VALUES (?, ?)
                     """,
                     (prompt_id, source),
                 )
@@ -579,7 +560,7 @@ def backfill_prompt_ids(
             except sqlite3.IntegrityError:
                 row = conn.execute(
                     """
-                    select prompt_id, reservation_kind
+                    select prompt_id, source
                     from prompt_id_registry
                     where prompt_id=?
                     """,
@@ -587,7 +568,7 @@ def backfill_prompt_ids(
                 ).fetchone()
                 if not row:
                     raise
-                if row[1] != "historical":
+                if not str(row[1]).startswith("historical-"):
                     raise RuntimeError(
                         f"historical PROMPT_ID collides with non-historical reservation: {prompt_id}"
                     )
@@ -859,7 +840,7 @@ def materialize_prompt_id(
                     materialized_at_utc=strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
                 WHERE prompt_id=?
                   AND status='allocated'
-                  AND reservation_kind='normal'
+                  AND source NOT LIKE 'historical-%'
                 """,
                 (digest, prompt_id),
             ).rowcount
@@ -907,7 +888,7 @@ def cancel_prompt_id(
                     cancelled_at_utc=strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
                 WHERE prompt_id=?
                   AND status IN ('allocated', 'materialized')
-                  AND reservation_kind='normal'
+                  AND source NOT LIKE 'historical-%'
                 """,
                 (prompt_id,),
             ).rowcount
@@ -2412,36 +2393,19 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
     if missing:
         errors.append(f"missing required tables: {missing}")
         return errors
-    prompt_id_columns = table_columns(conn, "prompt_id_registry")
-    if "reservation_kind" not in prompt_id_columns:
-        errors.append("prompt_id_registry missing reservation_kind")
-    else:
-        invalid_historical = conn.execute(
-            """
-            select prompt_id, status
-            from prompt_id_registry
-            where reservation_kind='historical'
-              and status<>'allocated'
-            order by prompt_id
-            """
-        ).fetchall()
-        if invalid_historical:
-            errors.append(
-                f"historical PROMPT_ID reservations must remain allocated+immutable: {invalid_historical!r}"
-            )
-        legacy_not_reserved = conn.execute(
-            """
-            select prompt_id
-            from prompt_id_registry
-            where source='historical-pre-allocator'
-              and reservation_kind<>'historical'
-            order by prompt_id
-            """
-        ).fetchall()
-        if legacy_not_reserved:
-            errors.append(
-                f"legacy PROMPT_ID rows not marked historical: {legacy_not_reserved!r}"
-            )
+    mutable_historical = conn.execute(
+        """
+        select prompt_id, status, source
+        from prompt_id_registry
+        where source like 'historical-%'
+          and status<>'allocated'
+        order by prompt_id
+        """
+    ).fetchall()
+    if mutable_historical:
+        errors.append(
+            f"historical PROMPT_ID reservations must remain allocated+immutable: {mutable_historical!r}"
+        )
 
     repository_columns = table_columns(conn, "repositories")
     for column in (
