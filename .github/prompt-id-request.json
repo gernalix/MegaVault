@@ -1,7 +1,6 @@
 {
-  "request_id": "allocate-fix-521404-20260919",
-  "command": "allocate",
-  "source": "chatgpt:fix-blocked-521404",
-  "project_id": 49,
-  "parent_prompt_id": 521404
+  "request_id": "materialize-111265-20260919",
+  "command": "materialize",
+  "prompt_id": 111265,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-shared-alerts-pr15-final-closure-v2.md"
 }
