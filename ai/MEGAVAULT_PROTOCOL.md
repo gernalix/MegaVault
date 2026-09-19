@@ -79,7 +79,7 @@ python3 ~/projects/codex-roadmap/tools/roadmap_start.py --repo ~/projects/codex-
 
 Procedere solo se il comando termina con successo e il writer remoto conferma `roadmap_status=running`. Se il claim fallisce, viene rifiutato o il prompt risulta terminale/superseded, fermarsi immediatamente senza consumare lavoro sul progetto.
 
-Un prompt `running` è protetto: nessun aggiornamento della roadmap può renderlo `superseded` o usarlo come sorgente di una relazione `replacement`. Se una nuova decisione rende il task in corso obsoleto, lasciarlo terminare e creare un follow-up correttivo; se l'utente vuole interromperlo, fermare prima la sessione Codex e chiuderlo con un esito terminale coerente, poi creare l'eventuale sostituto.
+Un prompt `running` è **immutabile per il writer**: nessun aggiornamento della roadmap può cambiarne stato, modello, spiegazione, ordine, dipendenze, tag o relazioni, né archiviarlo/spostarlo. Deve restare visibile in `spiegazioni.md` con stato `running`. Anche la finalizzazione è differita: `roadmap_result.py`/ `roadmap_finish.py` registrano solo una richiesta terminale; lo stato cambia davvero solo dopo telemetria Codex terminale. Se una nuova decisione rende il task in corso obsoleto, lasciarlo terminare e creare un follow-up successivo.
 
 - Il formato canonico e' un intero di 6 cifre nell'intervallo `100000..999999`.
 - Un PROMPT_ID viene assegnato una sola volta e non viene mai riutilizzato, riciclato, cancellato o trasferito a un altro prompt.
