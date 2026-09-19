@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 240438,
-  "request_id": "materialize-240438-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 979000,
+  "request_id": "livinggaul-dedupe-local-5.6-luna-20260919-01",
+  "status": "allocated"
 }
