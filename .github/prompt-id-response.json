@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 576041,
-  "request_id": "materialize-576041-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 578439,
+  "request_id": "allocate-workflowy-roadmap-control-local-20260919",
+  "status": "allocated"
 }
