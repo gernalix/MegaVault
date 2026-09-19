@@ -1,6 +1,7 @@
 {
-  "request_id": "materialize-255970-20260919-r2",
-  "command": "materialize",
-  "prompt_id": 255970,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-english-only-places-ci-closure-v1.md"
+  "request_id": "allocate-personalhub-refresh-255970-after-576041-20260919",
+  "command": "allocate",
+  "source": "chatgpt:personalhub-refresh-255970-after-576041",
+  "project_id": 49,
+  "parent_prompt_id": 255970
 }
