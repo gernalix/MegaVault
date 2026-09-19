@@ -1,7 +1,7 @@
 {
-  "request_id": "allocate-roadmap-refresh-c-20260919",
+  "request_id": "allocate-roadmap-refresh-d-20260919",
   "command": "allocate",
-  "source": "chatgpt:roadmap-refresh:ph-health-e2e",
+  "source": "chatgpt:roadmap-refresh:ph-obsidian",
   "project_id": 49,
-  "parent_prompt_id": 790233
+  "parent_prompt_id": 355842
 }
