@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-418844-20260919",
+  "request_id": "materialize-663657-20260919",
   "command": "materialize",
-  "prompt_id": 418844,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-capsule-isolation-postmerge-cleanup-v1.md"
+  "prompt_id": 663657,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-shared-alerts-places-tags-integration-v4.md"
 }
