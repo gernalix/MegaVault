@@ -1,6 +1,5 @@
 {
-  "request_id": "materialize-personalhub-514458-20260919",
-  "command": "materialize",
-  "prompt_id": 514458,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-pr24-pr23-final-release.md"
+  "request_id": "allocate-chrome-codex-switcher-runtime-20260919",
+  "command": "allocate",
+  "source": "chatgpt-roadmap-delegation"
 }
