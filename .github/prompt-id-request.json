@@ -1,6 +1,5 @@
 {
-  "request_id": "materialize-477616-20260919",
-  "command": "materialize",
-  "prompt_id": 477616,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-english-only-places-ci-closure-v2.md"
+  "request_id": "livinggaul-dedupe-local-20260919-01",
+  "command": "allocate",
+  "source": "codex-roadmap:livinggaul-x-downloader-content-dedupe-local-validation"
 }
