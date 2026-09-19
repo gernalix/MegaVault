@@ -1,7 +1,6 @@
 {
-  "request_id": "allocate-roadmap-refresh-e-20260919",
+  "request_id": "allocate-roadmap-refresh-e2-20260919",
   "command": "allocate",
   "source": "chatgpt:roadmap-refresh:datasette-server",
-  "project_id": 10,
-  "parent_prompt_id": 904631
+  "project_id": 10
 }
