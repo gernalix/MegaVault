@@ -1,7 +1,6 @@
 {
-  "request_id": "allocate-personalhub-refresh-223103-after-418844-20260919",
-  "command": "allocate",
-  "source": "chatgpt:personalhub-refresh-223103-after-418844",
-  "project_id": 49,
-  "parent_prompt_id": 223103
+  "request_id": "materialize-418844-20260919",
+  "command": "materialize",
+  "prompt_id": 418844,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-capsule-isolation-postmerge-cleanup-v1.md"
 }
