@@ -1,5 +1,7 @@
 {
-  "request_id": "allocate-roadmap-refresh-j-20260919",
+  "request_id": "allocate-fix-521404-20260919",
   "command": "allocate",
-  "source": "chatgpt:roadmap-refresh:fedora-kuma"
+  "source": "chatgpt:fix-blocked-521404",
+  "project_id": 49,
+  "parent_prompt_id": 521404
 }
