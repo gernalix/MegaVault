@@ -1,6 +1,6 @@
 {
-  "request_id": "livinggaul-dedupe-local-5.6-luna-20260919-01",
+  "request_id": "livinggaul-metadata-v3-local-20260919-01",
   "command": "allocate",
-  "source": "codex-roadmap:livinggaul-x-downloader-content-dedupe-local-validation-v2",
+  "source": "codex-roadmap:livinggaul-x-downloader-metadata-v3-local-activation",
   "parent_prompt_id": 240438
 }
