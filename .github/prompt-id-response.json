@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 518420,
-  "request_id": "materialize-518420-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 560584,
+  "request_id": "livinggaul-source-availability-local-20260919-01",
+  "status": "allocated"
 }
