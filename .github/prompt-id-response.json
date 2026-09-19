@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 514458,
-  "request_id": "materialize-personalhub-514458-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 519564,
+  "request_id": "allocate-chrome-codex-switcher-runtime-20260919",
+  "status": "allocated"
 }
