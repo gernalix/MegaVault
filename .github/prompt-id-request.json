@@ -1,7 +1,7 @@
 {
-  "request_id": "allocate-roadmap-refresh-h-20260919",
+  "request_id": "allocate-roadmap-refresh-i-20260919",
   "command": "allocate",
-  "source": "chatgpt:roadmap-refresh:ph-play-validation",
-  "project_id": 49,
-  "parent_prompt_id": 334679
+  "source": "chatgpt:roadmap-refresh:logseq-security",
+  "project_id": 23,
+  "parent_prompt_id": 357862
 }
