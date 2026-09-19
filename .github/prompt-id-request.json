@@ -1,7 +1,7 @@
 {
-  "request_id": "allocate-personalhub-recover-superseded-962109-20260919",
+  "request_id": "allocate-personalhub-fix-blocked-223679-20260919",
   "command": "allocate",
-  "source": "chatgpt:personalhub-recover-superseded-962109",
+  "source": "chatgpt:personalhub-fix-blocked-223679",
   "project_id": 49,
-  "parent_prompt_id": 962109
+  "parent_prompt_id": 223679
 }
