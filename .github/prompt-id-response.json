@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 652361,
-  "request_id": "materialize-652361-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 793678,
+  "request_id": "chatgpt-ph-zombie-cleanup-20260919-1202",
+  "status": "allocated"
 }
