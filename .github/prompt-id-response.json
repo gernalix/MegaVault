@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 514458,
-  "request_id": "personalhub-final-consolidation-20260919T150702Z",
-  "status": "allocated"
+  "request_id": "materialize-personalhub-514458-20260919",
+  "status": "materialized"
 }
