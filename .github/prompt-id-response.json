@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 707603,
-  "request_id": "materialize-707603-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 576041,
+  "request_id": "allocate-personalhub-fix-blocked-521404-20260919",
+  "status": "allocated"
 }
