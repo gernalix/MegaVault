@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=53
+VERSION=54
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -528,16 +528,23 @@ Quando le notifiche task sono abilitate e non sovrascritte da regola progetto, i
 - stati: `successo`, `pausa`, `fail`;
 - usare il titolo reale Codex Desktop se disponibile, altrimenti titolo prompt/goal senza inventare.
 
-## Git Per MegaVault
+## Git: single writer per repository
 
-Per modifiche al repository MegaVault:
+Per tutti i repository gestiti, il branch canonico (normalmente `main`/`master`) e' single-writer:
 
-- lavorare sul branch canonico corrente salvo richiesta diversa;
-- non creare branch per task ordinari;
-- se il worktree e' sporco prima delle modifiche, preservare le modifiche non correlate;
-- dopo acceptance e validazione richiesta, fare un commit finale e un push finale, salvo divieto esplicito dell'utente.
+- nessun agente ChatGPT/Codex deve lavorare direttamente nel checkout canonico o aggiornare direttamente il branch canonico;
+- ogni task usa un worktree + branch isolato tramite `repo-task start --repo <repo> --task-id <id> --actor <actor>`;
+- un task completato usa `repo-task finish --repo <repo> --task-id <id>`, che crea/riusa una PR `[single-writer]`;
+- `github-reconcile` e' l'unico writer automatico che serializza PR pronte nel branch canonico dopo i check;
+- piu' task sullo stesso repository possono lavorare in parallelo perche' non condividono worktree/branch;
+- conflitti veri restano confinati alla PR/task branch e non autorizzano una scelta automatica ours/theirs;
+- il checkout canonico puo' fast-forwardare all'esatto tip remoto canonico, ma non accetta nuovi commit/merge locali non autorizzati;
+- `codex-roadmap` mantiene il proprio single writer dedicato e non usa il generic writer;
+- branch/worktree task sono temporanei e separati; il branch canonico resta il solo punto d'integrazione.
 
-Per altri repository, seguire l'entrypoint generale e le regole del repository target; usare MegaVault solo per identita'/routing/fatti necessari.
+Per task remoti che non possono usare il CLI locale, creare comunque un branch `task/<id>` e una PR con titolo che inizi per `[single-writer]`; non fare merge manuale.
+
+Dopo acceptance e validazione del task, il risultato deve essere materializzato nel task branch e consegnato al writer, non pushato direttamente nel branch canonico.
 
 ## Machine semantic contract
 
@@ -560,17 +567,19 @@ tools=venv|virtualenv|pipenv|poetry|uv
 override=user_explicit_request
 packages=reuse_global>install_global
 venv_without_override=protocol_violation
-model=trunk_based_single_developer;operative_branches=1
+model=per_repo_single_writer;canonical_branch_writers=1;parallel_task_worktrees=allowed
 recovery_mode=autonomous_bounded;goal_and_acceptance=terminal_contract;procedure=adaptable
 intermediate_failure=diagnose_minimal_fix_resume_original_goal
 blocked=hard_external_or_user_action_required_only
 fail=reasonable_in_scope_recovery_exhausted_or_safe_fix_impossible
 scope_expansion=evidence_required_minimum_only
 retry=changed_state_or_new_evidence_only
-direct_canonical_work=default
-per_task_branch=forbidden
+direct_canonical_work=forbidden_for_agents
+per_task_worktree_branch=required
+canonical_integration=single_writer_only
 branch_chaining=forbidden
-commit_push_before_final=required_unless_user_explicitly_forbids
+task_finish=repo-task_finish_or_equivalent_single-writer_PR
+commit_push_before_final=task_branch_required_unless_user_explicitly_forbids
 final_branch_fields=repository,canonical_branch,current_branch,temp_branch_reason,integration_status,cleanup_status
 secret_values=never_store;reference_paths_only
 SECRETS:

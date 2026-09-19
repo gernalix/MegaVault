@@ -160,12 +160,14 @@ REQUIRED_PROTOCOL_FAMILIES = {
         "packages=reuse_global>install_global",
         "venv_without_override=protocol_violation",
     ),
-    "single_trunk_git": (
-        "model=trunk_based_single_developer;operative_branches=1",
-        "direct_canonical_work=default",
-        "per_task_branch=forbidden",
+    "per_repo_single_writer_git": (
+        "model=per_repo_single_writer;canonical_branch_writers=1;parallel_task_worktrees=allowed",
+        "direct_canonical_work=forbidden_for_agents",
+        "per_task_worktree_branch=required",
+        "canonical_integration=single_writer_only",
         "branch_chaining=forbidden",
-        "commit_push_before_final=required_unless_user_explicitly_forbids",
+        "task_finish=repo-task_finish_or_equivalent_single-writer_PR",
+        "commit_push_before_final=task_branch_required_unless_user_explicitly_forbids",
         "final_branch_fields=repository,canonical_branch,current_branch,temp_branch_reason,integration_status,cleanup_status",
     ),
     "secret_policy": (
