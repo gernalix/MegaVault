@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 996524,
-  "request_id": "livinggaul-metadata-v3-local-20260919-01",
-  "status": "allocated"
+  "request_id": "materialize-996524-20260919",
+  "status": "materialized"
 }
