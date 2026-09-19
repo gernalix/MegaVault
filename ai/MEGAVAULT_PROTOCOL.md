@@ -81,6 +81,24 @@ Procedere solo se il comando termina con successo e il writer remoto conferma `r
 
 Un prompt `running` è **immutabile per il writer**: nessun aggiornamento della roadmap può cambiarne stato, modello, spiegazione, ordine, dipendenze, tag o relazioni, né archiviarlo/spostarlo. Deve restare visibile in `spiegazioni.md` con stato `running`. Anche la finalizzazione è differita: `roadmap_result.py`/ `roadmap_finish.py` registrano solo una richiesta terminale; lo stato cambia davvero solo dopo telemetria Codex terminale. Se una nuova decisione rende il task in corso obsoleto, lasciarlo terminare e creare un follow-up successivo.
 
+### Pull locale protetto della roadmap
+
+Sul checkout locale `~/projects/codex-roadmap` è vietato aggiornare `main` con `git pull`, merge/reset manuali o altri aggiornamenti diretti del ref. Dopo l'installazione iniziale del guard, il comando canonico è soltanto:
+
+```bash
+python3 ~/projects/codex-roadmap/tools/roadmap_pull.py --repo ~/projects/codex-roadmap
+```
+
+Il pre-pull deve fare fetch senza toccare il worktree, confrontare il DB locale con quello del commit remoto fetchato e bloccare prima del merge se qualunque PROMPT_ID `running` locale non è preservato identico e ancora visibile come `running` in `roadmap.md`/`spiegazioni.md`. Un cambio da `running` a terminale è ammesso solo se il DB remoto contiene una vera esecuzione terminale `source=codex-usage` coerente. Solo dopo PASS si autorizza l'esatto fast-forward verificato.
+
+Il guard Git locale `reference-transaction` deve bloccare ogni aggiornamento non autorizzato di `refs/heads/main`. Installazione una tantum:
+
+```bash
+python3 ~/projects/codex-roadmap/tools/install_roadmap_pull_guard.py --repo ~/projects/codex-roadmap
+```
+
+Se il pre-pull fallisce, non usare `git pull` o `git reset --hard` come fallback: correggere prima la causa canonica/remota.
+
 - Il formato canonico e' un intero di 6 cifre nell'intervallo `100000..999999`.
 - Un PROMPT_ID viene assegnato una sola volta e non viene mai riutilizzato, riciclato, cancellato o trasferito a un altro prompt.
 - Qualsiasi revisione crea un nuovo prompt e quindi un nuovo PROMPT_ID, anche se cambia una sola parola, un solo carattere, il modello/reasoning, o solo metadati operativi che fanno parte del prompt finale.
