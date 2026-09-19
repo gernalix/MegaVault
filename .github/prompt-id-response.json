@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 316628,
-  "request_id": "materialize-316628-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 518420,
+  "request_id": "allocate-ph-v55-stabilization-20260919",
+  "status": "allocated"
 }
