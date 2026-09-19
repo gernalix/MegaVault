@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=52
+VERSION=53
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -481,6 +481,12 @@ Ispezionare schema/path live prima di query o migrazioni. Per SQLite live/concor
 - i18n `en` + `it`; niente testo visibile hardcoded.
 - Usare Gradle wrapper del progetto.
 - Scoprire emulatori/dispositivi live con `adb devices`; non hardcodare seriali.
+- Un endpoint ADB Wi-Fi `IP:porta`, l'ordine di `adb devices`, il model hint di `adb devices -l`, o un seriale ricordato da una sessione precedente **non provano l'identita' del device**.
+- Prima di qualsiasi test o conclusione specifica su un device fisico usare il gate fail-closed `python3 /home/daniele/MegaVault/tools/adb_device_gate.py --target pixel|tcl`. Il gate seleziona solo device fisici live e verifica almeno `ro.product.manufacturer` + `ro.product.model` via `getprop`; se viene passato `--serial`, quel seriale viene comunque verificato e non fidato.
+- Per target fisici diversi usare `--expect-manufacturer ... --expect-model ...`; con piu' match o nessun match il gate deve fermare il task come `BLOCKED`, senza inferire nulla dal device sbagliato.
+- Se il task presume che un package sia installato, passarlo con `--require-package PACKAGE`: il gate controlla il package solo **dopo** l'identita' e attraversa gli Android user/profile rilevati. Una risposta package negativa ottenuta prima dell'identity gate non e' evidenza valida di "app non installata".
+- Per verificare un'assenza attesa, eseguire prima il gate d'identita', poi la query package esclusivamente sul seriale restituito e sugli user/profile pertinenti. Evidenza sorprendente o contraddittoria (es. UI mostra l'app ma ADB dice assente) obbliga a rivalidare device + user/profile prima di concludere.
+- Dopo PASS del gate, tutte le operazioni successive del task devono usare `adb -s <seriale_verificato>`; se il seriale cambia o si riconnette un altro target, rieseguire il gate.
 - Per emulatori, usare solo seriale live `emulator-*` in stato `device`; avviare emulator solo se il test dispositivo e' richiesto e non ce n'e' uno attivo.
 - Non sostituire un Pixel fisico con emulator se il task richiede Pixel fisico.
 - Non dichiarare device test PASS senza evidenza live sul dispositivo richiesto.
