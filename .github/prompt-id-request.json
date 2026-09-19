@@ -1,6 +1,6 @@
 {
-  "request_id": "chatgpt-ph-single-db-export-20260919-1420",
+  "request_id": "livinggaul-duplicate-count-local-20260919-01",
   "command": "allocate",
-  "source": "ChatGPT PersonalHub enforce single canonical auto-export and cleanup accumulated local database snapshots",
-  "project_id": 49
+  "source": "codex-roadmap:livinggaul-x-downloader-duplicate-count-local-activation",
+  "parent_prompt_id": 652361
 }
