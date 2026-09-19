@@ -1,6 +1,7 @@
 {
-  "request_id": "materialize-542078-20260919",
-  "command": "materialize",
-  "prompt_id": 542078,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/fedora-runtime-kuma-closure-v3.md"
+  "request_id": "allocate-personalhub-fix-blocked-521404-20260919",
+  "command": "allocate",
+  "source": "chatgpt:personalhub-fix-blocked-521404",
+  "project_id": 49,
+  "parent_prompt_id": 521404
 }
