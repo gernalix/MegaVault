@@ -1,5 +1,5 @@
 {
-  "request_id": "allocate-roadmap-refresh-i2-20260919",
+  "request_id": "allocate-roadmap-refresh-j-20260919",
   "command": "allocate",
-  "source": "chatgpt:roadmap-refresh:logseq-security"
+  "source": "chatgpt:roadmap-refresh:fedora-kuma"
 }
