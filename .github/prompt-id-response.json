@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 734140,
-  "request_id": "livinggaul-duplicate-count-local-20260919-01",
-  "status": "allocated"
+  "request_id": "materialize-734140-20260919",
+  "status": "materialized"
 }
