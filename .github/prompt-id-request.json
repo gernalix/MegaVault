@@ -1,6 +1,6 @@
 {
-  "request_id": "livinggaul-video-catalog-view-local-20260919-01",
-  "command": "allocate",
-  "source": "codex-roadmap:livinggaul-x-downloader-video-catalog-view-local-activation",
-  "parent_prompt_id": 996524
+  "request_id": "materialize-316628-20260919",
+  "command": "materialize",
+  "prompt_id": 316628,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/livinggaul-video-catalog-view-local-activation.md"
 }
