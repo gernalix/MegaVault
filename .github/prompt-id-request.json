@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-240438-20260919",
-  "command": "materialize",
-  "prompt_id": 240438,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/livinggaul-content-dedupe-local-activation.md"
+  "request_id": "livinggaul-dedupe-local-5.6-luna-20260919-01",
+  "command": "allocate",
+  "source": "codex-roadmap:livinggaul-x-downloader-content-dedupe-local-validation-v2",
+  "parent_prompt_id": 240438
 }
