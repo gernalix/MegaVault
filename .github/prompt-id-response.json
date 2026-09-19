@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 996524,
-  "request_id": "materialize-996524-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 155893,
+  "request_id": "allocate-retry-583742-v53-freeze-20260919-v2",
+  "status": "allocated"
 }
