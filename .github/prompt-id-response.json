@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 380812,
-  "request_id": "materialize-380812-20260919-v1",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 255970,
+  "request_id": "allocate-roadmap-refresh-a-20260919",
+  "status": "allocated"
 }
