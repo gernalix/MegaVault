@@ -1,7 +1,7 @@
 {
-  "request_id": "allocate-roadmap-refresh-d-20260919-v2",
+  "request_id": "allocate-roadmap-refresh-e-20260919",
   "command": "allocate",
-  "source": "chatgpt:roadmap-refresh:ph-obsidian",
-  "project_id": 49,
-  "parent_prompt_id": 355842
+  "source": "chatgpt:roadmap-refresh:datasette-server",
+  "project_id": 10,
+  "parent_prompt_id": 904631
 }
