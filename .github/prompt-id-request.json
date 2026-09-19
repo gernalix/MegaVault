@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-588376-20260919",
+  "request_id": "materialize-542078-20260919",
   "command": "materialize",
-  "prompt_id": 588376,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/logseq-updates-pat-safety-closure-v3.md"
+  "prompt_id": 542078,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/fedora-runtime-kuma-closure-v3.md"
 }
