@@ -1,6 +1,7 @@
 {
-  "request_id": "materialize-380812-20260919-v1",
-  "command": "materialize",
-  "prompt_id": 380812,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-shared-alerts-places-tags-integration-v5.md"
+  "request_id": "allocate-roadmap-refresh-a-20260919",
+  "command": "allocate",
+  "source": "chatgpt:roadmap-refresh:ph-english-ci",
+  "project_id": 49,
+  "parent_prompt_id": 609279
 }
