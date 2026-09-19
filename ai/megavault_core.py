@@ -109,6 +109,7 @@ ROOT_ALLOWLIST = {
     "megavault.py",
     "megavault.sqlite",
     "tests",
+    "tools",
 }
 ALLOWED_TRACKED_MARKDOWN = {
     "ai/MEGAVAULT_PROTOCOL.md",
