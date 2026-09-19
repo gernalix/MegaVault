@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 257387,
-  "request_id": "chatgpt-fedora-context-index-runtime-20260919",
-  "status": "allocated"
+  "request_id": "materialize-fedora-context-index-257387-20260919",
+  "status": "materialized"
 }
