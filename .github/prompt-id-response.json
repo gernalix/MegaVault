@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 519564,
-  "request_id": "allocate-chrome-codex-switcher-runtime-20260919",
-  "status": "allocated"
+  "request_id": "materialize-chrome-codex-switcher-519564-20260919",
+  "status": "materialized"
 }
