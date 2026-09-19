@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-652361-20260919",
-  "command": "materialize",
-  "prompt_id": 652361,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/livinggaul-hourly-systemd-local-install.md"
+  "request_id": "chatgpt-ph-zombie-cleanup-20260919-1202",
+  "command": "allocate",
+  "source": "ChatGPT PersonalHub zombie feature cleanup residual audit and CI closure",
+  "project_id": 49
 }
