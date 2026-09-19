@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-111265-20260919",
+  "request_id": "materialize-255970-20260919",
   "command": "materialize",
-  "prompt_id": 111265,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-shared-alerts-pr15-final-closure-v2.md"
+  "prompt_id": 255970,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-english-only-places-ci-closure-v1.md"
 }
