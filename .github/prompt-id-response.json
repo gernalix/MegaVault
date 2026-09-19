@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 854653,
-  "request_id": "materialize-854653-fedora-external-updater-git-closure-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 501401,
+  "request_id": "allocate-personalhub-recover-superseded-962109-20260919",
+  "status": "allocated"
 }
