@@ -1,6 +1,7 @@
 {
-  "request_id": "chatgpt-ph-zombie-cleanup-20260919-1202",
+  "request_id": "chatgpt-ph-db-bloat-20260919-1354",
   "command": "allocate",
-  "source": "ChatGPT PersonalHub zombie feature cleanup residual audit and CI closure",
-  "project_id": 49
+  "source": "ChatGPT PersonalHub SQLite 627MB bloat diagnosis and bounded remediation follow-up",
+  "project_id": 49,
+  "parent_prompt_id": 914263
 }
