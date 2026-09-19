@@ -69,6 +69,18 @@ Precedenza:
 
 Regola assoluta: **una materializzazione di prompt = un nuovo PROMPT_ID unico**.
 
+### Claim obbligatorio dei task roadmap
+
+Per ogni task proveniente da `gernalix/codex-roadmap`, la **prima azione operativa** di Codex, prima di leggere/modificare il repository target, lanciare test, build o fare discovery, deve essere:
+
+```bash
+python3 ~/projects/codex-roadmap/tools/roadmap_start.py --repo ~/projects/codex-roadmap --prompt-id <PROMPT_ID>
+```
+
+Procedere solo se il comando termina con successo e il writer remoto conferma `roadmap_status=running`. Se il claim fallisce, viene rifiutato o il prompt risulta terminale/superseded, fermarsi immediatamente senza consumare lavoro sul progetto.
+
+Un prompt `running` è protetto: nessun aggiornamento della roadmap può renderlo `superseded` o usarlo come sorgente di una relazione `replacement`. Se una nuova decisione rende il task in corso obsoleto, lasciarlo terminare e creare un follow-up correttivo; se l'utente vuole interromperlo, fermare prima la sessione Codex e chiuderlo con un esito terminale coerente, poi creare l'eventuale sostituto.
+
 - Il formato canonico e' un intero di 6 cifre nell'intervallo `100000..999999`.
 - Un PROMPT_ID viene assegnato una sola volta e non viene mai riutilizzato, riciclato, cancellato o trasferito a un altro prompt.
 - Qualsiasi revisione crea un nuovo prompt e quindi un nuovo PROMPT_ID, anche se cambia una sola parola, un solo carattere, il modello/reasoning, o solo metadati operativi che fanno parte del prompt finale.
