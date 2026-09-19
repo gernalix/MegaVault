@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-840907-20260919",
+  "request_id": "materialize-788606-20260919",
   "command": "materialize",
-  "prompt_id": 840907,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-datasette-lite-offline-runtime-v4.md"
+  "prompt_id": 788606,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-play-release-local-validation-v4.md"
 }
