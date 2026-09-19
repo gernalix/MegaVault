@@ -1,6 +1,6 @@
 {
-  "request_id": "livinggaul-source-availability-local-20260919-01",
-  "command": "allocate",
-  "source": "codex-roadmap:livinggaul-x-downloader-source-availability-local-activation",
-  "parent_prompt_id": 316628
+  "request_id": "materialize-560584-20260919",
+  "command": "materialize",
+  "prompt_id": 560584,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/livinggaul-source-availability-local-activation.md"
 }
