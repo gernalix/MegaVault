@@ -1,5 +1,6 @@
 {
-  "request_id": "allocate-workflowy-roadmap-control-local-20260919",
-  "command": "allocate",
-  "source": "chatgpt:workflowy-roadmap-control-local-activation"
+  "request_id": "materialize-477616-20260919",
+  "command": "materialize",
+  "prompt_id": 477616,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-english-only-places-ci-closure-v2.md"
 }
