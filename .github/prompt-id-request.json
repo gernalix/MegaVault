@@ -1,7 +1,5 @@
 {
-  "request_id": "allocate-roadmap-refresh-i-20260919",
+  "request_id": "allocate-roadmap-refresh-i2-20260919",
   "command": "allocate",
-  "source": "chatgpt:roadmap-refresh:logseq-security",
-  "project_id": 23,
-  "parent_prompt_id": 357862
+  "source": "chatgpt:roadmap-refresh:logseq-security"
 }
