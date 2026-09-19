@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 560584,
-  "request_id": "materialize-560584-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 652361,
+  "request_id": "livinggaul-systemd-hourly-local-20260919-01",
+  "status": "allocated"
 }
