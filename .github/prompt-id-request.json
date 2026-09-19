@@ -1,7 +1,6 @@
 {
-  "request_id": "allocate-fix-663657-20260919-v2",
-  "command": "allocate",
-  "source": "chatgpt:fix-blocked-663657",
-  "project_id": 49,
-  "parent_prompt_id": 663657
+  "request_id": "materialize-380812-20260919-v1",
+  "command": "materialize",
+  "prompt_id": 380812,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-shared-alerts-places-tags-integration-v5.md"
 }
