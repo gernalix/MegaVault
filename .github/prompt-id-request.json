@@ -1,6 +1,6 @@
 {
-  "request_id": "personalhub-final-consolidation-20260919T150702Z",
-  "command": "allocate",
-  "source": "PersonalHub final consolidation PR24 PR23 release",
-  "project_id": 49
+  "request_id": "materialize-personalhub-514458-20260919",
+  "command": "materialize",
+  "prompt_id": 514458,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-pr24-pr23-final-release.md"
 }
