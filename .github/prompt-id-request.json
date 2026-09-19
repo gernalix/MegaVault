@@ -1,7 +1,6 @@
 {
-  "request_id": "allocate-ph-v55-stabilization-20260919",
-  "command": "allocate",
-  "source": "codex-roadmap-ph-v55-stabilization",
-  "project_id": 49,
-  "parent_prompt_id": 155893
+  "request_id": "materialize-518420-20260919",
+  "command": "materialize",
+  "prompt_id": 518420,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-v55-full-stabilization-data-runtime-qa.md"
 }
