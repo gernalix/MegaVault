@@ -1,6 +1,6 @@
 {
-  "request_id": "livinggaul-duplicate-count-local-20260919-01",
-  "command": "allocate",
-  "source": "codex-roadmap:livinggaul-x-downloader-duplicate-count-local-activation",
-  "parent_prompt_id": 652361
+  "request_id": "materialize-734140-20260919",
+  "command": "materialize",
+  "prompt_id": 734140,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/livinggaul-duplicate-count-local-activation.md"
 }
