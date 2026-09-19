@@ -1,7 +1,6 @@
 {
-  "request_id": "allocate-retry-583742-v53-freeze-20260919",
+  "request_id": "allocate-retry-583742-v53-freeze-20260919-v2",
   "command": "allocate",
-  "source": "codex-roadmap-retry",
-  "project_id": 49,
-  "parent_prompt_id": 583742
+  "source": "codex-roadmap-retry-of-583742",
+  "project_id": 49
 }
