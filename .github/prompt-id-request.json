@@ -1,5 +1,6 @@
 {
-  "request_id": "allocate-chrome-codex-switcher-runtime-20260919",
-  "command": "allocate",
-  "source": "chatgpt-roadmap-delegation"
+  "request_id": "materialize-chrome-codex-switcher-519564-20260919",
+  "command": "materialize",
+  "prompt_id": 519564,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/chrome-codex-switcher-runtime-closure.md"
 }
