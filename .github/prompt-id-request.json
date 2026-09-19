@@ -1,7 +1,7 @@
 {
-  "request_id": "allocate-personalhub-fix-blocked-223679-20260919",
+  "request_id": "allocate-personalhub-refresh-223103-after-418844-20260919",
   "command": "allocate",
-  "source": "chatgpt:personalhub-fix-blocked-223679",
+  "source": "chatgpt:personalhub-refresh-223103-after-418844",
   "project_id": 49,
-  "parent_prompt_id": 223679
+  "parent_prompt_id": 223103
 }
