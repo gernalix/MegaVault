@@ -18,15 +18,23 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: Checkout
+      - name: Checkout triggering request
         uses: actions/checkout@v5
+
+      - name: Capture request and sync latest registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp .github/prompt-id-request.json /tmp/prompt-id-request.json
+          git fetch origin "$GITHUB_REF_NAME"
+          git reset --hard "origin/$GITHUB_REF_NAME"
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Parse request
+      - name: Parse immutable request
         id: request
         shell: bash
         run: |
@@ -35,7 +43,7 @@ jobs:
           import json
           from pathlib import Path
 
-          request = json.loads(Path(".github/prompt-id-request.json").read_text(encoding="utf-8"))
+          request = json.loads(Path("/tmp/prompt-id-request.json").read_text(encoding="utf-8"))
           command = request.get("command")
           if command not in {"allocate", "materialize"}:
               raise SystemExit("command must be allocate or materialize")
@@ -72,6 +80,7 @@ jobs:
           SOURCE: ${{ steps.request.outputs.source }}
           PROJECT_ID: ${{ steps.request.outputs.project_id }}
           PARENT_PROMPT_ID: ${{ steps.request.outputs.parent_prompt_id }}
+          REQUEST_ID: ${{ steps.request.outputs.request_id }}
         run: |
           set -euo pipefail
           args=(prompt-id allocate --source "$SOURCE")
@@ -80,7 +89,7 @@ jobs:
           prompt_id="$(python3 megavault.py "${args[@]}")"
           [[ "$prompt_id" =~ ^[0-9]{6}$ ]]
           printf 'prompt_id=%s\n' "$prompt_id" >> "$GITHUB_OUTPUT"
-          PROMPT_ID="$prompt_id" REQUEST_ID="${{ steps.request.outputs.request_id }}" python3 - <<'PY'
+          PROMPT_ID="$prompt_id" python3 - <<'PY'
           import json, os
           from pathlib import Path
           Path(".github/prompt-id-response.json").write_text(
@@ -106,7 +115,7 @@ jobs:
           curl --fail --silent --show-error --location "$CONTENT_URL" --output /tmp/prompt.md
           grep -Eq "^PROMPT_ID=$PROMPT_ID([[:space:]]|$)" /tmp/prompt.md
           python3 megavault.py prompt-id materialize "$PROMPT_ID" --content-file /tmp/prompt.md
-          REQUEST_ID="$REQUEST_ID" PROMPT_ID="$PROMPT_ID" python3 - <<'PY'
+          python3 - <<'PY'
           import json, os
           from pathlib import Path
           Path(".github/prompt-id-response.json").write_text(
@@ -123,22 +132,76 @@ jobs:
       - name: Validate registry
         run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate
 
-      - name: Persist registry command
+      - name: Persist registry command without binary rebase
         shell: bash
         env:
+          COMMAND: ${{ steps.request.outputs.command }}
           REQUEST_ID: ${{ steps.request.outputs.request_id }}
+          SOURCE: ${{ steps.request.outputs.source }}
+          PROJECT_ID: ${{ steps.request.outputs.project_id }}
+          PARENT_PROMPT_ID: ${{ steps.request.outputs.parent_prompt_id }}
+          MATERIALIZE_PROMPT_ID: ${{ steps.request.outputs.prompt_id }}
+          CONTENT_URL: ${{ steps.request.outputs.content_url }}
         run: |
           set -euo pipefail
-          git add megavault.sqlite .github/prompt-id-response.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "PROMPT_ID registry command $REQUEST_ID"
-          for attempt in 1 2 3; do
+
+          write_response() {
+            local command="$1"
+            local prompt_id="$2"
+            COMMAND_VALUE="$command" PROMPT_ID_VALUE="$prompt_id" python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path(".github/prompt-id-response.json").write_text(
+              json.dumps({
+                  "request_id": os.environ["REQUEST_ID"],
+                  "command": os.environ["COMMAND_VALUE"],
+                  "prompt_id": int(os.environ["PROMPT_ID_VALUE"]),
+                  "status": "allocated" if os.environ["COMMAND_VALUE"] == "allocate" else "materialized",
+              }, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+          }
+
+          replay_on_latest() {
             git fetch origin "$GITHUB_REF_NAME"
-            git rebase "origin/$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+
+            if [[ "$COMMAND" == "allocate" ]]; then
+              args=(prompt-id allocate --source "$SOURCE")
+              if [[ -n "$PROJECT_ID" ]]; then args+=(--project-id "$PROJECT_ID"); fi
+              if [[ -n "$PARENT_PROMPT_ID" ]]; then args+=(--parent-prompt-id "$PARENT_PROMPT_ID"); fi
+              prompt_id="$(python3 megavault.py "${args[@]}")"
+              [[ "$prompt_id" =~ ^[0-9]{6}$ ]]
+              write_response allocate "$prompt_id"
+            else
+              if [[ ! -f /tmp/prompt.md ]]; then
+                curl --fail --silent --show-error --location "$CONTENT_URL" --output /tmp/prompt.md
+              fi
+              grep -Eq "^PROMPT_ID=$MATERIALIZE_PROMPT_ID([[:space:]]|$)" /tmp/prompt.md
+              python3 megavault.py prompt-id materialize "$MATERIALIZE_PROMPT_ID" --content-file /tmp/prompt.md
+              write_response materialize "$MATERIALIZE_PROMPT_ID"
+            fi
+            PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate
+          }
+
+          commit_current() {
+            git add megavault.sqlite .github/prompt-id-response.json
+            git commit -m "PROMPT_ID registry command $REQUEST_ID"
+          }
+
+          commit_current
+          for attempt in 1 2 3; do
             if git push origin "HEAD:$GITHUB_REF_NAME"; then
               exit 0
             fi
+            if [[ "$attempt" -eq 3 ]]; then
+              break
+            fi
+            replay_on_latest
+            commit_current
           done
-          echo "Unable to persist PROMPT_ID registry command after bounded retries" >&2
+          echo "Unable to persist PROMPT_ID registry command after bounded replay on latest master" >&2
           exit 1
