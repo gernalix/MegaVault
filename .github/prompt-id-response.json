@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 316628,
-  "request_id": "livinggaul-video-catalog-view-local-20260919-01",
-  "status": "allocated"
+  "request_id": "materialize-316628-20260919",
+  "status": "materialized"
 }
