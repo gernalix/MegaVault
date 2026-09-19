@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-462279-20260919",
+  "request_id": "materialize-728918-20260919",
   "command": "materialize",
-  "prompt_id": 462279,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-health-canonical-e2e-v4.md"
+  "prompt_id": 728918,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/personalhub-obsidian-archive-complete-v4.md"
 }
