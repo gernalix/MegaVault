@@ -1,6 +1,6 @@
 {
-  "request_id": "livinggaul-metadata-v3-local-20260919-01",
-  "command": "allocate",
-  "source": "codex-roadmap:livinggaul-x-downloader-metadata-v3-local-activation",
-  "parent_prompt_id": 240438
+  "request_id": "materialize-996524-20260919",
+  "command": "materialize",
+  "prompt_id": 996524,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/livinggaul-metadata-v3-local-activation.md"
 }
