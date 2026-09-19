@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-734140-20260919",
-  "command": "materialize",
-  "prompt_id": 734140,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/livinggaul-duplicate-count-local-activation.md"
+  "request_id": "personalhub-final-consolidation-20260919T150702Z",
+  "command": "allocate",
+  "source": "PersonalHub final consolidation PR24 PR23 release",
+  "project_id": 49
 }
