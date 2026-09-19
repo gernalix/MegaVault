@@ -1,6 +1,6 @@
 {
-  "request_id": "chatgpt-ph-db-bloat-20260919-1404",
+  "request_id": "chatgpt-ph-single-db-export-20260919-1420",
   "command": "allocate",
-  "source": "ChatGPT PersonalHub SQLite 627MB bloat diagnosis and bounded remediation follow-up",
+  "source": "ChatGPT PersonalHub enforce single canonical auto-export and cleanup accumulated local database snapshots",
   "project_id": 49
 }
