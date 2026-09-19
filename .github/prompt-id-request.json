@@ -1,6 +1,7 @@
 {
-  "request_id": "materialize-854653-fedora-external-updater-git-closure-20260919",
-  "command": "materialize",
-  "prompt_id": 854653,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/fedora-external-updater-pip-user-git-closure.md"
+  "request_id": "allocate-personalhub-recover-superseded-962109-20260919",
+  "command": "allocate",
+  "source": "chatgpt:personalhub-recover-superseded-962109",
+  "project_id": 49,
+  "parent_prompt_id": 962109
 }
