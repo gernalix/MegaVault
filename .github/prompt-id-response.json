@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 519564,
-  "request_id": "materialize-chrome-codex-switcher-519564-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 257387,
+  "request_id": "chatgpt-fedora-context-index-runtime-20260919",
+  "status": "allocated"
 }
