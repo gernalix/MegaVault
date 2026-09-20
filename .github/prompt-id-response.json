@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 257387,
-  "request_id": "materialize-fedora-context-index-257387-20260919",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 404936,
+  "request_id": "allocate-kuma46-autonomous-closure-v2-20260920",
+  "status": "allocated"
 }
