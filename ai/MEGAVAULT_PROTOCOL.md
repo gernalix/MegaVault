@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=54
+VERSION=55
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -424,11 +424,34 @@ Non rileggere file o query gia' verificati nella sessione se lo stato non e' cam
 - Markdown consentito in MegaVault: `ai/MEGAVAULT_PROTOCOL.md`, `ai/GLOBAL_INDEX.md`, `ai/personalhubdoc.md`, `ai/repository-public-private-matrix.md`, `ai/repository-retention-checklist.md`, `legacy/README.md`.
 - `legacy/` e' non autorevole e si consulta solo per richiesta storica esplicita.
 
-## Segreti e Bitwarden
+## Segreti, credenziali e Bitwarden
 
-- Root canonica segreti: `/home/daniele/.config/codex/secrets`.
-- MegaVault conserva solo riferimenti in `secret_refs`, mai valori.
-- Accesso ai segreti solo quando richiesto dal task; lettura minima; nessun echo in prompt, comandi, log, report o Git.
+Regola generale: il codice applicativo non deve inventare storage ad hoc per token/password. Ogni progetto usa il provider sicuro nativo del proprio contesto e accede ai segreti attraverso un boundary/adapter dedicato. I valori non vanno mai in source code, SQLite applicativi, URL, export JSON, log, report, Git o MegaVault.
+
+Provider canonici per contesto:
+
+- Fedora desktop / processi interattivi nella sessione utente: Secret Service (libsecret). Python deve usare un adapter dedicato (per esempio `secret-tool`/Secret Service o una libreria equivalente), non file letti a mano.
+- Servizi systemd system/user: preferire `LoadCredential=` / `LoadCredentialEncrypted=` e leggere esclusivamente da `$CREDENTIALS_DIRECTORY`; i file `0600` esistenti sono fallback di migrazione, non il target finale.
+- GitHub Actions: GitHub Actions Secrets / token forniti dal runner; mai copiare questi valori in file del repository.
+- Android / PersonalHub: Android Keystore (o API Android che lo usa); vietato salvare token in Room/SQLite, SharedPreferences in chiaro, export o backup applicativi.
+- Credenziali già possedute da un provider/tool (es. `gh auth`, browser profile, Tailscale): riusare il provider e non duplicare il segreto in un secondo store.
+- VM/headless senza sessione Secret Service: systemd credentials, secret manager del provider o file dedicato `0600` solo quando il provider nativo non è disponibile; niente dipendenza da keyring grafico.
+
+Ordine di risoluzione raccomandato per tool Linux che devono girare in più contesti:
+1. systemd credential esplicita in `$CREDENTIALS_DIRECTORY`;
+2. Secret Service/libsecret quando esiste una sessione utente appropriata;
+3. variabile d'ambiente solo come input effimero esplicito (CI/test/manuale), mai persistita dal programma;
+4. file legacy `0600` solo durante migrazione o per host headless dove è la soluzione prevista.
+
+Regole di implementazione/migrazione:
+- ogni repo che usa credenziali deve avere un solo adapter/boundary per ottenerle; il resto del codice riceve valori già risolti e non conosce path/provider;
+- nessun fallback silenzioso da un provider configurato ma rotto verso uno meno sicuro: provider presente ma invalido => fail closed;
+- i test usano provider finti/in-memory o env test-only, mai valori reali;
+- migrare i file legacy al provider corretto senza stampare il valore; verificare il nuovo percorso, poi rimuovere il vecchio solo dopo PASS e solo se non serve più ad altri consumer;
+- non introdurre una dipendenza libsecret in daemon/headless se il processo non dispone di session bus/keyring sbloccato;
+- `/home/daniele/.config/codex/secrets` resta una root legacy/compatibilità e un luogo ammesso per file temporaneamente ancora necessari; non è più il default architetturale universale.
+- MegaVault conserva solo riferimenti/provider metadata in `secret_refs`, mai valori.
+- Accesso ai segreti solo quando richiesto dal task; lettura minima; nessun echo in prompt, argv quando evitabile, log, report o Git.
 - Rotazione solo su richiesta manuale esplicita.
 - Per Bitwarden usare `bw`; se bloccato, fermarsi e chiedere sblocco locale. Non acquisire master password, session token o valori segreti in chat.
 - Sincronizzare `bw` prima e dopo scritture; verificare nomi campo e presenza allegati, non valori.
@@ -581,11 +604,15 @@ branch_chaining=forbidden
 task_finish=repo-task_finish_or_equivalent_single-writer_PR
 commit_push_before_final=task_branch_required_unless_user_explicitly_forbids
 final_branch_fields=repository,canonical_branch,current_branch,temp_branch_reason,integration_status,cleanup_status
-secret_values=never_store;reference_paths_only
+secret_values=never_store;references_and_provider_metadata_only
 SECRETS:
 values=never_store_in_MegaVault_or_Git
 secrets=follow_SECRETS_section
-secret_handling=read_only_when_task_requires;canonical_root_first;canonical_paths_from_database;reprompt_for_known_path_forbidden;rotation_manual_explicit_only
+provider_by_context=fedora_desktop:secret_service|systemd:credentials_directory|github_actions:actions_secrets|android:keystore|provider_owned:reuse_native|headless:systemd_or_secret_manager
+legacy_secret_files=transitional_only;mode=0600;fail_closed
+secret_boundary=single_adapter_per_repo;application_code_must_not_read_raw_secret_files
+secret_fallback=systemd_credential>secret_service>existing_legacy_file_fail_closed>ephemeral_env
+secret_handling=read_only_when_task_requires;reprompt_for_known_reference_forbidden;rotation_manual_explicit_only
 project_id_source=megavault.sqlite:projects+project_aliases_only;INTEGER_PRIMARY_KEY
 project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense
 duplicate_truth=forbidden
