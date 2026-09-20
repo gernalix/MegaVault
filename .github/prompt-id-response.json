@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 404936,
-  "request_id": "allocate-kuma46-autonomous-closure-v2-20260920",
-  "status": "allocated"
+  "request_id": "materialize-kuma46-autonomous-closure-404936-20260920",
+  "status": "materialized"
 }
