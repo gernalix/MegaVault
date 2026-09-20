@@ -171,11 +171,15 @@ REQUIRED_PROTOCOL_FAMILIES = {
         "final_branch_fields=repository,canonical_branch,current_branch,temp_branch_reason,integration_status,cleanup_status",
     ),
     "secret_policy": (
-        "secret_values=never_store;reference_paths_only",
+        "secret_values=never_store;references_and_provider_metadata_only",
         "SECRETS:",
         "values=never_store_in_MegaVault_or_Git",
         "secrets=follow_SECRETS_section",
-        "secret_handling=read_only_when_task_requires;canonical_root_first;canonical_paths_from_database;reprompt_for_known_path_forbidden;rotation_manual_explicit_only",
+        "provider_by_context=fedora_desktop:secret_service|systemd:credentials_directory|github_actions:actions_secrets|android:keystore|provider_owned:reuse_native|headless:systemd_or_secret_manager",
+        "legacy_secret_files=transitional_only;mode=0600;fail_closed",
+        "secret_boundary=single_adapter_per_repo;application_code_must_not_read_raw_secret_files",
+        "secret_fallback=systemd_credential>secret_service>existing_legacy_file_fail_closed>ephemeral_env",
+        "secret_handling=read_only_when_task_requires;reprompt_for_known_reference_forbidden;rotation_manual_explicit_only",
     ),
     "project_id_authority": (
         "project_id_source=megavault.sqlite:projects+project_aliases_only;INTEGER_PRIMARY_KEY",
