@@ -1,6 +1,6 @@
 {
-  "request_id": "allocate-kuma46-autonomous-closure-v2-20260920",
-  "command": "allocate",
-  "source": "chatgpt-kuma46-autonomous-closure",
-  "project_id": 92
+  "request_id": "materialize-kuma46-autonomous-closure-404936-20260920",
+  "command": "materialize",
+  "prompt_id": 404936,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/github-autosync-kuma46-autonomous-closure.md"
 }
