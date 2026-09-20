@@ -1,6 +1,7 @@
 {
-  "request_id": "materialize-fedora-context-index-257387-20260919",
-  "command": "materialize",
-  "prompt_id": 257387,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/fedora-context-index-runtime-activation.md"
+  "request_id": "allocate-kuma46-autonomous-closure-20260920",
+  "command": "allocate",
+  "source": "chatgpt-kuma46-autonomous-closure",
+  "project_id": 92,
+  "parent_prompt_id": 642913
 }
