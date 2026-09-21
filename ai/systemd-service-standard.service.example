@@ -1,0 +1,32 @@
+# Canonical MegaVault baseline for a custom long-running systemd daemon.
+# Copy into the owning repository and replace the placeholders. Do not use this
+# template for timer/oneshot jobs; follow ai/MEGAVAULT_PROTOCOL.md instead.
+
+[Unit]
+Description=REPLACE_WITH_SERVICE_DESCRIPTION
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=5min
+StartLimitBurst=10
+
+[Service]
+Type=simple
+ExecStart=/absolute/path/to/program
+Restart=always
+RestartSec=5s
+TimeoutStopSec=30s
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+# If the daemon needs secrets, prefer systemd credentials:
+# LoadCredential=credential-name:/protected/source/path
+# The application reads:
+#   $CREDENTIALS_DIRECTORY/credential-name
+# Never put the secret value or a Kuma push token in this file.
+
+[Install]
+# System daemon:
+WantedBy=multi-user.target
+# For a user daemon, replace the line above with the appropriate user/session
+# target (for example default.target or graphical-session.target). Enable linger
+# only if it must keep running without a login session.
