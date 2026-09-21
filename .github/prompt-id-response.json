@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 601566,
-  "request_id": "chatgpt-grindr-web-exporter-cdp-fix-20260922-materialize",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 515955,
+  "request_id": "chatgpt-grindr-recaptcha-launcher-fix-20260922-allocate",
+  "status": "allocated"
 }
