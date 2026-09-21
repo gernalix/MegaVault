@@ -1,6 +1,6 @@
 {
-  "request_id": "chatgpt-codex-desktop-launcher-atspi-20260922",
-  "command": "allocate",
-  "source": "chatgpt-roadmap",
-  "project_id": 23
+  "request_id": "chatgpt-codex-desktop-launcher-atspi-20260922-materialize",
+  "command": "materialize",
+  "prompt_id": 989559,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/1812e80139042bb0292d67a14892aacec3ee1e38/prompts/codex-desktop-roadmap-launcher.md"
 }
