@@ -1,6 +1,6 @@
 {
-  "request_id": "materialize-kuma46-autonomous-closure-404936-20260920",
-  "command": "materialize",
-  "prompt_id": 404936,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/github-autosync-kuma46-autonomous-closure.md"
+  "request_id": "chatgpt-eboks-scraper-bootstrap-20260921",
+  "command": "allocate",
+  "source": "chatgpt-roadmap",
+  "project_id": 23
 }
