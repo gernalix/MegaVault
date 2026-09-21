@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 285894,
-  "request_id": "chatgpt-grindr-web-exporter-recovery-20260922-allocate",
-  "status": "allocated"
+  "request_id": "chatgpt-grindr-web-exporter-recovery-20260922-materialize",
+  "status": "materialized"
 }
