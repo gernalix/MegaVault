@@ -473,9 +473,42 @@ Usare questa sezione solo quando il task tocca davvero il dominio indicato.
 
 Usare l'ambiente globale. `venv`, `virtualenv`, `pipenv`, `poetry` e `uv` sono vietati salvo richiesta esplicita dell'utente. Riusa pacchetti globali prima di installare altro.
 
-### Servizi e Host
+### Servizi systemd e Host
 
-Verificare live path, mount, unita' systemd e host runtime prima di documentare stato corrente. Usare `systemctl` per unita' di sistema e `systemctl --user` per unita' utente. Evitare autostart duplicati.
+La tabella canonica per i servizi personalizzati e' `services`. Non creare registri paralleli di servizi. Prima di aggiungere o modificare un servizio, risolvere `project_id`, `host_id`, scope, unit e runtime path da MegaVault quando disponibili; verificare live path, mount, unita' systemd e host runtime prima di documentare lo stato corrente.
+
+Classificare sempre l'unita' prima di scegliere la policy:
+
+- **daemon long-running / always-on**: il processo e' previsto attivo per tutta la vita del relativo target/sessione. Usare `Type=simple` o `Type=notify` quando supportato, `Restart=always`, un `RestartSec=` bounded (normalmente 5-30 s), e un target `[Install]` appropriato. `enabled` garantisce l'avvio al target; `Restart=` garantisce la resilienza del processo. Sono requisiti distinti.
+- **oneshot schedulato**: non usare `Restart=always`. La riesecuzione appartiene al relativo `.timer`; usare `Persistent=true` quando una run persa a macchina spenta deve essere recuperata al ritorno. Un retry su failure puo' essere previsto solo se idempotente e bounded.
+- **oneshot event-driven**: non trasformarlo in daemon. Deve essere riattivato dall'evento proprietario (udev/path/socket/timer/altro trigger) e avere timeout/idempotenza coerenti.
+- **lifecycle unit con `RemainAfterExit=yes`**: lo stato active/exited e' intenzionale; non applicare `Restart=always`.
+- **user service**: usare `systemctl --user`. Abilitare linger solo quando il servizio deve vivere anche senza login; un servizio legato a GNOME/Wayland/browser deve invece restare legato alla sessione grafica.
+- **system service**: usare `systemctl`; non introdurre contemporaneamente un secondo autostart cron/desktop/user per lo stesso runtime.
+
+Per un daemon dichiarato always-on, una uscita pulita del processo e' comunque anomala: per questo la baseline e' `Restart=always`, non `on-failure`. Lo stop amministrativo tramite systemd resta uno stop intenzionale e non viene contrastato da `Restart=always`. Configurare `StartLimitIntervalSec=`/`StartLimitBurst=` per impedire loop di crash incontrollati, senza usarli come sostituto della diagnosi.
+
+Segreti nei servizi: seguire la sezione SECRETS; preferire `LoadCredential=`/`LoadCredentialEncrypted=` e `$CREDENTIALS_DIRECTORY`. Vietati token negli URL/unit file, nel repository, in MegaVault o nei log.
+
+Monitoraggio obbligatorio:
+
+- ogni servizio personalizzato **always-on** deve avere un Push Monitor Uptime Kuma indipendente, con heartbeat prodotto dal supervisore/monitor centrale a partire dallo stato systemd reale; non duplicare la logica Kuma dentro ogni daemon;
+- per timer/oneshot il monitor deve rappresentare freschezza/esito dell'ultima run, non richiedere falsamente `ActiveState=active` continuo;
+- il token push resta nel boundary credenziali e non in `services`, `kuma_monitors`, Git o documentazione;
+- registrare/sincronizzare il monitor tramite l'indice Kuma canonico e mapparlo al progetto proprietario; dopo provisioning o modifica richiedere readback dal DB Kuma autorevole;
+- un nuovo servizio non e' considerato completamente attivato finche' unit, enablement/trigger, restart semantics e relativo monitor Kuma non sono verificati.
+
+Gate minimo per un nuovo daemon always-on:
+
+1. `systemd-analyze verify` sulla unit;
+2. installazione + `daemon-reload` + enablement sul target corretto;
+3. stato `active` verificato;
+4. terminazione del processo figlio controllata e prova che systemd lo riavvii (`NRestarts` aumenta); non usare `systemctl stop` come crash test;
+5. prova post-reboot/post-login coerente con lo scope;
+6. Push Monitor Kuma presente, heartbeat UP verificato con readback e transizione DOWN/UP controllata quando sicura;
+7. nessun autostart duplicato.
+
+Template canonico per i daemon long-running: `ai/systemd-service-standard.service.example`. Per timer/oneshot applicare invece la classificazione sopra, senza copiare `Restart=always` meccanicamente.
 
 ### Infrastruttura STRICT e cutover
 
