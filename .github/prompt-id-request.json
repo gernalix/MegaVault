@@ -1,6 +1,6 @@
 {
-  "request_id": "chatgpt-grindr-web-exporter-cdp-fix-20260922-materialize",
-  "command": "materialize",
-  "prompt_id": 601566,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/50c4c494ac63c2dec23fb5a8b39c908927271e31/prompts/grindr-web-exporter-persistent-chrome-profile-v1.md"
+  "request_id": "chatgpt-grindr-recaptcha-launcher-fix-20260922-allocate",
+  "command": "allocate",
+  "source": "chatgpt-roadmap",
+  "parent_prompt_id": 601566
 }
