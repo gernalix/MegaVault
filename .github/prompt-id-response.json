@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 404936,
-  "request_id": "materialize-kuma46-autonomous-closure-404936-20260920",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 218695,
+  "request_id": "chatgpt-eboks-scraper-bootstrap-20260921",
+  "status": "allocated"
 }
