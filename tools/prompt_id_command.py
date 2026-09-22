@@ -196,41 +196,88 @@ def execute_request(
     receipt_file = receipt_path(receipt_dir, request_id)
 
     receipt = read_json(receipt_file)
-    if receipt:
-        result = validate_receipt(
-            receipt,
-            request_id=request_id,
-            command=command,
-            payload_sha256=payload_sha256,
-            db_path=db_path,
-        )
-        write_json(response_path, result)
-        return {**result, "replayed": True}
-
-    legacy = legacy_response_replay(
-        response_path,
-        request,
-        payload_sha256=payload_sha256,
-        db_path=db_path,
-    )
-    if legacy:
-        write_json(receipt_file, legacy)
-        write_json(response_path, legacy)
-        return {**legacy, "replayed": True, "legacy_replay": True}
 
     if command == "allocate":
         source = str(request.get("source") or "").strip()
         if not source:
             raise PromptIdCommandError("source_required_for_allocate")
         project_id = request.get("project_id")
+        project_id = None if project_id is None else int(project_id)
         parent_prompt_id = request.get("parent_prompt_id")
+        parent_prompt_id = None if parent_prompt_id is None else int(parent_prompt_id)
+
+        # Old JSON receipts/responses are migration hints only. Canonical
+        # idempotency now lives in megavault.sqlite.
+        if receipt:
+            migrated = validate_receipt(
+                receipt,
+                request_id=request_id,
+                command=command,
+                payload_sha256=payload_sha256,
+                db_path=db_path,
+            )
+            prompt_id = megavault.bind_prompt_id_request(
+                int(migrated["prompt_id"]),
+                request_id=request_id,
+                source=source,
+                project_id=project_id,
+                parent_prompt_id=parent_prompt_id,
+                db_path=db_path,
+            )
+            result = {**migrated, "prompt_id": prompt_id}
+            write_json(response_path, result)
+            return {**result, "replayed": True, "legacy_receipt_migrated": True}
+
+        legacy = legacy_response_replay(
+            response_path,
+            request,
+            payload_sha256=payload_sha256,
+            db_path=db_path,
+        )
+        if legacy:
+            prompt_id = megavault.bind_prompt_id_request(
+                int(legacy["prompt_id"]),
+                request_id=request_id,
+                source=source,
+                project_id=project_id,
+                parent_prompt_id=parent_prompt_id,
+                db_path=db_path,
+            )
+            result = {**legacy, "prompt_id": prompt_id}
+            write_json(receipt_file, result)
+            write_json(response_path, result)
+            return {**result, "replayed": True, "legacy_replay": True}
+
         prompt_id = megavault.allocate_prompt_id(
             db_path,
             source=source,
-            project_id=None if project_id is None else int(project_id),
-            parent_prompt_id=None if parent_prompt_id is None else int(parent_prompt_id),
+            project_id=project_id,
+            parent_prompt_id=parent_prompt_id,
+            request_id=request_id,
         )
     else:
+        if receipt:
+            result = validate_receipt(
+                receipt,
+                request_id=request_id,
+                command=command,
+                payload_sha256=payload_sha256,
+                db_path=db_path,
+            )
+            write_json(response_path, result)
+            return {**result, "replayed": True}
+
+        legacy = legacy_response_replay(
+            response_path,
+            request,
+            payload_sha256=payload_sha256,
+            db_path=db_path,
+        )
+        if legacy:
+            write_json(receipt_file, legacy)
+            write_json(response_path, legacy)
+            return {**legacy, "replayed": True, "legacy_replay": True}
+
         try:
             prompt_id = int(request["prompt_id"])
         except (KeyError, TypeError, ValueError) as exc:
