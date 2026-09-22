@@ -440,6 +440,33 @@ class MegaVaultTests(unittest.TestCase):
                 ).fetchone(),
             )
 
+    def test_prompt_id_cancel_is_idempotent(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            prompt_id = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-cancel-idempotent",
+                request_id="test-cancel-idempotent",
+            )
+            megavault.cancel_prompt_id(prompt_id, db_path=tmp_db)
+            megavault.cancel_prompt_id(prompt_id, db_path=tmp_db)
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            self.assertEqual(
+                ("cancelled",),
+                conn.execute(
+                    "select status from prompt_id_registry where prompt_id=?",
+                    (prompt_id,),
+                ).fetchone(),
+            )
+            self.assertEqual(
+                1,
+                conn.execute(
+                    "select count(*) from prompt_id_events where prompt_id=? and event_type='cancelled'",
+                    (prompt_id,),
+                ).fetchone()[0],
+            )
+
     def test_prompt_id_smoke_allocates_and_cancels_one_id(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_db = self.prompt_id_temp_db(tmp)
