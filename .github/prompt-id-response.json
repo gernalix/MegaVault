@@ -1,6 +1,6 @@
 {
-  "command": "materialize",
-  "prompt_id": 125435,
-  "request_id": "chatgpt-ccs-per-thread-overlay-live-20260922-v1-materialize",
-  "status": "materialized"
+  "command": "allocate",
+  "prompt_id": 556372,
+  "request_id": "chatgpt-grindr-export-desktop-end-to-end-20260922-v1-allocate",
+  "status": "allocated"
 }
