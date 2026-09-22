@@ -744,6 +744,69 @@ class MegaVaultTests(unittest.TestCase):
             self.assertEqual(repo_count, 1)
             self.assertEqual(permanent_count, 1)
 
+    def test_register_local_repo_is_idempotent_without_remote(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = Path(tmp) / "megavault.sqlite"
+            tmp_db.write_bytes((ROOT / "megavault.sqlite").read_bytes())
+            worktree = Path(tmp) / "projects" / "local-only"
+            subprocess.run(["git", "init", "-q", str(worktree)], check=True)
+            args = ["register-local-repo", "--worktree", str(worktree)]
+            with (
+                mock.patch.object(megavault, "DB", tmp_db),
+                mock.patch.object(megavault_core, "DB", tmp_db),
+                mock.patch.object(strict_tag_wrapper, "DB", tmp_db),
+            ):
+                first = megavault.main(args)
+                second = megavault.main(args)
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            self.assertEqual(first, 0)
+            self.assertEqual(second, 0)
+            self.assertEqual(1, conn.execute("select count(*) from projects where slug='local-only'").fetchone()[0])
+            self.assertEqual(1, conn.execute("select count(*) from repositories where worktree_path=?", (str(worktree.resolve()),)).fetchone()[0])
+            self.assertIsNone(conn.execute("select remote_url from repositories where worktree_path=?", (str(worktree.resolve()),)).fetchone()[0])
+
+    def test_register_local_repo_reuses_registered_remote(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = Path(tmp) / "megavault.sqlite"
+            tmp_db.write_bytes((ROOT / "megavault.sqlite").read_bytes())
+            worktree = Path(tmp) / "projects" / "another-checkout"
+            subprocess.run(["git", "init", "-q", str(worktree)], check=True)
+            subprocess.run(["git", "-C", str(worktree), "remote", "add", "origin", "https://github.com/gernalix/example-new-repo.git"], check=True)
+            github_args = ["register-github-repo", "--owner", "gernalix", "--name", "example-new-repo", "--remote-url", "https://github.com/gernalix/example-new-repo", "--default-branch", "main", "--worktree", str(Path(tmp) / "original")]
+            with (
+                mock.patch.object(megavault, "DB", tmp_db),
+                mock.patch.object(megavault_core, "DB", tmp_db),
+                mock.patch.object(strict_tag_wrapper, "DB", tmp_db),
+            ):
+                self.assertEqual(0, megavault.main(github_args))
+                self.assertEqual(0, megavault.main(["register-local-repo", "--worktree", str(worktree)]))
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            self.assertEqual(1, conn.execute("select count(*) from projects where slug='example-new-repo'").fetchone()[0])
+
+    def test_register_local_repo_ambiguous_collision_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = Path(tmp) / "megavault.sqlite"
+            tmp_db.write_bytes((ROOT / "megavault.sqlite").read_bytes())
+            worktree = Path(tmp) / "projects" / "collision"
+            subprocess.run(["git", "init", "-q", str(worktree)], check=True)
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            conn.execute("insert into projects(project_id, slug, name, status, archived, created_source) values(10001, 'collision', 'one', 'active', 0, 'test')")
+            conn.execute("insert into projects(project_id, slug, name, status, archived, created_source) values(10002, 'collision-two', 'two', 'active', 0, 'test')")
+            conn.execute("insert into project_aliases(alias, project_id) values('collision', 10002)")
+            conn.commit()
+            before = conn.execute("select count(*) from projects").fetchone()[0]
+            with (
+                mock.patch.object(megavault, "DB", tmp_db),
+                mock.patch.object(megavault_core, "DB", tmp_db),
+                mock.patch.object(strict_tag_wrapper, "DB", tmp_db),
+            ):
+                result = megavault.main(["register-local-repo", "--worktree", str(worktree)])
+            self.assertNotEqual(result, 0)
+            self.assertEqual(before, conn.execute("select count(*) from projects").fetchone()[0])
+
     def test_project_index_migration_is_idempotent_and_preserves_counts(self):
         source = sqlite3.connect(ROOT / "megavault.sqlite")
         self.addCleanup(source.close)

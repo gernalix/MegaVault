@@ -3044,6 +3044,100 @@ def find_registered_github_repo(conn: sqlite3.Connection, *, slug: str, remote_u
     return alias_row
 
 
+def local_repository_metadata(worktree: str) -> tuple[str, str, str | None, str | None] | None:
+    requested = Path(worktree).expanduser()
+    root = git_value(str(requested), "rev-parse", "--show-toplevel")
+    if not root:
+        return None
+    root_path = str(Path(root).resolve())
+    branch = git_value(root_path, "symbolic-ref", "--quiet", "--short", "HEAD")
+    remote_url = git_value(root_path, "remote", "get-url", "origin")
+    return root_path, repo_slug("", Path(root_path).name), branch, normalize_remote_url(remote_url)
+
+
+def local_repository_matches(
+    conn: sqlite3.Connection, *, root: str, slug: str, remote_url: str | None
+) -> set[int]:
+    matches = {
+        int(row[0])
+        for row in conn.execute(
+            "select distinct project_id from repositories where worktree_path=?", (root,)
+        )
+    }
+    if remote_url:
+        for project_id, registered_remote in conn.execute(
+            "select project_id, remote_url from repositories where remote_url is not null"
+        ):
+            if normalize_remote_url(str(registered_remote)) == remote_url:
+                matches.add(int(project_id))
+    if not matches:
+        matches.update(
+            int(row[0])
+            for row in conn.execute("select project_id from projects where slug=?", (slug,))
+        )
+        matches.update(
+            int(row[0])
+            for row in conn.execute("select project_id from project_aliases where alias=?", (slug,))
+        )
+    return matches
+
+
+def register_local_repo_command(args: argparse.Namespace) -> int:
+    metadata = local_repository_metadata(args.worktree)
+    if not metadata:
+        print("REGISTER_LOCAL_REPO=FAIL not_a_git_worktree", file=sys.stderr)
+        return 2
+    root, slug, branch, remote_url = metadata
+    conn = connect()
+    matches = local_repository_matches(conn, root=root, slug=slug, remote_url=remote_url)
+    if len(matches) > 1:
+        print("REGISTER_LOCAL_REPO=FAIL ambiguous_registered_identity", file=sys.stderr)
+        return 1
+    if matches:
+        project_id = matches.pop()
+        row = conn.execute("select slug from projects where project_id=?", (project_id,)).fetchone()
+        if not row:
+            print("REGISTER_LOCAL_REPO=FAIL missing_project", file=sys.stderr)
+            return 1
+        print(f"project_id={project_id}")
+        print(f"slug={row[0]}")
+        print("status=already_registered")
+        return 0
+    with conn:
+        project_id = int(conn.execute("select coalesce(max(project_id), 0) + 1 from projects").fetchone()[0])
+        repository_id = next_repository_id(conn)
+        conn.execute(
+            """
+            insert into projects(project_id, slug, name, status, archived, created_source, notes)
+            values(?, ?, ?, 'active', 0, 'local_worktree', ?)
+            """,
+            (project_id, slug, Path(root).name, "Auto-registered from local Git worktree; unknown facts intentionally omitted."),
+        )
+        conn.execute(
+            """
+            insert into permanent_ids(entity_type, entity_id, canonical_key, created_at_utc)
+            values('project', ?, ?, strftime('%Y-%m-%dT%H:%M:%SZ','now'))
+            """,
+            (project_id, slug),
+        )
+        conn.execute("insert into project_aliases(alias, project_id) values(?, ?)", (slug, project_id))
+        conn.execute(
+            """
+            insert into repositories(
+                repository_id, project_id, location, kind, branch, head, status,
+                canonical, repository_kind, host_id, worktree_path, remote_url, runtime_path
+            )
+            values(?, ?, ?, 'local', ?, null, 'active', 1, 'local_worktree', null, ?, ?, null)
+            """,
+            (repository_id, project_id, root, branch, root, remote_url),
+        )
+    print(f"project_id={project_id}")
+    print(f"slug={slug}")
+    print(f"repository_id={repository_id}")
+    print("status=created")
+    return 0
+
+
 def register_github_repo_command(args: argparse.Namespace) -> int:
     owner = args.owner.strip()
     name = args.name.strip()
@@ -3385,6 +3479,8 @@ def main(argv: list[str] | None = None) -> int:
     register_github_parser.add_argument("--remote-url", required=True)
     register_github_parser.add_argument("--default-branch", required=True)
     register_github_parser.add_argument("--worktree", required=True)
+    register_local_parser = sub.add_parser("register-local-repo")
+    register_local_parser.add_argument("--worktree", required=True)
     tag_parser = sub.add_parser("tag")
     tag_parser.add_argument("tag_args", nargs="+")
     tag_parser.add_argument("--description")
@@ -3458,6 +3554,8 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     if args.cmd == "register-github-repo":
         return register_github_repo_command(args)
+    if args.cmd == "register-local-repo":
+        return register_local_repo_command(args)
     if args.cmd == "tag":
         return tag_command(args)
     if args.cmd == "tag-alias":
