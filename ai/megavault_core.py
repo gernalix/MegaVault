@@ -262,7 +262,7 @@ def connect(path: Path | str | None = None) -> sqlite3.Connection:
 PROMPT_ID_MIN = 100_000
 PROMPT_ID_SPACE = 900_000
 PROMPT_ID_STATUSES = ("allocated", "materialized", "used", "cancelled")
-PROMPT_ID_REQUEST_ID_RE = re.compile(r"[A-Za-z0-9._-]{1,180}\\Z")
+PROMPT_ID_REQUEST_ID_RE = re.compile(r"[A-Za-z0-9._-]{1,180}\Z")
 
 
 def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
