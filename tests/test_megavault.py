@@ -160,6 +160,43 @@ class MegaVaultTests(unittest.TestCase):
                 ).fetchone()[0],
             )
 
+    def test_prompt_id_request_retry_survives_lifecycle_advance(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            prompt_id = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-idempotent-advanced",
+                request_id="test-idempotent-advanced",
+            )
+            digest = hashlib.sha256(b"advanced prompt").hexdigest()
+            megavault.materialize_prompt_id(
+                prompt_id,
+                content_sha256=digest,
+                db_path=tmp_db,
+            )
+            megavault.mark_prompt_id_used(prompt_id, db_path=tmp_db)
+            replay = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-idempotent-advanced",
+                request_id="test-idempotent-advanced",
+            )
+            self.assertEqual(prompt_id, replay)
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            self.assertEqual(
+                ("used",),
+                conn.execute(
+                    "select status from prompt_id_registry where prompt_id=?",
+                    (prompt_id,),
+                ).fetchone(),
+            )
+            self.assertEqual(
+                1,
+                conn.execute(
+                    "select count(*) from prompt_id_allocation_requests where request_id='test-idempotent-advanced'"
+                ).fetchone()[0],
+            )
+
     def test_prompt_id_request_conflict_fails_closed(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_db = self.prompt_id_temp_db(tmp)
