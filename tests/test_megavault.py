@@ -86,6 +86,7 @@ class MegaVaultTests(unittest.TestCase):
         self.addCleanup(conn.close)
         conn.execute("PRAGMA foreign_keys=OFF")
         conn.execute("DROP TABLE IF EXISTS prompt_id_events")
+        conn.execute("DROP TABLE IF EXISTS prompt_id_allocation_requests")
         conn.execute("DROP TABLE IF EXISTS prompt_id_registry")
         conn.execute("PRAGMA foreign_keys=ON")
         megavault.ensure_prompt_id_schema(conn)
@@ -120,6 +121,129 @@ class MegaVaultTests(unittest.TestCase):
                     "select count(*) from prompt_id_events where event_type='allocated'"
                 ).fetchone()[0],
             )
+
+    def test_prompt_id_request_retry_returns_same_id(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            first = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-idempotent",
+                project_id=23,
+                request_id="test-request-idempotent",
+            )
+            second = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-idempotent",
+                project_id=23,
+                request_id="test-request-idempotent",
+            )
+            self.assertEqual(first, second)
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            self.assertEqual(
+                1,
+                conn.execute("select count(*) from prompt_id_registry").fetchone()[0],
+            )
+            self.assertEqual(
+                [("test-request-idempotent", first, "test-idempotent", 23, None)],
+                conn.execute(
+                    """
+                    select request_id,prompt_id,source,project_id,parent_prompt_id
+                    from prompt_id_allocation_requests
+                    """
+                ).fetchall(),
+            )
+            self.assertEqual(
+                1,
+                conn.execute(
+                    "select count(*) from prompt_id_events where event_type='allocated'"
+                ).fetchone()[0],
+            )
+
+    def test_prompt_id_request_conflict_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            first = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-request-conflict",
+                project_id=23,
+                request_id="test-request-conflict",
+            )
+            with self.assertRaisesRegex(
+                ValueError,
+                "PROMPT_ID_REQUEST_ID_CONFLICT:test-request-conflict",
+            ):
+                megavault.allocate_prompt_id(
+                    tmp_db,
+                    source="different-source",
+                    project_id=23,
+                    request_id="test-request-conflict",
+                )
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            self.assertEqual(
+                [(first, "test-request-conflict")],
+                conn.execute(
+                    """
+                    select r.prompt_id,q.request_id
+                    from prompt_id_registry r
+                    join prompt_id_allocation_requests q using(prompt_id)
+                    """
+                ).fetchall(),
+            )
+
+    def test_prompt_id_same_request_is_idempotent_under_concurrency(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                ids = list(
+                    pool.map(
+                        lambda _: megavault.allocate_prompt_id(
+                            tmp_db,
+                            source="test-same-request-concurrency",
+                            project_id=23,
+                            request_id="test-same-request-concurrency",
+                        ),
+                        range(32),
+                    )
+                )
+            self.assertEqual(1, len(set(ids)))
+            prompt_id = ids[0]
+            conn = sqlite3.connect(tmp_db)
+            self.addCleanup(conn.close)
+            self.assertEqual(
+                1,
+                conn.execute("select count(*) from prompt_id_registry").fetchone()[0],
+            )
+            self.assertEqual(
+                [("test-same-request-concurrency", prompt_id)],
+                conn.execute(
+                    "select request_id,prompt_id from prompt_id_allocation_requests"
+                ).fetchall(),
+            )
+            self.assertEqual(
+                1,
+                conn.execute(
+                    "select count(*) from prompt_id_events where event_type='allocated'"
+                ).fetchone()[0],
+            )
+
+    def test_distinct_request_ids_still_allocate_distinct_revisions(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_db = self.prompt_id_temp_db(tmp)
+            first = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-distinct-requests",
+                project_id=23,
+                request_id="test-distinct-request-1",
+            )
+            second = megavault.allocate_prompt_id(
+                tmp_db,
+                source="test-distinct-requests",
+                project_id=23,
+                request_id="test-distinct-request-2",
+            )
+            self.assertNotEqual(first, second)
 
     def test_allocator_rejects_historical_source_namespace(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -342,7 +466,13 @@ class MegaVaultTests(unittest.TestCase):
             trigger_count = conn.execute(
                 "select count(*) from sqlite_master where type='trigger' and name like 'prompt_id_%'"
             ).fetchone()[0]
-            self.assertEqual(8, trigger_count)
+            self.assertEqual(10, trigger_count)
+            self.assertEqual(
+                1,
+                conn.execute(
+                    "select count(*) from sqlite_master where type='table' and name='prompt_id_allocation_requests'"
+                ).fetchone()[0],
+            )
 
     def test_secret_scan_has_zero_hits(self):
         self.assertEqual([], megavault.secret_scan_errors(megavault.git_tracked()))
