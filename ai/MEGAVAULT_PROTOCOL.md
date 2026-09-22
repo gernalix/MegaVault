@@ -120,9 +120,9 @@ Quando ChatGPT deve creare un nuovo prompt della roadmap da remoto, deve ottener
 Ordine dei trasporti ammessi:
 
 1. bridge remoto GitHub `PROMPT_ID remote command` tramite **Issue immutabile** con titolo `[prompt-id-command] <request_id>` e body JSON del comando;
-2. `request_id` è la chiave idempotente. MegaVault conserva una receipt durevole per ogni richiesta applicata: retry identici devono restituire lo stesso PROMPT_ID, mentre un payload diverso con lo stesso `request_id` deve fallire chiuso;
+2. `request_id` è la chiave idempotente **dell'allocatore canonico stesso**. La relazione `request_id -> PROMPT_ID` vive in `megavault.sqlite:prompt_id_allocation_requests` ed è scritta nella stessa transazione `BEGIN IMMEDIATE` della reservation: retry con gli stessi `source/project_id/parent_prompt_id` restituiscono lo stesso PROMPT_ID; riuso della stessa chiave con parametri diversi fallisce chiuso. Le receipt JSON sono solo proiezioni/audit e non sono fonte di idempotenza;
 3. se il bridge/GitHub Actions non è disponibile ma il checkout canonico locale `/home/daniele/MegaVault` è disponibile, usare direttamente lo **stesso allocator canonico**:
-   `python3 /home/daniele/MegaVault/megavault.py prompt-id allocate ...`;
+   `python3 /home/daniele/MegaVault/megavault.py prompt-id allocate --request-id <REQUEST_ID> ...`;
 4. solo dopo un ID canonico confermato, creare la mutation `[roadmap-mutation]` `register` in `codex-roadmap`;
 5. dopo che il writer roadmap ha creato il file prompt canonico, portare l'ID a `materialized` tramite una seconda Issue `[prompt-id-command]` oppure, se il runner resta indisponibile, con:
    `python3 /home/daniele/MegaVault/megavault.py prompt-id materialize <ID> --content-file <file-canonico-locale>`
