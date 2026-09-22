@@ -1,6 +1,5 @@
 {
-  "request_id": "chatgpt-ccs-per-thread-overlay-live-20260922-v1-materialize",
-  "command": "materialize",
-  "prompt_id": 125435,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/ccs-codex-per-thread-overlay-live-validation-v1.md"
+  "request_id": "chatgpt-grindr-export-desktop-end-to-end-20260922-v1-allocate",
+  "command": "allocate",
+  "source": "chatgpt-roadmap-grindr-export-desktop-end-to-end"
 }
