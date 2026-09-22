@@ -3649,7 +3649,7 @@ def main(argv: list[str] | None = None) -> int:
     prompt_id_allocate.add_argument("--source", required=True)
     prompt_id_allocate.add_argument("--project-id", type=int)
     prompt_id_allocate.add_argument("--parent-prompt-id", type=int)
-    prompt_id_allocate.add_argument("--request-id")
+    prompt_id_allocate.add_argument("--request-id", required=True)
     prompt_id_backup = prompt_id_sub.add_parser("backup")
     prompt_id_backup.add_argument("--output-dir")
     prompt_id_backfill_sources = prompt_id_sub.add_parser("backfill-sources")
