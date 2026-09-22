@@ -332,6 +332,7 @@ prompt_id_reuse=forbidden_forever
 prompt_id_parentage=parent_prompt_id_only;id_inheritance=forbidden
 prompt_id_allocator=centralized_registry+CSPRNG+SQLite_PRIMARY_KEY+transaction
 prompt_id_content_hash=audit_only;deduplication=forbidden
+prompt_id_request_id=db_atomic_same_transaction;retry_same_parameters_same_id;conflict_fail_closed
 ```
 
 ## Project Identity
