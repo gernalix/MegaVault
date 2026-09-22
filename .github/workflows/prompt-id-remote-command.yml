@@ -4,9 +4,12 @@ on:
   push:
     paths:
       - ".github/prompt-id-request.json"
+  issues:
+    types: [opened, reopened]
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: megavault-prompt-id-registry
@@ -14,8 +17,12 @@ concurrency:
 
 jobs:
   command:
+    if: github.event_name == 'push' || startsWith(github.event.issue.title, '[prompt-id-command] ')
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      TARGET_BRANCH: master
+      GH_TOKEN: ${{ github.token }}
 
     steps:
       - name: Checkout triggering request
@@ -25,9 +32,20 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cp .github/prompt-id-request.json /tmp/prompt-id-request.json
-          git fetch origin "$GITHUB_REF_NAME"
-          git reset --hard "origin/$GITHUB_REF_NAME"
+          if [[ "$GITHUB_EVENT_NAME" == "issues" ]]; then
+            python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text(encoding="utf-8"))
+          Path("/tmp/prompt-id-request.json").write_text(
+              str(event["issue"].get("body") or ""), encoding="utf-8"
+          )
+          PY
+          else
+            cp .github/prompt-id-request.json /tmp/prompt-id-request.json
+          fi
+          git fetch origin "$TARGET_BRANCH"
+          git reset --hard "origin/$TARGET_BRANCH"
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -166,8 +184,8 @@ jobs:
           }
 
           replay_on_latest() {
-            git fetch origin "$GITHUB_REF_NAME"
-            git reset --hard "origin/$GITHUB_REF_NAME"
+            git fetch origin "$TARGET_BRANCH"
+            git reset --hard "origin/$TARGET_BRANCH"
 
             if [[ "$COMMAND" == "allocate" ]]; then
               args=(prompt-id allocate --source "$SOURCE")
@@ -194,7 +212,7 @@ jobs:
 
           commit_current
           for attempt in 1 2 3; do
-            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+            if git push origin "HEAD:$TARGET_BRANCH"; then
               exit 0
             fi
             if [[ "$attempt" -eq 3 ]]; then
@@ -205,3 +223,18 @@ jobs:
           done
           echo "Unable to persist PROMPT_ID registry command after bounded replay on latest master" >&2
           exit 1
+
+      - name: Report Issue command result
+        if: success() && github.event_name == 'issues'
+        shell: bash
+        run: |
+          set -euo pipefail
+          body="$(python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path(".github/prompt-id-response.json").read_text(encoding="utf-8"))
+          print("PROMPT_ID={prompt_id}\nstatus={status}\nrequest_id={request_id}".format(**data))
+          PY
+          )"
+          gh issue comment "${{ github.event.issue.number }}" --repo "$GITHUB_REPOSITORY" --body "$body"
+          gh issue close "${{ github.event.issue.number }}" --repo "$GITHUB_REPOSITORY" --reason completed
