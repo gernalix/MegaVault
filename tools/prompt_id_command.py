@@ -19,7 +19,7 @@ import megavault
 
 REQUEST_ID_RE = re.compile(r"[A-Za-z0-9._-]{1,180}\Z")
 ALLOWED_CONTENT_PREFIX = "https://raw.githubusercontent.com/gernalix/codex-roadmap/"
-EXPECTED_STATUS = {"allocate": "allocated", "materialize": "materialized"}
+EXPECTED_STATUS = {"allocate": "allocated", "materialize": "materialized", "cancel": "cancelled"}
 
 
 class PromptIdCommandError(RuntimeError):
@@ -156,7 +156,7 @@ def legacy_response_replay(
         prompt_id = int(response["prompt_id"])
     except (KeyError, TypeError, ValueError) as exc:
         raise PromptIdCommandError(f"invalid_legacy_response:{request_id}") from exc
-    if command == "materialize" and prompt_id != int(request["prompt_id"]):
+    if command in {"materialize", "cancel"} and prompt_id != int(request["prompt_id"]):
         raise PromptIdCommandError(f"request_id_conflict:{request_id}:prompt_id")
     expected_status = EXPECTED_STATUS[command]
     if str(response.get("status") or "") != expected_status:
@@ -194,7 +194,7 @@ def execute_request(
 ) -> dict[str, Any]:
     command = str(request.get("command") or "").strip()
     if command not in EXPECTED_STATUS:
-        raise PromptIdCommandError("command_must_be_allocate_or_materialize")
+        raise PromptIdCommandError("command_must_be_allocate_materialize_or_cancel")
     request_id = str(request.get("request_id") or "").strip()
     if not REQUEST_ID_RE.fullmatch(request_id):
         raise PromptIdCommandError(f"invalid_request_id:{request_id}")
@@ -287,23 +287,30 @@ def execute_request(
         try:
             prompt_id = int(request["prompt_id"])
         except (KeyError, TypeError, ValueError) as exc:
-            raise PromptIdCommandError("prompt_id_required_for_materialize") from exc
-        content_url = str(request.get("content_url") or "").strip()
-        payload = download_prompt(content_url)
-        try:
-            text = payload.decode("utf-8")
-        except UnicodeDecodeError as exc:
-            raise PromptIdCommandError("prompt_content_not_utf8") from exc
-        if not re.search(
-            rf"(?m)^PROMPT_ID={prompt_id}(?:\s|$)",
-            text,
-        ):
-            raise PromptIdCommandError(f"prompt_id_marker_missing:{prompt_id}")
-        megavault.materialize_prompt_id(
-            prompt_id,
-            content_sha256=hashlib.sha256(payload).hexdigest(),
-            db_path=db_path,
-        )
+            raise PromptIdCommandError(f"prompt_id_required_for_{command}") from exc
+
+        if command == "materialize":
+            content_url = str(request.get("content_url") or "").strip()
+            payload = download_prompt(content_url)
+            try:
+                text = payload.decode("utf-8")
+            except UnicodeDecodeError as exc:
+                raise PromptIdCommandError("prompt_content_not_utf8") from exc
+            if not re.search(
+                rf"(?m)^PROMPT_ID={prompt_id}(?:\s|$)",
+                text,
+            ):
+                raise PromptIdCommandError(f"prompt_id_marker_missing:{prompt_id}")
+            megavault.materialize_prompt_id(
+                prompt_id,
+                content_sha256=hashlib.sha256(payload).hexdigest(),
+                db_path=db_path,
+            )
+        else:
+            megavault.cancel_prompt_id(
+                prompt_id,
+                db_path=db_path,
+            )
 
     status = EXPECTED_STATUS[command]
     result = {
