@@ -27,6 +27,7 @@ from ai.megavault_core import (
     PROMPT_ID_STATUSES,
     ensure_prompt_id_schema,
     allocate_prompt_id,
+    bind_prompt_id_request,
     backfill_prompt_ids,
     parse_prompt_id_file,
     extract_prompt_ids,
