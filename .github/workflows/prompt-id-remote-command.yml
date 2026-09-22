@@ -4,16 +4,12 @@ on:
   push:
     paths:
       - ".github/prompt-id-request.json"
-  issues:
-    types: [opened, reopened]
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened]
-    paths:
-      - ".github/prompt-id-request.json"
 
 permissions:
   contents: write
-  issues: write
+  pull-requests: write
 
 concurrency:
   group: megavault-prompt-id-registry
@@ -21,7 +17,7 @@ concurrency:
 
 jobs:
   command:
-    if: github.event_name == 'push' || github.event_name == 'pull_request' || startsWith(github.event.issue.title, '[prompt-id-command] ')
+    if: github.event_name == 'push' || startsWith(github.event.pull_request.title, '[prompt-id-command] ')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
@@ -36,13 +32,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [[ "$GITHUB_EVENT_NAME" == "issues" ]]; then
+          if [[ "$GITHUB_EVENT_NAME" == "pull_request_target" ]]; then
             python3 - <<'PY'
           import json, os
           from pathlib import Path
           event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text(encoding="utf-8"))
           Path("/tmp/prompt-id-request.json").write_text(
-              str(event["issue"].get("body") or ""), encoding="utf-8"
+              str(event["pull_request"].get("body") or ""), encoding="utf-8"
           )
           PY
           else
@@ -267,8 +263,8 @@ jobs:
           echo "Unable to persist PROMPT_ID registry command after bounded replay on latest master" >&2
           exit 1
 
-      - name: Report Issue command result
-        if: success() && github.event_name == 'issues'
+      - name: Report PR command result
+        if: success() && github.event_name == 'pull_request_target'
         shell: bash
         run: |
           set -euo pipefail
@@ -279,5 +275,5 @@ jobs:
           print("PROMPT_ID={prompt_id}\nstatus={status}\nrequest_id={request_id}".format(**data))
           PY
           )"
-          gh issue comment "${{ github.event.issue.number }}" --repo "$GITHUB_REPOSITORY" --body "$body"
-          gh issue close "${{ github.event.issue.number }}" --repo "$GITHUB_REPOSITORY" --reason completed
+          gh pr comment "${{ github.event.pull_request.number }}" --repo "$GITHUB_REPOSITORY" --body "$body"
+          gh pr close "${{ github.event.pull_request.number }}" --repo "$GITHUB_REPOSITORY"
