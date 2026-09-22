@@ -1,6 +1,6 @@
 {
-  "request_id": "chatgpt-grindr-single-browser-lifecycle-20260922-materialize",
-  "command": "materialize",
-  "prompt_id": 354882,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/35f4cc7c467a8128638d616fd3312df1b63641f0/prompts/grindr-web-exporter-single-browser-end-to-end-v1.md"
+  "request_id": "chatgpt-eboks-ondemand-probe-fix-20260922",
+  "command": "allocate",
+  "source": "chatgpt-roadmap",
+  "project_id": 23
 }
