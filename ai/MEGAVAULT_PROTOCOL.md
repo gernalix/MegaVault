@@ -111,6 +111,21 @@ Se il pre-pull fallisce, non usare `git pull` o `git reset --hard` come fallback
 - Se il registro canonico non e' raggiungibile, non generare un ID alternativo non registrato e non dichiararlo definitivo.
 - Stati ammessi: `allocated -> materialized -> used`; `allocated -> cancelled`; `materialized -> cancelled`. `used` e `cancelled` sono terminali.
 - Un ID cancellato resta occupato per sempre.
+
+
+### Bridge remoto PROMPT_ID per ChatGPT
+
+Quando ChatGPT deve creare un nuovo prompt della roadmap da remoto, deve ottenere il PROMPT_ID dal registry MegaVault **prima** della mutation `register` di `codex-roadmap`.
+
+Trasporto remoto preferito da ChatGPT:
+
+1. creare in `gernalix/MegaVault` una Issue con titolo `[prompt-id-command] <request_key>` e body JSON contenente `command=allocate`, `request_id` univoco, `source` e gli eventuali `project_id` / `parent_prompt_id`;
+2. attendere che il workflow `PROMPT_ID remote command` commenti e chiuda la Issue con `PROMPT_ID=<id>`, `status=allocated` e lo stesso `request_id`;
+3. usare quell'ID nella Issue `[roadmap-mutation]` del single writer di `codex-roadmap`;
+4. dopo che il writer della roadmap ha creato il file prompt canonico su `main`, creare una seconda Issue `[prompt-id-command]` con `command=materialize`, lo stesso PROMPT_ID e `content_url` del file canonico;
+5. attendere `status=materialized` per lo stesso `request_id`.
+
+Il vecchio trasporto tramite push di `.github/prompt-id-request.json` resta compatibilità/fallback; non è il percorso primario per ChatGPT. Una risposta con `request_id` diverso è stale e va ignorata. Se allocate o materialize non vengono confermati, il prompt non va dichiarato aggiunto alla roadmap e non si deve inventare un ID o creare una Issue `[plan]` sostitutiva.
 - Unica eccezione di bootstrap: durante l'attivazione iniziale del registro, gli ID storici gia' materializzati prima dell'allocator vanno importati come riservati tramite `prompt-id backfill`; questa operazione serve solo a impedirne il riuso e non e' ammessa per creare nuovi prompt.
 - Ogni backfill storico deve usare `source=historical-*`; tale prefisso e' riservato al backfill e l'allocator normale deve rifiutarlo. Le righe con tale prefisso sono terminali: normalmente restano `allocated` solo per compatibilita' dello schema; e' ammesso anche `used` per il prompt di bootstrap gia' materializzato durante l'attivazione. In ogni caso `materialize` e `cancel` devono rifiutare qualunque ulteriore transizione. La fonte e' immutabile, quindi un ID storico non puo' essere trasformato in un prompt nuovo.
 - Per l'attivazione usare gli helper `prompt-id backup` e `prompt-id backfill-sources`: il backup viene creato con nome univoco e permessi `0600` fuori dal worktree, senza `rm` preventivo; il backfill estrae internamente solo gli ID e non riversa history/archivi nel contesto del modello.
