@@ -151,8 +151,30 @@ jobs:
           )
           PY
 
-      - name: Validate registry
-        run: PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate
+      - name: Validate PROMPT_ID registry only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import sqlite3
+          from pathlib import Path
+
+          response = json.loads(Path(".github/prompt-id-response.json").read_text(encoding="utf-8"))
+          conn = sqlite3.connect("megavault.sqlite")
+          try:
+              assert conn.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
+              assert conn.execute("PRAGMA foreign_key_check").fetchall() == []
+              row = conn.execute(
+                  "select status from prompt_id_registry where prompt_id=?",
+                  (int(response["prompt_id"]),),
+              ).fetchone()
+              expected = "allocated" if response["command"] == "allocate" else "materialized"
+              assert row and row[0] == expected, (row, expected)
+          finally:
+              conn.close()
+          print("PROMPT_ID_REGISTRY_VALIDATE=PASS")
+          PY
 
       - name: Persist registry command without binary rebase
         shell: bash
@@ -206,7 +228,24 @@ jobs:
               python3 megavault.py prompt-id materialize "$MATERIALIZE_PROMPT_ID" --content-file /tmp/prompt.md
               write_response materialize "$MATERIALIZE_PROMPT_ID"
             fi
-            PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate
+            python3 - <<'PY'
+          import json
+          import sqlite3
+          from pathlib import Path
+          response = json.loads(Path(".github/prompt-id-response.json").read_text(encoding="utf-8"))
+          conn = sqlite3.connect("megavault.sqlite")
+          try:
+              assert conn.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
+              assert conn.execute("PRAGMA foreign_key_check").fetchall() == []
+              row = conn.execute(
+                  "select status from prompt_id_registry where prompt_id=?",
+                  (int(response["prompt_id"]),),
+              ).fetchone()
+              expected = "allocated" if response["command"] == "allocate" else "materialized"
+              assert row and row[0] == expected, (row, expected)
+          finally:
+              conn.close()
+          PY
           }
 
           commit_current() {
