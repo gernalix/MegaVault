@@ -126,7 +126,8 @@ Ordine dei trasporti ammessi:
 4. solo dopo un ID canonico confermato, creare la mutation `[roadmap-mutation]` `register` in `codex-roadmap`;
 5. dopo che il writer roadmap ha creato il file prompt canonico, portare l'ID a `materialized` tramite una seconda Issue `[prompt-id-command]` oppure, se il runner resta indisponibile, con:
    `python3 /home/daniele/MegaVault/megavault.py prompt-id materialize <ID> --content-file <file-canonico-locale>`
-   dopo un pull protetto della roadmap.
+   dopo un pull protetto della roadmap;
+6. anche `cancel` deve passare dallo stesso trasporto `[prompt-id-command]` quando la mutazione deve essere persistita sul branch canonico. Il worker è il single writer del registry remoto; un `cancel` ripetuto sullo stesso PROMPT_ID è idempotente.
 
 Il vecchio `.github/prompt-id-request.json` non è più un trasporto operativo. `.github/prompt-id-response.json` è solo una proiezione di compatibilità dell'ultimo risultato e non è una mailbox autorevole. Una normale Issue `[plan]`, un Issue number o un numero scelto dal modello non sostituiscono mai l'allocator. Se né bridge né CLI canonica sono disponibili, fermarsi con stato pending/blocked senza inventare un ID.
 - Unica eccezione di bootstrap: durante l'attivazione iniziale del registro, gli ID storici gia' materializzati prima dell'allocator vanno importati come riservati tramite `prompt-id backfill`; questa operazione serve solo a impedirne il riuso e non e' ammessa per creare nuovi prompt.
