@@ -262,11 +262,12 @@ def connect(path: Path | str | None = None) -> sqlite3.Connection:
 PROMPT_ID_MIN = 100_000
 PROMPT_ID_SPACE = 900_000
 PROMPT_ID_STATUSES = ("allocated", "materialized", "used", "cancelled")
+PROMPT_ID_REQUEST_ID_RE = re.compile(r"[A-Za-z0-9._-]{1,180}\\Z")
 
 
 def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
     required_objects = {
-        "table": {"prompt_id_registry", "prompt_id_events"},
+        "table": {"prompt_id_registry", "prompt_id_events", "prompt_id_allocation_requests"},
         "index": {
             "idx_prompt_id_parent",
             "idx_prompt_id_project_created",
@@ -282,6 +283,8 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
             "prompt_id_events_no_delete",
             "prompt_id_event_allocated",
             "prompt_id_event_state_change",
+            "prompt_id_allocation_requests_no_update",
+            "prompt_id_allocation_requests_no_delete",
         },
     }
     existing = {
@@ -376,6 +379,21 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
           ON prompt_id_registry(project_id, created_at_utc);
         CREATE INDEX IF NOT EXISTS idx_prompt_id_status
           ON prompt_id_registry(status, created_at_utc);
+        CREATE TABLE IF NOT EXISTS prompt_id_allocation_requests (
+          request_id TEXT PRIMARY KEY
+            CHECK (
+              length(request_id) BETWEEN 1 AND 180
+              AND request_id NOT GLOB '*[^A-Za-z0-9._-]*'
+            ),
+          prompt_id INTEGER NOT NULL UNIQUE
+            REFERENCES prompt_id_registry(prompt_id)
+            ON UPDATE CASCADE ON DELETE RESTRICT,
+          source TEXT NOT NULL,
+          project_id INTEGER,
+          parent_prompt_id INTEGER,
+          created_at_utc TEXT NOT NULL
+            DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+        );
         CREATE TABLE IF NOT EXISTS prompt_id_events (
           event_id INTEGER PRIMARY KEY AUTOINCREMENT,
           prompt_id INTEGER NOT NULL
@@ -454,6 +472,20 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
         END
         """,
         """
+        CREATE TRIGGER IF NOT EXISTS prompt_id_allocation_requests_no_update
+        BEFORE UPDATE ON prompt_id_allocation_requests
+        BEGIN
+          SELECT RAISE(ABORT, 'PROMPT_ID_REQUEST_IMMUTABLE');
+        END
+        """,
+        """
+        CREATE TRIGGER IF NOT EXISTS prompt_id_allocation_requests_no_delete
+        BEFORE DELETE ON prompt_id_allocation_requests
+        BEGIN
+          SELECT RAISE(ABORT, 'PROMPT_ID_REQUEST_IMMUTABLE');
+        END
+        """,
+        """
         CREATE TRIGGER IF NOT EXISTS prompt_id_event_allocated
         AFTER INSERT ON prompt_id_registry
         BEGIN
@@ -476,26 +508,177 @@ def ensure_prompt_id_schema(conn: sqlite3.Connection) -> bool:
     return changed
 
 
+def _normalize_prompt_id_request_id(request_id: str | None) -> str | None:
+    if request_id is None:
+        return None
+    value = str(request_id).strip()
+    if not PROMPT_ID_REQUEST_ID_RE.fullmatch(value):
+        raise ValueError(f"invalid PROMPT_ID request_id: {request_id!r}")
+    return value
+
+
+def _prompt_id_request_payload_matches(
+    row: sqlite3.Row | tuple,
+    *,
+    source: str,
+    project_id: int | None,
+    parent_prompt_id: int | None,
+) -> bool:
+    return (
+        str(row[1]) == source
+        and row[2] == project_id
+        and row[3] == parent_prompt_id
+    )
+
+
+def bind_prompt_id_request(
+    prompt_id: int,
+    *,
+    request_id: str,
+    source: str,
+    project_id: int | None = None,
+    parent_prompt_id: int | None = None,
+    db_path: Path | str | None = None,
+    busy_timeout_ms: int = 30_000,
+) -> int:
+    """Bind a pre-existing allocation to one immutable request_id."""
+    source = source.strip()
+    if not source:
+        raise ValueError("source must not be empty")
+    normalized_request_id = _normalize_prompt_id_request_id(request_id)
+    assert normalized_request_id is not None
+    conn = sqlite3.connect(
+        db_path or DB,
+        timeout=busy_timeout_ms / 1000,
+        isolation_level=None,
+    )
+    try:
+        conn.execute("PRAGMA foreign_keys=ON")
+        conn.execute(f"PRAGMA busy_timeout={int(busy_timeout_ms)}")
+        conn.execute("BEGIN IMMEDIATE")
+        ensure_prompt_id_schema(conn)
+
+        existing = conn.execute(
+            """
+            SELECT prompt_id, source, project_id, parent_prompt_id
+            FROM prompt_id_allocation_requests
+            WHERE request_id=?
+            """,
+            (normalized_request_id,),
+        ).fetchone()
+        if existing:
+            if int(existing[0]) != int(prompt_id) or not _prompt_id_request_payload_matches(
+                existing,
+                source=source,
+                project_id=project_id,
+                parent_prompt_id=parent_prompt_id,
+            ):
+                raise ValueError(
+                    f"PROMPT_ID_REQUEST_ID_CONFLICT:{normalized_request_id}"
+                )
+            conn.execute("COMMIT")
+            return int(existing[0])
+
+        prompt = conn.execute(
+            """
+            SELECT prompt_id, source, project_id, parent_prompt_id
+            FROM prompt_id_registry
+            WHERE prompt_id=?
+            """,
+            (int(prompt_id),),
+        ).fetchone()
+        if not prompt:
+            raise ValueError(f"prompt_id not found for request binding: {prompt_id}")
+        if not _prompt_id_request_payload_matches(
+            prompt,
+            source=source,
+            project_id=project_id,
+            parent_prompt_id=parent_prompt_id,
+        ):
+            raise ValueError(
+                f"PROMPT_ID_REQUEST_PAYLOAD_CONFLICT:{normalized_request_id}"
+            )
+        mapped = conn.execute(
+            "SELECT request_id FROM prompt_id_allocation_requests WHERE prompt_id=?",
+            (int(prompt_id),),
+        ).fetchone()
+        if mapped:
+            raise ValueError(
+                f"PROMPT_ID_ALREADY_BOUND_TO_REQUEST:{prompt_id}:{mapped[0]}"
+            )
+        conn.execute(
+            """
+            INSERT INTO prompt_id_allocation_requests(
+              request_id, prompt_id, source, project_id, parent_prompt_id
+            ) VALUES (?, ?, ?, ?, ?)
+            """,
+            (
+                normalized_request_id,
+                int(prompt_id),
+                source,
+                project_id,
+                parent_prompt_id,
+            ),
+        )
+        conn.execute("COMMIT")
+        return int(prompt_id)
+    except Exception:
+        if conn.in_transaction:
+            conn.execute("ROLLBACK")
+        raise
+    finally:
+        conn.close()
+
+
 def allocate_prompt_id(
     db_path: Path | str | None = None,
     *,
     source: str,
     project_id: int | None = None,
     parent_prompt_id: int | None = None,
+    request_id: str | None = None,
     busy_timeout_ms: int = 30_000,
 ) -> int:
+    """Allocate one PROMPT_ID, idempotently when request_id is supplied."""
     source = source.strip()
     if not source:
         raise ValueError("source must not be empty")
     if source.startswith("historical-"):
         raise ValueError("source prefix 'historical-' is reserved for backfill")
-    conn = sqlite3.connect(db_path or DB, timeout=busy_timeout_ms / 1000, isolation_level=None)
+    normalized_request_id = _normalize_prompt_id_request_id(request_id)
+    conn = sqlite3.connect(
+        db_path or DB,
+        timeout=busy_timeout_ms / 1000,
+        isolation_level=None,
+    )
     try:
         conn.execute("PRAGMA foreign_keys=ON")
         conn.execute(f"PRAGMA busy_timeout={int(busy_timeout_ms)}")
         conn.execute("BEGIN IMMEDIATE")
-        if not table_exists(conn, "prompt_id_registry"):
-            raise RuntimeError("prompt_id_registry missing; run 'megavault.py migrate' first")
+        ensure_prompt_id_schema(conn)
+
+        if normalized_request_id is not None:
+            existing = conn.execute(
+                """
+                SELECT prompt_id, source, project_id, parent_prompt_id
+                FROM prompt_id_allocation_requests
+                WHERE request_id=?
+                """,
+                (normalized_request_id,),
+            ).fetchone()
+            if existing:
+                if not _prompt_id_request_payload_matches(
+                    existing,
+                    source=source,
+                    project_id=project_id,
+                    parent_prompt_id=parent_prompt_id,
+                ):
+                    raise ValueError(
+                        f"PROMPT_ID_REQUEST_ID_CONFLICT:{normalized_request_id}"
+                    )
+                conn.execute("COMMIT")
+                return int(existing[0])
+
         allocated_count = conn.execute(
             "select count(*) from prompt_id_registry"
         ).fetchone()[0]
@@ -512,6 +695,21 @@ def allocate_prompt_id(
                     """,
                     (prompt_id, parent_prompt_id, project_id, source),
                 )
+                if normalized_request_id is not None:
+                    conn.execute(
+                        """
+                        INSERT INTO prompt_id_allocation_requests(
+                          request_id, prompt_id, source, project_id, parent_prompt_id
+                        ) VALUES (?, ?, ?, ?, ?)
+                        """,
+                        (
+                            normalized_request_id,
+                            prompt_id,
+                            source,
+                            project_id,
+                            parent_prompt_id,
+                        ),
+                    )
                 conn.execute("COMMIT")
                 return prompt_id
             except sqlite3.IntegrityError:
@@ -529,7 +727,6 @@ def allocate_prompt_id(
         raise
     finally:
         conn.close()
-
 
 def backfill_prompt_ids(
     prompt_ids: list[int],
@@ -948,6 +1145,7 @@ def prompt_id_allocate_command(args: argparse.Namespace) -> int:
             source=args.source,
             project_id=args.project_id,
             parent_prompt_id=args.parent_prompt_id,
+            request_id=args.request_id,
         )
     except (RuntimeError, ValueError, sqlite3.Error) as exc:
         print(f"PROMPT_ID_ALLOCATE=FAIL {exc}", file=sys.stderr)
@@ -3451,6 +3649,7 @@ def main(argv: list[str] | None = None) -> int:
     prompt_id_allocate.add_argument("--source", required=True)
     prompt_id_allocate.add_argument("--project-id", type=int)
     prompt_id_allocate.add_argument("--parent-prompt-id", type=int)
+    prompt_id_allocate.add_argument("--request-id")
     prompt_id_backup = prompt_id_sub.add_parser("backup")
     prompt_id_backup.add_argument("--output-dir")
     prompt_id_backfill_sources = prompt_id_sub.add_parser("backfill-sources")
