@@ -124,7 +124,7 @@ def apply_request(cache: Path, body: str) -> dict[str, Any]:
             result = json.loads(proc.stdout.strip().splitlines()[-1])
         except (IndexError, json.JSONDecodeError) as exc:
             raise WorkerError("invalid_command_output") from exc
-        if result.get("status") != "ok":
+        if result.get("status") not in {"allocated", "materialized"}:
             raise WorkerError(f"command_not_ok:{result}")
         return result
     finally:
