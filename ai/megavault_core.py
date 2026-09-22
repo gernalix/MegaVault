@@ -1085,6 +1085,11 @@ def cancel_prompt_id(
     *,
     db_path: Path | str | None = None,
 ) -> None:
+    """Cancel an allocatable PROMPT_ID idempotently.
+
+    Replaying cancel after the row is already cancelled is a no-op success.
+    Historical reservations and used prompts remain non-cancellable.
+    """
     conn = connect(db_path)
     try:
         with conn:
@@ -1099,11 +1104,17 @@ def cancel_prompt_id(
                 """,
                 (prompt_id,),
             ).rowcount
-        if changed != 1:
-            raise ValueError(f"prompt_id not cancellable or already terminal: {prompt_id}")
+        if changed == 1:
+            return
+        row = conn.execute(
+            "SELECT status, source FROM prompt_id_registry WHERE prompt_id=?",
+            (prompt_id,),
+        ).fetchone()
+        if row and row[0] == "cancelled" and not str(row[1]).startswith("historical-"):
+            return
+        raise ValueError(f"prompt_id not cancellable or already terminal: {prompt_id}")
     finally:
         conn.close()
-
 
 def smoke_prompt_id(
     *,
