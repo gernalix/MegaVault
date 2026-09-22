@@ -1,6 +1,6 @@
 {
-  "request_id": "chatgpt-grindr-single-browser-lifecycle-20260922-allocate",
-  "command": "allocate",
-  "source": "chatgpt-roadmap",
-  "parent_prompt_id": 515955
+  "request_id": "chatgpt-grindr-single-browser-lifecycle-20260922-materialize",
+  "command": "materialize",
+  "prompt_id": 354882,
+  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/35f4cc7c467a8128638d616fd3312df1b63641f0/prompts/grindr-web-exporter-single-browser-end-to-end-v1.md"
 }
