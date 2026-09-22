@@ -1,6 +1,6 @@
 {
-  "command": "allocate",
+  "command": "materialize",
   "prompt_id": 556372,
-  "request_id": "chatgpt-grindr-export-desktop-end-to-end-20260922-v1-allocate",
-  "status": "allocated"
+  "request_id": "chatgpt-grindr-export-desktop-end-to-end-20260922-v1-materialize",
+  "status": "materialized"
 }
