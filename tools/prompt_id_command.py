@@ -86,9 +86,15 @@ def validate_registry_row(
             "SELECT status FROM prompt_id_registry WHERE prompt_id=?",
             (prompt_id,),
         ).fetchone()
-        if not row or str(row[0]) != expected_status:
+        actual = str(row[0]) if row else "missing"
+        allowed = {expected_status}
+        if expected_status == "allocated":
+            allowed = {"allocated", "materialized", "used", "cancelled"}
+        elif expected_status == "materialized":
+            allowed = {"materialized", "used", "cancelled"}
+        if not row or actual not in allowed:
             raise PromptIdCommandError(
-                f"registry_state_mismatch:{prompt_id}:{row[0] if row else 'missing'}:{expected_status}"
+                f"registry_state_mismatch:{prompt_id}:{actual}:{expected_status}"
             )
     finally:
         conn.close()
