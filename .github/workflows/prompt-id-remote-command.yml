@@ -1,18 +1,12 @@
 name: PROMPT_ID remote command
 
 on:
-  push:
-    paths:
-      - ".github/prompt-id-request.json"
   issues:
     types: [opened, reopened]
-  pull_request_target:
-    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
   issues: write
-  pull-requests: write
 
 concurrency:
   group: megavault-prompt-id-registry
@@ -20,7 +14,7 @@ concurrency:
 
 jobs:
   command:
-    if: github.event_name == 'push' || (github.event_name == 'issues' && startsWith(github.event.issue.title, '[prompt-id-command] ')) || (github.event_name == 'pull_request_target' && startsWith(github.event.pull_request.title, '[prompt-id-command] '))
+    if: startsWith(github.event.issue.title, '[prompt-id-command] ')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
@@ -28,279 +22,84 @@ jobs:
       GH_TOKEN: ${{ github.token }}
 
     steps:
-      - name: Checkout triggering request
+      - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-      - name: Capture request and sync latest registry
+      - name: Capture immutable request
         shell: bash
         run: |
           set -euo pipefail
-          if [[ "$GITHUB_EVENT_NAME" == "issues" ]]; then
-            python3 - <<'PY'
+          python3 - <<'PY'
           import json, os
           from pathlib import Path
           event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text(encoding="utf-8"))
           Path("/tmp/prompt-id-request.json").write_text(
-              str(event["issue"].get("body") or ""), encoding="utf-8"
+              str(event["issue"].get("body") or ""),
+              encoding="utf-8",
           )
           PY
-          elif [[ "$GITHUB_EVENT_NAME" == "pull_request_target" ]]; then
-            python3 - <<'PY'
-          import json, os
-          from pathlib import Path
-          event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text(encoding="utf-8"))
-          Path("/tmp/prompt-id-request.json").write_text(
-              str(event["pull_request"].get("body") or ""), encoding="utf-8"
-          )
-          PY
-          else
-            cp .github/prompt-id-request.json /tmp/prompt-id-request.json
-          fi
-          git fetch origin "$TARGET_BRANCH"
-          git reset --hard "origin/$TARGET_BRANCH"
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Parse immutable request
-        id: request
+      - name: Apply idempotent command and persist race-safely
         shell: bash
-        run: |
-          set -euo pipefail
-          python3 - <<'PY' >> "$GITHUB_OUTPUT"
-          import json
-          from pathlib import Path
-
-          request = json.loads(Path("/tmp/prompt-id-request.json").read_text(encoding="utf-8"))
-          command = request.get("command")
-          if command not in {"allocate", "materialize"}:
-              raise SystemExit("command must be allocate or materialize")
-          request_id = str(request.get("request_id") or "").strip()
-          if not request_id:
-              raise SystemExit("request_id is required")
-          print(f"command={command}")
-          print(f"request_id={request_id}")
-
-          if command == "allocate":
-              source = str(request.get("source") or "").strip()
-              if not source:
-                  raise SystemExit("source is required for allocate")
-              print(f"source={source}")
-              project_id = request.get("project_id")
-              parent_prompt_id = request.get("parent_prompt_id")
-              print(f"project_id={'' if project_id is None else int(project_id)}")
-              print(f"parent_prompt_id={'' if parent_prompt_id is None else int(parent_prompt_id)}")
-          else:
-              prompt_id = int(request["prompt_id"])
-              content_url = str(request.get("content_url") or "")
-              allowed = "https://raw.githubusercontent.com/gernalix/codex-roadmap/"
-              if not content_url.startswith(allowed):
-                  raise SystemExit("content_url must point to gernalix/codex-roadmap raw content")
-              print(f"prompt_id={prompt_id}")
-              print(f"content_url={content_url}")
-          PY
-
-      - name: Allocate
-        if: steps.request.outputs.command == 'allocate'
-        id: allocate
-        shell: bash
-        env:
-          SOURCE: ${{ steps.request.outputs.source }}
-          PROJECT_ID: ${{ steps.request.outputs.project_id }}
-          PARENT_PROMPT_ID: ${{ steps.request.outputs.parent_prompt_id }}
-          REQUEST_ID: ${{ steps.request.outputs.request_id }}
-        run: |
-          set -euo pipefail
-          args=(prompt-id allocate --source "$SOURCE")
-          if [[ -n "$PROJECT_ID" ]]; then args+=(--project-id "$PROJECT_ID"); fi
-          if [[ -n "$PARENT_PROMPT_ID" ]]; then args+=(--parent-prompt-id "$PARENT_PROMPT_ID"); fi
-          prompt_id="$(python3 megavault.py "${args[@]}")"
-          [[ "$prompt_id" =~ ^[0-9]{6}$ ]]
-          printf 'prompt_id=%s\n' "$prompt_id" >> "$GITHUB_OUTPUT"
-          PROMPT_ID="$prompt_id" python3 - <<'PY'
-          import json, os
-          from pathlib import Path
-          Path(".github/prompt-id-response.json").write_text(
-              json.dumps({
-                  "request_id": os.environ["REQUEST_ID"],
-                  "command": "allocate",
-                  "prompt_id": int(os.environ["PROMPT_ID"]),
-                  "status": "allocated",
-              }, indent=2, sort_keys=True) + "\n",
-              encoding="utf-8",
-          )
-          PY
-
-      - name: Materialize
-        if: steps.request.outputs.command == 'materialize'
-        shell: bash
-        env:
-          PROMPT_ID: ${{ steps.request.outputs.prompt_id }}
-          CONTENT_URL: ${{ steps.request.outputs.content_url }}
-          REQUEST_ID: ${{ steps.request.outputs.request_id }}
-        run: |
-          set -euo pipefail
-          curl --fail --silent --show-error --location "$CONTENT_URL" --output /tmp/prompt.md
-          grep -Eq "^PROMPT_ID=$PROMPT_ID([[:space:]]|$)" /tmp/prompt.md
-          python3 megavault.py prompt-id materialize "$PROMPT_ID" --content-file /tmp/prompt.md
-          python3 - <<'PY'
-          import json, os
-          from pathlib import Path
-          Path(".github/prompt-id-response.json").write_text(
-              json.dumps({
-                  "request_id": os.environ["REQUEST_ID"],
-                  "command": "materialize",
-                  "prompt_id": int(os.environ["PROMPT_ID"]),
-                  "status": "materialized",
-              }, indent=2, sort_keys=True) + "\n",
-              encoding="utf-8",
-          )
-          PY
-
-      - name: Validate PROMPT_ID registry only
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 - <<'PY'
-          import json
-          import sqlite3
-          from pathlib import Path
-
-          response = json.loads(Path(".github/prompt-id-response.json").read_text(encoding="utf-8"))
-          conn = sqlite3.connect("megavault.sqlite")
-          try:
-              assert conn.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
-              assert conn.execute("PRAGMA foreign_key_check").fetchall() == []
-              row = conn.execute(
-                  "select status from prompt_id_registry where prompt_id=?",
-                  (int(response["prompt_id"]),),
-              ).fetchone()
-              expected = "allocated" if response["command"] == "allocate" else "materialized"
-              assert row and row[0] == expected, (row, expected)
-          finally:
-              conn.close()
-          print("PROMPT_ID_REGISTRY_VALIDATE=PASS")
-          PY
-
-      - name: Persist registry command without binary rebase
-        shell: bash
-        env:
-          COMMAND: ${{ steps.request.outputs.command }}
-          REQUEST_ID: ${{ steps.request.outputs.request_id }}
-          SOURCE: ${{ steps.request.outputs.source }}
-          PROJECT_ID: ${{ steps.request.outputs.project_id }}
-          PARENT_PROMPT_ID: ${{ steps.request.outputs.parent_prompt_id }}
-          MATERIALIZE_PROMPT_ID: ${{ steps.request.outputs.prompt_id }}
-          CONTENT_URL: ${{ steps.request.outputs.content_url }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          write_response() {
-            local command="$1"
-            local prompt_id="$2"
-            COMMAND_VALUE="$command" PROMPT_ID_VALUE="$prompt_id" python3 - <<'PY'
-          import json, os
-          from pathlib import Path
-          Path(".github/prompt-id-response.json").write_text(
-              json.dumps({
-                  "request_id": os.environ["REQUEST_ID"],
-                  "command": os.environ["COMMAND_VALUE"],
-                  "prompt_id": int(os.environ["PROMPT_ID_VALUE"]),
-                  "status": "allocated" if os.environ["COMMAND_VALUE"] == "allocate" else "materialized",
-              }, indent=2, sort_keys=True) + "\n",
-              encoding="utf-8",
-          )
-          PY
-          }
-
-          replay_on_latest() {
-            git fetch origin "$TARGET_BRANCH"
-            git reset --hard "origin/$TARGET_BRANCH"
-
-            if [[ "$COMMAND" == "allocate" ]]; then
-              args=(prompt-id allocate --source "$SOURCE")
-              if [[ -n "$PROJECT_ID" ]]; then args+=(--project-id "$PROJECT_ID"); fi
-              if [[ -n "$PARENT_PROMPT_ID" ]]; then args+=(--parent-prompt-id "$PARENT_PROMPT_ID"); fi
-              prompt_id="$(python3 megavault.py "${args[@]}")"
-              [[ "$prompt_id" =~ ^[0-9]{6}$ ]]
-              write_response allocate "$prompt_id"
-            else
-              if [[ ! -f /tmp/prompt.md ]]; then
-                curl --fail --silent --show-error --location "$CONTENT_URL" --output /tmp/prompt.md
-              fi
-              grep -Eq "^PROMPT_ID=$MATERIALIZE_PROMPT_ID([[:space:]]|$)" /tmp/prompt.md
-              python3 megavault.py prompt-id materialize "$MATERIALIZE_PROMPT_ID" --content-file /tmp/prompt.md
-              write_response materialize "$MATERIALIZE_PROMPT_ID"
-            fi
-            python3 - <<'PY'
-          import json
-          import sqlite3
-          from pathlib import Path
-          response = json.loads(Path(".github/prompt-id-response.json").read_text(encoding="utf-8"))
-          conn = sqlite3.connect("megavault.sqlite")
-          try:
-              assert conn.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
-              assert conn.execute("PRAGMA foreign_key_check").fetchall() == []
-              row = conn.execute(
-                  "select status from prompt_id_registry where prompt_id=?",
-                  (int(response["prompt_id"]),),
-              ).fetchone()
-              expected = "allocated" if response["command"] == "allocate" else "materialized"
-              assert row and row[0] == expected, (row, expected)
-          finally:
-              conn.close()
-          PY
-          }
-
-          commit_current() {
-            git add megavault.sqlite .github/prompt-id-response.json
-            git commit -m "PROMPT_ID registry command $REQUEST_ID"
-          }
-
-          commit_current
+          persisted=0
           for attempt in 1 2 3; do
-            if git push origin "HEAD:$TARGET_BRANCH"; then
-              exit 0
-            fi
-            if [[ "$attempt" -eq 3 ]]; then
+            git fetch --quiet origin "$TARGET_BRANCH"
+            git reset --hard "origin/$TARGET_BRANCH"
+            git clean -fd
+
+            python3 tools/prompt_id_command.py               --request /tmp/prompt-id-request.json               > /tmp/prompt-id-output.json
+            cat /tmp/prompt-id-output.json
+
+            git add               megavault.sqlite               .github/prompt-id-response.json               .github/prompt-id-receipts
+
+            if git diff --cached --quiet; then
+              persisted=1
               break
             fi
-            replay_on_latest
-            commit_current
+
+            request_id="$(python3 -c 'import json; print(json.load(open("/tmp/prompt-id-output.json"))["request_id"])')"
+            git commit -m "PROMPT_ID registry command $request_id"
+
+            if git push origin "HEAD:$TARGET_BRANCH"; then
+              persisted=1
+              break
+            fi
+
+            if [ "$attempt" -eq 3 ]; then
+              echo "Unable to persist PROMPT_ID registry command after bounded replay on latest master" >&2
+              exit 1
+            fi
           done
-          echo "Unable to persist PROMPT_ID registry command after bounded replay on latest master" >&2
-          exit 1
+
+          test "$persisted" -eq 1
 
       - name: Report Issue command result
-        if: success() && github.event_name == 'issues'
+        if: success()
         shell: bash
         run: |
           set -euo pipefail
           body="$(python3 - <<'PY'
           import json
           from pathlib import Path
-          data = json.loads(Path(".github/prompt-id-response.json").read_text(encoding="utf-8"))
-          print("PROMPT_ID={prompt_id}\nstatus={status}\nrequest_id={request_id}".format(**data))
+          data = json.loads(Path("/tmp/prompt-id-output.json").read_text(encoding="utf-8"))
+          print(
+              "PROMPT_ID={prompt_id}\nstatus={status}\nrequest_id={request_id}\nreplayed={replayed}".format(
+                  **data
+              )
+          )
           PY
           )"
           gh issue comment "${{ github.event.issue.number }}" --repo "$GITHUB_REPOSITORY" --body "$body"
           gh issue close "${{ github.event.issue.number }}" --repo "$GITHUB_REPOSITORY" --reason completed
-
-      - name: Report PR command result
-        if: success() && github.event_name == 'pull_request_target'
-        shell: bash
-        run: |
-          set -euo pipefail
-          body="$(python3 - <<'PY'
-          import json
-          from pathlib import Path
-          data = json.loads(Path(".github/prompt-id-response.json").read_text(encoding="utf-8"))
-          print("PROMPT_ID={prompt_id}\nstatus={status}\nrequest_id={request_id}".format(**data))
-          PY
-          )"
-          gh pr comment "${{ github.event.pull_request.number }}" --repo "$GITHUB_REPOSITORY" --body "$body"
-          gh pr close "${{ github.event.pull_request.number }}" --repo "$GITHUB_REPOSITORY"
