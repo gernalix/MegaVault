@@ -82,6 +82,67 @@ class PromptIdCommandTests(unittest.TestCase):
             finally:
                 conn.close()
 
+    def test_cancel_command_is_idempotent_without_json_receipts(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            db = self._db(root)
+            response = root / "response.json"
+            receipts = root / "receipts"
+            allocate = self._request()
+
+            allocated = prompt_id_command.execute_request(
+                allocate,
+                db_path=db,
+                response_path=response,
+                receipt_dir=receipts,
+            )
+            response.unlink()
+            for path in receipts.glob("*.json"):
+                path.unlink()
+
+            cancel = {
+                "request_id": "bridge-db-native-cancel",
+                "command": "cancel",
+                "prompt_id": allocated["prompt_id"],
+            }
+            first = prompt_id_command.execute_request(
+                cancel,
+                db_path=db,
+                response_path=response,
+                receipt_dir=receipts,
+            )
+            response.unlink()
+            for path in receipts.glob("*.json"):
+                path.unlink()
+            second = prompt_id_command.execute_request(
+                cancel,
+                db_path=db,
+                response_path=response,
+                receipt_dir=receipts,
+            )
+
+            self.assertEqual("cancelled", first["status"])
+            self.assertEqual("cancelled", second["status"])
+            self.assertEqual(first["prompt_id"], second["prompt_id"])
+            conn = sqlite3.connect(db)
+            try:
+                self.assertEqual(
+                    ("cancelled",),
+                    conn.execute(
+                        "SELECT status FROM prompt_id_registry WHERE prompt_id=?",
+                        (allocated["prompt_id"],),
+                    ).fetchone(),
+                )
+                self.assertEqual(
+                    1,
+                    conn.execute(
+                        "SELECT COUNT(*) FROM prompt_id_events WHERE prompt_id=? AND event_type='cancelled'",
+                        (allocated["prompt_id"],),
+                    ).fetchone()[0],
+                )
+            finally:
+                conn.close()
+
     def test_allocate_conflict_is_rejected_even_without_json_receipts(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
