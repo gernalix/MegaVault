@@ -2,6 +2,11 @@ name: Validate MegaVault
 
 on:
   push:
+    paths-ignore:
+      - "megavault.sqlite"
+      - ".github/prompt-id-request.json"
+      - ".github/prompt-id-response.json"
+      - ".github/prompt-id-receipts/**"
   pull_request:
 
 permissions:
