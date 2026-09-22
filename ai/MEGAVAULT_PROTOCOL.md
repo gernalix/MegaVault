@@ -119,15 +119,16 @@ Quando ChatGPT deve creare un nuovo prompt della roadmap da remoto, deve ottener
 
 Ordine dei trasporti ammessi:
 
-1. bridge remoto GitHub `PROMPT_ID remote command` tramite il trasporto effettivamente abilitato nel repository (PR comando `[prompt-id-command]` o push di `.github/prompt-id-request.json`), con `request_id` univoco;
-2. se il bridge/GitHub Actions non è disponibile ma il checkout canonico locale `/home/daniele/MegaVault` è disponibile, usare direttamente lo **stesso allocator canonico**:
+1. bridge remoto GitHub `PROMPT_ID remote command` tramite **Issue immutabile** con titolo `[prompt-id-command] <request_id>` e body JSON del comando;
+2. `request_id` è la chiave idempotente. MegaVault conserva una receipt durevole per ogni richiesta applicata: retry identici devono restituire lo stesso PROMPT_ID, mentre un payload diverso con lo stesso `request_id` deve fallire chiuso;
+3. se il bridge/GitHub Actions non è disponibile ma il checkout canonico locale `/home/daniele/MegaVault` è disponibile, usare direttamente lo **stesso allocator canonico**:
    `python3 /home/daniele/MegaVault/megavault.py prompt-id allocate ...`;
-3. solo dopo un ID canonico confermato, creare la mutation `[roadmap-mutation]` `register` in `codex-roadmap`;
-4. dopo che il writer roadmap ha creato il file prompt canonico, portare l'ID a `materialized` tramite il bridge remoto oppure, se ancora indisponibile, con:
+4. solo dopo un ID canonico confermato, creare la mutation `[roadmap-mutation]` `register` in `codex-roadmap`;
+5. dopo che il writer roadmap ha creato il file prompt canonico, portare l'ID a `materialized` tramite una seconda Issue `[prompt-id-command]` oppure, se il runner resta indisponibile, con:
    `python3 /home/daniele/MegaVault/megavault.py prompt-id materialize <ID> --content-file <file-canonico-locale>`
    dopo un pull protetto della roadmap.
 
-Una response con `request_id` diverso è stale e va ignorata. Una normale Issue `[plan]`, un Issue number o un numero scelto dal modello non sostituiscono mai l'allocator. Se né bridge né CLI canonica sono disponibili, fermarsi con stato pending/blocked senza inventare un ID.
+Il vecchio `.github/prompt-id-request.json` non è più un trasporto operativo. `.github/prompt-id-response.json` è solo una proiezione di compatibilità dell'ultimo risultato e non è una mailbox autorevole. Una normale Issue `[plan]`, un Issue number o un numero scelto dal modello non sostituiscono mai l'allocator. Se né bridge né CLI canonica sono disponibili, fermarsi con stato pending/blocked senza inventare un ID.
 - Unica eccezione di bootstrap: durante l'attivazione iniziale del registro, gli ID storici gia' materializzati prima dell'allocator vanno importati come riservati tramite `prompt-id backfill`; questa operazione serve solo a impedirne il riuso e non e' ammessa per creare nuovi prompt.
 - Ogni backfill storico deve usare `source=historical-*`; tale prefisso e' riservato al backfill e l'allocator normale deve rifiutarlo. Le righe con tale prefisso sono terminali: normalmente restano `allocated` solo per compatibilita' dello schema; e' ammesso anche `used` per il prompt di bootstrap gia' materializzato durante l'attivazione. In ogni caso `materialize` e `cancel` devono rifiutare qualunque ulteriore transizione. La fonte e' immutabile, quindi un ID storico non puo' essere trasformato in un prompt nuovo.
 - Per l'attivazione usare gli helper `prompt-id backup` e `prompt-id backfill-sources`: il backup viene creato con nome univoco e permessi `0600` fuori dal worktree, senza `rm` preventivo; il backfill estrae internamente solo gli ID e non riversa history/archivi nel contesto del modello.
