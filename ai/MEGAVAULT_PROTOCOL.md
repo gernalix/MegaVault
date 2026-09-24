@@ -93,6 +93,19 @@ Precedenza:
 
 Regola assoluta: **una materializzazione di prompt = un nuovo PROMPT_ID unico**.
 
+### Contratto machine-readable PROMPT_ID
+
+Questi marker sono parte del contratto validato automaticamente e devono restare
+testualmente presenti insieme alla policy descrittiva:
+
+- `prompt_id_identity=one_materialized_prompt_one_new_id_absolute`
+- `prompt_id_revision=any_textual_or_semantic_change_requires_new_id`
+- `prompt_id_reuse=forbidden_forever`
+- `prompt_id_parentage=parent_prompt_id_only;id_inheritance=forbidden`
+- `prompt_id_allocator=centralized_registry+CSPRNG+SQLite_PRIMARY_KEY+transaction`
+- `prompt_id_content_hash=audit_only;deduplication=forbidden`
+- `prompt_id_request_id=db_atomic_same_transaction;retry_same_parameters_same_id;conflict_fail_closed`
+
 ### Modello e reasoning: solo metadati roadmap
 
 Per i prompt Codex, **modello GPT e livello di reasoning non fanno parte del testo del prompt**. Devono vivere esclusivamente nei campi strutturati della roadmap (`model`, `reasoning`) e nelle relative proiezioni UI, inclusa Workflowy.
