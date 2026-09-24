@@ -1,7 +1,7 @@
 {
   "command": "allocate",
-  "payload_sha256": "9c1f7baf78be90b91978c98f768a01f21e14bf0b8730787f1c33eb29aa4cae4e",
-  "prompt_id": 519810,
-  "request_id": "chatgpt-pbf-lifecycle-protocol-20260924-v1",
+  "payload_sha256": "f7a4300d6264f219545d15dc92cc562ac1ef4ad29d855670173eea8ebc1466e5",
+  "prompt_id": 996591,
+  "request_id": "chatgpt-ccs-pbf-live-closure-20260924-v1",
   "status": "allocated"
 }
