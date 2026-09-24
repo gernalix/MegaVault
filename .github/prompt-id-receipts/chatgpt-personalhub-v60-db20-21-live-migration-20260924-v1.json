@@ -1,0 +1,7 @@
+{
+  "command": "allocate",
+  "payload_sha256": "290c304e3c68305ad392053dfa3758d842c32d3529acf0217548d42f7a4a6a25",
+  "prompt_id": 383662,
+  "request_id": "chatgpt-personalhub-v60-db20-21-live-migration-20260924-v1",
+  "status": "allocated"
+}

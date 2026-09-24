@@ -1,0 +1,7 @@
+{
+  "command": "allocate",
+  "payload_sha256": "01b35e6b4f8fd777102bb61caa67b076c731dccce7b34b6c44a28591b4b39c16",
+  "prompt_id": 812553,
+  "request_id": "chatgpt-fix-697920-canonical-repo-metadata-20260924-v1",
+  "status": "allocated"
+}
