@@ -114,6 +114,7 @@ ROOT_ALLOWLIST = {
 ALLOWED_TRACKED_MARKDOWN = {
     "ai/MEGAVAULT_PROTOCOL.md",
     "ai/GLOBAL_INDEX.md",
+    "ai/SQLITE_TO_OBSIDIAN.md",
     "ai/personalhubdoc.md",
     "ai/repository-public-private-matrix.md",
     "ai/repository-retention-checklist.md",
