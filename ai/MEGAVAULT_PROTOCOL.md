@@ -33,6 +33,36 @@ Regole:
 - problemi collaterali non bloccanti: segnalarli, non investigarli nel task corrente;
 - se una feature meta non produce un risparmio o una riduzione di rischio verificabile, non implementarla.
 
+## Proiezione Obsidian cross-project
+
+Obsidian e' una **proiezione derivata esterna**, non una responsabilita' delle app o dei database sorgente.
+
+Fonte e ownership:
+- ogni progetto mantiene la propria fonte canonica e il proprio eventuale formato Git/data export;
+- il servizio Fedora condiviso `sqlite-to-obsidian` consuma sorgenti registrate e produce una sola vault navigabile cross-project;
+- per PersonalHub la sorgente e' il repository privato `PersonalHub-data`, non il repository sorgente `PersonalHub` e non il file Android live `personalhub.db`;
+- PersonalHub non deve contenere renderer Markdown, configurazione vault, code Obsidian, WorkManager Obsidian o dipendenze runtime da Obsidian;
+- la vault non e' mai source of truth e non viene importata automaticamente nelle sorgenti.
+
+Contratto del projector:
+- adapter separati per sorgente; il core di rendering non deve contenere logica specifica di PersonalHub;
+- identita' stabili e namespace globali per permettere wikilink espliciti anche tra progetti diversi;
+- generare note solo per entita'/eventi semanticamente utili; cache, queue, ack, contatori tecnici, audit interni e altri dettagli di runtime restano fuori salvo valore umano concreto;
+- relazioni solo se supportate da chiavi/relazioni canoniche o mapping espliciti; mai dedurre una relazione dalla sola uguaglianza di etichette;
+- stato incrementale proprio del servizio con `source_revision`, versione adapter/renderer e manifest dei file posseduti;
+- usare i change-set della sorgente come hint di efficienza, ma rendere sempre possibile un rebuild corretto dal manifest/stato completo;
+- cancellare solo file marcati come generati e presenti nel manifest di ownership; preservare note manuali;
+- failure del projector non deve mai bloccare o modificare il writer/source upstream.
+
+Runtime Fedora:
+- implementare come servizio/timer resiliente secondo lo standard systemd MegaVault;
+- preferire trigger periodico leggero o evento Git osservabile; evitare daemon always-on se il polling a timer soddisfa la freschezza richiesta;
+- ogni run deve fare fetch/pull, verificare il nuovo revision, applicare il delta, validare la vault e aggiornare lo stato soltanto dopo successo;
+- nessun retry identico senza nuova evidenza; su schema incompatibile o stato incrementale mancante eseguire un rebuild bounded e sicuro;
+- integrare il runtime nel control plane Uptime Kuma come timer/oneshot: monitorare esito + freschezza dell'ultima run, non `ActiveState=active`.
+
+Il contratto specifico PersonalHub e' documentato in `PersonalHub/docs/OBSIDIAN_ARCHIVE.md`. La documentazione del servizio condiviso vive nel repository `sqlite-to-obsidian` quando creato; MegaVault conserva solo le regole trasversali.
+
 ## Uptime Kuma: control plane unico
 
 Uptime Kuma deve essere gestito come un unico sottosistema trasversale, non come una collezione di integrazioni proprietarie per repository.
