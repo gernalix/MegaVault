@@ -1039,19 +1039,32 @@ def materialize_prompt_id(
     conn = connect(db_path)
     try:
         with conn:
-            changed = conn.execute(
-                """
-                UPDATE prompt_id_registry
-                SET status='materialized',
-                    content_sha256=?,
-                    materialized_at_utc=strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
-                WHERE prompt_id=?
-                  AND status='allocated'
-                  AND source NOT LIKE 'historical-%'
-                """,
-                (digest, prompt_id),
-            ).rowcount
-        if changed != 1:
+            row = conn.execute(
+                "SELECT status,content_sha256,source FROM prompt_id_registry WHERE prompt_id=?",
+                (prompt_id,),
+            ).fetchone()
+            if not row or str(row[2]).startswith("historical-"):
+                raise ValueError(f"prompt_id not allocatable for materialization: {prompt_id}")
+            status = str(row[0])
+            existing_hash = str(row[1] or "")
+            if status == "allocated":
+                changed = conn.execute(
+                    """
+                    UPDATE prompt_id_registry
+                    SET status='materialized',
+                        content_sha256=?,
+                        materialized_at_utc=strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
+                    WHERE prompt_id=? AND status='allocated'
+                    """,
+                    (digest, prompt_id),
+                ).rowcount
+                if changed != 1:
+                    raise ValueError(f"prompt_id not allocatable for materialization: {prompt_id}")
+                return
+            if status in {"materialized", "used"} and existing_hash == digest:
+                return
+            if status in {"materialized", "used"}:
+                raise ValueError(f"prompt_id materialization hash conflict: {prompt_id}")
             raise ValueError(f"prompt_id not allocatable for materialization: {prompt_id}")
     finally:
         conn.close()
