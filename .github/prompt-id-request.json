@@ -1,6 +1,4 @@
 {
-  "request_id": "chatgpt-thinkpad-firmware-123-luks-preflight-20260922-v1-materialize",
-  "command": "materialize",
-  "prompt_id": 943492,
-  "content_url": "https://raw.githubusercontent.com/gernalix/codex-roadmap/main/prompts/thinkpad-firmware-123-luks-tpm-recovery-preflight.md"
+  "request_id": "chatgpt-sqlite-to-obsidian-fedora-bootstrap-20260924-v1",
+  "command": "allocate"
 }
