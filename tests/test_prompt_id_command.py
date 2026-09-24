@@ -143,6 +143,38 @@ class PromptIdCommandTests(unittest.TestCase):
             finally:
                 conn.close()
 
+    def test_materialize_retry_after_used_is_noop_when_hash_matches(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            db = self._db(root)
+            conn = sqlite3.connect(db)
+            try:
+                prompt_id = megavault.allocate_prompt_id(
+                    db,
+                    source="test-materialize-retry",
+                    project_id=23,
+                    request_id="test-materialize-retry-allocate",
+                )
+            finally:
+                conn.close()
+            digest = "a" * 64
+            megavault.materialize_prompt_id(prompt_id, content_sha256=digest, db_path=db)
+            megavault.mark_prompt_id_used(prompt_id, db_path=db)
+            megavault.materialize_prompt_id(prompt_id, content_sha256=digest, db_path=db)
+            with self.assertRaisesRegex(ValueError, "materialization hash conflict"):
+                megavault.materialize_prompt_id(prompt_id, content_sha256="b" * 64, db_path=db)
+            conn = sqlite3.connect(db)
+            try:
+                self.assertEqual(
+                    ("used", digest),
+                    conn.execute(
+                        "SELECT status,content_sha256 FROM prompt_id_registry WHERE prompt_id=?",
+                        (prompt_id,),
+                    ).fetchone(),
+                )
+            finally:
+                conn.close()
+
     def test_allocate_conflict_is_rejected_even_without_json_receipts(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
