@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=58
+VERSION=59
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -32,6 +32,30 @@ Regole:
 - una regola deve avere una sola fonte autorevole; altri documenti devono rinviare a quella fonte invece di duplicarla integralmente;
 - problemi collaterali non bloccanti: segnalarli, non investigarli nel task corrente;
 - se una feature meta non produce un risparmio o una riduzione di rischio verificabile, non implementarla.
+
+## Uptime Kuma: control plane unico
+
+Uptime Kuma deve essere gestito come un unico sottosistema trasversale, non come una collezione di integrazioni proprietarie per repository.
+
+Fonte autorevole:
+- `megavault.sqlite:monitoring_targets` descrive il piano cross-repository `repo -> runtime -> segnale -> producer -> monitor Kuma`;
+- `kuma_monitors` e `kuma_monitor_projects` descrivono il DB Kuma realmente sincronizzato;
+- `fedora-system-monitor` e' il controller/prober canonico per runtime Fedora e il punto amministrativo canonico per provisioning/readback Kuma;
+- i target direttamente raggiungibili da Kuma, per esempio HTTP su un runtime remoto, possono essere probe nativi Kuma ma devono comunque essere registrati in `monitoring_targets`;
+- un producer remoto necessario per semantica applicativa puo' esistere, ma non possiede naming, provisioning, inventario o policy Kuma.
+
+Regole:
+- un solo monitor per failure domain indipendente; non creare un monitor per repository, unit o timer se non produce un segnale azionabile distinto;
+- daemon always-on: monitorare liveness/restart-loop;
+- timer/oneshot: monitorare esito e freschezza dell'ultima run rispetto a una soglia esplicita, mai il semplice `ActiveState=active`;
+- job event-driven: non imporre una freshness wall-clock se l'evento atteso non e' presente; usare una condizione semantica verificabile;
+- componenti interattivi/manuali e repository solo-dati possono essere `EXCLUDED` con motivazione;
+- i repository applicativi non devono creare direttamente monitor, token o naming Kuma quando il controller centrale puo' osservare lo stesso failure domain;
+- le vecchie integrazioni repo-specifiche vanno rimosse soltanto dopo provisioning del monitor centrale, heartbeat/probe reale e readback autorevole del DB live; fino a quel gate restano attive per evitare buchi di osservabilita';
+- nessun token push in Git, MegaVault, unit, log o report;
+- ogni write diretta al DB Kuma richiede backup consistente, transazione minima, restart se necessario e readback; preservare monitor estranei;
+- dopo ogni riconciliazione live, sincronizzare `kuma_monitors`, collegare i `monitoring_targets` al monitor effettivo e validare l'indice;
+- nuovi repository/runtime devono essere classificati in `monitoring_targets` quando diventano operativi, cosi' un audit futuro non dipende da memoria o naming euristico.
 
 ## Recupero autonomo dei blocker
 
