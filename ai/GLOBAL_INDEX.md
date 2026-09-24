@@ -1,5 +1,5 @@
 # GLOBAL_INDEX
-VERSION=17
+VERSION=18
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
@@ -15,6 +15,7 @@ codex_reasoning=LOW_only_linear_mechanical_no_significant_runtime_decisions_or_c
 codex_model=GPT-5.5_for_bounded_tasks;GPT-5.6_Sol_for_cross_module_architecture_schema_migrations_undo_audit_data_risk_or_when_stronger_reasoning_is_material
 report_finish_STRICT=python3 reporting.py --plain-file FINAL_REPORT_PLAIN.txt --technical-file FINAL_REPORT_TECHNICAL.txt --prompt-id PROMPT_ID
 personalhub_efficiency=personalhub-efficiency-recommendations.md
+obsidian_projection=SQLITE_TO_OBSIDIAN.md;external_Fedora_projector;PersonalHub_source=gernalix/PersonalHub-data;never_Android_runtime
 
 ROUTING:
 project_id=resolve_only_from_sqlite:project_aliases->projects;integer_primary_key
