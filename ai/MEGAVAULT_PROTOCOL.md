@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=57
+VERSION=58
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -69,6 +69,20 @@ Precedenza:
 
 Regola assoluta: **una materializzazione di prompt = un nuovo PROMPT_ID unico**.
 
+### Modello e reasoning: solo metadati roadmap
+
+Per i prompt Codex, **modello GPT e livello di reasoning non fanno parte del testo del prompt**. Devono vivere esclusivamente nei campi strutturati della roadmap (`model`, `reasoning`) e nelle relative proiezioni UI, inclusa Workflowy.
+
+Regole:
+
+- non scrivere mai nel body/materializzazione del prompt righe, header o istruzioni come `MODEL=...`, `GPT-...`, `REASONING=...`, `reasoning=...` o equivalenti che prescrivano il modello o il livello di ragionamento;
+- il testo del prompt deve restare indipendente dal modello e dal reasoning scelti per eseguirlo;
+- cambiare solo `model` e/o `reasoning` nella roadmap **non e' una revisione del prompt**, non modifica il contenuto materializzato, non richiede un nuovo `PROMPT_ID` e non richiede una nuova materializzazione/hash;
+- finche' il task non e' `running`, ChatGPT puo' aggiornare `model` e/o `reasoning` nel DB canonico della roadmap lasciando invariati prompt, `PROMPT_ID`, genealogia e `content_sha256`;
+- il launcher/Workflowy deve leggere modello e reasoning dai metadati correnti della roadmap al momento dell'avvio, cosi' una scelta aggiornata non richiede di riscrivere o reinoltrare il prompt;
+- dopo il claim `running`, modello e reasoning restano immutabili per quella esecuzione e descrivono il runtime realmente avviato; un cambio desiderato richiede una nuova esecuzione/follow-up secondo la disciplina della roadmap, non la riscrittura retroattiva del prompt;
+- i prompt storici gia' materializzati con model/reasoning nel testo non vanno riscritti solo per adeguarli a questa regola: la regola vale per nuove materializzazioni e revisioni future.
+
 ### Claim obbligatorio dei task roadmap
 
 Per ogni task proveniente da `gernalix/codex-roadmap`, la **prima azione operativa** di Codex, prima di leggere/modificare il repository target, lanciare test, build o fare discovery, deve essere:
@@ -101,7 +115,7 @@ Se il pre-pull fallisce, non usare `git pull` o `git reset --hard` come fallback
 
 - Il formato canonico e' un intero di 6 cifre nell'intervallo `100000..999999`.
 - Un PROMPT_ID viene assegnato una sola volta e non viene mai riutilizzato, riciclato, cancellato o trasferito a un altro prompt.
-- Qualsiasi revisione crea un nuovo prompt e quindi un nuovo PROMPT_ID, anche se cambia una sola parola, un solo carattere, il modello/reasoning, o solo metadati operativi che fanno parte del prompt finale.
+- Qualsiasi revisione del **contenuto o significato del prompt** crea un nuovo prompt e quindi un nuovo PROMPT_ID, anche se cambia una sola parola o un solo carattere rilevante. Il solo cambio dei metadati roadmap `model` e/o `reasoning` e' escluso: non modifica il prompt e non richiede un nuovo ID.
 - Anche due prompt con contenuto testualmente identico ma materializzati come istanze distinte devono avere PROMPT_ID distinti.
 - La relazione tra una revisione e il prompt-padre si conserva esclusivamente con `parent_prompt_id`; l'ID del padre non si eredita mai.
 - `content_sha256` serve solo per audit/integrita'. Non va mai usato per deduplicare o decidere il riuso di un PROMPT_ID.
@@ -328,7 +342,8 @@ Machine contract:
 
 ```text
 prompt_id_identity=one_materialized_prompt_one_new_id_absolute
-prompt_id_revision=any_textual_or_semantic_change_requires_new_id
+prompt_id_revision=any_prompt_textual_or_semantic_change_requires_new_id;model_reasoning_metadata_change_same_id
+codex_prompt_model_reasoning=roadmap_metadata_only;forbidden_in_prompt_body;mutable_before_running;immutable_while_running
 prompt_id_reuse=forbidden_forever
 prompt_id_parentage=parent_prompt_id_only;id_inheritance=forbidden
 prompt_id_allocator=centralized_registry+CSPRNG+SQLite_PRIMARY_KEY+transaction
