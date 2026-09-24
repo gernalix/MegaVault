@@ -53,6 +53,41 @@ class OperationalIndexTests(unittest.TestCase):
             self.assertEqual(2, c.execute("select count(*) from telegram_shared_infrastructure_index").fetchone()[0])
             c.close()
 
+    def test_monitoring_target_registry_tracks_cross_repo_plan(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            db = self.make_db(Path(tmp))
+            self.assertEqual(0, operational_indexes.migrate_operational_indexes(db))
+            self.assertEqual(
+                0,
+                operational_indexes.monitoring_target_upsert_command(
+                    "repo:codex-usage-monitor",
+                    "gernalix/codex-usage-monitor",
+                    "user:codex-usage-monitor.service",
+                    "systemd_job_freshness",
+                    "fedora-system-monitor",
+                    "MONITORED",
+                    "Quota acquisition must complete on schedule.",
+                    "repo:gernalix/codex-usage-monitor/systemd/codex-usage-monitor.service",
+                    project_id=8,
+                    expected_interval_seconds=1800,
+                    path=db,
+                ),
+            )
+            c = sqlite3.connect(db)
+            row = c.execute(
+                "select repository_slug,signal_kind,producer,desired_state,binding_state "
+                "from monitoring_target_index where target_key='repo:codex-usage-monitor'"
+            ).fetchone()
+            self.assertEqual(
+                ("gernalix/codex-usage-monitor","systemd_job_freshness","fedora-system-monitor","MONITORED","UNBOUND"),
+                row,
+            )
+            self.assertEqual(
+                ("PLANNED",),
+                c.execute("select status from operational_inventory_meta where inventory_key='monitoring_targets'").fetchone(),
+            )
+            c.close()
+
     def test_not_synced_is_warning_not_false_complete(self):
         with tempfile.TemporaryDirectory() as tmp:
             db = self.make_db(Path(tmp)); operational_indexes.migrate_operational_indexes(db)
