@@ -1,5 +1,5 @@
 # MEGAVAULT_PROTOCOL
-VERSION=59
+VERSION=60
 STATUS=AUTHORITATIVE_SPECIALIST_PROTOCOL
 MODE=codex_conditional
 
@@ -664,6 +664,7 @@ Ispezionare schema/path live prima di query o migrazioni. Per SQLite live/concor
 - Per verificare un'assenza attesa, eseguire prima il gate d'identita', poi la query package esclusivamente sul seriale restituito e sugli user/profile pertinenti. Evidenza sorprendente o contraddittoria (es. UI mostra l'app ma ADB dice assente) obbliga a rivalidare device + user/profile prima di concludere.
 - Dopo PASS del gate, tutte le operazioni successive del task devono usare `adb -s <seriale_verificato>`; se il seriale cambia o si riconnette un altro target, rieseguire il gate.
 - Per emulatori, usare solo seriale live `emulator-*` in stato `device`; avviare emulator solo se il test dispositivo e' richiesto e non ce n'e' uno attivo.
+- I gate che esercitano `AndroidKeyStore`, `KeyStore.getInstance("AndroidKeyStore")`, chiavi AES/EC non esportabili, firma/attestazione o codice che dipende dal provider Android **devono essere eseguiti su emulator/AVD o device Android reale**. Robolectric/JVM host non fornisce un AndroidKeyStore equivalente e un failure `KeyStoreException`/`NoSuchAlgorithmException` su `AndroidKeyStore` in Robolectric non prova un bug applicativo. Per questi casi: usa unit test host solo per logica pura e verifica il percorso Keystore sul canonical AVD `Pixel_8a` come leaf gate minimo prima di escalare a TCL/Pixel.
 - Non sostituire un Pixel fisico con emulator se il task richiede Pixel fisico.
 - Non dichiarare device test PASS senza evidenza live sul dispositivo richiesto.
 
