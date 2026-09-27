@@ -11,4 +11,4 @@ authority_branch=master
 - Lavora in task worktree; integra tramite single writer. Il checkout canonico non e' un workspace agente.
 - Aggiorna il canonico solo con `python3 tools/megavault_update.py`: dirty state, branch errato o operazione Git pendente bloccano senza stash, commit automatici, reset o rebase.
 - Valida con `PYTHONDONTWRITEBYTECODE=1 python3 megavault.py validate` e SQLite integrity/FK.
-- Recovery Phase A 853479: checkpoint verificato in `/home/daniele/.local/state/megavault-phase-a/853479`; la copia `/home/daniele/projects/MegaVault` non e' autorevole.
+- Recovery Phase A 853479: checkpoint verificato in `/home/daniele/.local/state/megavault-phase-a/853479`; il checkout duplicato e' archiviato e non autorevole.
