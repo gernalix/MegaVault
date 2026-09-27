@@ -101,6 +101,8 @@ DEFAULT_TAG_ALIASES = {
     "zram-generator": "zram",
 }
 ROOT_ALLOWLIST = {
+    ".agents",
+    ".codex",
     ".git",
     ".github",
     ".gitignore",
@@ -112,6 +114,7 @@ ROOT_ALLOWLIST = {
     "tools",
 }
 ALLOWED_TRACKED_MARKDOWN = {
+    "ai/BOOTSTRAP.md",
     "ai/MEGAVAULT_PROTOCOL.md",
     "ai/GLOBAL_INDEX.md",
     "ai/SQLITE_TO_OBSIDIAN.md",
@@ -121,6 +124,8 @@ ALLOWED_TRACKED_MARKDOWN = {
     "legacy/README.md",
 }
 TRACKED_FORBIDDEN_PREFIXES = (
+    ".agents/",
+    ".codex/",
     "human/",
     "docs/",
     "dev/",
