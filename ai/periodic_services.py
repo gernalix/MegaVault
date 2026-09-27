@@ -59,6 +59,41 @@ def ensure_schema(c: sqlite3.Connection) -> None:
              'Run periodic-service-reconcile for Fedora system/user and Oracle system scopes.')
       ON CONFLICT(inventory_key) DO NOTHING;
     """)
+    columns = {row[1] for row in c.execute("pragma table_info(periodic_service_evidence)")}
+    if "source_repository_id" not in columns:
+        c.execute("alter table periodic_service_evidence add column source_repository_id TEXT")
+    if "source_relative_path" not in columns:
+        c.execute("alter table periodic_service_evidence add column source_relative_path TEXT")
+    c.execute("drop view if exists periodic_service_registry")
+    c.execute("""create view periodic_service_registry as
+    select e.service_id,s.name,s.project_id,p.slug as project_slug,s.host_id,h.name as host_name,
+      s.scope,e.timer_unit,e.service_unit,e.enabled_semantics,e.active_semantics,
+      e.defining_path,e.source_line_start,e.source_line_end,e.source_kind,
+      e.source_repository_id,e.source_relative_path,e.present,
+      e.monitoring_decision,e.monitoring_status,e.monitoring_rationale,
+      e.monitoring_target_key,mt.kuma_monitor_key,e.reconciled_at
+    from periodic_service_evidence e join services s on s.service_id=e.service_id
+    left join projects p on p.project_id=s.project_id left join hosts h on h.host_id=s.host_id
+    left join monitoring_targets mt on mt.target_key=e.monitoring_target_key""")
+    _backfill_repository_references(c)
+
+
+def _backfill_repository_references(c: sqlite3.Connection) -> None:
+    repositories = c.execute("""select repository_id,worktree_path from repositories
+      where canonical=1 and worktree_path is not null order by repository_id""").fetchall()
+    for service_id, source_path in c.execute("""select service_id,defining_path from periodic_service_evidence
+      where source_kind='repository_exact_hash' and source_repository_id is null""").fetchall():
+        path = Path(source_path)
+        matches = []
+        for repository_id, root_text in repositories:
+            try:
+                relative = path.relative_to(Path(root_text))
+            except ValueError:
+                continue
+            matches.append((repository_id, relative.as_posix()))
+        if len(matches) == 1:
+            c.execute("""update periodic_service_evidence set source_repository_id=?,source_relative_path=?
+              where service_id=?""", (*matches[0], service_id))
 
 
 def _sha(path: Path) -> str | None:
@@ -68,12 +103,12 @@ def _sha(path: Path) -> str | None:
         return None
 
 
-def _repository_sources(c: sqlite3.Connection) -> dict[tuple[str, str], list[tuple[int, str, Path]]]:
-    index: dict[tuple[str, str], list[tuple[int, str, Path]]] = {}
-    rows = c.execute("""select r.project_id,p.slug,r.worktree_path from repositories r
+def _repository_sources(c: sqlite3.Connection) -> dict[tuple[str, str], list[tuple[str, int, str, Path, Path]]]:
+    index: dict[tuple[str, str], list[tuple[str, int, str, Path, Path]]] = {}
+    rows = c.execute("""select r.repository_id,r.project_id,p.slug,r.worktree_path from repositories r
       join projects p on p.project_id=r.project_id
       where r.canonical=1 and r.worktree_path is not null and p.archived=0""").fetchall()
-    for project_id, slug, root_text in rows:
+    for repository_id, project_id, slug, root_text in rows:
         root = Path(root_text)
         if not root.is_dir():
             continue
@@ -85,7 +120,9 @@ def _repository_sources(c: sqlite3.Connection) -> dict[tuple[str, str], list[tup
                         continue
                     digest = _sha(path)
                     if digest:
-                        index.setdefault((path.name, digest), []).append((project_id, slug, path))
+                        index.setdefault((path.name, digest), []).append(
+                            (repository_id, project_id, slug, root, path)
+                        )
             except OSError:
                 continue
     return index
@@ -176,12 +213,14 @@ def reconcile_snapshot(snapshot: dict[str, Any], host_id: str, c: sqlite3.Connec
         candidates = sources.get((timer, str(digest)), []) if digest else []
         candidate = candidates[0] if len(candidates) == 1 else None
         existing = _existing_service(c, host_id, scope, timer, service)
-        project_id = candidate[0] if candidate else (existing[1] if existing else _existing_project(c, host_id, timer, service))
+        project_id = candidate[1] if candidate else (existing[1] if existing else _existing_project(c, host_id, timer, service))
         service_id = existing[0] if existing else "PER-" + hashlib.sha256(f"{host_id}|{scope}|{timer}".encode()).hexdigest()[:16]
-        defining_path = str(candidate[2]) if candidate else installed_path
+        defining_path = str(candidate[4]) if candidate else installed_path
         source_kind = "repository_exact_hash" if candidate else ("installed_fragment" if digest else "installed_fragment_unreadable")
         line_start = 1 if candidate else source.get("line_start")
-        line_end = (len(candidate[2].read_bytes().splitlines()) or 1) if candidate else source.get("line_end")
+        line_end = (len(candidate[4].read_bytes().splitlines()) or 1) if candidate else source.get("line_end")
+        source_repository_id = candidate[0] if candidate else None
+        source_relative_path = candidate[4].relative_to(candidate[3]).as_posix() if candidate else None
         state = f"enabled={row.get('enabled_state','unknown')};timer={row.get('active_state','unknown')}/{row.get('sub_state','unknown')};service={row.get('service_active_state','unknown')};result={row.get('service_result','unknown')}"
         if existing is None:
             c.execute("""insert into services(service_id,project_id,host_id,name,scope,unit,state,purpose,source_ref)
@@ -196,17 +235,22 @@ def reconcile_snapshot(snapshot: dict[str, Any], host_id: str, c: sqlite3.Connec
         decision, monitor_status, rationale = monitor_decision(
             target=target, defining_path=defining_path, timer_unit=timer,
             enabled_state=str(row.get("enabled_state", "unknown")), project_covered=project_covered)
-        c.execute("""insert into periodic_service_evidence values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        c.execute("""insert into periodic_service_evidence(
+          service_id,timer_unit,service_unit,enabled_semantics,active_semantics,
+          defining_path,source_line_start,source_line_end,source_sha256,source_kind,present,
+          monitoring_decision,monitoring_status,monitoring_rationale,monitoring_target_key,reconciled_at,
+          source_repository_id,source_relative_path) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
           on conflict(service_id) do update set timer_unit=excluded.timer_unit,service_unit=excluded.service_unit,
           enabled_semantics=excluded.enabled_semantics,active_semantics=excluded.active_semantics,
           defining_path=excluded.defining_path,source_line_start=excluded.source_line_start,
           source_line_end=excluded.source_line_end,source_sha256=excluded.source_sha256,
           source_kind=excluded.source_kind,present=1,monitoring_decision=excluded.monitoring_decision,
           monitoring_status=excluded.monitoring_status,monitoring_rationale=excluded.monitoring_rationale,
-          monitoring_target_key=excluded.monitoring_target_key,reconciled_at=excluded.reconciled_at""",
+          monitoring_target_key=excluded.monitoring_target_key,reconciled_at=excluded.reconciled_at,
+          source_repository_id=excluded.source_repository_id,source_relative_path=excluded.source_relative_path""",
           (service_id,timer,service,str(row.get("enabled_state","unknown")),state,defining_path,
            line_start,line_end,digest,source_kind,1,decision,monitor_status,rationale,
-           target[0] if target else None,stamp))
+           target[0] if target else None,stamp,source_repository_id,source_relative_path))
         counts["timers"] += 1
         counts[decision.lower()] += 1
     c.execute("""delete from services where host_id=? and service_id like 'PER-%' and
@@ -274,9 +318,28 @@ def validate(c: sqlite3.Connection) -> tuple[bool, str]:
        ((source_line_start is null or source_line_end is null) and source_kind!='installed_fragment_unreadable') or
        monitoring_rationale='' or monitoring_status='')""").fetchone()[0]
     stale = 0
-    for source_path, digest in c.execute("""select defining_path,source_sha256 from periodic_service_evidence
-      where present=1 and source_kind='repository_exact_hash'"""):
-        if _sha(Path(source_path)) != digest:
+    rows = c.execute("""select e.defining_path,e.source_sha256,e.source_repository_id,
+      e.source_relative_path,r.worktree_path,p.slug
+      from periodic_service_evidence e
+      left join repositories r on r.repository_id=e.source_repository_id
+      left join projects p on p.project_id=r.project_id
+      where e.present=1 and e.source_kind='repository_exact_hash'""").fetchall()
+    for source_path, digest, repository_id, relative_path, worktree_path, project_slug in rows:
+        absolute = Path(source_path)
+        candidate: Path | None = absolute if absolute.exists() else None
+        repository_root: Path | None = None
+        if repository_id and relative_path:
+            if str(project_slug or "").lower() == "megavault":
+                repository_root = ROOT
+            elif worktree_path:
+                repository_root = Path(worktree_path)
+            relocated = repository_root / relative_path if repository_root is not None else None
+            if candidate is None and relocated is not None and relocated.exists():
+                candidate = relocated
+            if candidate is None and repository_root is not None and repository_root.exists():
+                stale += 1
+                continue
+        if candidate is not None and _sha(candidate) != digest:
             stale += 1
     ok = not missing and not bad and not stale
     return ok, f"missing_scopes={len(missing)} invalid={bad} stale_sources={stale}"

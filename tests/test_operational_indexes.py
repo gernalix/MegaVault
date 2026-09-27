@@ -173,9 +173,19 @@ class OperationalIndexTests(unittest.TestCase):
             self.assertEqual("MONITORED", decisions["critical-sync.timer"])
             self.assertEqual("EXCLUDED", decisions["dnf-makecache.timer"])
             self.assertEqual("EXCLUDED", decisions["worker-watchdog.timer"])
+            self.assertEqual(
+                ("R1", "systemd/critical-sync.timer"),
+                tuple(c.execute("""select source_repository_id,source_relative_path
+                  from periodic_service_registry where timer_unit='critical-sync.timer'""").fetchone()),
+            )
             self.assertTrue(periodic_services.validate(c)[0])
             timer_path.write_text(timer_path.read_text() + "RandomizedDelaySec=1m\n")
             self.assertFalse(periodic_services.validate(c)[0])
+            c.execute("update repositories set worktree_path='/unavailable/ci-host/repo' where repository_id='R1'")
+            c.execute("""update periodic_service_evidence set defining_path='/unavailable/fedora/critical-sync.timer'
+              where timer_unit='critical-sync.timer'""")
+            c.commit()
+            self.assertTrue(periodic_services.validate(c)[0])
             c.close()
 
     @staticmethod
