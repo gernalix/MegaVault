@@ -3,15 +3,18 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sqlite3
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from ai import periodic_services
+
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "megavault.sqlite"
-VERSION = 3
+VERSION = 4
 
 
 def conn(path=DB, ro=False):
@@ -173,6 +176,7 @@ def ensure(c):
     """)
     c.execute("""INSERT INTO schema_meta(key,value) VALUES('operational_index_version',?)
       ON CONFLICT(key) DO UPDATE SET value=excluded.value""", (str(VERSION),))
+    periodic_services.ensure_schema(c)
 
 
 def migrate(path=DB):
@@ -204,10 +208,13 @@ def validate(path=DB):
         targets = c.execute("select count(*) from monitoring_target_index").fetchone()[0]
         monitored_unbound = c.execute("select count(*) from monitoring_target_index where desired_state='MONITORED' and binding_state='UNBOUND'").fetchone()[0]
         target_missing = c.execute("select count(*) from monitoring_target_index where trim(coalesce(rationale,''))='' or trim(coalesce(source_ref,''))=''").fetchone()[0]
+        periodic_ok, periodic_detail = periodic_services.validate(c)
         if status == 'COMPLETE' and (not current or unmapped or missing):
             print(f"OPERATIONAL_INDEX_VALIDATE=FAIL kuma_status={status} current={current} unmapped={unmapped} missing_explanation={missing}", file=sys.stderr); return 1
+        if not periodic_ok:
+            print(f"OPERATIONAL_INDEX_VALIDATE=FAIL periodic_services {periodic_detail}", file=sys.stderr); return 1
         label = "PASS" if status == 'COMPLETE' and not monitored_unbound and not target_missing else "PASS_WITH_WARNINGS"
-        print(f"OPERATIONAL_INDEX_VALIDATE={label} kuma_inventory_status={status} kuma_entries={current} kuma_unmapped={unmapped} kuma_missing_explanation={missing} monitoring_targets={targets} monitoring_unbound={monitored_unbound} monitoring_missing_metadata={target_missing} telegram_projects={tproj} telegram_shared_infrastructure={shared}")
+        print(f"OPERATIONAL_INDEX_VALIDATE={label} kuma_inventory_status={status} kuma_entries={current} kuma_unmapped={unmapped} kuma_missing_explanation={missing} monitoring_targets={targets} monitoring_unbound={monitored_unbound} monitoring_missing_metadata={target_missing} periodic_services={periodic_detail} telegram_projects={tproj} telegram_shared_infrastructure={shared}")
         return 0
     finally: c.close()
 
@@ -256,6 +263,40 @@ def kuma_sync(source_db, integration_id='INT0002', host_id=None, path=DB):
     except Exception as e:
         print(f"KUMA_SYNC=FAIL {e}",file=sys.stderr); return 1
     finally: d.close()
+
+
+def kuma_sync_json(source_json, integration_id='INT0002', host_id=None, path=DB):
+    """Sync the Kuma index from a deliberately sanitized live export."""
+    try:
+        payload = json.loads(Path(source_json).read_text())
+        rows = payload["monitors"]
+        allowed = {"id", "name", "type", "active", "hostname", "port", "url"}
+        if not isinstance(rows, list) or any(not isinstance(row, dict) or not {"id", "name"} <= row.keys() or set(row) - allowed for row in rows):
+            raise ValueError("invalid sanitized monitor export")
+        d = conn(path)
+        with d:
+            ensure(d)
+            if not d.execute("select 1 from integrations where integration_id=?", (integration_id,)).fetchone():
+                raise ValueError(f"integration_not_found={integration_id}")
+            stamp = now(); d.execute("update kuma_monitors set seen_in_last_sync=0 where integration_id=?", (integration_id,))
+            for row in rows:
+                key=f"{integration_id}:{int(row['id'])}"; typ=str(row.get("type")) if row.get("type") is not None else None
+                active=int(bool(row.get("active"))) if row.get("active") is not None else None
+                target = safe_target(row, set(row))
+                d.execute("""INSERT INTO kuma_monitors(monitor_key,integration_id,native_monitor_id,host_id,name,monitor_type,active,seen_in_last_sync,target_ref,purpose,last_seen_at,source_ref)
+                  VALUES(?,?,?,?,?,?,?,1,?,'UNKNOWN',?,?)
+                  ON CONFLICT(monitor_key) DO UPDATE SET host_id=coalesce(excluded.host_id,kuma_monitors.host_id),name=excluded.name,monitor_type=excluded.monitor_type,active=excluded.active,seen_in_last_sync=1,target_ref=excluded.target_ref,last_seen_at=excluded.last_seen_at,source_ref=excluded.source_ref""",
+                  (key,integration_id,int(row["id"]),host_id,str(row["name"]),typ,active,target,stamp,f"uptime-kuma-sanitized:monitor:{int(row['id'])}"))
+            current=d.execute("select count(*) from kuma_monitors where integration_id=? and seen_in_last_sync=1",(integration_id,)).fetchone()[0]
+            unmapped=d.execute("select count(*) from kuma_monitors km where integration_id=? and seen_in_last_sync=1 and not exists(select 1 from kuma_monitor_projects k where k.monitor_key=km.monitor_key)",(integration_id,)).fetchone()[0]
+            missing=d.execute("select count(*) from kuma_monitors where integration_id=? and seen_in_last_sync=1 and (trim(coalesce(purpose,''))='' or upper(trim(purpose))='UNKNOWN')",(integration_id,)).fetchone()[0]
+            status='DISCOVERED_EMPTY' if current==0 else ('DISCOVERED_NEEDS_MAPPING' if unmapped or missing else 'READY_TO_FINALIZE')
+            d.execute("update operational_inventory_meta set status=?,source_ref=?,last_synced_at=?,notes=? where inventory_key='kuma_monitors'",
+                      (status,'sanitized-live-export',stamp,f"current={current};unmapped={unmapped};missing_explanation={missing}"))
+        d.close()
+        print(f"KUMA_SYNC=PASS current={current} unmapped={unmapped} missing_explanation={missing} status={status}"); return 0
+    except Exception as exc:
+        print(f"KUMA_SYNC=FAIL {exc}", file=sys.stderr); return 1
 
 
 def kuma_map(key, project_id, relationship='depends_on_project', path=DB):
@@ -401,9 +442,10 @@ monitoring_target_index_command = show_monitoring_targets
 
 
 def dispatch(argv):
-    if not argv or argv[0] not in {'operational-index-migrate','operational-index-validate','kuma-index','kuma-sync-sqlite','kuma-map','kuma-describe','kuma-finalize','monitoring-target-upsert','monitoring-target-index','telegram-index'}: return None
+    if not argv or argv[0] not in {'operational-index-migrate','operational-index-validate','kuma-index','kuma-sync-sqlite','kuma-sync-json','kuma-map','kuma-describe','kuma-finalize','monitoring-target-upsert','monitoring-target-index','periodic-service-reconcile','periodic-service-index','telegram-index'}: return None
     cmd=argv[0]; p=argparse.ArgumentParser(prog=f"megavault.py {cmd}")
     if cmd=='kuma-sync-sqlite': p.add_argument('--source-db',required=True); p.add_argument('--integration-id',default='INT0002'); p.add_argument('--host-id')
+    elif cmd=='kuma-sync-json': p.add_argument('--source-json',required=True); p.add_argument('--integration-id',default='INT0002'); p.add_argument('--host-id')
     elif cmd=='kuma-map': p.add_argument('--monitor-key',required=True); p.add_argument('--project-id',required=True,type=int); p.add_argument('--relationship',default='depends_on_project')
     elif cmd=='kuma-describe': p.add_argument('--monitor-key',required=True); p.add_argument('--purpose',required=True)
     elif cmd=='monitoring-target-upsert':
@@ -415,12 +457,15 @@ def dispatch(argv):
         p.add_argument('--expected-interval-seconds',type=int); p.add_argument('--kuma-monitor-key')
         p.add_argument('--last-verified-at'); p.add_argument('--notes')
     elif cmd=='monitoring-target-index': p.add_argument('--repository-slug')
+    elif cmd=='periodic-service-reconcile':
+        p.add_argument('--host',required=True,choices=('fedora','oracle')); p.add_argument('--scope',choices=('system','user','all'),default='system'); p.add_argument('--snapshot-file')
     elif cmd=='telegram-index': p.add_argument('--project-id',type=int)
     a=p.parse_args(argv[1:])
     if cmd=='operational-index-migrate': return migrate()
     if cmd=='operational-index-validate': return validate()
     if cmd=='kuma-index': return show_kuma()
     if cmd=='kuma-sync-sqlite': return kuma_sync(a.source_db,a.integration_id,a.host_id)
+    if cmd=='kuma-sync-json': return kuma_sync_json(a.source_json,a.integration_id,a.host_id)
     if cmd=='kuma-map': return kuma_map(a.monitor_key,a.project_id,a.relationship)
     if cmd=='kuma-describe': return kuma_describe(a.monitor_key,a.purpose)
     if cmd=='kuma-finalize': return kuma_finalize()
@@ -430,4 +475,6 @@ def dispatch(argv):
         expected_interval_seconds=a.expected_interval_seconds,kuma_monitor_key=a.kuma_monitor_key,
         last_verified_at=a.last_verified_at,notes=a.notes)
     if cmd=='monitoring-target-index': return show_monitoring_targets(a.repository_slug)
+    if cmd=='periodic-service-reconcile': return periodic_services.reconcile_command(a.host,a.scope,a.snapshot_file)
+    if cmd=='periodic-service-index': return periodic_services.show()
     return show_telegram(a.project_id)
