@@ -789,7 +789,7 @@ class MegaVaultTests(unittest.TestCase):
                 """
             ).fetchall()
         )
-        self.assertEqual({8: 4, 23: 4, 49: 4}, component_counts)
+        self.assertEqual({8: 4, 23: 3, 49: 4}, component_counts)
         self.assertEqual({8: 4, 23: 4, 49: 3}, operation_counts)
         self.assertEqual(
             [],

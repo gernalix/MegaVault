@@ -427,12 +427,22 @@ Tabelle/view principali:
 - `projects`, `project_aliases`, `repositories`;
 - `hosts`, `services`, `integrations`, `secret_refs`;
 - `incidents`, `incident_events`, `tags`, `tag_aliases`, `incident_tags`;
-- `events`, `knowledge_notes`, `data_assets`;
+- `events`, `knowledge_notes`, `data_assets`, `database_inventory`;
 - `codex_project_index`, `codex_work_queue`, `codex_remote_projects`, `codex_missing_projects`, `codex_archived_projects`;
 - `kuma_monitors`, `kuma_monitor_projects`, `operational_inventory_meta`, `kuma_monitor_index`;
 - `telegram_project_capabilities`, `telegram_notification_capability_index`, `telegram_notification_project_index`, `telegram_shared_infrastructure_index`.
 
 Gli indici operativi sono strutturati in SQLite. Le view sono derivate: correggere i dati sorgente, non le view.
+
+### Database inventory
+
+`database_inventory` e' l'unico inventario autorevole dei database. La riconciliazione scopre i repository dal filesystem, deduplica worktree e clone per origin normalizzato o common Git dir, e riconosce SQLite dalla firma binaria, indipendentemente dall'estensione. Conserva inoltre i database runtime dichiarati fuori repository e sui mount pertinenti, marcandoli `missing` o `remote_declared` quando non osservabili localmente.
+
+`data_assets`, `project_components` e documenti non devono duplicare questa funzione. Le classificazioni ammesse sono `canonical`, `derived`, `cache`, `browser`, `test`, `fixture`, `backup`, `historical`, `demo`.
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 megavault.py database-inventory-reconcile
+```
 
 ### Uptime Kuma
 
