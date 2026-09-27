@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 9
+SCHEMA_VERSION = 10
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -2127,13 +2127,6 @@ PROJECT_CONTEXT_COMPONENTS = (
     ),
     (
         23,
-        "canonical_sqlite",
-        "sqlite_database",
-        "/home/daniele/MegaVault/megavault.sqlite",
-        "Canonical structured facts for projects, repositories, services, incidents, data assets, and Codex context.",
-    ),
-    (
-        23,
         "targeted_tests",
         "test_suite",
         "/home/daniele/MegaVault/tests/test_megavault.py",
@@ -2529,19 +2522,6 @@ def migrate_project_index_schema(conn: sqlite3.Connection) -> bool:
         "update repositories set status='active' where project_id=23 and status<>'active'"
     )
     changed = changed or conn.total_changes > before
-    before = conn.total_changes
-    conn.execute(
-        """
-        insert or ignore into data_assets(
-            data_asset_id, project_id, host_id, name, asset_type, path, status, notes
-        )
-        values (
-            'DATA0011', 23, 'H0001', 'megavault.sqlite', 'sqlite',
-            '/home/daniele/MegaVault/megavault.sqlite', 'canonical', 'PROMPT_ID=731604'
-        )
-        """
-    )
-    changed = changed or conn.total_changes > before
     current_version = conn.execute(
         "select value from schema_meta where key='schema_version'"
     ).fetchone()
@@ -2615,6 +2595,7 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
         "services",
         "secret_refs",
         "data_assets",
+        "database_inventory",
         "incidents",
         "incident_events",
         "tags",
@@ -2631,6 +2612,35 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
     if missing:
         errors.append(f"missing required tables: {missing}")
         return errors
+    inventory_columns = table_columns(conn, "database_inventory")
+    required_inventory_columns = {
+        "project_id", "project_slug", "repository_id", "repo_identity", "repo_path",
+        "host_id", "db_name", "source_path", "classification", "status", "last_seen",
+        "canonical", "datasette_expose", "sync_to_oracle",
+    }
+    missing_inventory_columns = sorted(required_inventory_columns - set(inventory_columns))
+    if missing_inventory_columns:
+        errors.append(f"database_inventory missing columns: {missing_inventory_columns!r}")
+    invalid_inventory = conn.execute(
+        """select inventory_id from database_inventory
+             where classification not in ('canonical','derived','cache','browser','test','fixture','backup','historical','demo')
+                or canonical not in (0,1) or datasette_expose not in (0,1) or sync_to_oracle not in (0,1)"""
+    ).fetchall()
+    if invalid_inventory:
+        errors.append(f"database_inventory invalid rows: {invalid_inventory!r}")
+    competing_assets = conn.execute(
+        """select data_asset_id from data_assets
+             where lower(coalesce(name,'')||' '||coalesce(asset_type,'')||' '||coalesce(path,'')||' '||coalesce(notes,'')) like '%sqlite%'
+                or lower(coalesce(path,'')) glob '*.db'
+                or lower(coalesce(path,'')) glob '*.db3'"""
+    ).fetchall()
+    if competing_assets:
+        errors.append(f"database rows remain in data_assets: {competing_assets!r}")
+    competing_components = conn.execute(
+        "select component_id from project_components where lower(type) like '%sqlite%'"
+    ).fetchall()
+    if competing_components:
+        errors.append(f"database rows remain in project_components: {competing_components!r}")
     mutable_historical = conn.execute(
         """
         select prompt_id, status, source
@@ -2982,6 +2992,7 @@ def validate() -> int:
             "services",
             "secret_refs",
             "data_assets",
+            "database_inventory",
             "incidents",
             "tags",
             "tag_aliases",
@@ -3436,6 +3447,9 @@ def migrate_database() -> int:
         changed = migrate_project_index_schema(conn) or changed
         changed = ensure_project_context_schema(conn) or changed
         changed = ensure_prompt_id_schema(conn) or changed
+        from ai.database_inventory import ensure_schema, migrate_legacy_inventory
+        changed = ensure_schema(conn) or changed
+        changed = bool(migrate_legacy_inventory(conn)) or changed
         conn.execute(
             "insert or replace into schema_meta(key, value) values ('schema_version', ?)",
             (str(SCHEMA_VERSION),),

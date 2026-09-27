@@ -115,10 +115,14 @@ from ai.megavault_core import main as _core_main
 from ai.operational_indexes import dispatch as _dispatch_operational
 from ai.operational_indexes import migrate_operational_indexes
 from ai.workflow_events import dispatch as _dispatch_workflow_events
+from ai.database_inventory import dispatch as _dispatch_database_inventory
 
 
 def main(argv: list[str] | None = None) -> int:
     args = list(sys.argv[1:] if argv is None else argv)
+    database_inventory = _dispatch_database_inventory(args, db_path=DB)
+    if database_inventory is not None:
+        return database_inventory
     operational = _dispatch_operational(args)
     if operational is not None:
         return operational
