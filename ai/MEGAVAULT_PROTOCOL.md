@@ -462,10 +462,13 @@ CLI:
 ```bash
 python3 /home/daniele/MegaVault/megavault.py kuma-index
 python3 /home/daniele/MegaVault/megavault.py kuma-sync-sqlite --source-db PATH [--integration-id INT0002] [--host-id HOST_ID]
+python3 /home/daniele/MegaVault/megavault.py kuma-sync-json --source-json SANITIZED_JSON [--integration-id INT0002] [--host-id HOST_ID]
 python3 /home/daniele/MegaVault/megavault.py kuma-map --monitor-key KEY --project-id PROJECT_ID
 python3 /home/daniele/MegaVault/megavault.py kuma-describe --monitor-key KEY --purpose "..."
 python3 /home/daniele/MegaVault/megavault.py kuma-finalize
 ```
+
+`kuma-sync-json` accetta solo `id`, `name`, `type`, `active`, `hostname`, `port` e `url`; usarlo per readback live sanitizzato quando esportare l'intero DB Kuma violerebbe il boundary dei segreti.
 
 ### Telegram
 
@@ -506,6 +509,9 @@ python3 /home/daniele/MegaVault/megavault.py project-path PROJECT_ID
 python3 /home/daniele/MegaVault/megavault.py project-path --status PROJECT_ID
 python3 /home/daniele/MegaVault/megavault.py operational-index-migrate
 python3 /home/daniele/MegaVault/megavault.py operational-index-validate
+python3 /home/daniele/MegaVault/megavault.py periodic-service-reconcile --host fedora --scope all
+python3 /home/daniele/MegaVault/megavault.py periodic-service-reconcile --host oracle --scope system
+python3 /home/daniele/MegaVault/megavault.py periodic-service-index
 python3 /home/daniele/MegaVault/megavault.py validate
 ```
 
@@ -588,6 +594,8 @@ Usare l'ambiente globale. `venv`, `virtualenv`, `pipenv`, `poetry` e `uv` sono v
 ### Servizi systemd e Host
 
 La tabella canonica per i servizi personalizzati e' `services`. Non creare registri paralleli di servizi. Prima di aggiungere o modificare un servizio, risolvere `project_id`, `host_id`, scope, unit e runtime path da MegaVault quando disponibili; verificare live path, mount, unita' systemd e host runtime prima di documentare lo stato corrente.
+
+Per servizi periodici usare `periodic-service-reconcile`: `periodic_service_registry` e' una vista di `services` con evidenza systemd/repository, semantica enablement/attivita', righe sorgente e decisione Kuma. Riconciliare Fedora system+user e Oracle system dopo ogni aggiunta, modifica o rimozione di unit; `operational-index-validate` deve fallire su sorgenti registrate cambiate o scope canonici mancanti. Non mantenere inventari Markdown paralleli.
 
 Classificare sempre l'unita' prima di scegliere la policy:
 
