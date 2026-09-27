@@ -543,6 +543,7 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_tracked_markdown_allowlist_accepts_authoritative_docs(self):
         tracked_md = {
+            "ai/BOOTSTRAP.md",
             "ai/MEGAVAULT_PROTOCOL.md",
             "ai/GLOBAL_INDEX.md",
             "ai/personalhubdoc.md",

@@ -1,10 +1,11 @@
 # GLOBAL_INDEX
-VERSION=19
+VERSION=20
 STATUS=BOOTSTRAP_ROUTER
 FORMAT=ultracompact
 
 READ:
-all=MEGAVAULT_PROTOCOL.md
+bootstrap=BOOTSTRAP.md
+details=MEGAVAULT_PROTOCOL.md;only_relevant_section
 facts=../megavault.sqlite
 validate=python3 ../megavault.py validate
 project_lookup=python3 ../megavault.py project <alias-or-slug>
