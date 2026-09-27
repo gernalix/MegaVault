@@ -1,0 +1,629 @@
+{
+  "decisions": [
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-03e1bef976e8131a3da28e28",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-13123bf61402d465f669b2fd",
+      "reason": "Demo data is not canonical personal data.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-1339a95671be5f5b1f720b44",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-1d1fade5e671f357bcbf2b25",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-210deb928ddb90a2ff21cff7",
+      "reason": "Demo data is not canonical personal data.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-22e3cfa750befe875d744710",
+      "reason": "End-to-end sync test output is not canonical personal data.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "blocked",
+      "inventory_id": "DBI-233c17c9ab5fbd7b2c926e03",
+      "reason": "No canonical MegaVault project or repository owns the legacy global incident registry schema.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-2b69ae6583fc2ecb09cd61ef",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-388eed74286fa9fc8b625fb2",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-44d9e8a89f45792e33869f6f",
+      "reason": "Raw PersonalHub sync envelope; expose only the existing human-readable personalhub_read projection.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-48468552a312287369661a1c",
+      "reason": "Point-in-time import artifact; the active Oracle read projection is the consultable database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "blocked",
+      "inventory_id": "DBI-51a202979fb6a42f37548fc7",
+      "reason": "Declared canonical database is missing, so its schema and current code owner cannot be verified.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-5397d5012be2933b6f5f2869",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-573b604062a35af9967f24a4",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-5b8c80bf00ff0d783be47f55",
+      "reason": "Generated Datasette output is not a canonical source database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-640513d4d8100a1abb6aa1c1",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-6d46044dd08919440abcea44",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-6ff1abe885be646d53aeb10f",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-723a90cc8b19236bda4ed8a0",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-756825d8ac5e69f7c61928da",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-7736438ed83e4fb73af49709",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-77ff462569fcf2cf9325ce72",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-7aa915cebb81f98bd7d99d83",
+      "reason": "Derived notification delivery state is not useful for personal consultation.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-7e22912087e96489bac60e60",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-81eaf3de5b45c18afe49c255",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-924cba925adfb76a87023586",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-95e96a3ce55a14c007d73701",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-96a48a54b02c99ae936c2a79",
+      "reason": "Historical copies are retained for audit, not parallel consultation.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-a7951574c3d1a47d5174fa85",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-ab767d5d2327deb6ecc75413",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-abbd1cd90e8a0ab71f8c4f6d",
+      "reason": "End-to-end sync test output is not canonical personal data.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-ac414a3265de06a029f6ed83",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-acc45870e5ccffbcff5209e0",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-afa8c16b058aed689a67bb3b",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-be81509aa889a4482e1557b5",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-c7d37cdac407ada795facf76",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-cc75713ee3351d48d3d52e28",
+      "reason": "Historical copies are retained for audit, not parallel consultation.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-cd9468857a1002287753f604",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-d3c17b40745f69f806c1673f",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-d55cf954c2c6493dc6aaf8aa",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-d579a327569209aef044e766",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-d714915305a6df6fee66ed6e",
+      "reason": "Derived exporter orchestration catalog is not useful for personal consultation.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "decision": "selected",
+      "inventory_id": "DBI-ed521689b72e9874b2e82073",
+      "reason": "Canonical or personal database useful for private consultation.",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-f528b97dac268becb8fa5804",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "blocked",
+      "inventory_id": "DBI-f6513d29da7ba7e9cdeea9c3",
+      "reason": "No canonical MegaVault project or repository owns the ActivityWatch schema.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-f7e1d461410a9fd42f72e318",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": false,
+      "decision": "excluded",
+      "inventory_id": "DBI-fbb0fe567e72a261f9dbf689",
+      "reason": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+      "sync_to_oracle": false
+    }
+  ],
+  "excluded_summary": [
+    {
+      "classification": "browser",
+      "count": 24,
+      "reason": "Excluded by the explicit Phase C decision policy; see decisions for row-level reasons."
+    },
+    {
+      "classification": "canonical",
+      "count": 2,
+      "reason": "Excluded by the explicit Phase C decision policy; see decisions for row-level reasons."
+    },
+    {
+      "classification": "demo",
+      "count": 2,
+      "reason": "Excluded by the explicit Phase C decision policy; see decisions for row-level reasons."
+    },
+    {
+      "classification": "derived",
+      "count": 5,
+      "reason": "Excluded by the explicit Phase C decision policy; see decisions for row-level reasons."
+    },
+    {
+      "classification": "historical",
+      "count": 2,
+      "reason": "Excluded by the explicit Phase C decision policy; see decisions for row-level reasons."
+    }
+  ],
+  "repo_tasks": [
+    {
+      "acceptance": [
+        "Implement changes only in the code that creates or migrates the source schema, never by patching a live database.",
+        "Preserve useful raw values and timestamps for audit and sorting.",
+        "Prove idempotent generation or migration plus SQLite integrity and foreign-key checks."
+      ],
+      "inventory_ids": [
+        "DBI-2b69ae6583fc2ecb09cd61ef",
+        "DBI-afa8c16b058aed689a67bb3b"
+      ],
+      "needed_changes": [
+        "Normalize sessions.prompt_ids into a session_prompt_ids junction table while retaining the raw prompt_ids value for audit.",
+        "Add a human-readable session catalog view and indexes for last_timestamp_utc and updated_at_utc.",
+        "Index quota_snapshots.run_id and notification_events.snapshot_id so Datasette backlinks do not scan the append-only history."
+      ],
+      "project_id": 8,
+      "project_slug": "codex-usage-monitor",
+      "repo": "gernalix/codex-usage-monitor",
+      "source_paths": [
+        "/home/daniele/.local/share/codex-session-archive/index/archive.sqlite",
+        "/home/daniele/.local/share/codex-usage-monitor/codex_usage_monitor.db"
+      ],
+      "task_key": "phase-c-codex-usage-monitor-datasette-friendly"
+    },
+    {
+      "acceptance": [
+        "Implement changes only in the code that creates or migrates the source schema, never by patching a live database.",
+        "Preserve useful raw values and timestamps for audit and sorting.",
+        "Prove idempotent generation or migration plus SQLite integrity and foreign-key checks."
+      ],
+      "inventory_ids": [
+        "DBI-7e22912087e96489bac60e60"
+      ],
+      "needed_changes": [
+        "Add bounded human-readable current-alert and recent-event views over existing keys without dropping details_json or UTC/local timestamps."
+      ],
+      "project_id": 15,
+      "project_slug": "fedora-system-monitor",
+      "read_source": {
+        "kind": "latest_consistent_backup",
+        "max_age_seconds": 93600,
+        "open_mode": "mode=ro&immutable=1",
+        "path_pattern": "/var/lib/fedora-system-monitor/backups/monitor-????????T??????Z.sqlite3"
+      },
+      "repo": "gernalix/fedora-system-monitor",
+      "source_paths": [
+        "/var/lib/fedora-system-monitor/monitor.sqlite3"
+      ],
+      "task_key": "phase-c-fedora-system-monitor-datasette-friendly"
+    },
+    {
+      "acceptance": [
+        "Implement changes only in the code that creates or migrates the source schema, never by patching a live database.",
+        "Preserve useful raw values and timestamps for audit and sorting.",
+        "Prove idempotent generation or migration plus SQLite integrity and foreign-key checks."
+      ],
+      "inventory_ids": [
+        "DBI-a7951574c3d1a47d5174fa85"
+      ],
+      "needed_changes": [
+        "Add a human-readable message catalog view joining messages to chats and media through the existing foreign keys while retaining raw_json.",
+        "Index messages.timestamp and media.dedupe_hash for chronological browsing and backlinks."
+      ],
+      "project_id": 18,
+      "project_slug": "grindr-web-exporter",
+      "repo": null,
+      "source_paths": [
+        "/home/daniele/projects/grindr-web-exporter/data/grindr_export.sqlite3"
+      ],
+      "task_key": "phase-c-grindr-web-exporter-datasette-friendly"
+    },
+    {
+      "acceptance": [
+        "Implement changes only in the code that creates or migrates the source schema, never by patching a live database.",
+        "Preserve useful raw values and timestamps for audit and sorting.",
+        "Prove idempotent generation or migration plus SQLite integrity and foreign-key checks."
+      ],
+      "inventory_ids": [
+        "DBI-924cba925adfb76a87023586"
+      ],
+      "needed_changes": [
+        "Add a human-readable database inventory view joining the existing project, repository, and host foreign keys for Datasette navigation."
+      ],
+      "project_id": 23,
+      "project_slug": "megavault",
+      "repo": "gernalix/MegaVault",
+      "source_paths": [
+        "/home/daniele/MegaVault/megavault.sqlite"
+      ],
+      "task_key": "phase-c-megavault-datasette-friendly"
+    },
+    {
+      "acceptance": [
+        "Implement changes only in the code that creates or migrates the source schema, never by patching a live database.",
+        "Preserve useful raw values and timestamps for audit and sorting.",
+        "Prove idempotent generation or migration plus SQLite integrity and foreign-key checks."
+      ],
+      "inventory_ids": [
+        "DBI-ed521689b72e9874b2e82073"
+      ],
+      "needed_changes": [
+        "Add a human-readable repost status view and an index on updated_at while retaining canonical_url and raw timestamp fields."
+      ],
+      "project_id": 50,
+      "project_slug": "x-repost-downloader",
+      "repo": null,
+      "source_paths": [
+        "/mnt/Seagate6TB/X-Reposts/state/reposts.sqlite"
+      ],
+      "task_key": "phase-c-x-repost-downloader-datasette-friendly"
+    }
+  ],
+  "selected": [
+    {
+      "datasette_expose": true,
+      "host": "fedora",
+      "host_id": "H0001",
+      "inventory_id": "DBI-1d1fade5e671f357bcbf2b25",
+      "needed_changes": [],
+      "project_id": 51,
+      "project_slug": "codex-roadmap",
+      "repo": "gernalix/codex-roadmap",
+      "source_path": "/home/daniele/projects/codex-roadmap/roadmap.sqlite",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": true,
+      "host": "fedora",
+      "host_id": "H0001",
+      "inventory_id": "DBI-2b69ae6583fc2ecb09cd61ef",
+      "needed_changes": [
+        "Normalize sessions.prompt_ids into a session_prompt_ids junction table while retaining the raw prompt_ids value for audit.",
+        "Add a human-readable session catalog view and indexes for last_timestamp_utc and updated_at_utc."
+      ],
+      "project_id": 8,
+      "project_slug": "codex-usage-monitor",
+      "repo": "gernalix/codex-usage-monitor",
+      "source_path": "/home/daniele/.local/share/codex-session-archive/index/archive.sqlite",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": true,
+      "host": "fedora",
+      "host_id": "H0001",
+      "inventory_id": "DBI-afa8c16b058aed689a67bb3b",
+      "needed_changes": [
+        "Index quota_snapshots.run_id and notification_events.snapshot_id so Datasette backlinks do not scan the append-only history."
+      ],
+      "project_id": 8,
+      "project_slug": "codex-usage-monitor",
+      "repo": "gernalix/codex-usage-monitor",
+      "source_path": "/home/daniele/.local/share/codex-usage-monitor/codex_usage_monitor.db",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": true,
+      "host": "oracle-vm",
+      "host_id": "H0002",
+      "inventory_id": "DBI-95e96a3ce55a14c007d73701",
+      "needed_changes": [],
+      "project_id": 10,
+      "project_slug": "datasette5",
+      "repo": "gernalix/datasette5",
+      "source_path": "/home/ubuntu/sync_root/db/personalhub_read.db",
+      "sync_to_oracle": false
+    },
+    {
+      "datasette_expose": true,
+      "host": "fedora",
+      "host_id": "H0001",
+      "inventory_id": "DBI-7e22912087e96489bac60e60",
+      "needed_changes": [
+        "Add bounded human-readable current-alert and recent-event views over existing keys without dropping details_json or UTC/local timestamps."
+      ],
+      "project_id": 15,
+      "project_slug": "fedora-system-monitor",
+      "read_source": {
+        "kind": "latest_consistent_backup",
+        "max_age_seconds": 93600,
+        "open_mode": "mode=ro&immutable=1",
+        "path_pattern": "/var/lib/fedora-system-monitor/backups/monitor-????????T??????Z.sqlite3"
+      },
+      "repo": "gernalix/fedora-system-monitor",
+      "source_path": "/var/lib/fedora-system-monitor/monitor.sqlite3",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": true,
+      "host": "fedora",
+      "host_id": "H0001",
+      "inventory_id": "DBI-a7951574c3d1a47d5174fa85",
+      "needed_changes": [
+        "Add a human-readable message catalog view joining messages to chats and media through the existing foreign keys while retaining raw_json.",
+        "Index messages.timestamp and media.dedupe_hash for chronological browsing and backlinks."
+      ],
+      "project_id": 18,
+      "project_slug": "grindr-web-exporter",
+      "repo": null,
+      "source_path": "/home/daniele/projects/grindr-web-exporter/data/grindr_export.sqlite3",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": true,
+      "host": "fedora",
+      "host_id": "H0001",
+      "inventory_id": "DBI-924cba925adfb76a87023586",
+      "needed_changes": [
+        "Add a human-readable database inventory view joining the existing project, repository, and host foreign keys for Datasette navigation."
+      ],
+      "project_id": 23,
+      "project_slug": "megavault",
+      "repo": "gernalix/MegaVault",
+      "source_path": "/home/daniele/MegaVault/megavault.sqlite",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": true,
+      "host": "fedora",
+      "host_id": "H0001",
+      "inventory_id": "DBI-7736438ed83e4fb73af49709",
+      "needed_changes": [],
+      "project_id": 84,
+      "project_slug": "salute",
+      "repo": "gernalix/salute",
+      "source_path": "/home/daniele/projects/salute/salute.db",
+      "sync_to_oracle": true
+    },
+    {
+      "datasette_expose": true,
+      "host": "fedora",
+      "host_id": "H0001",
+      "inventory_id": "DBI-ed521689b72e9874b2e82073",
+      "needed_changes": [
+        "Add a human-readable repost status view and an index on updated_at while retaining canonical_url and raw timestamp fields."
+      ],
+      "project_id": 50,
+      "project_slug": "x-repost-downloader",
+      "repo": null,
+      "source_path": "/mnt/Seagate6TB/X-Reposts/state/reposts.sqlite",
+      "sync_to_oracle": true
+    }
+  ],
+  "unowned_or_blocked": [
+    {
+      "host_id": "H0001",
+      "inventory_id": "DBI-f6513d29da7ba7e9cdeea9c3",
+      "project_id": null,
+      "project_slug": null,
+      "reason": "No canonical MegaVault project or repository owns the ActivityWatch schema.",
+      "source_path": "/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db"
+    },
+    {
+      "host_id": "H0001",
+      "inventory_id": "DBI-51a202979fb6a42f37548fc7",
+      "project_id": 23,
+      "project_slug": "megavault",
+      "reason": "Declared canonical database is missing, so its schema and current code owner cannot be verified.",
+      "source_path": "/home/daniele/MegaVault/codex_global_timeline.sqlite"
+    },
+    {
+      "host_id": "H0001",
+      "inventory_id": "DBI-233c17c9ab5fbd7b2c926e03",
+      "project_id": null,
+      "project_slug": null,
+      "reason": "No canonical MegaVault project or repository owns the legacy global incident registry schema.",
+      "source_path": "/home/daniele/sync_root/db/incident_registry.sqlite"
+    }
+  ]
+}
