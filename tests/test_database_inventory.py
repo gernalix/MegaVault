@@ -18,13 +18,18 @@ class DatabaseInventoryTests(unittest.TestCase):
         conn.executescript(
             """
             PRAGMA foreign_keys=ON;
-            CREATE TABLE projects(project_id INTEGER PRIMARY KEY, slug TEXT UNIQUE);
-            CREATE TABLE hosts(host_id TEXT PRIMARY KEY, name TEXT);
+            CREATE TABLE projects(
+              project_id INTEGER PRIMARY KEY, slug TEXT UNIQUE, name TEXT NOT NULL
+            );
+            CREATE TABLE hosts(
+              host_id TEXT PRIMARY KEY, name TEXT, kind TEXT, os TEXT
+            );
             CREATE TABLE repositories(
               repository_id TEXT PRIMARY KEY,
               project_id INTEGER REFERENCES projects(project_id),
               host_id TEXT REFERENCES hosts(host_id),
-              worktree_path TEXT, remote_url TEXT, canonical INTEGER
+              location TEXT, kind TEXT, branch TEXT, head TEXT, status TEXT,
+              canonical INTEGER, worktree_path TEXT, remote_url TEXT, runtime_path TEXT
             );
             CREATE TABLE data_assets(
               data_asset_id TEXT PRIMARY KEY, project_id INTEGER, host_id TEXT,
@@ -34,9 +39,9 @@ class DatabaseInventoryTests(unittest.TestCase):
               component_id INTEGER PRIMARY KEY, project_id INTEGER,
               component TEXT, type TEXT, path TEXT, purpose TEXT
             );
-            INSERT INTO projects VALUES(1,'example');
-            INSERT INTO hosts VALUES('H0001','fedora');
-            INSERT INTO hosts VALUES('H0002','oracle-vm');
+            INSERT INTO projects VALUES(1,'example','Example Project');
+            INSERT INTO hosts VALUES('H0001','fedora','workstation','Fedora');
+            INSERT INTO hosts VALUES('H0002','oracle-vm','server','Ubuntu');
             """
         )
         return conn
@@ -106,8 +111,11 @@ class DatabaseInventoryTests(unittest.TestCase):
             conn = self.make_schema(root / "inventory.sqlite")
             self.addCleanup(conn.close)
             conn.execute(
-                "INSERT INTO repositories VALUES(?,?,?,?,?,1)",
-                ("R1", 1, "H0001", str(repo), None),
+                """INSERT INTO repositories(
+                       repository_id,project_id,host_id,location,kind,canonical,
+                       worktree_path,remote_url
+                   ) VALUES(?,?,?,?,?,?,?,?)""",
+                ("R1", 1, "H0001", str(repo), "git", 1, str(repo), "https://example/repo.git"),
             )
             first = database_inventory.reconcile(conn, [root])
             changes_after_first = conn.total_changes
@@ -120,6 +128,53 @@ class DatabaseInventoryTests(unittest.TestCase):
                      from database_inventory"""
             ).fetchone()
             self.assertEqual((1, "example", "R1", "H0001", database.name, "present"), row)
+
+    def test_database_inventory_read_view_joins_fk_labels_and_is_idempotent(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            conn = self.make_schema(Path(tmp) / "inventory.sqlite")
+            self.addCleanup(conn.close)
+            conn.execute(
+                """INSERT INTO repositories(
+                       repository_id,project_id,host_id,location,kind,branch,head,
+                       status,canonical,worktree_path,remote_url,runtime_path
+                   ) VALUES('R1',1,'H0001','/src/example','git','main','abc123',
+                            'active',1,'/src/example','https://example/repo.git','/srv/example')"""
+            )
+            database_inventory.ensure_schema(conn)
+            view_sql = conn.execute(
+                "select sql from sqlite_master where type='view' and name='database_inventory_read'"
+            ).fetchone()[0]
+            database_inventory.ensure_schema(conn)
+            self.assertEqual(
+                view_sql,
+                conn.execute(
+                    "select sql from sqlite_master where type='view' and name='database_inventory_read'"
+                ).fetchone()[0],
+            )
+            conn.execute(
+                """INSERT INTO database_inventory(
+                       inventory_id,project_id,project_slug,repository_id,repo_identity,
+                       host_id,db_name,source_path,classification,status,last_seen,
+                       datasette_expose,sync_to_oracle,declared,notes
+                   ) VALUES('DBI-1',1,'example','R1','gernalix/example','H0001',
+                            'state.sqlite','/src/example/state.sqlite','canonical','present',
+                            '2026-09-27T12:30:00Z',1,0,1,'source inventory note')"""
+            )
+            row = conn.execute(
+                """SELECT project_slug,project_name,repository_location,repository_remote_url,
+                          host_name,host_kind,db_name,source_path,last_seen,notes
+                     FROM database_inventory_read WHERE inventory_id='DBI-1'"""
+            ).fetchone()
+            self.assertEqual(
+                (
+                    "example", "Example Project", "/src/example", "https://example/repo.git",
+                    "fedora", "workstation", "state.sqlite", "/src/example/state.sqlite",
+                    "2026-09-27T12:30:00Z", "source inventory note",
+                ),
+                row,
+            )
+            self.assertEqual("ok", conn.execute("PRAGMA integrity_check").fetchone()[0])
+            self.assertEqual([], conn.execute("PRAGMA foreign_key_check").fetchall())
 
     def test_phase_c_decisions_cover_every_row_without_schema_changes(self):
         with tempfile.TemporaryDirectory() as tmp:
