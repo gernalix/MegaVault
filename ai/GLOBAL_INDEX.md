@@ -63,3 +63,18 @@ if_conflict=sqlite_current_fact_beats_deleted_markdown;Git_history_for_past_repo
 execution_mode=lowest_safe_mode;FAST_default;promote_only_with_concrete_evidence
 report_finish_required=STRICT_only;STANDARD_when_report_files_created;FAST_bypass
 stop_when_acceptance_pass=yes
+# Project capsule inventory
+
+MegaVault keeps project and repository identity authoritative in `projects` and
+`repositories`. Capsule coverage is exposed by `capsule_inventory`; exclusions
+use the machine-readable reasons `obsolete`, `generated`, `vendor`, `mirror`,
+`throwaway`, or `fully_absorbed`.
+
+`python3 megavault.py capsule-inventory --scan` emits the aggregate JSON report;
+`--record` persists discovery, artifact, and raw criterion states.
+`python3 megavault.py capsule-check --project-id ID --mode FAST` emits the
+per-project report; `--changed-file PATH` requests exact declared minimum
+verification mappings. `FULL` additionally runs only hooks declared with
+`safe: true`, without a shell. `--standard FILE` accepts a JSON/YAML artifact
+and criterion definition, so the global C2 standard and score calculator can
+consume raw criterion states without weights embedded in MegaVault.

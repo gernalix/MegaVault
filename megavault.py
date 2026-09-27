@@ -116,10 +116,17 @@ from ai.operational_indexes import dispatch as _dispatch_operational
 from ai.operational_indexes import migrate_operational_indexes
 from ai.workflow_events import dispatch as _dispatch_workflow_events
 from ai.database_inventory import dispatch as _dispatch_database_inventory
+from ai.capsule_registry import dispatch as _dispatch_capsules
+from ai.capsule_registry import ensure_schema as ensure_capsule_schema
+from ai.capsule_registry import aggregate_report as capsule_aggregate_report
+from ai.capsule_registry import check_repository as capsule_check_repository
 
 
 def main(argv: list[str] | None = None) -> int:
     args = list(sys.argv[1:] if argv is None else argv)
+    capsules = _dispatch_capsules(args, db_path=DB)
+    if capsules is not None:
+        return capsules
     database_inventory = _dispatch_database_inventory(args, db_path=DB)
     if database_inventory is not None:
         return database_inventory

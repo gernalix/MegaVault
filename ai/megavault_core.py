@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 10
+SCHEMA_VERSION = 11
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -2607,11 +2607,17 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
         "project_operations",
         "prompt_id_registry",
         "prompt_id_events",
+        "capsule_repository_policy",
+        "capsule_registry",
+        "capsule_artifact_status",
+        "capsule_criterion_status",
     }
     missing = sorted(table for table in required_tables if not table_exists(conn, table))
     if missing:
         errors.append(f"missing required tables: {missing}")
         return errors
+    from ai.capsule_registry import schema_errors as capsule_schema_errors
+    errors.extend(capsule_schema_errors(conn))
     inventory_columns = table_columns(conn, "database_inventory")
     required_inventory_columns = {
         "project_id", "project_slug", "repository_id", "repo_identity", "repo_path",
@@ -3002,6 +3008,10 @@ def validate() -> int:
             "project_operations",
             "prompt_id_registry",
             "prompt_id_events",
+            "capsule_repository_policy",
+            "capsule_registry",
+            "capsule_artifact_status",
+            "capsule_criterion_status",
         )
     }
     print("VALIDATE=PASS " + " ".join(f"{key}={value}" for key, value in counts.items()))
@@ -3447,6 +3457,8 @@ def migrate_database() -> int:
         changed = migrate_project_index_schema(conn) or changed
         changed = ensure_project_context_schema(conn) or changed
         changed = ensure_prompt_id_schema(conn) or changed
+        from ai.capsule_registry import ensure_schema as ensure_capsule_schema
+        changed = ensure_capsule_schema(conn) or changed
         from ai.database_inventory import ensure_schema, migrate_legacy_inventory
         changed = ensure_schema(conn) or changed
         changed = bool(migrate_legacy_inventory(conn)) or changed
