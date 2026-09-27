@@ -266,6 +266,49 @@ def ensure_schema(conn: sqlite3.Connection) -> bool:
           ON database_inventory(repo_identity, source_path)
         """
     )
+    conn.execute(
+        """
+        CREATE VIEW IF NOT EXISTS database_inventory_read AS
+        SELECT
+          i.inventory_id,
+          i.project_id,
+          p.slug AS project_slug,
+          p.name AS project_name,
+          i.repository_id,
+          r.location AS repository_location,
+          r.kind AS repository_kind,
+          r.branch AS repository_branch,
+          r.head AS repository_head,
+          r.status AS repository_status,
+          r.canonical AS repository_canonical,
+          r.worktree_path AS repository_worktree_path,
+          r.remote_url AS repository_remote_url,
+          r.runtime_path AS repository_runtime_path,
+          i.host_id,
+          h.name AS host_name,
+          h.kind AS host_kind,
+          h.os AS host_os,
+          i.db_name,
+          i.source_path,
+          i.classification,
+          i.status,
+          i.last_seen,
+          i.canonical,
+          i.datasette_expose,
+          i.sync_to_oracle,
+          i.declared,
+          i.repo_identity,
+          i.repo_path,
+          i.repo_origin,
+          i.git_common_dir,
+          i.legacy_source,
+          i.notes
+        FROM database_inventory AS i
+        LEFT JOIN projects AS p ON p.project_id=i.project_id
+        LEFT JOIN repositories AS r ON r.repository_id=i.repository_id
+        LEFT JOIN hosts AS h ON h.host_id=i.host_id
+        """
+    )
     return not existed
 
 
