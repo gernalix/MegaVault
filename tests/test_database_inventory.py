@@ -19,7 +19,7 @@ class DatabaseInventoryTests(unittest.TestCase):
             """
             PRAGMA foreign_keys=ON;
             CREATE TABLE projects(project_id INTEGER PRIMARY KEY, slug TEXT UNIQUE);
-            CREATE TABLE hosts(host_id TEXT PRIMARY KEY);
+            CREATE TABLE hosts(host_id TEXT PRIMARY KEY, name TEXT);
             CREATE TABLE repositories(
               repository_id TEXT PRIMARY KEY,
               project_id INTEGER REFERENCES projects(project_id),
@@ -35,8 +35,8 @@ class DatabaseInventoryTests(unittest.TestCase):
               component TEXT, type TEXT, path TEXT, purpose TEXT
             );
             INSERT INTO projects VALUES(1,'example');
-            INSERT INTO hosts VALUES('H0001');
-            INSERT INTO hosts VALUES('H0002');
+            INSERT INTO hosts VALUES('H0001','fedora');
+            INSERT INTO hosts VALUES('H0002','oracle-vm');
             """
         )
         return conn
@@ -120,6 +120,41 @@ class DatabaseInventoryTests(unittest.TestCase):
                      from database_inventory"""
             ).fetchone()
             self.assertEqual((1, "example", "R1", "H0001", database.name, "present"), row)
+
+    def test_phase_c_decisions_cover_every_row_without_schema_changes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            conn = self.make_schema(Path(tmp) / "inventory.sqlite")
+            self.addCleanup(conn.close)
+            database_inventory.ensure_schema(conn)
+            columns_before = [row[1] for row in conn.execute("pragma table_info(database_inventory)")]
+            rows = [
+                ("DBI-selected", 1, "example", "H0001", "roadmap.sqlite",
+                 "/home/daniele/projects/codex-roadmap/roadmap.sqlite", "derived"),
+                ("DBI-excluded", 1, "example", "H0001", "History",
+                 "/repo/browser-profile/Default/History", "browser"),
+                ("DBI-blocked", None, None, "H0001", "peewee-sqlite.v2.db",
+                 "/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db", "canonical"),
+            ]
+            conn.executemany(
+                """insert into database_inventory(
+                       inventory_id,project_id,project_slug,host_id,db_name,source_path,
+                       classification,status,canonical,datasette_expose,sync_to_oracle,declared
+                     ) values(?,?,?,?,?,?,?,'present',0,0,0,0)""",
+                rows,
+            )
+            counts, decisions = database_inventory.apply_phase_c_decisions(conn)
+            self.assertEqual({"selected": 1, "excluded": 1, "blocked": 1}, counts)
+            changes = conn.total_changes
+            repeat_counts, repeat_decisions = database_inventory.apply_phase_c_decisions(conn)
+            self.assertEqual(counts, repeat_counts)
+            self.assertEqual(decisions, repeat_decisions)
+            self.assertEqual(changes, conn.total_changes)
+            self.assertEqual(columns_before, [row[1] for row in conn.execute("pragma table_info(database_inventory)")])
+            plan = database_inventory.build_phase_c_plan(conn, decisions)
+            self.assertEqual(["DBI-selected"], [row["inventory_id"] for row in plan["selected"]])
+            self.assertEqual(["DBI-blocked"], [row["inventory_id"] for row in plan["unowned_or_blocked"]])
+            self.assertEqual(3, len(plan["decisions"]))
+            self.assertEqual([], plan["repo_tasks"])
 
 
 if __name__ == "__main__":

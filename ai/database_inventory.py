@@ -22,6 +22,94 @@ CLASSIFICATIONS = {
 SKIP_DIRS = {".git", ".gradle", ".idea", ".venv", "node_modules", "__pycache__"}
 
 
+# Phase C records decisions and child-task inputs only. It intentionally does not
+# alter any source database schema.
+PHASE_C_SELECTED = {
+    "/home/daniele/.local/share/codex-session-archive/index/archive.sqlite": {
+        "repo": "gernalix/codex-usage-monitor",
+        "needed_changes": [
+            "Normalize sessions.prompt_ids into a session_prompt_ids junction table while retaining the raw prompt_ids value for audit.",
+            "Add a human-readable session catalog view and indexes for last_timestamp_utc and updated_at_utc.",
+        ],
+    },
+    "/home/daniele/.local/share/codex-usage-monitor/codex_usage_monitor.db": {
+        "repo": "gernalix/codex-usage-monitor",
+        "needed_changes": [
+            "Index quota_snapshots.run_id and notification_events.snapshot_id so Datasette backlinks do not scan the append-only history.",
+        ],
+    },
+    "/home/daniele/MegaVault/megavault.sqlite": {
+        "repo": "gernalix/MegaVault",
+        "needed_changes": [
+            "Add a human-readable database inventory view joining the existing project, repository, and host foreign keys for Datasette navigation.",
+        ],
+    },
+    "/home/ubuntu/sync_root/db/personalhub_read.db": {
+        "repo": "gernalix/datasette5",
+        "needed_changes": [],
+    },
+    "/mnt/Seagate6TB/X-Reposts/state/reposts.sqlite": {
+        "repo": None,
+        "needed_changes": [
+            "Add a human-readable repost status view and an index on updated_at while retaining canonical_url and raw timestamp fields.",
+        ],
+    },
+    "/var/lib/fedora-system-monitor/monitor.sqlite3": {
+        "repo": "gernalix/fedora-system-monitor",
+        "read_source": {
+            "kind": "latest_consistent_backup",
+            "path_pattern": "/var/lib/fedora-system-monitor/backups/monitor-????????T??????Z.sqlite3",
+            "max_age_seconds": 93600,
+            "open_mode": "mode=ro&immutable=1",
+        },
+        "needed_changes": [
+            "Add bounded human-readable current-alert and recent-event views over existing keys without dropping details_json or UTC/local timestamps.",
+        ],
+    },
+    "/home/daniele/projects/codex-roadmap/roadmap.sqlite": {
+        "repo": "gernalix/codex-roadmap",
+        "needed_changes": [],
+    },
+    "/home/daniele/projects/grindr-web-exporter/data/grindr_export.sqlite3": {
+        "repo": None,
+        "needed_changes": [
+            "Add a human-readable message catalog view joining messages to chats and media through the existing foreign keys while retaining raw_json.",
+            "Index messages.timestamp and media.dedupe_hash for chronological browsing and backlinks.",
+        ],
+    },
+    "/home/daniele/projects/salute/salute.db": {
+        "repo": "gernalix/salute",
+        "needed_changes": [],
+    },
+}
+
+PHASE_C_BLOCKED = {
+    "/home/daniele/.local/share/activitywatch/aw-server/peewee-sqlite.v2.db":
+        "No canonical MegaVault project or repository owns the ActivityWatch schema.",
+    "/home/daniele/MegaVault/codex_global_timeline.sqlite":
+        "Declared canonical database is missing, so its schema and current code owner cannot be verified.",
+    "/home/daniele/sync_root/db/incident_registry.sqlite":
+        "No canonical MegaVault project or repository owns the legacy global incident registry schema.",
+}
+
+PHASE_C_EXCLUDED_PATHS = {
+    "/home/daniele/Documents/ChatGPT/Personal Hub/artifacts/731684/final/personalhub.db":
+        "Point-in-time import artifact; the active Oracle read projection is the consultable database.",
+    "/home/ubuntu/sync_root/db/personalhub.db":
+        "Raw PersonalHub sync envelope; expose only the existing human-readable personalhub_read projection.",
+}
+
+DEFAULT_EXCLUSION_REASONS = {
+    "browser": "Browser profile state is sensitive runtime/cache data, not a consultation database.",
+    "cache": "Cache data is derived and rebuildable.",
+    "test": "Test output is not canonical personal data.",
+    "fixture": "Fixture data is not canonical personal data.",
+    "backup": "Backup copies are retained for recovery, not parallel consultation.",
+    "demo": "Demo data is not canonical personal data.",
+    "historical": "Historical copies are retained for audit, not parallel consultation.",
+}
+
+
 def _table_exists(conn: sqlite3.Connection, name: str) -> bool:
     return conn.execute(
         "select 1 from sqlite_master where type='table' and name=?", (name,)
@@ -179,6 +267,129 @@ def ensure_schema(conn: sqlite3.Connection) -> bool:
         """
     )
     return not existed
+
+
+def _phase_c_exclusion_reason(source_path: str, classification: str) -> str | None:
+    if source_path in PHASE_C_EXCLUDED_PATHS:
+        return PHASE_C_EXCLUDED_PATHS[source_path]
+    if classification in DEFAULT_EXCLUSION_REASONS:
+        return DEFAULT_EXCLUSION_REASONS[classification]
+    if "/exports/sync-test-" in source_path:
+        return "End-to-end sync test output is not canonical personal data."
+    if source_path.endswith("/datasette5/output.db"):
+        return "Generated Datasette output is not a canonical source database."
+    if source_path.endswith("/exports/orchestrator/channel_catalog.sqlite"):
+        return "Derived exporter orchestration catalog is not useful for personal consultation."
+    if source_path.endswith("/exports/orchestrator/telegram_notify_state.sqlite"):
+        return "Derived notification delivery state is not useful for personal consultation."
+    return None
+
+
+def apply_phase_c_decisions(conn: sqlite3.Connection) -> tuple[dict[str, int], list[dict[str, object]]]:
+    """Set existing selection flags and fail closed if any inventory row is undecided."""
+    counts = {"selected": 0, "excluded": 0, "blocked": 0}
+    decisions: list[dict[str, object]] = []
+    rows = conn.execute(
+        "select inventory_id,source_path,classification,host_id from database_inventory order by inventory_id"
+    ).fetchall()
+    for inventory_id, source_path, classification, host_id in rows:
+        selected = PHASE_C_SELECTED.get(source_path)
+        blocked = PHASE_C_BLOCKED.get(source_path)
+        excluded = _phase_c_exclusion_reason(source_path, classification)
+        if selected:
+            decision = "selected"
+            reason = "Canonical or personal database useful for private consultation."
+            expose, sync = 1, int(host_id != "H0002")
+        elif blocked:
+            decision, reason, expose, sync = "blocked", blocked, 0, 0
+        elif excluded:
+            decision, reason, expose, sync = "excluded", excluded, 0, 0
+        else:
+            raise RuntimeError(f"undecided database inventory row: {inventory_id} {source_path}")
+        conn.execute(
+            """update database_inventory set datasette_expose=?,sync_to_oracle=?
+                where inventory_id=? and (datasette_expose<>? or sync_to_oracle<>?)""",
+            (expose, sync, inventory_id, expose, sync),
+        )
+        counts[decision] += 1
+        decisions.append({
+            "inventory_id": inventory_id, "decision": decision,
+            "datasette_expose": bool(expose), "sync_to_oracle": bool(sync), "reason": reason,
+        })
+    return counts, decisions
+
+
+def build_phase_c_plan(conn: sqlite3.Connection, decisions: list[dict[str, object]]) -> dict[str, object]:
+    selected = []
+    for row in conn.execute(
+        """select i.inventory_id,i.project_id,i.project_slug,i.source_path,
+                  i.datasette_expose,i.sync_to_oracle,i.host_id,h.name
+             from database_inventory i left join hosts h on h.host_id=i.host_id
+            where i.datasette_expose=1 order by i.project_slug,i.source_path"""
+    ):
+        policy = PHASE_C_SELECTED[row[3]]
+        item = {
+            "inventory_id": row[0], "project_id": row[1], "project_slug": row[2],
+            "repo": policy["repo"], "source_path": row[3],
+            "datasette_expose": bool(row[4]), "sync_to_oracle": bool(row[5]),
+            "host_id": row[6], "host": row[7],
+            "needed_changes": policy["needed_changes"],
+        }
+        if policy.get("read_source"):
+            item["read_source"] = policy["read_source"]
+        selected.append(item)
+    excluded_summary = []
+    for classification, count in conn.execute(
+        """select classification,count(*) from database_inventory
+             where datasette_expose=0 and source_path not in ({})
+             group by classification order by classification""".format(
+                 ",".join("?" for _ in PHASE_C_BLOCKED)
+             ),
+        tuple(PHASE_C_BLOCKED),
+    ):
+        excluded_summary.append({
+            "classification": classification, "count": count,
+            "reason": "Excluded by the explicit Phase C decision policy; see decisions for row-level reasons.",
+        })
+    blocked = [
+        {"inventory_id": row[0], "project_id": row[1], "project_slug": row[2],
+         "source_path": row[3], "host_id": row[4], "reason": PHASE_C_BLOCKED[row[3]]}
+        for row in conn.execute(
+            """select inventory_id,project_id,project_slug,source_path,host_id
+                 from database_inventory where source_path in ({}) order by source_path""".format(
+                     ",".join("?" for _ in PHASE_C_BLOCKED)
+                 ),
+            tuple(PHASE_C_BLOCKED),
+        )
+    ]
+    grouped_tasks: dict[tuple[int, str | None], dict[str, object]] = {}
+    for item in selected:
+        if not item["needed_changes"]:
+            continue
+        key = (int(item["project_id"]), item["repo"])
+        task = grouped_tasks.setdefault(key, {
+            "task_key": f"phase-c-{item['project_slug']}-datasette-friendly",
+            "project_id": item["project_id"], "project_slug": item["project_slug"],
+            "repo": item["repo"], "inventory_ids": [], "source_paths": [],
+            "needed_changes": [],
+            "acceptance": [
+                "Implement changes only in the code that creates or migrates the source schema, never by patching a live database.",
+                "Preserve useful raw values and timestamps for audit and sorting.",
+                "Prove idempotent generation or migration plus SQLite integrity and foreign-key checks.",
+            ],
+        })
+        task["inventory_ids"].append(item["inventory_id"])
+        task["source_paths"].append(item["source_path"])
+        for change in item["needed_changes"]:
+            if change not in task["needed_changes"]:
+                task["needed_changes"].append(change)
+        if item.get("read_source"):
+            task["read_source"] = item["read_source"]
+    return {
+        "selected": selected, "excluded_summary": excluded_summary,
+        "unowned_or_blocked": blocked, "decisions": decisions,
+        "repo_tasks": sorted(grouped_tasks.values(), key=lambda task: str(task["task_key"])),
+    }
 
 
 def _declared_paths(path: str | None, notes: str | None) -> list[str]:
@@ -392,9 +603,32 @@ def reconcile_command(db_path: Path, roots: list[str], host_id: str) -> int:
     return 0
 
 
+def selection_command(db_path: Path, output: Path) -> int:
+    conn = sqlite3.connect(db_path)
+    conn.execute("PRAGMA foreign_keys=ON")
+    try:
+        conn.execute("BEGIN IMMEDIATE")
+        counts, decisions = apply_phase_c_decisions(conn)
+        plan = build_phase_c_plan(conn, decisions)
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+    output.write_text(json.dumps(plan, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps({"status": "PASS", **counts, "output": str(output)}, sort_keys=True))
+    return 0
+
+
 def dispatch(argv: list[str], *, db_path: Path) -> int | None:
-    if not argv or argv[0] != "database-inventory-reconcile":
+    if not argv or argv[0] not in {"database-inventory-reconcile", "database-inventory-select"}:
         return None
+    if argv[0] == "database-inventory-select":
+        parser = argparse.ArgumentParser(prog="megavault.py database-inventory-select")
+        parser.add_argument("--output", type=Path, default=Path("/tmp/c2-phase-c-plan.json"))
+        args = parser.parse_args(argv[1:])
+        return selection_command(db_path, args.output)
     parser = argparse.ArgumentParser(prog="megavault.py database-inventory-reconcile")
     parser.add_argument("--root", action="append", default=[])
     parser.add_argument("--host-id", default="H0001")
