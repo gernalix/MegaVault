@@ -1760,9 +1760,13 @@ def infer_repository_kind(kind: str, location: str) -> str:
 
 def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
     changed = False
+    self_project = conn.execute(
+        "select project_id from projects where slug='megavault'"
+    ).fetchone()
+    self_project_id = self_project[0] if self_project else None
     rows = conn.execute(
         """
-        select repository_id, location, kind, branch, head, status, canonical,
+        select repository_id, project_id, location, kind, branch, head, status, canonical,
                repository_kind, host_id, worktree_path, remote_url, runtime_path
         from repositories
         order by repository_id
@@ -1771,6 +1775,7 @@ def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
     for row in rows:
         (
             repository_id,
+            project_id,
             location,
             kind,
             branch,
@@ -1797,7 +1802,10 @@ def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
             path = Path(location)
             if (path / ".git").exists():
                 next_branch = git_value(location, "branch", "--show-current") or branch
-                if path.resolve() == ROOT.resolve():
+                # The database is tracked by MegaVault itself. Its own final
+                # commit cannot be stored in that same committed database.
+                # Match canonical project identity, not this task worktree path.
+                if canonical and project_id == self_project_id:
                     next_head = None
                 else:
                     next_head = git_value(location, "rev-parse", "HEAD") or head
