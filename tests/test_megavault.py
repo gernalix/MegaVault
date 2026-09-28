@@ -1057,9 +1057,9 @@ class MegaVaultTests(unittest.TestCase):
             with sqlite3.connect(copy_path) as conn, mock.patch.object(
                 megavault_core, "ROOT", Path(tmp) / "isolated-task-worktree"
             ):
-                conn.execute("""update repositories set head='stale-self-head'
+                conn.execute("""update repositories set head='stale-self-head', location=?
                     where project_id=(select project_id from projects where slug='megavault')
-                    and canonical=1""")
+                    and canonical=1""", (str(Path(tmp) / "missing-megavault-checkout"),))
                 self.assertTrue(megavault_core.refresh_repository_index_rows(conn))
                 head = conn.execute("""select head from repositories
                     where project_id=(select project_id from projects where slug='megavault')

@@ -1800,14 +1800,13 @@ def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
             host_id = "H0001"
             worktree_path = location
             path = Path(location)
+            # The tracked database cannot store its own final commit hash,
+            # including when its recorded checkout is absent on this host.
+            if canonical and project_id == self_project_id:
+                next_head = None
             if (path / ".git").exists():
                 next_branch = git_value(location, "branch", "--show-current") or branch
-                # The database is tracked by MegaVault itself. Its own final
-                # commit cannot be stored in that same committed database.
-                # Match canonical project identity, not this task worktree path.
-                if canonical and project_id == self_project_id:
-                    next_head = None
-                else:
+                if not (canonical and project_id == self_project_id):
                     next_head = git_value(location, "rev-parse", "HEAD") or head
                 remote_url = normalize_remote_url(
                     git_value(location, "remote", "get-url", "origin")
