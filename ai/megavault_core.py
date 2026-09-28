@@ -1760,9 +1760,13 @@ def infer_repository_kind(kind: str, location: str) -> str:
 
 def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
     changed = False
+    self_project = conn.execute(
+        "select project_id from projects where slug='megavault'"
+    ).fetchone()
+    self_project_id = self_project[0] if self_project else None
     rows = conn.execute(
         """
-        select repository_id, location, kind, branch, head, status, canonical,
+        select repository_id, project_id, location, kind, branch, head, status, canonical,
                repository_kind, host_id, worktree_path, remote_url, runtime_path
         from repositories
         order by repository_id
@@ -1771,6 +1775,7 @@ def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
     for row in rows:
         (
             repository_id,
+            project_id,
             location,
             kind,
             branch,
@@ -1795,11 +1800,13 @@ def refresh_repository_index_rows(conn: sqlite3.Connection) -> bool:
             host_id = "H0001"
             worktree_path = location
             path = Path(location)
+            # The tracked database cannot store its own final commit hash,
+            # including when its recorded checkout is absent on this host.
+            if canonical and project_id == self_project_id:
+                next_head = None
             if (path / ".git").exists():
                 next_branch = git_value(location, "branch", "--show-current") or branch
-                if path.resolve() == ROOT.resolve():
-                    next_head = None
-                else:
+                if not (canonical and project_id == self_project_id):
                     next_head = git_value(location, "rev-parse", "HEAD") or head
                 remote_url = normalize_remote_url(
                     git_value(location, "remote", "get-url", "origin")

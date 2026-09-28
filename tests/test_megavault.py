@@ -1049,6 +1049,24 @@ class MegaVaultTests(unittest.TestCase):
             self.assertEqual(before, after_second)
             self.assertEqual([], conn.execute("PRAGMA foreign_key_check").fetchall())
 
+    def test_megavault_tracked_database_never_stores_its_own_head(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            copy_path = Path(tmp) / "megavault-copy.sqlite"
+            with sqlite3.connect(ROOT / "megavault.sqlite") as source, sqlite3.connect(copy_path) as copy:
+                source.backup(copy)
+            with sqlite3.connect(copy_path) as conn, mock.patch.object(
+                megavault_core, "ROOT", Path(tmp) / "isolated-task-worktree"
+            ):
+                conn.execute("""update repositories set head='stale-self-head', location=?
+                    where project_id=(select project_id from projects where slug='megavault')
+                    and canonical=1""", (str(Path(tmp) / "missing-megavault-checkout"),))
+                self.assertTrue(megavault_core.refresh_repository_index_rows(conn))
+                head = conn.execute("""select head from repositories
+                    where project_id=(select project_id from projects where slug='megavault')
+                    and canonical=1""").fetchone()[0]
+                self.assertIsNone(head)
+                self.assertFalse(megavault_core.refresh_repository_index_rows(conn))
+
     def test_current_incident_taxonomy_is_migrated(self):
         conn = sqlite3.connect(ROOT / "megavault.sqlite")
         self.addCleanup(conn.close)
