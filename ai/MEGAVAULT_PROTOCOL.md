@@ -129,6 +129,7 @@ Questi marker sono parte del contratto validato automaticamente e devono restare
 testualmente presenti insieme alla policy descrittiva:
 
 - `prompt_id_identity=one_materialized_prompt_one_new_id_absolute`
+- `prompt_id_authority=C3/codex-roadmap`
 - `prompt_id_revision=any_textual_or_semantic_change_requires_new_id`
 - `prompt_id_reuse=forbidden_forever`
 - `prompt_id_parentage=parent_prompt_id_only;id_inheritance=forbidden`
@@ -194,28 +195,24 @@ Se il pre-pull fallisce, non usare `git pull` o `git reset --hard` come fallback
 - Un ID cancellato resta occupato per sempre.
 
 
-### Bridge remoto PROMPT_ID per ChatGPT
+### Autorità PROMPT_ID C3
 
-Quando ChatGPT deve creare un nuovo prompt della roadmap da remoto, deve ottenere il PROMPT_ID dal registry MegaVault **prima** della mutation `register` di `codex-roadmap`.
+L'unica autorità operativa è il writer locale di `codex-roadmap`, sul DB
+`~/.local/state/c3-control/roadmap.sqlite`. MegaVault non alloca, materializza,
+cancella o marca prompt. Worker, timer e bridge Issue precedenti sono ritirati.
 
-Ordine dei trasporti ammessi:
+Usare `python3 ~/projects/codex-roadmap/tools/c2_identity.py allocate
+--request-id <REQUEST_ID> --source <SOURCE> [--project-id <PROJECT_ID>]`.
+La successiva mutation locale `register` materializza il corpo nella stessa
+transazione C3: non esiste una seconda conferma MegaVault. Il normale intake
+C3 può allocare e materializzare insieme. Request keys/idempotenza e riserva
+permanente di ogni ID storico restano nel medesimo DB C3.
 
-1. bridge remoto GitHub `PROMPT_ID remote command` tramite **Issue immutabile** con titolo `[prompt-id-command] <request_id>` e body JSON del comando;
-2. `request_id` è la chiave idempotente **dell'allocatore canonico stesso**. La relazione `request_id -> PROMPT_ID` vive in `megavault.sqlite:prompt_id_allocation_requests` ed è scritta nella stessa transazione `BEGIN IMMEDIATE` della reservation: retry con gli stessi `source/project_id/parent_prompt_id` restituiscono lo stesso PROMPT_ID; riuso della stessa chiave con parametri diversi fallisce chiuso. Le receipt JSON sono solo proiezioni/audit e non sono fonte di idempotenza;
-3. se il bridge/GitHub Actions non è disponibile ma il checkout canonico locale `/home/daniele/MegaVault` è disponibile, usare direttamente lo **stesso allocator canonico**:
-   `python3 /home/daniele/MegaVault/megavault.py prompt-id allocate --request-id <REQUEST_ID> ...`;
-4. solo dopo un ID canonico confermato, creare la mutation `[roadmap-mutation]` `register` in `codex-roadmap`;
-5. dopo che il writer roadmap ha creato il file prompt canonico, portare l'ID a `materialized` tramite una seconda Issue `[prompt-id-command]` oppure, se il runner resta indisponibile, con:
-   `python3 /home/daniele/MegaVault/megavault.py prompt-id materialize <ID> --content-file <file-canonico-locale>`
-   dopo un pull protetto della roadmap;
-6. anche `cancel` deve passare dallo stesso trasporto `[prompt-id-command]` quando la mutazione deve essere persistita sul branch canonico. Il worker è il single writer del registry remoto; un `cancel` ripetuto sullo stesso PROMPT_ID è idempotente.
+`megavault.py prompt-id show <ID>` è un read-through in sola lettura di C3.
+Le tabelle seguenti in MegaVault sono archivio pre-migrazione, non registry
+operativo né fallback. Le receipt storiche sono solo evidenza.
 
-Il vecchio `.github/prompt-id-request.json` non è più un trasporto operativo. `.github/prompt-id-response.json` è solo una proiezione di compatibilità dell'ultimo risultato e non è una mailbox autorevole. Una normale Issue `[plan]`, un Issue number o un numero scelto dal modello non sostituiscono mai l'allocator. Se né bridge né CLI canonica sono disponibili, fermarsi con stato pending/blocked senza inventare un ID.
-- Unica eccezione di bootstrap: durante l'attivazione iniziale del registro, gli ID storici gia' materializzati prima dell'allocator vanno importati come riservati tramite `prompt-id backfill`; questa operazione serve solo a impedirne il riuso e non e' ammessa per creare nuovi prompt.
-- Ogni backfill storico deve usare `source=historical-*`; tale prefisso e' riservato al backfill e l'allocator normale deve rifiutarlo. Le righe con tale prefisso sono terminali: normalmente restano `allocated` solo per compatibilita' dello schema; e' ammesso anche `used` per il prompt di bootstrap gia' materializzato durante l'attivazione. In ogni caso `materialize` e `cancel` devono rifiutare qualunque ulteriore transizione. La fonte e' immutabile, quindi un ID storico non puo' essere trasformato in un prompt nuovo.
-- Per l'attivazione usare gli helper `prompt-id backup` e `prompt-id backfill-sources`: il backup viene creato con nome univoco e permessi `0600` fuori dal worktree, senza `rm` preventivo; il backfill estrae internamente solo gli ID e non riversa history/archivi nel contesto del modello.
-- Per smoke post-migrazione usare `prompt-id smoke --project-id PROJECT_ID`: alloca, verifica e cancella lo stesso ID in una sola invocazione con output stabile `prompt_id=...`/`status=cancelled`; non parsare l'output bare di `allocate` con wrapper shell ad hoc.
-- Fonti durevoli del bootstrap: history di `codex-roadmap`/MegaVault e indice `prompts/<ID>` di `codex-usage`; gli archivi legacy locali vanno ingeriti quando presenti ma un path legacy assente non deve lasciare l'allocator permanentemente disattivato. La copertura storica pre-registro va riportata come tale; dal momento dell'attivazione ogni nuova materializzazione deve passare obbligatoriamente dal registro canonico.
+Schema storico conservato:
 
 Schema canonico:
 
