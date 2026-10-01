@@ -505,14 +505,11 @@ class MegaVaultTests(unittest.TestCase):
             repo_count = conn.execute(
                 "select count(*) from repositories where remote_url='https://github.com/gernalix/example-new-repo'"
             ).fetchone()[0]
-            permanent_count = conn.execute(
-                "select count(*) from permanent_ids where entity_type='project' and canonical_key='example-new-repo'"
-            ).fetchone()[0]
             self.assertEqual(first, 0)
             self.assertEqual(second, 0)
             self.assertEqual(project_count, 1)
             self.assertEqual(repo_count, 1)
-            self.assertEqual(permanent_count, 1)
+            self.assertIsNone(conn.execute("SELECT 1 FROM sqlite_master WHERE name='permanent_ids'").fetchone())
 
     def test_register_local_repo_is_idempotent_without_remote(self):
         with tempfile.TemporaryDirectory() as tmp:

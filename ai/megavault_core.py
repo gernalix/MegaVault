@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "megavault.sqlite"
 PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
-SCHEMA_VERSION = 11
+SCHEMA_VERSION = 12
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
     "alerts": "observable alerting, monitor red states, or notification signals",
@@ -1884,7 +1884,6 @@ def schema_errors(conn: sqlite3.Connection) -> list[str]:
     errors: list[str] = []
     required_tables = {
         "projects",
-        "permanent_ids",
         "project_aliases",
         "repositories",
         "hosts",
@@ -2248,17 +2247,11 @@ def validate() -> int:
     if alias_dupes:
         errors.append(f"duplicate aliases: {alias_dupes!r}")
 
-    missing_permanent = conn.execute(
-        """
-        select p.project_id
-        from projects p
-        left join permanent_ids i
-          on i.entity_type='project' and i.entity_id=p.project_id
-        where i.entity_id is null
-        """
-    ).fetchall()
-    if missing_permanent:
-        errors.append(f"projects missing permanent_ids: {missing_permanent!r}")
+    if table_exists(conn, 'permanent_ids'):
+        errors.append('retired duplicate project registry: permanent_ids')
+    for name in ('projects_archive_only', 'projects_immutable_id'):
+        if not conn.execute("SELECT 1 FROM sqlite_master WHERE type='trigger' AND name=?", (name,)).fetchone():
+            errors.append('missing project lifetime guard: ' + name)
 
     root_entries = {p.name for p in ROOT.iterdir()}
     unexpected = sorted(root_entries - ROOT_ALLOWLIST)
@@ -2660,13 +2653,6 @@ def register_local_repo_command(args: argparse.Namespace) -> int:
             """,
             (project_id, slug, Path(root).name, "Auto-registered from local Git worktree; unknown facts intentionally omitted."),
         )
-        conn.execute(
-            """
-            insert into permanent_ids(entity_type, entity_id, canonical_key, created_at_utc)
-            values('project', ?, ?, strftime('%Y-%m-%dT%H:%M:%SZ','now'))
-            """,
-            (project_id, slug),
-        )
         conn.execute("insert into project_aliases(alias, project_id) values(?, ?)", (slug, project_id))
         conn.execute(
             """
@@ -2712,13 +2698,6 @@ def register_github_repo_command(args: argparse.Namespace) -> int:
             """,
             (project_id, slug, name, f"Auto-registered from https://github.com/{owner}/{name}; unknown facts intentionally omitted."),
         )
-        conn.execute(
-            """
-            insert into permanent_ids(entity_type, entity_id, canonical_key, created_at_utc)
-            values('project', ?, ?, strftime('%Y-%m-%dT%H:%M:%SZ','now'))
-            """,
-            (project_id, slug),
-        )
         conn.execute("insert into project_aliases(alias, project_id) values(?, ?)", (slug, project_id))
         conn.execute(
             """
@@ -2737,6 +2716,34 @@ def register_github_repo_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def retire_permanent_project_ids(conn: sqlite3.Connection) -> bool:
+    """Projects reserve IDs for life; aliases preserve prior canonical names."""
+    changed = False
+    if table_exists(conn, 'permanent_ids'):
+        incompatible = conn.execute("""SELECT entity_id FROM permanent_ids i
+            LEFT JOIN projects p ON p.project_id=i.entity_id
+            WHERE i.entity_type<>'project' OR p.project_id IS NULL
+               OR (i.canonical_key<>p.slug AND NOT EXISTS
+                   (SELECT 1 FROM project_aliases a WHERE a.project_id=p.project_id AND a.alias=i.canonical_key))
+               OR (i.retired_at_utc IS NOT NULL AND p.archived=0)""").fetchall()
+        if incompatible:
+            raise ValueError('permanent_project_identity_not_preserved')
+        conn.execute('DROP TABLE permanent_ids')
+        changed = True
+    for name, sql in (
+        ('projects_archive_only', """CREATE TRIGGER projects_archive_only
+            BEFORE DELETE ON projects BEGIN
+            SELECT RAISE(ABORT,'project identity is permanent; archive instead'); END"""),
+        ('projects_immutable_id', """CREATE TRIGGER projects_immutable_id
+            BEFORE UPDATE OF project_id ON projects WHEN NEW.project_id<>OLD.project_id BEGIN
+            SELECT RAISE(ABORT,'project_id is immutable'); END"""),
+    ):
+        if not conn.execute("SELECT 1 FROM sqlite_master WHERE type='trigger' AND name=?", (name,)).fetchone():
+            conn.execute(sql)
+            changed = True
+    return changed
+
+
 def migrate_database() -> int:
     conn = sqlite3.connect(DB)
     conn.isolation_level = None
@@ -2752,6 +2759,7 @@ def migrate_database() -> int:
         if not incident_schema_current or not incident_id_is_integer(conn):
             changed = migrate_incident_schema(conn)
         changed = migrate_project_index_schema(conn) or changed
+        changed = retire_permanent_project_ids(conn) or changed
         changed = ensure_project_context_schema(conn) or changed
         changed = ensure_prompt_id_schema(conn) or changed
         from ai.capsule_registry import ensure_schema as ensure_capsule_schema
