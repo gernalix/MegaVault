@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "megavault.sqlite"
-PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
+PROTOCOL = ROOT / "ai" / "META_INFRASTRUCTURE.md"
 SCHEMA_VERSION = 12
 CANONICAL_TAG_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 DEFAULT_CANONICAL_TAGS = {
@@ -114,6 +114,7 @@ ROOT_ALLOWLIST = {
     "tools",
 }
 ALLOWED_TRACKED_MARKDOWN = {
+    "ai/META_INFRASTRUCTURE.md",
     "ai/BOOTSTRAP.md",
     "ai/MEGAVAULT_PROTOCOL.md",
     "ai/GLOBAL_INDEX.md",
@@ -146,92 +147,28 @@ TRACKED_FORBIDDEN_FILES = {
     "protocol_lint.py",
 }
 REQUIRED_PROTOCOL_FAMILIES = {
-    "capsulization": (
-        "CAPSULIZATION=mandatory_all_projects",
-        "CAPSULE_TARGET=progressive",
-        "NEW_CODE=capsule_only",
-        "SHARED_LOGIC=capsule_only",
-        "UI_DIRECT_DEPENDENCY=forbidden",
-        "CROSS_MODULE_ACCESS=through_capsules_only",
-        "LEGACY_REFACTOR=reduce_when_benefit_exceeds_cost_risk",
-        "LEGACY_RESIDUALS=document_and_verify",
-        "FINAL_GATE=verify_capsule_first_boundaries_and_documented_residuals_before_final",
+    "authority_boundaries": (
+        "STATUS=SOLE_CROSS_PROJECT_AUTHORITY",
+        "authority_project=MegaVault",
+        "authority_lifecycle=C3",
+        "authority_prompt_id=C3",
+        "authority_git=github-autosync",
+        "authority_observed=Fedora",
+        "authority_usage=telemetry_only",
     ),
-    "python_environment": (
-        "PYTHON:",
-        "env=global",
-        "isolation=forbidden",
-        "tools=venv|virtualenv|pipenv|poetry|uv",
-        "override=user_explicit_request",
-        "packages=reuse_global>install_global",
-        "venv_without_override=protocol_violation",
+    "permanent_identity": (
+        "project_ids=archive_only_never_reuse",
+        "prompt_ids=reserved_forever",
     ),
-    "per_repo_single_writer_git": (
-        "model=per_repo_single_writer;canonical_branch_writers=1;parallel_task_worktrees=allowed",
-        "direct_canonical_work=forbidden_for_agents",
-        "per_task_worktree_branch=required",
-        "canonical_integration=single_writer_only",
-        "branch_chaining=forbidden",
-        "task_finish=repo-task_finish_or_equivalent_single-writer_PR",
-        "commit_push_before_final=task_branch_required_unless_user_explicitly_forbids",
-        "final_branch_fields=repository,canonical_branch,current_branch,temp_branch_reason,integration_status,cleanup_status",
+    "write_boundary": (
+        "single_c3_writer=required",
+        "inbox_is_not_work_item=true",
+        "projections_are_not_authority=true",
     ),
-    "secret_policy": (
-        "secret_values=never_store;references_and_provider_metadata_only",
-        "SECRETS:",
-        "values=never_store_in_MegaVault_or_Git",
-        "secrets=follow_SECRETS_section",
-        "provider_by_context=fedora_desktop:secret_service|systemd:credentials_directory|github_actions:actions_secrets|android:keystore|provider_owned:reuse_native|headless:systemd_or_secret_manager",
-        "legacy_secret_files=transitional_only;mode=0600;fail_closed",
-        "secret_boundary=single_adapter_per_repo;application_code_must_not_read_raw_secret_files",
-        "secret_fallback=systemd_credential>secret_service>existing_legacy_file_fail_closed>ephemeral_env",
-        "secret_handling=read_only_when_task_requires;reprompt_for_known_reference_forbidden;rotation_manual_explicit_only",
-    ),
-    "project_id_authority": (
-        "project_id_source=megavault.sqlite:projects+project_aliases_only;INTEGER_PRIMARY_KEY",
-        "project_lifecycle=never_delete_project;archive_only;never_reuse_project_id;ids_unique_permanent_not_dense",
-    ),
-    "prompt_id_policy": (
-        "prompt_id_authority=C3/codex-roadmap",
-        "prompt_id_identity=one_materialized_prompt_one_new_id_absolute",
-        "prompt_id_revision=any_textual_or_semantic_change_requires_new_id",
-        "prompt_id_reuse=forbidden_forever",
-        "prompt_id_parentage=parent_prompt_id_only;id_inheritance=forbidden",
-        "prompt_id_allocator=centralized_registry+CSPRNG+SQLite_PRIMARY_KEY+transaction",
-        "prompt_id_content_hash=audit_only;deduplication=forbidden",
-        "prompt_id_request_id=db_atomic_same_transaction;retry_same_parameters_same_id;conflict_fail_closed",
-    ),
-    "no_duplicate_truth": (
-        "duplicate_truth=forbidden",
-        "forbidden=reports_done,human_mirror,project_docs_in_MegaVault,generated_timeline_markdown,duplicate_registries",
-        "project_docs=owner_repo_docs_code_tests;MegaVault_only_global_transversal_knowledge",
-    ),
-    "incident_policy": (
-        "identity=one_observed_occurrence",
-        "id=SQLite_AUTOINCREMENT;immediate;unique;never_reused",
-        "same_symptom_same_cause_new_time=new_incident",
-        "cause=nullable;UNKNOWN_allowed;does_not_affect_id",
-        "merge=forbidden",
-        "linking=canonical_tags_only",
-        "source=megavault.sqlite:tags+tag_aliases",
-        "reuse_existing=mandatory",
-        "free_text=forbidden",
-        "new_tag=only_if_no_canonical_or_alias_match",
-        "format=lowercase_atomic",
-        "aliases=search_only;canonical_link_only",
-        "incident_search=tag_intersection+text",
-    ),
-    "final_reporting": (
-        "final_fields=files_changed,tests,test_result,docs_or_MegaVault_updates,repo_status,commit,push,sync_state,branch_fields,execution_insights,blockers,optimization_opportunities,remaining_unresolved",
-        "blockers=root_cause,impact,workaround,resolution,status;silent_workaround_retry_skip=forbidden",
-        "optimization=root_cause,impact,estimated_future_savings,one_time_fix,priority,confidence,status;section=mandatory",
-        "success_forbid=silent_failure,false_success,unverified_PASS",
-    ),
-    "android_policy": (
-        "required_for=android_projects,android_builds,android_releases,android_tooling",
-        "version=version.txt_integer_monotonic;derive_versionCode_versionName_apk_name;home_v_visible;skip_reuse_forbidden",
-        "saf_sqlite=autoexport_all_app_data_on_db_change;atomic;validate_after_write;failure_visible;preserve_last_good;test_required",
-        "i18n=en+it;no_hardcoded_user_visible_text;missing_translation_blocker",
+    "ai_takeover": (
+        "coverage=90%+_normal_operations_from_this_document_alone",
+        "## Recovery decision tree",
+        "## Stop conditions",
     ),
 }
 SECRET_PATTERNS = (
@@ -1853,8 +1790,8 @@ def protocol_semantic_errors(raw: str | None = None) -> list[str]:
         raw = PROTOCOL.read_text(encoding="utf-8")
 
     version_match = re.search(r"(?m)^VERSION=(\d+)$", raw)
-    if not version_match or int(version_match.group(1)) < 19:
-        errors.append("protocol_semantic_missing:version_at_least_19")
+    if not version_match or int(version_match.group(1)) < 61:
+        errors.append("protocol_semantic_missing:version_at_least_61")
 
     for family, snippets in REQUIRED_PROTOCOL_FAMILIES.items():
         for snippet in snippets:

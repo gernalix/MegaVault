@@ -16,7 +16,7 @@ from ai import megavault_core  # noqa: E402
 from ai import strict_tag_wrapper  # noqa: E402
 import megavault  # noqa: E402
 
-PROTOCOL = ROOT / "ai" / "MEGAVAULT_PROTOCOL.md"
+PROTOCOL = ROOT / "ai" / "META_INFRASTRUCTURE.md"
 PH_BOOTSTRAP = ROOT / "ai" / "personalhubdoc.md"
 
 
@@ -53,25 +53,17 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_protocol_semantic_guard_detects_critical_removal(self):
         text = PROTOCOL.read_text(encoding="utf-8")
-        broken = text.replace("CAPSULIZATION=mandatory_all_projects\n", "", 1)
+        broken = text.replace("authority_prompt_id=C3", "", 1)
         errors = megavault.protocol_semantic_errors(broken)
         self.assertIn(
-            "protocol_semantic_missing:capsulization:CAPSULIZATION=mandatory_all_projects",
+            "protocol_semantic_missing:authority_boundaries:authority_prompt_id=C3",
             errors,
         )
 
-    def test_personalhub_prompt_id_policy_matches_global_contract(self):
+    def test_personalhub_routes_to_single_global_contract(self):
         text = PH_BOOTSTRAP.read_text(encoding="utf-8")
-        required = (
-            "identity=one_materialized_prompt_one_new_prompt_id_absolute",
-            "revision=any_change_even_single_character_or_minor_rewording=>new_prompt_id",
-            "parentage=parent_prompt_id_only;inherit_parent_id=forbidden",
-            "reuse=forbidden_forever;cancelled_id_remains_reserved;delete=forbidden",
-            "content_sha256=audit_integrity_only;deduplication_or_id_reuse_by_hash=forbidden",
-            "model_generated_unregistered_prompt_id=forbidden",
-        )
-        for marker in required:
-            self.assertIn(marker, text)
+        self.assertIn("read_META_INFRASTRUCTURE.md_only", text)
+        self.assertNotIn("PROMPT_IDS:", text)
 
     def prompt_id_temp_db(self, tmp):
         tmp_db = Path(tmp) / "megavault-prompt-id.sqlite"
