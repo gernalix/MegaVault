@@ -57,11 +57,13 @@ single_c3_writer=required; project_ids=archive_only_never_reuse; prompt_ids=rese
 
 Model/reasoning are structured execution metadata, never prompt body text; immutable for a running run. Preserve explicit dependencies/resources and permanent ID reservations. Never use telemetry or file titles to start/finish an item.
 
+Retired manual/watch entrypoints also include `c2-roadmap-goal-watchdog`, `c2-roadmap-live-watch`, `c2-roadmap-semantic-watcher`, `c2-personalhub-p0` and `c2-roadmap-status`; their installed services/timers are masked and old scripts reject permanently. They are not recovery tools.
+
 Never reactivate C2 supervisor/watchdog/resume/global discovery/recovery; Workflowy C3 dashboard/sync/manual order/control bridge; snapshot poller/second full roadmap DB; recursive Inbox executor/maintenance timer; MegaVault PROMPT_ID worker/allocator/Issue bridge; usage lifecycle/aggregate C2 health/global CI watcher; dedicated roadmap Git PR writer. Retired checkpoints are historical evidence, never executable recovery points. Never unmask legacy units, reinstall old source/build copies or run an old installer to recover. Personal Workflowy and targeted C3 GUI browser utilities are independent and remain permitted. Manual browser kill switch `/home/daniele/.config/c2/disable-chat-supervisor` is a resource circuit breaker; do not remove without confirming the triggering condition/user authority.
 
 ## Recovery decision tree
 
-- Mutation timeout/socket unavailable → inspect `mutation_receipts WHERE request_key=KEY` read-only first; applied means no resend. If absent, check writer unit + bounded journal; repair local failure, retry same immutable request. Never GitHub/direct-SQL fallback.
+- Mutation timeout/socket unavailable → inspect `mutation_receipts WHERE request_key=KEY` read-only first; applied means no resend. If absent, check writer unit + bounded journal; repair local failure, retry same immutable request. Writer startup uses systemd readiness; after its restart, start `c3-web.service` if dependency-stop left it inactive and verify HTTP health. Never GitHub/direct-SQL fallback.
 - Writer contention/invalid mutation/key conflict → preserve owner; inspect exact receipt/payload/precondition. Correct caller input with a new key only if semantics changed; no repeated identical rejected retries.
 - Runtime failure → inspect C3 unit/journal, lease and exact worker; correct the demonstrated fault. Start only current `c3-runtime.service`, never C2. Event trigger=`c3-runtime.path`; one slow `c3-runtime.timer` safety net. Lease expiry alone never authorizes a replacement executor.
 - Stale run → verify real worker/executor and existing result/integration evidence. Reconcile through fenced `reconcile_run`/`recover` only after proving ownership is gone; bounded existing recovery, not a new master goal. GUI uncertain delivery → inspect existing run receipt/chat binding; leave quarantined rather than send another prompt.
