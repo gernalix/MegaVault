@@ -1,0 +1,400 @@
+[
+  {
+    "routing": {
+      "project": "15",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Diagnostica e ripristina i monitor Uptime Kuma rossi",
+      "objective": "Uptime Kuma currently shows 3 red monitors. Diagnose each failing monitor, fix the underlying causes, restore all three to green, and where a shared/recurring cause is found implement the smallest durable prevention so the same failure does not recur.",
+      "acceptance_json": "[]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "BLOCKED: two of three implicated live Kuma monitors are not green; physical storage and backup integrity faults remain.",
+      "next_action": "Reconnect T7 safely and assess pack/key repair plus thermal state with explicit physical intervention.",
+      "blocker": "T7 remains physically absent; saved repository pack/key I/O corruption and live SPD5118 thermal alarms prevent safe all-green verification.",
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T00:50:41Z",
+      "updated_at": "2026-09-27T22:23:04.970683Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "tag": "uptime-kuma"
+      },
+      {
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "tag": "operations"
+      },
+      {
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:f5cef53ce33749e8b100ad866f01278f:1677b6b7896987c5fd9a49fc55945671",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "BLOCKED: two of three implicated live Kuma monitors are not green; physical storage and backup integrity faults remain.",
+        "completed_json": "[\"Identified live monitors #40 Fedora Storage, #65 Oracle Datasette API and #69 Fedora T7 Backup Event from Oracle Kuma SQLite.\", \"Diagnosed USB disconnect and I/O faults, T7 restic check failure, persistent SPD5118 thermal alarm, and intermittent Datasette schema-refresh HTTP 500.\", \"Preserved backup data; captured C2 issues #2557, #2560 and #2571; committed and pushed checkpoint d2f8c7de.\"]",
+        "remaining_json": "[\"Investigate and stabilize USB/storage hardware, preserve and recover T7 restic repository, then verify a successful full check.\", \"Address actual RAM thermal alarm and remaining Fedora Storage alerts without suppressing them.\", \"Verify all three live Kuma monitors status 1 after real recovery; address recurring Datasette HTTP 500 if it recurs.\"]",
+        "evidence_json": "[\"Kuma live SQLite at 2026-09-27 18:57 UTC: #40 status 0 active alerts=6; #65 status 1 HTTP 200; #69 status 2 T7 backup failed exit=1.\", \"t7-restic-backup.service full restic check --read-data ended exit 1: repository contains errors; retrigger failed on restic key input/output error and missing key file.\", \"Fedora kernel journal 20:42-20:43 CEST shows USB disconnect and dm/loop I/O errors; SPD5118 RAM sensors 70.5/72.75 C above 55 C max with asserted alarm.\"]",
+        "blocker": "T7 repository has verified pack corruption plus key-file I/O failure after USB instability; safe repair may require physical intervention and destructive pack rewriting. Fedora Storage also has a real thermal alarm. Cannot truthfully restore or verify all three monitors green.",
+        "next_action": "After hardware and data-safe backup recovery, run read-only integrity checks and obtain fresh live Kuma status for #40, #65 and #69.",
+        "strict_contract": 1,
+        "payload_sha256": "1677b6b7896987c5fd9a49fc55945671184effe8f57476c0151e48e0d1074173",
+        "captured_at": 1790535507.1488588
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 514,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:42fc2b2743aa41aeb5dd7b6451f39134",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma currently shows 3 red monitors. Diagnose each failing monitor, fix the underlying causes, restore all three to green, and where a shared/recurring cause is found implement the smallest durable prevention so the same failure does not recur.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:42fc2b2743aa41aeb5dd7b6451f39134\", \"observed_at_ms\": 1790463422616, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T00:50:41Z"
+      },
+      {
+        "evidence_id": 807,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "executor_result",
+        "label": "Kuma live SQLite at 2026-09-27 18:57 UTC: #40 status 0 active alerts=6; #65 status 1 HTTP 200; #69 status 2 T7 backup fa",
+        "uri": null,
+        "value_json": "\"Kuma live SQLite at 2026-09-27 18:57 UTC: #40 status 0 active alerts=6; #65 status 1 HTTP 200; #69 status 2 T7 backup failed exit=1.\"",
+        "created_at": "2026-09-27T18:58:27Z"
+      },
+      {
+        "evidence_id": 808,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "executor_result",
+        "label": "t7-restic-backup.service full restic check --read-data ended exit 1: repository contains errors; retrigger failed on res",
+        "uri": null,
+        "value_json": "\"t7-restic-backup.service full restic check --read-data ended exit 1: repository contains errors; retrigger failed on restic key input/output error and missing key file.\"",
+        "created_at": "2026-09-27T18:58:27Z"
+      },
+      {
+        "evidence_id": 809,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "executor_result",
+        "label": "Fedora kernel journal 20:42-20:43 CEST shows USB disconnect and dm/loop I/O errors; SPD5118 RAM sensors 70.5/72.75 C abo",
+        "uri": null,
+        "value_json": "\"Fedora kernel journal 20:42-20:43 CEST shows USB disconnect and dm/loop I/O errors; SPD5118 RAM sensors 70.5/72.75 C above 55 C max with asserted alarm.\"",
+        "created_at": "2026-09-27T18:58:27Z"
+      },
+      {
+        "evidence_id": 1045,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:965b2eadf168801325fd34fa2c2b920e",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Storage (id 40)\\nHeartbeat: 2026-09-27 19:56:19.386 (row 571187)\\nFailure context: storage: collectors complete; active alerts=2\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:965b2eadf168801325fd34fa2c2b920e\", \"observed_at_ms\": 1790539029451, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T21:10:42Z"
+      },
+      {
+        "evidence_id": 1217,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "blocked_reconcile",
+        "label": "T7 remains physically absent; saved repository pack/key I/O corruption and live SPD5118 thermal alarms prevent safe all-",
+        "uri": null,
+        "value_json": "\"T7 remains physically absent; saved repository pack/key I/O corruption and live SPD5118 thermal alarms prevent safe all-green verification.\"",
+        "created_at": "2026-09-27T22:23:04.970683Z"
+      },
+      {
+        "evidence_id": 2190,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:0c874084294b45ab2dfc57e1b470eb5f",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-30 01:16:34.388 (row 675433)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:0c874084294b45ab2dfc57e1b470eb5f\", \"observed_at_ms\": 1790731079572, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:36:29Z"
+      },
+      {
+        "evidence_id": 2193,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:6dd63f5d078b5668ca279bbf502c7d7e",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-30 02:20:24.276 (row 677506)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:6dd63f5d078b5668ca279bbf502c7d7e\", \"observed_at_ms\": 1790734927200, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:36:29Z"
+      },
+      {
+        "evidence_id": 2197,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:86f38fbe03322c9433d29cccc44796b9",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-30 03:31:27.475 (row 679807)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:86f38fbe03322c9433d29cccc44796b9\", \"observed_at_ms\": 1790739153887, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:36:29Z"
+      },
+      {
+        "evidence_id": 2199,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c5f0bb39d540a744d5d01a821a07fc43",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 03:58:40.683 (row 680712)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c5f0bb39d540a744d5d01a821a07fc43\", \"observed_at_ms\": 1790740778778, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:36:29Z"
+      },
+      {
+        "evidence_id": 2200,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:b32e3bcf5847b1eb03f12e85421d4b48",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-30 04:27:26.383 (row 681638)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:b32e3bcf5847b1eb03f12e85421d4b48\", \"observed_at_ms\": 1790742487151, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:36:29Z"
+      },
+      {
+        "evidence_id": 2206,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c528708ce7209a2aa1d4213196fdfd5f",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 04:50:26.473 (row 682400)\\nFailure context: run_id=20260930T045021Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c528708ce7209a2aa1d4213196fdfd5f\", \"observed_at_ms\": 1790743880160, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:36:29Z"
+      },
+      {
+        "evidence_id": 2267,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:34bce96515b55de4de4edee1bf4b42a7",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora T7 Backup Event (id 69)\\nHeartbeat: 2026-09-30 06:26:27.323 (row 685527)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:34bce96515b55de4de4edee1bf4b42a7\", \"observed_at_ms\": 1790749948494, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:10:08Z"
+      },
+      {
+        "evidence_id": 2268,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:06338db4e2388b026e39c2e02df79934",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Storage (id 40)\\nHeartbeat: 2026-09-30 06:33:18.210 (row 685679)\\nFailure context: storage: collectors complete; active alerts=2\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:06338db4e2388b026e39c2e02df79934\", \"observed_at_ms\": 1790750098395, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:10:08Z"
+      },
+      {
+        "evidence_id": 2287,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d545864921e366ed3250f2beacba3661",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-30 08:39:22.382 (row 689785)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d545864921e366ed3250f2beacba3661\", \"observed_at_ms\": 1790757644670, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:21:51Z"
+      },
+      {
+        "evidence_id": 2289,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:2e20a95e85031d93b4f85ee9046b0ada",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-30 08:49:24.100 (row 690106)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:2e20a95e85031d93b4f85ee9046b0ada\", \"observed_at_ms\": 1790758270838, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:21:51Z"
+      },
+      {
+        "evidence_id": 2293,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c8ff3193bfbc94229014e8984425c5e8",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-30 09:20:26.167 (row 691108)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c8ff3193bfbc94229014e8984425c5e8\", \"observed_at_ms\": 1790760084528, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:21:51Z"
+      },
+      {
+        "evidence_id": 2313,
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:81a495ebe42db0196f230a4b4712be36",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-30 10:15:20.170 (row 692906)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:81a495ebe42db0196f230a4b4712be36\", \"observed_at_ms\": 1790763394873, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:24:32Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:965b2eadf168801325fd34fa2c2b920e",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-27T19:57:09Z"
+      },
+      {
+        "issue_id": "issue:0c874084294b45ab2dfc57e1b470eb5f",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T01:17:59Z"
+      },
+      {
+        "issue_id": "issue:6dd63f5d078b5668ca279bbf502c7d7e",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T02:22:07Z"
+      },
+      {
+        "issue_id": "issue:86f38fbe03322c9433d29cccc44796b9",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T03:32:33Z"
+      },
+      {
+        "issue_id": "issue:c5f0bb39d540a744d5d01a821a07fc43",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T03:59:38Z"
+      },
+      {
+        "issue_id": "issue:b32e3bcf5847b1eb03f12e85421d4b48",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T04:28:07Z"
+      },
+      {
+        "issue_id": "issue:c528708ce7209a2aa1d4213196fdfd5f",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T04:51:20Z"
+      },
+      {
+        "issue_id": "issue:34bce96515b55de4de4edee1bf4b42a7",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T06:32:28Z"
+      },
+      {
+        "issue_id": "issue:06338db4e2388b026e39c2e02df79934",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T06:34:58Z"
+      },
+      {
+        "issue_id": "issue:d545864921e366ed3250f2beacba3661",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T08:40:44Z"
+      },
+      {
+        "issue_id": "issue:2e20a95e85031d93b4f85ee9046b0ada",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T08:51:10Z"
+      },
+      {
+        "issue_id": "issue:c8ff3193bfbc94229014e8984425c5e8",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T09:21:24Z"
+      },
+      {
+        "issue_id": "issue:81a495ebe42db0196f230a4b4712be36",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "matched",
+        "created_at": "2026-09-30T10:16:34Z"
+      },
+      {
+        "issue_id": "issue:42fc2b2743aa41aeb5dd7b6451f39134",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-26T22:57:02Z"
+      },
+      {
+        "issue_id": "issue:965b2eadf168801325fd34fa2c2b920e",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-27T19:57:09Z"
+      },
+      {
+        "issue_id": "issue:0c874084294b45ab2dfc57e1b470eb5f",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T01:17:59Z"
+      },
+      {
+        "issue_id": "issue:6dd63f5d078b5668ca279bbf502c7d7e",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T02:22:07Z"
+      },
+      {
+        "issue_id": "issue:86f38fbe03322c9433d29cccc44796b9",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T03:32:33Z"
+      },
+      {
+        "issue_id": "issue:c5f0bb39d540a744d5d01a821a07fc43",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T03:59:38Z"
+      },
+      {
+        "issue_id": "issue:b32e3bcf5847b1eb03f12e85421d4b48",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T04:28:07Z"
+      },
+      {
+        "issue_id": "issue:c528708ce7209a2aa1d4213196fdfd5f",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T04:51:20Z"
+      },
+      {
+        "issue_id": "issue:34bce96515b55de4de4edee1bf4b42a7",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T06:32:28Z"
+      },
+      {
+        "issue_id": "issue:06338db4e2388b026e39c2e02df79934",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T06:34:58Z"
+      },
+      {
+        "issue_id": "issue:d545864921e366ed3250f2beacba3661",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T08:40:44Z"
+      },
+      {
+        "issue_id": "issue:2e20a95e85031d93b4f85ee9046b0ada",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T08:51:10Z"
+      },
+      {
+        "issue_id": "issue:c8ff3193bfbc94229014e8984425c5e8",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T09:21:24Z"
+      },
+      {
+        "issue_id": "issue:81a495ebe42db0196f230a4b4712be36",
+        "work_item_id": "wi:f5cef53ce33749e8b100ad866f01278f",
+        "role": "decision",
+        "created_at": "2026-09-30T10:16:34Z"
+      }
+    ]
+  }
+]

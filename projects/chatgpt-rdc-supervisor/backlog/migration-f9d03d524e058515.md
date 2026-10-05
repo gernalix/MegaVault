@@ -1,0 +1,107 @@
+# Reduce RDC short-command startup latency
+
+<!-- migration-f9d03d524e058515 -->
+
+Migrated project backlog. Project: **chatgpt-rdc-supervisor**; project_id: 105.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 105.
+
+Provenance: `wi:b6eeb6db003143bd8d9031ebeba1c912`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Reduce RDC short-command startup latency
+
+Retrospective bottleneck from ChatGPT conversation 6ab8f2d7-ad14-83eb-b53b-c386288d3e46: RDC/start_process round-trip latency is very high for short commands. Example: a command launched at ~14:58:54.852 CEST was only surfaced around 14:59:05.708, while later evidence showed the process itself completed in ~1.03 s. Repeated micro-commands therefore pay ~10 s-scale orchestration overhead independent of actual command runtime. Measure and reduce fixed RDC/process startup/detection latency or batch commands.
+
+status: waiting
+
+current_action: Parked during roadmap semantic reconciliation.
+
+next_action: Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.
+
+blocker: Deferred pending Symphony migration/replacement decision.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "105",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "105"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:b6eeb6db003143bd8d9031ebeba1c912",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Reduce RDC short-command startup latency",
+      "objective": "Retrospective bottleneck from ChatGPT conversation 6ab8f2d7-ad14-83eb-b53b-c386288d3e46: RDC/start_process round-trip latency is very high for short commands. Example: a command launched at ~14:58:54.852 CEST was only surfaced around 14:59:05.708, while later evidence showed the process itself completed in ~1.03 s. Repeated micro-commands therefore pay ~10 s-scale orchestration overhead independent of actual command runtime. Measure and reduce fixed RDC/process startup/detection latency or batch commands.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": 9000,
+      "current_action": "Parked during roadmap semantic reconciliation.",
+      "next_action": "Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.",
+      "blocker": "Deferred pending Symphony migration/replacement decision.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T21:05:30Z",
+      "updated_at": "2026-09-28T06:45:05Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:b6eeb6db003143bd8d9031ebeba1c912",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1012,
+        "work_item_id": "wi:b6eeb6db003143bd8d9031ebeba1c912",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:57285942454b4cb88e9de1391422d62d",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Retrospective bottleneck from ChatGPT conversation 6ab8f2d7-ad14-83eb-b53b-c386288d3e46: RDC/start_process round-trip latency is very high for short commands. Example: a command launched at ~14:58:54.852 CEST was only surfaced around 14:59:05.708, while later evidence showed the process itself completed in ~1.03 s. Repeated micro-commands therefore pay ~10 s-scale orchestration overhead independent of actual command runtime. Measure and reduce fixed RDC/process startup/detection latency or batch commands.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:57285942454b4cb88e9de1391422d62d\", \"observed_at_ms\": 1790516612591, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"codex-roadmap\"}",
+        "created_at": "2026-09-27T21:05:30Z"
+      },
+      {
+        "evidence_id": 1458,
+        "work_item_id": "wi:b6eeb6db003143bd8d9031ebeba1c912",
+        "evidence_kind": "classification",
+        "label": "User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to",
+        "uri": null,
+        "value_json": "\"User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to current roadmap execution and should not compete for slots before the migration decision.\"",
+        "created_at": "2026-09-28T06:45:05Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:57285942454b4cb88e9de1391422d62d",
+        "work_item_id": "wi:b6eeb6db003143bd8d9031ebeba1c912",
+        "role": "decision",
+        "created_at": "2026-09-27T13:43:32Z"
+      }
+    ]
+  }
+]
+```

@@ -1,0 +1,75 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:6a5d66627c98493c98b8c3f2080538e7",
+      "parent_id": null,
+      "kind": "task",
+      "title": "c2-codex-human: aggiungere la spiegazione on-demand dei messaggi visibili",
+      "objective": "Extend c2-codex-human with an on-demand explanation mode. Press e to select the newest visible message, navigate with Up/Down, show temporary numeric shortcuts on visible messages, Enter explains the selected message using minimal nearby context, render the explanation inline, cache by message hash, and make zero model calls during normal viewing.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Parked during roadmap semantic reconciliation.",
+      "next_action": "Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.",
+      "blocker": "Deferred pending Symphony migration/replacement decision.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T23:45:34Z",
+      "updated_at": "2026-09-28T06:45:01Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:6a5d66627c98493c98b8c3f2080538e7",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1310,
+        "work_item_id": "wi:6a5d66627c98493c98b8c3f2080538e7",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c480015936ce4a6295abd8f5b3e58632",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Extend c2-codex-human with an on-demand explanation mode. Press e to select the newest visible message, navigate with Up/Down, show temporary numeric shortcuts on visible messages, Enter explains the selected message using minimal nearby context, render the explanation inline, cache by message hash, and make zero model calls during normal viewing.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c480015936ce4a6295abd8f5b3e58632\", \"observed_at_ms\": 1790551989126, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/codex-roadmap\"}",
+        "created_at": "2026-09-27T23:45:34Z"
+      },
+      {
+        "evidence_id": 1439,
+        "work_item_id": "wi:6a5d66627c98493c98b8c3f2080538e7",
+        "evidence_kind": "classification",
+        "label": "User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to",
+        "uri": null,
+        "value_json": "\"User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to current roadmap execution and should not compete for slots before the migration decision.\"",
+        "created_at": "2026-09-28T06:45:01Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:c480015936ce4a6295abd8f5b3e58632",
+        "work_item_id": "wi:6a5d66627c98493c98b8c3f2080538e7",
+        "role": "decision",
+        "created_at": "2026-09-27T23:33:09Z"
+      }
+    ]
+  }
+]

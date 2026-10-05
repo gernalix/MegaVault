@@ -1,0 +1,96 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:807810998ed34f44977c469507bc94fd",
+      "parent_id": null,
+      "kind": "task",
+      "title": "C2 throughput starvation: the Inbox drain gate blocks all non-P0 roadmap dispatch whenever any issue_inbox row is pendin",
+      "objective": "C2 throughput starvation: the Inbox drain gate blocks all non-P0 roadmap dispatch whenever any issue_inbox row is pending or triage is reconciling. Current supervisor snapshot has 181 pending Inbox rows; the triage fallback has recently reduced only about 7-8 rows per 40-46 minute run. At the same time, 65 pending work items have no work_item_execution_spec, including 53 executor_policy=auto items, so runnable_with_spec is effectively zero. Many of these were promoted from the Inbox. This creates a self-sustaining loop where Inbox growth halts the roadmap while promotions become pending-but-undispatchable. Replace the global drain barrier with a reserved triage lane/slot; do not mark promoted auto work pending until an executable spec or explicit planning state exists; and use cheaper deterministic/batched triage with model escalation only for ambiguous rows.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:21:51Z",
+      "updated_at": "2026-09-30T12:21:51Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:807810998ed34f44977c469507bc94fd",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2290,
+        "work_item_id": "wi:807810998ed34f44977c469507bc94fd",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d7fb0f4e1da0429385c6627ff46ead63",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C2 throughput starvation: the Inbox drain gate blocks all non-P0 roadmap dispatch whenever any issue_inbox row is pending or triage is reconciling. Current supervisor snapshot has 181 pending Inbox rows; the triage fallback has recently reduced only about 7-8 rows per 40-46 minute run. At the same time, 65 pending work items have no work_item_execution_spec, including 53 executor_policy=auto items, so runnable_with_spec is effectively zero. Many of these were promoted from the Inbox. This creates a self-sustaining loop where Inbox growth halts the roadmap while promotions become pending-but-undispatchable. Replace the global drain barrier with a reserved triage lane/slot; do not mark promoted auto work pending until an executable spec or explicit planning state exists; and use cheaper deterministic/batched triage with model escalation only for ambiguous rows.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d7fb0f4e1da0429385c6627ff46ead63\", \"observed_at_ms\": 1790759967757, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:21:51Z"
+      },
+      {
+        "evidence_id": 2447,
+        "work_item_id": "wi:807810998ed34f44977c469507bc94fd",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:deade4979ccb4fe7b506a5d777e2eba2",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"C2 Inbox reconciliation became an operational bottleneck in the acceleration chat: the pending raw-observation backlog was about 182 items while promotion/reconciliation still carried nontrivial scheduling and mutation cost. This backlog delayed useful work even though Inbox observations should be cheap intake. Reconciliation must remain independent of execution scheduling and scale in bounded batches without starving runnable roadmap work.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:deade4979ccb4fe7b506a5d777e2eba2\", \"observed_at_ms\": 1790784761773, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:35:23Z"
+      },
+      {
+        "evidence_id": 2448,
+        "work_item_id": "wi:807810998ed34f44977c469507bc94fd",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:8298fb485d7a452d8875401e3c47d34f",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"C2 Inbox reconciliation became an operational bottleneck in the acceleration chat: the pending raw-observation backlog was about 182 items while promotion/reconciliation still carried nontrivial scheduling and mutation cost. This backlog delayed useful work even though Inbox observations should be cheap intake. Reconciliation must remain independent of execution scheduling and scale in bounded batches without starving runnable roadmap work.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:8298fb485d7a452d8875401e3c47d34f\", \"observed_at_ms\": 1790784762243, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:35:23Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:d7fb0f4e1da0429385c6627ff46ead63",
+        "work_item_id": "wi:807810998ed34f44977c469507bc94fd",
+        "role": "decision",
+        "created_at": "2026-09-30T09:19:27Z"
+      },
+      {
+        "issue_id": "issue:deade4979ccb4fe7b506a5d777e2eba2",
+        "work_item_id": "wi:807810998ed34f44977c469507bc94fd",
+        "role": "decision",
+        "created_at": "2026-09-30T16:35:23Z"
+      },
+      {
+        "issue_id": "issue:8298fb485d7a452d8875401e3c47d34f",
+        "work_item_id": "wi:807810998ed34f44977c469507bc94fd",
+        "role": "decision",
+        "created_at": "2026-09-30T16:35:23Z"
+      }
+    ]
+  }
+]

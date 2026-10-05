@@ -1,0 +1,112 @@
+[
+  {
+    "routing": {
+      "project": "60",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "60"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:9b616b30ceac4e2eb7061aa7b6886beb",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in codex-usage",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=60, repository_id=R0060. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Project Capsule branch checks pass locally, but GitHub cannot start the required CI job because of an account billing or spending-limit gate.",
+      "next_action": "Restore CI gate, rerun validation, then guarded integrate.",
+      "blocker": "codex-usage PR #1 remains open; required validate-data CI failed at account billing/spending limit.",
+      "project_id": "60",
+      "project_name": "codex-usage",
+      "repo": "https://github.com/gernalix/codex-usage",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T22:23:04.971315Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:9b616b30ceac4e2eb7061aa7b6886beb",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:9b616b30ceac4e2eb7061aa7b6886beb:7bab371f06459e3a90154fa02ecfd667",
+        "work_item_id": "wi:9b616b30ceac4e2eb7061aa7b6886beb",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Project Capsule branch checks pass locally, but GitHub cannot start the required CI job because of an account billing or spending-limit gate.",
+        "completed_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\"]",
+        "remaining_json": "[\"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+        "evidence_json": "[\"PR https://github.com/gernalix/codex-usage/pull/1 remains OPEN at head f5f732ebe3b5273eb384c919fa1b9c090588312d.\", \"GitHub run https://github.com/gernalix/codex-usage/actions/runs/36351594115 failed before starting validate-data: job runner_id=0, steps=[], no logs; check-run annotation says recent account payments failed or spending limit must be increased.\", \"GitHub check-run for PR #1 shows GitGuardian Security Checks SUCCESS; validate-data FAILURE is external job-start billing gate.\", \"Local Project Capsule FAST and FULL both returned PASS; read-only archive validation parsed 3206 JSON and 6747 JSONL files; git diff --check passed.\"]",
+        "blocker": "GitHub Actions refuses to start validate-data because recent account payments have failed or the account spending limit must be increased; this is an external account billing gate, not a code/test failure.",
+        "next_action": "After the repository owner resolves the GitHub billing/spending-limit gate, rerun validate-data for PR #1, then verify the integrated head, rerun FAST against that head, and submit the terminal result through the C2 writer.",
+        "strict_contract": 1,
+        "payload_sha256": "7bab371f06459e3a90154fa02ecfd6679ec14d7943697e452dfea5da92c906cb",
+        "captured_at": 1790544645.6162746
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1100,
+        "work_item_id": "wi:9b616b30ceac4e2eb7061aa7b6886beb",
+        "evidence_kind": "executor_result",
+        "label": "PR https://github.com/gernalix/codex-usage/pull/1 remains OPEN at head f5f732ebe3b5273eb384c919fa1b9c090588312d.",
+        "uri": null,
+        "value_json": "\"PR https://github.com/gernalix/codex-usage/pull/1 remains OPEN at head f5f732ebe3b5273eb384c919fa1b9c090588312d.\"",
+        "created_at": "2026-09-27T21:30:45Z"
+      },
+      {
+        "evidence_id": 1101,
+        "work_item_id": "wi:9b616b30ceac4e2eb7061aa7b6886beb",
+        "evidence_kind": "executor_result",
+        "label": "GitHub run https://github.com/gernalix/codex-usage/actions/runs/36351594115 failed before starting validate-data: job ru",
+        "uri": null,
+        "value_json": "\"GitHub run https://github.com/gernalix/codex-usage/actions/runs/36351594115 failed before starting validate-data: job runner_id=0, steps=[], no logs; check-run annotation says recent account payments failed or spending limit must be increased.\"",
+        "created_at": "2026-09-27T21:30:45Z"
+      },
+      {
+        "evidence_id": 1102,
+        "work_item_id": "wi:9b616b30ceac4e2eb7061aa7b6886beb",
+        "evidence_kind": "executor_result",
+        "label": "GitHub check-run for PR #1 shows GitGuardian Security Checks SUCCESS; validate-data FAILURE is external job-start billin",
+        "uri": null,
+        "value_json": "\"GitHub check-run for PR #1 shows GitGuardian Security Checks SUCCESS; validate-data FAILURE is external job-start billing gate.\"",
+        "created_at": "2026-09-27T21:30:45Z"
+      },
+      {
+        "evidence_id": 1103,
+        "work_item_id": "wi:9b616b30ceac4e2eb7061aa7b6886beb",
+        "evidence_kind": "executor_result",
+        "label": "Local Project Capsule FAST and FULL both returned PASS; read-only archive validation parsed 3206 JSON and 6747 JSONL fil",
+        "uri": null,
+        "value_json": "\"Local Project Capsule FAST and FULL both returned PASS; read-only archive validation parsed 3206 JSON and 6747 JSONL files; git diff --check passed.\"",
+        "created_at": "2026-09-27T21:30:45Z"
+      },
+      {
+        "evidence_id": 1219,
+        "work_item_id": "wi:9b616b30ceac4e2eb7061aa7b6886beb",
+        "evidence_kind": "blocked_reconcile",
+        "label": "codex-usage PR #1 remains open; required validate-data CI failed at account billing/spending limit.",
+        "uri": null,
+        "value_json": "\"codex-usage PR #1 remains open; required validate-data CI failed at account billing/spending limit.\"",
+        "created_at": "2026-09-27T22:23:04.971315Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

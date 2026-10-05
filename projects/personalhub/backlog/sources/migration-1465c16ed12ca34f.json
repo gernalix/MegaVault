@@ -1,0 +1,98 @@
+[
+  {
+    "routing": {
+      "project": "49",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "49"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:540812eaa038465a94cfbe758120c3a9",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in personalhub",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=49, repository_id=R0049. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Stale child RUNNING reconciled",
+      "next_action": "Reconcile/re-dispatch from Project Capsule parent",
+      "blocker": "stale child run; parent reconciliation required",
+      "project_id": "49",
+      "project_name": "PersonalHub",
+      "repo": "https://github.com/gernalix/PersonalHub",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T19:27:47Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:540812eaa038465a94cfbe758120c3a9",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:540812eaa038465a94cfbe758120c3a9:9f4dffa836a88c73ab67f95a51dcac7a",
+        "work_item_id": "wi:540812eaa038465a94cfbe758120c3a9",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Stale child RUNNING reconciled",
+        "completed_json": "[]",
+        "remaining_json": "[\"Adopt Project Capsule v1 in personalhub\"]",
+        "evidence_json": "[\"No active work_item_run exists; child remains under its waiting Project Capsule parent for deliberate re-dispatch.\"]",
+        "blocker": "stale child run; parent reconciliation required",
+        "next_action": "Reconcile/re-dispatch from Project Capsule parent",
+        "strict_contract": 0,
+        "payload_sha256": "9f4dffa836a88c73ab67f95a51dcac7a58bc6c18652bd2a2fbed864a3b5057bd",
+        "captured_at": 1790574370.77848
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1324,
+        "work_item_id": "wi:540812eaa038465a94cfbe758120c3a9",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:6e30ebff9e07409db3ec869e867d5d69",
+        "uri": "codex://threads/01a0e425-7cbe-7270-b9b4-6d074a91c1b6",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e425-7cbe-7270-b9b4-6d074a91c1b6\", \"code_location\": null, \"description\": \"PersonalHub Project Capsule PR #58 merged successfully, but FAST on the exact integrated main 97aaa2e4 fails freshness: reviewed_commit 5ce494c predates PR #57 changes under broad watched app paths. Every subsequent PH app merge will likewise invalidate the capsule until a reviewed_commit update; need a canonical post-integration review/refresh flow that preserves truthful freshness without repeated per-PR churn.\", \"executor\": null, \"executor_ref\": \"01a0e425-7cbe-7270-b9b4-6d074a91c1b6\", \"issue_id\": \"issue:6e30ebff9e07409db3ec869e867d5d69\", \"observed_at_ms\": 1790553228928, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-28T00:10:45Z"
+      },
+      {
+        "evidence_id": 1403,
+        "work_item_id": "wi:540812eaa038465a94cfbe758120c3a9",
+        "evidence_kind": "executor_result",
+        "label": "No active work_item_run exists; child remains under its waiting Project Capsule parent for deliberate re-dispatch.",
+        "uri": null,
+        "value_json": "\"No active work_item_run exists; child remains under its waiting Project Capsule parent for deliberate re-dispatch.\"",
+        "created_at": "2026-09-28T05:46:10Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:6e30ebff9e07409db3ec869e867d5d69",
+        "work_item_id": "wi:540812eaa038465a94cfbe758120c3a9",
+        "role": "matched",
+        "created_at": "2026-09-27T23:53:48Z"
+      },
+      {
+        "issue_id": "issue:6e30ebff9e07409db3ec869e867d5d69",
+        "work_item_id": "wi:540812eaa038465a94cfbe758120c3a9",
+        "role": "decision",
+        "created_at": "2026-09-27T23:53:48Z"
+      }
+    ]
+  }
+]

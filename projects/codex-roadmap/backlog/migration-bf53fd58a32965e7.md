@@ -1,0 +1,57 @@
+# C3 user override atomicity regression observed live on 2026-10-02. A valid `/api/preview` for action=stop on run f77c639f283c4abd9f85838e1c2d29e9 was followed by `/api/override`; executor_control physically stopped the run unit first, then 
+
+<!-- migration-bf53fd58a32965e7 -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `issue:c8b44abd856ed5d73278261ffa2f1c73`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### issue:c8b44abd856ed5d73278261ffa2f1c73
+
+C3 user override atomicity regression observed live on 2026-10-02. A valid `/api/preview` for action=stop on run f77c639f283c4abd9f85838e1c2d29e9 was followed by `/api/override`; executor_control physically stopped the run unit first, then the canonical mutation failed with HTTP 503. Result: unit gone/Symphony idle while canonical DB still said work item/run running and retained resource leases. Supervisor had to submit a BLOCKED result to reconcile it. This violates the control-plane acceptance that executor control + canonical mutation/readback are atomic or fail closed. Reorder/fence stop/cancel/delete so mutation failure cannot leave physical executor state diverged from canonical lifecycle, or implement deterministic rollback/reconciliation on failure with tests.
+
+state: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:c8b44abd856ed5d73278261ffa2f1c73",
+      "description": "C3 user override atomicity regression observed live on 2026-10-02. A valid `/api/preview` for action=stop on run f77c639f283c4abd9f85838e1c2d29e9 was followed by `/api/override`; executor_control physically stopped the run unit first, then the canonical mutation failed with HTTP 503. Result: unit gone/Symphony idle while canonical DB still said work item/run running and retained resource leases. Supervisor had to submit a BLOCKED result to reconcile it. This violates the control-plane acceptance that executor control + canonical mutation/readback are atomic or fail closed. Reorder/fence stop/cancel/delete so mutation failure cannot leave physical executor state diverged from canonical lifecycle, or implement deterministic rollback/reconciliation on failure with tests.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": "codex",
+      "executor_ref": "01a0f398-ea3b-7e73-815c-e06657c995db",
+      "chat_url": "codex://threads/01a0f398-ea3b-7e73-815c-e06657c995db",
+      "origin_work_item_id": "wi:8a0d3fd1ad674119829be0b9c8a9bed4",
+      "origin_run_id": null,
+      "observed_at_ms": 1790937133255,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-02T10:32:13Z"
+    },
+    "issue_work_item_links": []
+  }
+]
+```

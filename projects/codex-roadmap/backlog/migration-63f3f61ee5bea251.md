@@ -1,0 +1,113 @@
+# Avviare i worktree senza dipendere dallo stato del checkout condiviso
+
+<!-- migration-63f3f61ee5bea251 -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:f053865f8d664df58bd3d14c51464b67`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Avviare i worktree senza dipendere dallo stato del checkout condiviso
+
+roadmap_start e la preparazione devono poter creare e validare worktree isolati da origin/main o dai metadati Git comuni senza richiedere che il checkout canonico condiviso sia pulito e sul branch main, mantenendo i controlli di integrità. Il 30 settembre 2026 il prompt C3 731707 era preparato nel worktree isolato ma l’avvio è stato rifiutato perché il checkout condiviso era sul branch task/c2-terminal-focus-timestamps con modifiche non correlate.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:f053865f8d664df58bd3d14c51464b67",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Avviare i worktree senza dipendere dallo stato del checkout condiviso",
+      "objective": "roadmap_start e la preparazione devono poter creare e validare worktree isolati da origin/main o dai metadati Git comuni senza richiedere che il checkout canonico condiviso sia pulito e sul branch main, mantenendo i controlli di integrità. Il 30 settembre 2026 il prompt C3 731707 era preparato nel worktree isolato ma l’avvio è stato rifiutato perché il checkout condiviso era sul branch task/c2-terminal-focus-timestamps con modifiche non correlate.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:55:06Z",
+      "updated_at": "2026-09-30T12:55:06Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:f053865f8d664df58bd3d14c51464b67",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2355,
+        "work_item_id": "wi:f053865f8d664df58bd3d14c51464b67",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:3ddfd8a4fc8a47d4a70a2b53cca086bc",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C2 prompt launch unnecessarily depends on the mutable state of the canonical working checkout. C3 prompt 731707 was correctly prepared in an isolated worktree but roadmap_start refused the launch because /home/daniele/projects/codex-roadmap had been left on task/c2-terminal-focus-timestamps with unrelated dirty changes. The task worktree itself was isolated and safe. Remove this shared-checkout head-of-line blocker: roadmap_start/preparation should use/fetch origin/main or the repository common git metadata to create/validate isolated worktrees without requiring the human canonical checkout to be on clean main, while retaining repository-integrity checks. Alternatively enforce the canonical checkout as main-only automatically; prefer eliminating the dependency.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:3ddfd8a4fc8a47d4a70a2b53cca086bc\", \"observed_at_ms\": 1790763519777, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:55:06Z"
+      },
+      {
+        "evidence_id": 2357,
+        "work_item_id": "wi:f053865f8d664df58bd3d14c51464b67",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:09fc5bb6a5754486bcd64ce4f10d3c3e",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C2 prompt launch unnecessarily depends on the mutable state of the canonical working checkout. C3 prompt 731707 was correctly prepared in an isolated worktree but roadmap_start refused the launch because /home/daniele/projects/codex-roadmap had been left on task/c2-terminal-focus-timestamps with unrelated dirty changes. The task worktree itself was isolated and safe. Remove this shared-checkout head-of-line blocker: roadmap_start/preparation should use/fetch origin/main or the repository common git metadata to create/validate isolated worktrees without requiring the human canonical checkout to be on clean main, while retaining repository-integrity checks. Alternatively enforce the canonical checkout as main-only automatically; prefer eliminating the dependency.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:09fc5bb6a5754486bcd64ce4f10d3c3e\", \"observed_at_ms\": 1790763632081, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T13:05:38Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:09fc5bb6a5754486bcd64ce4f10d3c3e",
+        "work_item_id": "wi:f053865f8d664df58bd3d14c51464b67",
+        "role": "matched",
+        "created_at": "2026-09-30T10:20:32Z"
+      },
+      {
+        "issue_id": "issue:3ddfd8a4fc8a47d4a70a2b53cca086bc",
+        "work_item_id": "wi:f053865f8d664df58bd3d14c51464b67",
+        "role": "decision",
+        "created_at": "2026-09-30T10:18:39Z"
+      },
+      {
+        "issue_id": "issue:09fc5bb6a5754486bcd64ce4f10d3c3e",
+        "work_item_id": "wi:f053865f8d664df58bd3d14c51464b67",
+        "role": "decision",
+        "created_at": "2026-09-30T10:20:32Z"
+      }
+    ]
+  }
+]
+```

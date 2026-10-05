@@ -1,0 +1,31 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:c08601bd97f34cddaad27c10a4c76938",
+      "description": "C3 Symphony bootstrap race: a freshly started backend can report active before its state API accepts connections, causing the first worker publish attempt to fail; a bounded retry on the same run succeeded idempotently with tracker issue #3. Consider readiness synchronization in the normal backend start path.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": "symphony",
+      "executor_ref": "01a0fc39-9f5b-73c0-9a68-31873531b51a",
+      "chat_url": "codex://threads/01a0fc39-9f5b-73c0-9a68-31873531b51a",
+      "origin_work_item_id": "wi:0f43364c82a14bfd9aac43c0de9221a9",
+      "origin_run_id": "f47984400157448fadcb5142184414aa",
+      "observed_at_ms": 1790938854102,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-02T11:00:54Z"
+    },
+    "issue_work_item_links": []
+  }
+]

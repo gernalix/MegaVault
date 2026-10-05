@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:d6ef7dd6d4914705bed13f3469a79bd7",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Isolare il kill switch host nei test ChatGPT executor",
+      "objective": "La suite unittest locale legge il kill switch reale ~/.config/c2/disable-chat-supervisor nei test test_c2_chatgpt_executor: cinque test falliscono con phase=suspended quando le chat automatiche sono intenzionalmente sospese. Il test harness deve isolare lo stato host senza rimuovere la protezione reale.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-10-01T12:32:14Z",
+      "updated_at": "2026-10-01T12:32:14Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:d6ef7dd6d4914705bed13f3469a79bd7",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2514,
+        "work_item_id": "wi:d6ef7dd6d4914705bed13f3469a79bd7",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:9884dbc52b5443cb8e4d4a1226c2fa59",
+        "uri": "codex://threads/01a0f398-ea3b-7e73-815c-e06657c995db",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0f398-ea3b-7e73-815c-e06657c995db\", \"code_location\": null, \"description\": \"La suite unittest locale legge il kill switch reale ~/.config/c2/disable-chat-supervisor nei test test_c2_chatgpt_executor: cinque test falliscono con phase=suspended quando le chat automatiche sono intenzionalmente sospese. Il test harness deve isolare lo stato host senza rimuovere la protezione reale.\", \"executor\": null, \"executor_ref\": \"01a0f398-ea3b-7e73-815c-e06657c995db\", \"issue_id\": \"issue:9884dbc52b5443cb8e4d4a1226c2fa59\", \"observed_at_ms\": 1790794465344, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:9884dbc52b5443cb8e4d4a1226c2fa59",
+        "work_item_id": "wi:d6ef7dd6d4914705bed13f3469a79bd7",
+        "role": "decision",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ]
+  }
+]

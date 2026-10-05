@@ -1,0 +1,149 @@
+# Recover stalled C2 ChatGPT chat and capture inactivity policy
+
+<!-- migration-b904f4a6182df266 -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:449059bbf030499a88c5f1c3a42a3ee4`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Recover stalled C2 ChatGPT chat and capture inactivity policy
+
+Inspect the specified C2 ChatGPT conversation, recover it safely if stalled, and capture the proposed 40s/90s/180s inactivity policy in the C2 Inbox without implementing unrelated changes.
+
+Acceptance:
+
+- executor_started is recorded before substantive recovery work
+- the inactivity policy is captured in C2 issue_inbox
+- the specified ChatGPT conversation is inspected and either recovered or left with an evidence-backed blocker
+
+status: blocked
+
+current_action: Inactivity policy was captured, but the manual recovery executor has no bound target chat URL/run and cannot safely inspect or recover the intended conversation.
+
+next_action: Recover exact target chat identity and fenced owner before resumption.
+
+blocker: Target ChatGPT URL or active C2 run is absent for the stalled-chat recovery item; manual ownership cannot be safely rebound.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:449059bbf030499a88c5f1c3a42a3ee4",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Recover stalled C2 ChatGPT chat and capture inactivity policy",
+      "objective": "Inspect the specified C2 ChatGPT conversation, recover it safely if stalled, and capture the proposed 40s/90s/180s inactivity policy in the C2 Inbox without implementing unrelated changes.",
+      "acceptance_json": "[\"executor_started is recorded before substantive recovery work\", \"the inactivity policy is captured in C2 issue_inbox\", \"the specified ChatGPT conversation is inspected and either recovered or left with an evidence-backed blocker\"]",
+      "status": "blocked",
+      "executor_policy": "chatgpt",
+      "sort_order": null,
+      "current_action": "Inactivity policy was captured, but the manual recovery executor has no bound target chat URL/run and cannot safely inspect or recover the intended conversation.",
+      "next_action": "Recover exact target chat identity and fenced owner before resumption.",
+      "blocker": "Target ChatGPT URL or active C2 run is absent for the stalled-chat recovery item; manual ownership cannot be safely rebound.",
+      "project_id": "51",
+      "project_name": "codex-roadmap",
+      "repo": "/home/daniele/.local/share/c2-supervisor/worktree",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-26T23:35:42Z",
+      "updated_at": "2026-09-27T22:23:04.777376Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:449059bbf030499a88c5f1c3a42a3ee4",
+        "work_item_id": "wi:449059bbf030499a88c5f1c3a42a3ee4",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Inactivity policy was captured, but the manual recovery executor has no bound target chat URL/run and cannot safely inspect or recover the intended conversation.",
+        "completed_json": "[\"executor_started was recorded.\", \"The 40/90/180 + global/provider degradation policy was captured in C2 Inbox issue:f3d6bacd51c3479eb0a9776a3bd7beae.\"]",
+        "remaining_json": "[\"Inspect/recover a specifically bound target chat only if a valid chat URL is supplied by a successor task.\"]",
+        "evidence_json": "[\"This work item has no work_item_run, no executor binding, no checkpoint, and its executor_started receipt has chat_url=NULL.\", \"The only concrete side effect is the captured C2 Inbox policy issue.\"]",
+        "blocker": "Manual executor ownership is unbound/stale: no target chat URL or active C2 run exists, so continuing recovery would require guessing the target conversation.",
+        "next_action": "Leave this item blocked and let wi:164c72ef2c474ec6bbe2d6d795ab93a0 implement the captured stall/degradation policy now that same-repo ownership is released.",
+        "strict_contract": 1,
+        "payload_sha256": "fdc8d0964b1b4bcd166f9d886249f43950ab7275584b290dc240b74a3b623e09",
+        "captured_at": 1790466929.8732448
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 480,
+        "work_item_id": "wi:449059bbf030499a88c5f1c3a42a3ee4",
+        "evidence_kind": "executor_result",
+        "label": "This work item has no work_item_run, no executor binding, no checkpoint, and its executor_started receipt has chat_url=N",
+        "uri": null,
+        "value_json": "\"This work item has no work_item_run, no executor binding, no checkpoint, and its executor_started receipt has chat_url=NULL.\"",
+        "created_at": "2026-09-26T23:55:29Z"
+      },
+      {
+        "evidence_id": 481,
+        "work_item_id": "wi:449059bbf030499a88c5f1c3a42a3ee4",
+        "evidence_kind": "executor_result",
+        "label": "The only concrete side effect is the captured C2 Inbox policy issue.",
+        "uri": null,
+        "value_json": "\"The only concrete side effect is the captured C2 Inbox policy issue.\"",
+        "created_at": "2026-09-26T23:55:29Z"
+      },
+      {
+        "evidence_id": 519,
+        "work_item_id": "wi:449059bbf030499a88c5f1c3a42a3ee4",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:f3d6bacd51c3479eb0a9776a3bd7beae",
+        "uri": "chatgpt-manual-rdc-stall-recovery",
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C2 supervisor: sostituire il solo timeout per-chat con una policy a due livelli. Livello chat: 40s senza nuovo output -> suspected_stall; 90s -> active_probe; 180s -> stalled + bounded recovery. Livello globale/provider: se più chat indipendenti, incluse chat nuove/canary, superano la soglia nello stesso intervallo, entrare in provider_degraded: non creare altre chat né fare retry ciechi; preservare/checkpointare lo stato canonico; provare al massimo un canary con modello/configurazione diversa; delegare direttamente a Codex dal control plane C2 senza dipendere da una risposta ChatGPT quando Codex è sano; se anche Codex/provider è degradato, accodare ready_to_dispatch e fare backoff crescente con notifica, quindi riaprire la lane solo dopo un canary riuscito. Integrare con la recovery esistente per slow-thinking/delivery-timeout e senza duplicare executor.\", \"executor\": \"chatgpt\", \"executor_ref\": \"chatgpt-manual-rdc-stall-recovery\", \"issue_id\": \"issue:f3d6bacd51c3479eb0a9776a3bd7beae\", \"observed_at_ms\": 1790465865377, \"origin_run_id\": null, \"origin_work_item_id\": \"wi:449059bbf030499a88c5f1c3a42a3ee4\", \"repo\": \"/home/daniele/.local/share/c2-supervisor/worktree\"}",
+        "created_at": "2026-09-27T00:50:42Z"
+      },
+      {
+        "evidence_id": 1207,
+        "work_item_id": "wi:449059bbf030499a88c5f1c3a42a3ee4",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Target ChatGPT URL or active C2 run is absent for the stalled-chat recovery item; manual ownership cannot be safely rebo",
+        "uri": null,
+        "value_json": "\"Target ChatGPT URL or active C2 run is absent for the stalled-chat recovery item; manual ownership cannot be safely rebound.\"",
+        "created_at": "2026-09-27T22:23:04.777376Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:f3d6bacd51c3479eb0a9776a3bd7beae",
+        "work_item_id": "wi:449059bbf030499a88c5f1c3a42a3ee4",
+        "role": "matched",
+        "created_at": "2026-09-26T23:37:45Z"
+      },
+      {
+        "issue_id": "issue:f3d6bacd51c3479eb0a9776a3bd7beae",
+        "work_item_id": "wi:449059bbf030499a88c5f1c3a42a3ee4",
+        "role": "decision",
+        "created_at": "2026-09-26T23:37:45Z"
+      }
+    ]
+  }
+]
+```

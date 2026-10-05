@@ -1,0 +1,100 @@
+[
+  {
+    "routing": {
+      "project": "symphony",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "symphony"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Fence Symphony completion to the active root Codex turn",
+      "objective": "Require threadId and turn.id of Codex completion events to match Symphony active root turn so child events cannot terminate the root run.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "human",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "/home/daniele/projects/symphony",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-29T00:29:35Z",
+      "updated_at": "2026-09-29T00:29:35Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+        "tag": "regression"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+        "to_work_item_id": "wi:52a87ab8460d479dbee0fc970cbc58a0",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-29T00:29:35Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:444ad12e2bb442f4be44c3d8c641e5cd"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1666,
+        "work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:444ad12e2bb442f4be44c3d8c641e5cd",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Current OpenAI Symphony main/v0.0.3 accepts any Codex  notification as completion without checking that threadId/turn.id match the active root turn. Upstream Discussion #121 documents the same issue and a proposed patch; with Codex child/sub-agent events on the same app-server stream, Symphony can terminate a root run on a child turn completion. This must be patched or otherwise gated before using Symphony as the production C2 Codex execution engine.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:444ad12e2bb442f4be44c3d8c641e5cd\", \"observed_at_ms\": 1790578423322, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"/home/daniele/projects/symphony\"}",
+        "created_at": "2026-09-29T00:29:35Z"
+      },
+      {
+        "evidence_id": 1667,
+        "work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:42e06fe12761407b8a57d7a28fb26df8",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Current OpenAI Symphony main/v0.0.3 accepts any Codex turn/completed notification as completion without checking that threadId/turn.id match the active root turn. Upstream Discussion #121 documents the same issue and a proposed patch; with Codex child/sub-agent events on the same app-server stream, Symphony can terminate a root run on a child turn completion. This must be patched or otherwise gated before using Symphony as the production C2 Codex execution engine.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:42e06fe12761407b8a57d7a28fb26df8\", \"observed_at_ms\": 1790578423999, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"/home/daniele/projects/symphony\"}",
+        "created_at": "2026-09-29T00:52:44Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:42e06fe12761407b8a57d7a28fb26df8",
+        "work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+        "role": "matched",
+        "created_at": "2026-09-28T06:53:43Z"
+      },
+      {
+        "issue_id": "issue:444ad12e2bb442f4be44c3d8c641e5cd",
+        "work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+        "role": "decision",
+        "created_at": "2026-09-28T06:53:43Z"
+      },
+      {
+        "issue_id": "issue:42e06fe12761407b8a57d7a28fb26df8",
+        "work_item_id": "wi:7a0f79e5dfbe428a9b8e0d822790b4f1",
+        "role": "decision",
+        "created_at": "2026-09-28T06:53:43Z"
+      }
+    ]
+  }
+]

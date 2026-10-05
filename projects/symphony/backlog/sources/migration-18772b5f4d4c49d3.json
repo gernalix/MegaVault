@@ -1,0 +1,129 @@
+[
+  {
+    "routing": {
+      "project": "symphony",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "symphony"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Controllare il worker Symphony che possiede il turno attivo",
+      "objective": "C3 deve esporre osservazione, stop e steer del worker Symphony tramite il backend/app-server che possiede il turno attivo. I follow-up accodati non correggono il turno corrente e un app-server separato non può steerarlo; il 30 settembre 2026 ciò ha impedito di interrompere subito un worker C3 che ripeteva gate roadmap_start/executor_started.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/c3-symphony",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:55:06Z",
+      "updated_at": "2026-09-30T12:55:06Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2356,
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:61693399ea114824b404d0afc483f42b",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C2 active Codex supervision gap: each c2_worker owns a private stdio `codex app-server`. `codex queue` can enqueue a follow-up but does not steer the current active turn, while `turn/steer` issued through a separate app-server is rejected because it does not own that active turn. This prevented the supervisor from immediately correcting a live C3 worker looping on redundant roadmap_start/executor_started gates. C3 cross-surface backend control should expose native observe/stop/steer against the owning Symphony/app-server worker instead of private per-worker stdio sessions.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:61693399ea114824b404d0afc483f42b\", \"observed_at_ms\": 1790763520005, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:55:06Z"
+      },
+      {
+        "evidence_id": 2362,
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:527c16b453214b55a040922b16c095c2",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Codex/C2 supervision hazard observed on C3 thread 01a0f1c8-8dfd-7490-b294-bf45e740598a: opening a second `codex app-server` and issuing `thread/read` against a thread whose turn is actively owned by another private app-server correlates with that active turn becoming `interrupted`. The pattern repeated across multiple recovery turns, so 'read-only' cross-app-server inspection is not safe as a liveness probe for active private-worker threads. C2/C3 supervision must observe through the owning backend/process or durable rollout/status signals, and avoid loading/reading active threads from a competing app-server unless ownership semantics guarantee non-interference.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:527c16b453214b55a040922b16c095c2\", \"observed_at_ms\": 1790764165688, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T13:05:38Z"
+      },
+      {
+        "evidence_id": 2369,
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:090a5df25305479eacd1ff7af01c803c",
+        "uri": "codex://threads/01a0f1c8-8dfd-7490-b294-bf45e740598a",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0f1c8-8dfd-7490-b294-bf45e740598a\", \"code_location\": null, \"description\": \"Disposable Symphony coding pilot cloned codex-roadmap and the child Codex agent followed repository AGENTS.md C2 launch instructions for a synthetic tracker issue, submitting an unintended C2 executor-start request instead of performing the marker task; pilot backend was stopped.\", \"executor\": \"codex\", \"executor_ref\": \"01a0f1c8-8dfd-7490-b294-bf45e740598a\", \"issue_id\": \"issue:090a5df25305479eacd1ff7af01c803c\", \"observed_at_ms\": 1790765541827, \"origin_run_id\": \"f91ce3f175324137aba3c11128b9317b\", \"origin_work_item_id\": \"wi:5eb06aaba99a4164a80774acfc6195ee\", \"repo\": null}",
+        "created_at": "2026-09-30T13:05:38Z"
+      },
+      {
+        "evidence_id": 2370,
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a356e4bdded24c7587a9700ce7a3fec5",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C3/Symphony execution boundary bug: a Symphony-dispatched pilot issue cloned gernalix/codex-roadmap and inherited its AGENTS/C2 contract, so the child agent attempted c2_executor_start/roadmap lifecycle again and blocked on gh_failed before any task edit. Once a C2 coding item has been published to Symphony, that handoff is already the managed executor boundary; the Symphony child must not re-enter C2 launch/executor_started/roadmap_start. Encode an explicit managed-Symphony execution context that repo instructions can recognize, or use an equivalent higher-precedence execution policy, without weakening ordinary C2 manual-start fencing. GH-7 reproduced the bug; its workspace remained clean.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:a356e4bdded24c7587a9700ce7a3fec5\", \"observed_at_ms\": 1790765542524, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T13:05:38Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:527c16b453214b55a040922b16c095c2",
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "role": "matched",
+        "created_at": "2026-09-30T10:29:25Z"
+      },
+      {
+        "issue_id": "issue:090a5df25305479eacd1ff7af01c803c",
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "role": "matched",
+        "created_at": "2026-09-30T10:52:21Z"
+      },
+      {
+        "issue_id": "issue:a356e4bdded24c7587a9700ce7a3fec5",
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "role": "matched",
+        "created_at": "2026-09-30T10:52:22Z"
+      },
+      {
+        "issue_id": "issue:61693399ea114824b404d0afc483f42b",
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "role": "decision",
+        "created_at": "2026-09-30T10:18:40Z"
+      },
+      {
+        "issue_id": "issue:527c16b453214b55a040922b16c095c2",
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "role": "decision",
+        "created_at": "2026-09-30T10:29:25Z"
+      },
+      {
+        "issue_id": "issue:090a5df25305479eacd1ff7af01c803c",
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "role": "decision",
+        "created_at": "2026-09-30T10:52:21Z"
+      },
+      {
+        "issue_id": "issue:a356e4bdded24c7587a9700ce7a3fec5",
+        "work_item_id": "wi:7f6314dfb441485dbcb9ac9617f7de09",
+        "role": "decision",
+        "created_at": "2026-09-30T10:52:22Z"
+      }
+    ]
+  }
+]

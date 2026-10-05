@@ -1,0 +1,79 @@
+[
+  {
+    "routing": {
+      "project": "symphony",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "symphony"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:e05e4132802142c8b930da057331eb15",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Symphony GitHub tracker canary: authorized token path",
+      "objective": "Resolve the GitHub token requirement for a public-repo Symphony external-tracker canary through an authorized credential path; preserve local fake-tracker testing and do not pass host gh auth tokens into spawned processes.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "human",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "/home/daniele/projects/symphony",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-29T00:17:43Z",
+      "updated_at": "2026-09-29T00:17:43Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:e05e4132802142c8b930da057331eb15",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:e05e4132802142c8b930da057331eb15",
+        "tag": "regression"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:e05e4132802142c8b930da057331eb15",
+        "to_work_item_id": "wi:52a87ab8460d479dbee0fc970cbc58a0",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-29T00:17:43Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:9216205f0bb044498fe46bb02b9de8db"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1660,
+        "work_item_id": "wi:e05e4132802142c8b930da057331eb15",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:9216205f0bb044498fe46bb02b9de8db",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Symphony external GitHub-tracker canary is blocked in ChatGPT execution because the reference implementation requires a GitHub token even for a public repo, while platform safety controls block extracting/passing the host gh auth token into the spawned Symphony process. Local fake-tracker/runtime testing remains possible.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:9216205f0bb044498fe46bb02b9de8db\", \"observed_at_ms\": 1790576684551, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"/home/daniele/projects/symphony\"}",
+        "created_at": "2026-09-29T00:17:43Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:9216205f0bb044498fe46bb02b9de8db",
+        "work_item_id": "wi:e05e4132802142c8b930da057331eb15",
+        "role": "decision",
+        "created_at": "2026-09-28T06:24:44Z"
+      }
+    ]
+  }
+]

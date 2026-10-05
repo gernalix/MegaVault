@@ -1,0 +1,280 @@
+[
+  {
+    "routing": {
+      "project": "105",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "105"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+      "parent_id": null,
+      "kind": "task",
+      "title": "C2 supervisor: terminal workers restano abilitati e possono contendere la lane",
+      "objective": "Correggere il supervisor C2 perché disabiliti automaticamente worker terminali e rispetti la priorità della lane attiva; 175908 risultava completato ma ancora enabled e worker non-PH erano attivi mentre PH era la priorità.",
+      "acceptance_json": "[\"Worker terminali vengono disabilitati automaticamente\", \"La priorità PH impedisce l'avvio di lane non-PH incompatibili\", \"Test di regressione sullo scheduler/supervisor\"]",
+      "status": "waiting",
+      "executor_policy": "codex",
+      "sort_order": 20,
+      "current_action": "Implementation and tests complete, but canonical repository integration is blocked by a semantic conflict.",
+      "next_action": "Read installed supervisor behavior and finalize exact acceptance if live gates hold.",
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/chatgpt-rdc-supervisor",
+      "prompt_id": "891963",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-25T17:46:27Z",
+      "updated_at": "2026-09-27T22:23:04.087428Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "891963",
+        "slug": "c2-supervisor-terminal-workers-restano-abilitati-891963",
+        "chat_guidance": null,
+        "prompt_type": "Prompt",
+        "model": "GPT-5.6 Terra",
+        "reasoning": "medium",
+        "megavault_mode": null,
+        "campaign_id": null,
+        "explanation": "",
+        "current_path": "prompts/c2-supervisor-terminal-workers-restano-abilitati-891963.md",
+        "materialization_sha256": "f95ee7ab788eb66b8ecf3dd4bf92b739c4cbc36558982014d0ba6167361a8b28",
+        "created_at": "2026-09-26T22:34:05Z",
+        "updated_at": "2026-09-27T22:23:05Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "891963",
+        "body": "PROMPT_ID=891963\n\n# Goal\nCorreggere il supervisor C2 perché disabiliti automaticamente worker terminali e rispetti la priorità della lane attiva; 175908 risultava completato ma ancora enabled e worker non-PH erano attivi mentre PH era la priorità.\n\n# Canonical starting point\n- C2 work item: wi:3c7c9af3af3141b28b44f6d0016e41a4\n- Repository: gernalix/chatgpt-rdc-supervisor\n- The work item scope and acceptance below are authoritative. Inspect only files needed to satisfy them.\n- Use the assigned isolated worktree and the repository single-writer/integration path. Do not edit canonical branches directly.\n- Do not broaden scope into unrelated cleanup, refactors or audits.\n- Existing verified evidence:\n  - codex-roadmap main a5873827 c2_scheduler.configure_auto requires structured execution.worktree and materialized prompt/exact metadata for Codex; this intake has no work_item_execution_specs row.\n  - chatgpt-rdc-supervisor main 69b3b5cd disables terminal workers only after browser COMPLETE; canonical terminal/lane gate absent.\n\n# First bounded action\nAdd terminal and active-lane gate before dispatch; test stale-enabled worker.\n\n# Acceptance\n- Worker terminali vengono disabilitati automaticamente\n- La priorità PH impedisce l'avvio di lane non-PH incompatibili\n- Test di regressione sullo scheduler/supervisor\n\n# Execution rules\n- Fix only failures necessary for this goal; preserve unrelated local/runtime state.\n- Use targeted tests first and widen only if evidence requires it.\n- On incidental C2 bugs/bottlenecks, capture only the description to the C2 Inbox and continue.\n- Stop immediately when acceptance is verified; do not wait on CI/merge in a model turn.\n",
+        "sha256": "f95ee7ab788eb66b8ecf3dd4bf92b739c4cbc36558982014d0ba6167361a8b28",
+        "created_at": "2026-09-26T22:34:05Z",
+        "actor": "c2-intake"
+      }
+    ],
+    "analyses": [],
+    "executions": [
+      {
+        "execution_id": 426,
+        "prompt_id": "891963",
+        "cycle_key": "0163f78871ff83bc5bf22557",
+        "materialization_sha256": "83e1bf024b9bf885279084d34ac70ef4086b02d0b16770051730ec23839747bc",
+        "started_at": "2026-09-26T23:37:08Z",
+        "ended_at": "2026-09-26T23:40:59Z",
+        "outcome": "PASS",
+        "duration_seconds": 230.916,
+        "model": "gpt-5.6-terra",
+        "reasoning": "medium",
+        "codex_project": "/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_chatgpt-rdc-supervisor/891963",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 26,
+        "input_tokens": 63378,
+        "cached_input_tokens": 62208,
+        "uncached_input_tokens": 1170,
+        "output_tokens": 487,
+        "reasoning_output_tokens": 347,
+        "total_tokens": 63865,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-26T23:42:08Z"
+      },
+      {
+        "execution_id": 427,
+        "prompt_id": "891963",
+        "cycle_key": "6bbcbb7dfd3ede3bb3c598b2",
+        "materialization_sha256": "02b598c68b100101a7518d6b692718218428266ad4da57a1b852218fc56fe4c4",
+        "started_at": "2026-09-26T23:40:37Z",
+        "ended_at": "2026-09-26T23:40:43Z",
+        "outcome": "UNKNOWN",
+        "duration_seconds": 5.159,
+        "model": "codex-auto-review",
+        "reasoning": "low",
+        "codex_project": "/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_chatgpt-rdc-supervisor/891963",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 0,
+        "input_tokens": 23201,
+        "cached_input_tokens": 18176,
+        "uncached_input_tokens": 5025,
+        "output_tokens": 188,
+        "reasoning_output_tokens": 119,
+        "total_tokens": 23389,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-26T23:43:07Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 980,
+        "prompt_id": "891963",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-26T22:34:05Z",
+        "actor": "c2-intake",
+        "note": "work item materialized for Codex"
+      },
+      {
+        "history_id": 1011,
+        "prompt_id": "891963",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-26T23:36:04Z",
+        "actor": "c2-scheduler",
+        "note": null
+      },
+      {
+        "history_id": 1015,
+        "prompt_id": "891963",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-26T23:44:47Z",
+        "actor": "c2-executor-result",
+        "note": "executor_result:run:28cf4bbf59b24c6e89cde4c57b900084"
+      },
+      {
+        "history_id": 1082,
+        "prompt_id": "891963",
+        "old_status": "blocked",
+        "new_status": "waiting",
+        "changed_at": "2026-09-27T22:23:04.087428Z",
+        "actor": "c2-blocked-reconcile",
+        "note": "Read installed supervisor behavior and finalize exact acceptance if live gates hold."
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "tag": "c2-discovery"
+      },
+      {
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "tag": "scheduler"
+      },
+      {
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "tag": "priority"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "run:28cf4bbf59b24c6e89cde4c57b900084",
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "run_id": "28cf4bbf59b24c6e89cde4c57b900084",
+        "prompt_id": "891963",
+        "outcome": "BLOCKED",
+        "summary": "Implementation and tests complete, but canonical repository integration is blocked by a semantic conflict.",
+        "completed_json": "[\"Worker terminal-state dispatch gate implemented.\", \"Execution-override lane gate implemented.\", \"Full chatgpt-rdc-supervisor suite passed (28 tests).\", \"Commit f80f9acfb305c4439a312277c90beedc9bdd5a78 pushed and PR #6 queued.\"]",
+        "remaining_json": "[\"Resolve PR #6 semantic conflict and integrate the existing branch without duplicating implementation.\"]",
+        "evidence_json": "[\"Codex final contract reported commit f80f9ac and 28 tests PASS.\", \"GitHub PR #6 remains OPEN at head f80f9acfb305c4439a312277c90beedc9bdd5a78.\", \"repo_single_writer status-any 891963 reports integration_state=semantic-conflict, pipeline_state=needs-fix.\"]",
+        "blocker": "PR #6 has a semantic integration conflict; canonical main does not yet contain the change.",
+        "next_action": "Reconcile task/891963 against current chatgpt-rdc-supervisor main, preserve the verified change, rerun focused tests, and requeue the same PR/integration.",
+        "strict_contract": 1,
+        "payload_sha256": "f527fb1d9b9785cca57cbc987206ab57914642d835364128b192aaa04acee16e",
+        "captured_at": 1790466287.9918342
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 364,
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "evidence_kind": "classification",
+        "label": "chatgpt-rdc-supervisor main 69b3b5cd disables terminal workers only after browser COMPLETE; canonical terminal/lane gate",
+        "uri": null,
+        "value_json": "\"chatgpt-rdc-supervisor main 69b3b5cd disables terminal workers only after browser COMPLETE; canonical terminal/lane gate absent.\"",
+        "created_at": "2026-09-26T17:12:41Z"
+      },
+      {
+        "evidence_id": 378,
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "evidence_kind": "classification",
+        "label": "codex-roadmap main a5873827 c2_scheduler.configure_auto requires structured execution.worktree and materialized prompt/e",
+        "uri": null,
+        "value_json": "\"codex-roadmap main a5873827 c2_scheduler.configure_auto requires structured execution.worktree and materialized prompt/exact metadata for Codex; this intake has no work_item_execution_specs row.\"",
+        "created_at": "2026-09-26T17:18:38Z"
+      },
+      {
+        "evidence_id": 416,
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "evidence_kind": "classification",
+        "label": "The 2026-09-26 C2 root audit already verified this intake against the relevant repository and recorded that its only exe",
+        "uri": null,
+        "value_json": "\"The 2026-09-26 C2 root audit already verified this intake against the relevant repository and recorded that its only execution blocker is the missing canonical Codex prompt/exact metadata/isolated worktree context.\"",
+        "created_at": "2026-09-26T22:33:45Z"
+      },
+      {
+        "evidence_id": 417,
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "evidence_kind": "classification",
+        "label": "chatgpt-rdc-supervisor main 69b3b5cd disables terminal workers only after browser COMPLETE; canonical terminal/lane gate",
+        "uri": null,
+        "value_json": "\"chatgpt-rdc-supervisor main 69b3b5cd disables terminal workers only after browser COMPLETE; canonical terminal/lane gate absent.\"",
+        "created_at": "2026-09-26T22:33:45Z"
+      },
+      {
+        "evidence_id": 473,
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "evidence_kind": "executor_result",
+        "label": "Codex final contract reported commit f80f9ac and 28 tests PASS.",
+        "uri": null,
+        "value_json": "\"Codex final contract reported commit f80f9ac and 28 tests PASS.\"",
+        "created_at": "2026-09-26T23:44:47Z"
+      },
+      {
+        "evidence_id": 474,
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "evidence_kind": "executor_result",
+        "label": "GitHub PR #6 remains OPEN at head f80f9acfb305c4439a312277c90beedc9bdd5a78.",
+        "uri": null,
+        "value_json": "\"GitHub PR #6 remains OPEN at head f80f9acfb305c4439a312277c90beedc9bdd5a78.\"",
+        "created_at": "2026-09-26T23:44:47Z"
+      },
+      {
+        "evidence_id": 475,
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "evidence_kind": "executor_result",
+        "label": "repo_single_writer status-any 891963 reports integration_state=semantic-conflict, pipeline_state=needs-fix.",
+        "uri": null,
+        "value_json": "\"repo_single_writer status-any 891963 reports integration_state=semantic-conflict, pipeline_state=needs-fix.\"",
+        "created_at": "2026-09-26T23:44:47Z"
+      },
+      {
+        "evidence_id": 1182,
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Supervisor PR #6 merged and source/tests cover terminal worker disable and active-lane gate; old semantic conflict is go",
+        "uri": null,
+        "value_json": "\"Supervisor PR #6 merged and source/tests cover terminal worker disable and active-lane gate; old semantic conflict is gone. Live runtime verification remains.\"",
+        "created_at": "2026-09-27T22:23:04.087428Z"
+      }
+    ],
+    "work_item_runs": [
+      {
+        "run_id": "28cf4bbf59b24c6e89cde4c57b900084",
+        "work_item_id": "wi:3c7c9af3af3141b28b44f6d0016e41a4",
+        "event_key": "c2-schedule-161b1ea3741489f529231c30fed5ddb8",
+        "attempt": 1,
+        "executor": "codex",
+        "state": "failed",
+        "lease_until": 0.0,
+        "worker_ref": null,
+        "checkpoint_commit": null,
+        "metadata_json": "{\"activity\": \"coding\", \"command_json\": null, \"executor\": \"codex\", \"goal_mode\": 0, \"max_attempts\": 3, \"model\": \"GPT-5.6 Terra\", \"pre_migration_retirement\": {\"checkpoint_commit\": null, \"classification\": \"historical-only\", \"lease_until\": 1790465925.4810126, \"previous_state\": \"failed\", \"worker_ref\": \"c2-run:28cf4bbf59b24c6e89cde4c57b900084\"}, \"project_url\": null, \"prompt_id\": \"891963\", \"reasoning\": \"medium\", \"repo\": \"gernalix/chatgpt-rdc-supervisor\", \"resources_json\": \"[\\\"c2-supervisor-runtime\\\"]\", \"work_item_id\": \"wi:3c7c9af3af3141b28b44f6d0016e41a4\", \"worktree\": \"/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_chatgpt-rdc-supervisor/891963\"}",
+        "created_at": 1790465764.0093532
+      }
+    ],
+    "issue_work_item_links": []
+  }
+]

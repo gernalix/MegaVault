@@ -1,0 +1,89 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "explicit C3/C2 repository subject",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:55efbf2057fa446da332c9111eff2662",
+      "description": "C3 single-writer queue is delaying lifecycle-critical executor_started for macro-cutover wi:3c3553e1c2a44de7bc1fc65d1239ca12: mutation Issue #9552 remains OPEN while apply-roadmap-mutations run 36859111600 is pending and the two immediately preceding workflow runs were cancelled. Under heavy mutation traffic this can starve lifecycle/recovery operations and delay recovery of stale run 497d3d1dbb9b47169b88db4d05bed924.",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790856319200,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T12:05:19Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "51",
+      "reason": "explicit C3/C2 repository subject",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:f26bca0580464265a82fb589a3816400",
+      "description": "C3 writer starvation: executor-result mutation #9761 for stale Inbox run 53a24e1207d34fee80a99d609f0da233 had workflow run 36886571259 cancelled by apply-roadmap-mutations concurrency. New C3 renew_supervisor and issue-triage mutation runs are queued/pending each minute, so the recovery Issue remains open and the stale run blocks fresh triage.",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": "01a0f7fd-fd04-73f3-8ab3-437d30ed9ebc",
+      "chat_url": "codex://threads/01a0f7fd-fd04-73f3-8ab3-437d30ed9ebc",
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790869650796,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T15:47:30Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "51",
+      "reason": "explicit C3/C2 repository subject",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:7f7ec756ca724136b8054a6875d41669",
+      "description": "GitHub Actions apply-roadmap-mutations run 36887180154 has been stuck in actions/checkout since 2026-10-01T15:50:38Z; no drain step has started. Replacement triage mutations #9777, #9779, #9781 remain open while C3 triggers are intentionally suspended to avoid pending-slot churn.",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": "01a0f7fd-fd04-73f3-8ab3-437d30ed9ebc",
+      "chat_url": "codex://threads/01a0f7fd-fd04-73f3-8ab3-437d30ed9ebc",
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790870166449,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T15:56:06Z"
+    },
+    "issue_work_item_links": []
+  }
+]

@@ -1,0 +1,92 @@
+# Mostrare l’intera blocklist Grindr con arricchimento locale
+
+<!-- migration-f202a42fcaeef731 -->
+
+Migrated project backlog. Project: **grindr-favorites-monitor**; project_id: 104.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 104.
+
+Provenance: `wi:ede29523c7004568b6ab8081fc92bc7b`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Mostrare l’intera blocklist Grindr con arricchimento locale
+
+Correggere la consultazione paginata della blocklist Grindr e arricchire i profili solo tramite join con dati locali già disponibili, mantenendo navigazione read-only e senza aggirare i controlli del bridge.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "104",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "104"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:ede29523c7004568b6ab8081fc92bc7b",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Mostrare l’intera blocklist Grindr con arricchimento locale",
+      "objective": "Correggere la consultazione paginata della blocklist Grindr e arricchire i profili solo tramite join con dati locali già disponibili, mantenendo navigazione read-only e senza aggirare i controlli del bridge.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/grindr-favorites-monitor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T10:23:46Z",
+      "updated_at": "2026-09-30T10:23:46Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:ede29523c7004568b6ab8081fc92bc7b",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2163,
+        "work_item_id": "wi:ede29523c7004568b6ab8081fc92bc7b",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:96b11e82b33b49019b495510df6582df",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Grindr blocklist findings from verified session:\\n- Semantic UI path from home: open profile menu -> Settings -> Unblock Users; verified on the same already-open Grindr tab, no mouse coordinates needed.\\n- Record clicks semantically with tag/text/id/role/aria-label/data-testid/href/class plus short parent chain; this successfully captured the path.\\n- Blocklist endpoint accepts page=N; pages 1-15 returned 100 rows each and page 16 returned 51: 1551 unique blocked profile IDs total, no duplicates.\\n- Current Web UI only requests page 1, so it renders only the first 100 blocked users even though the API contains all 1551.\\n- Blocklist rows expose profileId and displayName; observed mediaHash is only the literal placeholder 'hash'.\\n- Full block snapshot saved under ~/.local/state/grindr-favorites-monitor/blocked-profiles/blocked-profiles-20260929-220331.json.\\n- Bundle confirms a separate full-profile endpoint exists, but direct enrichment of blocked IDs was blocked by current bridge safety controls; do not bypass those controls.\\n- Local join is safe/useful: 3 blocked IDs already exist in monitor DB, 2 have full historical enrichment, 1 has downloaded media. Build blocklist enrichment by joining local favorites/enrichment/media/chat history where available.\\n- Preserve read-only behavior, reuse the existing authenticated normal-Chrome Grindr tab, never open duplicate tabs/windows, and paginate until first page with <100 results while deduplicating profileId.\\n\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:96b11e82b33b49019b495510df6582df\", \"observed_at_ms\": 1790721558467, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:23:46Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:96b11e82b33b49019b495510df6582df",
+        "work_item_id": "wi:ede29523c7004568b6ab8081fc92bc7b",
+        "role": "decision",
+        "created_at": "2026-09-29T22:39:18Z"
+      }
+    ]
+  }
+]
+```

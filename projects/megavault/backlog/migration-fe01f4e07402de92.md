@@ -1,0 +1,150 @@
+# Definire e adottare lo standard Project Capsule C2
+
+<!-- migration-fe01f4e07402de92 -->
+
+Migrated project backlog. Project: **megavault**; project_id: 23.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 23.
+
+Provenance: `wi:d6185f8fb88d466f907814bf6125890e`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Definire e adottare lo standard Project Capsule C2
+
+Sostituisce la cattura troppo breve #2242 ("Definire lo standard della capsula"). Definire e adottare uno standard C2 di capsulizzazione per tutti i progetti attivi o ragionevolmente destinati a essere toccati ancora, escludendo solo repository chiaramente obsoleti, generati/vendor/mirror, esperimenti usa-e-getta o progetti integralmente assorbiti da altri. Obiettivo: un executor nuovo deve poter lavorare correttamente sul progetto senza ricostruire il contesto esplorando mezzo filesystem, vecchie chat o documentazione dispersa. Lo standard deve essere coerente tra repo, machine-readable oltre che umano, e distinguere chiaramente la conoscenza globale canonica in MegaVault dalla verità locale necessaria nel progetto, evitando duplicazione dei protocolli globali. La capsula minima deve coprire almeno: project_id e identità; scopo e confini; repo/branch policy/workdir canonica; architettura essenziale e entry point; dipendenze da altri progetti/servizi/database; file e directory importanti; schema DB e migrazioni; servizi systemd/timer/cron/container; dispositivi coinvolti; comandi canonici per setup/build/test mirati/test completi/lint/static checks/deploy-install/smoke test; invarianti da non violare; operazioni rischiose/distruttive; recovery/rollback; acceptance criteria standard; riferimenti a MegaVault/C2/roadmap. Preferire un manifest standard tipo project-capsule.yaml più documenti locali essenziali (es. AGENTS.md, architecture/operations/data-model), con riferimenti invece di copie dei protocolli globali. Dove possibile i dati della capsula devono essere verificabili automaticamente contro il codice/repo, non solo testo narrativo. Includere un contratto standard per un comando unico di verifica del progetto, con fast path e full path, e una strategia per mantenere la capsula aggiornata quando cambiano codice, servizi, schema o dipendenze. Acceptance criteria: schema/contratto documentato e machine-readable; regole di inclusione/esclusione dei progetti definite; template canonico disponibile; almeno un meccanismo automatico di validazione/freshness specificato; integrazione prevista con C2/MegaVault senza duplicare la source of truth.
+
+status: waiting
+
+current_action: BLOCKED
+
+next_action: Dispatch eligible required children in priority order, then finalize parent after their terminal receipts.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "23",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "23"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Definire e adottare lo standard Project Capsule C2",
+      "objective": "Sostituisce la cattura troppo breve #2242 (\"Definire lo standard della capsula\"). Definire e adottare uno standard C2 di capsulizzazione per tutti i progetti attivi o ragionevolmente destinati a essere toccati ancora, escludendo solo repository chiaramente obsoleti, generati/vendor/mirror, esperimenti usa-e-getta o progetti integralmente assorbiti da altri. Obiettivo: un executor nuovo deve poter lavorare correttamente sul progetto senza ricostruire il contesto esplorando mezzo filesystem, vecchie chat o documentazione dispersa. Lo standard deve essere coerente tra repo, machine-readable oltre che umano, e distinguere chiaramente la conoscenza globale canonica in MegaVault dalla verità locale necessaria nel progetto, evitando duplicazione dei protocolli globali. La capsula minima deve coprire almeno: project_id e identità; scopo e confini; repo/branch policy/workdir canonica; architettura essenziale e entry point; dipendenze da altri progetti/servizi/database; file e directory importanti; schema DB e migrazioni; servizi systemd/timer/cron/container; dispositivi coinvolti; comandi canonici per setup/build/test mirati/test completi/lint/static checks/deploy-install/smoke test; invarianti da non violare; operazioni rischiose/distruttive; recovery/rollback; acceptance criteria standard; riferimenti a MegaVault/C2/roadmap. Preferire un manifest standard tipo project-capsule.yaml più documenti locali essenziali (es. AGENTS.md, architecture/operations/data-model), con riferimenti invece di copie dei protocolli globali. Dove possibile i dati della capsula devono essere verificabili automaticamente contro il codice/repo, non solo testo narrativo. Includere un contratto standard per un comando unico di verifica del progetto, con fast path e full path, e una strategia per mantenere la capsula aggiornata quando cambiano codice, servizi, schema o dipendenze. Acceptance criteria: schema/contratto documentato e machine-readable; regole di inclusione/esclusione dei progetti definite; template canonico disponibile; almeno un meccanismo automatico di validazione/freshness specificato; integrazione prevista con C2/MegaVault senza duplicare la source of truth.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "BLOCKED",
+      "next_action": "Dispatch eligible required children in priority order, then finalize parent after their terminal receipts.",
+      "blocker": null,
+      "project_id": "51",
+      "project_name": "codex-roadmap",
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T12:45:13Z",
+      "updated_at": "2026-09-27T22:23:04.778065Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "tag": "c2:project-capsule"
+      },
+      {
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "tag": "architecture"
+      },
+      {
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [
+      {
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "depends_on_work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "required": 1,
+        "note": "c2-intake"
+      }
+    ],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:d6185f8fb88d466f907814bf6125890e:f567b63ae4b38fc6a1a5011e2b52f09e",
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": null,
+        "completed_json": "[\"Project Capsule v1 contract, schema, validator and reference C2 adoption integrated in codex-roadmap PR #2666 merge 76e8475; 35 per-repository adoption child tasks created\"]",
+        "remaining_json": "[\"Integrate and verify eligible per-repository Capsule children, including blocked local-only repos, then final parent verification\"]",
+        "evidence_json": "[\"PR #2666 merged with CI green; child creation Issue #2669 applied; first grindr-web-exporter child produced commit 711c155 but requires a canonical remote/integration route\"]",
+        "blocker": "Required pending child adoptions cannot be dispatched while this parent remains running; one child executor start #2701 was rejected as not runnable.",
+        "next_action": "Run independent per-repo adoption children, preserve local-only blockers, then resume and close parent when all required children are terminal.",
+        "strict_contract": 1,
+        "payload_sha256": "f567b63ae4b38fc6a1a5011e2b52f09ec37e81a559208c5990fe8ec71558722c",
+        "captured_at": 1790539090.6291878
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 739,
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a0a95f04f2b142b3a82e3c34d3c56070",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Sostituisce la cattura troppo breve #2242 (\\\"Definire lo standard della capsula\\\"). Definire e adottare uno standard C2 di capsulizzazione per tutti i progetti attivi o ragionevolmente destinati a essere toccati ancora, escludendo solo repository chiaramente obsoleti, generati/vendor/mirror, esperimenti usa-e-getta o progetti integralmente assorbiti da altri. Obiettivo: un executor nuovo deve poter lavorare correttamente sul progetto senza ricostruire il contesto esplorando mezzo filesystem, vecchie chat o documentazione dispersa. Lo standard deve essere coerente tra repo, machine-readable oltre che umano, e distinguere chiaramente la conoscenza globale canonica in MegaVault dalla verità locale necessaria nel progetto, evitando duplicazione dei protocolli globali. La capsula minima deve coprire almeno: project_id e identità; scopo e confini; repo/branch policy/workdir canonica; architettura essenziale e entry point; dipendenze da altri progetti/servizi/database; file e directory importanti; schema DB e migrazioni; servizi systemd/timer/cron/container; dispositivi coinvolti; comandi canonici per setup/build/test mirati/test completi/lint/static checks/deploy-install/smoke test; invarianti da non violare; operazioni rischiose/distruttive; recovery/rollback; acceptance criteria standard; riferimenti a MegaVault/C2/roadmap. Preferire un manifest standard tipo project-capsule.yaml più documenti locali essenziali (es. AGENTS.md, architecture/operations/data-model), con riferimenti invece di copie dei protocolli globali. Dove possibile i dati della capsula devono essere verificabili automaticamente contro il codice/repo, non solo testo narrativo. Includere un contratto standard per un comando unico di verifica del progetto, con fast path e full path, e una strategia per mantenere la capsula aggiornata quando cambiano codice, servizi, schema o dipendenze. Acceptance criteria: schema/contratto documentato e machine-readable; regole di inclusione/esclusione dei progetti definite; template canonico disponibile; almeno un meccanismo automatico di validazione/freshness specificato; integrazione prevista con C2/MegaVault senza duplicare la source of truth.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:a0a95f04f2b142b3a82e3c34d3c56070\", \"observed_at_ms\": 1790511983799, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T12:45:13Z"
+      },
+      {
+        "evidence_id": 862,
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "evidence_kind": "executor_result",
+        "label": "PR #2666 merged with CI green; child creation Issue #2669 applied; first grindr-web-exporter child produced commit 711c1",
+        "uri": null,
+        "value_json": "\"PR #2666 merged with CI green; child creation Issue #2669 applied; first grindr-web-exporter child produced commit 711c155 but requires a canonical remote/integration route\"",
+        "created_at": "2026-09-27T19:58:10Z"
+      },
+      {
+        "evidence_id": 1209,
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Capsule parent is now BLOCKED rather than running, so the old parent-running child-dispatch blocker is gone. Required ch",
+        "uri": null,
+        "value_json": "\"Capsule parent is now BLOCKED rather than running, so the old parent-running child-dispatch blocker is gone. Required child adoptions remain incomplete but can proceed independently.\"",
+        "created_at": "2026-09-27T22:23:04.778065Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:a0a95f04f2b142b3a82e3c34d3c56070",
+        "work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "role": "decision",
+        "created_at": "2026-09-27T12:26:23Z"
+      }
+    ]
+  }
+]
+```

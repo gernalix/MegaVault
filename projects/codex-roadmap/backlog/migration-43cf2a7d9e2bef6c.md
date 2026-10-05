@@ -1,0 +1,92 @@
+# C2 Codex recovery bug observed on C3 run f91ce3f175324137aba3c11128b9317b: persisted `thread/read` from a fresh app-server reports the active turn `01a0f1c8-9253-7642-ae74-9897cf2e7bc4` as `interrupted`, but the owning c
+
+<!-- migration-43cf2a7d9e2bef6c -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:bfc4aba54c4f4a78b6e5bd9362b92d3d`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### C2 Codex recovery bug observed on C3 run f91ce3f175324137aba3c11128b9317b: persisted `thread/read` from a fresh app-server reports the active turn `01a0f1c8-9253-7642-ae74-9897cf2e7bc4` as `interrupted`, but the owning c
+
+C2 Codex recovery bug observed on C3 run f91ce3f175324137aba3c11128b9317b: persisted `thread/read` from a fresh app-server reports the active turn `01a0f1c8-9253-7642-ae74-9897cf2e7bc4` as `interrupted`, but the owning c2_worker remains indefinitely alive in `rpc.wait_for_turn`/poll timeout with its local receipt still phase=started and no terminal delivery. This creates zombie workers and prevents queued operational steers from being consumed. Reconciliation should periodically cross-check persisted thread/turn state (or receive a durable terminal event) and recover an interrupted turn without requiring private stdio app-server notification delivery.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:bfc4aba54c4f4a78b6e5bd9362b92d3d",
+      "parent_id": null,
+      "kind": "task",
+      "title": "C2 Codex recovery bug observed on C3 run f91ce3f175324137aba3c11128b9317b: persisted `thread/read` from a fresh app-server reports the active turn `01a0f1c8-9253-7642-ae74-9897cf2e7bc4` as `interrupted`, but the owning c",
+      "objective": "C2 Codex recovery bug observed on C3 run f91ce3f175324137aba3c11128b9317b: persisted `thread/read` from a fresh app-server reports the active turn `01a0f1c8-9253-7642-ae74-9897cf2e7bc4` as `interrupted`, but the owning c2_worker remains indefinitely alive in `rpc.wait_for_turn`/poll timeout with its local receipt still phase=started and no terminal delivery. This creates zombie workers and prevents queued operational steers from being consumed. Reconciliation should periodically cross-check persisted thread/turn state (or receive a durable terminal event) and recover an interrupted turn without requiring private stdio app-server notification delivery.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T13:05:38Z",
+      "updated_at": "2026-09-30T13:05:38Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:bfc4aba54c4f4a78b6e5bd9362b92d3d",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2358,
+        "work_item_id": "wi:bfc4aba54c4f4a78b6e5bd9362b92d3d",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:52c6beca396b48dda5172f44b62adc85",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C2 Codex recovery bug observed on C3 run f91ce3f175324137aba3c11128b9317b: persisted `thread/read` from a fresh app-server reports the active turn `01a0f1c8-9253-7642-ae74-9897cf2e7bc4` as `interrupted`, but the owning c2_worker remains indefinitely alive in `rpc.wait_for_turn`/poll timeout with its local receipt still phase=started and no terminal delivery. This creates zombie workers and prevents queued operational steers from being consumed. Reconciliation should periodically cross-check persisted thread/turn state (or receive a durable terminal event) and recover an interrupted turn without requiring private stdio app-server notification delivery.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:52c6beca396b48dda5172f44b62adc85\", \"observed_at_ms\": 1790763718801, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T13:05:38Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:52c6beca396b48dda5172f44b62adc85",
+        "work_item_id": "wi:bfc4aba54c4f4a78b6e5bd9362b92d3d",
+        "role": "decision",
+        "created_at": "2026-09-30T10:21:58Z"
+      }
+    ]
+  }
+]
+```

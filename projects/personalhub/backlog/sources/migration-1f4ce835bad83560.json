@@ -1,0 +1,31 @@
+[
+  {
+    "routing": {
+      "project": "49",
+      "reason": "explicit PersonalHub subject",
+      "related_projects": [
+        "49"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:6ab711a9cb384219a8916b07402d8360",
+      "description": "Aggiungere a PersonalHub un modulo Notifications che sostituisca Notisave: catturare le notifiche accessibili via Android NotificationListenerService (titolo, testo, app/package, timestamp, notification key e principali extras; eventi POSTED/UPDATED/REMOVED), salvarle append-only in un database SQLite dedicato e non versionato da Git, e offrire almeno timeline, ricerca full-text e filtri per app/data. Integrare il modulo direttamente in PersonalHub invece di creare un'app separata; evitare polling/foreground service per mantenere il consumo batteria minimo. Prevedere export/backup separato dal Git. Scope iniziale MVP, estensibile in seguito a statistiche e correlazioni con altri moduli PH.",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790880827335,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T18:53:47Z"
+    },
+    "issue_work_item_links": []
+  }
+]

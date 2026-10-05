@@ -1,0 +1,111 @@
+# Make bounded C2 Inbox drain progress nonterminal
+
+<!-- migration-2788fac6454d1206 -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:4de25640ee774663b0c0e4e6c929d9d0`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Make bounded C2 Inbox drain progress nonterminal
+
+When a bounded issue-triage batch verifies dispositions but Inbox rows remain, preserve the existing fenced triage run and report durable nonterminal progress. Coalesce repeated monitor observations without one high-context model turn per row. Evidence: installed c2-inbox-drain-native MAX_ROUNDS=1 returns exit 22 after ten rows and reported 77,629 tokens.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:4de25640ee774663b0c0e4e6c929d9d0",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Make bounded C2 Inbox drain progress nonterminal",
+      "objective": "When a bounded issue-triage batch verifies dispositions but Inbox rows remain, preserve the existing fenced triage run and report durable nonterminal progress. Coalesce repeated monitor observations without one high-context model turn per row. Evidence: installed c2-inbox-drain-native MAX_ROUNDS=1 returns exit 22 after ten rows and reported 77,629 tokens.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T03:43:25Z",
+      "updated_at": "2026-09-30T03:43:25Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:4de25640ee774663b0c0e4e6c929d9d0",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:4de25640ee774663b0c0e4e6c929d9d0",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1994,
+        "work_item_id": "wi:4de25640ee774663b0c0e4e6c929d9d0",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a3d8a6bd80af47d78b1105e221872f88",
+        "uri": "codex://threads/01a0e719-60ff-7b91-82db-1d7c55787c67",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e719-60ff-7b91-82db-1d7c55787c67\", \"code_location\": null, \"description\": \"Installed c2-inbox-drain-native sets MAX_ROUNDS=1 and returns exit 22 whenever pending Inbox rows remain, even after its bounded Codex batch successfully promoted ten ordered rows with verified copy/disposition receipts. C2 consequently fails the triage run after useful progress; the latest batch reported 77,629 tokens for ten rows. Preserve the existing triage resource/run, make bounded progress report nonterminal success or durable continuation, and coalesce repeated monitor observations without one high-context model turn per row.\", \"executor\": null, \"executor_ref\": \"01a0e719-60ff-7b91-82db-1d7c55787c67\", \"issue_id\": \"issue:a3d8a6bd80af47d78b1105e221872f88\", \"observed_at_ms\": 1790672626650, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T03:43:25Z"
+      },
+      {
+        "evidence_id": 2449,
+        "work_item_id": "wi:4de25640ee774663b0c0e4e6c929d9d0",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:e4906d6785574ccc902f10bcef03f502",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"Inbox triage restart tax observed in the acceleration chat: MAX_ROUNDS=1 plus exit 22 forced frequent worker restarts even when the runtime could backfill/reuse the same run. This did not necessarily duplicate work, but it added latency, control-plane noise and extra failure points. Prefer multi-round draining with explicit bounded budgets and stop only on quiescence/blocker.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:e4906d6785574ccc902f10bcef03f502\", \"observed_at_ms\": 1790784618299, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:35:23Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:a3d8a6bd80af47d78b1105e221872f88",
+        "work_item_id": "wi:4de25640ee774663b0c0e4e6c929d9d0",
+        "role": "decision",
+        "created_at": "2026-09-29T09:03:46Z"
+      },
+      {
+        "issue_id": "issue:e4906d6785574ccc902f10bcef03f502",
+        "work_item_id": "wi:4de25640ee774663b0c0e4e6c929d9d0",
+        "role": "decision",
+        "created_at": "2026-09-30T16:35:23Z"
+      }
+    ]
+  }
+]
+```

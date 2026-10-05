@@ -1,0 +1,112 @@
+[
+  {
+    "routing": {
+      "project": "98",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "98"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:fdeba379da7e47639eeeb5fccb468e32",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in activity-watch-uploader",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=98, repository_id=R0099. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "BLOCKED",
+      "next_action": "Restore CI runner/account gate, rerun tests, then guarded integrate.",
+      "blocker": "activity-watch-uploader PR #4 remains open; required test failed during runner initialization with no logs.",
+      "project_id": "98",
+      "project_name": "activity-watch-uploader",
+      "repo": "https://github.com/gernalix/activity-watch-uploader",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T22:23:04.970297Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:fdeba379da7e47639eeeb5fccb468e32",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:fdeba379da7e47639eeeb5fccb468e32:9b1875a8e049537990264d12217aca91",
+        "work_item_id": "wi:fdeba379da7e47639eeeb5fccb468e32",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": null,
+        "completed_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\"]",
+        "remaining_json": "[\"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+        "evidence_json": "[\"Isolated task worktree /home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_activity-watch-uploader/wi-fdeba379da7e47639eeeb5fccb468e32 contains only AGENTS.md and project-capsule.yaml.\", \"project_capsule.py FAST and FULL both PASS for project-capsule.yaml and AGENTS.md; FULL executed python-compile, shell-syntax, and unit-tests hooks successfully; git diff --check passed.\", \"PR https://github.com/gernalix/activity-watch-uploader/pull/4 is OPEN at head 7403650f4e05e7d7dd3eb4a93219ddb6a1b6ae63, base b8ef359da6da83be2af64628a004abb27d9b39f1; required CI test failed before any steps ran, GitHub reports steps=[], and `gh run view --log` returns `log not found: 108702593903`; GitGuardian Security Checks succeeded.\", \"Canonical roadmap DB work item wi:fdeba379da7e47639eeeb5fccb468e32 is running; no integration or terminal receipt is recorded.\"]",
+        "blocker": "Required PR CI test failed during runner/job initialization before any steps ran; no logs are available, so the required gate has no actionable repository failure evidence.",
+        "next_action": "Resolve the GitHub Actions runner/job initialization failure through the repository's authorized CI owner, then require successful PR checks, guarded integration, post-integration FAST validation, and canonical C2 receipt readback.",
+        "strict_contract": 1,
+        "payload_sha256": "9b1875a8e049537990264d12217aca91db1b0f9a2867d70fab60ba5bd108e5f4",
+        "captured_at": 1790541441.1162128
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 927,
+        "work_item_id": "wi:fdeba379da7e47639eeeb5fccb468e32",
+        "evidence_kind": "executor_result",
+        "label": "Isolated task worktree /home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_activity-watch-uploader/wi-fd",
+        "uri": null,
+        "value_json": "\"Isolated task worktree /home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_activity-watch-uploader/wi-fdeba379da7e47639eeeb5fccb468e32 contains only AGENTS.md and project-capsule.yaml.\"",
+        "created_at": "2026-09-27T20:37:21Z"
+      },
+      {
+        "evidence_id": 928,
+        "work_item_id": "wi:fdeba379da7e47639eeeb5fccb468e32",
+        "evidence_kind": "executor_result",
+        "label": "project_capsule.py FAST and FULL both PASS for project-capsule.yaml and AGENTS.md; FULL executed python-compile, shell-s",
+        "uri": null,
+        "value_json": "\"project_capsule.py FAST and FULL both PASS for project-capsule.yaml and AGENTS.md; FULL executed python-compile, shell-syntax, and unit-tests hooks successfully; git diff --check passed.\"",
+        "created_at": "2026-09-27T20:37:21Z"
+      },
+      {
+        "evidence_id": 929,
+        "work_item_id": "wi:fdeba379da7e47639eeeb5fccb468e32",
+        "evidence_kind": "executor_result",
+        "label": "PR https://github.com/gernalix/activity-watch-uploader/pull/4 is OPEN at head 7403650f4e05e7d7dd3eb4a93219ddb6a1b6ae63, ",
+        "uri": null,
+        "value_json": "\"PR https://github.com/gernalix/activity-watch-uploader/pull/4 is OPEN at head 7403650f4e05e7d7dd3eb4a93219ddb6a1b6ae63, base b8ef359da6da83be2af64628a004abb27d9b39f1; required CI test failed before any steps ran, GitHub reports steps=[], and `gh run view --log` returns `log not found: 108702593903`; GitGuardian Security Checks succeeded.\"",
+        "created_at": "2026-09-27T20:37:21Z"
+      },
+      {
+        "evidence_id": 930,
+        "work_item_id": "wi:fdeba379da7e47639eeeb5fccb468e32",
+        "evidence_kind": "executor_result",
+        "label": "Canonical roadmap DB work item wi:fdeba379da7e47639eeeb5fccb468e32 is running; no integration or terminal receipt is rec",
+        "uri": null,
+        "value_json": "\"Canonical roadmap DB work item wi:fdeba379da7e47639eeeb5fccb468e32 is running; no integration or terminal receipt is recorded.\"",
+        "created_at": "2026-09-27T20:37:21Z"
+      },
+      {
+        "evidence_id": 1216,
+        "work_item_id": "wi:fdeba379da7e47639eeeb5fccb468e32",
+        "evidence_kind": "blocked_reconcile",
+        "label": "activity-watch-uploader PR #4 remains open; required test failed during runner initialization with no logs.",
+        "uri": null,
+        "value_json": "\"activity-watch-uploader PR #4 remains open; required test failed during runner initialization with no logs.\"",
+        "created_at": "2026-09-27T22:23:04.970297Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

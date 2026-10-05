@@ -1,0 +1,336 @@
+[
+  {
+    "routing": {
+      "project": "15",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Operational task state — Telegram notification hygiene",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Accumulate representative notification history under existing collector.",
+      "next_action": "Audit noisy producers after representative history exists; apply only producer-specific fixes.",
+      "blocker": "Representative real history for producer audit has not yet been established.",
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": "CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "task_state",
+      "source_ref": "CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md",
+      "created_at": "2026-09-25T15:54:51Z",
+      "updated_at": "2026-09-26T17:12:41Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "state:step:05479a2ce0079fb7d5b6",
+        "to_work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:ef290e68e1ac780b8924",
+        "to_work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:51a7aa9414200d5d78b2",
+        "to_work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:91ff20cf023f8cb7b1f6",
+        "to_work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:phase:5d12701b31d1cc556c86",
+        "to_work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:ebee4ac4feae4af425c3",
+        "to_work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:e22f313cf0a586071f40",
+        "to_work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      }
+    ],
+    "work_item_checkpoints": [
+      {
+        "checkpoint_id": 13,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "source_file": "CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md",
+        "source_commit": "52bea96d02f55fac91cea210cf2e370b5963cc4f",
+        "source_sha256": "a918b4eb67c2ec8ef9e81d6734d2250da5b7f082c4119e56cee3548033161522",
+        "objective": "Automatizzare la raccolta della chat Telegram usata per le notifiche tecniche e usare la cronologia reale come evidenza per ridurre rumore, duplicati, messaggi incomprensibili e flapping senza export manuali.",
+        "current_step": "Source/runtime closure completata tramite 966124. Lasciare accumulare cronologia reale; il prossimo lavoro è il successivo audit dei producer rumorosi, non un altro task di integrazione Telegram.",
+        "next_action": null,
+        "blocker": "pre-migration / retired: historical evidence only",
+        "completed_json": "[\"Implementazione collector, data repo privato, autorizzazione, runtime deploy e validazione E2E.\", \"RUN1/RUN2 e no-op semantics verificate.\", \"Timer periodico attivo.\", \"Repo dati accessibile da ChatGPT tramite GitHub connector.\", \"Fix live storici persistiti sul branch task/422308 fino a 5d8ed32.\", \"Source/runtime closure completata tramite 966124 su `fedora-system-monitor/main`; branch Telegram assorbiti e rimossi.\", \"Richiesta errata di materializzazione 333860 chiusa prima che il worker la applicasse.\"]",
+        "remaining_json": "[\"Accumulare e analizzare cronologia reale.\", \"Correggere i producer rumorosi e verificare una nuova finestra di notifiche post-fix.\"]",
+        "evidence_json": "[\"Lineage storico `fedora-system-monitor task/422308`: f577f66, 9d736aa, 5d8ed32; branch poi assorbito/rimosso da 966124.\", \"gernalix/telegram-notification-history commit 99a9952479074f56095586a6ed3fb210111496db.\", \"GitHub readback archive/state.json: last_message_id 372496.\", \"systemd runtime readback: RUN1 4244, RUN2 0, timer enabled+active.\", \"MegaVault Issue #103: remote allocation => PROMPT_ID 966124.\", \"codex-roadmap Issue #1050: accidental local-fallback prompt 333860.\", \"codex-roadmap Issue #1056: canonical replacement 333860 -> 966124 applicato.\", \"MegaVault Issue #105: PROMPT_ID 966124 materialized.\", \"MegaVault Issue #104: wrong 333860 materialization closed not_planned.\", \"completed/telegram-notification-signal-hygiene.md baseline 417826.\"]",
+        "captured_at": "2026-09-25T15:54:51Z"
+      }
+    ],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 254,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "completed",
+        "label": "Implementazione collector, data repo privato, autorizzazione, runtime deploy e validazione E2E.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#completed-ee69ab118a69b084",
+        "value_json": "{\"text\": \"Implementazione collector, data repo privato, autorizzazione, runtime deploy e validazione E2E.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 255,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "completed",
+        "label": "RUN1/RUN2 e no-op semantics verificate.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#completed-4c6361109b0d2d49",
+        "value_json": "{\"text\": \"RUN1/RUN2 e no-op semantics verificate.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 256,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "completed",
+        "label": "Timer periodico attivo.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#completed-e9f7ac2f94abb8bb",
+        "value_json": "{\"text\": \"Timer periodico attivo.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 257,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "completed",
+        "label": "Repo dati accessibile da ChatGPT tramite GitHub connector.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#completed-7433fc809eb8844e",
+        "value_json": "{\"text\": \"Repo dati accessibile da ChatGPT tramite GitHub connector.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 258,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "completed",
+        "label": "Fix live storici persistiti sul branch task/422308 fino a 5d8ed32.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#completed-4f9284e2ad2cc5ae",
+        "value_json": "{\"text\": \"Fix live storici persistiti sul branch task/422308 fino a 5d8ed32.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 259,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "completed",
+        "label": "Source/runtime closure completata tramite 966124 su `fedora-system-monitor/main`; branch Telegram assorbiti e rimossi.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#completed-2ef706e3a215c197",
+        "value_json": "{\"text\": \"Source/runtime closure completata tramite 966124 su `fedora-system-monitor/main`; branch Telegram assorbiti e rimossi.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 260,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "completed",
+        "label": "Richiesta errata di materializzazione 333860 chiusa prima che il worker la applicasse.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#completed-ba404284597b0715",
+        "value_json": "{\"text\": \"Richiesta errata di materializzazione 333860 chiusa prima che il worker la applicasse.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 261,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "Lineage storico `fedora-system-monitor task/422308`: f577f66, 9d736aa, 5d8ed32; branch poi assorbito/rimosso da 966124.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-71732c030948e8a1",
+        "value_json": "{\"text\": \"Lineage storico `fedora-system-monitor task/422308`: f577f66, 9d736aa, 5d8ed32; branch poi assorbito/rimosso da 966124.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 262,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "gernalix/telegram-notification-history commit 99a9952479074f56095586a6ed3fb210111496db.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-89178e513022b67a",
+        "value_json": "{\"text\": \"gernalix/telegram-notification-history commit 99a9952479074f56095586a6ed3fb210111496db.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 263,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "GitHub readback archive/state.json: last_message_id 372496.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-7bb1f472e846b3ed",
+        "value_json": "{\"text\": \"GitHub readback archive/state.json: last_message_id 372496.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 264,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "systemd runtime readback: RUN1 4244, RUN2 0, timer enabled+active.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-06c5d5c9322bb931",
+        "value_json": "{\"text\": \"systemd runtime readback: RUN1 4244, RUN2 0, timer enabled+active.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 265,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "MegaVault Issue #103: remote allocation => PROMPT_ID 966124.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-7630f0711430235b",
+        "value_json": "{\"text\": \"MegaVault Issue #103: remote allocation => PROMPT_ID 966124.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 266,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "codex-roadmap Issue #1050: accidental local-fallback prompt 333860.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-5b294e0987cf0ba0",
+        "value_json": "{\"text\": \"codex-roadmap Issue #1050: accidental local-fallback prompt 333860.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 267,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "codex-roadmap Issue #1056: canonical replacement 333860 -> 966124 applicato.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-5b9ab195cb698d36",
+        "value_json": "{\"text\": \"codex-roadmap Issue #1056: canonical replacement 333860 -> 966124 applicato.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 268,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "MegaVault Issue #105: PROMPT_ID 966124 materialized.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-8cf5d76751765f13",
+        "value_json": "{\"text\": \"MegaVault Issue #105: PROMPT_ID 966124 materialized.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 269,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "MegaVault Issue #104: wrong 333860 materialization closed not_planned.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-5af1138ee0435f52",
+        "value_json": "{\"text\": \"MegaVault Issue #104: wrong 333860 materialization closed not_planned.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 270,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "evidence",
+        "label": "completed/telegram-notification-signal-hygiene.md baseline 417826.",
+        "uri": "state://CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#evidence-701c6fdacea8376a",
+        "value_json": "{\"text\": \"completed/telegram-notification-signal-hygiene.md baseline 417826.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 359,
+        "work_item_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+        "evidence_kind": "classification",
+        "label": "fedora-system-monitor main a4eeebcad and telegram-notification-history main 6cddc18d: collector closure is implemented; ",
+        "uri": null,
+        "value_json": "\"fedora-system-monitor main a4eeebcad and telegram-notification-history main 6cddc18d: collector closure is implemented; only producer-specific audit after sufficient real history remains.\"",
+        "created_at": "2026-09-26T17:12:41Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [],
+    "source_document": {
+      "path": "/home/daniele/projects/codex-roadmap/operations/task-state/CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md",
+      "text": "# Operational task state — Telegram notification hygiene\n\nTASK_ID: CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE\nUpdated: 2026-09-24 17:16 Europe/Copenhagen\n\n## Objective\nAutomatizzare la raccolta della chat Telegram usata per le notifiche tecniche e usare la cronologia reale come evidenza per ridurre rumore, duplicati, messaggi incomprensibili e flapping senza export manuali.\n\n## Constraints\n- Fedora user service/timer; nessun processo model-driven always-on.\n- Archivio Git privato; nessun token, session file, API hash, OTP, 2FA o credenziale nel repository/checkpoint.\n- Export incrementale e resumable; nessun commit/push quando non ci sono nuovi messaggi.\n- Collector separato da telegram_insert_bot.\n- Correggere i producer reali, non filtrare a valle le notifiche.\n- Testi futuri comprensibili a un non tecnico: brevi, autoesplicativi, ben formattati, con emoji utili.\n- Stesso incidente invariato => silenzio; recovery una sola volta dopo un alert realmente inviato.\n- Rispettare la single-active-recovery-lane globale: il timer può continuare come servizio non-model, ma nessun nuovo task modello Telegram va lanciato in parallelo alla master lane.\n\n## Plan / checklist\n- [x] Allocare/materializzare il task iniziale 422308.\n- [x] Implementare collector incrementale + test in fedora-system-monitor.\n- [x] Creare il repo dati privato gernalix/telegram-notification-history.\n- [x] Installare service+timer systemd --user e lock anti-overlap.\n- [x] Completare autorizzazione Telegram account-level senza versionare segreti.\n- [x] Correggere login con TELEGRAM_PHONE vuoto; commit 9d736aa.\n- [x] Correggere runtime reale e persistere i fix; commit 5d8ed32.\n- [x] Verificare test mirati: 6/6 PASS + py_compile + git diff --check.\n- [x] RUN1 reale: 4.244 messaggi archiviati e pushati.\n- [x] RUN2 reale: new_messages=0 e commit remoto invariato.\n- [x] Abilitare timer ogni 15 minuti; enabled+active.\n- [x] Verificare dal connettore GitHub che repo privato e archive/state.json siano leggibili.\n- [x] Riparare la collisione di identità del follow-up: 333860 superseded/non azionabile; 966124 registrato e materializzato come ID remoto canonico.\n- [x] Eseguire SOLO 966124 per integrare su main i fix verificati di task/422308 insieme a chatgpt/telegram-autodelete-archive, chiudere il source/runtime gate e rimuovere i branch assorbiti.\n- [ ] Lasciare accumulare cronologia reale sufficiente.\n- [ ] Classificare notifiche verbose/incomprensibili/inutili/ripetute/flapping.\n- [ ] Applicare fix mirati ai singoli producer; niente broad refactor.\n- [ ] Rivalutare la policy legacy del prefisso project_id visibile e spostarlo a metadata se non serve all'utente.\n\n## Current step\nSource/runtime closure completata tramite 966124. Lasciare accumulare cronologia reale; il prossimo lavoro è il successivo audit dei producer rumorosi, non un altro task di integrazione Telegram.\n\n## Verified facts\n- PROMPT_ID 966124 è terminale `completed`; `fedora-system-monitor/main` integra il collector tecnico, l'archivio auto-delete e il tracking relationship/block-state. Il checkpoint terminale dedicato riporta main `7c18ac68134b616228cc1e49f29b8be42eaebec4`, CI/runtime PASS e rimozione dei branch temporanei assorbiti.\n- Baseline storica: PROMPT_ID 417826 ha già effettuato una prima signal-hygiene.\n- PROMPT_ID 422308 è terminale BLOCKED storico, ma il suo precedente prerequisito umano è ormai soddisfatto.\n- Lineage sorgente storico: `task/422308` fino a `5d8ed32`; il branch è stato assorbito e rimosso durante la chiusura 966124.\n- Test collector dopo i fix live: 6/6 PASS; py_compile e diff-check PASS.\n- Sessione Telegram account-level autorizzata.\n- Target reale delle notifiche rumorose: datasette_alerts_bot; il vecchio chat_id -1004426028673 risultava non valido per il bot principale.\n- RUN1 PASS: new_messages=4244; data commit 99a9952479074f56095586a6ed3fb210111496db.\n- RUN2 PASS: new_messages=0; origin/main invariato.\n- Data repo gernalix/telegram-notification-history verificato PRIVATE e leggibile via GitHub connector.\n- archive/state.json remoto contiene last_message_id=372496.\n- telegram-notification-history.timer è enabled+active e schedulato ogni 15 minuti.\n- È operativo anche il collector separato per la chat con auto-delete 1 giorno: runtime locale SQLite+media, timer ogni 5 minuti e session lock condiviso. Il source è ormai integrato in `fedora-system-monitor/main` tramite 966124; include view umana, rendering chiamate e relationship/block-state tracking. I contenuti/peer restano locali e non vengono versionati.\n- L'allocatore remoto MegaVault per chatgpt-telegram-history-runtime-closure-20260924-v1 ha assegnato 966124.\n- Il fallback locale aveva erroneamente restituito 333860 allo stesso request_id e quel prompt era stato registrato prima del ritorno remoto.\n- Mutation roadmap #1056 ha applicato replacement 333860 -> 966124; MegaVault Issue #105 ha materializzato 966124. La materialization Issue #104 per 333860 è stata chiusa not_planned.\n\n## Decisions\n- Il runtime collector resta attivo mentre la master recovery procede perché è un servizio non-model e non muta i repo sovrapposti alla lane attiva.\n- Non rilanciare 422308.\n- Non lanciare 333860.\n- 966124 è stato completato e non va rilanciato. 333860 resta superseded/non azionabile.\n- L'audit delle notifiche userà la cronologia Git reale.\n- Le correzioni successive devono avvenire nei producer reali.\n\n## Completed\n- Implementazione collector, data repo privato, autorizzazione, runtime deploy e validazione E2E.\n- RUN1/RUN2 e no-op semantics verificate.\n- Timer periodico attivo.\n- Repo dati accessibile da ChatGPT tramite GitHub connector.\n- Fix live storici persistiti sul branch task/422308 fino a 5d8ed32.\n- Source/runtime closure completata tramite 966124 su `fedora-system-monitor/main`; branch Telegram assorbiti e rimossi.\n- Richiesta errata di materializzazione 333860 chiusa prima che il worker la applicasse.\n\n## Remaining\n- Accumulare e analizzare cronologia reale.\n- Correggere i producer rumorosi e verificare una nuova finestra di notifiche post-fix.\n\n## Blockers\n- Nessun blocker runtime o source-integration del collector.\n- L'audit successivo richiede solo una finestra di cronologia reale sufficientemente rappresentativa.\n\n## Evidence\n- Lineage storico `fedora-system-monitor task/422308`: f577f66, 9d736aa, 5d8ed32; branch poi assorbito/rimosso da 966124.\n- gernalix/telegram-notification-history commit 99a9952479074f56095586a6ed3fb210111496db.\n- GitHub readback archive/state.json: last_message_id 372496.\n- systemd runtime readback: RUN1 4244, RUN2 0, timer enabled+active.\n- MegaVault Issue #103: remote allocation => PROMPT_ID 966124.\n- codex-roadmap Issue #1050: accidental local-fallback prompt 333860.\n- codex-roadmap Issue #1056: canonical replacement 333860 -> 966124 applicato.\n- MegaVault Issue #105: PROMPT_ID 966124 materialized.\n- MegaVault Issue #104: wrong 333860 materialization closed not_planned.\n- completed/telegram-notification-signal-hygiene.md baseline 417826.\n\n## Acceptance criteria\nCollector lane source/runtime closure is complete only when runtime remains healthy/incremental, no secret is versioned, source fixes are integrated on fedora-system-monitor main through canonical 966124, 333860 is non-actionable, 966124 is canonical/materialized and terminal PASS, and the history-based audit produces producer-specific fixes.\n\n## Next action\nNon rilanciare 422308, 333860 o 966124. Lasciare il collector non-model attivo e, quando la cronologia reale è sufficiente, eseguire l'audit history-based dei producer e applicare solo fix producer-specific.\n"
+    }
+  },
+  {
+    "routing": {
+      "project": "15",
+      "reason": "blocker subtask inherits explicitly identified parent project",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "state:gate:55124f54849769b609e2",
+      "parent_id": "task:CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE",
+      "kind": "gate",
+      "title": "Resolve blocker: L'audit successivo richiede solo una finestra di cronologia reale sufficientemente rappresentativa.",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": 1210,
+      "current_action": null,
+      "next_action": "Accumulate a defined representative window and rerun the producer audit.",
+      "blocker": "Representative real producer history has not yet been established; an enabled timer alone does not satisfy the audit sample.",
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "task_state",
+      "source_ref": "CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md#blocker",
+      "created_at": "2026-09-25T15:54:51Z",
+      "updated_at": "2026-09-27T22:23:04.385851Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1189,
+        "work_item_id": "state:gate:55124f54849769b609e2",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Representative real producer history has not yet been established; an enabled timer alone does not satisfy the audit sam",
+        "uri": null,
+        "value_json": "\"Representative real producer history has not yet been established; an enabled timer alone does not satisfy the audit sample.\"",
+        "created_at": "2026-09-27T22:23:04.385851Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

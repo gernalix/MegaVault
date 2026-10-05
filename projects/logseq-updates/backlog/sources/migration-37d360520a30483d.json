@@ -1,0 +1,112 @@
+[
+  {
+    "routing": {
+      "project": "76",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "76"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:d23af287f5e84d74a2ef694a1302dcda",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in logseq-updates",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=76, repository_id=R0076. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "BLOCKED",
+      "next_action": "Restore CI gate, rerun tests, then guarded integrate.",
+      "blocker": "logseq_updates PR #1 remains open; required test CI failed before steps due external account state.",
+      "project_id": "76",
+      "project_name": "logseq_updates",
+      "repo": "https://github.com/gernalix/logseq_updates",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T22:23:04.971633Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:d23af287f5e84d74a2ef694a1302dcda",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:d23af287f5e84d74a2ef694a1302dcda:63c3ddbb3741bad2fcd9d727b306ca5d",
+        "work_item_id": "wi:d23af287f5e84d74a2ef694a1302dcda",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": null,
+        "completed_json": "[\"Capsule draft added in commit ed99c332ca1ef4a4c8c7c81826bef257c204d355 and pushed to task branch.\", \"Local FAST and FULL capsule validation and mocked unit/syntax checks passed before checkpoint; PR #1 created through repo_single_writer.\", \"PR security check passed.\"]",
+        "remaining_json": "[\"PR #1 CI test job did not start: GitHub Actions reports recent account payments failed or spending limit must be increased. The run has zero steps and no actionable test diagnostics. Restore repository Actions billing/spending capacity, then rerun required CI and let the single-writer integrator merge; verify integrated main and rerun required acceptance there.\", \"Submit strict PASS receipt only after canonical integration and integrated-head verification.\"]",
+        "evidence_json": "[\"C2 work item wi:d23af287f5e84d74a2ef694a1302dcda was running before this receipt.\", \"repo_single_writer status: task branch task/wi-d23af287f5e84d74a2ef694a1302dcda, PR #1 queued at 2026-09-27T21:17:29Z.\", \"GitHub Actions run 36351172539, job 108710015533, failed before job start: billing/spending limit message; steps=[]; GitGuardian security check succeeded.\", \"Commit ed99c332ca1ef4a4c8c7c81826bef257c204d355 is preserved on the task branch; no merge or canonical repo mutation performed.\"]",
+        "blocker": "External GitHub Actions account billing/spending limit prevents required CI from starting, so PR #1 cannot pass required gates or be integrated.",
+        "next_action": "After external Actions billing is restored, rerun CI for PR #1, allow repo-integrator to merge, verify canonical main contains the capsule, and submit strict PASS receipt.",
+        "strict_contract": 1,
+        "payload_sha256": "63c3ddbb3741bad2fcd9d727b306ca5dfff084ff29b3c4e319cc642b8132d87a",
+        "captured_at": 1790543932.4530408
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1074,
+        "work_item_id": "wi:d23af287f5e84d74a2ef694a1302dcda",
+        "evidence_kind": "executor_result",
+        "label": "C2 work item wi:d23af287f5e84d74a2ef694a1302dcda was running before this receipt.",
+        "uri": null,
+        "value_json": "\"C2 work item wi:d23af287f5e84d74a2ef694a1302dcda was running before this receipt.\"",
+        "created_at": "2026-09-27T21:18:52Z"
+      },
+      {
+        "evidence_id": 1075,
+        "work_item_id": "wi:d23af287f5e84d74a2ef694a1302dcda",
+        "evidence_kind": "executor_result",
+        "label": "repo_single_writer status: task branch task/wi-d23af287f5e84d74a2ef694a1302dcda, PR #1 queued at 2026-09-27T21:17:29Z.",
+        "uri": null,
+        "value_json": "\"repo_single_writer status: task branch task/wi-d23af287f5e84d74a2ef694a1302dcda, PR #1 queued at 2026-09-27T21:17:29Z.\"",
+        "created_at": "2026-09-27T21:18:52Z"
+      },
+      {
+        "evidence_id": 1076,
+        "work_item_id": "wi:d23af287f5e84d74a2ef694a1302dcda",
+        "evidence_kind": "executor_result",
+        "label": "GitHub Actions run 36351172539, job 108710015533, failed before job start: billing/spending limit message; steps=[]; Git",
+        "uri": null,
+        "value_json": "\"GitHub Actions run 36351172539, job 108710015533, failed before job start: billing/spending limit message; steps=[]; GitGuardian security check succeeded.\"",
+        "created_at": "2026-09-27T21:18:52Z"
+      },
+      {
+        "evidence_id": 1077,
+        "work_item_id": "wi:d23af287f5e84d74a2ef694a1302dcda",
+        "evidence_kind": "executor_result",
+        "label": "Commit ed99c332ca1ef4a4c8c7c81826bef257c204d355 is preserved on the task branch; no merge or canonical repo mutation per",
+        "uri": null,
+        "value_json": "\"Commit ed99c332ca1ef4a4c8c7c81826bef257c204d355 is preserved on the task branch; no merge or canonical repo mutation performed.\"",
+        "created_at": "2026-09-27T21:18:52Z"
+      },
+      {
+        "evidence_id": 1220,
+        "work_item_id": "wi:d23af287f5e84d74a2ef694a1302dcda",
+        "evidence_kind": "blocked_reconcile",
+        "label": "logseq_updates PR #1 remains open; required test CI failed before steps due external account state.",
+        "uri": null,
+        "value_json": "\"logseq_updates PR #1 remains open; required test CI failed before steps due external account state.\"",
+        "created_at": "2026-09-27T22:23:04.971633Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "routing": {
+      "project": "symphony",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "symphony"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:a7b0ee2c44154950a6decefe27a35d12",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Set Codex app-server model and reasoning explicitly in Symphony",
+      "objective": "Ensure any Symphony/Codex app-server integration sets model and reasoning via config overrides and verifies the actual thread settings, rather than relying on -m.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "human",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "/home/daniele/projects/symphony",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-29T00:28:34Z",
+      "updated_at": "2026-09-29T00:28:34Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:a7b0ee2c44154950a6decefe27a35d12",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:a7b0ee2c44154950a6decefe27a35d12",
+        "tag": "regression"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:a7b0ee2c44154950a6decefe27a35d12",
+        "to_work_item_id": "wi:52a87ab8460d479dbee0fc970cbc58a0",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-29T00:28:34Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:aaf8335d1b3c4710886402db0aa52cdb"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1665,
+        "work_item_id": "wi:a7b0ee2c44154950a6decefe27a35d12",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:aaf8335d1b3c4710886402db0aa52cdb",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Symphony/Codex app-server model selection pitfall: invoking codex with -m gpt-5.6-terra app-server did not set the app-server thread model in the real canary; the resulting rollout used gpt-6-sol medium from global config. codex doctor confirms that -c model=gpt-5.6-terra -c model_reasoning_effort=medium correctly overrides the invocation config. Any Symphony integration should set model/reasoning with app-server config overrides rather than relying on -m.\\n\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:aaf8335d1b3c4710886402db0aa52cdb\", \"observed_at_ms\": 1790578038539, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"/home/daniele/projects/symphony\"}",
+        "created_at": "2026-09-29T00:28:34Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:aaf8335d1b3c4710886402db0aa52cdb",
+        "work_item_id": "wi:a7b0ee2c44154950a6decefe27a35d12",
+        "role": "decision",
+        "created_at": "2026-09-28T06:47:18Z"
+      }
+    ]
+  }
+]

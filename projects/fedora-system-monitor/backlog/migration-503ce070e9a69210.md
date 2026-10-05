@@ -1,0 +1,128 @@
+# Fedora System Monitor: attribuire memoria Chrome a tab e conservare storico top-N
+
+<!-- migration-503ce070e9a69210 -->
+
+Migrated project backlog. Project: **fedora-system-monitor**; project_id: 15.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 15.
+
+Provenance: `wi:e9752f40936a4cfcbd5c1995de397a23`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Fedora System Monitor: attribuire memoria Chrome a tab e conservare storico top-N
+
+Fedora System Monitor — definire le metriche Chrome per memoria per-tab: RAM totale Chrome e % RAM fisica, top-N tab per memoria, memoria per tab/renderer, stato attiva/background, soglie di allerta, crescita nel tempo, snapshot dei maggiori consumatori prima/attorno a OOM e distinzione tab/estensioni/GPU/browser/service worker. Conservare storico sufficiente a correlare picchi con journal, swap e OOM senza rendere il monitor pesante.
+
+status: waiting
+
+current_action: WAITING_ON_EVIDENCE
+
+next_action: Choose/approve a supported tab-to-process instrumentation method and bounded retention/overhead contract, then re-reconcile before implementation.
+
+blocker: No approved supported low-overhead method currently maps regular Chrome tabs to processes and memory without persisting private tab data.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "15",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:e9752f40936a4cfcbd5c1995de397a23",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Fedora System Monitor: attribuire memoria Chrome a tab e conservare storico top-N",
+      "objective": "Fedora System Monitor — definire le metriche Chrome per memoria per-tab: RAM totale Chrome e % RAM fisica, top-N tab per memoria, memoria per tab/renderer, stato attiva/background, soglie di allerta, crescita nel tempo, snapshot dei maggiori consumatori prima/attorno a OOM e distinzione tab/estensioni/GPU/browser/service worker. Conservare storico sufficiente a correlare picchi con journal, swap e OOM senza rendere il monitor pesante.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": 9000,
+      "current_action": "WAITING_ON_EVIDENCE",
+      "next_action": "Choose/approve a supported tab-to-process instrumentation method and bounded retention/overhead contract, then re-reconcile before implementation.",
+      "blocker": "No approved supported low-overhead method currently maps regular Chrome tabs to processes and memory without persisting private tab data.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/fedora-system-monitor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T21:06:30Z",
+      "updated_at": "2026-09-28T22:47:20Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:e9752f40936a4cfcbd5c1995de397a23",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1028,
+        "work_item_id": "wi:e9752f40936a4cfcbd5c1995de397a23",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:8336379c6eaf4241a90e899307327b4e",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Fedora System Monitor — definire le metriche Chrome per memoria per-tab: RAM totale Chrome e % RAM fisica, top-N tab per memoria, memoria per tab/renderer, stato attiva/background, soglie di allerta, crescita nel tempo, snapshot dei maggiori consumatori prima/attorno a OOM e distinzione tab/estensioni/GPU/browser/service worker. Conservare storico sufficiente a correlare picchi con journal, swap e OOM senza rendere il monitor pesante.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:8336379c6eaf4241a90e899307327b4e\", \"observed_at_ms\": 1790527632850, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"fedora-system-monitor\"}",
+        "created_at": "2026-09-27T21:06:30Z"
+      },
+      {
+        "evidence_id": 1043,
+        "work_item_id": "wi:e9752f40936a4cfcbd5c1995de397a23",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:3d48f26549e64591b06c37e505c294c2",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Fedora System Monitor — definire e implementare l’architettura Chrome→tab: non assumere relazione 1:1 tra processo Linux e tab; combinare metriche di sistema (/proc o equivalente) con informazioni interne di Chrome, preferibilmente Chrome DevTools Protocol, per associare target/tab, renderer/PID, titolo/URL e memoria. Progettare raccolta efficiente top-N e persistenza storica utile alla diagnosi post-OOM.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:3d48f26549e64591b06c37e505c294c2\", \"observed_at_ms\": 1790527633088, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"fedora-system-monitor\"}",
+        "created_at": "2026-09-27T21:07:47Z"
+      },
+      {
+        "evidence_id": 1654,
+        "work_item_id": "wi:e9752f40936a4cfcbd5c1995de397a23",
+        "evidence_kind": "classification",
+        "label": "Latest whole-batch reconciliation classified this as instrumentation-design/permission conditional, not immediate code.",
+        "uri": null,
+        "value_json": "\"Latest whole-batch reconciliation classified this as instrumentation-design/permission conditional, not immediate code.\"",
+        "created_at": "2026-09-28T22:47:20Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:3d48f26549e64591b06c37e505c294c2",
+        "work_item_id": "wi:e9752f40936a4cfcbd5c1995de397a23",
+        "role": "matched",
+        "created_at": "2026-09-27T16:47:13Z"
+      },
+      {
+        "issue_id": "issue:8336379c6eaf4241a90e899307327b4e",
+        "work_item_id": "wi:e9752f40936a4cfcbd5c1995de397a23",
+        "role": "decision",
+        "created_at": "2026-09-27T16:47:12Z"
+      },
+      {
+        "issue_id": "issue:3d48f26549e64591b06c37e505c294c2",
+        "work_item_id": "wi:e9752f40936a4cfcbd5c1995de397a23",
+        "role": "decision",
+        "created_at": "2026-09-27T16:47:13Z"
+      }
+    ]
+  }
+]
+```

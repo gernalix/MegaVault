@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "15",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:8c9c1321a9da4e81a304e60ef207211e",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Investigate Fedora Host (id 39) DOWN alert",
+      "objective": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Fedora Host (id 39)\nHeartbeat: 2026-09-30 06:26:20.272 (row 685508)\nFailure context: No heartbeat in the time window Identify whether this alert is transient or persistent, inspect the named monitor/service, and record an evidence-based cause and scoped resolution or blocker.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:10:08Z",
+      "updated_at": "2026-09-30T12:10:08Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:8c9c1321a9da4e81a304e60ef207211e",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2251,
+        "work_item_id": "wi:8c9c1321a9da4e81a304e60ef207211e",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:380ad6c2a6a7ba792579487d9a54db6c",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Host (id 39)\\nHeartbeat: 2026-09-30 06:26:20.272 (row 685508)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:380ad6c2a6a7ba792579487d9a54db6c\", \"observed_at_ms\": 1790749943311, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:10:08Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:380ad6c2a6a7ba792579487d9a54db6c",
+        "work_item_id": "wi:8c9c1321a9da4e81a304e60ef207211e",
+        "role": "decision",
+        "created_at": "2026-09-30T06:32:23Z"
+      }
+    ]
+  }
+]

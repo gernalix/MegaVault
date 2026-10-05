@@ -1,0 +1,105 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:3f259a4e8086401484db7e229149181a",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Reconcile C2/C3 worker terminal state with verified outcomes",
+      "objective": "Converge repository/test evidence with canonical worker, run, thread, and turn terminal state so useful completed work is not reported failed and stale in-progress turns do not trigger needless rework.",
+      "acceptance_json": "[\"Terminal reconciliation uses canonical repository/test and worker state evidence.\", \"Verified completed work cannot remain falsely failed or in progress after reconciliation.\"]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T16:35:23Z",
+      "updated_at": "2026-09-30T16:35:23Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2443,
+        "work_item_id": "wi:3f259a4e8086401484db7e229149181a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d041df46c9474d9ab701bfd23df6abab",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"C3 terminal handshake/reconciliation bug observed in the 2026-09-30 chat. thread/resume could rehydrate a Master/C3 thread from notLoaded to active, but a canary/child turn remained inProgress and a child run later failed on terminal-contract semantics even though tested code was already on the remote branch and CI was green. Formalize terminal-state reconciliation so code/test evidence and worker/turn terminal state converge atomically, preventing false failed states and unnecessary redo.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d041df46c9474d9ab701bfd23df6abab\", \"observed_at_ms\": 1790784486819, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:35:23Z"
+      },
+      {
+        "evidence_id": 2444,
+        "work_item_id": "wi:3f259a4e8086401484db7e229149181a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:02eaa2a77d5d48c89a2dd4b937181325",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"C3 child/turn terminal-state bug observed in the acceleration chat: thread/resume could rehydrate notLoaded to active, but a turn could remain inProgress after useful code and CI were already PASS, and a child could then be reported failed by terminal-state contract despite successful work on the branch. Terminal state should reconcile repository/test evidence with thread state to avoid false failures and needless rework.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:02eaa2a77d5d48c89a2dd4b937181325\", \"observed_at_ms\": 1790784619523, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:35:23Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:d041df46c9474d9ab701bfd23df6abab",
+        "work_item_id": "wi:3f259a4e8086401484db7e229149181a",
+        "role": "decision",
+        "created_at": "2026-09-30T16:35:23Z"
+      },
+      {
+        "issue_id": "issue:02eaa2a77d5d48c89a2dd4b937181325",
+        "work_item_id": "wi:3f259a4e8086401484db7e229149181a",
+        "role": "decision",
+        "created_at": "2026-09-30T16:35:23Z"
+      }
+    ]
+  },
+  {
+    "routing": {
+      "project": "51",
+      "reason": "complementary evidence for same explicitly identified objective",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:261a7bb002a419e668ac4963acda366f",
+      "description": "Fresh M3 evidence for wi:3f259a4e8086401484db7e229149181a: canonical Git history contains merged task work for PROMPT_ID 891963 (PR #6, commit 5f3b15e) and 625582 (PR #15, commit 6a2881c), but their C3 work items remain waiting; 891963 still has an old BLOCKED receipt claiming the merge conflict is unresolved. M3 declined lifecycle closure because canonical checkouts are dirty. Reconcile lifecycle from immutable integration/merge/CI/task-worktree evidence so successful integration cannot remain stale merely because a shared canonical checkout has unrelated dirty user changes.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": "wi:3f259a4e8086401484db7e229149181a",
+      "origin_run_id": null,
+      "observed_at_ms": 1790933942190,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-02T09:39:02Z"
+    },
+    "issue_work_item_links": []
+  }
+]

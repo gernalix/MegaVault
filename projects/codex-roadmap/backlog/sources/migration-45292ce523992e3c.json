@@ -1,0 +1,961 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Rimuovere special-case PH e implementare override execution canonico",
+      "objective": "Completare il cutover PH→C2 e l'override temporaneo canonico dal control plane codex-roadmap, senza tag operativo PersonalHub che attiva la vecchia esclusione.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "codex",
+      "sort_order": 0,
+      "current_action": "PH→C2 cutover and canonical execution override were implemented, merged and live-validated; one CLI idempotency defect remains.",
+      "next_action": "Run focused override replay and PH cutover smoke, then finalize.",
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": "384495",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-26T23:20:57Z",
+      "updated_at": "2026-09-27T22:23:04.086130Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "384495",
+        "slug": "rimuovere-special-case-ph-e-implementare-overrid-384495",
+        "chat_guidance": null,
+        "prompt_type": "Prompt",
+        "model": "GPT-6 Sol",
+        "reasoning": "medium",
+        "megavault_mode": null,
+        "campaign_id": null,
+        "explanation": "",
+        "current_path": "prompts/rimuovere-special-case-ph-e-implementare-overrid-384495.md",
+        "materialization_sha256": "a42727ba10d423dc8e44ac44aa46da4192d4bb082d7e50495df9fab3c98d8bfc",
+        "created_at": "2026-09-26T23:22:56Z",
+        "updated_at": "2026-09-27T22:23:05Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "384495",
+        "body": "PROMPT_ID=384495\n\n# Goal\nFinish the PersonalHub→C2 control-plane cutover and add a canonical temporary execution-order override.\n\n# Starting point\n- C2 work item: wi:e1373812bc1444488c824c0e57812fc8\n- Source Inbox chain: issue:ab65d686a4464e97860c009f8362d488 -> issue:5da10ee1e4e245339b3cd0decd23cced\n- Repository: gernalix/codex-roadmap\n- Legacy PH supervisor task CHATGPT-20260924-PERSONALHUB-P0 is already paused/disabled.\n- Prior manual executor made no control-plane source edits; checkpoint branch task/wi-32ff-ph-cutover contains only durable handoff state.\n- c2-runtime.timer and c2-runtime.path are intentionally paused during this cutover; watchdog stays active.\n- Preserve current PH residual wi:02cab3c0c0324d0bbda572b81cfc71c3 until PersonalHub PR #55 reaches terminal integration. Do not duplicate that application work.\n- Inspect current main before editing and preserve the completed request-key namespace change from PROMPT_ID 614593.\n\n# Required implementation\n- Remove every hard-coded external_personalhub exclusion from scheduler/intake/preparer/runtime. PH must use normal C2 execution specs, executor routing, worktrees and resource leases.\n- Keep PH safety through explicit resource locks for shared device/runtime surfaces (Pixel/TCL/ADB/release/install), not a second scheduler.\n- Add one canonical persistent temporary execution override, mutated only through fenced single-writer operations.\n- Support set, clear and read plus selectors project/repo/tag.\n- Implement drain_first: while at least one runnable item matches the scope, only matching new dispatches may start; when no runnable scoped item exists, normal scheduling resumes.\n- Override execution ordering only; never mutate priority:p0/p1/p2 or sort_order.\n- Persist override in canonical state so snapshot refresh and supervisor recovery preserve it.\n- Add a compact standalone writer-backed CLI for override management.\n- Expose override state in scheduler/runtime readback/events.\n- Add focused tests for PH intake/preparation/scheduling, explicit device/resource collision, set/replay/clear, selector types, empty/non-runnable fallback, dependencies, parallelism, and unchanged semantic priorities.\n- Update README/AGENTS: C2 is sole PH orchestrator; any PH adapter is an executor subordinate to C2; temporary override != permanent semantic priority.\n\n# Integration/live cutover\n- Work only in the assigned isolated task worktree; never edit main directly.\n- Run targeted tests, then directly relevant scheduler/runtime/intake/preparer/writer tests.\n- Integrate through the canonical repository path.\n- After integration, realign ~/.local/share/c2-supervisor/worktree to current main and require c2_worktree_guard=healthy.\n- Re-enable c2-runtime.timer and c2-runtime.path only after live runtime code contains the cutover.\n- Verify legacy PH worker remains paused.\n- Do not model-poll PR #55 or unrelated CI; leave that existing PH residual to C2 reconciliation.\n\n# Stop condition\nFinish only when code is integrated, tests pass, live runtime is aligned/healthy, timer/path are re-enabled, legacy PH scheduler is paused, future PH work is schedulable under C2, and the temporary override can be canonically set/read/cleared and obeyed.\n",
+        "sha256": "a42727ba10d423dc8e44ac44aa46da4192d4bb082d7e50495df9fab3c98d8bfc",
+        "created_at": "2026-09-26T23:22:56Z",
+        "actor": "c2-intake"
+      }
+    ],
+    "analyses": [],
+    "executions": [
+      {
+        "execution_id": 423,
+        "prompt_id": "384495",
+        "cycle_key": "9aff343acf70a63f59a3f5f1",
+        "materialization_sha256": "e5e7276213665f664293cb4718df03316c4d6da6a2b7ef3060a56278d068eef2",
+        "started_at": "2026-09-26T23:27:25Z",
+        "ended_at": "2026-09-26T23:27:30Z",
+        "outcome": "UNKNOWN",
+        "duration_seconds": 4.529,
+        "model": "codex-auto-review",
+        "reasoning": "low",
+        "codex_project": "/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/384495",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 0,
+        "input_tokens": 14290,
+        "cached_input_tokens": 4864,
+        "uncached_input_tokens": 9426,
+        "output_tokens": 194,
+        "reasoning_output_tokens": 126,
+        "total_tokens": 14484,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-26T23:29:05Z"
+      },
+      {
+        "execution_id": 425,
+        "prompt_id": "384495",
+        "cycle_key": "cf2630b0bd55e1195efa35be",
+        "materialization_sha256": "b828b2bd5bcb8d1b6860e309b37bedbc88c8b879688c34dd015a0660d3861d53",
+        "started_at": "2026-09-26T23:27:03Z",
+        "ended_at": "2026-09-26T23:39:31Z",
+        "outcome": "BLOCKED",
+        "duration_seconds": 747.894,
+        "model": "gpt-6-sol",
+        "reasoning": "medium",
+        "codex_project": "/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/384495",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 80,
+        "input_tokens": 107049,
+        "cached_input_tokens": 106496,
+        "uncached_input_tokens": 553,
+        "output_tokens": 560,
+        "reasoning_output_tokens": 357,
+        "total_tokens": 107609,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-26T23:41:08Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 1005,
+        "prompt_id": "384495",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-26T23:22:56Z",
+        "actor": "c2-intake",
+        "note": "work item materialized for Codex"
+      },
+      {
+        "history_id": 1007,
+        "prompt_id": "384495",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-26T23:24:18Z",
+        "actor": "c2-scheduler",
+        "note": null
+      },
+      {
+        "history_id": 1012,
+        "prompt_id": "384495",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-26T23:38:33Z",
+        "actor": "c2-executor-result",
+        "note": "executor_result:run:23bf0a57f9d6442f83ddf9fb81997104"
+      },
+      {
+        "history_id": 1079,
+        "prompt_id": "384495",
+        "old_status": "blocked",
+        "new_status": "waiting",
+        "changed_at": "2026-09-27T22:23:04.086130Z",
+        "actor": "c2-blocked-reconcile",
+        "note": "Run focused override replay and PH cutover smoke, then finalize."
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "tag": "c2"
+      },
+      {
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "tag": "scheduler"
+      },
+      {
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "tag": "execution-override"
+      },
+      {
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "tag": "priority:p0"
+      },
+      {
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "tag": "handoff"
+      },
+      {
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:6b4fd9daa435491dbe3aceffc70d68cc",
+        "to_work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-26T23:21:54Z",
+        "actor": "c2-root-audit",
+        "note": "SUPERSEDED"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "run:23bf0a57f9d6442f83ddf9fb81997104",
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "run_id": "23bf0a57f9d6442f83ddf9fb81997104",
+        "prompt_id": "384495",
+        "outcome": "BLOCKED",
+        "summary": "PH→C2 cutover and canonical execution override were implemented, merged and live-validated; one CLI idempotency defect remains.",
+        "completed_json": "[\"Merged codex-roadmap PR #1563 as 040cd229c1e6b48cc7883cfdbb65d0eca6092b0a.\", \"Removed legacy PersonalHub external scheduling/preparation exclusions and routed future PH work through normal C2 lifecycle.\", \"Added fenced persistent drain-first execution override with project/repo/tag scope, writer operations, runtime readback/events and PH/resource-lock tests.\", \"Aligned supervisor runtime worktree to merged main; c2_worktree_guard is healthy.\", \"Re-enabled c2-runtime.timer/path; legacy CHATGPT-20260924-PERSONALHUB-P0 worker remains disabled.\", \"Live set/read/clear override cycle succeeded and left no active override.\"]",
+        "remaining_json": "[\"Make tools/c2_execution_override.py set/clear request keys deterministic/idempotent instead of uuid4 and add focused CLI replay coverage.\"]",
+        "evidence_json": "[\"PR #1563 checks PASS and merge commit 040cd229 is on canonical main.\", \"C2 test suite reported 183 PASS and mutation tests 3 PASS in the durable 384495 checkpoint.\", \"Live override set mutation #1568 and clear mutation #1573 were applied by the single writer.\", \"Current main tools/c2_execution_override.py still uses uuid.uuid4() in request_key construction.\", \"C2 Inbox issue:fa3d378cb48d42c786573390f8bc50cb records the remaining CLI idempotency defect.\"]",
+        "blocker": "Override CLI set/clear request keys are random, so replay is not idempotent as required.",
+        "next_action": "Run a focused Codex successor that replaces random override request keys with deterministic semantic keys, adds CLI replay tests, integrates to main, and reruns the live read/set/clear smoke test.",
+        "strict_contract": 1,
+        "payload_sha256": "39dd46d6b265a15de362fdf6089183a7e2dc4ec92cb60629ca2ba4c178759979",
+        "captured_at": 1790465913.170419
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 453,
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:5da10ee1e4e245339b3cd0decd23cced",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": \"tools/c2_prepare_codex.py\", \"description\": \"The promoted PH→C2 cutover work item wi:6b4fd9daa435491dbe3aceffc70d68cc cannot be materialized for Codex because it inherited tag 'personalhub'; c2_prepare_codex treats any item with that tag as external_personalhub_worker. This is a control-plane task in gernalix/codex-roadmap whose purpose is to remove that legacy exclusion, not PersonalHub application work. Create an untagged control-plane successor carrying the same remaining scope, then supersede the blocked tagged item.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:5da10ee1e4e245339b3cd0decd23cced\", \"observed_at_ms\": 1790464810919, \"origin_run_id\": null, \"origin_work_item_id\": \"wi:6b4fd9daa435491dbe3aceffc70d68cc\", \"repo\": \"gernalix/codex-roadmap\"}",
+        "created_at": "2026-09-26T23:20:57Z"
+      },
+      {
+        "evidence_id": 466,
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "evidence_kind": "executor_result",
+        "label": "PR #1563 checks PASS and merge commit 040cd229 is on canonical main.",
+        "uri": null,
+        "value_json": "\"PR #1563 checks PASS and merge commit 040cd229 is on canonical main.\"",
+        "created_at": "2026-09-26T23:38:33Z"
+      },
+      {
+        "evidence_id": 467,
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "evidence_kind": "executor_result",
+        "label": "C2 test suite reported 183 PASS and mutation tests 3 PASS in the durable 384495 checkpoint.",
+        "uri": null,
+        "value_json": "\"C2 test suite reported 183 PASS and mutation tests 3 PASS in the durable 384495 checkpoint.\"",
+        "created_at": "2026-09-26T23:38:33Z"
+      },
+      {
+        "evidence_id": 468,
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "evidence_kind": "executor_result",
+        "label": "Live override set mutation #1568 and clear mutation #1573 were applied by the single writer.",
+        "uri": null,
+        "value_json": "\"Live override set mutation #1568 and clear mutation #1573 were applied by the single writer.\"",
+        "created_at": "2026-09-26T23:38:33Z"
+      },
+      {
+        "evidence_id": 469,
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "evidence_kind": "executor_result",
+        "label": "Current main tools/c2_execution_override.py still uses uuid.uuid4() in request_key construction.",
+        "uri": null,
+        "value_json": "\"Current main tools/c2_execution_override.py still uses uuid.uuid4() in request_key construction.\"",
+        "created_at": "2026-09-26T23:38:33Z"
+      },
+      {
+        "evidence_id": 470,
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "evidence_kind": "executor_result",
+        "label": "C2 Inbox issue:fa3d378cb48d42c786573390f8bc50cb records the remaining CLI idempotency defect.",
+        "uri": null,
+        "value_json": "\"C2 Inbox issue:fa3d378cb48d42c786573390f8bc50cb records the remaining CLI idempotency defect.\"",
+        "created_at": "2026-09-26T23:38:33Z"
+      },
+      {
+        "evidence_id": 1178,
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Current c2_execution_override.py uses deterministic request keys; the recorded random-key defect is fixed. Broad cutover",
+        "uri": null,
+        "value_json": "\"Current c2_execution_override.py uses deterministic request keys; the recorded random-key defect is fixed. Broad cutover live smoke remains.\"",
+        "created_at": "2026-09-27T22:23:04.086130Z"
+      }
+    ],
+    "work_item_runs": [
+      {
+        "run_id": "23bf0a57f9d6442f83ddf9fb81997104",
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "event_key": "c2-manual-start-ph-cutover-384495-20260927",
+        "attempt": 1,
+        "executor": "codex",
+        "state": "failed",
+        "lease_until": 0.0,
+        "worker_ref": null,
+        "checkpoint_commit": null,
+        "metadata_json": "{\"activity\": \"coding\", \"command_json\": null, \"executor\": \"codex\", \"goal_mode\": 0, \"max_attempts\": 3, \"model\": \"GPT-6 Sol\", \"pre_migration_retirement\": {\"checkpoint_commit\": null, \"classification\": \"historical-only\", \"lease_until\": 1790465905.7742665, \"previous_state\": \"failed\", \"worker_ref\": \"c2-run:23bf0a57f9d6442f83ddf9fb81997104\"}, \"project_url\": null, \"prompt_id\": \"384495\", \"reasoning\": \"medium\", \"repo\": \"gernalix/codex-roadmap\", \"resources_json\": \"[\\\"c2-supervision-control-plane\\\", \\\"personalhub-orchestration\\\"]\", \"work_item_id\": \"wi:e1373812bc1444488c824c0e57812fc8\", \"worktree\": \"/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/384495\"}",
+        "created_at": 1790465058.1614294
+      }
+    ],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:5da10ee1e4e245339b3cd0decd23cced",
+        "work_item_id": "wi:e1373812bc1444488c824c0e57812fc8",
+        "role": "decision",
+        "created_at": "2026-09-26T23:20:10Z"
+      }
+    ]
+  },
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Rendere idempotente il CLI execution override C2",
+      "objective": "Replace random execution-override CLI request keys with deterministic keys derived from the canonical mutation document so exact replay is stable while renewed/different authority payloads naturally receive a different key. Preserve verified canonical snapshot read behavior, add focused CLI replay tests, integrate to main, and live-smoke set/replay/read/clear.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "codex",
+      "sort_order": -1200,
+      "current_action": "BLOCKED",
+      "next_action": "Verify merged CLI replay and live set/read/clear smoke, then finalize.",
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": "340495",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-26T23:41:08Z",
+      "updated_at": "2026-09-27T22:23:04.085797Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "340495",
+        "slug": "rendere-idempotente-il-cli-execution-override-c2-340495",
+        "chat_guidance": null,
+        "prompt_type": "Prompt",
+        "model": "GPT-5.6 Terra",
+        "reasoning": "medium",
+        "megavault_mode": null,
+        "campaign_id": null,
+        "explanation": "",
+        "current_path": "prompts/rendere-idempotente-il-cli-execution-override-c2-340495.md",
+        "materialization_sha256": "ecb5ed4e6c2776b273c874797f25d212b184bbd747ccc9bf41fb03e654aace63",
+        "created_at": "2026-09-26T23:42:08Z",
+        "updated_at": "2026-09-27T22:23:05Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "340495",
+        "body": "PROMPT_ID=340495\n\n# Goal\nFinish the remaining C2 execution-override CLI idempotency defect after the merged PH→C2 cutover.\n\n# Canonical starting state\n- C2 work item: wi:6d318704d7bd441c930832c927116a97\n- Repository: gernalix/codex-roadmap\n- PR #1563 is already merged on main and the PH→C2 cutover is live.\n- Legacy PH worker CHATGPT-20260924-PERSONALHUB-P0 must remain paused.\n- Default override read already syncs and reads the verified runtime snapshot; preserve that behavior.\n- c2-runtime.timer/path are temporarily paused while this follow-up is prepared.\n\n# Required fix\n1. In tools/c2_execution_override.py remove random UUID request keys.\n2. Build a deterministic request key from the canonical mutation document that is actually submitted (stable canonical JSON/hash). Exact replay with the same operation + same authority payload must produce the same request key/Issue; a changed authority/fence payload may produce a different key while the set/clear state mutation remains idempotent.\n3. Preserve fenced single-writer set/clear semantics and the canonical snapshot read path.\n4. Add focused CLI tests proving:\n   - identical set replay with identical authority uses the same request key;\n   - identical clear replay uses the same request key;\n   - different operation/value/document produces a different key;\n   - no random UUID is involved;\n   - default read still syncs/reads the verified canonical snapshot.\n5. Run the focused CLI/writer/scheduler/runtime tests and the smallest relevant broader C2 gate.\n\n# Integration / live acceptance\n- Work only in the assigned isolated worktree.\n- Commit/push and integrate through the canonical codex-roadmap PR path.\n- After exact branch integration to main, align the supervisor runtime worktree and require c2_worktree_guard=healthy.\n- Live smoke: set one harmless tag-scoped override twice with identical CLI input without renewing the lease between calls; verify both calls resolve to the same request key/Issue, read shows the value, clear it, then read shows null.\n- Leave no active override.\n- Re-enable and verify c2-runtime.timer and c2-runtime.path.\n- Confirm legacy PH worker is still paused.\n- Return PASS only after merged-main and live-smoke evidence. Otherwise return BLOCKED with precise remaining work.\n",
+        "sha256": "ecb5ed4e6c2776b273c874797f25d212b184bbd747ccc9bf41fb03e654aace63",
+        "created_at": "2026-09-26T23:42:08Z",
+        "actor": "c2-intake"
+      }
+    ],
+    "analyses": [],
+    "executions": [
+      {
+        "execution_id": 431,
+        "prompt_id": "340495",
+        "cycle_key": "19a79dff982c274b6872266e",
+        "materialization_sha256": "351eccca17c9d93e404722f6644df4e2432309554410f0e198c6cc1f338aceb4",
+        "started_at": "2026-09-27T05:14:53Z",
+        "ended_at": "2026-09-27T05:14:56Z",
+        "outcome": "UNKNOWN",
+        "duration_seconds": 2.669,
+        "model": "codex-auto-review",
+        "reasoning": "low",
+        "codex_project": "/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/340495",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 0,
+        "input_tokens": 27427,
+        "cached_input_tokens": 23296,
+        "uncached_input_tokens": 4131,
+        "output_tokens": 92,
+        "reasoning_output_tokens": 29,
+        "total_tokens": 27519,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-27T05:15:41Z"
+      },
+      {
+        "execution_id": 433,
+        "prompt_id": "340495",
+        "cycle_key": "97f964f3065d7eff1d68c04b",
+        "materialization_sha256": "8d496aadd0c8aa0d9c6da8e8918b34ec180f692f4b669dfd724a4e6297d00121",
+        "started_at": "2026-09-27T05:11:56Z",
+        "ended_at": "2026-09-27T05:15:34Z",
+        "outcome": "BLOCKED",
+        "duration_seconds": 218.666,
+        "model": "gpt-5.6-terra",
+        "reasoning": "medium",
+        "codex_project": "/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/340495",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 25,
+        "input_tokens": 53613,
+        "cached_input_tokens": 52992,
+        "uncached_input_tokens": 621,
+        "output_tokens": 398,
+        "reasoning_output_tokens": 172,
+        "total_tokens": 54011,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-27T05:17:39Z"
+      },
+      {
+        "execution_id": 435,
+        "prompt_id": "340495",
+        "cycle_key": "2276305cadf4229f0094f728",
+        "materialization_sha256": "ea6884896aefdfa231b9027795df65fa4314a057e18c64d47f65e8fb5de86958",
+        "started_at": "2026-09-27T05:15:23Z",
+        "ended_at": "2026-09-27T05:15:25Z",
+        "outcome": "UNKNOWN",
+        "duration_seconds": 2.62,
+        "model": "codex-auto-review",
+        "reasoning": "low",
+        "codex_project": "/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/340495",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 0,
+        "input_tokens": 30993,
+        "cached_input_tokens": 28416,
+        "uncached_input_tokens": 2577,
+        "output_tokens": 98,
+        "reasoning_output_tokens": 35,
+        "total_tokens": 31091,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-27T05:18:39Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 1014,
+        "prompt_id": "340495",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-26T23:42:08Z",
+        "actor": "c2-intake",
+        "note": "work item materialized for Codex"
+      },
+      {
+        "history_id": 1019,
+        "prompt_id": "340495",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-27T05:11:23Z",
+        "actor": "c2-scheduler",
+        "note": null
+      },
+      {
+        "history_id": 1020,
+        "prompt_id": "340495",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-27T05:15:41Z",
+        "actor": "codex",
+        "note": "terminal:roadmap_result:BLOCKED"
+      },
+      {
+        "history_id": 1078,
+        "prompt_id": "340495",
+        "old_status": "blocked",
+        "new_status": "waiting",
+        "changed_at": "2026-09-27T22:23:04.085797Z",
+        "actor": "c2-blocked-reconcile",
+        "note": "Verify merged CLI replay and live set/read/clear smoke, then finalize."
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "tag": "c2"
+      },
+      {
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "tag": "execution-override"
+      },
+      {
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "tag": "idempotency"
+      },
+      {
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "tag": "priority:p0"
+      },
+      {
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "tag": "followup"
+      },
+      {
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "to_work_item_id": "wi:87a441b2adc749c5b65943e80ef6c249",
+        "relation_type": "resolved_by",
+        "created_at": "2026-09-27T09:09:46Z",
+        "actor": "c2-supervisor-660629",
+        "note": "Post-merge reconciliation for PROMPT_ID=999198; preserve historical BLOCKED outcome."
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "run:8fe65d82bbed4488a7ff8a304219aee7",
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "run_id": "8fe65d82bbed4488a7ff8a304219aee7",
+        "prompt_id": "340495",
+        "outcome": "BLOCKED",
+        "summary": null,
+        "completed_json": "[\"Deterministic request key replaces random UUID\", \"Focused CLI replay and snapshot-read tests added\", \"Focused CLI/writer/scheduler/runtime tests pass\", \"Incidental C2 issues submitted\"]",
+        "remaining_json": "[\"Canonical branch push/PR integration\", \"Merged-main runtime alignment and guard\", \"Live set/read/clear smoke\", \"Override cleanup, timer/path re-enable, legacy PH pause verification\"]",
+        "evidence_json": "[\"commits 9b3d2334 and f4b12586\", \"focused tests: 5 CLI, 7 writer, 21 scheduler, 24 runtime PASS\", \"broad C2 gate: 188 tests, one unrelated failure captured\", \"terminal BLOCKED mutation queued as Issue #1731\"]",
+        "blocker": "Canonical finalizer reports repo_integration_task_record_missing; repo_single_writer confirms no task record for 340495, so protected integration cannot be queued.",
+        "next_action": "Restore the canonical repository task record via C2/roadmap start, then queue the preserved branch and resume after integration state changes.",
+        "strict_contract": 1,
+        "payload_sha256": "271950010352650d1cd19996fb682425d331f7a86efc408ebbcf7820f4115b47",
+        "captured_at": 1790486141.4347715
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 471,
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:fa3d378cb48d42c786573390f8bc50cb",
+        "uri": "codex://threads/01a0e00b-26a2-7972-a0d7-32e555651c85",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e00b-26a2-7972-a0d7-32e555651c85\", \"code_location\": \"tools/c2_execution_override.py\", \"description\": \"Nel draft PROMPT_ID 384495, tools/c2_execution_override.py viola due acceptance dell'override canonico: set/clear usa request_key con uuid4 casuale, quindi replay CLI non è idempotente; read senza --db apre ~/projects/codex-roadmap/roadmap.sqlite, che può essere stale rispetto allo snapshot canonico runtime. Rendere la request-key deterministica/stabile per la stessa operazione semantica e leggere di default lo snapshot canonico verificato usato dal runtime.\", \"executor\": \"codex\", \"executor_ref\": \"01a0e00b-26a2-7972-a0d7-32e555651c85\", \"issue_id\": \"issue:fa3d378cb48d42c786573390f8bc50cb\", \"observed_at_ms\": 1790465474292, \"origin_run_id\": \"23bf0a57f9d6442f83ddf9fb81997104\", \"origin_work_item_id\": \"wi:e1373812bc1444488c824c0e57812fc8\", \"repo\": \"gernalix/codex-roadmap\"}",
+        "created_at": "2026-09-26T23:41:08Z"
+      },
+      {
+        "evidence_id": 537,
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "evidence_kind": "executor_result",
+        "label": "commits 9b3d2334 and f4b12586",
+        "uri": null,
+        "value_json": "\"commits 9b3d2334 and f4b12586\"",
+        "created_at": "2026-09-27T05:15:41Z"
+      },
+      {
+        "evidence_id": 538,
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "evidence_kind": "executor_result",
+        "label": "focused tests: 5 CLI, 7 writer, 21 scheduler, 24 runtime PASS",
+        "uri": null,
+        "value_json": "\"focused tests: 5 CLI, 7 writer, 21 scheduler, 24 runtime PASS\"",
+        "created_at": "2026-09-27T05:15:41Z"
+      },
+      {
+        "evidence_id": 539,
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "evidence_kind": "executor_result",
+        "label": "broad C2 gate: 188 tests, one unrelated failure captured",
+        "uri": null,
+        "value_json": "\"broad C2 gate: 188 tests, one unrelated failure captured\"",
+        "created_at": "2026-09-27T05:15:41Z"
+      },
+      {
+        "evidence_id": 540,
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "evidence_kind": "executor_result",
+        "label": "terminal BLOCKED mutation queued as Issue #1731",
+        "uri": null,
+        "value_json": "\"terminal BLOCKED mutation queued as Issue #1731\"",
+        "created_at": "2026-09-27T05:15:41Z"
+      },
+      {
+        "evidence_id": 566,
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:007a0f85c9344ffe97a80a12a5be47fa",
+        "uri": "codex://threads/01a0e146-e5fb-7ea1-974a-bb88f63aa148",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e146-e5fb-7ea1-974a-bb88f63aa148\", \"code_location\": null, \"description\": \"C2 integration blocker: assigned task/340495 worktree exists, but roadmap_finish.py --prompt-id 340495 returns repo_integration_task_record_missing and repo_single_writer status-any reports no-task-record; the C2 launch did not create the required repository task record.\", \"executor\": \"codex\", \"executor_ref\": \"01a0e146-e5fb-7ea1-974a-bb88f63aa148\", \"issue_id\": \"issue:007a0f85c9344ffe97a80a12a5be47fa\", \"observed_at_ms\": 1790486109997, \"origin_run_id\": \"8fe65d82bbed4488a7ff8a304219aee7\", \"origin_work_item_id\": \"wi:6d318704d7bd441c930832c927116a97\", \"repo\": null}",
+        "created_at": "2026-09-27T06:35:38Z"
+      },
+      {
+        "evidence_id": 1177,
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Completed resolved_by finalizer item and merged deterministic CLI source remove the recorded missing task-record blocker",
+        "uri": null,
+        "value_json": "\"Completed resolved_by finalizer item and merged deterministic CLI source remove the recorded missing task-record blocker. Live set/read/clear replay smoke remains.\"",
+        "created_at": "2026-09-27T22:23:04.085797Z"
+      }
+    ],
+    "work_item_runs": [
+      {
+        "run_id": "8fe65d82bbed4488a7ff8a304219aee7",
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "event_key": "c2-schedule-92355fea73ca43bca0568675d57f54f8",
+        "attempt": 1,
+        "executor": "codex",
+        "state": "failed",
+        "lease_until": 0.0,
+        "worker_ref": null,
+        "checkpoint_commit": null,
+        "metadata_json": "{\"activity\": \"coding\", \"command_json\": null, \"executor\": \"codex\", \"goal_mode\": 0, \"max_attempts\": 3, \"model\": \"GPT-5.6 Terra\", \"pre_migration_retirement\": {\"checkpoint_commit\": null, \"classification\": \"historical-only\", \"lease_until\": 1790486028.0728722, \"previous_state\": \"failed\", \"worker_ref\": \"c2-run:8fe65d82bbed4488a7ff8a304219aee7\"}, \"project_url\": null, \"prompt_id\": \"340495\", \"reasoning\": \"medium\", \"repo\": \"gernalix/codex-roadmap\", \"resources_json\": \"[\\\"c2-supervision-control-plane\\\", \\\"c2-supervisor-runtime\\\"]\", \"work_item_id\": \"wi:6d318704d7bd441c930832c927116a97\", \"worktree\": \"/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/340495\"}",
+        "created_at": 1790485883.7560067
+      }
+    ],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:007a0f85c9344ffe97a80a12a5be47fa",
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "role": "matched",
+        "created_at": "2026-09-27T05:15:09Z"
+      },
+      {
+        "issue_id": "issue:fa3d378cb48d42c786573390f8bc50cb",
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "role": "decision",
+        "created_at": "2026-09-26T23:31:14Z"
+      },
+      {
+        "issue_id": "issue:007a0f85c9344ffe97a80a12a5be47fa",
+        "work_item_id": "wi:6d318704d7bd441c930832c927116a97",
+        "role": "decision",
+        "created_at": "2026-09-27T05:15:09Z"
+      }
+    ]
+  },
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+      "parent_id": null,
+      "kind": "task",
+      "title": "C2 PH cutover + canonical temporary lane override",
+      "objective": "Make C2 the sole PersonalHub orchestrator and implement a canonical fenced persistent temporary execution-lane override, preserving the paused legacy PH worker and the current PH residual without duplication.",
+      "acceptance_json": "[\"Future PersonalHub work is no longer excluded by external_personalhub in scheduler/intake/preparer/runtime and uses normal C2 lifecycle/execution specs/worktrees/resource leases.\", \"PH repo/device/runtime exclusivity is represented by explicit C2 resources; no second scheduler is introduced.\", \"A canonical persistent temporary execution override exists with fenced single-writer set/read/clear operations and compact CLI.\", \"Override scopes project/repo/tag and implements drain-first: runnable scoped work suppresses new out-of-scope dispatch; if scope is genuinely non-runnable normal scheduling outside scope proceeds.\", \"Override never rewrites priority:p0/p1/p2 or sort_order and survives snapshot/recovery.\", \"Focused tests cover replay/idempotency, clear, empty/non-runnable scope, dependencies, resource locks and parallel scheduling.\", \"README/AGENTS define C2 as sole PH orchestrator; legacy PH worker remains paused; current wi:02cab3c0c0324d0bbda572b81cfc71c3 is not duplicated.\", \"Exact tested implementation is merged to codex-roadmap main before PASS.\"]",
+      "status": "waiting",
+      "executor_policy": "codex",
+      "sort_order": -2000,
+      "current_action": "BLOCKED",
+      "next_action": "Run focused live override/resources/scheduler smoke against merged main, then submit exact acceptance result.",
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": "528123",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-26T23:44:47Z",
+      "updated_at": "2026-09-27T22:23:04.085384Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "528123",
+        "slug": "c2-ph-cutover-canonical-temporary-lane-override-528123",
+        "chat_guidance": null,
+        "prompt_type": "Prompt",
+        "model": "GPT-6 Sol",
+        "reasoning": "medium",
+        "megavault_mode": null,
+        "campaign_id": null,
+        "explanation": "",
+        "current_path": "prompts/c2-ph-cutover-canonical-temporary-lane-override-528123.md",
+        "materialization_sha256": "3daa42e4032e0f77544930e34e87d9c237218a1de61a4170c58844991b4ebea0",
+        "created_at": "2026-09-26T23:45:32Z",
+        "updated_at": "2026-09-27T22:23:05Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "528123",
+        "body": "PROMPT_ID=528123\n\n# Goal\nMake C2 the sole PersonalHub orchestrator and add a canonical temporary execution-lane override.\n\n# Canonical starting state\n- Legacy worker CHATGPT-20260924-PERSONALHUB-P0 is paused; keep it paused.\n- Existing PH residual wi:02cab3c0c0324d0bbda572b81cfc71c3 remains owned by its current lifecycle until PR #55 reaches terminal integration; do not duplicate it.\n- Prior handoff prompt 588982 was superseded before any run; do not reuse its branch or treat it as executed.\n- Work only in the assigned isolated codex-roadmap worktree.\n\n# Required changes\n1. Remove the legacy external_personalhub exclusion from C2 scheduling/intake/preparation/runtime so future PH work uses normal C2 lifecycle, execution specs, worktrees and resource leases.\n2. Model PH shared repo/device/runtime exclusivity with explicit C2 resources; do not introduce another scheduler.\n3. Add canonical persistent temporary execution-override state, mutated only through the fenced single writer.\n4. Provide compact set/read/clear CLI/API. Scope must support project/repo/tag and drain-first semantics:\n   - while scoped work is runnable, suppress new out-of-scope dispatch;\n   - if scoped work is genuinely non-runnable, allow normal scheduling outside scope;\n   - never rewrite semantic priority tags or sort_order.\n5. Override must survive snapshot/recovery and be visible in runtime/scheduler readback.\n6. Cover replay/idempotency, clear, empty/non-runnable scope, dependencies, resource locking and parallel scheduling with focused tests.\n7. Update README/AGENTS: C2 is the sole PH orchestrator; legacy PH worker remains paused/retired from scheduling.\n\n# Constraints\n- Minimum scope; no unrelated C2 refactor.\n- Preserve current active runs and the existing PH residual.\n- Do not directly manipulate roadmap.sqlite; use schema/migrations + writer operations.\n- Capture incidental bugs to C2 Inbox only; do not expand scope.\n- Use targeted tests, then directly related scheduler/runtime/writer tests.\n- Integrate through the normal codex-roadmap PR path; do not report PASS before the exact tested head is merged to main.\n\n# Acceptance\n- New PH tasks are schedulable by C2 with normal executor/resource semantics and no external-PH special-case.\n- Temporary override is canonical, fenced, persistent, recoverable and does not alter semantic priorities.\n- drain-first behavior and fallback when scope is not runnable are proven by tests.\n- legacy PH worker stays paused and no duplicate of wi:02cab3c0c0324d0bbda572b81cfc71c3 is created.\n",
+        "sha256": "3daa42e4032e0f77544930e34e87d9c237218a1de61a4170c58844991b4ebea0",
+        "created_at": "2026-09-26T23:45:32Z",
+        "actor": "c2-intake"
+      }
+    ],
+    "analyses": [],
+    "executions": [
+      {
+        "execution_id": 428,
+        "prompt_id": "528123",
+        "cycle_key": "f0b87be7210a97d7d168a934",
+        "materialization_sha256": "9be0523f5f0def6ea93c62877600f569f37c6a3b03957c53d8438916da0cd1fb",
+        "started_at": "2026-09-26T23:51:04Z",
+        "ended_at": "2026-09-26T23:51:08Z",
+        "outcome": "UNKNOWN",
+        "duration_seconds": 3.426,
+        "model": "codex-auto-review",
+        "reasoning": "low",
+        "codex_project": "/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/528123",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 0,
+        "input_tokens": 25358,
+        "cached_input_tokens": 21248,
+        "uncached_input_tokens": 4110,
+        "output_tokens": 112,
+        "reasoning_output_tokens": 48,
+        "total_tokens": 25470,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-26T23:52:10Z"
+      },
+      {
+        "execution_id": 429,
+        "prompt_id": "528123",
+        "cycle_key": "42eb8aaf7d86bffb7f394d47",
+        "materialization_sha256": "0e990964929719013e7a064da47d989ba88ec1f431a49db3b76feb01f2a64dc4",
+        "started_at": "2026-09-26T23:47:46Z",
+        "ended_at": "2026-09-26T23:53:14Z",
+        "outcome": "BLOCKED",
+        "duration_seconds": 327.965,
+        "model": "gpt-6-sol",
+        "reasoning": "medium",
+        "codex_project": "/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/528123",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 38,
+        "input_tokens": 80984,
+        "cached_input_tokens": 80640,
+        "uncached_input_tokens": 344,
+        "output_tokens": 858,
+        "reasoning_output_tokens": 641,
+        "total_tokens": 81842,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-26T23:55:08Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 1016,
+        "prompt_id": "528123",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-26T23:45:32Z",
+        "actor": "c2-intake",
+        "note": "work item materialized for Codex"
+      },
+      {
+        "history_id": 1017,
+        "prompt_id": "528123",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-26T23:45:52Z",
+        "actor": "c2-scheduler",
+        "note": null
+      },
+      {
+        "history_id": 1018,
+        "prompt_id": "528123",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-26T23:53:28Z",
+        "actor": "c2-executor-result",
+        "note": "executor_result:run:86ae95ab5b2d4ed6b5298f266181d772"
+      },
+      {
+        "history_id": 1077,
+        "prompt_id": "528123",
+        "old_status": "blocked",
+        "new_status": "waiting",
+        "changed_at": "2026-09-27T22:23:04.085384Z",
+        "actor": "c2-blocked-reconcile",
+        "note": "Run focused live override/resources/scheduler smoke against merged main, then submit exact acceptance result."
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "tag": "c2"
+      },
+      {
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "tag": "ph-cutover"
+      },
+      {
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "tag": "scheduler"
+      },
+      {
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "tag": "execution-override"
+      },
+      {
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "tag": "priority:p0"
+      },
+      {
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "tag": "codex-handoff"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "to_work_item_id": "wi:87a441b2adc749c5b65943e80ef6c249",
+        "relation_type": "resolved_by",
+        "created_at": "2026-09-27T09:09:46Z",
+        "actor": "c2-supervisor-660629",
+        "note": "Post-merge reconciliation for PROMPT_ID=999198; preserve historical BLOCKED outcome."
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "run:86ae95ab5b2d4ed6b5298f266181d772",
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "run_id": "86ae95ab5b2d4ed6b5298f266181d772",
+        "prompt_id": "528123",
+        "outcome": "BLOCKED",
+        "summary": null,
+        "completed_json": "[\"PersonalHub uses the normal C2 lifecycle; the cutover and fenced override are on main\", \"Drain-first now falls back when scoped work cannot acquire a shared resource\", \"The legacy PH timer remains disabled and the existing residual remains unique\"]",
+        "remaining_json": "[\"Merge the exact tested head of PR #1614 to main\", \"Finalize terminal PASS through the canonical entry point\"]",
+        "evidence_json": "[\"Commit 024df3e9; PR #1614 opened with auto-merge enabled\", \"186 C2 tests and 3 mutation tests PASS\", \"Read-only DB shows one PH residual; legacy timer is disabled\"]",
+        "blocker": "PR checks and merge are pending. roadmap_finish.py also returned repo_integration_task_record_missing for this codex-roadmap worktree; the blocker was submitted to C2 Inbox #1612.",
+        "next_action": "On PR #1614 merge, verify the exact head on main and repair the dedicated codex-roadmap finalizer path before terminal PASS.",
+        "strict_contract": 1,
+        "payload_sha256": "265ce05eedb546639e6a35f40009382063ec0412dba801b348401a02b331f5b3",
+        "captured_at": 1790466808.8619792
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 477,
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "evidence_kind": "executor_result",
+        "label": "Commit 024df3e9; PR #1614 opened with auto-merge enabled",
+        "uri": null,
+        "value_json": "\"Commit 024df3e9; PR #1614 opened with auto-merge enabled\"",
+        "created_at": "2026-09-26T23:53:28Z"
+      },
+      {
+        "evidence_id": 478,
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "evidence_kind": "executor_result",
+        "label": "186 C2 tests and 3 mutation tests PASS",
+        "uri": null,
+        "value_json": "\"186 C2 tests and 3 mutation tests PASS\"",
+        "created_at": "2026-09-26T23:53:28Z"
+      },
+      {
+        "evidence_id": 479,
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "evidence_kind": "executor_result",
+        "label": "Read-only DB shows one PH residual; legacy timer is disabled",
+        "uri": null,
+        "value_json": "\"Read-only DB shows one PH residual; legacy timer is disabled\"",
+        "created_at": "2026-09-26T23:53:28Z"
+      },
+      {
+        "evidence_id": 526,
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:ee4f3948941b4feea0b1a0557943dd5e",
+        "uri": "codex://threads/01a0e00b-26a2-7972-a0d7-32e555651c85",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e00b-26a2-7972-a0d7-32e555651c85\", \"code_location\": null, \"description\": \"roadmap_finish.py PASS for a codex-roadmap task requires a github-autosync repo-task record, but codex-roadmap uses a dedicated writer and status-any returns no-task-record even after its PR has merged; terminal PASS cannot be queued through the documented entry point.\", \"executor\": \"codex\", \"executor_ref\": \"01a0e00b-26a2-7972-a0d7-32e555651c85\", \"issue_id\": \"issue:ee4f3948941b4feea0b1a0557943dd5e\", \"observed_at_ms\": 1790465912997, \"origin_run_id\": \"23bf0a57f9d6442f83ddf9fb81997104\", \"origin_work_item_id\": \"wi:e1373812bc1444488c824c0e57812fc8\", \"repo\": null}",
+        "created_at": "2026-09-27T01:18:41Z"
+      },
+      {
+        "evidence_id": 530,
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:f2db1cadfb6f4e0bb233c85a1e81cbfd",
+        "uri": "codex://threads/01a0e01e-1e4f-7af2-9ae2-26c235e745d5",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e01e-1e4f-7af2-9ae2-26c235e745d5\", \"code_location\": null, \"description\": \"roadmap_finish.py for PROMPT_ID 528123 cannot queue the tested codex-roadmap branch because repo_single_writer finish-any reports no task record for the assigned isolated worktree.\", \"executor\": \"codex\", \"executor_ref\": \"01a0e01e-1e4f-7af2-9ae2-26c235e745d5\", \"issue_id\": \"issue:f2db1cadfb6f4e0bb233c85a1e81cbfd\", \"observed_at_ms\": 1790466708153, \"origin_run_id\": \"86ae95ab5b2d4ed6b5298f266181d772\", \"origin_work_item_id\": \"wi:787f93c506dd4f3f8be56439372529db\", \"repo\": null}",
+        "created_at": "2026-09-27T01:18:42Z"
+      },
+      {
+        "evidence_id": 563,
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:2b054ac5a3ca435d90d1aaec5324e32f",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"I prompt C2 che modificano gernalix/codex-roadmap possono avere un worktree task/<PROMPT_ID>, ma roadmap_finish usa sempre github-autosync repo_single_writer finish-any mentre repo_single_writer.start_task vieta esplicitamente codex-roadmap. Risultato: PASS può bloccarsi inevitabilmente con repo_integration_task_record_missing (osservato su 340495). Serve un percorso di integrazione canonico specifico per codex-roadmap o un contratto coerente end-to-end.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:2b054ac5a3ca435d90d1aaec5324e32f\", \"observed_at_ms\": 1790486440864, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T06:29:46Z"
+      },
+      {
+        "evidence_id": 1176,
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "evidence_kind": "blocked_reconcile",
+        "label": "PR #1614 is merged and the dedicated finalizer defect has a completed resolved_by item; the old PR/merge blocker is gone",
+        "uri": null,
+        "value_json": "\"PR #1614 is merged and the dedicated finalizer defect has a completed resolved_by item; the old PR/merge blocker is gone. Broader PH cutover runtime acceptance still needs bounded readback.\"",
+        "created_at": "2026-09-27T22:23:04.085384Z"
+      }
+    ],
+    "work_item_runs": [
+      {
+        "run_id": "86ae95ab5b2d4ed6b5298f266181d772",
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "event_key": "c2-followup-340495-20260927",
+        "attempt": 1,
+        "executor": "codex",
+        "state": "failed",
+        "lease_until": 0.0,
+        "worker_ref": null,
+        "checkpoint_commit": null,
+        "metadata_json": "{\"activity\": \"coding\", \"command_json\": null, \"executor\": \"codex\", \"goal_mode\": 0, \"max_attempts\": 3, \"model\": \"GPT-6 Sol\", \"pre_migration_retirement\": {\"checkpoint_commit\": null, \"classification\": \"historical-only\", \"lease_until\": 1790466508.9293003, \"previous_state\": \"failed\", \"worker_ref\": \"c2-run:86ae95ab5b2d4ed6b5298f266181d772\"}, \"project_url\": null, \"prompt_id\": \"528123\", \"reasoning\": \"medium\", \"repo\": \"gernalix/codex-roadmap\", \"resources_json\": \"[\\\"c2-supervision-control-plane\\\", \\\"c2-supervisor-runtime\\\", \\\"repo:gernalix/codex-roadmap\\\"]\", \"work_item_id\": \"wi:787f93c506dd4f3f8be56439372529db\", \"worktree\": \"/home/daniele/.local/share/c2-supervisor/worktrees/codex-roadmap/528123\"}",
+        "created_at": 1790466352.7899108
+      }
+    ],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:ee4f3948941b4feea0b1a0557943dd5e",
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "role": "matched",
+        "created_at": "2026-09-26T23:38:32Z"
+      },
+      {
+        "issue_id": "issue:f2db1cadfb6f4e0bb233c85a1e81cbfd",
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "role": "matched",
+        "created_at": "2026-09-26T23:51:48Z"
+      },
+      {
+        "issue_id": "issue:2b054ac5a3ca435d90d1aaec5324e32f",
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "role": "matched",
+        "created_at": "2026-09-27T05:20:40Z"
+      },
+      {
+        "issue_id": "issue:ee4f3948941b4feea0b1a0557943dd5e",
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "role": "decision",
+        "created_at": "2026-09-26T23:38:32Z"
+      },
+      {
+        "issue_id": "issue:f2db1cadfb6f4e0bb233c85a1e81cbfd",
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "role": "decision",
+        "created_at": "2026-09-26T23:51:48Z"
+      },
+      {
+        "issue_id": "issue:2b054ac5a3ca435d90d1aaec5324e32f",
+        "work_item_id": "wi:787f93c506dd4f3f8be56439372529db",
+        "role": "decision",
+        "created_at": "2026-09-27T05:20:40Z"
+      }
+    ]
+  }
+]

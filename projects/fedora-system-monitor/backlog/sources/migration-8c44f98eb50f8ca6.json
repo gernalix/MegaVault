@@ -1,0 +1,120 @@
+[
+  {
+    "routing": {
+      "project": "15",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+      "parent_id": "prompt:175908",
+      "kind": "task",
+      "title": "Riparare SMART Disk Monitor per Samsung T7 / bridge ASMedia",
+      "objective": "Eliminare il falso/ricorrente alert SMART su /dev/sdc (Samsung T7 Shield via USB NVMe ASMedia), ripristinare il monitoraggio SMART reale dopo disconnect/reconnect e mantenere notifiche solo quando azionabili.",
+      "acceptance_json": "[\"Il T7 Shield presente viene letto correttamente da smartd/smartctl attraverso il bridge ASMedia dopo reconnect o recovery.\", \"Nessun nuovo alert ricorrente 'unable/open() of NVMe device failed' quando il disco è presente e sano.\", \"La correzione è coperta da test mirati e integrata/deployata secondo il single-writer del repo fedora-system-monitor.\", \"Il runtime smartd e Fedora System Monitor risultano sani dopo il deploy e la verifica live.\"]",
+      "status": "blocked",
+      "executor_policy": "chatgpt",
+      "sort_order": 900,
+      "current_action": "Source fix and targeted verification complete; live T7 validation and deployment await the physical drive.",
+      "next_action": "Reconnect the T7 safely, then verify ASMedia SMART and deployed monitor.",
+      "blocker": "Samsung T7 Shield is absent from current lsblk; physical SMART/reconnect acceptance cannot be verified despite merged PR #20.",
+      "project_id": "15",
+      "project_name": "fedora-system-monitor",
+      "repo": "gernalix/fedora-system-monitor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-25T17:41:39Z",
+      "updated_at": "2026-09-27T22:23:04.384740Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "tag": "c2"
+      },
+      {
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "tag": "smart"
+      },
+      {
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "tag": "storage"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:a372ffb8c3e245e9b9f68cb935197788:dd1e8d0bbc2bfc7de65bc2fd599381c3",
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Source fix and targeted verification complete; live T7 validation and deployment await the physical drive.",
+        "completed_json": "[]",
+        "remaining_json": "[\"Read the present T7 through the ASMedia bridge after reconnect or recovery.\", \"Confirm no recurring stale-device alert while the T7 is present and healthy.\", \"Merge and deploy the source fix through the repository single writer.\", \"Verify smartd and Fedora System Monitor live after deployment.\"]",
+        "evidence_json": "[\"Commit 3d3ec7987fb4d730eedeae49a547e0e1919522a6; PR https://github.com/gernalix/fedora-system-monitor/pull/20 queued.\", \"11 targeted unittest cases pass; systemd-analyze verify, bash -n, and git diff --check pass.\", \"Current lsblk has no Samsung T7; /dev/disk/by-id/usb-Samsung_PSSD_T7_Shield_* is absent.\", \"smartd.service and fedora-system-monitor-events.service are active; installed smartd.conf still ignores the absent T7.\"]",
+        "blocker": "Samsung T7 Shield is physically absent, so ASMedia SMART read, reconnect behavior, and post-deploy notification acceptance cannot be verified safely.",
+        "next_action": "After PR #20 is merged and the T7 Shield is physically reconnected, deploy the monitor, read SMART with smartctl -d sntasmedia on the verified by-id path, and verify smartd/Fedora System Monitor logs without recurring stale-device alerts.",
+        "strict_contract": 1,
+        "payload_sha256": "dd1e8d0bbc2bfc7de65bc2fd599381c3a88342d4f5a597b6b6d0cdf8ae464996",
+        "captured_at": 1790536706.2126114
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 845,
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "evidence_kind": "executor_result",
+        "label": "Commit 3d3ec7987fb4d730eedeae49a547e0e1919522a6; PR https://github.com/gernalix/fedora-system-monitor/pull/20 queued.",
+        "uri": null,
+        "value_json": "\"Commit 3d3ec7987fb4d730eedeae49a547e0e1919522a6; PR https://github.com/gernalix/fedora-system-monitor/pull/20 queued.\"",
+        "created_at": "2026-09-27T19:18:26Z"
+      },
+      {
+        "evidence_id": 846,
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "evidence_kind": "executor_result",
+        "label": "11 targeted unittest cases pass; systemd-analyze verify, bash -n, and git diff --check pass.",
+        "uri": null,
+        "value_json": "\"11 targeted unittest cases pass; systemd-analyze verify, bash -n, and git diff --check pass.\"",
+        "created_at": "2026-09-27T19:18:26Z"
+      },
+      {
+        "evidence_id": 847,
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "evidence_kind": "executor_result",
+        "label": "Current lsblk has no Samsung T7; /dev/disk/by-id/usb-Samsung_PSSD_T7_Shield_* is absent.",
+        "uri": null,
+        "value_json": "\"Current lsblk has no Samsung T7; /dev/disk/by-id/usb-Samsung_PSSD_T7_Shield_* is absent.\"",
+        "created_at": "2026-09-27T19:18:26Z"
+      },
+      {
+        "evidence_id": 848,
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "evidence_kind": "executor_result",
+        "label": "smartd.service and fedora-system-monitor-events.service are active; installed smartd.conf still ignores the absent T7.",
+        "uri": null,
+        "value_json": "\"smartd.service and fedora-system-monitor-events.service are active; installed smartd.conf still ignores the absent T7.\"",
+        "created_at": "2026-09-27T19:18:26Z"
+      },
+      {
+        "evidence_id": 1186,
+        "work_item_id": "wi:a372ffb8c3e245e9b9f68cb935197788",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Samsung T7 Shield is absent from current lsblk; physical SMART/reconnect acceptance cannot be verified despite merged PR",
+        "uri": null,
+        "value_json": "\"Samsung T7 Shield is absent from current lsblk; physical SMART/reconnect acceptance cannot be verified despite merged PR #20.\"",
+        "created_at": "2026-09-27T22:23:04.384740Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

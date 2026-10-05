@@ -1,0 +1,75 @@
+[
+  {
+    "routing": {
+      "project": "105",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "105"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:4a9d8d63fcdb4f06849698e2a440dae3",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Chrome watch bridge: terminare il retry infinito quando il debugger è detached",
+      "objective": "Roadmap live watcher can enter an infinite RuntimeError('Debugger unattached') loop after Chrome detaches the CDP debugger because the bridge keeps stale _attached=True state. Add automatic reattach/retry on this error and a regression test so monitoring self-recovers instead of silently dying.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": 9000,
+      "current_action": "Parked during roadmap semantic reconciliation.",
+      "next_action": "Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.",
+      "blocker": "Deferred pending Symphony migration/replacement decision.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T21:06:30Z",
+      "updated_at": "2026-09-28T06:45:03Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:4a9d8d63fcdb4f06849698e2a440dae3",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1029,
+        "work_item_id": "wi:4a9d8d63fcdb4f06849698e2a440dae3",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:bf266591858e4f1e98d607e82e1c7b6b",
+        "uri": "https://chatgpt.com/c/6ab92890-6c94-83ed-83b8-86a8b7563734",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/c/6ab92890-6c94-83ed-83b8-86a8b7563734\", \"code_location\": \"/home/daniele/.local/share/chatgpt-rdc-supervisor/bin/chrome_watch_bridge.py\", \"description\": \"Roadmap live watcher can enter an infinite RuntimeError('Debugger unattached') loop after Chrome detaches the CDP debugger because the bridge keeps stale _attached=True state. Add automatic reattach/retry on this error and a regression test so monitoring self-recovers instead of silently dying.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:bf266591858e4f1e98d607e82e1c7b6b\", \"observed_at_ms\": 1790530567361, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"/home/daniele/projects/codex-roadmap\"}",
+        "created_at": "2026-09-27T21:06:30Z"
+      },
+      {
+        "evidence_id": 1451,
+        "work_item_id": "wi:4a9d8d63fcdb4f06849698e2a440dae3",
+        "evidence_kind": "classification",
+        "label": "User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to",
+        "uri": null,
+        "value_json": "\"User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to current roadmap execution and should not compete for slots before the migration decision.\"",
+        "created_at": "2026-09-28T06:45:03Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:bf266591858e4f1e98d607e82e1c7b6b",
+        "work_item_id": "wi:4a9d8d63fcdb4f06849698e2a440dae3",
+        "role": "decision",
+        "created_at": "2026-09-27T17:36:07Z"
+      }
+    ]
+  }
+]

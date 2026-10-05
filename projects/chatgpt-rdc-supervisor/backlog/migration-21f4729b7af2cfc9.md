@@ -1,0 +1,226 @@
+# RDC supervisor: recuperare pagine e contesti CDP chiusi con errori osservabili
+
+<!-- migration-21f4729b7af2cfc9 -->
+
+Migrated project backlog. Project: **chatgpt-rdc-supervisor**; project_id: 105.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 105.
+
+Provenance: `wi:6f1e3fffb4ee453fa9ecf96099da2ec9`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### RDC supervisor: recuperare pagine e contesti CDP chiusi con errori osservabili
+
+ChatGPT RDC supervisor: run-once sul task C2-MONITOR-ROADMAP-20260927 fallisce con TargetClosedError (BrowserContext.new_page: Target page, context or browser has been closed) subito dopo la registrazione della chat target 6ab8f2d7-ad14-83eb-b53b-c386288d3e46, mentre il browser CDP dedicato su 127.0.0.1:9333 risulta ancora attivo. Questo impedisce il monitoraggio/recovery automatico della chat executor e va reso robusto contro context/page chiusi o stale.
+
+status: blocked
+
+current_action: Merged and installed source; waiting only for safe live browser acceptance.
+
+next_action: When the dedicated browser is manually available and authenticated, re-reconcile all eight RDC batch items, use the existing wi:6f1e repository/receipt lane for one bounded closed-context/direct-URL/send-confirmation acceptance without duplicate sends, then submit a strict terminal result; do not start a new worker.
+
+blocker: The dedicated ChatGPT browser is inactive and no authenticated UI session is available; automatic browser launch is intentionally disabled. Live browser acceptance cannot be performed without a manually available authenticated session.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "105",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "105"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+      "parent_id": null,
+      "kind": "task",
+      "title": "RDC supervisor: recuperare pagine e contesti CDP chiusi con errori osservabili",
+      "objective": "ChatGPT RDC supervisor: run-once sul task C2-MONITOR-ROADMAP-20260927 fallisce con TargetClosedError (BrowserContext.new_page: Target page, context or browser has been closed) subito dopo la registrazione della chat target 6ab8f2d7-ad14-83eb-b53b-c386288d3e46, mentre il browser CDP dedicato su 127.0.0.1:9333 risulta ancora attivo. Questo impedisce il monitoraggio/recovery automatico della chat executor e va reso robusto contro context/page chiusi o stale.",
+      "acceptance_json": "[]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": 9000,
+      "current_action": "Merged and installed source; waiting only for safe live browser acceptance.",
+      "next_action": "When the dedicated browser is manually available and authenticated, re-reconcile all eight RDC batch items, use the existing wi:6f1e repository/receipt lane for one bounded closed-context/direct-URL/send-confirmation acceptance without duplicate sends, then submit a strict terminal result; do not start a new worker.",
+      "blocker": "The dedicated ChatGPT browser is inactive and no authenticated UI session is available; automatic browser launch is intentionally disabled. Live browser acceptance cannot be performed without a manually available authenticated session.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/chatgpt-rdc-supervisor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T21:05:31Z",
+      "updated_at": "2026-09-27T21:05:31Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:6f1e3fffb4ee453fa9ecf96099da2ec9:45ebc6a41aa14fe3d37ee8d135f637f3",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Merged and installed source; waiting only for safe live browser acceptance.",
+        "completed_json": "[\"Merged RDC browser recovery and one-attempt send confirmation in PR #12 at 94f9fcd\", \"Focused browser tests 9/9 and supervisor tests 7/7 passed\", \"Installed exact merged source in dedicated editable checkout; restarted only supervisor service; browser remained inactive and existing monitor lease persisted\"]",
+        "remaining_json": "[\"One bounded authenticated dedicated-browser UI acceptance for closed context/direct URL and non-duplicate send confirmation\"]",
+        "evidence_json": "[\"RDC PR #12 merged at 94f9fcd09a99de7ddd3d447ea47603ab6db97999\", \"Installed supervisor PID 2529260 active; browser service inactive PID 0; no port 9333 listener\", \"ROADMAP-BATCH-RECONCILIATION-20260928.md commit 8168502e\"]",
+        "blocker": "The dedicated ChatGPT browser is inactive and no authenticated UI session is available; automatic browser launch is intentionally disabled. Live browser acceptance cannot be performed without a manually available authenticated session.",
+        "next_action": "When the dedicated browser is manually available and authenticated, re-reconcile all eight RDC batch items, use the existing wi:6f1e repository/receipt lane for one bounded closed-context/direct-URL/send-confirmation acceptance without duplicate sends, then submit a strict terminal result; do not start a new worker.",
+        "strict_contract": 1,
+        "payload_sha256": "45ebc6a41aa14fe3d37ee8d135f637f376a246e83fd4a441042bb7ca69885e05",
+        "captured_at": 1790611395.0645542
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1020,
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:f0be7e02dac74340ad1a1cea8f16542b",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"ChatGPT RDC supervisor: run-once sul task C2-MONITOR-ROADMAP-20260927 fallisce con TargetClosedError (BrowserContext.new_page: Target page, context or browser has been closed) subito dopo la registrazione della chat target 6ab8f2d7-ad14-83eb-b53b-c386288d3e46, mentre il browser CDP dedicato su 127.0.0.1:9333 risulta ancora attivo. Questo impedisce il monitoraggio/recovery automatico della chat executor e va reso robusto contro context/page chiusi o stale.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:f0be7e02dac74340ad1a1cea8f16542b\", \"observed_at_ms\": 1790518234846, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T21:05:31Z"
+      },
+      {
+        "evidence_id": 1036,
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:da8c264a67324e20b42a05c2933d81fd",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Roadmap executor watcher itself hit TimeoutError: Locator.inner_text: Timeout 5000ms exceeded.\\nCall log:\\n  - waiting for locator(\\\"body\\\")\\n. Persistent supervision must recover automatically.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:da8c264a67324e20b42a05c2933d81fd\", \"observed_at_ms\": 1790525576180, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T21:06:32Z"
+      },
+      {
+        "evidence_id": 1037,
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:4c57e8eabd0748f7bb069c8e7c4bcd49",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Roadmap executor watcher itself hit TargetClosedError: Locator.inner_text: Target page, context or browser has been closed. Persistent supervision must recover automatically.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:4c57e8eabd0748f7bb069c8e7c4bcd49\", \"observed_at_ms\": 1790525700180, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T21:06:32Z"
+      },
+      {
+        "evidence_id": 1038,
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1e99f00a2c3546319a4e64f02463c906",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": \"c2-roadmap-live-watch.py\", \"description\": \"Roadmap live watcher can enter an endless RuntimeError('Chrome Runtime.evaluate failed') loop after a previously successful bind, leaving supervision blind while service remains running. Current occurrence started around 19:37 on tab 585164987 after TARGET BOUND. Required: detect this CDP/evaluate failure, invalidate attachment/page state, reacquire the live target, retry once, and restart/rebind safely if needed; repeated failures must become visible health degradation rather than a silent exception loop.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:1e99f00a2c3546319a4e64f02463c906\", \"observed_at_ms\": 1790531038300, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"codex-roadmap\"}",
+        "created_at": "2026-09-27T21:06:32Z"
+      },
+      {
+        "evidence_id": 1629,
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "evidence_kind": "executor_result",
+        "label": "RDC PR #12 merged at 94f9fcd09a99de7ddd3d447ea47603ab6db97999",
+        "uri": null,
+        "value_json": "\"RDC PR #12 merged at 94f9fcd09a99de7ddd3d447ea47603ab6db97999\"",
+        "created_at": "2026-09-28T16:03:15Z"
+      },
+      {
+        "evidence_id": 1630,
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "evidence_kind": "executor_result",
+        "label": "Installed supervisor PID 2529260 active; browser service inactive PID 0; no port 9333 listener",
+        "uri": null,
+        "value_json": "\"Installed supervisor PID 2529260 active; browser service inactive PID 0; no port 9333 listener\"",
+        "created_at": "2026-09-28T16:03:15Z"
+      },
+      {
+        "evidence_id": 1631,
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "evidence_kind": "executor_result",
+        "label": "ROADMAP-BATCH-RECONCILIATION-20260928.md commit 8168502e",
+        "uri": null,
+        "value_json": "\"ROADMAP-BATCH-RECONCILIATION-20260928.md commit 8168502e\"",
+        "created_at": "2026-09-28T16:03:15Z"
+      },
+      {
+        "evidence_id": 2072,
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a47dcb2e8b384e79851eedb5079598fc",
+        "uri": "codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"code_location\": null, \"description\": \"Dopo il passaggio al Chrome normale tramite channel CDP, il daemon mantiene la connessione healthy ma il discovery registra chat-discovery-error: RuntimeError cdp_context_closed: no existing context can open a page. Il helper _new_page_in_auth_context sopprime l’eccezione reale di context.new_page e attribuisce il problema a context chiuso; così health verde può coesistere con discovery non funzionante.\", \"executor\": null, \"executor_ref\": \"01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"issue_id\": \"issue:a47dcb2e8b384e79851eedb5079598fc\", \"observed_at_ms\": 1790693746025, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T09:32:46Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:da8c264a67324e20b42a05c2933d81fd",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "matched",
+        "created_at": "2026-09-27T16:12:56Z"
+      },
+      {
+        "issue_id": "issue:4c57e8eabd0748f7bb069c8e7c4bcd49",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "matched",
+        "created_at": "2026-09-27T16:15:00Z"
+      },
+      {
+        "issue_id": "issue:1e99f00a2c3546319a4e64f02463c906",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "matched",
+        "created_at": "2026-09-27T17:43:58Z"
+      },
+      {
+        "issue_id": "issue:a47dcb2e8b384e79851eedb5079598fc",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "matched",
+        "created_at": "2026-09-29T14:55:46Z"
+      },
+      {
+        "issue_id": "issue:f0be7e02dac74340ad1a1cea8f16542b",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "decision",
+        "created_at": "2026-09-27T14:10:34Z"
+      },
+      {
+        "issue_id": "issue:da8c264a67324e20b42a05c2933d81fd",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "decision",
+        "created_at": "2026-09-27T16:12:56Z"
+      },
+      {
+        "issue_id": "issue:4c57e8eabd0748f7bb069c8e7c4bcd49",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "decision",
+        "created_at": "2026-09-27T16:15:00Z"
+      },
+      {
+        "issue_id": "issue:1e99f00a2c3546319a4e64f02463c906",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "decision",
+        "created_at": "2026-09-27T17:43:58Z"
+      },
+      {
+        "issue_id": "issue:a47dcb2e8b384e79851eedb5079598fc",
+        "work_item_id": "wi:6f1e3fffb4ee453fa9ecf96099da2ec9",
+        "role": "decision",
+        "created_at": "2026-09-29T14:55:46Z"
+      }
+    ]
+  }
+]
+```

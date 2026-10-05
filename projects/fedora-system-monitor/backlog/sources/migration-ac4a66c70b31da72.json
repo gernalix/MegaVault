@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "15",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:029455443ece4a49934a8c768fbfa63d",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Investigate fedora-system-monitor-events.service (id 48) DOWN alert",
+      "objective": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Fedora Service · fedora-system-monitor-events.service (id 48)\nHeartbeat: 2026-09-30 06:26:22.495 (row 685510)\nFailure context: No heartbeat in the time window Identify whether this alert is transient or persistent, inspect the named monitor/service, and record an evidence-based cause and scoped resolution or blocker.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:10:08Z",
+      "updated_at": "2026-09-30T12:10:08Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:029455443ece4a49934a8c768fbfa63d",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2253,
+        "work_item_id": "wi:029455443ece4a49934a8c768fbfa63d",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:69b11bbc3628a856357bdc7dcc3a9932",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Service · fedora-system-monitor-events.service (id 48)\\nHeartbeat: 2026-09-30 06:26:22.495 (row 685510)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:69b11bbc3628a856357bdc7dcc3a9932\", \"observed_at_ms\": 1790749943899, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:10:08Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:69b11bbc3628a856357bdc7dcc3a9932",
+        "work_item_id": "wi:029455443ece4a49934a8c768fbfa63d",
+        "role": "decision",
+        "created_at": "2026-09-30T06:32:23Z"
+      }
+    ]
+  }
+]

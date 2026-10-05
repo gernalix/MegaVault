@@ -1,0 +1,183 @@
+# Valutare enrichment chat e convergenza repo Grindr
+
+<!-- migration-b890745fc63343f2 -->
+
+Migrated project backlog. Project: **grindr-export**; project_id: 106.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 104, 106.
+
+Provenance: `wi:ce3676f92b59422f94c4d5607daf630a`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Valutare enrichment chat e convergenza repo Grindr
+
+Valutare se scaricare le chat dei profili candidati a enrichment usando https://github.com/gernalix/grindr-export e, se opportuno, valutare anche il merge tra grindr-favorites-monitor e grindr-export.
+
+status: waiting
+
+current_action: WAITING_ON_EVIDENCE
+
+next_action: Resume only after an explicit Grindr gate change and fresh export/archive evidence justifies enrichment/convergence work.
+
+blocker: Chat enrichment/repository convergence is a later privacy-sensitive design decision and the Grindr Web-dependent subset is explicitly parked by the user.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "106",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "106",
+        "104"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Valutare enrichment chat e convergenza repo Grindr",
+      "objective": "Valutare se scaricare le chat dei profili candidati a enrichment usando https://github.com/gernalix/grindr-export e, se opportuno, valutare anche il merge tra grindr-favorites-monitor e grindr-export.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": 130,
+      "current_action": "WAITING_ON_EVIDENCE",
+      "next_action": "Resume only after an explicit Grindr gate change and fresh export/archive evidence justifies enrichment/convergence work.",
+      "blocker": "Chat enrichment/repository convergence is a later privacy-sensitive design decision and the Grindr Web-dependent subset is explicitly parked by the user.",
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T01:26:56Z",
+      "updated_at": "2026-09-28T22:47:20Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "tag": "grindr"
+      },
+      {
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "tag": "architecture"
+      },
+      {
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "tag": "priority:p2"
+      },
+      {
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 535,
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c7feff34d5694c0da878b04bd0fa8189",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Valutare se scaricare le chat dei profili candidati a enrichment usando https://github.com/gernalix/grindr-export e, se opportuno, valutare anche il merge tra grindr-favorites-monitor e grindr-export.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c7feff34d5694c0da878b04bd0fa8189\", \"observed_at_ms\": 1790472192329, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T01:26:56Z"
+      },
+      {
+        "evidence_id": 600,
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:830613dbd2c345a98ed7bb4997fa1116",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Grindr monitor/exporter: integrare le scoperte verificate su profile_id/conversation_id e i relativi flussi UI/robustezza. Evidenze già verificate sul Grindr Web corrente: (1) nelle chat dirette conversationId è deterministico: getConversationIdByParticipantIds(ids) converte gli ID in interi, li ordina numericamente e li unisce con \\\":\\\"; quindi conversation_id = sort(self_profile_id, target_profile_id).join(\\\":\\\"). Esempio reale verificato: self=432438930, target=917507 -> 917507:432438930. L'implementazione deve ottenere self_profile_id dalla sessione/autenticazione corrente, non hardcodarlo. (2) Flusso inverso: da conversation_id diretto ricavare target profile_id rimuovendo self_profile_id. (3) Visto che normalmente il primo dato scrapato è profile_id, calcolare e registrare automaticamente conversation_id insieme al profilo e backfillarlo dove applicabile. (4) Aggiungere primitive riusabili open_chat(conversation_id) e open_profile(profile_id): la chat ha deep-link ufficiale verificata /chat/:conversationId; il profilo NON ha /profile/:id, ma Grindr lo apre con ?profile=true + router state profile.viewingProfileId=<profile_id>, meccanismo testato anche partendo da /favorites. Esporre nelle view umane i link/azioni con semplici testi visibili \\\"chat\\\" e \\\"profile\\\", chiaramente stilizzati come link. (5) Integrare quanto prima gernalix/grindr-export nel monitor unico Grindr (o merge architetturalmente equivalente senza duplicazioni): dal momento dell'attivazione del monitor unico, per ogni preferito/enriched scaricare/aggiornare automaticamente la chat quando io o l'altro profilo scriviamo qualcosa; riusare profile_id/conversation_id come chiavi di raccordo. (6) Robustezza tab Grindr Web: la tab a volte abbandona la schermata corrente e resta in loading infinito; quando il monitor non riesce più ad accedere ad alcun dato utile della tab, effettuare un refresh/F5 e riprendere normalmente, con retry bounded per evitare loop. (7) Primo avvio/tab: può comparire un modal bloccante \\\"Notification Sounds / Using Grindr discreetly?\\\" con pulsante \\\"Let's Go!\\\"; il monitor deve rilevarlo e confermarlo/dismissarlo automaticamente se impedisce l'accesso ai dati, quindi continuare. Il recovery F5 deve gestire anche la ricomparsa di questo popup. Repo coinvolti: gernalix/grindr-favorites-monitor e gernalix/grindr-export.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:830613dbd2c345a98ed7bb4997fa1116\", \"observed_at_ms\": 1790498425960, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/grindr-favorites-monitor\"}",
+        "created_at": "2026-09-27T08:43:16Z"
+      },
+      {
+        "evidence_id": 604,
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1d9a5f1411bd489c81817ea970a0c21e",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Correzione a #1959: nelle view, open_chat(conversation_id) e open_profile(profile_id) devono essere rappresentati come link Markdown veri. Label esatte: 'chat' per open_chat(conversation_id) e 'profilo' per open_profile(profile_id). Questa formulazione sostituisce quella precedente che parlava di semplici testi evidenziati/stilizzati come link.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:1d9a5f1411bd489c81817ea970a0c21e\", \"observed_at_ms\": 1790498810540, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/grindr-favorites-monitor\"}",
+        "created_at": "2026-09-27T09:23:38Z"
+      },
+      {
+        "evidence_id": 605,
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:b7f9543fb7754a548549e797cc46f28b",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Correzione vincolante a #1967/#1959: NON memorizzare o renderizzare sintassi Markdown direttamente nelle view SQLite, perché i viewer SQLite generici la mostrano come testo. Le view devono esporre valori strutturati separati per i target di navigazione, ad esempio chat_url/chat_uri derivato da conversation_id e profile_url/profile_uri derivato da profile_id, mantenendo anche gli ID canonici. Nel viewer umano che supporta rendering (in particolare Datasette), tali campi devono essere presentati come veri link cliccabili con label esatte 'chat' e 'profilo', senza mostrare sintassi Markdown né URL grezzi quando non necessario. La label 'chat' deve aprire open_chat(conversation_id); la label 'profilo' deve aprire open_profile(profile_id). Per viewer SQLite generici, conservare comunque le colonne URL/URI strutturate e usabili/copiabili, senza fare affidamento sul rendering Markdown. Questa formulazione sostituisce il requisito precedente di link Markdown nelle view.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:b7f9543fb7754a548549e797cc46f28b\", \"observed_at_ms\": 1790498952771, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/grindr-favorites-monitor\"}",
+        "created_at": "2026-09-27T09:23:38Z"
+      },
+      {
+        "evidence_id": 1655,
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "evidence_kind": "classification",
+        "label": "2026-09-28 whole-batch Grindr reconciliation says no task in this unit merits dispatch and user paused Grindr Web.",
+        "uri": null,
+        "value_json": "\"2026-09-28 whole-batch Grindr reconciliation says no task in this unit merits dispatch and user paused Grindr Web.\"",
+        "created_at": "2026-09-28T22:47:20Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:830613dbd2c345a98ed7bb4997fa1116",
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "role": "matched",
+        "created_at": "2026-09-27T08:40:25Z"
+      },
+      {
+        "issue_id": "issue:1d9a5f1411bd489c81817ea970a0c21e",
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "role": "matched",
+        "created_at": "2026-09-27T08:46:50Z"
+      },
+      {
+        "issue_id": "issue:b7f9543fb7754a548549e797cc46f28b",
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "role": "matched",
+        "created_at": "2026-09-27T08:49:12Z"
+      },
+      {
+        "issue_id": "issue:c7feff34d5694c0da878b04bd0fa8189",
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "role": "decision",
+        "created_at": "2026-09-27T01:23:12Z"
+      },
+      {
+        "issue_id": "issue:830613dbd2c345a98ed7bb4997fa1116",
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "role": "decision",
+        "created_at": "2026-09-27T08:40:25Z"
+      },
+      {
+        "issue_id": "issue:1d9a5f1411bd489c81817ea970a0c21e",
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "role": "decision",
+        "created_at": "2026-09-27T08:46:50Z"
+      },
+      {
+        "issue_id": "issue:b7f9543fb7754a548549e797cc46f28b",
+        "work_item_id": "wi:ce3676f92b59422f94c4d5607daf630a",
+        "role": "decision",
+        "created_at": "2026-09-27T08:49:12Z"
+      }
+    ]
+  }
+]
+```

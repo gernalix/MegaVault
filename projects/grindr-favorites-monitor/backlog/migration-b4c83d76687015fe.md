@@ -1,0 +1,181 @@
+# Usare identità canonica per le card Grindr Favorites
+
+<!-- migration-b4c83d76687015fe -->
+
+Migrated project backlog. Project: **grindr-favorites-monitor**; project_id: 104.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 104.
+
+Provenance: `wi:fdd72bab3cd44ee89decb25f910b87c6`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Usare identità canonica per le card Grindr Favorites
+
+In Grindr Web Favorites non usare ID/nome estratti da props React delle card come identità affidabile quando possono divergere dal contenuto visibile. Individuare una fonte canonica per l'identità del profilo/card, usarla per la navigazione per ID e verificare dopo ogni apertura che la scheda visualizzata corrisponda al profilo richiesto, fallendo chiuso in caso di mismatch.
+
+status: blocked
+
+current_action: The assigned repository has no Grindr Web Favorites card-opening flow to patch.
+
+next_action: Identify the actual card UI owner and retarget via canonical intake before implementation.
+
+blocker: Assigned grindr-favorites-monitor repo lacks the Favorites card-opening code; authoritative owner path is still unknown.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "104",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "104"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Usare identità canonica per le card Grindr Favorites",
+      "objective": "In Grindr Web Favorites non usare ID/nome estratti da props React delle card come identità affidabile quando possono divergere dal contenuto visibile. Individuare una fonte canonica per l'identità del profilo/card, usarla per la navigazione per ID e verificare dopo ogni apertura che la scheda visualizzata corrisponda al profilo richiesto, fallendo chiuso in caso di mismatch.",
+      "acceptance_json": "[]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "The assigned repository has no Grindr Web Favorites card-opening flow to patch.",
+      "next_action": "Identify the actual card UI owner and retarget via canonical intake before implementation.",
+      "blocker": "Assigned grindr-favorites-monitor repo lacks the Favorites card-opening code; authoritative owner path is still unknown.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/grindr-favorites-monitor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T07:03:39Z",
+      "updated_at": "2026-09-27T22:23:04.970996Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:fdd72bab3cd44ee89decb25f910b87c6:fe265f9b301b103f9f339f75fc58faea",
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "The assigned repository has no Grindr Web Favorites card-opening flow to patch.",
+        "completed_json": "[\"Queued executor_started receipt for wi:fdd72bab3cd44ee89decb25f910b87c6.\", \"Inspected the assigned repository in an isolated task worktree and identified its Favorites scan and local Datasette opening paths.\", \"Captured the routing issue in C2 Inbox issue #2532 and committed the operational checkpoint in C2 PR #2533.\"]",
+        "remaining_json": "[\"Identify the repository and code path that opens Grindr Web Favorites cards or provide that flow as the intended new feature.\", \"Implement canonical card identity, navigation by ID, and fail-closed post-open verification in the owning flow with focused tests.\"]",
+        "evidence_json": "[\"grindr-favorites-monitor/src/grindr_favorites_monitor/scan.py extracts profileId from GET /api/v5/favorites, counts gridcells, and navigates only to /favorites.\", \"grindr-favorites-monitor/src/grindr_favorites_monitor/open_profile.py opens a local Datasette URL from a photo filename.\", \"Targeted search across assigned repository source, scripts, and tests found no React card ID/name extraction, card click, or post-open profile UI path.\", \"C2 Inbox issue #2532; C2 checkpoint commit 9d1320b3 and PR #2533.\"]",
+        "blocker": "The assigned repository does not contain the Favorites card opening or React card identity code described by the work item; implementing here would invent an unrelated browser flow.",
+        "next_action": "Identify and assign the repository and function that currently opens Grindr Web Favorites cards, or supply a concrete requirement for a new card-opening feature in grindr-favorites-monitor.",
+        "strict_contract": 1,
+        "payload_sha256": "fe265f9b301b103f9f339f75fc58faea77a818b3ce8631454660d96607450647",
+        "captured_at": 1790535043.695653
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 571,
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:0bb92007984a42968c3642cc14acbc23",
+        "uri": "codex://threads/01a0e17a-8a0b-7412-8098-3fa372c512ea",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e17a-8a0b-7412-8098-3fa372c512ea\", \"code_location\": null, \"description\": \"Grindr Web Favorites: gli ID e i nomi nelle props React delle card non corrispondono in modo affidabile al contenuto visibile; un click selezionato tramite quella prop ha aperto un'altra card. Per navigazione per ID usare una fonte canonica e verificare l'identita' della scheda aperta.\", \"executor\": null, \"executor_ref\": \"01a0e17a-8a0b-7412-8098-3fa372c512ea\", \"issue_id\": \"issue:0bb92007984a42968c3642cc14acbc23\", \"observed_at_ms\": 1790491996929, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T07:03:39Z"
+      },
+      {
+        "evidence_id": 790,
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "evidence_kind": "executor_result",
+        "label": "grindr-favorites-monitor/src/grindr_favorites_monitor/scan.py extracts profileId from GET /api/v5/favorites, counts grid",
+        "uri": null,
+        "value_json": "\"grindr-favorites-monitor/src/grindr_favorites_monitor/scan.py extracts profileId from GET /api/v5/favorites, counts gridcells, and navigates only to /favorites.\"",
+        "created_at": "2026-09-27T18:50:43Z"
+      },
+      {
+        "evidence_id": 791,
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "evidence_kind": "executor_result",
+        "label": "grindr-favorites-monitor/src/grindr_favorites_monitor/open_profile.py opens a local Datasette URL from a photo filename.",
+        "uri": null,
+        "value_json": "\"grindr-favorites-monitor/src/grindr_favorites_monitor/open_profile.py opens a local Datasette URL from a photo filename.\"",
+        "created_at": "2026-09-27T18:50:43Z"
+      },
+      {
+        "evidence_id": 792,
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "evidence_kind": "executor_result",
+        "label": "Targeted search across assigned repository source, scripts, and tests found no React card ID/name extraction, card click",
+        "uri": null,
+        "value_json": "\"Targeted search across assigned repository source, scripts, and tests found no React card ID/name extraction, card click, or post-open profile UI path.\"",
+        "created_at": "2026-09-27T18:50:43Z"
+      },
+      {
+        "evidence_id": 793,
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "evidence_kind": "executor_result",
+        "label": "C2 Inbox issue #2532; C2 checkpoint commit 9d1320b3 and PR #2533.",
+        "uri": null,
+        "value_json": "\"C2 Inbox issue #2532; C2 checkpoint commit 9d1320b3 and PR #2533.\"",
+        "created_at": "2026-09-27T18:50:43Z"
+      },
+      {
+        "evidence_id": 991,
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:669c550d1e3b4ba7a66aed395037fd06",
+        "uri": "codex://threads/01a0e431-a2b6-7712-863b-d3f4bdabf14b",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e431-a2b6-7712-863b-d3f4bdabf14b\", \"code_location\": null, \"description\": \"C2 work item wi:fdd72bab3cd44ee89decb25f910b87c6 targets grindr-favorites-monitor for canonical Grindr Favorites card identity and post-open verification, but that repository has no card-opening or React card ID/name extraction flow. scan.py reads profileId from GET /api/v5/favorites and only counts UI cells; open_profile.py opens local Datasette. The owning code path/repository must be identified before implementation.\", \"executor\": null, \"executor_ref\": \"01a0e431-a2b6-7712-863b-d3f4bdabf14b\", \"issue_id\": \"issue:669c550d1e3b4ba7a66aed395037fd06\", \"observed_at_ms\": 1790534998211, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T21:03:13Z"
+      },
+      {
+        "evidence_id": 1218,
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Assigned grindr-favorites-monitor repo lacks the Favorites card-opening code; authoritative owner path is still unknown.",
+        "uri": null,
+        "value_json": "\"Assigned grindr-favorites-monitor repo lacks the Favorites card-opening code; authoritative owner path is still unknown.\"",
+        "created_at": "2026-09-27T22:23:04.970996Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:669c550d1e3b4ba7a66aed395037fd06",
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "role": "matched",
+        "created_at": "2026-09-27T18:49:58Z"
+      },
+      {
+        "issue_id": "issue:0bb92007984a42968c3642cc14acbc23",
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "role": "decision",
+        "created_at": "2026-09-27T06:53:16Z"
+      },
+      {
+        "issue_id": "issue:669c550d1e3b4ba7a66aed395037fd06",
+        "work_item_id": "wi:fdd72bab3cd44ee89decb25f910b87c6",
+        "role": "decision",
+        "created_at": "2026-09-27T18:49:58Z"
+      }
+    ]
+  }
+]
+```

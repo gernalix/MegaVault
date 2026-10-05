@@ -1,0 +1,167 @@
+[
+  {
+    "routing": {
+      "project": "15",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "prompt:463817",
+      "parent_id": null,
+      "kind": "goal",
+      "title": "Rendi resilienti i servizi Fedora e monitora ciascuno in Kuma",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "failed",
+      "executor_policy": "codex",
+      "sort_order": 13,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": "15",
+      "project_name": "Fedora",
+      "repo": "gernalix/fedora-system-monitor",
+      "prompt_id": "463817",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "prompt",
+      "source_ref": "463817",
+      "created_at": "2026-09-21T20:10:02Z",
+      "updated_at": "2026-09-22T01:48:05Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "463817",
+        "slug": "fedora-systemd-services-kuma-resilience",
+        "chat_guidance": "Stessa chat Fedora",
+        "prompt_type": "Goal",
+        "model": "GPT-5.6 Terra",
+        "reasoning": "medium",
+        "megavault_mode": "STRICT",
+        "campaign_id": null,
+        "explanation": "Controlla i programmi automatici che devono restare sempre attivi sul tuo Fedora. Se uno si ferma, lo fa ripartire e fa comparire il problema in Uptime Kuma.",
+        "current_path": "falliti/fedora-systemd-services-kuma-resilience.md",
+        "materialization_sha256": "9b8522e6ac866d039f092e4501f302324bd112c40c0a01632f5f37bf17e2cb9b",
+        "created_at": "2026-09-21T20:10:02Z",
+        "updated_at": "2026-09-22T01:48:05Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "463817",
+        "body": "PROMPT_ID=463817 | project_id=15 | model=GPT-5.6 Terra | reasoning=medium | MegaVault=STRICT\nWORKDIR=/home/daniele/projects/fedora-system-monitor\n\n# Goal\nChiudi end-to-end l'hardening dei servizi systemd personalizzati Fedora e il monitoraggio Uptime Kuma per servizio. Integra solo le modifiche già preparate, riconcilia il runtime reale, correggi esclusivamente i gap necessari, modifica in modo transazionale il DB Kuma e termina solo quando l'inventario live è coerente.\n\n# Evidenza già verificata da ChatGPT\n- MegaVault contiene già la tabella canonica `services`; non crearne una duplicata.\n- PR già preparate:\n  - MegaVault #7: policy systemd + template canonico.\n  - fedora-system-monitor #9: `Restart=always` sui daemon FSM + heartbeat Kuma individuale per servizio + `kuma-configure --service-unit`.\n  - telegram_insert_bot #2: hardening daemon.\n  - adb-device-keeper #1: hardening daemon.\n  - chrome-codex-switcher #21: hardening daemon.\n  - workflowy-importer #20: elimina dipendenza .venv da tutte le unità e rende il bridge always-on.\n- I servizi timer/event/oneshot NON devono ricevere `Restart=always` meccanicamente.\n- MegaVault vieta venv; Python deve usare l'ambiente globale.\n- Il monitor aggregato `Fedora Services` resta, ma ogni daemon custom always-on deve avere anche un Push Monitor Kuma indipendente. Per timer/oneshot, se viene creato un monitor individuale deve rappresentare esito/freschezza della run, non `ActiveState=active` continuo.\n\n# Esecuzione vincolata\n1. Parti dai file/unità già indicati e dall'inventario live; vietata esplorazione generale dei repo.\n2. Integra le PR sopra solo tramite il meccanismo single-writer/integratore canonico di ciascun repo. Non editare direttamente i branch canonici. Se una PR ha CI/failure reale, correggi sul suo branch e riesegui solo i test pertinenti.\n3. Sul Fedora reale costruisci un inventario unico dei servizi custom installati:\n   - system unit da /etc/systemd/system e /usr/local/lib/systemd/system;\n   - user unit da ~/.config/systemd/user e ~/.local/share/systemd/user;\n   - unit custom già note a fedora-system-monitor;\n   - righe MegaVault `services`.\n   Deduplica per scope+unit. Non includere servizi stock Fedora solo perché esistono.\n4. Classifica ogni unit come: daemon always-on, oneshot+timer, event-driven, lifecycle/RemainAfterExit oppure optional-disabled.\n5. Per ogni daemon always-on:\n   - source template e unit installata devono avere `Restart=always`, `RestartSec` bounded, start-rate limit ragionevole e target corretto;\n   - deve essere enabled dove previsto e active;\n   - user service: linger SOLO se deve vivere senza login; i servizi GNOME/Chrome restano session-scoped;\n   - elimina eventuali autostart concorrenti dello stesso runtime.\n   Se trovi un daemon custom non coperto dalle PR, applica il minimo fix nel repo proprietario tramite single-writer; se il repo proprietario non è identificabile, correggi in modo tracciabile l'unit installata e registra source_ref/note in MegaVault senza inventare ownership.\n6. Per oneshot/timer/event/lifecycle non applicare `Restart=always`. Verifica trigger/timer, idempotenza e `Persistent=true` solo quando una run persa a macchina spenta deve essere recuperata.\n7. Riconcilia MegaVault `services` con l'inventario live usando le API/CLI canoniche disponibili, senza SQL ad-hoc se esiste un comando autorevole. Mantieni un solo record per service identity e source_ref verificabile.\n8. Uptime Kuma:\n   - identifica il DB Kuma autorevole e il suo runtime/container;\n   - prima di ogni write fai backup consistente verificabile;\n   - modifica il DB in una finestra sicura (ferma Kuma se SQLite/schema lo richiede), senza cambiare monitor non pertinenti;\n   - crea un Push Monitor indipendente per ogni daemon custom always-on privo di monitor; per timer/oneshot custom crea monitor individuale solo con semantica di freschezza/esito corretta;\n   - usa i nomi `Fedora Service · <systemd identity>` e le chiavi deterministiche prodotte da `service_monitor_key`;\n   - genera/recupera i push token senza stamparli e scrivili solo nel credential boundary root-only di fedora-system-monitor;\n   - riavvia Kuma e fai readback direttamente dal DB autorevole: monitor attivo, tipo push, token non vuoto, nessun duplicato;\n   - aggiorna l'indice MegaVault Kuma con il flusso canonico `kuma-sync-sqlite`/equivalente e mappa ogni monitor al progetto/purpose corretto.\n9. Deploya le unità aggiornate, `daemon-reload`, riavvia solo i daemon interessati e abilita ciò che deve essere sempre disponibile. Non riavviare l'intero PC.\n10. Gate runtime per ogni daemon always-on: active + enabled/target corretto; termina controllatamente SOLO il processo figlio (non `systemctl stop`) e verifica che systemd lo rilanci e che `NRestarts` aumenti. Fallo sequenzialmente e salta solo un daemon se il test distruttivo sarebbe concretamente pericoloso, motivandolo.\n11. Verifica gli heartbeat Kuma: almeno un UP recente per ogni monitor individuale; per almeno un daemon non critico prova una transizione controllata down/recovery o equivalente senza aspettare inutilmente timeout lunghi.\n12. Esegui solo test mirati: unit test nuovi/coinvolti, `systemd-analyze verify`, config-check FSM, readback DB e runtime. Nessun audit generale dopo PASS.\n\n# Acceptance\nPASS solo se:\n- tabella MegaVault usata = `services`, senza registry parallelo;\n- tutte le PR preparate sono integrate oppure sostituite da fix equivalenti canonici;\n- nessuna unit Workflowy dipende da .venv;\n- tutti i daemon custom always-on live rispettano restart/enablement/target;\n- oneshot/timer non sono stati trasformati impropriamente in daemon;\n- ogni daemon custom always-on ha monitor Push Kuma individuale + heartbeat; timer/oneshot monitorati usano semantica corretta;\n- DB Kuma ha backup pre-write e readback post-write;\n- token mai in output/Git/MegaVault;\n- MegaVault e indice Kuma sono riconciliati;\n- test/gate mirati PASS.\n\n# Stop\nDopo PASS finalizza una sola volta con roadmap_finish e fermati. Niente cleanup/refactor fuori scope.\n\nOutput massimo 9 righe:\nRESULT=PASS|BLOCKED|FAIL\nSERVICES=<custom totali; always-on; timer/oneshot>\nHARDENING=<pass/fail + eventuali eccezioni>\nKUMA=<monitor creati/riusati + readback>\nMEGAVAULT=<services/index status>\nPRS=<stato PR>\nTESTS=<mirati>\nRUNTIME=<restart probes>\nBLOCKER=<none|testo minimo>",
+        "sha256": "9b8522e6ac866d039f092e4501f302324bd112c40c0a01632f5f37bf17e2cb9b",
+        "created_at": "2026-09-21T20:10:02Z",
+        "actor": "chatgpt"
+      }
+    ],
+    "analyses": [
+      {
+        "analysis_id": 71,
+        "prompt_id": "463817",
+        "analyzed_at": "2026-09-22T01:48:05Z",
+        "actor": "chatgpt",
+        "bottlenecks_found": 1,
+        "summary": "FAIL reale ma circoscritto: il runtime non esponeva autorevolmente i path amministrativi Uptime Kuma, quindi Codex ha correttamente evitato una write DB non sicura. fedora-system-monitor/main ora espone 'kuma-runtime --json' con helper Oracle, directory Compose, DB live e template backup; commit daef956d CI PASS. Il residuo viene trasferito a 815274 senza ripetere inventario/hardening.",
+        "fix_prompt_id": "815274",
+        "source_ref": "chatgpt:needs-fix-repair-2026-09-22"
+      }
+    ],
+    "executions": [
+      {
+        "execution_id": 279,
+        "prompt_id": "463817",
+        "cycle_key": "48bdaf8875ed08bbae0bfb64",
+        "materialization_sha256": "e19fd44d454b9113ff86aabcb3a0d6d4aff4327bc38cb1783dce1fc0b2dc6814",
+        "started_at": "2026-09-22T01:19:09Z",
+        "ended_at": "2026-09-22T01:25:35Z",
+        "outcome": "FAIL",
+        "duration_seconds": 386.674,
+        "model": "gpt-5.6-terra",
+        "reasoning": "medium",
+        "codex_project": "/home/daniele/Documents/ChatGPT/Fedora",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 26,
+        "input_tokens": 99380,
+        "cached_input_tokens": 97024,
+        "uncached_input_tokens": 2356,
+        "output_tokens": 809,
+        "reasoning_output_tokens": 582,
+        "total_tokens": 100189,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-22T01:26:57Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 567,
+        "prompt_id": "463817",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-21T20:10:02Z",
+        "actor": "chatgpt",
+        "note": "registered"
+      },
+      {
+        "history_id": 642,
+        "prompt_id": "463817",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-22T01:19:39Z",
+        "actor": "codex",
+        "note": "launch-claim:roadmap_start"
+      },
+      {
+        "history_id": 645,
+        "prompt_id": "463817",
+        "old_status": "running",
+        "new_status": "failed",
+        "changed_at": "2026-09-22T01:48:05Z",
+        "actor": "chatgpt",
+        "note": "Latest execution ended FAIL. Concrete blocker: canonical Kuma DB/backup paths were not exposed by FSM tooling; root cause is now fixed remotely and a bounded follow-up replaces the residual work."
+      }
+    ],
+    "work_item_tags": [],
+    "work_item_dependencies": [
+      {
+        "work_item_id": "prompt:463817",
+        "depends_on_work_item_id": "prompt:729462",
+        "required": 1,
+        "note": "General Fedora service reconciliation should run after credential-boundary libsecret cutover to avoid duplicate runtime edits."
+      },
+      {
+        "work_item_id": "prompt:463817",
+        "depends_on_work_item_id": "prompt:832152",
+        "required": 1,
+        "note": "Run the Discord-specific always-on/Kuma repair first; the general service sweep then covers the remaining services without duplicating its specialized data-safety work."
+      },
+      {
+        "work_item_id": "prompt:463817",
+        "depends_on_work_item_id": "prompt:257387",
+        "required": 1,
+        "note": "General service inventory should run after the already-implemented Context Index is installed so its service/timer is included in the live reconciliation."
+      }
+    ],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "prompt:463817",
+        "to_work_item_id": "prompt:815274",
+        "relation_type": "fix",
+        "created_at": "2026-09-22T01:48:05Z",
+        "actor": "chatgpt",
+        "note": "analysis-generated fix"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:a4778e5d694c491e9ff25a636080f10b",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Integrare il comando x-scrape nel flusso C3",
+      "objective": "Destinazione transizione C3: consegna del comando aggiuntivo x-scrape HANDLE nel checkout /home/daniele/Documents/ChatGPT/Twitter scraper (nessun remote Git configurato). File nuovo: /home/daniele/Documents/ChatGPT/Twitter scraper/x-scrape; documentazione nuova: /home/daniele/Documents/ChatGPT/Twitter scraper/X-SCRAPE.md. Comando installato tramite symlink ~/.local/bin/x-scrape. Uso: x-scrape asianslut19 oppure x-scrape @asianslut19; valida handle e passa --account/--output allo scrape.py esistente senza modificarlo o sostituirlo. asianbb1994 è un nome visualizzato, non l handle corretto. Output separato per profilo in ~/.local/share/x-scrape/HANDLE/, DB SQLite con metadati e percorsi relativi ai media. Mostra solo campi/conteggi/stato, nessun contenuto. Riutilizza i cookie persistenti già configurati in ~/.config/x-scraper/cookies.txt; cookie, DB e media non vengono allegati né versionati. Verifiche PASS: comando nel PATH, help, rifiuto handle non valido, inoltro handle con @ e percorso output, lettura schema/conteggi con fixture locale. Integrare questo comando aggiuntivo nel flusso C3 preservando il codice precedente; sorgenti disponibili nei percorsi locali indicati. Nessun push Git eseguito per assenza di remote.\n",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-10-01T12:32:14Z",
+      "updated_at": "2026-10-01T12:32:14Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:a4778e5d694c491e9ff25a636080f10b",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2491,
+        "work_item_id": "wi:a4778e5d694c491e9ff25a636080f10b",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:2baced5ddbb84630acea83bba21a425a",
+        "uri": "codex://threads/01a0f2e0-a21a-77c0-944c-f6be85d6f58f",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0f2e0-a21a-77c0-944c-f6be85d6f58f\", \"code_location\": \"/home/daniele/Documents/ChatGPT/Twitter scraper/x-scrape\", \"description\": \"Destinazione transizione C3: consegna del comando aggiuntivo x-scrape HANDLE nel checkout /home/daniele/Documents/ChatGPT/Twitter scraper (nessun remote Git configurato). File nuovo: /home/daniele/Documents/ChatGPT/Twitter scraper/x-scrape; documentazione nuova: /home/daniele/Documents/ChatGPT/Twitter scraper/X-SCRAPE.md. Comando installato tramite symlink ~/.local/bin/x-scrape. Uso: x-scrape asianslut19 oppure x-scrape @asianslut19; valida handle e passa --account/--output allo scrape.py esistente senza modificarlo o sostituirlo. asianbb1994 è un nome visualizzato, non l handle corretto. Output separato per profilo in ~/.local/share/x-scrape/HANDLE/, DB SQLite con metadati e percorsi relativi ai media. Mostra solo campi/conteggi/stato, nessun contenuto. Riutilizza i cookie persistenti già configurati in ~/.config/x-scraper/cookies.txt; cookie, DB e media non vengono allegati né versionati. Verifiche PASS: comando nel PATH, help, rifiuto handle non valido, inoltro handle con @ e percorso output, lettura schema/conteggi con fixture locale. Integrare questo comando aggiuntivo nel flusso C3 preservando il codice precedente; sorgenti disponibili nei percorsi locali indicati. Nessun push Git eseguito per assenza di remote.\\n\", \"executor\": null, \"executor_ref\": \"01a0f2e0-a21a-77c0-944c-f6be85d6f58f\", \"issue_id\": \"issue:2baced5ddbb84630acea83bba21a425a\", \"observed_at_ms\": 1790783373640, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/codex-roadmap\"}",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:2baced5ddbb84630acea83bba21a425a",
+        "work_item_id": "wi:a4778e5d694c491e9ff25a636080f10b",
+        "role": "decision",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ]
+  }
+]

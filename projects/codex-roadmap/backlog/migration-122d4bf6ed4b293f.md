@@ -1,0 +1,161 @@
+# Prevent C2 Goal conditional completion before Inbox and backlog reconciliation
+
+<!-- migration-122d4bf6ed4b293f -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Merged duplicate/complementary observations and subtasks; every original requirement retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:f38f18786e174404a76123c80071226e`, `issue:f410c63656764c26d7166cc0359f701f`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Prevent C2 Goal conditional completion before Inbox and backlog reconciliation
+
+Il Goal C2 può dichiararsi conditional_complete mentre restano 147 issue nella Inbox non processate e diversi waiting/blocked con next_action concreto ma senza blocker strutturato. Evidence: issue_inbox/v_issue_inbox_pending_ordered=147; waiting=48; blocked=36; runnable_with_execution_spec=0. La stop condition attuale considera sufficiente l’assenza di execution spec e il prompt del Goal dice esplicitamente di non prioritizzare ordinary Inbox, quindi può fermarsi prima del drain/reconciliation completo. Capture only: il processor Inbox farà triage/deduplica/priorità.
+
+status: pending
+
+### issue:f410c63656764c26d7166cc0359f701f
+
+Fresh post-cutover M3 evidence for wi:f38f18786e174404a76123c80071226e: M3 ran the canonical bounded Inbox maintenance once, it made zero semantic dispositions and all 72 observations remained pending, yet M3 then declared RESULT=PASS/quiescence. META_INFRASTRUCTURE.md exposes reconcile_issue_batch for bounded fresh semantic decisions, so a master goal can still stop after a technical no-op scan without actually triaging even one ambiguous Inbox batch. Ensure master-goal completion requires the requested bounded semantic Inbox pass or explicitly classifies/defer-resolves the scanned batch, rather than treating triage_requested=true with all observations pending as completed processing.
+
+state: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Prevent C2 Goal conditional completion before Inbox and backlog reconciliation",
+      "objective": "Il Goal C2 può dichiararsi conditional_complete mentre restano 147 issue nella Inbox non processate e diversi waiting/blocked con next_action concreto ma senza blocker strutturato. Evidence: issue_inbox/v_issue_inbox_pending_ordered=147; waiting=48; blocked=36; runnable_with_execution_spec=0. La stop condition attuale considera sufficiente l’assenza di execution spec e il prompt del Goal dice esplicitamente di non prioritizzare ordinary Inbox, quindi può fermarsi prima del drain/reconciliation completo. Capture only: il processor Inbox farà triage/deduplica/priorità.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-29T20:22:17Z",
+      "updated_at": "2026-09-29T22:21:33Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+        "tag": "priority:p0"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1853,
+        "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:6d2db15f5624433d89fb1dc73443c262",
+        "uri": "codex://threads/01a0e719-60ff-7b91-82db-1d7c55787c67",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e719-60ff-7b91-82db-1d7c55787c67\", \"code_location\": \"Goal stop condition / Inbox drain / waiting-blocked reconciliation\", \"description\": \"Il Goal C2 può dichiararsi conditional_complete mentre restano 147 issue nella Inbox non processate e diversi waiting/blocked con next_action concreto ma senza blocker strutturato. Evidence: issue_inbox/v_issue_inbox_pending_ordered=147; waiting=48; blocked=36; runnable_with_execution_spec=0. La stop condition attuale considera sufficiente l’assenza di execution spec e il prompt del Goal dice esplicitamente di non prioritizzare ordinary Inbox, quindi può fermarsi prima del drain/reconciliation completo. Capture only: il processor Inbox farà triage/deduplica/priorità.\", \"executor\": null, \"executor_ref\": \"c2-roadmap-semantic-watcher\", \"issue_id\": \"issue:6d2db15f5624433d89fb1dc73443c262\", \"observed_at_ms\": 1790638781566, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/codex-roadmap\"}",
+        "created_at": "2026-09-29T20:22:17Z"
+      },
+      {
+        "evidence_id": 1857,
+        "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:2fd41f7d2f862104876b5217523753e2",
+        "uri": "codex://threads/01a0e719-60ff-7b91-82db-1d7c55787c67",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e719-60ff-7b91-82db-1d7c55787c67\", \"code_location\": null, \"description\": \"Il watchdog riporta attivo un Goal già completato in attesa di gate\\n\\nObserved by the C2 semantic watcher. Category: fragility.\\nEvidence already available: Il log registra ripetutamente “goal complete … waiting for a real gate transition”; lo snapshot corrente riporta `goal_status: active`, `mode: worker_active` e un processo worker, senza evidenza di transizione di gate o progresso semantico.\\nMaterial impact: Può riattivare o presentare come attivo lavoro non dispatchabile, creando ambiguità sullo stato e possibile spreco di risorse.\\nCapture only: do not infer priority, research, deduplicate, triage, or dispatch from this observation.\", \"executor\": null, \"executor_ref\": \"01a0e719-60ff-7b91-82db-1d7c55787c67\", \"issue_id\": \"issue:2fd41f7d2f862104876b5217523753e2\", \"observed_at_ms\": 1790639929692, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T20:39:47Z"
+      },
+      {
+        "evidence_id": 1897,
+        "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+        "evidence_kind": "classification",
+        "label": "User explicitly requested P0 for the C2 batch on 2026-09-30; this item is currently runnable and belongs to gernalix/cod",
+        "uri": null,
+        "value_json": "\"User explicitly requested P0 for the C2 batch on 2026-09-30; this item is currently runnable and belongs to gernalix/codex-roadmap.\"",
+        "created_at": "2026-09-29T22:21:33Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:2fd41f7d2f862104876b5217523753e2",
+        "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+        "role": "matched",
+        "created_at": "2026-09-28T23:58:49Z"
+      },
+      {
+        "issue_id": "issue:6d2db15f5624433d89fb1dc73443c262",
+        "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+        "role": "decision",
+        "created_at": "2026-09-28T23:39:41Z"
+      },
+      {
+        "issue_id": "issue:2fd41f7d2f862104876b5217523753e2",
+        "work_item_id": "wi:f38f18786e174404a76123c80071226e",
+        "role": "decision",
+        "created_at": "2026-09-28T23:58:49Z"
+      }
+    ]
+  },
+  {
+    "routing": {
+      "project": "51",
+      "reason": "complementary evidence for same explicitly identified objective",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:f410c63656764c26d7166cc0359f701f",
+      "description": "Fresh post-cutover M3 evidence for wi:f38f18786e174404a76123c80071226e: M3 ran the canonical bounded Inbox maintenance once, it made zero semantic dispositions and all 72 observations remained pending, yet M3 then declared RESULT=PASS/quiescence. META_INFRASTRUCTURE.md exposes reconcile_issue_batch for bounded fresh semantic decisions, so a master goal can still stop after a technical no-op scan without actually triaging even one ambiguous Inbox batch. Ensure master-goal completion requires the requested bounded semantic Inbox pass or explicitly classifies/defer-resolves the scanned batch, rather than treating triage_requested=true with all observations pending as completed processing.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": "wi:f38f18786e174404a76123c80071226e",
+      "origin_run_id": null,
+      "observed_at_ms": 1790933942111,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-02T09:39:02Z"
+    },
+    "issue_work_item_links": []
+  }
+]
+```

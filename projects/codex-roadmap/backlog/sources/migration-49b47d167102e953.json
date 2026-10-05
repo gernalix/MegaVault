@@ -1,0 +1,112 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+      "parent_id": null,
+      "kind": "task",
+      "title": "C2 Activity Digest: notifiche desktop dalle transizioni canoniche",
+      "objective": "Ogni 5 minuti, aggregare tutte le transizioni C2 realmente registrate nel DB/event log dopo un checkpoint persistente per event sequence. Mostrare una sola notifica GNOME/Fedora con le sole coppie from_state→to_state a conteggio positivo, inclusi regressi e issues→task; non notificare finestre senza eventi, non perdere transizioni intermedie, sostituire la precedente notifica se supportato. Installare timer user senza duplicati e testare checkpoint/idempotenza, zero-eventi e conteggi.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": 85,
+      "current_action": "Parked during roadmap semantic reconciliation.",
+      "next_action": "Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.",
+      "blocker": "Deferred pending Symphony migration/replacement decision.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T22:25:10Z",
+      "updated_at": "2026-09-28T06:45:02Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "tag": "c2"
+      },
+      {
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "tag": "notifications"
+      },
+      {
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "tag": "event-history"
+      },
+      {
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1224,
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a1dc56ef3c1444908aca1d951811f47e",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Sì. Per C2 è una buona idea perché ti dà un “heartbeat semantico” senza sommergerti di notifiche.\\n\\nLa imposterei come **digest ogni 5 minuti**, basato sulle transizioni realmente registrate nel DB/event log durante quella finestra. Se il totale delle transizioni è 0, non compare nulla.\\n\\nFormato consigliato:\\n\\n> **C2 — ultimi 5 min**  \\n> 7 issues → task  \\n> 3 blocked → waiting  \\n> 4 waiting → running  \\n> 2 running → completed  \\n> 1 running → blocked\\n\\nMostrerei **solo le righe con valore > 0**, quindi una finestra potrebbe semplicemente dire:\\n\\n> **C2 — ultimi 5 min**  \\n> 6 issues → task  \\n> 3 running → completed\\n\\nTecnicamente farei così:\\n\\n- un piccolo servizio/script che legge le transizioni avvenute dopo lultimo\\n\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:a1dc56ef3c1444908aca1d951811f47e\", \"observed_at_ms\": 1790547506847, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T22:25:10Z"
+      },
+      {
+        "evidence_id": 1226,
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a8e6cbe1855f4934b5f78cbd217c3cfc",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Sì. Per C2 è una buona idea perché ti dà un “heartbeat semantico” senza sommergerti di notifiche.\\n\\nLa imposterei come **digest ogni 5 minuti**, basato sulle transizioni realmente registrate nel DB/event log durante quella finestra. Se il totale delle transizioni è 0, non compare nulla.\\n\\nFormato consigliato:\\n\\n> **C2 — ultimi 5 min**\\n> 7 issues → task\\n> 3 blocked → waiting\\n> 4 waiting → running\\n> 2 running → completed\\n> 1 running → blocked\\n\\nMostrerei **solo le righe con valore > 0**, quindi una finestra potrebbe semplicemente dire:\\n\\n> **C2 — ultimi 5 min**\\n> 6 issues → task\\n> 3 running → completed\\n\\nTecnicamente farei così:\\n\\n- un piccolo servizio/script che legge le transizioni avvenute dopo l'ultimo checkpoint;\\n- aggregazione per coppia `from_state → to_state`;\\n- checkpoint persistente dell'ultimo evento processato, meglio tramite **ID/event sequence**, non solo timestamp;\\n- `notify-send`/D-Bus per la notifica GNOME/Fedora;\\n- `systemd --user timer` ogni 5 minuti;\\n- nessuna notifica se `SUM(count) = 0`;\\n- un'unica notifica cumulativa, non una per transizione.\\n\\nUserei inoltre **tutte le transizioni**, non solo quelle “in avanti”: `running → blocked`, `waiting → discarded`, ecc. sono probabilmente ancora più utili da vedere perché indicano anomalie o cambi di piano.\\n\\nLa parte importante è non ricostruire i cambiamenti confrontando snapshot del DB ogni 5 minuti. Se C2 possiede già, o avrà, un **registro canonico degli eventi/transizioni**, il notifier dovrebbe consumare quello. Così non perdi transizioni intermedie come `waiting → running → completed` avvenute entrambe dentro gli stessi cinque minuti.\\n\\nCome nome la chiamerei qualcosa tipo **C2 Activity Digest**. La farei anche sostituire la precedente notifica ancora visibile invece di accumularne 20 nel notification center, se GNOME/`notify-send` ci permette un replacement ID stabile.\\n\\nDirei che è abbastanza utile da implementare direttamente nella C2.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:a8e6cbe1855f4934b5f78cbd217c3cfc\", \"observed_at_ms\": 1790547541930, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T22:30:04Z"
+      },
+      {
+        "evidence_id": 1443,
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "evidence_kind": "classification",
+        "label": "User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to",
+        "uri": null,
+        "value_json": "\"User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to current roadmap execution and should not compete for slots before the migration decision.\"",
+        "created_at": "2026-09-28T06:45:02Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:a8e6cbe1855f4934b5f78cbd217c3cfc",
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "role": "matched",
+        "created_at": "2026-09-27T22:19:01Z"
+      },
+      {
+        "issue_id": "issue:a1dc56ef3c1444908aca1d951811f47e",
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "role": "decision",
+        "created_at": "2026-09-27T22:18:26Z"
+      },
+      {
+        "issue_id": "issue:a8e6cbe1855f4934b5f78cbd217c3cfc",
+        "work_item_id": "wi:fb1b1feff32b4eec98c4cf244905f007",
+        "role": "decision",
+        "created_at": "2026-09-27T22:19:01Z"
+      }
+    ]
+  }
+]

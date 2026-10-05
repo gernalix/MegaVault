@@ -1,0 +1,60 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:840400641f494b9286706bef4a81da55",
+      "description": "Project identity drift between MegaVault and C3 roadmap snapshot: MegaVault currently maps project_id 104 to grindr-favorites-monitor, 105 to chatgpt-rdc-supervisor, and 106 to grindr-export, while codex-roadmap/roadmap.sqlite maps 104 to chatgpt-rdc-supervisor and has no 105/106. This duplicates the canonical projects registry and creates an ID collision that can misroute project-scoped tasks/metadata. Reconcile from the canonical MegaVault registry and remove or harden the duplicated mutable project registry in C3 so it cannot diverge.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": "chatgpt",
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": "wi:c5bdf708a71d40c5a9902838ab8d8021",
+      "origin_run_id": null,
+      "observed_at_ms": 1790873485718,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T16:51:25Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:a88203fd2a2a4360b69157cf5e6fa2d4",
+      "description": "C3/codex-roadmap usa una copia locale dell'identità progetto divergente da MegaVault: nel snapshot roadmap corrente project_id=104 è chatgpt-rdc-supervisor, mentre nel MegaVault canonico project_id=104 è grindr-favorites-monitor; inoltre MegaVault contiene project_id 105=chatgpt-rdc-supervisor e 106=grindr-export assenti dalla roadmap. Questo può causare routing/provenienza errati per nuovi work item e mostra che la proiezione identity di C3 non è mantenuta sincronizzata.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": "tools/c2_identity.py",
+      "executor": "chatgpt",
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": "wi:c5bdf708a71d40c5a9902838ab8d8021",
+      "origin_run_id": null,
+      "observed_at_ms": 1790873486014,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T16:51:26Z"
+    },
+    "issue_work_item_links": []
+  }
+]

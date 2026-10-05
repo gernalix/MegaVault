@@ -1,0 +1,140 @@
+[
+  {
+    "routing": {
+      "project": "10",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Datasette5: correggere il percorso predefinito degli schemi nei test PersonalHub",
+      "objective": "Aggiornare il percorso schema predefinito usato da tests.test_personalhub_labels: deve puntare a uno schema PersonalHub supportato presente nel checkout Datasette5, così il modulo mirato non richiede PERSONALHUB_SCHEMA_PATH. Verificare il modulo di test; non cambiare il comportamento degli schemi runtime dell’app.",
+      "acceptance_json": "[]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Test default Room schema fixed; guarded integration blocked because GitHub Actions billing prevents CI job startup.",
+      "next_action": "Restore GitHub Actions billing/spending limit; rerun PR #3 CI; integrate via single writer and verify main before PASS.",
+      "blocker": "GitHub Actions billing/spending limit prevents required guarded CI from starting.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/datasette5",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T23:45:34Z",
+      "updated_at": "2026-09-27T23:45:34Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:7e98dee44dae4265ab7b8210cf6a2cc8:a5abdcde62a5ba0e5080f5232652e94d",
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Test default Room schema fixed; guarded integration blocked because GitHub Actions billing prevents CI job startup.",
+        "completed_json": "[\"Executor-start #3367 APPLIED\", \"Commit f3fe967 pushed; PR #3 opened\", \"Supported Room 23 fixture matches PersonalHub remote main\", \"tests.test_personalhub_labels PASS without PERSONALHUB_SCHEMA_PATH; diff check PASS\"]",
+        "remaining_json": "[\"Restore GitHub Actions billing/spending limit and rerun PR #3 check\", \"Complete earlier Datasette5 queue item and integrate PR #3 with single writer\", \"Verify canonical main and submit PASS\"]",
+        "evidence_json": "[\"PR https://github.com/gernalix/datasette5/pull/3\", \"Run https://github.com/gernalix/datasette5/actions/runs/36360490835/job/108736577560\", \"GitHub check annotation: job not started because recent account payments failed or spending limit needs increase; zero steps\", \"Single-writer queue position 2/2, queued-behind-earlier\"]",
+        "blocker": "GitHub Actions billing/spending limit prevents required guarded CI from starting.",
+        "next_action": "Restore GitHub Actions billing/spending limit; rerun PR #3 CI; integrate via single writer and verify main before PASS.",
+        "strict_contract": 1,
+        "payload_sha256": "a5abdcde62a5ba0e5080f5232652e94de2cccad961e8518e3083cff1ded38838",
+        "captured_at": 1790553634.0307155
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1309,
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c285835620cd4b3e9dc94c3aa5edec1b",
+        "uri": "codex://threads/01a0e532-5141-70a3-9070-28488d0159b8",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e532-5141-70a3-9070-28488d0159b8\", \"code_location\": null, \"description\": \"Datasette5 test_personalhub_labels defaults to a hard-coded PersonalHub Room 3 schema path that no longer exists in the current checkout, which contains schemas 21-23; the targeted module fails its schema-file assertion unless PERSONALHUB_SCHEMA_PATH is supplied.\", \"executor\": null, \"executor_ref\": \"01a0e532-5141-70a3-9070-28488d0159b8\", \"issue_id\": \"issue:c285835620cd4b3e9dc94c3aa5edec1b\", \"observed_at_ms\": 1790551862979, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T23:45:34Z"
+      },
+      {
+        "evidence_id": 1320,
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "evidence_kind": "executor_result",
+        "label": "PR https://github.com/gernalix/datasette5/pull/3",
+        "uri": null,
+        "value_json": "\"PR https://github.com/gernalix/datasette5/pull/3\"",
+        "created_at": "2026-09-28T00:00:34Z"
+      },
+      {
+        "evidence_id": 1321,
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "evidence_kind": "executor_result",
+        "label": "Run https://github.com/gernalix/datasette5/actions/runs/36360490835/job/108736577560",
+        "uri": null,
+        "value_json": "\"Run https://github.com/gernalix/datasette5/actions/runs/36360490835/job/108736577560\"",
+        "created_at": "2026-09-28T00:00:34Z"
+      },
+      {
+        "evidence_id": 1322,
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "evidence_kind": "executor_result",
+        "label": "GitHub check annotation: job not started because recent account payments failed or spending limit needs increase; zero s",
+        "uri": null,
+        "value_json": "\"GitHub check annotation: job not started because recent account payments failed or spending limit needs increase; zero steps\"",
+        "created_at": "2026-09-28T00:00:34Z"
+      },
+      {
+        "evidence_id": 1323,
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "evidence_kind": "executor_result",
+        "label": "Single-writer queue position 2/2, queued-behind-earlier",
+        "uri": null,
+        "value_json": "\"Single-writer queue position 2/2, queued-behind-earlier\"",
+        "created_at": "2026-09-28T00:00:34Z"
+      },
+      {
+        "evidence_id": 1329,
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:92454f02f2e6405098bc919a26b79e12",
+        "uri": "codex://threads/01a0e537-e31c-72f0-b82b-71e65e74eae4",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e537-e31c-72f0-b82b-71e65e74eae4\", \"code_location\": null, \"description\": \"Datasette5 PR #3 CI test non parte: GitHub Actions annota failure per recenti pagamenti account falliti o spending limit; il job ha zero step e nessun log. Il test mirato locale passa, ma integrazione guarded resta bloccata finché billing/limit non viene risolto.\", \"executor\": null, \"executor_ref\": \"01a0e537-e31c-72f0-b82b-71e65e74eae4\", \"issue_id\": \"issue:92454f02f2e6405098bc919a26b79e12\", \"observed_at_ms\": 1790553602803, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-28T00:10:46Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:92454f02f2e6405098bc919a26b79e12",
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "role": "matched",
+        "created_at": "2026-09-28T00:00:02Z"
+      },
+      {
+        "issue_id": "issue:c285835620cd4b3e9dc94c3aa5edec1b",
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "role": "decision",
+        "created_at": "2026-09-27T23:31:02Z"
+      },
+      {
+        "issue_id": "issue:92454f02f2e6405098bc919a26b79e12",
+        "work_item_id": "wi:7e98dee44dae4265ab7b8210cf6a2cc8",
+        "role": "decision",
+        "created_at": "2026-09-28T00:00:02Z"
+      }
+    ]
+  }
+]

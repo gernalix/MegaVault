@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:9360aebc12e842babc508c6e4adf33fd",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Mantenere valida la fence durante la coda del writer",
+      "objective": "Correggere il percorso fenced C2 affinché mutation accodate con canonical_renew non scadano prima dell’applicazione writer. Usare una durata lease o un renewal path compatibile con il backlog e dimostrare readback dell’operazione senza indebolire fencing.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T10:16:35Z",
+      "updated_at": "2026-09-30T10:16:35Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:9360aebc12e842babc508c6e4adf33fd",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2153,
+        "work_item_id": "wi:9360aebc12e842babc508c6e4adf33fd",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1363343dea63440e8d9891ef8aa03fc6",
+        "uri": "codex://threads/01a0eeb6-e20d-73c2-b4ea-f3f09d7bb1bd",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0eeb6-e20d-73c2-b4ea-f3f09d7bb1bd\", \"code_location\": null, \"description\": \"C2 fenced control mutations can be rejected as stale_or_expired_supervisor when the roadmap writer processes a queued Issue after the default 180-second local lease expires: issue #6178 was submitted with canonical_renew=True, but the writer reached it about 187 seconds later and rejected it without applying human copy. The current semantic triage run remains fenced locally; long-latency controls need a lease duration or renewal path that survives writer backlog.\", \"executor\": \"chatgpt\", \"executor_ref\": \"01a0eeb6-e20d-73c2-b4ea-f3f09d7bb1bd\", \"issue_id\": \"issue:1363343dea63440e8d9891ef8aa03fc6\", \"observed_at_ms\": 1790713152025, \"origin_run_id\": \"8e134c021b2e4809a95c78bc8535789b\", \"origin_work_item_id\": \"wi:524f72f36ea64c14b04d4b527379db6c\", \"repo\": \"gernalix/codex-roadmap\"}",
+        "created_at": "2026-09-30T10:16:35Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:1363343dea63440e8d9891ef8aa03fc6",
+        "work_item_id": "wi:9360aebc12e842babc508c6e4adf33fd",
+        "role": "decision",
+        "created_at": "2026-09-29T20:19:12Z"
+      }
+    ]
+  }
+]

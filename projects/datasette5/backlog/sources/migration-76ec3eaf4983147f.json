@@ -1,0 +1,1499 @@
+[
+  {
+    "routing": {
+      "project": "10",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Verify recurring Oracle Datasette API Kuma heartbeat alert",
+      "objective": "Check installed Oracle Datasette API service and Kuma monitor65 live status/freshness after this new stale-heartbeat alert. Distinguish a transient gap from a reproducible producer failure, make only an evidenced scoped fix, and record readback or an explicit blocker.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": 12,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T23:07:15Z",
+      "updated_at": "2026-09-27T23:07:15Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "tag": "oracle"
+      },
+      {
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "tag": "datasette"
+      },
+      {
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "tag": "monitor"
+      },
+      {
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "tag": "regression"
+      },
+      {
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "to_work_item_id": "wi:254974c727394f24a0287ebe32e85da8",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-27T23:07:15Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:e1c79971024d2708a45f78cf37ddb69d"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1264,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:e1c79971024d2708a45f78cf37ddb69d",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-27 23:04:51.480 (row 577435)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:e1c79971024d2708a45f78cf37ddb69d\", \"observed_at_ms\": 1790550340807, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T23:07:15Z"
+      },
+      {
+        "evidence_id": 1272,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:13a72ebb99cb08cdd268ac3059a0a11b",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-27 23:07:56.610 (row 577538)\\nFailure context: run_id=20260927T230749Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:13a72ebb99cb08cdd268ac3059a0a11b\", \"observed_at_ms\": 1790550525570, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T23:11:30Z"
+      },
+      {
+        "evidence_id": 1295,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:bf4a06b35fef8f91fd6f3464d455c199",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-27 23:17:59.894 (row 577868)\\nFailure context: run_id=20260927T231755Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:bf4a06b35fef8f91fd6f3464d455c199\", \"observed_at_ms\": 1790551136338, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T23:23:02Z"
+      },
+      {
+        "evidence_id": 1687,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:987891a53601fa8292661ba70891617b",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 08:01:29.973 (row 594793)\\nFailure context: run_id=20260928T080126Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:987891a53601fa8292661ba70891617b\", \"observed_at_ms\": 1790582551725, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T11:02:48Z"
+      },
+      {
+        "evidence_id": 1711,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:24deb9e8673a65e0906f0b8d955d9e65",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 09:32:34.075 (row 597725)\\nFailure context: run_id=20260928T093222Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:24deb9e8673a65e0906f0b8d955d9e65\", \"observed_at_ms\": 1790587988100, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T12:02:01Z"
+      },
+      {
+        "evidence_id": 1721,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:f3d29ed0569ae6bedfe216d2ade02911",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 12:27:26.776 (row 603470)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:f3d29ed0569ae6bedfe216d2ade02911\", \"observed_at_ms\": 1790598501042, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T12:33:54Z"
+      },
+      {
+        "evidence_id": 1723,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1856b836b5285be698ffb963a1cc595b",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 12:32:32.470 (row 603621)\\nFailure context: run_id=20260928T123228Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:1856b836b5285be698ffb963a1cc595b\", \"observed_at_ms\": 1790598821746, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T12:39:36Z"
+      },
+      {
+        "evidence_id": 1734,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:7c2771b6cd3ed86649745166384def64",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 13:51:46.684 (row 606216)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:7c2771b6cd3ed86649745166384def64\", \"observed_at_ms\": 1790603532452, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T13:08:34Z"
+      },
+      {
+        "evidence_id": 1735,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1dfd496ceff5e0ada72527f68529587c",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 14:04:42.287 (row 606634)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:1dfd496ceff5e0ada72527f68529587c\", \"observed_at_ms\": 1790604315008, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T13:10:58Z"
+      },
+      {
+        "evidence_id": 1736,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:470dd36e88f6a909a8fb6f90ea7f9e26",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 14:14:46.484 (row 606960)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:470dd36e88f6a909a8fb6f90ea7f9e26\", \"observed_at_ms\": 1790604922354, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T13:13:39Z"
+      },
+      {
+        "evidence_id": 1761,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d59c5ba501264f5e93cd89a6fc4a9a24",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 16:41:47.173 (row 611765)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d59c5ba501264f5e93cd89a6fc4a9a24\", \"observed_at_ms\": 1790613778512, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T14:17:56Z"
+      },
+      {
+        "evidence_id": 1767,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:4319f61af3b40487b2ac44b13e395572",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 17:02:15.590 (row 612409)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:4319f61af3b40487b2ac44b13e395572\", \"observed_at_ms\": 1790615012962, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T14:39:10Z"
+      },
+      {
+        "evidence_id": 1790,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:6d1ee98f6e17504e9de8ed763f710539",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 18:03:03.599 (row 614420)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:6d1ee98f6e17504e9de8ed763f710539\", \"observed_at_ms\": 1790618614277, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T16:48:33Z"
+      },
+      {
+        "evidence_id": 1839,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:af379c64aba88e3c4f99cb1494f285a3",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 21:27:29.590 (row 621088)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:af379c64aba88e3c4f99cb1494f285a3\", \"observed_at_ms\": 1790630906715, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T19:30:53Z"
+      },
+      {
+        "evidence_id": 1842,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:5b24aebc18afe3d3ac368d653bc94a83",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 21:43:48.704 (row 621619)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:5b24aebc18afe3d3ac368d653bc94a83\", \"observed_at_ms\": 1790631871747, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T19:39:34Z"
+      },
+      {
+        "evidence_id": 1847,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:2227578e5c8678b9d2decc9f2ba7a3b9",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-28 23:02:11.309 (row 624190)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:2227578e5c8678b9d2decc9f2ba7a3b9\", \"observed_at_ms\": 1790636589825, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T19:59:54Z"
+      },
+      {
+        "evidence_id": 1863,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1f774dc47486fe34f18b3c10b393d139",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 00:33:07.281 (row 627150)\\nFailure context: run_id=20260929T003301Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:1f774dc47486fe34f18b3c10b393d139\", \"observed_at_ms\": 1790642042671, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T21:00:49Z"
+      },
+      {
+        "evidence_id": 1877,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:7e7631795c84b342218f40e6b496f8f8",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 02:02:43.902 (row 630057)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:7e7631795c84b342218f40e6b496f8f8\", \"observed_at_ms\": 1790647421382, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T21:48:30Z"
+      },
+      {
+        "evidence_id": 1969,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:7744f566859130a70b689308477ef7d1",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 07:28:32.000 (row 640665)\\nFailure context: run_id=20260929T072829Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:7744f566859130a70b689308477ef7d1\", \"observed_at_ms\": 1790666997589, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T02:05:18Z"
+      },
+      {
+        "evidence_id": 1974,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:086121ad1cefb6f2246c9540b8a84eec",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 07:43:36.686 (row 641157)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:086121ad1cefb6f2246c9540b8a84eec\", \"observed_at_ms\": 1790667867533, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T02:25:52Z"
+      },
+      {
+        "evidence_id": 1989,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:f9a1248b723168d2548a35949aca27ca",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 08:49:31.484 (row 643288)\\nFailure context: run_id=20260929T084920Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:f9a1248b723168d2548a35949aca27ca\", \"observed_at_ms\": 1790671820515, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T03:19:11Z"
+      },
+      {
+        "evidence_id": 2045,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c48b9ad332c629261f4ed001453b2494",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 11:02:45.605 (row 647688)\\nFailure context: run_id=20260929T110226Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c48b9ad332c629261f4ed001453b2494\", \"observed_at_ms\": 1790679842527, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T07:22:31Z"
+      },
+      {
+        "evidence_id": 2058,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:7bb3067fbd0fce5c299f62aca8f33cd7",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 13:43:34.888 (row 652943)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:7bb3067fbd0fce5c299f62aca8f33cd7\", \"observed_at_ms\": 1790689504785, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T08:20:09Z"
+      },
+      {
+        "evidence_id": 2062,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:8b123739e1a96997d1c96e321f7554fc",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 14:03:15.780 (row 653558)\\nFailure context: run_id=20260929T140303Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:8b123739e1a96997d1c96e321f7554fc\", \"observed_at_ms\": 1790690689972, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T08:45:33Z"
+      },
+      {
+        "evidence_id": 2069,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:03dd0db2aa8aee5eec54df83dd0b0e49",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 14:43:04.680 (row 654857)\\nFailure context: run_id=20260929T144301Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:03dd0db2aa8aee5eec54df83dd0b0e49\", \"observed_at_ms\": 1790692992347, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T09:21:24Z"
+      },
+      {
+        "evidence_id": 2164,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:954d7244728c213f2a13f7507dcbc00e",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 22:54:50.796 (row 670845)\\nFailure context: run_id=20260929T225445Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:954d7244728c213f2a13f7507dcbc00e\", \"observed_at_ms\": 1790722530465, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:23:46Z"
+      },
+      {
+        "evidence_id": 2169,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:4a5fcae87ce1107f1a3365b526463fa8",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-29 23:28:04.381 (row 671919)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:4a5fcae87ce1107f1a3365b526463fa8\", \"observed_at_ms\": 1790724550419, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:25:45Z"
+      },
+      {
+        "evidence_id": 2175,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:896226c78147b7df55b9b32fc3cd4111",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 00:06:22.374 (row 673167)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:896226c78147b7df55b9b32fc3cd4111\", \"observed_at_ms\": 1790726862045, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:25:45Z"
+      },
+      {
+        "evidence_id": 2243,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:ee6d1fe923a37deffe1a59500d58343d",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 06:34:00.477 (row 685703)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:ee6d1fe923a37deffe1a59500d58343d\", \"observed_at_ms\": 1790750099023, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T11:54:00Z"
+      },
+      {
+        "evidence_id": 2273,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:bf75ea0f460b7cdc7ebce44662d1999a",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 08:04:46.978 (row 688675)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:bf75ea0f460b7cdc7ebce44662d1999a\", \"observed_at_ms\": 1790755526442, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:10:08Z"
+      },
+      {
+        "evidence_id": 2274,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:588c5aadbeeee1b3a0543037663f1217",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 08:19:32.891 (row 689160)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:588c5aadbeeee1b3a0543037663f1217\", \"observed_at_ms\": 1790756409438, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:10:08Z"
+      },
+      {
+        "evidence_id": 2390,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:753be1a9d5366af97c1bf60215fa3707",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 12:33:59.580 (row 697419)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:753be1a9d5366af97c1bf60215fa3707\", \"observed_at_ms\": 1790771754731, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T13:51:11Z"
+      },
+      {
+        "evidence_id": 2393,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d1ccb125b243f0eb4e897202ce15f633",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 12:52:22.270 (row 697984)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d1ccb125b243f0eb4e897202ce15f633\", \"observed_at_ms\": 1790772789979, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T13:51:11Z"
+      },
+      {
+        "evidence_id": 2395,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:3406dc490901bc5a566bf8af336bd205",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Service · user:workflowy-roadmap-sync.service (id 63)\\nHeartbeat: 2026-09-30 13:07:22.670 (row 698491)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:3406dc490901bc5a566bf8af336bd205\", \"observed_at_ms\": 1790773716268, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T13:51:11Z"
+      },
+      {
+        "evidence_id": 2432,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:aebb59b860d0e8bc8ad1fdaebfa1d502",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 14:45:19.994 (row 701665)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:aebb59b860d0e8bc8ad1fdaebfa1d502\", \"observed_at_ms\": 1790779687440, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:26:58Z"
+      },
+      {
+        "evidence_id": 2433,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c09b2b36a963fb9c7bed1d85a3ee9ece",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 15:33:21.715 (row 703226)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c09b2b36a963fb9c7bed1d85a3ee9ece\", \"observed_at_ms\": 1790782518387, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:26:58Z"
+      },
+      {
+        "evidence_id": 2434,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:5f5424b1bbecfd55612da3fb0e088d1c",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 15:58:01.579 (row 704036)\\nFailure context: run_id=20260930T155745Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:5f5424b1bbecfd55612da3fb0e088d1c\", \"observed_at_ms\": 1790783988767, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:26:58Z"
+      },
+      {
+        "evidence_id": 2511,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:3b57cca2f5de189a54af5da6e6ea5cc9",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 18:33:35.775 (row 709067)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:3b57cca2f5de189a54af5da6e6ea5cc9\", \"observed_at_ms\": 1790793263777, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T12:32:14Z"
+      },
+      {
+        "evidence_id": 2531,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:8084455caacf9c6edac4456bff119c3e",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 20:04:13.582 (row 711993)\\nFailure context: run_id=20260930T200405Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:8084455caacf9c6edac4456bff119c3e\", \"observed_at_ms\": 1790798681198, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "evidence_id": 2532,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:f2348baff68c38bbf09bbde1b9136949",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 22:40:28.669 (row 717071)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:f2348baff68c38bbf09bbde1b9136949\", \"observed_at_ms\": 1790808113029, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "evidence_id": 2533,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:0b36f25201f40fbe56cee9114f5bbf69",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 23:01:49.792 (row 717755)\\nFailure context: run_id=20260930T230146Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:0b36f25201f40fbe56cee9114f5bbf69\", \"observed_at_ms\": 1790809433998, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "evidence_id": 2534,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:6f762c7bb582cb6d424c21ab789b4f12",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-10-01 00:21:44.871 (row 720351)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:6f762c7bb582cb6d424c21ab789b4f12\", \"observed_at_ms\": 1790814189734, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "evidence_id": 2535,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1d371205e2cb3440a85b92912091696a",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-10-01 00:33:15.567 (row 720712)\\nFailure context: run_id=20261001T003302Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:1d371205e2cb3440a85b92912091696a\", \"observed_at_ms\": 1790814839649, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "evidence_id": 2567,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:e80c728534dbac502fe0464b7ed10416",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-10-01 03:33:27.686 (row 726542)\\nFailure context: run_id=20261001T033319Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:e80c728534dbac502fe0464b7ed10416\", \"observed_at_ms\": 1790825756088, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "evidence_id": 2568,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:73084fe73c4bc772d27e0536a35d8574",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-10-01 05:01:30.875 (row 729400)\\nFailure context: run_id=20261001T050123Z; HTTP probe failed: HTTPError\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:73084fe73c4bc772d27e0536a35d8574\", \"observed_at_ms\": 1790831000977, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "evidence_id": 2569,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:0e672803daaecff6c5eea886a7bc1592",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-10-01 06:42:57.283 (row 732681)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:0e672803daaecff6c5eea886a7bc1592\", \"observed_at_ms\": 1790837012115, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "evidence_id": 2570,
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:cc15a52458414c2cfd141b074ea8b159",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-10-01 07:05:14.089 (row 733391)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:cc15a52458414c2cfd141b074ea8b159\", \"observed_at_ms\": 1790838480719, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T13:25:00Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:13a72ebb99cb08cdd268ac3059a0a11b",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-27T23:08:45Z"
+      },
+      {
+        "issue_id": "issue:bf4a06b35fef8f91fd6f3464d455c199",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-27T23:18:56Z"
+      },
+      {
+        "issue_id": "issue:987891a53601fa8292661ba70891617b",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T08:02:31Z"
+      },
+      {
+        "issue_id": "issue:24deb9e8673a65e0906f0b8d955d9e65",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T09:33:08Z"
+      },
+      {
+        "issue_id": "issue:f3d29ed0569ae6bedfe216d2ade02911",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T12:28:21Z"
+      },
+      {
+        "issue_id": "issue:1856b836b5285be698ffb963a1cc595b",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T12:33:41Z"
+      },
+      {
+        "issue_id": "issue:7c2771b6cd3ed86649745166384def64",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T13:52:12Z"
+      },
+      {
+        "issue_id": "issue:1dfd496ceff5e0ada72527f68529587c",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T14:05:15Z"
+      },
+      {
+        "issue_id": "issue:470dd36e88f6a909a8fb6f90ea7f9e26",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T14:15:22Z"
+      },
+      {
+        "issue_id": "issue:d59c5ba501264f5e93cd89a6fc4a9a24",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T16:42:58Z"
+      },
+      {
+        "issue_id": "issue:4319f61af3b40487b2ac44b13e395572",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T17:03:32Z"
+      },
+      {
+        "issue_id": "issue:6d1ee98f6e17504e9de8ed763f710539",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T18:03:34Z"
+      },
+      {
+        "issue_id": "issue:af379c64aba88e3c4f99cb1494f285a3",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T21:28:26Z"
+      },
+      {
+        "issue_id": "issue:5b24aebc18afe3d3ac368d653bc94a83",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T21:44:31Z"
+      },
+      {
+        "issue_id": "issue:2227578e5c8678b9d2decc9f2ba7a3b9",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-28T23:03:09Z"
+      },
+      {
+        "issue_id": "issue:1f774dc47486fe34f18b3c10b393d139",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T00:34:02Z"
+      },
+      {
+        "issue_id": "issue:7e7631795c84b342218f40e6b496f8f8",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T02:03:41Z"
+      },
+      {
+        "issue_id": "issue:7744f566859130a70b689308477ef7d1",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T07:29:57Z"
+      },
+      {
+        "issue_id": "issue:086121ad1cefb6f2246c9540b8a84eec",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T07:44:27Z"
+      },
+      {
+        "issue_id": "issue:f9a1248b723168d2548a35949aca27ca",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T08:50:20Z"
+      },
+      {
+        "issue_id": "issue:c48b9ad332c629261f4ed001453b2494",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T11:04:02Z"
+      },
+      {
+        "issue_id": "issue:7bb3067fbd0fce5c299f62aca8f33cd7",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T13:45:04Z"
+      },
+      {
+        "issue_id": "issue:8b123739e1a96997d1c96e321f7554fc",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T14:04:49Z"
+      },
+      {
+        "issue_id": "issue:03dd0db2aa8aee5eec54df83dd0b0e49",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T14:43:12Z"
+      },
+      {
+        "issue_id": "issue:954d7244728c213f2a13f7507dcbc00e",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T22:55:30Z"
+      },
+      {
+        "issue_id": "issue:4a5fcae87ce1107f1a3365b526463fa8",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-29T23:29:10Z"
+      },
+      {
+        "issue_id": "issue:896226c78147b7df55b9b32fc3cd4111",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-30T00:07:42Z"
+      },
+      {
+        "issue_id": "issue:ee6d1fe923a37deffe1a59500d58343d",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-30T06:34:59Z"
+      },
+      {
+        "issue_id": "issue:bf75ea0f460b7cdc7ebce44662d1999a",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-30T08:05:26Z"
+      },
+      {
+        "issue_id": "issue:588c5aadbeeee1b3a0543037663f1217",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-30T08:20:09Z"
+      },
+      {
+        "issue_id": "issue:753be1a9d5366af97c1bf60215fa3707",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-30T12:35:54Z"
+      },
+      {
+        "issue_id": "issue:d1ccb125b243f0eb4e897202ce15f633",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-30T12:53:09Z"
+      },
+      {
+        "issue_id": "issue:3406dc490901bc5a566bf8af336bd205",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-09-30T13:08:36Z"
+      },
+      {
+        "issue_id": "issue:e1c79971024d2708a45f78cf37ddb69d",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-27T23:05:40Z"
+      },
+      {
+        "issue_id": "issue:13a72ebb99cb08cdd268ac3059a0a11b",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-27T23:08:45Z"
+      },
+      {
+        "issue_id": "issue:bf4a06b35fef8f91fd6f3464d455c199",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-27T23:18:56Z"
+      },
+      {
+        "issue_id": "issue:987891a53601fa8292661ba70891617b",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T08:02:31Z"
+      },
+      {
+        "issue_id": "issue:24deb9e8673a65e0906f0b8d955d9e65",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T09:33:08Z"
+      },
+      {
+        "issue_id": "issue:f3d29ed0569ae6bedfe216d2ade02911",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T12:28:21Z"
+      },
+      {
+        "issue_id": "issue:1856b836b5285be698ffb963a1cc595b",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T12:33:41Z"
+      },
+      {
+        "issue_id": "issue:7c2771b6cd3ed86649745166384def64",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T13:52:12Z"
+      },
+      {
+        "issue_id": "issue:1dfd496ceff5e0ada72527f68529587c",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T14:05:15Z"
+      },
+      {
+        "issue_id": "issue:470dd36e88f6a909a8fb6f90ea7f9e26",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T14:15:22Z"
+      },
+      {
+        "issue_id": "issue:d59c5ba501264f5e93cd89a6fc4a9a24",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T16:42:58Z"
+      },
+      {
+        "issue_id": "issue:4319f61af3b40487b2ac44b13e395572",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T17:03:32Z"
+      },
+      {
+        "issue_id": "issue:6d1ee98f6e17504e9de8ed763f710539",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T18:03:34Z"
+      },
+      {
+        "issue_id": "issue:af379c64aba88e3c4f99cb1494f285a3",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T21:28:26Z"
+      },
+      {
+        "issue_id": "issue:5b24aebc18afe3d3ac368d653bc94a83",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T21:44:31Z"
+      },
+      {
+        "issue_id": "issue:2227578e5c8678b9d2decc9f2ba7a3b9",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-28T23:03:09Z"
+      },
+      {
+        "issue_id": "issue:1f774dc47486fe34f18b3c10b393d139",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T00:34:02Z"
+      },
+      {
+        "issue_id": "issue:7e7631795c84b342218f40e6b496f8f8",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T02:03:41Z"
+      },
+      {
+        "issue_id": "issue:7744f566859130a70b689308477ef7d1",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T07:29:57Z"
+      },
+      {
+        "issue_id": "issue:086121ad1cefb6f2246c9540b8a84eec",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T07:44:27Z"
+      },
+      {
+        "issue_id": "issue:f9a1248b723168d2548a35949aca27ca",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T08:50:20Z"
+      },
+      {
+        "issue_id": "issue:c48b9ad332c629261f4ed001453b2494",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T11:04:02Z"
+      },
+      {
+        "issue_id": "issue:7bb3067fbd0fce5c299f62aca8f33cd7",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T13:45:04Z"
+      },
+      {
+        "issue_id": "issue:8b123739e1a96997d1c96e321f7554fc",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T14:04:49Z"
+      },
+      {
+        "issue_id": "issue:03dd0db2aa8aee5eec54df83dd0b0e49",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T14:43:12Z"
+      },
+      {
+        "issue_id": "issue:954d7244728c213f2a13f7507dcbc00e",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T22:55:30Z"
+      },
+      {
+        "issue_id": "issue:4a5fcae87ce1107f1a3365b526463fa8",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-29T23:29:10Z"
+      },
+      {
+        "issue_id": "issue:896226c78147b7df55b9b32fc3cd4111",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T00:07:42Z"
+      },
+      {
+        "issue_id": "issue:ee6d1fe923a37deffe1a59500d58343d",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T06:34:59Z"
+      },
+      {
+        "issue_id": "issue:bf75ea0f460b7cdc7ebce44662d1999a",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T08:05:26Z"
+      },
+      {
+        "issue_id": "issue:588c5aadbeeee1b3a0543037663f1217",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T08:20:09Z"
+      },
+      {
+        "issue_id": "issue:753be1a9d5366af97c1bf60215fa3707",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T12:35:54Z"
+      },
+      {
+        "issue_id": "issue:d1ccb125b243f0eb4e897202ce15f633",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T12:53:09Z"
+      },
+      {
+        "issue_id": "issue:3406dc490901bc5a566bf8af336bd205",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T13:08:36Z"
+      },
+      {
+        "issue_id": "issue:aebb59b860d0e8bc8ad1fdaebfa1d502",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T16:26:58Z"
+      },
+      {
+        "issue_id": "issue:c09b2b36a963fb9c7bed1d85a3ee9ece",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T16:26:58Z"
+      },
+      {
+        "issue_id": "issue:5f5424b1bbecfd55612da3fb0e088d1c",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-09-30T16:26:58Z"
+      },
+      {
+        "issue_id": "issue:3b57cca2f5de189a54af5da6e6ea5cc9",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T12:32:14Z"
+      },
+      {
+        "issue_id": "issue:3b57cca2f5de189a54af5da6e6ea5cc9",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T12:32:14Z"
+      },
+      {
+        "issue_id": "issue:8084455caacf9c6edac4456bff119c3e",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:8084455caacf9c6edac4456bff119c3e",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:f2348baff68c38bbf09bbde1b9136949",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:f2348baff68c38bbf09bbde1b9136949",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:0b36f25201f40fbe56cee9114f5bbf69",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:0b36f25201f40fbe56cee9114f5bbf69",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:6f762c7bb582cb6d424c21ab789b4f12",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:6f762c7bb582cb6d424c21ab789b4f12",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:1d371205e2cb3440a85b92912091696a",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:1d371205e2cb3440a85b92912091696a",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:04:28Z"
+      },
+      {
+        "issue_id": "issue:e80c728534dbac502fe0464b7ed10416",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "issue_id": "issue:e80c728534dbac502fe0464b7ed10416",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "issue_id": "issue:73084fe73c4bc772d27e0536a35d8574",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "issue_id": "issue:73084fe73c4bc772d27e0536a35d8574",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "issue_id": "issue:0e672803daaecff6c5eea886a7bc1592",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "issue_id": "issue:0e672803daaecff6c5eea886a7bc1592",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "issue_id": "issue:cc15a52458414c2cfd141b074ea8b159",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "decision",
+        "created_at": "2026-10-01T13:25:00Z"
+      },
+      {
+        "issue_id": "issue:cc15a52458414c2cfd141b074ea8b159",
+        "work_item_id": "wi:862b055b7d354891bf6a25ea47c5904a",
+        "role": "matched",
+        "created_at": "2026-10-01T13:25:00Z"
+      }
+    ]
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:f3b17931e7ca4d01b61c5dbe66e6db0c",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-09-30 08:40:52.359 (row",
+      "objective": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-09-30 08:40:52.359 (row 689840)\nFailure context: No heartbeat in the time window",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:21:51Z",
+      "updated_at": "2026-09-30T12:21:51Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:f3b17931e7ca4d01b61c5dbe66e6db0c",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2288,
+        "work_item_id": "wi:f3b17931e7ca4d01b61c5dbe66e6db0c",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:e79ba10d532745816bc439c56b5857c7",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 08:40:52.359 (row 689840)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:e79ba10d532745816bc439c56b5857c7\", \"observed_at_ms\": 1790757783549, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:21:51Z"
+      },
+      {
+        "evidence_id": 2404,
+        "work_item_id": "wi:f3b17931e7ca4d01b61c5dbe66e6db0c",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:089b939b20793493d96b7b5f0c8dd6cd",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Oracle Datasette API (id 65)\\nHeartbeat: 2026-09-30 14:03:43.812 (row 700330)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:089b939b20793493d96b7b5f0c8dd6cd\", \"observed_at_ms\": 1790777033980, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T14:09:28Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:e79ba10d532745816bc439c56b5857c7",
+        "work_item_id": "wi:f3b17931e7ca4d01b61c5dbe66e6db0c",
+        "role": "decision",
+        "created_at": "2026-09-30T08:43:03Z"
+      },
+      {
+        "issue_id": "issue:089b939b20793493d96b7b5f0c8dd6cd",
+        "work_item_id": "wi:f3b17931e7ca4d01b61c5dbe66e6db0c",
+        "role": "decision",
+        "created_at": "2026-09-30T14:09:28Z"
+      }
+    ]
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:7a6a9ce2c1a0310f43ea5298708586d9",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 08:27:46.680 (row 736037)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790843426766,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T08:30:26Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:51cbbaa4108f6921f4b346228c78dad2",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 08:35:54.298 (row 736288)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790843863925,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T08:37:43Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:8482c70f472b8e52bc307ad5301d688d",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 10:02:09.990 (row 739067)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790849057239,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T10:04:17Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:66be22f35d0479f46241fb49e59e1ce5",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 11:34:40.468 (row 742073)\nFailure context: run_id=20261001T113430Z; HTTP probe failed: HTTPError",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790854554512,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T11:35:54Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:4f946423ab27a33a3eb53c5daa67b6ec",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 11:43:32.883 (row 742365)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790855182939,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T11:46:22Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:78c0713bbb381cad04913a529e8d47b2",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 13:04:26.187 (row 744951)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790860029285,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T13:07:09Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:ff0c7f95deed9dbae0874acf91cd4a9f",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 13:51:02.171 (row 746466)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790862750823,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T13:52:30Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:fa03eae97151cb4e70b63502a3697832",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 14:34:11.779 (row 747874)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790865372309,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T14:36:12Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:bb02e0e04a2530699a32b2e821adf75b",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 14:52:47.686 (row 748490)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790866519674,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T14:55:19Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:ac5e406eecd4f75526a7c38db65e61fe",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 15:02:01.383 (row 748794)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790867064058,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T15:04:24Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:7f1e42893082035764419b31142b15bb",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 17:32:18.183 (row 753705)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790875967863,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T17:32:47Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:226ad7292d767e4c2694f80ef316397f",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 18:02:51.399 (row 754735)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790877785991,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T18:03:05Z"
+    },
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "10",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "10"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:2f691be6a9ca77bfa7d3b9e0586499b1",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Oracle Datasette API (id 65)\nHeartbeat: 2026-10-01 20:09:52.199 (row 758669)\nFailure context: run_id=20261001T200948Z; HTTP probe failed: HTTPError",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790885418278,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T20:10:18Z"
+    },
+    "issue_work_item_links": []
+  }
+]

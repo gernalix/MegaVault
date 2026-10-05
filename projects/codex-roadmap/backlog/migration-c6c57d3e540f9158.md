@@ -1,0 +1,239 @@
+# Distinguish C2/C3 tick renewal and replay ACKs from actual dispatch progress
+
+<!-- migration-c6c57d3e540f9158 -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:69dac07b112f4416be53c5400b568c73`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Distinguish C2/C3 tick renewal and replay ACKs from actual dispatch progress
+
+A successful runtime tick can renew or replay an ACK without dispatching C3, while duplicate replay ACKs obscure whether progress occurred. Make tick and status outcomes state explicitly whether a new executor or turn started and keep replay acknowledgment distinct from dispatch progress.
+
+Acceptance:
+
+- A successful tick that performs no new dispatch is explicitly reported as no dispatch progress.
+- Replay or idempotent ACK outcomes are distinguishable from a newly started executor or turn.
+- Focused coverage verifies tick output for renewal-only, replay ACK, and actual dispatch outcomes.
+
+status: pending
+
+current_action: Pre-dispatch Symphony claim released: Released pre-dispatch to honor explicit user selection of the first real non-meta batch.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Distinguish C2/C3 tick renewal and replay ACKs from actual dispatch progress",
+      "objective": "A successful runtime tick can renew or replay an ACK without dispatching C3, while duplicate replay ACKs obscure whether progress occurred. Make tick and status outcomes state explicitly whether a new executor or turn started and keep replay acknowledgment distinct from dispatch progress.",
+      "acceptance_json": "[\"A successful tick that performs no new dispatch is explicitly reported as no dispatch progress.\", \"Replay or idempotent ACK outcomes are distinguishable from a newly started executor or turn.\", \"Focused coverage verifies tick output for renewal-only, replay ACK, and actual dispatch outcomes.\"]",
+      "status": "pending",
+      "executor_policy": "codex",
+      "sort_order": null,
+      "current_action": "Pre-dispatch Symphony claim released: Released pre-dispatch to honor explicit user selection of the first real non-meta batch.",
+      "next_action": null,
+      "blocker": null,
+      "project_id": "51",
+      "project_name": "codex-roadmap",
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": "968123",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T17:18:01Z",
+      "updated_at": "2026-10-02T23:24:41Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "968123",
+        "slug": "distinguish-c2-c3-tick-renewal-and-replay-acks-f-968123",
+        "chat_guidance": null,
+        "prompt_type": "Prompt",
+        "model": "gpt-5.6-sol",
+        "reasoning": "medium",
+        "megavault_mode": null,
+        "campaign_id": null,
+        "explanation": "",
+        "current_path": "prompts/distinguish-c2-c3-tick-renewal-and-replay-acks-f-968123.md",
+        "materialization_sha256": "4da45f78f3bea3ed475b0ae5ca307551e9dafcaed6058343c5123bf219410ed2",
+        "created_at": "2026-10-02T11:03:40Z",
+        "updated_at": "2026-10-02T11:03:40Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "968123",
+        "body": "PROMPT_ID=968123\n\n# Distinguish C2/C3 tick renewal and replay ACKs from actual dispatch progress\n\n## Objective\nA successful runtime tick can renew or replay an ACK without dispatching C3, while duplicate replay ACKs obscure whether progress occurred. Make tick and status outcomes state explicitly whether a new executor or turn started and keep replay acknowledgment distinct from dispatch progress.\n\n## Acceptance criteria\n- A successful tick that performs no new dispatch is explicitly reported as no dispatch progress.\n- Replay or idempotent ACK outcomes are distinguishable from a newly started executor or turn.\n- Focused coverage verifies tick output for renewal-only, replay ACK, and actual dispatch outcomes.\n",
+        "sha256": "4da45f78f3bea3ed475b0ae5ca307551e9dafcaed6058343c5123bf219410ed2",
+        "created_at": "2026-10-02T11:03:40Z",
+        "actor": "c2-intake"
+      }
+    ],
+    "analyses": [],
+    "executions": [],
+    "status_history": [
+      {
+        "history_id": 1138,
+        "prompt_id": "968123",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-10-02T11:03:40Z",
+        "actor": "c2-intake",
+        "note": "work item materialized for Codex"
+      },
+      {
+        "history_id": 1139,
+        "prompt_id": "968123",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-10-02T11:18:42Z",
+        "actor": "c2-scheduler",
+        "note": null
+      },
+      {
+        "history_id": 1141,
+        "prompt_id": "968123",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-10-02T23:23:07Z",
+        "actor": "c2-scheduler",
+        "note": null
+      },
+      {
+        "history_id": 1142,
+        "prompt_id": "968123",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-10-02T23:24:41Z",
+        "actor": "c2-scheduler",
+        "note": null
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "tag": "c2"
+      },
+      {
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "tag": "c3"
+      },
+      {
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "tag": "runtime"
+      },
+      {
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "tag": "idempotency"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2464,
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:6313c7ba58aa47babd41a604fc733ca1",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"C2/C3 tick progress ambiguity observed in the 2026-09-30 acceleration chat. After request_key_conflict was cleared, a runtime tick could succeed only by renewing/re-ACKing the run without actually dispatching C3; triage also emitted duplicate replay ACKs. A successful tick therefore did not prove work progress. Separate replay/idempotent ACK from dispatch/progress receipts and make status/tick output state explicitly whether a new executor/turn started.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:6313c7ba58aa47babd41a604fc733ca1\", \"observed_at_ms\": 1790784485696, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T17:18:01Z"
+      },
+      {
+        "evidence_id": 2495,
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:e7b71505a2ed4ae7bb29147c6ae0597a",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"C2 watchdog pause-condition bug observed in the acceleration chat: the presence of a live Inbox-triage worker was sufficient to keep the Master Goal paused. This conflates existence of an unrelated executor with a true resource/ownership conflict. Pause and dispatch gating should depend on canonical resource conflicts, goal ownership and progress, not merely on whether any maintenance executor is live.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:e7b71505a2ed4ae7bb29147c6ae0597a\", \"observed_at_ms\": 1790784762477, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ],
+    "work_item_runs": [
+      {
+        "run_id": "45358efb73a546e0bf0901ae949d2b98",
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "event_key": "c2-schedule-0324e934caeb31cc7045d05b7ce75566",
+        "attempt": 1,
+        "executor": "symphony",
+        "state": "failed",
+        "lease_until": 1790940042.4459846,
+        "worker_ref": "c3-run:45358efb73a546e0bf0901ae949d2b98",
+        "checkpoint_commit": null,
+        "metadata_json": "{\"activity\": \"coding\", \"command_json\": null, \"executor\": \"symphony\", \"goal_mode\": 0, \"max_attempts\": 3, \"model\": \"gpt-5.6-sol\", \"model_id\": \"gpt-5.6-sol\", \"project_url\": null, \"prompt_id\": \"968123\", \"reasoning\": \"medium\", \"reasoning_effort\": \"medium\", \"repo\": \"gernalix/codex-roadmap\", \"resources_json\": \"[]\", \"symphony_route\": {\"mode\": \"production\", \"source_repos\": [\"gernalix/codex-roadmap\"], \"tracker_repo\": \"gernalix/c3-symphony\"}, \"work_item_id\": \"wi:69dac07b112f4416be53c5400b568c73\", \"worktree\": \"/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_codex-roadmap/968123\"}",
+        "created_at": 1790939922.4364412
+      },
+      {
+        "run_id": "7b8ec1acc7ac486b8bf98e36a24742c8",
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "event_key": "c2-schedule-53614231e73f01dc78e0c0021b89df54",
+        "attempt": 2,
+        "executor": "symphony",
+        "state": "failed",
+        "lease_until": 1790983507.8965068,
+        "worker_ref": "c3-run:7b8ec1acc7ac486b8bf98e36a24742c8",
+        "checkpoint_commit": null,
+        "metadata_json": "{\"activity\": \"coding\", \"command_json\": null, \"executor\": \"symphony\", \"goal_mode\": 0, \"max_attempts\": 3, \"model\": \"gpt-5.6-sol\", \"model_id\": \"gpt-5.6-sol\", \"project_url\": null, \"prompt_id\": \"968123\", \"reasoning\": \"medium\", \"reasoning_effort\": \"medium\", \"repo\": \"gernalix/codex-roadmap\", \"resources_json\": \"[]\", \"symphony_route\": {\"mode\": \"production\", \"source_repos\": [\"gernalix/codex-roadmap\"], \"tracker_repo\": \"gernalix/c3-symphony\"}, \"work_item_id\": \"wi:69dac07b112f4416be53c5400b568c73\", \"worktree\": \"/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_codex-roadmap/968123\"}",
+        "created_at": 1790983387.886599
+      },
+      {
+        "run_id": "e7ca08c931d24938a13a9239ea310aaa",
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "event_key": "c2-schedule-9c8ff9533d69bfe38bae4e0c3a47b2cd",
+        "attempt": 3,
+        "executor": "symphony",
+        "state": "failed",
+        "lease_until": 1790983601.6113648,
+        "worker_ref": "c3-run:e7ca08c931d24938a13a9239ea310aaa",
+        "checkpoint_commit": null,
+        "metadata_json": "{\"activity\": \"coding\", \"command_json\": null, \"executor\": \"symphony\", \"goal_mode\": 0, \"max_attempts\": 3, \"model\": \"gpt-5.6-sol\", \"model_id\": \"gpt-5.6-sol\", \"project_url\": null, \"prompt_id\": \"968123\", \"reasoning\": \"medium\", \"reasoning_effort\": \"medium\", \"repo\": \"gernalix/codex-roadmap\", \"resources_json\": \"[]\", \"symphony_route\": {\"mode\": \"production\", \"source_repos\": [\"gernalix/codex-roadmap\"], \"tracker_repo\": \"gernalix/c3-symphony\"}, \"work_item_id\": \"wi:69dac07b112f4416be53c5400b568c73\", \"worktree\": \"/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_codex-roadmap/968123\"}",
+        "created_at": 1790983481.601086
+      }
+    ],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:6313c7ba58aa47babd41a604fc733ca1",
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "role": "decision",
+        "created_at": "2026-09-30T17:18:01Z"
+      },
+      {
+        "issue_id": "issue:e7b71505a2ed4ae7bb29147c6ae0597a",
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "role": "decision",
+        "created_at": "2026-10-01T12:32:14Z"
+      },
+      {
+        "issue_id": "issue:e7b71505a2ed4ae7bb29147c6ae0597a",
+        "work_item_id": "wi:69dac07b112f4416be53c5400b568c73",
+        "role": "matched",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ]
+  }
+]
+```

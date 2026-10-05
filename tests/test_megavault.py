@@ -53,10 +53,10 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_protocol_semantic_guard_detects_critical_removal(self):
         text = PROTOCOL.read_text(encoding="utf-8")
-        broken = text.replace("authority_prompt_id=C3", "", 1)
+        broken = text.replace("authority_execution=local_task_state", "", 1)
         errors = megavault.protocol_semantic_errors(broken)
         self.assertIn(
-            "protocol_semantic_missing:authority_boundaries:authority_prompt_id=C3",
+            "protocol_semantic_missing:authority_boundaries:authority_execution=local_task_state",
             errors,
         )
 
