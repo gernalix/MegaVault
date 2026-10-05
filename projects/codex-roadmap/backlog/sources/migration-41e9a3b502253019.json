@@ -1,0 +1,31 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:e601303d612a414990e3831971c59dac",
+      "description": "Eliminare completamente la dashboard Workflowy legacy dalla C3 e sostituirla con la nuova dashboard batch-centric. La rimozione deve includere codice applicativo, UI/proiezioni Workflowy, sincronizzazione, meccanismi di ordinamento/manual_order legati a Workflowy, servizi/timer/worker dedicati, integrazioni e componenti ormai non più utilizzati. Migrare prima qualunque funzione ancora necessaria nella nuova dashboard batch-centric; poi rimuovere dead code, configurazioni, test e documentazione obsoleti, verificando che nessun runtime C3 dipenda ancora da Workflowy. Acceptance: la gestione operativa C3 avviene tramite la dashboard batch-centric; Workflowy non è più richiesto né come controller né come mirror operativo; nessun componente legacy resta attivo o referenziato salvo eventuale storico statico esplicitamente giustificato.",
+      "repo": "codex-roadmap",
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790857097799,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T12:18:17Z"
+    },
+    "issue_work_item_links": []
+  }
+]

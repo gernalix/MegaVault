@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "106",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "106"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:f18ca8f13c314a27a34ee810c14cf973",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Esportare le immagini ricevute nelle chat Grindr",
+      "objective": "Integrare nell’export chat il recupero dei byte immagine da currentSrc, con download diretto e fallback sicuro alla cache Chrome quando l’URL firmato è scaduto; conservare metadati e hash senza screenshot o ricodifica.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/grindr-export",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T10:23:46Z",
+      "updated_at": "2026-09-30T10:23:46Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:f18ca8f13c314a27a34ee810c14cf973",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2161,
+        "work_item_id": "wi:f18ca8f13c314a27a34ee810c14cf973",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:117556e673a343ecb9ad876b106204cf",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Documentare e integrare nel flusso di export delle chat Grindr il metodo corretto, verificato il 2026-09-29, per recuperare i byte dell'immagine ricevuta senza screenshot.\\n\\nFlusso verificato:\\n1. Collegarsi al Chrome normale autenticato tramite il channel bridge RDC/Playwright già approvato, usando l'endpoint in ~/.local/state/chatgpt-rdc-supervisor/channel-endpoint.json.\\n2. Con Playwright connect_over_cdp(endpoint, no_defaults=True), trovare la pagina https://web.grindr.com/chat.\\n3. Nel DOM individuare l'immagine della chat attualmente aperta tra document.images. Nel caso verificato l'immagine ricevuta era un <img> con src/currentSrc su d3lyqctnm3b6pb.cloudfront.net, natural size 473x1024, visualizzata grande nel pannello chat. Le immagini profilo usano invece cdns.grindr.com/images/profile/...; quindi non confonderle.\\n4. Tentare il fetch del currentSrc può fallire con 403 AccessDenied perché l'URL CloudFront firmato può risultare già scaduto/non riutilizzabile anche mentre l'immagine è ancora renderizzata.\\n5. Fallback corretto e riuscito: cercare la chiave/hash finale del currentSrc nella Chrome HTTP cache del profilo normale, in ~/.cache/google-chrome/Default/Cache/Cache_Data/. Nel caso verificato grep ha trovato un cache entry contenente sia URL sia payload.\\n6. Estrarre dal cache entry il flusso immagine reale cercando i marker JPEG: start = primo FF D8 FF, end = FF D9 incluso. Scrivere solo quei byte su file .jpg. Questo ha prodotto un JPEG valido identico ai byte serviti al browser, senza screenshot o nuova ricodifica.\\n7. Validare il risultato con decoder/Pillow o exiftool e calcolare hash SHA-256. Nel caso verificato: JPEG baseline, 473x1024, 51,265 byte, SHA256 b1ea6c204599975af59b70713aae1806ee63ccd1f7558c780aca2ccacebc7a14.\\n8. Nota semantica: questo recupera il file effettivamente servito da Grindr Web/CloudFront al browser; non garantisce che sia bit-identico al file originariamente presente sul telefono del mittente, perché Grindr può ridimensionare/ricomprimere all'upload.\\n\\nImplementazione desiderata per gernalix/grindr-export, oppure nel repo consolidato se C2 ha già assorbito grindr-export in gernalix/grindr-favorites-monitor:\\n- esportare automaticamente media delle chat insieme ai messaggi;\\n- usare DOM/currentSrc come fonte dell'identità della risorsa;\\n- preferire download diretto quando ancora valido;\\n- su 403/URL scaduto, usare lookup nella Chrome Cache_Data e estrazione del payload nativo;\\n- evitare screenshot e ricodifica;\\n- salvare filename stabile + metadata (chat/profile id se disponibile, URL sorgente, MIME, dimensioni, byte size, SHA-256, timestamp export);\\n- gestire almeno JPEG e, con parser equivalente, PNG/WebP se presenti;\\n- non fare assunzioni sul repo finale: usare quello canonico risultante dal consolidamento C2.\\n\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:117556e673a343ecb9ad876b106204cf\", \"observed_at_ms\": 1790720492853, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/grindr-export\"}",
+        "created_at": "2026-09-30T10:23:46Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:117556e673a343ecb9ad876b106204cf",
+        "work_item_id": "wi:f18ca8f13c314a27a34ee810c14cf973",
+        "role": "decision",
+        "created_at": "2026-09-29T22:21:32Z"
+      }
+    ]
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:68b1698c3cd842d68d4686277fdb34ab",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Make C2 runtime tick environment handling reliable",
+      "objective": "Provide one canonical tick entrypoint that imports DBus and runtime environment once, performs the tick, and returns canonical readback. Prevent manual multi-command invocation from losing required environment context.",
+      "acceptance_json": "[\"Tick succeeds with the documented runtime environment through one entrypoint.\", \"Canonical readback reports whether a tick dispatched work or only renewed/acknowledged state.\"]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T16:35:23Z",
+      "updated_at": "2026-09-30T16:35:23Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2441,
+        "work_item_id": "wi:68b1698c3cd842d68d4686277fdb34ab",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:8ee689f2a06549f09eaa7a9ae9f2a59d",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"Runtime tick wrapper fragility observed during C3 acceleration: a manual tick initially failed because DBus/environment variables did not propagate to a second systemctl invocation. Avoid multi-command shell assumptions for runtime ticks. Provide one canonical helper/service entrypoint that imports the required environment once, performs the tick, and returns canonical readback so manual recovery cannot silently lose DBus/runtime context.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:8ee689f2a06549f09eaa7a9ae9f2a59d\", \"observed_at_ms\": 1790784486617, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:35:23Z"
+      },
+      {
+        "evidence_id": 2442,
+        "work_item_id": "wi:68b1698c3cd842d68d4686277fdb34ab",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c490f1fd72d74fa1974814558577a73a",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"Runtime tick wrapper fragility observed during C3 acceleration: a manual tick initially failed because DBus/environment variables did not propagate to a second systemctl invocation. Avoid multi-command shell assumptions for runtime ticks. Provide one canonical helper/service entrypoint that imports the required environment once, performs the tick, and returns canonical readback so manual recovery cannot silently lose DBus/runtime context.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c490f1fd72d74fa1974814558577a73a\", \"observed_at_ms\": 1790784617578, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T16:35:23Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:8ee689f2a06549f09eaa7a9ae9f2a59d",
+        "work_item_id": "wi:68b1698c3cd842d68d4686277fdb34ab",
+        "role": "decision",
+        "created_at": "2026-09-30T16:35:23Z"
+      },
+      {
+        "issue_id": "issue:c490f1fd72d74fa1974814558577a73a",
+        "work_item_id": "wi:68b1698c3cd842d68d4686277fdb34ab",
+        "role": "decision",
+        "created_at": "2026-09-30T16:35:23Z"
+      }
+    ]
+  }
+]

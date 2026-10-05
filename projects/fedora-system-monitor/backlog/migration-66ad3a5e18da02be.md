@@ -1,0 +1,440 @@
+# Chiudere il residuo Kuma di sqlite-to-obsidian
+
+<!-- migration-66ad3a5e18da02be -->
+
+Migrated project backlog. Project: **fedora-system-monitor**; project_id: 15.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 15.
+
+Provenance: `prompt:714263`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Chiudere il residuo Kuma di sqlite-to-obsidian
+
+status: blocked
+
+next_action: Claim prompt714263 once through generation-safe roadmap_start.py, verify executor_started and RUNNING persists across writer tick, then perform bounded Kuma diagnosis.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "15",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "15"
+      ]
+    },
+    "source": {
+      "work_item_id": "prompt:714263",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Chiudere il residuo Kuma di sqlite-to-obsidian",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "blocked",
+      "executor_policy": "codex",
+      "sort_order": 11,
+      "current_action": null,
+      "next_action": "Claim prompt714263 once through generation-safe roadmap_start.py, verify executor_started and RUNNING persists across writer tick, then perform bounded Kuma diagnosis.",
+      "blocker": null,
+      "project_id": null,
+      "project_name": "Fedora / fedora-system-monitor",
+      "repo": "gernalix/fedora-system-monitor",
+      "prompt_id": "714263",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "prompt",
+      "source_ref": "714263",
+      "created_at": "2026-09-24T03:19:04Z",
+      "updated_at": "2026-09-28T01:23:36Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "714263",
+        "slug": "sqlite-to-obsidian-kuma-connection-recovery-v1",
+        "chat_guidance": "Nuova chat Codex breve; riusa l'implementazione già prodotta da 893025 e intervieni solo sul gate Kuma.",
+        "prompt_type": "Fix",
+        "model": "GPT-6 Luna",
+        "reasoning": "low",
+        "megavault_mode": "FAST",
+        "campaign_id": null,
+        "explanation": "Ritenta e diagnostica una sola volta il provisioning Kuma centrale fallito per ConnectionError, senza rifare il projector sqlite-to-obsidian già implementato.",
+        "current_path": "falliti/sqlite-to-obsidian-kuma-connection-recovery-v1.md",
+        "materialization_sha256": "ce78e39b77b9f6e00f5aaa2486e333cf5bfe948d6a64fa37ea80df8eb36cc621",
+        "created_at": "2026-09-24T03:19:04Z",
+        "updated_at": "2026-09-28T01:23:36Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "714263",
+        "body": "PROMPT_ID=714263\nPARENT_PROMPT_ID=893025\nREPO=gernalix/fedora-system-monitor\nMEGAVAULT=FAST\n\n# Goal\nChiudi SOLO il residuo Kuma di 893025. Non ricreare `sqlite-to-obsidian`, non rifare sync/vault/test/systemd già completati e non creare provisioning Kuma proprietario.\n\n# Evidenza già verificata\n- 893025 ha ultimo esito BLOCKED e fix-packet: provisioning Kuma canonico fallito con `ConnectionError`; nessun monitor/token alternativo creato e roadmap non finalizzata.\n- `gernalix/sqlite-to-obsidian` esiste, è privato, `main` contiene già l'implementazione (`56b70ef6e861b93e938e90288c399b987dfeddfe`, `04768257b7e04a746233031ba5e46f6b4b1a91ee`) e non ha PR aperte.\n- `fedora-system-monitor/main` contiene il control plane Kuma canonico e `src/fedora_system_monitor/capsules/kuma_admin`; main corrente include anche i merge successivi del task 620949.\n- Nessun fix/replacement pending o running risulta collegato a 893025.\n\n# Esecuzione minima\n1. Claim SOLO 714263 con `roadmap_start.py`; non riavviare 893025.\n2. Leggi SOLO il fix-packet di 893025, `src/fedora_system_monitor/capsules/kuma_admin/__init__.py`, `tests/test_kuma_admin.py` e il comando CLI direttamente pertinente. Niente audit repo-wide.\n3. Prima di modificare codice, esegui UNA diagnosi bounded del percorso canonico: helper Oracle disponibile -> container Kuma running -> endpoint raggiungibile -> Socket.IO/login autenticato. Riporta solo stato/classe errore; non stampare token, cookie, JWT, URL push completi o session data.\n4. Se la connettività ora è sana, esegui UNA sola riconciliazione/provisioning per il job `sqlite-to-obsidian` come timer/oneshot con successo+freschezza, poi readback: monitor unico, attivo, target corretto e heartbeat/freshness verificabile. Nessuna modifica codice.\n5. Se fallisce ancora, identifica il PRIMO layer che fallisce. Modifica codice SOLO se il failure è riproducibile e causato dal client/provisioner; patch minima + test mirato `test_kuma_admin` pertinente. Se è rete/Oracle/Kuma/sessione esterna, BLOCKED con una riga precisa e nessun retry identico.\n6. Non creare credenziali alternative, non modificare direttamente kuma.db e non leggere/pubblicare segreti.\n7. Quando readback PASS, registra la recovery di 893025 tramite il normale finalizer del nuovo prompt, preservando il suo esito BLOCKED storico; finalizza 714263 e STOP.\n\n# Acceptance\nPASS solo se il monitor centrale `sqlite-to-obsidian` esiste una sola volta, usa la semantica timer/oneshot successo+freschezza, il readback live è PASS, nessun secret è esposto e nessun lavoro già completato da 893025 viene ripetuto.\n\n# Report\nMassimo 7 righe: RESULT, PARENT_893025, CONNECTION_LAYER, MONITOR, READBACK, TESTS, BLOCKER.",
+        "sha256": "ce78e39b77b9f6e00f5aaa2486e333cf5bfe948d6a64fa37ea80df8eb36cc621",
+        "created_at": "2026-09-24T08:49:53Z",
+        "actor": "chatgpt"
+      }
+    ],
+    "analyses": [
+      {
+        "analysis_id": 110,
+        "prompt_id": "714263",
+        "analyzed_at": "2026-09-25T09:30:48Z",
+        "actor": "workflowy-fix-packet",
+        "bottlenecks_found": 1,
+        "summary": "{\"blocker\":\"sessione/login Kuma; 714263 finalizzato BLOCKED, richiesta terminale in coda.\",\"next_action\":\"Use the concrete blocker above for the smallest corrective action.\",\"outcome\":\"BLOCKED\",\"prompt_id\":\"714263\",\"report_ref\":\"codex-usage:f734c14607b110cb6cc66873:95043b8d8ac8e793\",\"schema\":\"codex-roadmap.fix-packet.v1\",\"work_state\":{}}",
+        "fix_prompt_id": null,
+        "source_ref": "codex-usage:f734c14607b110cb6cc66873:95043b8d8ac8e793"
+      }
+    ],
+    "executions": [
+      {
+        "execution_id": 395,
+        "prompt_id": "714263",
+        "cycle_key": "f734c14607b110cb6cc66873",
+        "materialization_sha256": "ce78e39b77b9f6e00f5aaa2486e333cf5bfe948d6a64fa37ea80df8eb36cc621",
+        "started_at": "2026-09-25T09:22:42Z",
+        "ended_at": "2026-09-25T09:27:16Z",
+        "outcome": "BLOCKED",
+        "duration_seconds": 273.84,
+        "model": "gpt-6-luna",
+        "reasoning": "low",
+        "codex_project": "/home/daniele/projects/fedora-system-monitor",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 23,
+        "input_tokens": 46071,
+        "cached_input_tokens": 44800,
+        "uncached_input_tokens": 1271,
+        "output_tokens": 95,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 46166,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-25T09:29:23Z"
+      },
+      {
+        "execution_id": 496,
+        "prompt_id": "714263",
+        "cycle_key": "2936b0b8c0fd71a24b1f2672",
+        "materialization_sha256": null,
+        "started_at": "2026-09-28T00:49:56Z",
+        "ended_at": "2026-09-28T00:54:03Z",
+        "outcome": "BLOCKED",
+        "duration_seconds": 247.27,
+        "model": "gpt-6-sol",
+        "reasoning": "medium",
+        "codex_project": "/home",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 29,
+        "input_tokens": 127470,
+        "cached_input_tokens": 126720,
+        "uncached_input_tokens": 750,
+        "output_tokens": 312,
+        "reasoning_output_tokens": 185,
+        "total_tokens": 127782,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-28T00:55:29Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 797,
+        "prompt_id": "714263",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-24T03:19:04Z",
+        "actor": "chatgpt",
+        "note": "registered"
+      },
+      {
+        "history_id": 832,
+        "prompt_id": "714263",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-25T09:23:08Z",
+        "actor": "codex",
+        "note": "launch-claim:roadmap_start"
+      },
+      {
+        "history_id": 833,
+        "prompt_id": "714263",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-25T09:27:22Z",
+        "actor": "codex",
+        "note": "terminal:roadmap_result:BLOCKED"
+      },
+      {
+        "history_id": 1080,
+        "prompt_id": "714263",
+        "old_status": "blocked",
+        "new_status": "waiting",
+        "changed_at": "2026-09-27T22:23:04.086812Z",
+        "actor": "c2-blocked-reconcile",
+        "note": "Run bounded live service/Kuma diagnosis and complete prompt714263 through canonical prompt lifecycle."
+      },
+      {
+        "history_id": 1084,
+        "prompt_id": "714263",
+        "old_status": "waiting",
+        "new_status": "running",
+        "changed_at": "2026-09-27T22:54:15Z",
+        "actor": "codex",
+        "note": "launch-claim:roadmap_start"
+      },
+      {
+        "history_id": 1085,
+        "prompt_id": "714263",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-27T22:55:11Z",
+        "actor": "single-writer",
+        "note": "terminal:roadmap_result:BLOCKED"
+      },
+      {
+        "history_id": 1088,
+        "prompt_id": "714263",
+        "old_status": "blocked",
+        "new_status": "waiting",
+        "changed_at": "2026-09-28T00:45:41.756290Z",
+        "actor": "c2-blocked-reconcile",
+        "note": "Claim prompt714263 once through generation-safe roadmap_start.py, verify executor_started and RUNNING persists across writer tick, then perform bounded Kuma diagnosis."
+      },
+      {
+        "history_id": 1089,
+        "prompt_id": "714263",
+        "old_status": "waiting",
+        "new_status": "running",
+        "changed_at": "2026-09-28T00:46:16Z",
+        "actor": "codex",
+        "note": "launch-claim:roadmap_start"
+      },
+      {
+        "history_id": 1090,
+        "prompt_id": "714263",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-28T01:23:36Z",
+        "actor": "codex",
+        "note": "terminal:roadmap_result:BLOCKED"
+      }
+    ],
+    "work_item_tags": [],
+    "work_item_dependencies": [
+      {
+        "work_item_id": "prompt:714263",
+        "depends_on_work_item_id": "prompt:994029",
+        "required": 1,
+        "note": "Serialize Kuma live administration after the central ActivityWatch cutover/readback."
+      }
+    ],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "prompt:893025",
+        "to_work_item_id": "prompt:714263",
+        "relation_type": "fix",
+        "created_at": "2026-09-24T03:19:04Z",
+        "actor": "chatgpt",
+        "note": "Chiude esclusivamente il gate Kuma fallito per ConnectionError senza ripetere il bootstrap sqlite-to-obsidian già completato."
+      },
+      {
+        "from_work_item_id": "prompt:893025",
+        "to_work_item_id": "prompt:714263",
+        "relation_type": "replacement",
+        "created_at": "2026-09-26T16:25:56Z",
+        "actor": "chatgpt",
+        "note": "Backlog optimization: newer successor/fix is the canonical remaining work; keep the old blocked execution as history."
+      },
+      {
+        "from_work_item_id": "state:step:f2c02fe5e9d2d2506f44",
+        "to_work_item_id": "prompt:714263",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:58f5221d703d615b3931",
+        "to_work_item_id": "prompt:714263",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1163,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d385367ad380498167ec34a1d2e98e31",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-27 22:01:23.097 (row 575355)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d385367ad380498167ec34a1d2e98e31\", \"observed_at_ms\": 1790546499729, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T22:04:45Z"
+      },
+      {
+        "evidence_id": 1167,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:59c94f8010c1e910b4465ef2c81e8a47",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-27 22:09:23.168 (row 575615)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:59c94f8010c1e910b4465ef2c81e8a47\", \"observed_at_ms\": 1790547002309, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T22:11:35Z"
+      },
+      {
+        "evidence_id": 1180,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "blocked_reconcile",
+        "label": "994029 prerequisite completed; live Kuma monitor 42 and sqlite-to-obsidian.service alert now exist. The old no-monitor b",
+        "uri": null,
+        "value_json": "\"994029 prerequisite completed; live Kuma monitor 42 and sqlite-to-obsidian.service alert now exist. The old no-monitor blocker is resolved.\"",
+        "created_at": "2026-09-27T22:23:04.086812Z"
+      },
+      {
+        "evidence_id": 1247,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:095cb6a6beb4383a408c3236ae78e423",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-27 22:39:21.776 (row 576597)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:095cb6a6beb4383a408c3236ae78e423\", \"observed_at_ms\": 1790548801077, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T22:42:31Z"
+      },
+      {
+        "evidence_id": 1259,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:ff4587403c15b68daf784b17df625cf2",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-27 23:00:20.875 (row 577279)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:ff4587403c15b68daf784b17df625cf2\", \"observed_at_ms\": 1790550087362, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T23:05:09Z"
+      },
+      {
+        "evidence_id": 1294,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:415877ff82db75b97dac1937f2d4a77a",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Services (id 42)\\nHeartbeat: 2026-09-27 23:17:25.582 (row 577840)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:415877ff82db75b97dac1937f2d4a77a\", \"observed_at_ms\": 1790551101495, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T23:23:01Z"
+      },
+      {
+        "evidence_id": 1339,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "blocked_reconcile",
+        "label": "2026-09-28 sqlite-to-obsidian cache was clean and shallow; fetch --unshallow proved old HEAD 43f4367 ancestor of remote ",
+        "uri": null,
+        "value_json": "\"2026-09-28 sqlite-to-obsidian cache was clean and shallow; fetch --unshallow proved old HEAD 43f4367 ancestor of remote d54cb96 (0 ahead/66 behind), then ff-only completed to d54cb96 without discarding changes.\"",
+        "created_at": "2026-09-28T00:45:41.756290Z"
+      },
+      {
+        "evidence_id": 1340,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Installed sqlite-to-obsidian.service start after repair: Result=success, ExecMainStatus=0; projector status revision d54",
+        "uri": null,
+        "value_json": "\"Installed sqlite-to-obsidian.service start after repair: Result=success, ExecMainStatus=0; projector status revision d54cb96b582181c1986ef4f3e8a003e7643bade6, generation 161955, schema 23, error null; timer restored active.\"",
+        "created_at": "2026-09-28T00:45:41.756290Z"
+      },
+      {
+        "evidence_id": 1351,
+        "work_item_id": "prompt:714263",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:0dc8b5e453a54b7abdf6f103a2e11a00",
+        "uri": "codex://threads/01a0e537-e31c-72f0-b82b-71e65e74eae4",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e537-e31c-72f0-b82b-71e65e74eae4\", \"code_location\": null, \"description\": \"sqlite-to-obsidian.service failed on 2026-09-28 02:40 CEST (Result=exit-code, ExecMainStatus=1): its PersonalHub data-cache git merge --ff-only origin/main exited 128. This is a live blocker to safe Kuma prompt714263 reactivation; inspect and preserve the cache state before any retry.\", \"executor\": null, \"executor_ref\": \"01a0e537-e31c-72f0-b82b-71e65e74eae4\", \"issue_id\": \"issue:0dc8b5e453a54b7abdf6f103a2e11a00\", \"observed_at_ms\": 1790556102524, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-28T00:51:30Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:d385367ad380498167ec34a1d2e98e31",
+        "work_item_id": "prompt:714263",
+        "role": "matched",
+        "created_at": "2026-09-27T22:01:39Z"
+      },
+      {
+        "issue_id": "issue:59c94f8010c1e910b4465ef2c81e8a47",
+        "work_item_id": "prompt:714263",
+        "role": "matched",
+        "created_at": "2026-09-27T22:10:02Z"
+      },
+      {
+        "issue_id": "issue:095cb6a6beb4383a408c3236ae78e423",
+        "work_item_id": "prompt:714263",
+        "role": "matched",
+        "created_at": "2026-09-27T22:40:01Z"
+      },
+      {
+        "issue_id": "issue:ff4587403c15b68daf784b17df625cf2",
+        "work_item_id": "prompt:714263",
+        "role": "matched",
+        "created_at": "2026-09-27T23:01:27Z"
+      },
+      {
+        "issue_id": "issue:415877ff82db75b97dac1937f2d4a77a",
+        "work_item_id": "prompt:714263",
+        "role": "matched",
+        "created_at": "2026-09-27T23:18:21Z"
+      },
+      {
+        "issue_id": "issue:0dc8b5e453a54b7abdf6f103a2e11a00",
+        "work_item_id": "prompt:714263",
+        "role": "matched",
+        "created_at": "2026-09-28T00:41:42Z"
+      },
+      {
+        "issue_id": "issue:d385367ad380498167ec34a1d2e98e31",
+        "work_item_id": "prompt:714263",
+        "role": "decision",
+        "created_at": "2026-09-27T22:01:39Z"
+      },
+      {
+        "issue_id": "issue:59c94f8010c1e910b4465ef2c81e8a47",
+        "work_item_id": "prompt:714263",
+        "role": "decision",
+        "created_at": "2026-09-27T22:10:02Z"
+      },
+      {
+        "issue_id": "issue:095cb6a6beb4383a408c3236ae78e423",
+        "work_item_id": "prompt:714263",
+        "role": "decision",
+        "created_at": "2026-09-27T22:40:01Z"
+      },
+      {
+        "issue_id": "issue:ff4587403c15b68daf784b17df625cf2",
+        "work_item_id": "prompt:714263",
+        "role": "decision",
+        "created_at": "2026-09-27T23:01:27Z"
+      },
+      {
+        "issue_id": "issue:415877ff82db75b97dac1937f2d4a77a",
+        "work_item_id": "prompt:714263",
+        "role": "decision",
+        "created_at": "2026-09-27T23:18:21Z"
+      },
+      {
+        "issue_id": "issue:0dc8b5e453a54b7abdf6f103a2e11a00",
+        "work_item_id": "prompt:714263",
+        "role": "decision",
+        "created_at": "2026-09-28T00:41:42Z"
+      }
+    ]
+  }
+]
+```

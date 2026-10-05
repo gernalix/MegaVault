@@ -1,0 +1,31 @@
+[
+  {
+    "routing": {
+      "project": "8",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "8"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:b9c1535b04a472b83dd97aae90f46e2e",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Fedora Service · user:codex-usage-monitor.service (id 60)\nHeartbeat: 2026-10-03 12:31:26.328 (row 833528)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1791030691316,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-03T12:31:31Z"
+    },
+    "issue_work_item_links": []
+  }
+]

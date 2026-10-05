@@ -1,0 +1,120 @@
+[
+  {
+    "routing": {
+      "project": "eboks",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "eboks"
+      ]
+    },
+    "source": {
+      "work_item_id": "prompt:582946",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Riprendere export e-Boks dopo login MitID",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "pending",
+      "executor_policy": "codex",
+      "sort_order": 5,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": "23",
+      "project_name": "e-Boks exploration",
+      "repo": null,
+      "prompt_id": "582946",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "prompt",
+      "source_ref": "582946",
+      "created_at": "2026-09-22T02:49:03Z",
+      "updated_at": "2026-09-26T16:25:56Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "582946",
+        "slug": "eboks-full-export-resume-after-mitid-v1",
+        "chat_guidance": "Stessa chat Codex di 738242; riprendi progress.json dopo login MitID.",
+        "prompt_type": "Fix",
+        "model": "GPT-5.6 Terra",
+        "reasoning": "medium",
+        "megavault_mode": "FAST",
+        "campaign_id": null,
+        "explanation": "Resta in Waiting finché non completi manualmente il login MitID su e-Boks. Subito dopo riprende dal progress.json esistente senza riscaricare i batch già salvati.",
+        "current_path": "prompts/eboks-full-export-resume-after-mitid-v1.md",
+        "materialization_sha256": "7ebe0159fdb5e204b2a57d1eaa703d94dc4b4d8d320ff3bafad3023a594f8e51",
+        "created_at": "2026-09-22T02:49:03Z",
+        "updated_at": "2026-09-26T16:25:56Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "582946",
+        "body": "PROMPT_ID=582946\nPARENT_PROMPT_ID=738242\nROADMAP_PROJECT=e-Boks exploration\nMEGAVAULT=FAST\n\n# Goal\nRiprendi e completa l'export e-Boks già avviato da 738242 DOPO che l'utente ha completato il login MitID nella finestra e-Boks già aperta.\n\n# Stato già verificato\n- Il solo blocker attuale è logout/sessione e-Boks terminata.\n- L'ultimo fix-packet dice: \"e-Boks è confermato in logout; il login MitID aperto richiede azione manuale.\"\n- Riusa l'output e il progress.json già esistenti; non ricominciare da zero.\n- Nessuna probe/API privata: solo Browser Use e UI ufficiale e-Boks.\n\n# Esecuzione\n1. Claim 582946 e continua nella stessa chat/sessione di 738242.\n2. Verifica una sola volta che la sessione e-Boks sia autenticata. Se non lo è, BLOCKED immediato con LOGIN_MITID_REQUIRED; nessun retry.\n3. Leggi progress.json e riparti dal primo batch/sezione non confermato. Non riscaricare batch già registrati.\n4. Completa Posta pubblica e Posta dalle aziende fino a esaurimento reale della paginazione.\n5. Mantieni le regole già verificate di 738242: batch <=15, firma stabile per riga, zero azioni distruttive, zero file preesistenti spostati, zero .crdownload finali.\n6. Non estrarre testo dai PDF in questo task.\n7. Test/verifica solo la completezza dell'export; niente audit o refactor.\n\n# Stop\nPASS appena entrambe le sezioni sono complete e progress.json è coerente. Output max 7 righe: PROMPT_ID, RESULT, OUTPUT_DIR, POSTA_PUBBLICA, POSTA_AZIENDE, BATCHES, BLOCKER.",
+        "sha256": "7ebe0159fdb5e204b2a57d1eaa703d94dc4b4d8d320ff3bafad3023a594f8e51",
+        "created_at": "2026-09-24T08:49:53Z",
+        "actor": "chatgpt"
+      }
+    ],
+    "analyses": [],
+    "executions": [],
+    "status_history": [
+      {
+        "history_id": 668,
+        "prompt_id": "582946",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-22T02:49:03Z",
+        "actor": "chatgpt",
+        "note": "registered"
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "prompt:582946",
+        "tag": "manual-prerequisite:login-mitid-eboks"
+      }
+    ],
+    "work_item_dependencies": [
+      {
+        "work_item_id": "prompt:218695",
+        "depends_on_work_item_id": "prompt:582946",
+        "required": 1,
+        "note": "Il bootstrap/processing e-Boks deve attendere che l'export iniziale completo sia terminato."
+      }
+    ],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "prompt:738242",
+        "to_work_item_id": "prompt:582946",
+        "relation_type": "fix",
+        "created_at": "2026-09-22T02:49:03Z",
+        "actor": "chatgpt",
+        "note": "analysis-generated fix"
+      },
+      {
+        "from_work_item_id": "state:step:290feaf2e747dceab62c",
+        "to_work_item_id": "prompt:582946",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:3c0268068d27f00a899b",
+        "to_work_item_id": "prompt:582946",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

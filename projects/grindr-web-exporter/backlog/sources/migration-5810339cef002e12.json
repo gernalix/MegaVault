@@ -1,0 +1,193 @@
+[
+  {
+    "routing": {
+      "project": "18",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "18"
+      ]
+    },
+    "source": {
+      "work_item_id": "prompt:181259",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Riprendi Grindr dopo il login senza model waiting",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "blocked",
+      "executor_policy": "codex",
+      "sort_order": 3,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": "grindr-web-exporter",
+      "repo": "gernalix/grindr-web-exporter",
+      "prompt_id": "181259",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "prompt",
+      "source_ref": "181259",
+      "created_at": "2026-09-24T10:02:32Z",
+      "updated_at": "2026-09-28T21:38:47Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "181259",
+        "slug": "grindr-web-exporter-post-login-resume-v1",
+        "chat_guidance": "Nuova chat Codex dopo login Grindr manuale; riusa il current main e l’evidenza di 354882",
+        "prompt_type": "Prompt",
+        "model": "GPT-5.6 Terra",
+        "reasoning": "medium",
+        "megavault_mode": "FAST",
+        "campaign_id": null,
+        "explanation": "Resta in Waiting finché sono soddisfatti due prerequisiti: login Grindr manuale completato e percorso repository canonico ripristinato/registrato. Il remoto dichiarato gernalix/grindr-web-exporter oggi non esiste su GitHub, quindi il generic single-writer non può avviare questo task in sicurezza. Non confonderlo con gernalix/grindr-export, che ha uno scope diverso.",
+        "current_path": "falliti/grindr-web-exporter-post-login-resume-v1.md",
+        "materialization_sha256": "434767b1070fe256248d7978c497ccd4fd9b42d67c0a1eec79145d78df830964",
+        "created_at": "2026-09-24T10:02:32Z",
+        "updated_at": "2026-09-28T21:38:47Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "181259",
+        "body": "PROMPT_ID=181259\n\n# Goal\nRiprendi e completa SOLO il lavoro residuo di 354882 dopo che il login Grindr manuale è stato realmente completato, senza tenere Codex in attesa e senza ricreare il vecchio loop login.\n\n# Stato già verificato\n- 354882 è terminato BLOCKED perché il 2026-09-22 esisteva evidenza positiva di route /login e serviva un login manuale.\n- Il vecchio task richiedeva erroneamente di mantenere il modello RUNNING durante l'attesa; la policy corrente vieta model-driven waiting.\n- Repo canonico: /home/daniele/projects/grindr-web-exporter.\n- Obiettivo tecnico da preservare: un solo Chrome dedicato/supervisor end-to-end, auth tri-state, UNKNOWN != UNAUTHENTICATED, discovery sidebar/scroll convergente, smoke top->bottom su una chat lunga, cleanup bounded senza orphan/lock.\n- Non rifare login, profilo o discovery generale se lo stato corrente dimostra che sono già corretti.\n\n# Esecuzione minima\n1. Questo task è eseguibile solo dopo che il prerequisito manuale grindr-login è stato rimosso dalla roadmap. Se Grindr mostra ancora login reale, BLOCKED immediato e STOP: non aspettare, non creare heartbeat e non chiedere un secondo login nella stessa esecuzione.\n2. Claim 181259 e usa il worktree assegnato.\n3. Parti dal current main e dai test/codice del browser lifecycle, auth e discovery già toccati dalla catena 354882. Niente audit repo-wide.\n4. Avvia/riusa una sola istanza Chrome dedicata col profilo canonico; non toccare Chrome predefinito. Prima di chiudere/riavviare un processo dedicato visibile, notify-send.\n5. Verifica auth tri-state. AUTHENTICATED => continua. UNKNOWN => diagnostica solo il failure tecnico. UNAUTHENTICATED => BLOCKED e STOP, senza model waiting.\n6. Completa/fixa solo ciò che resta per discovery finita e smoke reale su una chat lunga top->bottom con overlap/dedup/checkpoint. Discovery failure non deve mai diventare richiesta login.\n7. Esegui test mirati e una sola conferma aggregata. Nessun refactor, T7, MegaVault history, dashboard o nuovo repo.\n8. Dopo PASS finalizza e STOP; non attendere CI/merge in modello.\n\n# Acceptance\nPASS solo se il normale export usa un unico lifecycle browser, auth non produce falsi logout, discovery termina, una chat lunga completa top->bottom, test PASS e non restano processi/lock task-owned orfani.\n\n# Report\nMassimo 8 righe: RESULT, COMMIT, BROWSER_LIFECYCLE, AUTH_STATE, DISCOVERY, LONG_CHAT_SMOKE, TESTS, BLOCKER.",
+        "sha256": "434767b1070fe256248d7978c497ccd4fd9b42d67c0a1eec79145d78df830964",
+        "created_at": "2026-09-24T10:02:32Z",
+        "actor": "chatgpt"
+      }
+    ],
+    "analyses": [],
+    "executions": [
+      {
+        "execution_id": 509,
+        "prompt_id": "181259",
+        "cycle_key": "090addbd59064454075dca2b",
+        "materialization_sha256": "0b95d2147e7fd653e578034c4d194dabf03aa9a0f273881ab8c833712409f0de",
+        "started_at": "2026-09-28T21:37:30Z",
+        "ended_at": "2026-09-28T21:37:34Z",
+        "outcome": "UNKNOWN",
+        "duration_seconds": 3.871,
+        "model": "codex-auto-review",
+        "reasoning": "low",
+        "codex_project": "/home/daniele/.local/share/c2-supervisor/worktrees/roadmap-batch-reconciliation-20260928",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 0,
+        "input_tokens": 28052,
+        "cached_input_tokens": 4864,
+        "uncached_input_tokens": 23188,
+        "output_tokens": 159,
+        "reasoning_output_tokens": 98,
+        "total_tokens": 28211,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-28T21:40:21Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 809,
+        "prompt_id": "181259",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-24T10:02:32Z",
+        "actor": "chatgpt",
+        "note": "registered"
+      },
+      {
+        "history_id": 1109,
+        "prompt_id": "181259",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-28T21:37:51Z",
+        "actor": "codex",
+        "note": "launch-claim:roadmap_start"
+      },
+      {
+        "history_id": 1110,
+        "prompt_id": "181259",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-28T21:38:47Z",
+        "actor": "codex",
+        "note": "repo-task isolation could not be established after launch claim"
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "prompt:181259",
+        "tag": "manual-prerequisite:grindr-login"
+      },
+      {
+        "work_item_id": "prompt:181259",
+        "tag": "manual-prerequisite:restore-grindr-web-exporter-repo"
+      }
+    ],
+    "work_item_dependencies": [
+      {
+        "work_item_id": "prompt:556372",
+        "depends_on_work_item_id": "prompt:181259",
+        "required": 1,
+        "note": "Condivide la sessione browser/Grindr: eseguire solo dopo la finalizzazione del task già running 354882."
+      }
+    ],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "prompt:354882",
+        "to_work_item_id": "prompt:181259",
+        "relation_type": "fix",
+        "created_at": "2026-09-24T10:02:32Z",
+        "actor": "chatgpt",
+        "note": "Sostituisce il model-driven waiting del vecchio task con un resume eseguibile solo dopo login manuale."
+      },
+      {
+        "from_work_item_id": "prompt:354882",
+        "to_work_item_id": "prompt:181259",
+        "relation_type": "replacement",
+        "created_at": "2026-09-26T16:25:56Z",
+        "actor": "chatgpt",
+        "note": "Backlog optimization: newer successor/fix is the canonical remaining work; keep the old blocked execution as history."
+      },
+      {
+        "from_work_item_id": "state:step:555a6c439f1a66a7d01c",
+        "to_work_item_id": "prompt:181259",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:c578f3ad315b0f463492",
+        "to_work_item_id": "prompt:181259",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:fef7073c11e9c53f99c7",
+        "to_work_item_id": "prompt:181259",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:f36f54687c18049f1528",
+        "to_work_item_id": "prompt:181259",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

@@ -1,0 +1,324 @@
+# Riprendere l’hardening ChatGPTExporter con repository canonico valido
+
+<!-- migration-0d9d0b68dce2745f -->
+
+Migrated project backlog. Project: **prompt-history**; project_id: 103.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 103.
+
+Provenance: `prompt:812553`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Riprendere l’hardening ChatGPTExporter con repository canonico valido
+
+status: failed
+
+current_action: Codex turn terminated before producing the C2 terminal contract
+
+next_action: Retry from the existing checkpoint or create a follow-up run.
+
+blocker: Codex turn ended failed before a terminal result was produced
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "103",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "103"
+      ]
+    },
+    "source": {
+      "work_item_id": "prompt:812553",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Riprendere l’hardening ChatGPTExporter con repository canonico valido",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "failed",
+      "executor_policy": "codex",
+      "sort_order": 2,
+      "current_action": "Codex turn terminated before producing the C2 terminal contract",
+      "next_action": "Retry from the existing checkpoint or create a follow-up run.",
+      "blocker": "Codex turn ended failed before a terminal result was produced",
+      "project_id": null,
+      "project_name": "Prompt infrastructure",
+      "repo": "gernalix/prompt-history",
+      "prompt_id": "812553",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "prompt",
+      "source_ref": "812553",
+      "created_at": "2026-09-24T02:21:48Z",
+      "updated_at": "2026-09-27T05:18:40Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "812553",
+        "slug": "chatgpt-exporter-resilience-canonical-primary-repo-recovery-v1",
+        "chat_guidance": "Nuova chat Codex; riusa il parent 697920 e i report 199166, senza nuova discovery generale.",
+        "prompt_type": "Fix",
+        "model": "GPT-5.6 Sol",
+        "reasoning": "medium",
+        "megavault_mode": "STANDARD",
+        "campaign_id": null,
+        "explanation": "Hardening ChatGPTExporter nel repository primario gernalix/prompt-history, dopo verifica del routing canonico: il fork gernalix/ChatGPTExporter non esiste. Il prerequisito formale 222733 è già completato. Il task può procedere indipendentemente dal blocco cost-source di 302284; conservare il checkpoint e verificare retry, failure handling e salute runtime prima della chiusura. Correzione scope da mutation #1636: garantire completezza rispetto a tutti i reasoning/sommari intermedi visibili e persistenti nella UI ChatGPT Web anche dopo il turno, non solo thoughts[].summary. Preferire conversation-detail raw/normalizzato; usare acquisizione DOM post-turno come fallback/verifica quando contenuto UI-visibile manca dalla sorgente API. Conservare testo visibile, associazione turn/message, durata UI se disponibile, sorgente e raw; deduplicare API/DOM. Escludere chain-of-thought non esposta all’utente.",
+        "current_path": "falliti/chatgpt-exporter-resilience-canonical-primary-repo-recovery-v1.md",
+        "materialization_sha256": "bb56fe76cb1b9138922e77ae92d0eb1945000f107afddeb4cde13ac47a43c9e3",
+        "created_at": "2026-09-24T02:21:48Z",
+        "updated_at": "2026-09-27T05:18:40Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "812553",
+        "body": "PROMPT_ID=812553\nPARENT_PROMPT_ID=697920\nREPO=gernalix/prompt-history\nMEGAVAULT=STANDARD\n\n# Goal\nCompleta SOLO il lavoro funzionale già definito nel parent 697920, correggendo il blocker di bootstrap: usa `gernalix/prompt-history` come unico repository primario della roadmap e NON passare alcun PROJECT_ID al repo-task. ChatGPTExporter è una integrazione/upstream secondaria, non parte del campo `repo`.\n\n# Evidenza già verificata\n- 697920 è canonically BLOCKED senza fix/replacement; fix-packet: il campo repo multiplo `gernalix/prompt-history + ChatGPTExporter fork` non identifica un worktree canonico e PROJECT_ID=92 risolve `github-autosync`.\n- `gernalix/prompt-history` esiste, default branch `main`, push consentito e nessuna PR aperta rilevata.\n- Non esiste oggi un repository `gernalix/ChatGPTExporter`.\n- Il parent 697920 contiene già scope, non-goal, test e acceptance completi; i report 199166 sono l’evidenza iniziale autoritativa.\n\n# Esecuzione minima\n1. Claim SOLO 812553 con `roadmap_start.py`. Deve creare il worktree di `gernalix/prompt-history` per repo slug; se fallisce ancora l’isolamento, BLOCKED con l’errore preciso e STOP. Non riaprire 697920.\n2. Leggi UNA volta il prompt canonico 697920 e usa integralmente i suoi acceptance criteria. Leggi solo i report 199166 e i file direttamente pertinenti; niente audit repo-wide e niente nuova scansione completa da 2.4 GB/7108 chat.\n3. Esegui il lavoro del parent nel worktree assegnato. Se serve rendere durevoli modifiche a ChatGPTExporter, crea/usa un fork scrivibile `gernalix/ChatGPTExporter` separando `origin` e `upstream`; non aprire PR verso siraht e non cambiare i metadata roadmap durante il run.\n4. Mantieni il parent come contratto per retry/resume, failure classes, asset recovery, audit/health, 12 inventory-only, provenance multi-fonte e runtime cutover. Non ampliare scope.\n5. Aggiorna il pin/documentazione prompt-history SOLO dopo build/test PASS del fork. Nessun token/cookie/credenziale in file, log o output; nessun workaround che violi policy browser.\n6. Test SOLO quelli mirati elencati nel parent; amplia solo se un failure concreto lo richiede. Runtime: solo revalidate/retry mirato dei residui, mai full recapture. Nessun retry identico senza nuova evidenza.\n7. Se una azione manuale inevitabile resta (es. reload unpacked non automatizzabile), riportala come singolo prerequisito e BLOCKED; non inventare workaround.\n8. Appena tutti gli acceptance criteria del parent sono verificati, finalizza 812553 e STOP.\n\n# Acceptance\nPASS solo se il claim parte con un worktree canonico prompt-history senza PROJECT_ID conflittuale, tutto il contratto funzionale di 697920 è soddisfatto, l’eventuale fork ChatGPTExporter è durevole e testato, il pin prompt-history punta alla revisione realmente verificata e nessun secret/export sorgente viene compromesso.\n\n# Report\nMassimo 10 righe: RESULT, WORKTREE, EXPORTER_FORK, EXPORTER_COMMIT, PROMPT_HISTORY_COMMIT, RETRY_ENGINE, FAILURE_CLASSES, AUDIT_HEALTH, RUNTIME_CUTOVER, BLOCKER.",
+        "sha256": "bb56fe76cb1b9138922e77ae92d0eb1945000f107afddeb4cde13ac47a43c9e3",
+        "created_at": "2026-09-24T08:49:53Z",
+        "actor": "chatgpt"
+      }
+    ],
+    "analyses": [],
+    "executions": [
+      {
+        "execution_id": 410,
+        "prompt_id": "812553",
+        "cycle_key": "62d6e23a493b182cefa7f0b1",
+        "materialization_sha256": "e2e54db483e33415431624c8361f97e49ecf8c4c3244ca52d0b22b72d44ed000",
+        "started_at": "2026-09-26T22:52:21Z",
+        "ended_at": "2026-09-26T22:52:25Z",
+        "outcome": "UNKNOWN",
+        "duration_seconds": 3.83,
+        "model": "codex-auto-review",
+        "reasoning": "low",
+        "codex_project": "/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_prompt-history/812553",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 0,
+        "input_tokens": 10994,
+        "cached_input_tokens": 4864,
+        "uncached_input_tokens": 6130,
+        "output_tokens": 137,
+        "reasoning_output_tokens": 72,
+        "total_tokens": 11131,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-26T22:55:01Z"
+      },
+      {
+        "execution_id": 414,
+        "prompt_id": "812553",
+        "cycle_key": "6c69179be04404823886cc11",
+        "materialization_sha256": "1a26cb91ada80f40feea43f1305021e36ec3c0a22bcc5a5386f13098a403173e",
+        "started_at": "2026-09-26T22:52:04Z",
+        "ended_at": "2026-09-26T23:01:50Z",
+        "outcome": "UNKNOWN",
+        "duration_seconds": 586.345,
+        "model": "gpt-5.6-sol",
+        "reasoning": "medium",
+        "codex_project": "/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_prompt-history/812553",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 47,
+        "input_tokens": 118751,
+        "cached_input_tokens": 117376,
+        "uncached_input_tokens": 1375,
+        "output_tokens": 1472,
+        "reasoning_output_tokens": 224,
+        "total_tokens": 120223,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-26T23:02:55Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 794,
+        "prompt_id": "812553",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-24T02:21:48Z",
+        "actor": "chatgpt",
+        "note": "registered"
+      },
+      {
+        "history_id": 993,
+        "prompt_id": "812553",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-26T22:46:13Z",
+        "actor": "c2-scheduler",
+        "note": null
+      },
+      {
+        "history_id": 1024,
+        "prompt_id": "812553",
+        "old_status": "running",
+        "new_status": "failed",
+        "changed_at": "2026-09-27T05:18:40Z",
+        "actor": "c2-executor-result",
+        "note": "executor_result:run:3bc9db585975480885bc279c1286cf04"
+      }
+    ],
+    "work_item_tags": [],
+    "work_item_dependencies": [
+      {
+        "work_item_id": "prompt:812553",
+        "depends_on_work_item_id": "prompt:222733",
+        "required": 1,
+        "note": "Stop the runaway 788315 model heartbeat before resuming ChatGPTExporter hardening."
+      }
+    ],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "prompt:697920",
+        "to_work_item_id": "prompt:812553",
+        "relation_type": "fix",
+        "created_at": "2026-09-24T02:21:48Z",
+        "actor": "chatgpt",
+        "note": "Corregge il metadata blocker di 697920 usando un solo repository primario e nessun PROJECT_ID conflittuale."
+      },
+      {
+        "from_work_item_id": "prompt:254859",
+        "to_work_item_id": "prompt:812553",
+        "relation_type": "followup",
+        "created_at": "2026-09-24T09:59:16Z",
+        "actor": "chatgpt",
+        "note": "812553 hardens/resumes ChatGPTExporter after the incomplete archive evidence established by 254859/199166."
+      },
+      {
+        "from_work_item_id": "prompt:736284",
+        "to_work_item_id": "prompt:812553",
+        "relation_type": "replacement",
+        "created_at": "2026-09-26T16:25:56Z",
+        "actor": "chatgpt",
+        "note": "Backlog optimization: newer successor/fix is the canonical remaining work; keep the old blocked execution as history."
+      },
+      {
+        "from_work_item_id": "prompt:697920",
+        "to_work_item_id": "prompt:812553",
+        "relation_type": "replacement",
+        "created_at": "2026-09-26T16:25:56Z",
+        "actor": "chatgpt",
+        "note": "Backlog optimization: newer successor/fix is the canonical remaining work; keep the old blocked execution as history."
+      },
+      {
+        "from_work_item_id": "prompt:788315",
+        "to_work_item_id": "prompt:812553",
+        "relation_type": "replacement",
+        "created_at": "2026-09-26T16:25:56Z",
+        "actor": "chatgpt",
+        "note": "Backlog optimization: newer successor/fix is the canonical remaining work; keep the old blocked execution as history."
+      },
+      {
+        "from_work_item_id": "prompt:254859",
+        "to_work_item_id": "prompt:812553",
+        "relation_type": "replacement",
+        "created_at": "2026-09-26T16:25:56Z",
+        "actor": "chatgpt",
+        "note": "Backlog optimization: newer successor/fix is the canonical remaining work; keep the old blocked execution as history."
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "run:3bc9db585975480885bc279c1286cf04",
+        "work_item_id": "prompt:812553",
+        "run_id": "3bc9db585975480885bc279c1286cf04",
+        "prompt_id": "812553",
+        "outcome": "FAIL",
+        "summary": "Codex turn terminated before producing the C2 terminal contract",
+        "completed_json": "[]",
+        "remaining_json": "[\"Task did not complete\"]",
+        "evidence_json": "[\"Codex turn 01a0dfeb-236d-7971-9bd0-98a1de0e9181 ended failed\"]",
+        "blocker": "Codex turn ended failed before a terminal result was produced",
+        "next_action": "Retry from the existing checkpoint or create a follow-up run.",
+        "strict_contract": 1,
+        "payload_sha256": "af84a449b342cf68836bf85904e8e0c36bdabddcf3bcae981a6c6a68afe8273e",
+        "captured_at": 1790486320.383177
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 516,
+        "work_item_id": "prompt:812553",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1ed0f0d939334b09ae118d3e9fe68d13",
+        "uri": "codex://threads/01a0dfeb-1f38-7291-8d7e-7eb6e34295b8",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0dfeb-1f38-7291-8d7e-7eb6e34295b8\", \"code_location\": null, \"description\": \"ChatGPTExporter npm ci reports 3 dependency vulnerabilities in the existing lockfile (2 moderate, 1 high) during PROMPT_ID 812553 targeted build setup.\", \"executor\": \"codex\", \"executor_ref\": \"01a0dfeb-1f38-7291-8d7e-7eb6e34295b8\", \"issue_id\": \"issue:1ed0f0d939334b09ae118d3e9fe68d13\", \"observed_at_ms\": 1790463646564, \"origin_run_id\": \"3bc9db585975480885bc279c1286cf04\", \"origin_work_item_id\": \"prompt:812553\", \"repo\": null}",
+        "created_at": "2026-09-27T00:50:41Z"
+      },
+      {
+        "evidence_id": 532,
+        "work_item_id": "prompt:812553",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:14427cdad90c475abec239963984c2e7",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"ChatGPTExporter: i payload UI-visible di ragionamento con content_type=thoughts vengono conservati nel raw detail JSON (es. thoughts[].summary) e normalizzati come reasoning_summary, ma contentText() non legge thoughts[].summary/content: part.text resta vuoto e conversation.md può mostrare una sezione reasoning summary vuota. Correggere normalizzazione/rendering preservando fedelmente i reasoning summary esposti da ChatGPT Web senza confonderli con chain-of-thought non esposta.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:14427cdad90c475abec239963984c2e7\", \"observed_at_ms\": 1790468003051, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T01:18:42Z"
+      },
+      {
+        "evidence_id": 541,
+        "work_item_id": "prompt:812553",
+        "evidence_kind": "executor_result",
+        "label": "Codex turn 01a0dfeb-236d-7971-9bd0-98a1de0e9181 ended failed",
+        "uri": null,
+        "value_json": "\"Codex turn 01a0dfeb-236d-7971-9bd0-98a1de0e9181 ended failed\"",
+        "created_at": "2026-09-27T05:18:40Z"
+      }
+    ],
+    "work_item_runs": [
+      {
+        "run_id": "3bc9db585975480885bc279c1286cf04",
+        "work_item_id": "prompt:812553",
+        "event_key": "c2-schedule-bf35b8fdd83a06f88a290786f7a8efae",
+        "attempt": 1,
+        "executor": "codex",
+        "state": "failed",
+        "lease_until": 0.0,
+        "worker_ref": null,
+        "checkpoint_commit": null,
+        "metadata_json": "{\"activity\": \"coding\", \"command_json\": null, \"executor\": \"codex\", \"goal_mode\": 0, \"max_attempts\": 3, \"model\": \"GPT-5.6 Sol\", \"pre_migration_retirement\": {\"checkpoint_commit\": null, \"classification\": \"historical-only\", \"lease_until\": 1790486317.9552433, \"previous_state\": \"failed\", \"worker_ref\": \"c2-run:3bc9db585975480885bc279c1286cf04\"}, \"project_url\": null, \"prompt_id\": \"812553\", \"reasoning\": \"medium\", \"repo\": \"gernalix/prompt-history\", \"resources_json\": \"[]\", \"work_item_id\": \"prompt:812553\", \"worktree\": \"/home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_prompt-history/812553\"}",
+        "created_at": 1790462773.3066785
+      }
+    ],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:1ed0f0d939334b09ae118d3e9fe68d13",
+        "work_item_id": "prompt:812553",
+        "role": "matched",
+        "created_at": "2026-09-26T23:00:46Z"
+      },
+      {
+        "issue_id": "issue:14427cdad90c475abec239963984c2e7",
+        "work_item_id": "prompt:812553",
+        "role": "matched",
+        "created_at": "2026-09-27T00:13:23Z"
+      },
+      {
+        "issue_id": "issue:1ed0f0d939334b09ae118d3e9fe68d13",
+        "work_item_id": "prompt:812553",
+        "role": "decision",
+        "created_at": "2026-09-26T23:00:46Z"
+      },
+      {
+        "issue_id": "issue:14427cdad90c475abec239963984c2e7",
+        "work_item_id": "prompt:812553",
+        "role": "decision",
+        "created_at": "2026-09-27T00:13:23Z"
+      }
+    ]
+  }
+]
+```

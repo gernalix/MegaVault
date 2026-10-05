@@ -1,0 +1,75 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:4cbb0e01f57e43f2b1ea5e18138cb77f",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Review roadmap alert one-shot versus persistent behavior audit",
+      "objective": "https://github.com/gernalix/codex-roadmap/blob/4743525ff3aefef41bca3c1308a1a39739d9a92d/audits/2026-09-27-roadmap-alert-one-shot-vs-persistent.md",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": 9000,
+      "current_action": "Parked during roadmap semantic reconciliation.",
+      "next_action": "Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.",
+      "blocker": "Deferred pending Symphony migration/replacement decision.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T21:03:13Z",
+      "updated_at": "2026-09-28T06:45:03Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:4cbb0e01f57e43f2b1ea5e18138cb77f",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 992,
+        "work_item_id": "wi:4cbb0e01f57e43f2b1ea5e18138cb77f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:f029153bed10484e9f2c1be996247b8b",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"https://github.com/gernalix/codex-roadmap/blob/4743525ff3aefef41bca3c1308a1a39739d9a92d/audits/2026-09-27-roadmap-alert-one-shot-vs-persistent.md\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:f029153bed10484e9f2c1be996247b8b\", \"observed_at_ms\": 1790535100933, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"codex-roadmap\"}",
+        "created_at": "2026-09-27T21:03:13Z"
+      },
+      {
+        "evidence_id": 1452,
+        "work_item_id": "wi:4cbb0e01f57e43f2b1ea5e18138cb77f",
+        "evidence_kind": "classification",
+        "label": "User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to",
+        "uri": null,
+        "value_json": "\"User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to current roadmap execution and should not compete for slots before the migration decision.\"",
+        "created_at": "2026-09-28T06:45:03Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:f029153bed10484e9f2c1be996247b8b",
+        "work_item_id": "wi:4cbb0e01f57e43f2b1ea5e18138cb77f",
+        "role": "decision",
+        "created_at": "2026-09-27T18:51:40Z"
+      }
+    ]
+  }
+]

@@ -1,0 +1,187 @@
+# Regression: Rendere idempotente ACK C2 attraverso rinnovi di supervisor authority
+
+<!-- migration-c6ddb13f2439877c -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:8f572889adbc4233ae84a609a812d0bd`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Regression: Rendere idempotente ACK C2 attraverso rinnovi di supervisor authority
+
+C2 runtime ACK flood on one claimed run: while canonical acknowledge readback is pending, repeated runtime/path/timer ticks submit distinct c2-ack-authorized mutations for the same run because renewed supervisor authority changes the request identity. Live C3 run f91ce3f175324137aba3c11128b9317b accumulated at least Issues #7192, #7194, #7196, #7198, #7199, #7200, #7201 within ~1 minute before its first ACK was applied. Correctness remains fenced/idempotent, but this creates writer queue amplification and delays critical-path executor startup. Coalesce/suppress outstanding ACK per run until receipt/readback or make renewal+ACK identity stable without payload conflict.
+
+Acceptance:
+
+- Repeated scheduler ticks for one claimed run coalesce to one outstanding ACK mutation until canonical acknowledgement readback.
+- Fencing and stable run/event identity remain intact across lease renewal.
+- A focused regression test proves no writer queue amplification for the repeated-tick case.
+
+status: waiting
+
+next_action: Reevaluate only if a new C3 run remains claimed/recovering across a supervisor renewal and creates multiple unapplied ACK mutations; if Symphony cutover makes the C2 ACK path unnecessary first, terminalize as obsolete.
+
+blocker: Conditional legacy-path issue: the reported ACK queue amplification is from the terminal failed C3 run f91ce3f175324137aba3c11128b9317b. The current C3 security run is already running with its executor-start receipt, and there is no current claimed/recovering ACK to coalesce. Avoid extending this legacy C2 path unless another C3 task must dispatch through it before Symphony cutover.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Regression: Rendere idempotente ACK C2 attraverso rinnovi di supervisor authority",
+      "objective": "C2 runtime ACK flood on one claimed run: while canonical acknowledge readback is pending, repeated runtime/path/timer ticks submit distinct c2-ack-authorized mutations for the same run because renewed supervisor authority changes the request identity. Live C3 run f91ce3f175324137aba3c11128b9317b accumulated at least Issues #7192, #7194, #7196, #7198, #7199, #7200, #7201 within ~1 minute before its first ACK was applied. Correctness remains fenced/idempotent, but this creates writer queue amplification and delays critical-path executor startup. Coalesce/suppress outstanding ACK per run until receipt/readback or make renewal+ACK identity stable without payload conflict.",
+      "acceptance_json": "[\"Repeated scheduler ticks for one claimed run coalesce to one outstanding ACK mutation until canonical acknowledgement readback.\", \"Fencing and stable run/event identity remain intact across lease renewal.\", \"A focused regression test proves no writer queue amplification for the repeated-tick case.\"]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": -8990,
+      "current_action": null,
+      "next_action": "Reevaluate only if a new C3 run remains claimed/recovering across a supervisor renewal and creates multiple unapplied ACK mutations; if Symphony cutover makes the C2 ACK path unnecessary first, terminalize as obsolete.",
+      "blocker": "Conditional legacy-path issue: the reported ACK queue amplification is from the terminal failed C3 run f91ce3f175324137aba3c11128b9317b. The current C3 security run is already running with its executor-start receipt, and there is no current claimed/recovering ACK to coalesce. Avoid extending this legacy C2 path unless another C3 task must dispatch through it before Symphony cutover.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:24:32Z",
+      "updated_at": "2026-09-30T12:39:50Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "tag": "regression"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "to_work_item_id": "wi:abd76e1efe514599b97d068c74ed8dea",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-30T12:24:32Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:9a74e96136684a248e577e5c8dbf5e96"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2311,
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:9a74e96136684a248e577e5c8dbf5e96",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C2 runtime ACK flood on one claimed run: while canonical acknowledge readback is pending, repeated runtime/path/timer ticks submit distinct c2-ack-authorized mutations for the same run because renewed supervisor authority changes the request identity. Live C3 run f91ce3f175324137aba3c11128b9317b accumulated at least Issues #7192, #7194, #7196, #7198, #7199, #7200, #7201 within ~1 minute before its first ACK was applied. Correctness remains fenced/idempotent, but this creates writer queue amplification and delays critical-path executor startup. Coalesce/suppress outstanding ACK per run until receipt/readback or make renewal+ACK identity stable without payload conflict.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:9a74e96136684a248e577e5c8dbf5e96\", \"observed_at_ms\": 1790762695577, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:24:32Z"
+      },
+      {
+        "evidence_id": 2336,
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "evidence_kind": "classification",
+        "label": "MegaVault resolves gernalix/codex-roadmap to active project 51.",
+        "uri": null,
+        "value_json": "\"MegaVault resolves gernalix/codex-roadmap to active project 51.\"",
+        "created_at": "2026-09-30T12:39:50Z"
+      },
+      {
+        "evidence_id": 2337,
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "evidence_kind": "classification",
+        "label": "The reported queue burst belongs to terminal failed run f91ce3f175324137aba3c11128b9317b.",
+        "uri": null,
+        "value_json": "\"The reported queue burst belongs to terminal failed run f91ce3f175324137aba3c11128b9317b.\"",
+        "created_at": "2026-09-30T12:39:50Z"
+      },
+      {
+        "evidence_id": 2338,
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "evidence_kind": "classification",
+        "label": "Current live run a3a8dbeb86d54d00abeb56c7d471fcc2 is past claimed state and has an executor-start receipt; no active ACK",
+        "uri": null,
+        "value_json": "\"Current live run a3a8dbeb86d54d00abeb56c7d471fcc2 is past claimed state and has an executor-start receipt; no active ACK is pending.\"",
+        "created_at": "2026-09-30T12:39:50Z"
+      },
+      {
+        "evidence_id": 2339,
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "evidence_kind": "classification",
+        "label": "The C2 runtime ACK path is scheduled for replacement by Symphony and no current dispatch is blocked by this condition.",
+        "uri": null,
+        "value_json": "\"The C2 runtime ACK path is scheduled for replacement by Symphony and no current dispatch is blocked by this condition.\"",
+        "created_at": "2026-09-30T12:39:50Z"
+      },
+      {
+        "evidence_id": 2353,
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d6980f601fe24766b2be6f9050c73c75",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"C2 runtime ACK submission storm: while a claimed/running run waits for its first acknowledge mutation to be applied, periodic runtime ticks renew supervisor authority and submit a new c2-ack-authorized Issue for the same run. For C3 run f91ce3f175324137aba3c11128b9317b this produced at least Issues #7192/#7194/#7196/#7198/#7199/#7200/#7201 in ~80 seconds and repeatedly cancelled the single-writer GitHub Actions workflow through concurrency. Suppress equivalent in-flight ACK transport requests (or otherwise coalesce them) until the existing writer request resolves; keep the run-level ACK idempotency semantics.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d6980f601fe24766b2be6f9050c73c75\", \"observed_at_ms\": 1790763519313, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:55:06Z"
+      },
+      {
+        "evidence_id": 2463,
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:6313c7ba58aa47babd41a604fc733ca1",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"C2/C3 tick progress ambiguity observed in the 2026-09-30 acceleration chat. After request_key_conflict was cleared, a runtime tick could succeed only by renewing/re-ACKing the run without actually dispatching C3; triage also emitted duplicate replay ACKs. A successful tick therefore did not prove work progress. Separate replay/idempotent ACK from dispatch/progress receipts and make status/tick output state explicitly whether a new executor/turn started.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:6313c7ba58aa47babd41a604fc733ca1\", \"observed_at_ms\": 1790784485696, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T17:18:01Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:d6980f601fe24766b2be6f9050c73c75",
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "role": "matched",
+        "created_at": "2026-09-30T10:18:39Z"
+      },
+      {
+        "issue_id": "issue:9a74e96136684a248e577e5c8dbf5e96",
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "role": "decision",
+        "created_at": "2026-09-30T10:04:55Z"
+      },
+      {
+        "issue_id": "issue:d6980f601fe24766b2be6f9050c73c75",
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "role": "decision",
+        "created_at": "2026-09-30T10:18:39Z"
+      },
+      {
+        "issue_id": "issue:6313c7ba58aa47babd41a604fc733ca1",
+        "work_item_id": "wi:8f572889adbc4233ae84a609a812d0bd",
+        "role": "decision",
+        "created_at": "2026-09-30T17:18:01Z"
+      }
+    ]
+  }
+]
+```

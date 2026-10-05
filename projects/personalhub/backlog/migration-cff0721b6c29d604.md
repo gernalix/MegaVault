@@ -1,0 +1,92 @@
+# Patch Git remote verificate: revisione e applicazione esplicita
+
+<!-- migration-cff0721b6c29d604 -->
+
+Migrated project backlog. Project: **personalhub**; project_id: 49.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 49.
+
+Provenance: `wi:7023be35e1d743f7b900fa31624cd07d`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Patch Git remote verificate: revisione e applicazione esplicita
+
+Esporre in Settings → Git data sync le patch remote verificate con dettaglio, preview isolata e applicazione esplicita; includere poi le altre capability backend oggi prive di UI indicate nella cattura. Mantenere l’applicazione non silenziosa e preservare i principi di sicurezza descritti nella richiesta.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "49",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "49"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:7023be35e1d743f7b900fa31624cd07d",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Patch Git remote verificate: revisione e applicazione esplicita",
+      "objective": "Esporre in Settings → Git data sync le patch remote verificate con dettaglio, preview isolata e applicazione esplicita; includere poi le altre capability backend oggi prive di UI indicate nella cattura. Mantenere l’applicazione non silenziosa e preservare i principi di sicurezza descritti nella richiesta.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/PersonalHub",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T10:36:29Z",
+      "updated_at": "2026-09-30T10:36:29Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:7023be35e1d743f7b900fa31624cd07d",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2194,
+        "work_item_id": "wi:7023be35e1d743f7b900fa31624cd07d",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:e5a8121c2bd94badb06962703fceb161",
+        "uri": "chatgpt-ph-git-inbound-ui-residual",
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"PH — esporre la sincronizzazione Git→PH granulare già presente nel backend\\n\\nStato verificato su PersonalHub v63/main: Settings → Git data sync espone già check/verifica patch remote e restore completo da commit/tag/branch. Il backend contiene già preview/apply di patch singole, rebuild indice Git History, milestone/tag, proposal branch/PR/discard, semantic diff e altre operazioni avanzate, ma queste non risultano collegate alla UI corrente.\\n\\nLavoro residuo richiesto:\\n1. In Settings → Git data sync, quando `pullNow()` trova `pendingPatchIds`, rendere ogni patch selezionabile invece di mostrare solo gli ID.\\n2. Percorso UI consigliato: Settings → Git data sync → `Check and verify remote patches now` → sezione `Verified patches awaiting review` → tap su patch → schermata/dettaglio con ref, patch id, autore/schema compatibile e azioni.\\n3. Nel dettaglio patch: `Preview in sandbox` usando `GitDataSync.previewPatchFromRevision(...)`; mostrare insert/update/delete, tabelle coinvolte, esito FK/integrità e nessuna modifica al DB live.\\n4. Dopo preview PASS: pulsante esplicito `Apply this patch` / cherry-pick usando `GitDataSync.applyPatchFromRevision(...)`, con conferma e refresh/restart solo se necessario. Mai applicazione silenziosa durante pull/sync.\\n5. Integrare il dettaglio patch nella History corrente oppure in una sottopagina Git Data dedicata, evitando di resuscitare una seconda History concorrente.\\n6. Esporre, dove utile, le altre capability backend già implementate ma oggi senza UI: rebuild local history index, semantic diff tra revisioni, restore per data/ref, milestone/tag, proposal branch, PR e discard proposal. Mantenere priorità alla patch review/apply, che è il gap principale Git→PH.\\n7. Conservare i principi esistenti: SQLite resta source of truth; Git non fa raw merge del DB; ogni operazione inbound deve essere verificata, fail-closed e transazionale.\\n\\nAcceptance: dall’APK l’utente può scoprire una patch remota, aprirla, fare preview sandbox, vedere un riepilogo leggibile e applicarla esplicitamente senza ricostruire l’intero DB; test mirati backend/UI PASS e nessuna duplicazione della History corrente.\", \"executor\": null, \"executor_ref\": \"chatgpt-ph-git-inbound-ui-residual\", \"issue_id\": \"issue:e5a8121c2bd94badb06962703fceb161\", \"observed_at_ms\": 1790735686320, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/PersonalHub\"}",
+        "created_at": "2026-09-30T10:36:29Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:e5a8121c2bd94badb06962703fceb161",
+        "work_item_id": "wi:7023be35e1d743f7b900fa31624cd07d",
+        "role": "decision",
+        "created_at": "2026-09-30T02:34:46Z"
+      }
+    ]
+  }
+]
+```

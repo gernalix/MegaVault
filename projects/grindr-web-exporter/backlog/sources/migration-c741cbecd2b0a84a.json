@@ -1,0 +1,143 @@
+[
+  {
+    "routing": {
+      "project": "18",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "18"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in grindr-web-exporter",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=18, repository_id=R0018-LOCAL-20260922. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Capsule authored and validated in an isolated committed worktree; integration blocked by missing canonical remote",
+      "next_action": "Choose authorized local-only integration route and verify canonical main before PASS.",
+      "blocker": "grindr-web-exporter is canonical local-only with no remote; Capsule commit 711c155 remains only on task branch, not integrated local main.",
+      "project_id": "18",
+      "project_name": "grindr-web-exporter",
+      "repo": "/home/daniele/projects/grindr-web-exporter",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T22:23:04.779029Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:600e8f7b41324bd7b20ef71ef7b65b1d:e857b5ac08503faf9ab0feae8cce9002",
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Capsule authored and validated in an isolated committed worktree; integration blocked by missing canonical remote",
+        "completed_json": "[\"Verified MegaVault project 18 / repository R0018-LOCAL-20260922 identity\", \"Added project-capsule.yaml and AGENTS.md in isolated worktree\", \"FAST and FULL capsule checks passed; all 15 unittest cases and CLI help passed\", \"Committed 711c1556c9dbf1fec0eeeb6b848e54db91f27d33\"]",
+        "remaining_json": "[\"Guarded integration and canonical-main FAST readback\", \"Submit PASS after integrated acceptance\"]",
+        "evidence_json": "[\"MegaVault repositories.remote_url is empty and git remote -v returns no remotes\", \"FAST PASS with changed-file mapping\", \"FULL PASS with unittest-full hook exit 0\", \"15 tests passed; grindr-export --help exited 0\", \"Task worktree branch task/wi-600e8f7b41324bd7b20ef71ef7b65b1d at 711c1556c9dbf1fec0eeeb6b848e54db91f27d33\"]",
+        "blocker": "No remote URL is registered in MegaVault and canonical checkout has no origin. Existing guarded repository writer depends on origin fetch/push and PR integration; adding a guessed remote or directly advancing main would violate the integration boundary.",
+        "next_action": "Configure or identify the authoritative remote/approved local integration path, then integrate commit 711c1556c9dbf1fec0eeeb6b848e54db91f27d33 and rerun FAST on canonical main.",
+        "strict_contract": 1,
+        "payload_sha256": "e857b5ac08503faf9ab0feae8cce9002a3599583f5b80edef2c370818f1a2e1e",
+        "captured_at": 1790538475.0874395
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 856,
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "evidence_kind": "executor_result",
+        "label": "MegaVault repositories.remote_url is empty and git remote -v returns no remotes",
+        "uri": null,
+        "value_json": "\"MegaVault repositories.remote_url is empty and git remote -v returns no remotes\"",
+        "created_at": "2026-09-27T19:47:55Z"
+      },
+      {
+        "evidence_id": 857,
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "evidence_kind": "executor_result",
+        "label": "FAST PASS with changed-file mapping",
+        "uri": null,
+        "value_json": "\"FAST PASS with changed-file mapping\"",
+        "created_at": "2026-09-27T19:47:55Z"
+      },
+      {
+        "evidence_id": 858,
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "evidence_kind": "executor_result",
+        "label": "FULL PASS with unittest-full hook exit 0",
+        "uri": null,
+        "value_json": "\"FULL PASS with unittest-full hook exit 0\"",
+        "created_at": "2026-09-27T19:47:55Z"
+      },
+      {
+        "evidence_id": 859,
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "evidence_kind": "executor_result",
+        "label": "15 tests passed; grindr-export --help exited 0",
+        "uri": null,
+        "value_json": "\"15 tests passed; grindr-export --help exited 0\"",
+        "created_at": "2026-09-27T19:47:55Z"
+      },
+      {
+        "evidence_id": 860,
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "evidence_kind": "executor_result",
+        "label": "Task worktree branch task/wi-600e8f7b41324bd7b20ef71ef7b65b1d at 711c1556c9dbf1fec0eeeb6b848e54db91f27d33",
+        "uri": null,
+        "value_json": "\"Task worktree branch task/wi-600e8f7b41324bd7b20ef71ef7b65b1d at 711c1556c9dbf1fec0eeeb6b848e54db91f27d33\"",
+        "created_at": "2026-09-27T19:47:55Z"
+      },
+      {
+        "evidence_id": 1000,
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:93f330a9e43d4a1e8a37bba57829d581",
+        "uri": "codex://threads/01a0e425-7cbe-7270-b9b4-6d074a91c1b6",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0e425-7cbe-7270-b9b4-6d074a91c1b6\", \"code_location\": null, \"description\": \"Phase C grindr-web-exporter child recorded C2 PASS after local commit 1bafbb9, but /home/daniele/projects/grindr-web-exporter has no Git remote and gernalix/grindr-web-exporter does not exist, so code cannot be pushed or verified through repository integration; receipt is ahead of durable source publication.\", \"executor\": null, \"executor_ref\": \"01a0e425-7cbe-7270-b9b4-6d074a91c1b6\", \"issue_id\": \"issue:93f330a9e43d4a1e8a37bba57829d581\", \"observed_at_ms\": 1790536014867, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T21:04:00Z"
+      },
+      {
+        "evidence_id": 1212,
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "evidence_kind": "blocked_reconcile",
+        "label": "grindr-web-exporter is canonical local-only with no remote; Capsule commit 711c155 remains only on task branch, not inte",
+        "uri": null,
+        "value_json": "\"grindr-web-exporter is canonical local-only with no remote; Capsule commit 711c155 remains only on task branch, not integrated local main.\"",
+        "created_at": "2026-09-27T22:23:04.779029Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:93f330a9e43d4a1e8a37bba57829d581",
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "role": "matched",
+        "created_at": "2026-09-27T19:06:54Z"
+      },
+      {
+        "issue_id": "issue:93f330a9e43d4a1e8a37bba57829d581",
+        "work_item_id": "wi:600e8f7b41324bd7b20ef71ef7b65b1d",
+        "role": "decision",
+        "created_at": "2026-09-27T19:06:54Z"
+      }
+    ]
+  }
+]

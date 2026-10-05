@@ -1,0 +1,96 @@
+# Use the real Ptyxis tab tree to verify C2 terminal workspace
+
+<!-- migration-e5781321a8a3e933 -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:0392ce6c4706416eb56e3ee68e1d935a`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Use the real Ptyxis tab tree to verify C2 terminal workspace
+
+C2 terminal workspace cleanup counted active ptyxis-spawn scopes as open tabs, reporting 3 while 13 tabs remained visible. Require a GUI tab census before and after any terminal intervention and reconcile to one window with Dashboard, Codex Executor, and Watchdog.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:0392ce6c4706416eb56e3ee68e1d935a",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Use the real Ptyxis tab tree to verify C2 terminal workspace",
+      "objective": "C2 terminal workspace cleanup counted active ptyxis-spawn scopes as open tabs, reporting 3 while 13 tabs remained visible. Require a GUI tab census before and after any terminal intervention and reconcile to one window with Dashboard, Codex Executor, and Watchdog.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T07:49:04Z",
+      "updated_at": "2026-09-30T07:49:04Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:0392ce6c4706416eb56e3ee68e1d935a",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:0392ce6c4706416eb56e3ee68e1d935a",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2050,
+        "work_item_id": "wi:0392ce6c4706416eb56e3ee68e1d935a",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:ec50e9592e1b4cfa9ae2ec362a535ca6",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Terminal workspace validation bug: C2 cleanup/verification inferred open Ptyxis tabs from active ptyxis-spawn systemd scopes. Tabs whose commands had exited remained visibly open in the GUI, so the check reported 3 while the actual window contained 13 tabs. Require every terminal intervention to census the real Ptyxis GUI tab tree (AT-SPI or equivalent) before and after changes, then reconcile to exactly one window with Dashboard, Codex Executor and Watchdog; never treat active scopes/processes as the authoritative tab count.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:ec50e9592e1b4cfa9ae2ec362a535ca6\", \"observed_at_ms\": 1790684109949, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T07:49:04Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:ec50e9592e1b4cfa9ae2ec362a535ca6",
+        "work_item_id": "wi:0392ce6c4706416eb56e3ee68e1d935a",
+        "role": "decision",
+        "created_at": "2026-09-29T12:15:09Z"
+      }
+    ]
+  }
+]
+```

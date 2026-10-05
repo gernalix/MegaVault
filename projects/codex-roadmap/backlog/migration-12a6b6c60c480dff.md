@@ -1,0 +1,92 @@
+# Ridurre i falsi allarmi nel rilevatore di friction
+
+<!-- migration-12a6b6c60c480dff -->
+
+Migrated project backlog. Project: **codex-roadmap**; project_id: 51.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51.
+
+Provenance: `wi:7bdd1d89d1cf4d77a47c82947fbf8b07`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Ridurre i falsi allarmi nel rilevatore di friction
+
+Raffinare il rilevatore automatico del codex-session-archive affinché distingua evidenza di blocco o costo reale dai normali messaggi di progresso e reasoning, riducendo i falsi positivi nei report C2.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "explicit C3/C2 repository subject",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:7bdd1d89d1cf4d77a47c82947fbf8b07",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Ridurre i falsi allarmi nel rilevatore di friction",
+      "objective": "Raffinare il rilevatore automatico del codex-session-archive affinché distingua evidenza di blocco o costo reale dai normali messaggi di progresso e reasoning, riducendo i falsi positivi nei report C2.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-session-archive",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T10:16:35Z",
+      "updated_at": "2026-09-30T10:16:35Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:7bdd1d89d1cf4d77a47c82947fbf8b07",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2146,
+        "work_item_id": "wi:7bdd1d89d1cf4d77a47c82947fbf8b07",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:e3bedca009714f8d9468b7ea5ef8a8ac",
+        "uri": "codex-thread:01a0ee88-bb5a-75b0-a1b1-956ec41ed053",
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Il rilevatore automatico di bottleneck del codex-session-archive produce falsi positivi marcando normali messaggi di avanzamento/reasoning (es. 'verifico', 'planning', 'assessing') come friction. Raffinare i criteri affinché distingua evidenza di blocco/costo reale dal normale progresso, riducendo rumore nei report C2.\", \"executor\": null, \"executor_ref\": \"codex-thread:01a0ee88-bb5a-75b0-a1b1-956ec41ed053\", \"issue_id\": \"issue:e3bedca009714f8d9468b7ea5ef8a8ac\", \"observed_at_ms\": 1790709311803, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/codex-roadmap\"}",
+        "created_at": "2026-09-30T10:16:35Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:e3bedca009714f8d9468b7ea5ef8a8ac",
+        "work_item_id": "wi:7bdd1d89d1cf4d77a47c82947fbf8b07",
+        "role": "decision",
+        "created_at": "2026-09-29T19:15:11Z"
+      }
+    ]
+  }
+]
+```

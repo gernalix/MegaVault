@@ -1,0 +1,31 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:11a03c388d1e429e9b26e60a2fd0cf9d",
+      "description": "C3 audit_events è quasi interamente rumore: ~295.081 eventi terminal_reconcile_skipped su ~296k totali. Evitare di persistere i no-op/skipped ad ogni ciclo o coalescerli/metricizzarli fuori dallo storico canonico, mantenendo solo eventi azionabili o cambi di stato.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790873176543,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T16:46:16Z"
+    },
+    "issue_work_item_links": []
+  }
+]

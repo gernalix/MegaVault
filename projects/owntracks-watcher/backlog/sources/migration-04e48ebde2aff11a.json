@@ -1,0 +1,103 @@
+[
+  {
+    "routing": {
+      "project": "33",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "33"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:18c195e69e934c20ab3179434e1cb594",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in owntracks-watcher",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=33, repository_id=R0033. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Capsule adoption is blocked because MegaVault identifies owntracks-watcher only as a remote runtime and provides no source repository URL or local worktree for isolated development.",
+      "next_action": "Register/locate canonical source or decide repository creation before Capsule implementation.",
+      "blocker": "owntracks-watcher has no canonical source worktree or Git URL in MegaVault; source ownership is unresolved.",
+      "project_id": "33",
+      "project_name": "owntracks-watcher",
+      "repo": "owntracks-watcher",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T22:23:04.972234Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:18c195e69e934c20ab3179434e1cb594",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:18c195e69e934c20ab3179434e1cb594:af73e2895724f610e62b787f8996500b",
+        "work_item_id": "wi:18c195e69e934c20ab3179434e1cb594",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Capsule adoption is blocked because MegaVault identifies owntracks-watcher only as a remote runtime and provides no source repository URL or local worktree for isolated development.",
+        "completed_json": "[]",
+        "remaining_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+        "evidence_json": "[\"Canonical work item wi:18c195e69e934c20ab3179434e1cb594 is running after executor-start Issue #3000 was closed/applied.\", \"Read-only MegaVault lookup identifies project_id=33, slug=owntracks-watcher, repository_id=R0033, status=REMOTE_ONLY, location remote:ubuntu@150.230.148.128:/home/ubuntu/bots/owntracks_http_server, runtime_path=/home/ubuntu/bots/owntracks_http_server.\", \"The canonical MegaVault repository row has remote_url=NULL and worktree_path=NULL; no local source checkout is registered. No task worktree or source remote was created or guessed.\"]",
+        "blocker": "No canonical Git source repository URL or local worktree is registered for owntracks-watcher; MegaVault only identifies the deployed remote runtime path. Capsule changes cannot be made or integrated safely without the canonical source repository identity.",
+        "next_action": "Resolve and register the canonical source repository URL/worktree for MegaVault project 33 / repository R0033, then start a new isolated C2 task worktree and resume Capsule adoption.",
+        "strict_contract": 1,
+        "payload_sha256": "af73e2895724f610e62b787f8996500bffc8f6d74ae5e49996f951c14fecffe0",
+        "captured_at": 1790544710.5196042
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1108,
+        "work_item_id": "wi:18c195e69e934c20ab3179434e1cb594",
+        "evidence_kind": "executor_result",
+        "label": "Canonical work item wi:18c195e69e934c20ab3179434e1cb594 is running after executor-start Issue #3000 was closed/applied.",
+        "uri": null,
+        "value_json": "\"Canonical work item wi:18c195e69e934c20ab3179434e1cb594 is running after executor-start Issue #3000 was closed/applied.\"",
+        "created_at": "2026-09-27T21:31:50Z"
+      },
+      {
+        "evidence_id": 1109,
+        "work_item_id": "wi:18c195e69e934c20ab3179434e1cb594",
+        "evidence_kind": "executor_result",
+        "label": "Read-only MegaVault lookup identifies project_id=33, slug=owntracks-watcher, repository_id=R0033, status=REMOTE_ONLY, lo",
+        "uri": null,
+        "value_json": "\"Read-only MegaVault lookup identifies project_id=33, slug=owntracks-watcher, repository_id=R0033, status=REMOTE_ONLY, location remote:ubuntu@150.230.148.128:/home/ubuntu/bots/owntracks_http_server, runtime_path=/home/ubuntu/bots/owntracks_http_server.\"",
+        "created_at": "2026-09-27T21:31:50Z"
+      },
+      {
+        "evidence_id": 1110,
+        "work_item_id": "wi:18c195e69e934c20ab3179434e1cb594",
+        "evidence_kind": "executor_result",
+        "label": "The canonical MegaVault repository row has remote_url=NULL and worktree_path=NULL; no local source checkout is registere",
+        "uri": null,
+        "value_json": "\"The canonical MegaVault repository row has remote_url=NULL and worktree_path=NULL; no local source checkout is registered. No task worktree or source remote was created or guessed.\"",
+        "created_at": "2026-09-27T21:31:50Z"
+      },
+      {
+        "evidence_id": 1222,
+        "work_item_id": "wi:18c195e69e934c20ab3179434e1cb594",
+        "evidence_kind": "blocked_reconcile",
+        "label": "owntracks-watcher has no canonical source worktree or Git URL in MegaVault; source ownership is unresolved.",
+        "uri": null,
+        "value_json": "\"owntracks-watcher has no canonical source worktree or Git URL in MegaVault; source ownership is unresolved.\"",
+        "created_at": "2026-09-27T22:23:04.972234Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

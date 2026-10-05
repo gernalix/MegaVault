@@ -1,0 +1,75 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:531da330d6c24355ac1db4700a67989f",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Bind restarted manual Codex execution to a managed C2 run",
+      "objective": "Managed-run gap in manual/restarted Codex execution: work item wi:853f2846c06d406bb19cf53e20afec5c had executor_started recorded with run_id=NULL and no work_item_runs row, yet execution proceeded and the item was later completed. This allows a restarted lane to bypass C2_RUN_ID/resource-lease tracking. Require restarted/manual Codex lanes to obtain a managed C2_RUN_ID before substantive work; executor_started should bind to that run or fail closed when managed execution is required.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": 9000,
+      "current_action": "Parked during roadmap semantic reconciliation.",
+      "next_action": "Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.",
+      "blocker": "Deferred pending Symphony migration/replacement decision.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T21:03:12Z",
+      "updated_at": "2026-09-28T06:45:04Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:531da330d6c24355ac1db4700a67989f",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 986,
+        "work_item_id": "wi:531da330d6c24355ac1db4700a67989f",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:e10ce6723b844577a8619f958f1f3abb",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Managed-run gap in manual/restarted Codex execution: work item wi:853f2846c06d406bb19cf53e20afec5c had executor_started recorded with run_id=NULL and no work_item_runs row, yet execution proceeded and the item was later completed. This allows a restarted lane to bypass C2_RUN_ID/resource-lease tracking. Require restarted/manual Codex lanes to obtain a managed C2_RUN_ID before substantive work; executor_started should bind to that run or fail closed when managed execution is required.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:e10ce6723b844577a8619f958f1f3abb\", \"observed_at_ms\": 1790532295785, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T21:03:12Z"
+      },
+      {
+        "evidence_id": 1453,
+        "work_item_id": "wi:531da330d6c24355ac1db4700a67989f",
+        "evidence_kind": "classification",
+        "label": "User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to",
+        "uri": null,
+        "value_json": "\"User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to current roadmap execution and should not compete for slots before the migration decision.\"",
+        "created_at": "2026-09-28T06:45:04Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:e10ce6723b844577a8619f958f1f3abb",
+        "work_item_id": "wi:531da330d6c24355ac1db4700a67989f",
+        "role": "decision",
+        "created_at": "2026-09-27T18:04:55Z"
+      }
+    ]
+  }
+]

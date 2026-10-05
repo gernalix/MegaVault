@@ -1,0 +1,87 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:f805605951ed4371ace6b870810cdbd8",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Provide canonical manual non-prompt C2 intake and start helper",
+      "objective": "Provide and enforce one canonical writer-backed helper for manual non-prompt C2 registration plus executor_started. Verify writer receipt and canonical work_item_id before starting work; preserve the observed local-only item and rejected #5407/#5435 as evidence. Coordinate with the existing web/ChatGPT intake item without assuming shared implementation.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T05:04:24Z",
+      "updated_at": "2026-09-30T05:04:24Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:f805605951ed4371ace6b870810cdbd8",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2013,
+        "work_item_id": "wi:f805605951ed4371ace6b870810cdbd8",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:29a4606547f04677a0f861836cfb480b",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Manual non-prompt C2 registration path is fragile: c2_intake.py add writes a local roadmap.sqlite directly, but does not submit the intake through the canonical single writer. A work item created this way (wi:ee525059023d407ab0fdca10fb3b6c12) was absent from origin/main, so later c2_executor_started (#5407) and c2_executor_result (#5435) were rejected as not_planned. Impact: an executor can follow the apparent local intake/start flow, perform real work, and only discover later that canonical C2 never registered the item. Provide/enforce one canonical helper for non-prompt intake + executor_started.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:29a4606547f04677a0f861836cfb480b\", \"observed_at_ms\": 1790675255110, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"https://github.com/gernalix/codex-roadmap\"}",
+        "created_at": "2026-09-30T05:04:24Z"
+      },
+      {
+        "evidence_id": 2492,
+        "work_item_id": "wi:f805605951ed4371ace6b870810cdbd8",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:44348c135aae4775a483657c709f4d35",
+        "uri": "https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1",
+        "value_json": "{\"chat_url\": \"https://chatgpt.com/g/g-p-6ab69fbdbaf88191a39a75ff5c9e3d70-c2/c/6abcd235-20f0-83eb-861e-d8a0e79d25c1\", \"code_location\": null, \"description\": \"C3 intake idempotency bug observed in chat Accelerare roadmap e aggiornamento C3 (2026-09-30). A live C3 execution was already running with executor_started applied and an executor alive, yet the flow requested a second roadmap_start before implementation. This creates a bureaucratic loop and manual steer. Desired invariant: if the same work item has canonical live ownership/executor evidence, repeated roadmap_start/intake must be a no-op/readback and execution must continue rather than re-enter intake.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:44348c135aae4775a483657c709f4d35\", \"observed_at_ms\": 1790784382020, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:29a4606547f04677a0f861836cfb480b",
+        "work_item_id": "wi:f805605951ed4371ace6b870810cdbd8",
+        "role": "decision",
+        "created_at": "2026-09-29T09:47:35Z"
+      },
+      {
+        "issue_id": "issue:44348c135aae4775a483657c709f4d35",
+        "work_item_id": "wi:f805605951ed4371ace6b870810cdbd8",
+        "role": "decision",
+        "created_at": "2026-10-01T12:32:14Z"
+      },
+      {
+        "issue_id": "issue:44348c135aae4775a483657c709f4d35",
+        "work_item_id": "wi:f805605951ed4371ace6b870810cdbd8",
+        "role": "matched",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ]
+  }
+]

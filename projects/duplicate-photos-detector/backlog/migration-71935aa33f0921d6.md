@@ -1,0 +1,115 @@
+# Adopt Project Capsule v1 in duplicate-photos-detector
+
+<!-- migration-71935aa33f0921d6 -->
+
+Migrated project backlog. Project: **duplicate-photos-detector**; project_id: 102.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 102.
+
+Provenance: `wi:c7ff920764e94e5d885c9c2c559fcab5`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Adopt Project Capsule v1 in duplicate-photos-detector
+
+Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=102, repository_id=R0103. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.
+
+Acceptance:
+
+- Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.
+- FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.
+- FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.
+- Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.
+
+status: blocked
+
+current_action: Stale child RUNNING reconciled
+
+next_action: Reconcile/re-dispatch from Project Capsule parent
+
+blocker: stale child run; parent reconciliation required
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "102",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "102"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:c7ff920764e94e5d885c9c2c559fcab5",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in duplicate-photos-detector",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=102, repository_id=R0103. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Stale child RUNNING reconciled",
+      "next_action": "Reconcile/re-dispatch from Project Capsule parent",
+      "blocker": "stale child run; parent reconciliation required",
+      "project_id": "102",
+      "project_name": "duplicate-photos-detector",
+      "repo": "https://github.com/gernalix/duplicate-photos-detector",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T19:27:47Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:c7ff920764e94e5d885c9c2c559fcab5",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:c7ff920764e94e5d885c9c2c559fcab5:8cba6e0b3cb1d31e7495063100789286",
+        "work_item_id": "wi:c7ff920764e94e5d885c9c2c559fcab5",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Stale child RUNNING reconciled",
+        "completed_json": "[]",
+        "remaining_json": "[\"Adopt Project Capsule v1 in duplicate-photos-detector\"]",
+        "evidence_json": "[\"No active work_item_run exists; child remains under its waiting Project Capsule parent for deliberate re-dispatch.\"]",
+        "blocker": "stale child run; parent reconciliation required",
+        "next_action": "Reconcile/re-dispatch from Project Capsule parent",
+        "strict_contract": 0,
+        "payload_sha256": "8cba6e0b3cb1d31e749506310078928680fb1dcb6037457626510d94a0ab9414",
+        "captured_at": 1790574370.7788868
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1404,
+        "work_item_id": "wi:c7ff920764e94e5d885c9c2c559fcab5",
+        "evidence_kind": "executor_result",
+        "label": "No active work_item_run exists; child remains under its waiting Project Capsule parent for deliberate re-dispatch.",
+        "uri": null,
+        "value_json": "\"No active work_item_run exists; child remains under its waiting Project Capsule parent for deliberate re-dispatch.\"",
+        "created_at": "2026-09-28T05:46:10Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]
+```

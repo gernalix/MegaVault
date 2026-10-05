@@ -1,0 +1,402 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "49",
+        "18",
+        "92",
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Operational task state — global roadmap recovery",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Track independent roots and final global acceptance only; do not dispatch archived phase steps.",
+      "next_action": "After independent roots are terminal, verify global acceptance and close the umbrella.",
+      "blocker": "Independent residual roots remain open, including PH-owned current work and manual/conditional lanes.",
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": "CHATGPT-20260924-GLOBAL-RECOVERY",
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "task_state",
+      "source_ref": "CHATGPT-20260924-GLOBAL-RECOVERY.md",
+      "created_at": "2026-09-25T15:54:51Z",
+      "updated_at": "2026-09-26T17:12:41Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [
+      {
+        "checkpoint_id": 6,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "source_file": "CHATGPT-20260924-GLOBAL-RECOVERY.md",
+        "source_commit": "52bea96d02f55fac91cea210cf2e370b5963cc4f",
+        "source_sha256": "d2d08b98bb7e928d3726a1b3eee223068076b5d1f52f5f52837c4028fa2c1559",
+        "objective": "Apply the global audit findings, repair the prompt/roadmap workflow, complete all relevant PersonalHub work before the final APK, migrate the live PersonalHub DB externally to the final schema, and leave involved repositories tested, operational, clean and without unmanaged PBFs.",
+        "current_step": "C2 is now the master lane by explicit user override. PersonalHub is parked at its pushed/merged checkpoints; do not rerun PH APK/DB compilation/testing/install work until the remaining PH chain is complete. Resume C2 directly from canonical `gernalix/codex-usage-monitor` / project_id=8 state, preserving completed 302284 evidence and using new scoped work for the broader C2 architecture rather than reopening a terminal/blocker scope.\n994029 and 966124 are terminal completed and own no active lane.",
+        "next_action": null,
+        "blocker": "pre-migration / retired: historical evidence only",
+        "completed_json": "[\"Emergency runaway-Codex closure 222733 completed: heartbeat disabled, zero active recurring Codex automations, no post-shutdown 788315 cycle, canonical terminal state confirmed.\", \"Checkpoint-protocol compliance audit completed for all current operational checkpoints; missing PH/infra sections corrected in-place without creating competing checkpoint files.\", \"New-chat handoff prepared from persistent Git state; future continuation must reread this file first.\", \"641903 superseded by 896074; no future chat should launch 641903.\", \"Telegram collector runtime and source integration are fully validated: authorization complete, RUN1/RUN2 PASS, timers active, private history repo readable, and canonical successor 966124 is terminal completed. Its specialized checkpoints are authoritative.\", \"prompt-history analytics correction completed through ff694890 with prompt-level sampling/regressions; runtime import verification remains part of later local infrastructure work.\", \"422308 model metadata is now GPT-6 Luna; no prompt-body rewrite was needed.\", \"641903 is guarded by manual-prerequisite:resolve-ccs-project-id because verified runtime evidence shows legacy PROJECT_ID=96 resolves workflowy-importer, not chrome-codex-switcher.\", \"Synthetic SQLite validation confirmed the core regression: a three-cycle goal with a cumulative completion total plus a roadmap mirror counts as one 300-token sample; combined with a second 200-token task the reported average is 250, while a mixed-model task is excluded.\", \"prompt-history source changes landed on main: cli prompt-level aggregation, model_performance/token_efficiency SQL, v_model_performance view, README contract, and tests/test_model_analytics.py regressions.\", \"prompt-history model/reasoning analytics now use one sample per canonical PROMPT_ID from codex-usage only, aggregate cycle deltas, ignore roadmap mirror executions, and exclude mixed-model/reasoning tasks from ranking.\", \"Global Phase-1 audit and stale-state reconciliation.\", \"PBF disposition protocol landed on codex-roadmap/main and current attention projection has no unresolved needs_fix items.\", \"Persistent operational checkpoint protocol landed in AGENTS.md and operations/task-state/README.md.\", \"Token-discipline and metadata-only model/reasoning policies landed.\", \"Ready queue ordering policy landed.\", \"Workflowy projection source supports prompt_type and model/reasoning metadata.\", \"CCS source styling for /goal and model/reasoning landed and PR #24 merged.\", \"codex-usage source attribution fix landed; runtime deploy/backfill remains in 302284.\", \"222733, 994029, 302284, 812553, 714263, 181259, 920550 and 913264 were allocated/materialized as required.\", \"Pending model audit migrated relevant tasks to GPT-6 metadata.\", \"Manual prerequisite/conditional tags verified for 181259, 582946, 218695 and 588376.\", \"Redundant hourly ChatGPT \\\"Codex Fix Queue\\\" automation disabled.\"]",
+        "remaining_json": "[\"When the master recovery returns to PersonalHub, reconcile/integrate the verified Workflowy branch, rerun affected gates, delete the temporary branch and update both PH/global checkpoints.\", \"Run routing-safe CCS successor 896074 only after 302284 PASS; never run superseded 641903.\", \"Reconcile 181259's nonexistent remote repo before it can become genuinely launchable.\", \"Resume 302284 only after PH 913264 PASS (or a true PH blocker), using its preserved partial checkpoint; do not redo already-verified work.\", \"994029 è completo. 714263 è ora sbloccato dal suo prerequisito, ma resta soggetto all'ordine della master lane e non va lanciato finché PersonalHub P0 è azionabile.\", \"Keep 812553 behind 222733.\", \"Complete PH P0 chain and final external DB migration/APK/Pixel gate.\", \"966124 è completo e non va rilanciato. Quando la master lane consentirà la fase notifiche, passare direttamente all'audit history-based dei producer rumorosi; non rilanciare 422308 e non lanciare 333860.\"]",
+        "evidence_json": "[\"gernalix/codex-roadmap canonical projections, mutation Issues #1012-#1031 and task materializations.\", \"gernalix/MegaVault allocator Issues #81-#100.\", \"gernalix/codex-usage published 788315 cycles.\", \"gernalix/prompt-history exists; gernalix/ChatGPTExporter and gernalix/grindr-web-exporter return GitHub 404; gernalix/grindr-export exists and has its own archive workflow.\", \"ChatGPT automation readback showing \\\"Codex Fix Queue\\\" disabled.\", \"PH/CCS/ActivityWatch repository and PR state already recorded above.\", \"Telegram evidence: terminal checkpoint `operations/task-state/966124.md`; specialized checkpoints `CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md` and `CHATGPT-20260924-TELEGRAM-AUTODELETE-ARCHIVE.md`; `fedora-system-monitor/main` contains the integrated Telegram source through relationship/block-state tracking; private history runtime remains healthy; 966124 is terminal `completed`; 333860 is superseded/non-actionable.\"]",
+        "captured_at": "2026-09-25T15:54:51Z"
+      }
+    ],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 76,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Emergency runaway-Codex closure 222733 completed: heartbeat disabled, zero active recurring Codex automations, no post-shutdown 788315 cycle, canonical terminal state confirmed.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-5d92ad80d707873b",
+        "value_json": "{\"text\": \"Emergency runaway-Codex closure 222733 completed: heartbeat disabled, zero active recurring Codex automations, no post-shutdown 788315 cycle, canonical terminal state confirmed.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 77,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Checkpoint-protocol compliance audit completed for all current operational checkpoints; missing PH/infra sections corrected in-place without creating competing checkpoint files.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-d017c64f211822ee",
+        "value_json": "{\"text\": \"Checkpoint-protocol compliance audit completed for all current operational checkpoints; missing PH/infra sections corrected in-place without creating competing checkpoint files.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 78,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "New-chat handoff prepared from persistent Git state; future continuation must reread this file first.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-73b063a8905d7b7d",
+        "value_json": "{\"text\": \"New-chat handoff prepared from persistent Git state; future continuation must reread this file first.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 79,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "641903 superseded by 896074; no future chat should launch 641903.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-9839fb2a21d36d59",
+        "value_json": "{\"text\": \"641903 superseded by 896074; no future chat should launch 641903.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 80,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Telegram collector runtime and source integration are fully validated: authorization complete, RUN1/RUN2 PASS, timers active, private history repo readable, and canonical successor 966124 is terminal completed. Its specialized checkpoints are authoritative.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-10dc7691504d28f0",
+        "value_json": "{\"text\": \"Telegram collector runtime and source integration are fully validated: authorization complete, RUN1/RUN2 PASS, timers active, private history repo readable, and canonical successor 966124 is terminal completed. Its specialized checkpoints are authoritative.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 81,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "prompt-history analytics correction completed through ff694890 with prompt-level sampling/regressions; runtime import verification remains part of later local infrastructure work.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-023aba09d1cb79be",
+        "value_json": "{\"text\": \"prompt-history analytics correction completed through ff694890 with prompt-level sampling/regressions; runtime import verification remains part of later local infrastructure work.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 82,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "422308 model metadata is now GPT-6 Luna; no prompt-body rewrite was needed.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-9d7072fbcb1295c1",
+        "value_json": "{\"text\": \"422308 model metadata is now GPT-6 Luna; no prompt-body rewrite was needed.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 83,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "641903 is guarded by manual-prerequisite:resolve-ccs-project-id because verified runtime evidence shows legacy PROJECT_ID=96 resolves workflowy-importer, not chrome-codex-switcher.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-ef45adda2a537459",
+        "value_json": "{\"text\": \"641903 is guarded by manual-prerequisite:resolve-ccs-project-id because verified runtime evidence shows legacy PROJECT_ID=96 resolves workflowy-importer, not chrome-codex-switcher.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 84,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Synthetic SQLite validation confirmed the core regression: a three-cycle goal with a cumulative completion total plus a roadmap mirror counts as one 300-token sample; combined with a second 200-token task the reported average is 250, while a mixed-model task is excluded.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-e9792fc6821a8c16",
+        "value_json": "{\"text\": \"Synthetic SQLite validation confirmed the core regression: a three-cycle goal with a cumulative completion total plus a roadmap mirror counts as one 300-token sample; combined with a second 200-token task the reported average is 250, while a mixed-model task is excluded.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 85,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "prompt-history source changes landed on main: cli prompt-level aggregation, model_performance/token_efficiency SQL, v_model_performance view, README contract, and tests/test_model_analytics.py regressions.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-7a11d077a26f4692",
+        "value_json": "{\"text\": \"prompt-history source changes landed on main: cli prompt-level aggregation, model_performance/token_efficiency SQL, v_model_performance view, README contract, and tests/test_model_analytics.py regressions.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 86,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "prompt-history model/reasoning analytics now use one sample per canonical PROMPT_ID from codex-usage only, aggregate cycle deltas, ignore roadmap mirror executions, and exclude mixed-model/reasoning tasks from ranking.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-adbaea140eb09cbd",
+        "value_json": "{\"text\": \"prompt-history model/reasoning analytics now use one sample per canonical PROMPT_ID from codex-usage only, aggregate cycle deltas, ignore roadmap mirror executions, and exclude mixed-model/reasoning tasks from ranking.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 87,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Global Phase-1 audit and stale-state reconciliation.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-a47cc66f138bfd73",
+        "value_json": "{\"text\": \"Global Phase-1 audit and stale-state reconciliation.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 88,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "PBF disposition protocol landed on codex-roadmap/main and current attention projection has no unresolved needs_fix items.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-160ff77c1fb4bf5f",
+        "value_json": "{\"text\": \"PBF disposition protocol landed on codex-roadmap/main and current attention projection has no unresolved needs_fix items.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 89,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Persistent operational checkpoint protocol landed in AGENTS.md and operations/task-state/README.md.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-550eb0990adf8c93",
+        "value_json": "{\"text\": \"Persistent operational checkpoint protocol landed in AGENTS.md and operations/task-state/README.md.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 90,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Token-discipline and metadata-only model/reasoning policies landed.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-fbddf502b8bed2d9",
+        "value_json": "{\"text\": \"Token-discipline and metadata-only model/reasoning policies landed.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 91,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Ready queue ordering policy landed.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-a00bea7e0c91e53a",
+        "value_json": "{\"text\": \"Ready queue ordering policy landed.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 92,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Workflowy projection source supports prompt_type and model/reasoning metadata.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-9a404d22de616da1",
+        "value_json": "{\"text\": \"Workflowy projection source supports prompt_type and model/reasoning metadata.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 93,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "CCS source styling for /goal and model/reasoning landed and PR #24 merged.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-734f8e898ccc8d15",
+        "value_json": "{\"text\": \"CCS source styling for /goal and model/reasoning landed and PR #24 merged.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 94,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "codex-usage source attribution fix landed; runtime deploy/backfill remains in 302284.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-f163f456bd841041",
+        "value_json": "{\"text\": \"codex-usage source attribution fix landed; runtime deploy/backfill remains in 302284.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 95,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "222733, 994029, 302284, 812553, 714263, 181259, 920550 and 913264 were allocated/materialized as required.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-7b42cf45105db7a0",
+        "value_json": "{\"text\": \"222733, 994029, 302284, 812553, 714263, 181259, 920550 and 913264 were allocated/materialized as required.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 96,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Pending model audit migrated relevant tasks to GPT-6 metadata.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-256ce18984021c19",
+        "value_json": "{\"text\": \"Pending model audit migrated relevant tasks to GPT-6 metadata.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 97,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Manual prerequisite/conditional tags verified for 181259, 582946, 218695 and 588376.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-458827dcd79b7254",
+        "value_json": "{\"text\": \"Manual prerequisite/conditional tags verified for 181259, 582946, 218695 and 588376.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 98,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "completed",
+        "label": "Redundant hourly ChatGPT \"Codex Fix Queue\" automation disabled.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#completed-b8b242e1a25ac82d",
+        "value_json": "{\"text\": \"Redundant hourly ChatGPT \\\"Codex Fix Queue\\\" automation disabled.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 99,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "evidence",
+        "label": "gernalix/codex-roadmap canonical projections, mutation Issues #1012-#1031 and task materializations.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#evidence-1f030f434ca448af",
+        "value_json": "{\"text\": \"gernalix/codex-roadmap canonical projections, mutation Issues #1012-#1031 and task materializations.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 100,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "evidence",
+        "label": "gernalix/MegaVault allocator Issues #81-#100.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#evidence-52448752012a02fd",
+        "value_json": "{\"text\": \"gernalix/MegaVault allocator Issues #81-#100.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 101,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "evidence",
+        "label": "gernalix/codex-usage published 788315 cycles.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#evidence-229dac9da65e766f",
+        "value_json": "{\"text\": \"gernalix/codex-usage published 788315 cycles.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 102,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "evidence",
+        "label": "gernalix/prompt-history exists; gernalix/ChatGPTExporter and gernalix/grindr-web-exporter return GitHub 404; gernalix/grindr-export exists and has its own archive workflow.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#evidence-59cc290792e0402c",
+        "value_json": "{\"text\": \"gernalix/prompt-history exists; gernalix/ChatGPTExporter and gernalix/grindr-web-exporter return GitHub 404; gernalix/grindr-export exists and has its own archive workflow.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 103,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "evidence",
+        "label": "ChatGPT automation readback showing \"Codex Fix Queue\" disabled.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#evidence-0dbe470c665004a4",
+        "value_json": "{\"text\": \"ChatGPT automation readback showing \\\"Codex Fix Queue\\\" disabled.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 104,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "evidence",
+        "label": "PH/CCS/ActivityWatch repository and PR state already recorded above.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#evidence-f00db2339fc671e1",
+        "value_json": "{\"text\": \"PH/CCS/ActivityWatch repository and PR state already recorded above.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 105,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "evidence",
+        "label": "Telegram evidence: terminal checkpoint `operations/task-state/966124.md`; specialized checkpoints `CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md` and `CHATGPT-20260924-TELEGRAM-AUTODELETE-ARCHIVE.md`; `fedora-system-monitor/main` contains the integrated Telegram source through relationship/block-state tracking; private history runtime remains healthy; 966124 is terminal `completed`; 333860 is superseded/non-actionable.",
+        "uri": "state://CHATGPT-20260924-GLOBAL-RECOVERY.md#evidence-9d08cee3f6704b01",
+        "value_json": "{\"text\": \"Telegram evidence: terminal checkpoint `operations/task-state/966124.md`; specialized checkpoints `CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md` and `CHATGPT-20260924-TELEGRAM-AUTODELETE-ARCHIVE.md`; `fedora-system-monitor/main` contains the integrated Telegram source through relationship/block-state tracking; private history runtime remains healthy; 966124 is terminal `completed`; 333860 is superseded/non-actionable.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 353,
+        "work_item_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+        "evidence_kind": "classification",
+        "label": "codex-roadmap main a5873827: prompt 175908 terminal; independent PH, Telegram, Grindr, ntfy and branch-cleanup roots ret",
+        "uri": null,
+        "value_json": "\"codex-roadmap main a5873827: prompt 175908 terminal; independent PH, Telegram, Grindr, ntfy and branch-cleanup roots retain residual work.\"",
+        "created_at": "2026-09-26T17:12:41Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [],
+    "source_document": {
+      "path": "/home/daniele/projects/codex-roadmap/operations/task-state/CHATGPT-20260924-GLOBAL-RECOVERY.md",
+      "text": "# Operational task state — global roadmap recovery\n\nTASK_ID: CHATGPT-20260924-GLOBAL-RECOVERY\nUpdated: 2026-09-25 12:56 Europe/Copenhagen\n\n## Objective\nApply the global audit findings, repair the prompt/roadmap workflow, complete all relevant PersonalHub work before the final APK, migrate the live PersonalHub DB externally to the final schema, and leave involved repositories tested, operational, clean and without unmanaged PBFs.\n\n## Constraints\n- **User priority override 2026-09-25:** C2 (`gernalix/codex-usage-monitor`, project_id=8) is now the master execution lane. PersonalHub is explicitly parked; no further PH APK/DB compilation, testing, installation or cutover retry is allowed until all remaining PH tasks are complete and priority returns to PH.\n- Enforce one active writer per repository/risky runtime resource. C2 may inspect/read PH state only as needed for context; it must not mutate PersonalHub, its DB/schema/branches/devices while PH is parked. Independent side lanes remain allowed only when their writers/resources are disjoint.\n- This file is operational memory only; canonical lifecycle remains in roadmap.sqlite.\n- Store conclusions/state only, never chain-of-thought, secrets or raw private transcripts.\n- Canonical roadmap mutations go only through the codex-roadmap single writer.\n- Avoid intermediate PRs unless technically required.\n- Model/reasoning live only in roadmap metadata, never in Codex prompt text.\n- Ready queue_position is the recommended launch order.\n- Prefer direct ChatGPT work; use Codex only for local Fedora/device/runtime work.\n- PersonalHub final APK is built only after all relevant PH work/tests/fixes are complete.\n- PH DB migrations are external one-shot transformations after schema freeze; do not ship historical Room migrations just to rescue the live DB.\n- Device operations must be serial-scoped when multiple Android devices are connected.\n\n## Plan / checklist\n### Phase 0 — Recovery framework and protocol\n- [x] Replace coarse global serialization with repo/resource-scoped serialization: PH keeps master priority, while independent non-PH tasks may run in parallel if they have disjoint writers and cannot touch PH state.\n- [x] Establish the persistent operational-checkpoint protocol in `operations/task-state/README.md`.\n- [x] Establish single-writer-only canonical roadmap mutations.\n- [x] Establish model/reasoning as roadmap metadata only, never prompt-body text.\n- [x] Establish Ready ordering as the actual recommended launch order.\n- [x] Establish direct-ChatGPT-first execution and bounded Codex/local-runtime delegation.\n- [x] Establish mandatory PBF disposition/successor handling so failed/blocked prompts cannot disappear silently.\n- [x] Verify all current operational checkpoints against `operations/task-state/README.md`; PH and infrastructure-cleanup section gaps were corrected and all five current checkpoints now contain every required section.\n\n### Phase 1 — Broad audit and stale-state reconciliation\n- [x] Complete the broad Phase-1 audit across roadmap/runtime/infrastructure and PersonalHub.\n- [x] Reconcile stale running states and allocate/materialize required successors.\n- [x] Resolve infrastructure PR residue identified by the audit (PH #35, CCS #24, ActivityWatch #3).\n- [x] Verify current Attention/PBF projection has no unresolved `needs_fix` item lacking disposition/successor coverage.\n- [x] Supersede unsafe CCS prompt 641903 with routing-safe successor 896074; never launch 641903.\n- [x] Guard conditional/manual tasks 181259, 582946, 218695 and 588376 with explicit prerequisites.\n\n### Phase 2 — PersonalHub P0 + live DB migration (PARKED BY USER OVERRIDE)\nDetailed execution is owned by `CHATGPT-20260924-PERSONALHUB-P0.md`; keep only global gates here.\n- [x] Record the obsolete intermediate PH DB task 383662 as superseded by the specialized final cutover path 913264; never launch 383662.\n- [x] Implement and host-verify the optional PH ↔ Workflowy integration on `chatgpt/workflowy-integration` without a Room schema/version change; detailed checkpoint: `CHATGPT-20260924-PH-WORKFLOWY.md`.\n- [x] Safely park the partially completed 302284 infrastructure task at pushed WIP commit `6f31ceeaa51e5b77b86d2a18620a34079329196a` on `codex-usage-monitor/task/302284`; do not integrate or continue it while PH is actionable.\n- [x] Finish 920550: merged to PersonalHub main as `66dbe0265ff4dcdba3221e12e7953518056ce951`; schema 23 identity `4b9b96396c8f9e750d13b0e6da70fdd9`; all CI gates PASS.\n- [ ] Reconcile and integrate `chatgpt/workflowy-integration` into the then-current PersonalHub main, rerun affected gates, delete the temporary branch, and record the merged commit.\n- [ ] Run and integrate 857906 after 920550.\n- [ ] Run and integrate 707603 on the resulting schema.\n- [ ] Run and integrate 840907, including true offline behavior and artifact-size impact.\n- [ ] Run 788606 release preflight; freeze the exact final PersonalHub main commit, Room schema/identity, minified APK/AAB and hashes.\n- [ ] **ABSOLUTE NEXT STEP AFTER 788606:** execute 913264 immediately. Read the real Pixel DB identity/schema, take immutable DB/WAL/SHM + installed-APK rollback backup, externally migrate a copy directly to the frozen final schema, and pass SQLite quick_check/integrity/FK/data-preservation checks. Do not insert any unrelated task between 788606 and 913264.\n- [ ] Install the exact frozen final APK on the primary Pixel using explicit ADB serial and verify Home + every module against preserved real data before any non-PH lane resumes.\n- [ ] Before final cutover, converge every still-relevant PH side branch into `main`: prove patch/semantic uniqueness, merge/cherry-pick/squash only valid unabsorbed work through the canonical writer, then delete all absorbed/obsolete non-main PH branches and close stale PRs. End with clean main-only operational state.\n- [ ] Do not resume non-PH recovery lanes until all PH items above are complete, unless PH is truly blocked.\n\n### Phase 3 — C2 / remaining prompt-infrastructure runtime closure (CURRENT PRIORITY)\n- [x] Stop the runaway 788315 heartbeat/automation with 222733.\n- [x] Verify 788315 produces no new model-driven heartbeat cycles after shutdown.\n- [ ] Resume 302284 from its parked checkpoint and finish the remaining consolidated roadmap/Workflowy/CCS/codex-usage runtime readback.\n- [ ] Run routing-safe CCS successor 896074 only after 302284 PASS.\n- [x] Run 994029 for the ActivityWatch/Kuma local cutover; terminal PASS, central monitor ID 59 fresh/UP and legacy ID 45 disabled.\n- [ ] Run 714263 only after 994029, closing the sqlite-to-obsidian Kuma residual.\n- [ ] Run 812553 after 302284, using prompt-history as the canonical primary repo.\n- [x] Complete prompt-history source-level model/reasoning analytics and regressions through ff694890.\n- [ ] Verify the corresponding live/runtime import/backfill/readback during the infrastructure closure tasks above.\n\n### Phase 4 — Notification and checkpoint infrastructure\n- [x] Complete Telegram collector runtime acceptance: account authorization, RUN1=4,244 messages, RUN2=0/no-op, private Git history readable, timer enabled+active; details in `CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md`.\n- [x] Deploy the user-requested one-day-auto-delete Telegram archive runtime on Fedora: duplicate-free local SQLite history, revision/tombstone handling, media/call retention, human timeline, relationship/block-state tracking, 5-minute timer, shared Telethon-session lock, and live runtime verification; details in `CHATGPT-20260924-TELEGRAM-AUTODELETE-ARCHIVE.md`.\n- [x] Complete the Telegram source/lifecycle closure through canonical successor 966124; all verified Telegram source including relationship/block-state tracking is integrated on `fedora-system-monitor/main`, bounded gates/runtime readback PASS, and absorbed temporary branches are removed.\n- [ ] After sufficient Telegram history exists, audit noisy producers and apply only producer-specific fixes; verify the post-fix notification stream is quieter and still actionable.\n- [ ] Complete the ntfy checkpoint-notification lane and prove accepted Git checkpoint pushes produce one remote notification; details in `CHATGPT-20260924-NTFY-CHECKPOINTS.md`.\n\n### Phase 5 — Conditional/manual project lanes\n- [ ] Reconcile 181259's missing `gernalix/grindr-web-exporter` remote/single-writer path without guessing.\n- [ ] After the real Grindr-login prerequisite and repo-routing fix, complete 181259.\n- [ ] Run 556372 only after 181259 to avoid browser/session contention.\n- [ ] Resume 582946 only after the user completes MitID login.\n- [ ] Reevaluate 218695 after 582946: cancel it explicitly if native e-Boks export is sufficient; otherwise run it.\n- [ ] Resume 588376 only after the old GitHub PAT is manually revoked.\n\n### Phase 6 — Infrastructure branch cleanup\nDetailed branch evidence is owned by `CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md`.\n- [ ] After active/integration tasks are terminal, perform the bounded patch-equivalence review and delete only proven-safe infrastructure branches.\n- [ ] Re-read every affected remote and retain only canonical branches plus explicitly justified active/seed branches.\n\n### Phase 7 — Final global gate\n- [ ] Re-run roadmap Attention/PBF reconciliation and verify every real PBF is completed, intentionally closed, or linked to an active/completed successor.\n- [ ] Verify no runaway/model-driven waiting, heartbeat or polling automation remains active.\n- [ ] Verify Waiting/manual/conditional tasks still match their real prerequisites and no obsolete prompt is launchable.\n- [ ] Verify no pending prompt contains model/reasoning execution metadata in its body or a known-invalid hard-coded project route.\n- [ ] Verify Workflowy/CCS/codex-usage runtime reflects the consolidated metadata/lifecycle behavior.\n- [ ] Verify PersonalHub final release/data migration/device acceptance is complete.\n- [ ] Verify involved repositories are tested, pushed, clean, and branch cleanup is complete.\n- [ ] Mark global recovery complete only when every acceptance criterion below is satisfied.\n\n## Current step\nC2 is now the master lane by explicit user override. PersonalHub is parked at its pushed/merged checkpoints; do not rerun PH APK/DB compilation/testing/install work until the remaining PH chain is complete. Resume C2 directly from canonical `gernalix/codex-usage-monitor` / project_id=8 state, preserving completed 302284 evidence and using new scoped work for the broader C2 architecture rather than reopening a terminal/blocker scope.\n994029 and 966124 are terminal completed and own no active lane.\n\n## Verified facts\n- 2026-09-25 user override: PH source/acceptance/integration work is saved; PH is parked and C2 (`gernalix/codex-usage-monitor`, project_id=8) has full priority. C2 work may proceed without waiting for PH because the user explicitly changed the master-lane ordering.\n- 857906 WIP is checkpointed and pushed at PersonalHub `task/857906@ed21615445462c51762a633044db4eeaf02d21d4`; new chat handoff can continue directly from Git without replaying discovery.\n- Workflowy integration is complete and PH side branches are converged: PR #43 merged at `b1a7f22...`; PersonalHub now has only `main` + active `task/857906`. The 857906 worktree was synced to the new main before edits.\n- Workflowy PR #43 CI blocker fixed at task head `f8e4541`; only bounded CI/integration remains before 857906 worktree sync and code edits.\n- 857906 is canonically claimed/running (issue #1064, task branch/worktree allocated) but intentionally has no code changes yet; PH master lane waits only for Workflowy #43 merge before syncing that worktree and executing.\n- 994029 and 966124 are both terminal `completed`; their former parallel ownership rule is historical and neither owns any repository/runtime resource now.\n- PH Workflowy reconciliation is PASS on top of merged 920550; only push/PR/single-writer integration + branch deletion remain before 857906.\n- 994029 is terminal `completed`: ActivityWatch main `b8ef359` is deployed; 17 focused tests + py_compile/diff-check PASS; final real run `20260924T151113Z` advanced the data repo; timer enabled+active; proprietary Kuma producer/credentials are absent; authoritative Kuma readback shows legacy ID 45 disabled and central ID 59 active with a fresh UP heartbeat. Terminal mutation issue #1063 closed completed.\n- 966124 is terminal `completed`: `fedora-system-monitor/main` contains the combined Telegram collector + auto-delete + relationship/block-state source; focused tests/CI/runtime readback passed, private history remains current, and absorbed Telegram branches were removed. Dedicated terminal state is `operations/task-state/966124.md`.\n- PH remote branch state after 920550 integration is bounded to `main` plus the still-relevant `chatgpt/workflowy-integration`; any preserved local evidence branches are governed by the PH-specific checkpoint.\n- PH cleanup removed safe detached worktrees and semantically absorbed `codex/pr35-cleanup`; remaining active integration work is Workflowy, with any preserved superseded dirty-evidence branches governed by the PH-specific checkpoint.\n- PH branch cleanup has already removed 14 local zero-ahead branches proven fully absorbed; remaining PH branches are limited to active/reconciliation/superseded-evidence cases owned by the PH checkpoint.\n- 920550 branch head advanced to `3f32b8cb86552f07bcbf92042db34f4e839969eb`. The PR #41 unit failure was a stale test count after schema23 added `finance_photo_index` and `finance_owned_items`; targeted SyncJournal coverage now PASS. This last commit is test-only, so the verified Play artifact/product code is unchanged.\n- Telegram relationship/block-state work formerly checkpointed at `chatgpt/telegram-autodelete-archive@f588fd96b849495ffafa05e881dae8361e91c29e` is integrated into canonical `fedora-system-monitor/main` through terminal 966124; the temporary branch is removed. The live runtime still records factual own block/unblock state and inferred peer block/unblock visibility transitions in the combined no-ID `chat_human` timeline. Dedicated checkpoint: `CHATGPT-20260924-TELEGRAM-AUTODELETE-ARCHIVE.md`.\n- PR #41 instrumentation blocker was fixed on PH task head `b10117adc84efe3afb4de20c350b411e7b1be055`: QA remains x86_64-capable but unminified so instrumentation-only hooks survive; both the semantic 920550 device test and the previously failing Datasette instrumentation test PASS locally on canonical `Pixel_8a`.\n- 920550 AVD acceptance is now PASS on the sole canonical emulator `Pixel_8a`: dedicated semantic-photo/owned-items instrumentation 1/1 PASS. QA found and fixed release-relevant ABI, temporary-DB Hub Context isolation, and ONNX/R8 JNI issues; PH task branch checkpoint is `0834a2434abe9ddd3a1c43caf23ba646c5bc3923`.\n- Historical side-lane note: 994029 and 966124 were safely executed with disjoint repository ownership and are now both terminal `completed`; neither owns any current lane.\n- Current PH remote side-branch inventory after 920550 merge contains only `chatgpt/workflowy-integration`; reconcile/integrate it next, then continue with 857906. The PH-specific checkpoint is authoritative for any local preserved evidence branches.\n- 920550 Play/minified artifacts were produced successfully from the task worktree with release minification/resource shrinking enabled: `app-play.apk` = 191,469,880 bytes and `app-play.aab` = 87,776,741 bytes. Model weights remain outside the base app. The single Gradle build process exited; no duplicate build was launched.\n- A direct user request temporarily preempted the PH-only rule to implement the one-day-auto-delete Telegram archive. That lane is now fully integrated into `fedora-system-monitor/main` through terminal 966124, including relationship/block-state tracking; the final focused Telegram suite reached 16/16 PASS, CI/runtime readback passed, both timers remain active, and absorbed temporary branches were removed. Authoritative detail: `operations/task-state/966124.md` and `operations/task-state/CHATGPT-20260924-TELEGRAM-AUTODELETE-ARCHIVE.md`.\n- 302284 partial prompt-cost work is safely parked and pushed at `codex-usage-monitor/task/302284` commit `6f31ceeaa51e5b77b86d2a18620a34079329196a`; it is intentionally incomplete and must not be merged before PH 913264 PASS.\n- Final PH migration source policy: at cutover, inventory the live Pixel DB plus all viable local/export/backup copies and migrate the freshest coherent dataset; do not assume an older backup is authoritative merely because it is easier to access.\n- 302284 targeted source gates PASS: codex-roadmap 60 tests; github-autosync 57 tests; workflowy-importer 34 tests; codex-usage-monitor 17 tests; chrome-codex-switcher 3 tests plus Python host compile.\n- During 302284, codex-roadmap exposed a real `resolved_by` contract bug: the PBF view understood the relation but the table CHECK rejected it silently. Fixed on main at `f7f67c04371301ab1aae35551234ac566c21d039`; migration-on-open was verified on a copy of the live roadmap DB preserving all 166 existing relations and restoring dependent views.\n- github-autosync tests were accidentally invoking real systemd bootstrap on the user's Fedora host. Test isolation fix is integrated on main in `0abda5db71b0ea6518a4818ec2f370619302264b`; runtime behavior itself was not changed.\n- PH ↔ Workflowy optional integration is implemented and host-verified on PersonalHub branch `chatgpt/workflowy-integration`; checkpointed remote head is `edd08138702f9ae6cc54c2964f109343a356a149`. It reuses Hub Context resources, adds no Room schema/version change, and has PASS evidence for consumer preflight, targeted Workflowy tests/app compile and architecture boundaries. At 2026-09-24 14:06 the branch is ahead 11 / behind 2 versus current PersonalHub `main` (`57883c2531400efacbefd2c63182bc11833f9537`), so final reconciliation/integration remains intentionally parked. Authoritative detail is `operations/task-state/CHATGPT-20260924-PH-WORKFLOWY.md`.\n- 302284 was claimed at 2026-09-24 13:34 local via roadmap issue #1055 and remains canonically `running`, but user priority override now parks it operationally. It is no longer the master lane; PersonalHub P0 is.\n- 222733 completed canonically via single-writer commit `0e5b710ac7a783395f70b6af35d69db45dba707f`. The only Codex automation directory is `chatgptexporter-788315-completion`, now `status = \"DISABLED\"`; bounded scan found zero active recurring automations. Shutdown boundary was 2026-09-24T11:25:10Z; latest published 788315 cycle started 2026-09-24T11:17:26Z, so no cycle exists after shutdown.\n- PersonalHub 920550 is complete and merged to main as `66dbe0265ff4dcdba3221e12e7953518056ce951`; no further 920550 execution is required.\n- All five current operational checkpoints (global, PersonalHub P0, Telegram notification hygiene, ntfy checkpoints, infrastructure branch cleanup) were read back against `operations/task-state/README.md` at 2026-09-24 13:18; each now contains Objective, Constraints, Plan/checklist, Current step, Verified facts, Decisions, Completed, Remaining, Blockers, Evidence, Acceptance criteria and Next action.\n- Handoff checkpoint refreshed for a new ChatGPT chat at 2026-09-24 12:48 Europe/Copenhagen.\n- 641903 is no longer actionable: it is superseded by routing-safe successor 896074, which must run only after 302284 and resolves the CCS project from current repo/runtime metadata instead of hard-coding project_id 96.\n- MegaVault allocation Issue #100 is no longer a blocker; it is closed. The canonical replacement 896074 already exists in the roadmap.\n- 422308 remains terminal BLOCKED historically, but its human authorization prerequisite is now satisfied and the collector runtime is operational: RUN1 archived 4,244 messages, RUN2 was a zero-message no-op, the private history repo is readable via GitHub, and the 15-minute timer is enabled+active. Do not retry 422308; detailed ownership is in operations/task-state/CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md.\n- Telegram source closure completed through remote-canonical successor 966124. A local allocator fallback had incorrectly produced 333860 for the same request_id; roadmap mutation #1056 superseded/replaced 333860, and MegaVault Issue #105 materialized 966124. Never launch 333860 or rerun 966124.\n- prompt-history prompt-level model analytics source work is complete through ff69489074feae82a2838504ff6f2d03875caa2b: CLI aggregation, SQL analytics, v_model_performance, README contract and regressions all use one sample per canonical PROMPT_ID from codex-usage, aggregate cycle deltas, ignore roadmap execution mirrors, and exclude mixed-model/reasoning tasks.\n- PersonalHub 920550 is already complete; the current PH master target is the verified Workflowy integration, followed by 857906 → 707603 → 840907 → 788606 → 913264. Telegram may continue only as a stable non-model timer; no non-PH model lane may preempt PH while it is actionable.\n- 218695 is now guarded by manual-prerequisite:confirm-eboks-scraper-needed; its target public repo exists but is empty, so after 582946 the task must be reevaluated before launch.\n- 641903 has been superseded by materialized routing-safe successor 896074; 896074 depends on 302284 and resolves CCS from current repo/metadata instead of hard-coding project_id 96.\n- Phase-1 broad audit is complete; current work is its closure/reconciliation tail.\n- Attention/PBF projection currently reports zero unresolved needs_fix items after successor coverage.\n- Stale running states were reconciled: 620949 -> blocked + 994029; 254859 -> blocked + 812553; 354882 -> blocked/manual-login + 181259.\n- PH detailed P0 ownership is in operations/task-state/CHATGPT-20260924-PERSONALHUB-P0.md.\n- PH current main uses Room schema 22; 383662 (live DB 20 -> 21) is obsolete and replaced by the final migration path 913264.\n- 920550 is complete/merged; after Workflowy integration the remaining PH chain is 857906 -> 707603 -> 840907 -> 788606 -> 913264.\n- All infrastructure PRs identified by the audit were resolved: PH #35 closed stale, CCS #24 merged, ActivityWatch #3 merged as b8ef359da6da83be2af64628a004abb27d9b39f1.\n- A separate ChatGPT automation, \"Codex Fix Queue\", was active hourly and redundantly scanned B/F/PBF state with a model. It was disabled directly at 2026-09-24T10:15:47Z because the PBF protocol now handles this without model polling.\n- Pending non-PH audit:\n  - 222733: valid emergency local task; run first.\n  - 994029: completed local ActivityWatch/Kuma cutover; terminal PASS.\n  - 302284: valid consolidated prompt-infrastructure runtime deploy; depends on 222733.\n  - 812553: still valid; prompt-history exists, gernalix/ChatGPTExporter still does not; depends on 222733.\n  - 714263: valid bounded sqlite-to-obsidian Kuma recovery; its 994029 prerequisite is satisfied, but launch remains deferred by master-lane ordering.\n  - 181259: semantically valid only after Grindr login, but its declared repo gernalix/grindr-web-exporter does not exist on GitHub. A local checkout may exist, but the current roadmap target cannot use the generic remote single-writer safely until this is reconciled.\n  - 556372: gernalix/grindr-export exists and is a distinct local-first selected-conversation exporter; do not treat it as an automatic replacement for the broader grindr-web-exporter lifecycle task. It remains dependent on 181259 to avoid browser contention.\n  - 582946: correctly Waiting on manual MitID login.\n  - 218695: correctly conditional; launch only if 582946 proves native e-Boks export insufficient, otherwise cancel it.\n  - 588376: correctly Waiting on manual revocation of the old PAT.\n  - 422308: historical BLOCKED parent with runtime now validated; do not rerun. Canonical successor 966124 is completed; no source-closure task remains.\n- 641903 is unsafe/superseded and must never run; routing-safe successor 896074 is the canonical replacement and depends on 302284.\n- MegaVault Issue #100 is closed; canonical routing-safe successor 896074 is already materialized.\n\n## Decisions\n- 994029 is completed. 302284 remains parked at its canonical pushed WIP checkpoint `codex-usage-monitor/task/302284@6f31ceeaa51e5b77b86d2a18620a34079329196a` and must resume from there only when master-lane ordering allows; do not restart it from scratch.\n- 994029 and 966124 have both completed and released their repository/runtime ownership. Do not relaunch either prompt.\n- User priority override: PersonalHub + live DB migration now outrank all remaining non-PH recovery work. 302284 is parked after a safe checkpoint and resumes only after PH 913264 PASS, unless PH is truly blocked.\n- Until the final global gate, recovery work is serialized: one model-driven lane at a time. Existing active tasks are first brought to a safe checkpoint/parked state before the master lane advances; no new parallel recovery prompt is launched.\n- Do not duplicate the PersonalHub or Telegram lanes from the global recovery chat. PersonalHub detail belongs to CHATGPT-20260924-PERSONALHUB-P0.md; Telegram detail belongs to CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md.\n1. Stop 788315 heartbeat before other prompt-infrastructure runtime work.\n2. Prioritize PH P0 above unrelated work after the emergency heartbeat stop.\n3. Do not run 641903. Use already-materialized routing-safe successor 896074 only after 302284 PASS.\n4. Do not launch 181259 merely after login until the missing gernalix/grindr-web-exporter remote/single-writer path is reconciled.\n5. Keep 218695 conditional and cancel it if 582946 finishes the e-Boks export adequately.\n6. No model-driven waiting/heartbeat/polling. Use bounded readback or non-model event mechanisms.\n7. Use empirical prompt_costs after codex-usage attribution/backfill is deployed before making future model-cost recommendations.\n\n## Completed\n- Emergency runaway-Codex closure 222733 completed: heartbeat disabled, zero active recurring Codex automations, no post-shutdown 788315 cycle, canonical terminal state confirmed.\n- Checkpoint-protocol compliance audit completed for all current operational checkpoints; missing PH/infra sections corrected in-place without creating competing checkpoint files.\n- New-chat handoff prepared from persistent Git state; future continuation must reread this file first.\n- 641903 superseded by 896074; no future chat should launch 641903.\n- Telegram collector runtime and source integration are fully validated: authorization complete, RUN1/RUN2 PASS, timers active, private history repo readable, and canonical successor 966124 is terminal completed. Its specialized checkpoints are authoritative.\n- prompt-history analytics correction completed through ff694890 with prompt-level sampling/regressions; runtime import verification remains part of later local infrastructure work.\n- 422308 model metadata is now GPT-6 Luna; no prompt-body rewrite was needed.\n- 641903 is guarded by manual-prerequisite:resolve-ccs-project-id because verified runtime evidence shows legacy PROJECT_ID=96 resolves workflowy-importer, not chrome-codex-switcher.\n- Synthetic SQLite validation confirmed the core regression: a three-cycle goal with a cumulative completion total plus a roadmap mirror counts as one 300-token sample; combined with a second 200-token task the reported average is 250, while a mixed-model task is excluded.\n- prompt-history source changes landed on main: cli prompt-level aggregation, model_performance/token_efficiency SQL, v_model_performance view, README contract, and tests/test_model_analytics.py regressions.\n- prompt-history model/reasoning analytics now use one sample per canonical PROMPT_ID from codex-usage only, aggregate cycle deltas, ignore roadmap mirror executions, and exclude mixed-model/reasoning tasks from ranking.\n- Global Phase-1 audit and stale-state reconciliation.\n- PBF disposition protocol landed on codex-roadmap/main and current attention projection has no unresolved needs_fix items.\n- Persistent operational checkpoint protocol landed in AGENTS.md and operations/task-state/README.md.\n- Token-discipline and metadata-only model/reasoning policies landed.\n- Ready queue ordering policy landed.\n- Workflowy projection source supports prompt_type and model/reasoning metadata.\n- CCS source styling for /goal and model/reasoning landed and PR #24 merged.\n- codex-usage source attribution fix landed; runtime deploy/backfill remains in 302284.\n- 222733, 994029, 302284, 812553, 714263, 181259, 920550 and 913264 were allocated/materialized as required.\n- Pending model audit migrated relevant tasks to GPT-6 metadata.\n- Manual prerequisite/conditional tags verified for 181259, 582946, 218695 and 588376.\n- Redundant hourly ChatGPT \"Codex Fix Queue\" automation disabled.\n\n## Remaining\n- When the master recovery returns to PersonalHub, reconcile/integrate the verified Workflowy branch, rerun affected gates, delete the temporary branch and update both PH/global checkpoints.\n- Run routing-safe CCS successor 896074 only after 302284 PASS; never run superseded 641903.\n- Reconcile 181259's nonexistent remote repo before it can become genuinely launchable.\n- Resume 302284 only after PH 913264 PASS (or a true PH blocker), using its preserved partial checkpoint; do not redo already-verified work.\n- 994029 è completo. 714263 è ora sbloccato dal suo prerequisito, ma resta soggetto all'ordine della master lane e non va lanciato finché PersonalHub P0 è azionabile.\n- Keep 812553 behind 222733.\n- Complete PH P0 chain and final external DB migration/APK/Pixel gate.\n- 966124 è completo e non va rilanciato. Quando la master lane consentirà la fase notifiche, passare direttamente all'audit history-based dei producer rumorosi; non rilanciare 422308 e non lanciare 333860.\n\n## Blockers\n- Local Fedora/device actions are available through the connected Remote Desktop Commander; use Codex only where a Codex agent is actually required.\n- MegaVault Issue #100 is closed and no longer relevant; 896074 is the canonical routing-safe CCS successor.\n- 181259 targets a nonexistent GitHub remote (gernalix/grindr-web-exporter); local state must be reconciled before a safe successor can run.\n- Exact current live PH DB identity/schema on Pixel must be read locally before final migration.\n- Telegram source/runtime closure non ha blocker ed è completa: 966124 è terminale `completed`, il source canonico è integrato e i branch temporanei sono rimossi. Il successivo audit notifiche resta subordinato alla master lane.\n\n## Evidence\n- gernalix/codex-roadmap canonical projections, mutation Issues #1012-#1031 and task materializations.\n- gernalix/MegaVault allocator Issues #81-#100.\n- gernalix/codex-usage published 788315 cycles.\n- gernalix/prompt-history exists; gernalix/ChatGPTExporter and gernalix/grindr-web-exporter return GitHub 404; gernalix/grindr-export exists and has its own archive workflow.\n- ChatGPT automation readback showing \"Codex Fix Queue\" disabled.\n- PH/CCS/ActivityWatch repository and PR state already recorded above.\n- Telegram evidence: terminal checkpoint `operations/task-state/966124.md`; specialized checkpoints `CHATGPT-20260924-TELEGRAM-NOTIFICATION-HYGIENE.md` and `CHATGPT-20260924-TELEGRAM-AUTODELETE-ARCHIVE.md`; `fedora-system-monitor/main` contains the integrated Telegram source through relationship/block-state tracking; private history runtime remains healthy; 966124 is terminal `completed`; 333860 is superseded/non-actionable.\n\n## Acceptance criteria\n- No runaway/pointless high-cost model automation remains active.\n- Roadmap lifecycle/Waiting/PBF state matches authoritative runtime/integration state.\n- Every real PBF is resolved, intentionally closed, or linked to an active/completed successor.\n- Ready order is the actual recommended execution order.\n- No pending prompt embeds model/reasoning execution metadata.\n- Workflowy/CCS runtime reflects the new metadata and styling after 302284.\n- No pending prompt contains a known-invalid hard-coded project routing value.\n- PH relevant work, including the checkpointed optional Workflowy integration, is complete before final build; final PH remote state is main-only.\n- Live PH DB has rollback, external final-schema migration, integrity/FK/data-preservation checks.\n- Final PH APK is release-validated, installed on Pixel and all relevant modules open with preserved data.\n- Telegram notification-history runtime is operational, canonical source closure is PASS, and producer-specific notification hygiene has been verified against the real post-fix stream.\n- Involved repositories end tested, operational and clean.\n\n## Next action\nHand control to C2 (`gernalix/codex-usage-monitor`, project_id=8). Preserve 302284 as its completed/blocked historical scope; create or resume the minimal current C2 implementation lane for full archive/runtime integration, decide repo-boundary vs shared-data architecture for ChatGPT/Codex exporters and other personal repos, implement the chosen shared-data contracts, and add the C2 Uptime Kuma monitor in both source configuration and the live Kuma database/runtime. Keep PH parked and do not retry PH APK/DB work.\n"
+    }
+  },
+  {
+    "routing": {
+      "project": "51",
+      "reason": "blocker subtask inherits explicitly identified parent project",
+      "related_projects": [
+        "49",
+        "18",
+        "92",
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "state:gate:418325ea7dc254618ead",
+      "parent_id": "task:CHATGPT-20260924-GLOBAL-RECOVERY",
+      "kind": "gate",
+      "title": "Resolve blocker: 181259 targets a nonexistent GitHub remote (gernalix/grindr-web-exporter); local state must be reconciled before a safe successor can run.",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": 2633,
+      "current_action": null,
+      "next_action": "Reconcile authoritative local-versus-remote target before any successor claim.",
+      "blocker": "gernalix/grindr-web-exporter still has no GitHub repository/remote, while prompt181259 targets that remote.",
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "task_state",
+      "source_ref": "CHATGPT-20260924-GLOBAL-RECOVERY.md#blocker",
+      "created_at": "2026-09-25T15:54:51Z",
+      "updated_at": "2026-09-27T22:23:04.577623Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1195,
+        "work_item_id": "state:gate:418325ea7dc254618ead",
+        "evidence_kind": "blocked_reconcile",
+        "label": "gernalix/grindr-web-exporter still has no GitHub repository/remote, while prompt181259 targets that remote.",
+        "uri": null,
+        "value_json": "\"gernalix/grindr-web-exporter still has no GitHub repository/remote, while prompt181259 targets that remote.\"",
+        "created_at": "2026-09-27T22:23:04.577623Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

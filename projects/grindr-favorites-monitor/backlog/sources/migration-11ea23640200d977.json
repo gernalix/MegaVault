@@ -1,0 +1,87 @@
+[
+  {
+    "routing": {
+      "project": "104",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "104"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:0289531d52654709bac431ed52475894",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Durante il task Grindr recent-chat snapshots, l'executor ha cercato solo il Chrome dedicato del monitor su CDP 9444 e ha",
+      "objective": "Aggiornare il flusso documentato di acquisizione Grindr affinché censisca le istanze Chrome, riusi la tab autenticata già aperta e distingua approval-mode da CDP legacy prima di creare o riavviare sessioni.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/grindr-favorites-monitor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T10:08:36Z",
+      "updated_at": "2026-09-30T10:08:36Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:0289531d52654709bac431ed52475894",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2125,
+        "work_item_id": "wi:0289531d52654709bac431ed52475894",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:5a18c951b5884da0b97b902ef3b0181c",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": \"docs/PROFILE_SCRAPING_FLOWS.md\", \"description\": \"Durante il task Grindr recent-chat snapshots, l'executor ha cercato solo il Chrome dedicato del monitor su CDP 9444 e ha ignorato per troppo tempo la tab Grindr Web già aperta nel Chrome normale dell'utente. Chrome 153 espone il profilo normale tramite DevToolsActivePort in modalità remote-debugging con approvazione, quindi /json/list non è equivalente al CDP legacy. Regola richiesta: prima di creare/riavviare browser o tab Grindr, censire tutte le istanze Chrome e riusare la tab Grindr già aperta nella finestra corrente quando presente; distinguere esplicitamente CDP legacy da approval-mode e non assumere che il monitor Chrome sia la fonte canonica.\\n\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:5a18c951b5884da0b97b902ef3b0181c\", \"observed_at_ms\": 1790706192210, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/grindr-favorites-monitor\"}",
+        "created_at": "2026-09-30T10:08:36Z"
+      },
+      {
+        "evidence_id": 2510,
+        "work_item_id": "wi:0289531d52654709bac431ed52475894",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:746b1c2100c2413bbd94c3d55db7a143",
+        "uri": "codex://threads/01a0f395-0f85-7403-8d0a-996ab78cca0e",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0f395-0f85-7403-8d0a-996ab78cca0e\", \"code_location\": null, \"description\": \"Snapshot Grindr Favorites bloccato: listener CDP dedicato localhost non disponibile; la scheda Grindr di Chrome è su /login e CUA rifiuta il binding perché già appartenente alla sessione c2-roadmap-live-watch. Nessuna nuova scansione applicata, stato delle assenze preservato.\", \"executor\": null, \"executor_ref\": \"01a0f395-0f85-7403-8d0a-996ab78cca0e\", \"issue_id\": \"issue:746b1c2100c2413bbd94c3d55db7a143\", \"observed_at_ms\": 1790793263062, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:5a18c951b5884da0b97b902ef3b0181c",
+        "work_item_id": "wi:0289531d52654709bac431ed52475894",
+        "role": "decision",
+        "created_at": "2026-09-29T18:23:12Z"
+      },
+      {
+        "issue_id": "issue:746b1c2100c2413bbd94c3d55db7a143",
+        "work_item_id": "wi:0289531d52654709bac431ed52475894",
+        "role": "decision",
+        "created_at": "2026-10-01T12:32:14Z"
+      },
+      {
+        "issue_id": "issue:746b1c2100c2413bbd94c3d55db7a143",
+        "work_item_id": "wi:0289531d52654709bac431ed52475894",
+        "role": "matched",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ]
+  }
+]

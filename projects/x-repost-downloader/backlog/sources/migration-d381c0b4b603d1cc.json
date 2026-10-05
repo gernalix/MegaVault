@@ -1,0 +1,122 @@
+[
+  {
+    "routing": {
+      "project": "50",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "50"
+      ]
+    },
+    "source": {
+      "work_item_id": "prompt:826451",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Historical prompt 826451",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "failed",
+      "executor_policy": "codex",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": "826451",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "prompt",
+      "source_ref": "826451",
+      "created_at": "2026-09-18T20:19:25Z",
+      "updated_at": "2026-09-18T20:19:25Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "826451",
+        "slug": "prompt-826451",
+        "chat_guidance": null,
+        "prompt_type": "Prompt",
+        "model": null,
+        "reasoning": null,
+        "megavault_mode": null,
+        "campaign_id": null,
+        "explanation": "",
+        "current_path": "",
+        "materialization_sha256": null,
+        "created_at": "2026-09-18T20:19:25Z",
+        "updated_at": "2026-09-18T20:19:25Z"
+      }
+    ],
+    "prompt_materializations": [],
+    "analyses": [
+      {
+        "analysis_id": 20,
+        "prompt_id": "826451",
+        "analyzed_at": "2026-09-19T21:45:12Z",
+        "actor": "workflowy-fix-packet",
+        "bottlenecks_found": 1,
+        "summary": "{\"blocker\":\"RESULT=FAIL solo per il push del progetto 50: il repo non ha remote configurati. Lavoro, deploy locale, DB, systemd e test sono PASS.\",\"next_action\":\"Use the concrete blocker above for the smallest corrective action.\",\"outcome\":\"FAIL\",\"prompt_id\":\"826451\",\"report_ref\":\"codex-usage:dadaa370e69f8e91d494bcba:7111e6dcd194e345\",\"schema\":\"codex-roadmap.fix-packet.v1\",\"work_state\":{\"commit\":\"75e5363d\"}}",
+        "fix_prompt_id": null,
+        "source_ref": "codex-usage:dadaa370e69f8e91d494bcba:7111e6dcd194e345"
+      }
+    ],
+    "executions": [
+      {
+        "execution_id": 149,
+        "prompt_id": "826451",
+        "cycle_key": "dadaa370e69f8e91d494bcba",
+        "materialization_sha256": "484c1649864eda68e2dd1baa73459c1cfe6aecfda10843789035a02eee6d37fa",
+        "started_at": "2026-09-06T07:28:48Z",
+        "ended_at": "2026-09-06T07:38:28Z",
+        "outcome": "FAIL",
+        "duration_seconds": 580.124,
+        "model": "gpt-5.5",
+        "reasoning": "medium",
+        "codex_project": "/home/daniele/Documents/ChatGPT/Fedora",
+        "chat_title": null,
+        "branch": null,
+        "commit_before": null,
+        "commit_after": null,
+        "tool_call_count": 99,
+        "input_tokens": 117173,
+        "cached_input_tokens": 116096,
+        "uncached_input_tokens": 1077,
+        "output_tokens": 847,
+        "reasoning_output_tokens": 293,
+        "total_tokens": 118020,
+        "source": "codex-usage",
+        "recorded_at": "2026-09-18T20:19:25Z"
+      }
+    ],
+    "status_history": [
+      {
+        "history_id": 229,
+        "prompt_id": "826451",
+        "old_status": null,
+        "new_status": "unknown",
+        "changed_at": "2026-09-18T20:19:25Z",
+        "actor": "codex-usage-import",
+        "note": "historical stub"
+      },
+      {
+        "history_id": 230,
+        "prompt_id": "826451",
+        "old_status": "unknown",
+        "new_status": "failed",
+        "changed_at": "2026-09-18T20:19:25Z",
+        "actor": "codex",
+        "note": "execution:codex-usage"
+      }
+    ],
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

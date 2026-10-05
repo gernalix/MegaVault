@@ -1,0 +1,249 @@
+# Recover prematurely completed Chrome RDC attachment
+
+<!-- migration-84f7bb4e128afc71 -->
+
+Migrated project backlog. Project: **chatgpt-rdc-supervisor**; project_id: 105.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 105.
+
+Provenance: `wi:2fab7a5f428546ca8965316f65797289`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Recover prematurely completed Chrome RDC attachment
+
+Verify premature BLOCKED/completed outcome for wi:9bed381f17084d99ad0ae4bd55ff523d and restore the intended Chrome normal-profile attachment via canonical fenced writer while preserving original receipts and identity; use the official channel path or Playwright Extension fallback without altering the user browser without authority.
+
+Acceptance:
+
+- Keep the existing normal Chrome profile/session and preserve the original work item and receipts.
+- Attach through the supported channel or Extension path without creating a dedicated Chrome window.
+- Do not expose persistent extension tokens in logs or outputs; avoid unbounded attachment across restored tabs.
+- Restore and verify live RDC/supervisor health before closing the original regression relation.
+
+status: waiting
+
+next_action: After a user-approved controlled restart window or a proven safe Extension attach path, verify normal-profile channel health read-only, then prepare one RDC execution spec with explicit browser resource ownership and reconcile the original task identity through the C2 writer.
+
+blocker: Manual Chrome profile gate: official channel attach cannot be established while the normal-profile launcher retains the rejected --remote-debugging-port=9333 switch; the profile has no DevToolsActivePort, and a controlled Chrome restart has not been authorized. The Extension fallback must also be tested without exposing its persistent token or triggering broad attachment across the restored tabs.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "105",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "105"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Recover prematurely completed Chrome RDC attachment",
+      "objective": "Verify premature BLOCKED/completed outcome for wi:9bed381f17084d99ad0ae4bd55ff523d and restore the intended Chrome normal-profile attachment via canonical fenced writer while preserving original receipts and identity; use the official channel path or Playwright Extension fallback without altering the user browser without authority.",
+      "acceptance_json": "[\"Keep the existing normal Chrome profile/session and preserve the original work item and receipts.\", \"Attach through the supported channel or Extension path without creating a dedicated Chrome window.\", \"Do not expose persistent extension tokens in logs or outputs; avoid unbounded attachment across restored tabs.\", \"Restore and verify live RDC/supervisor health before closing the original regression relation.\"]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": "After a user-approved controlled restart window or a proven safe Extension attach path, verify normal-profile channel health read-only, then prepare one RDC execution spec with explicit browser resource ownership and reconcile the original task identity through the C2 writer.",
+      "blocker": "Manual Chrome profile gate: official channel attach cannot be established while the normal-profile launcher retains the rejected --remote-debugging-port=9333 switch; the profile has no DevToolsActivePort, and a controlled Chrome restart has not been authorized. The Extension fallback must also be tested without exposing its persistent token or triggering broad attachment across the restored tabs.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/chatgpt-rdc-supervisor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T08:33:27Z",
+      "updated_at": "2026-09-30T12:23:20Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "tag": "priority:p0"
+      },
+      {
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "tag": "regression"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "to_work_item_id": "wi:9bed381f17084d99ad0ae4bd55ff523d",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-30T08:33:27Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:1bc621d9888f4bfdb99878d8e21fcea6"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2059,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:1bc621d9888f4bfdb99878d8e21fcea6",
+        "uri": "codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"code_location\": null, \"description\": \"Recovery richiesta per wi:9bed381f17084d99ad0ae4bd55ff523d: il receipt BLOCKED e lo status blocked sono stati applicati prematuramente. L'utente ha indicato l'attach ufficiale Chrome 144+ via channel (chrome://inspect/#remote-debugging; playwright-cli attach --cdp=chrome) e fallback Playwright Extension. Riconciliare lo stesso work item a CURRENT_READY/pending tramite writer fenced, preservando receipt e identità; non creare duplicati.\", \"executor\": null, \"executor_ref\": \"01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"issue_id\": \"issue:1bc621d9888f4bfdb99878d8e21fcea6\", \"observed_at_ms\": 1790689590370, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T08:33:27Z"
+      },
+      {
+        "evidence_id": 2060,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a710c1fcf62f42f1916ec9f8a79e4ece",
+        "uri": "codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"code_location\": null, \"description\": \"Nel Chrome normale 153 già aperto, la casella Allow remote debugging for this browser instance in chrome://inspect/#remote-debugging è grigia e non cliccabile secondo l’utente; il file DevToolsActivePort del profilo normale è assente. Questo impedisce l’attach Playwright via channel senza alterare il browser e richiede il fallback Playwright Extension previsto dal task.\", \"executor\": null, \"executor_ref\": \"01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"issue_id\": \"issue:a710c1fcf62f42f1916ec9f8a79e4ece\", \"observed_at_ms\": 1790690292104, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T08:37:02Z"
+      },
+      {
+        "evidence_id": 2064,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c93afe4ada4f4008a12d684c81d6607d",
+        "uri": "codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"code_location\": null, \"description\": \"Playwright CLI tab-list può includere nella URL chrome-extension://.../connect.html il parametro token= con il token persistente dell’estensione. L’output di tab-list non deve essere stampato/loggato: il bridge deve catturarlo in memoria e non esporlo.\", \"executor\": null, \"executor_ref\": \"01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"issue_id\": \"issue:c93afe4ada4f4008a12d684c81d6607d\", \"observed_at_ms\": 1790691390297, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T08:52:17Z"
+      },
+      {
+        "evidence_id": 2067,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:fb11e116af594052b44945009c6585cb",
+        "uri": "codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"code_location\": null, \"description\": \"Nel Chrome normale avviato con --remote-debugging-port=9333 e profilo predefinito, Chrome 153 rifiuta il vecchio switch prima di installare il listener del nuovo channel attach: anche dopo aver abilitato chrome://inspect/#remote-debugging non crea DevToolsActivePort. Il launcher che preserva il vecchio flag impedisce la migrazione al percorso ufficiale senza un riavvio controllato privo del flag.\", \"executor\": null, \"executor_ref\": \"01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"issue_id\": \"issue:fb11e116af594052b44945009c6585cb\", \"observed_at_ms\": 1790692060858, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T09:01:42Z"
+      },
+      {
+        "evidence_id": 2068,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:5ca9f2d0b99544038c224ecb2f944d6f",
+        "uri": "codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"code_location\": null, \"description\": \"Sul Chrome normale con 70 tab ripristinate (50 ChatGPT), Playwright Python 1.63 e playwright-cli 0.1.18 aprono il WebSocket del channel CDP ma connect_over_cdp non completa entro 10-30 secondi: il protocollo attiva Target.setAutoAttach e riceve migliaia di eventi/inizializzazioni delle tab. Il supervisor rischia timeout o carico elevato sulla sessione utente; occorre un attach limitato o un bootstrap resiliente.\", \"executor\": null, \"executor_ref\": \"01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"issue_id\": \"issue:5ca9f2d0b99544038c224ecb2f944d6f\", \"observed_at_ms\": 1790692749825, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T09:05:21Z"
+      },
+      {
+        "evidence_id": 2301,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "classification",
+        "label": "MegaVault canonical repository mapping: gernalix/chatgpt-rdc-supervisor is active project 105 (R0106).",
+        "uri": null,
+        "value_json": "\"MegaVault canonical repository mapping: gernalix/chatgpt-rdc-supervisor is active project 105 (R0106).\"",
+        "created_at": "2026-09-30T12:23:20Z"
+      },
+      {
+        "evidence_id": 2302,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "classification",
+        "label": "Original work item wi:9bed381f17084d99ad0ae4bd55ff523d is completed and retains receipts; its 2026-09-29 evidence record",
+        "uri": null,
+        "value_json": "\"Original work item wi:9bed381f17084d99ad0ae4bd55ff523d is completed and retains receipts; its 2026-09-29 evidence recorded inactive services/unhealthy health and browser-tool route restrictions.\"",
+        "created_at": "2026-09-30T12:23:20Z"
+      },
+      {
+        "evidence_id": 2303,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "classification",
+        "label": "New issue evidence for this recovery reports Chrome 153 rejects the retained --remote-debugging-port=9333 switch before ",
+        "uri": null,
+        "value_json": "\"New issue evidence for this recovery reports Chrome 153 rejects the retained --remote-debugging-port=9333 switch before installing its channel listener and no DevToolsActivePort exists; it requires a controlled restart to remove the switch.\"",
+        "created_at": "2026-09-30T12:23:20Z"
+      },
+      {
+        "evidence_id": 2304,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "classification",
+        "label": "Another captured issue reports normal Chrome has 70 restored tabs and an unbounded Playwright CDP attach may time out or",
+        "uri": null,
+        "value_json": "\"Another captured issue reports normal Chrome has 70 restored tabs and an unbounded Playwright CDP attach may time out or cause high session load; a separate issue warns extension attach output can expose a persistent token.\"",
+        "created_at": "2026-09-30T12:23:20Z"
+      },
+      {
+        "evidence_id": 2305,
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "evidence_kind": "classification",
+        "label": "No active execution run exists for this RDC item or repository; no browser action or repository work was performed in th",
+        "uri": null,
+        "value_json": "\"No active execution run exists for this RDC item or repository; no browser action or repository work was performed in this planning cycle.\"",
+        "created_at": "2026-09-30T12:23:20Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:a710c1fcf62f42f1916ec9f8a79e4ece",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "matched",
+        "created_at": "2026-09-29T13:58:12Z"
+      },
+      {
+        "issue_id": "issue:c93afe4ada4f4008a12d684c81d6607d",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "matched",
+        "created_at": "2026-09-29T14:16:30Z"
+      },
+      {
+        "issue_id": "issue:fb11e116af594052b44945009c6585cb",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "matched",
+        "created_at": "2026-09-29T14:27:40Z"
+      },
+      {
+        "issue_id": "issue:5ca9f2d0b99544038c224ecb2f944d6f",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "matched",
+        "created_at": "2026-09-29T14:39:09Z"
+      },
+      {
+        "issue_id": "issue:1bc621d9888f4bfdb99878d8e21fcea6",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "decision",
+        "created_at": "2026-09-29T13:46:30Z"
+      },
+      {
+        "issue_id": "issue:a710c1fcf62f42f1916ec9f8a79e4ece",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "decision",
+        "created_at": "2026-09-29T13:58:12Z"
+      },
+      {
+        "issue_id": "issue:c93afe4ada4f4008a12d684c81d6607d",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "decision",
+        "created_at": "2026-09-29T14:16:30Z"
+      },
+      {
+        "issue_id": "issue:fb11e116af594052b44945009c6585cb",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "decision",
+        "created_at": "2026-09-29T14:27:40Z"
+      },
+      {
+        "issue_id": "issue:5ca9f2d0b99544038c224ecb2f944d6f",
+        "work_item_id": "wi:2fab7a5f428546ca8965316f65797289",
+        "role": "decision",
+        "created_at": "2026-09-29T14:39:09Z"
+      }
+    ]
+  }
+]
+```

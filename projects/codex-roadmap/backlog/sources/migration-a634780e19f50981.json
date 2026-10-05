@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:9cefb46b5ae24837863d6b7b1383ff47",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Proteggere gli stop temporanei C3 tra sessioni",
+      "objective": "Cross-session C2 control conflict observed 2026-09-30 16:25:50 CEST: another authorized ChatGPT/RDC tool session explicitly ran systemctl --user stop c2-master-goal.service c2-master-watcher.timer c2-runtime.timer and did not restore the two timers. They remained enabled but inactive for ~1h42m, leaving Master Goal/watchdog/runtime recovery stale until manually re-enabled. Add ownership/intent fencing or a bounded maintenance lease for control-plane stop operations and ensure temporary cutover/maintenance stops restore prior timer state in a finally/rollback path; unified monitor should detect enabled-but-inactive critical C2/C3 timers and repair them when no maintenance lease authorizes the stop.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-10-01T12:32:14Z",
+      "updated_at": "2026-10-01T12:32:14Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:9cefb46b5ae24837863d6b7b1383ff47",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2499,
+        "work_item_id": "wi:9cefb46b5ae24837863d6b7b1383ff47",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:355bb25b46484fa9b58b6b1d177a1179",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": \"systemd/c2-runtime.timer\", \"description\": \"Cross-session C2 control conflict observed 2026-09-30 16:25:50 CEST: another authorized ChatGPT/RDC tool session explicitly ran systemctl --user stop c2-master-goal.service c2-master-watcher.timer c2-runtime.timer and did not restore the two timers. They remained enabled but inactive for ~1h42m, leaving Master Goal/watchdog/runtime recovery stale until manually re-enabled. Add ownership/intent fencing or a bounded maintenance lease for control-plane stop operations and ensure temporary cutover/maintenance stops restore prior timer state in a finally/rollback path; unified monitor should detect enabled-but-inactive critical C2/C3 timers and repair them when no maintenance lease authorizes the stop.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:355bb25b46484fa9b58b6b1d177a1179\", \"observed_at_ms\": 1790785122541, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"gernalix/codex-roadmap\"}",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:355bb25b46484fa9b58b6b1d177a1179",
+        "work_item_id": "wi:9cefb46b5ae24837863d6b7b1383ff47",
+        "role": "decision",
+        "created_at": "2026-10-01T12:32:14Z"
+      }
+    ]
+  }
+]

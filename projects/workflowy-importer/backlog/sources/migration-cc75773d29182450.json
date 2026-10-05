@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "96",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "96"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:c248ba7b698a4a0788c8f9e773f68c96",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Investigate workflowy-bridge.service (id 55) DOWN alert",
+      "objective": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Fedora Service · user:workflowy-bridge.service (id 55)\nHeartbeat: 2026-09-30 06:26:25.999 (row 685525)\nFailure context: No heartbeat in the time window Identify whether this alert is transient or persistent, inspect the named monitor/service, and record an evidence-based cause and scoped resolution or blocker.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:10:08Z",
+      "updated_at": "2026-09-30T12:10:08Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:c248ba7b698a4a0788c8f9e773f68c96",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2266,
+        "work_item_id": "wi:c248ba7b698a4a0788c8f9e773f68c96",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a01c959b8ef890fb9b44d46d4ca5bf56",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Service · user:workflowy-bridge.service (id 55)\\nHeartbeat: 2026-09-30 06:26:25.999 (row 685525)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:a01c959b8ef890fb9b44d46d4ca5bf56\", \"observed_at_ms\": 1790749948013, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:10:08Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:a01c959b8ef890fb9b44d46d4ca5bf56",
+        "work_item_id": "wi:c248ba7b698a4a0788c8f9e773f68c96",
+        "role": "decision",
+        "created_at": "2026-09-30T06:32:28Z"
+      }
+    ]
+  }
+]

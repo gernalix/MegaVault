@@ -1,0 +1,151 @@
+# Adopt Project Capsule v1 in oracle-backup-service
+
+<!-- migration-e530188e6f2f55fb -->
+
+Migrated project backlog. Project: **oracle-backup-service**; project_id: 30.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 30.
+
+Provenance: `wi:3e33a8af2ac348329a43e1426deabcaa`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Adopt Project Capsule v1 in oracle-backup-service
+
+Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=30, repository_id=R0030. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.
+
+Acceptance:
+
+- Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.
+- FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.
+- FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.
+- Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.
+
+status: blocked
+
+current_action: BLOCKED
+
+next_action: Restore runner/account gate and rerun exact required CI before integration.
+
+blocker: oracle-backup-service PR #2 remains open; required CI test failed before steps and logs are unavailable.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "30",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "30"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:3e33a8af2ac348329a43e1426deabcaa",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in oracle-backup-service",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=30, repository_id=R0030. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "BLOCKED",
+      "next_action": "Restore runner/account gate and rerun exact required CI before integration.",
+      "blocker": "oracle-backup-service PR #2 remains open; required CI test failed before steps and logs are unavailable.",
+      "project_id": "30",
+      "project_name": "oracle-backup-service",
+      "repo": "https://github.com/gernalix/oracle-backup-service",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T22:23:04.778726Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:3e33a8af2ac348329a43e1426deabcaa",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:3e33a8af2ac348329a43e1426deabcaa:ab18c3e472f0866f8051486e73113e98",
+        "work_item_id": "wi:3e33a8af2ac348329a43e1426deabcaa",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": null,
+        "completed_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\"]",
+        "remaining_json": "[\"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+        "evidence_json": "[\"Isolated task worktree /home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_oracle-backup-service/wi-3e33a8af2ac348329a43e1426deabcaa contains only AGENTS.md and project-capsule.yaml.\", \"Capsule FAST and FULL validation passed against canonical MegaVault identity project 30/R0030; FULL passed python-tests, isolated-shell-tests, and source-syntax hooks; staged diff check passed.\", \"PR https://github.com/gernalix/oracle-backup-service/pull/2 is OPEN at head 7e31810e9f6b370f631177d1d1c9b72eeee5c6ae, base ddf3fcea4dddd8483ec11c8b8209714a651ebb3c. GitGuardian passed; required CI test failed before any steps ran, GitHub reports steps=[], and `gh run view --log` returns `log not found: 108705344931`.\", \"Canonical roadmap work item wi:3e33a8af2ac348329a43e1426deabcaa was running with PR integration queued; no merge or terminal receipt was recorded at submission time.\"]",
+        "blocker": "Required PR CI test failed during GitHub Actions job initialization before any steps ran; no log is available, so there is no actionable repository failure to fix or required successful CI gate to satisfy.",
+        "next_action": "Resolve the GitHub Actions job initialization failure through the authorized CI owner, then require successful PR checks, guarded integration, post-integration FAST validation, and canonical C2 receipt readback.",
+        "strict_contract": 1,
+        "payload_sha256": "ab18c3e472f0866f8051486e73113e9810f03e7225a1f364c79381cfc88d5f34",
+        "captured_at": 1790542338.3741875
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 962,
+        "work_item_id": "wi:3e33a8af2ac348329a43e1426deabcaa",
+        "evidence_kind": "executor_result",
+        "label": "Isolated task worktree /home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_oracle-backup-service/wi-3e33",
+        "uri": null,
+        "value_json": "\"Isolated task worktree /home/daniele/.local/share/codex-github-autosync/worktrees/gernalix_oracle-backup-service/wi-3e33a8af2ac348329a43e1426deabcaa contains only AGENTS.md and project-capsule.yaml.\"",
+        "created_at": "2026-09-27T20:52:18Z"
+      },
+      {
+        "evidence_id": 963,
+        "work_item_id": "wi:3e33a8af2ac348329a43e1426deabcaa",
+        "evidence_kind": "executor_result",
+        "label": "Capsule FAST and FULL validation passed against canonical MegaVault identity project 30/R0030; FULL passed python-tests,",
+        "uri": null,
+        "value_json": "\"Capsule FAST and FULL validation passed against canonical MegaVault identity project 30/R0030; FULL passed python-tests, isolated-shell-tests, and source-syntax hooks; staged diff check passed.\"",
+        "created_at": "2026-09-27T20:52:18Z"
+      },
+      {
+        "evidence_id": 964,
+        "work_item_id": "wi:3e33a8af2ac348329a43e1426deabcaa",
+        "evidence_kind": "executor_result",
+        "label": "PR https://github.com/gernalix/oracle-backup-service/pull/2 is OPEN at head 7e31810e9f6b370f631177d1d1c9b72eeee5c6ae, ba",
+        "uri": null,
+        "value_json": "\"PR https://github.com/gernalix/oracle-backup-service/pull/2 is OPEN at head 7e31810e9f6b370f631177d1d1c9b72eeee5c6ae, base ddf3fcea4dddd8483ec11c8b8209714a651ebb3c. GitGuardian passed; required CI test failed before any steps ran, GitHub reports steps=[], and `gh run view --log` returns `log not found: 108705344931`.\"",
+        "created_at": "2026-09-27T20:52:18Z"
+      },
+      {
+        "evidence_id": 965,
+        "work_item_id": "wi:3e33a8af2ac348329a43e1426deabcaa",
+        "evidence_kind": "executor_result",
+        "label": "Canonical roadmap work item wi:3e33a8af2ac348329a43e1426deabcaa was running with PR integration queued; no merge or term",
+        "uri": null,
+        "value_json": "\"Canonical roadmap work item wi:3e33a8af2ac348329a43e1426deabcaa was running with PR integration queued; no merge or terminal receipt was recorded at submission time.\"",
+        "created_at": "2026-09-27T20:52:18Z"
+      },
+      {
+        "evidence_id": 1211,
+        "work_item_id": "wi:3e33a8af2ac348329a43e1426deabcaa",
+        "evidence_kind": "blocked_reconcile",
+        "label": "oracle-backup-service PR #2 remains open; required CI test failed before steps and logs are unavailable.",
+        "uri": null,
+        "value_json": "\"oracle-backup-service PR #2 remains open; required CI test failed before steps and logs are unavailable.\"",
+        "created_at": "2026-09-27T22:23:04.778726Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]
+```

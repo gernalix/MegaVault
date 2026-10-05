@@ -1,0 +1,121 @@
+[
+  {
+    "routing": {
+      "project": "69",
+      "reason": "canonical MegaVault project_id",
+      "related_projects": [
+        "69"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+      "parent_id": "wi:d6185f8fb88d466f907814bf6125890e",
+      "kind": "task",
+      "title": "Adopt Project Capsule v1 in livinggaul-x-downloader",
+      "objective": "Parent wi:d6185f8fb88d466f907814bf6125890e. MegaVault project_id=69, repository_id=R0069. Add a truthful repository-local Project Capsule v1 based on codex-roadmap/docs/project-capsule after standard PR #2666 merges. Verify project identity and runtime facts from MegaVault; use isolated worktree and repository integration. Preserve active work and data.",
+      "acceptance_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "livinggaul-x-downloader capsule authored and validated locally; PR integration blocked by GitHub Actions billing/spending-limit runner gate.",
+      "next_action": "Restore Actions gate, rerun smoke, then guarded integrate.",
+      "blocker": "livinggaul-x-downloader PR #1 remains open; required smoke CI failed due account payment/limit.",
+      "project_id": "69",
+      "project_name": "livinggaul-x-downloader",
+      "repo": "https://github.com/gernalix/livinggaul-x-downloader",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T19:27:47Z",
+      "updated_at": "2026-09-27T22:23:04.969785Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+        "tag": "project-capsule"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:f4014d28c049406a8777472f0e44622f:7aa0bdae96122a6517419fa9e4957b7d",
+        "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "livinggaul-x-downloader capsule authored and validated locally; PR integration blocked by GitHub Actions billing/spending-limit runner gate.",
+        "completed_json": "[\"Root project-capsule.yaml conforms to C2 Project Capsule v1 schema and links essential local documentation without copying global MegaVault/C2 state.\", \"FULL safe project verification and appropriate targeted tests pass; risky deployment/device/data operations are documented and gated.\"]",
+        "remaining_json": "[\"FAST validation passes against the canonical MegaVault identity, declared paths and freshness after integration.\", \"Integrated repository head and PR/receipt are read back; no terminal PASS from a branch alone.\"]",
+        "evidence_json": "[\"MegaVault identity readback: project_id=69, slug=livinggaul-x-downloader, repository_id=R0069, canonical workdir=/home/daniele/projects/livinggaul-x-downloader, branch=master.\", \"Local branch FAST/FULL capsule validators passed; FULL ran the safe complete unittest suite and installer shell syntax check. Focused tests passed: test_content_dedupe.py (13) and test_systemd_assets.py (3); changed-file checks and git diff --check passed.\", \"PR #1 remains open at head 30469dac0889ca734ae24c9c12c50a817eaf888d: https://github.com/gernalix/livinggaul-x-downloader/pull/1. GitGuardian passed.\", \"Required Actions job 108705806750 failed before a runner started: runner_id=0, steps=[], annotation says recent account payments failed or the spending limit must be increased. No CI bypass or merge was performed.\", \"repo-task integration is queued but not merged; isolated branch and PR are preserved for the required CI retry after billing resolution.\"]",
+        "blocker": "GitHub Actions required CI job cannot start because the repository account has recent failed payments or needs a higher spending limit; the PR integration gate remains unsatisfied.",
+        "next_action": "After GitHub Actions billing/spending-limit state is restored, rerun PR #1 required CI. If it passes, let the repository single-writer integrator merge; read back the integrated head, rerun FAST and FULL validation plus targeted tests, then submit a strict PASS receipt.",
+        "strict_contract": 1,
+        "payload_sha256": "7aa0bdae96122a6517419fa9e4957b7d1ee5369ddabedd96379a6d72aba23c69",
+        "captured_at": 1790542469.6426828
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 969,
+        "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+        "evidence_kind": "executor_result",
+        "label": "MegaVault identity readback: project_id=69, slug=livinggaul-x-downloader, repository_id=R0069, canonical workdir=/home/d",
+        "uri": null,
+        "value_json": "\"MegaVault identity readback: project_id=69, slug=livinggaul-x-downloader, repository_id=R0069, canonical workdir=/home/daniele/projects/livinggaul-x-downloader, branch=master.\"",
+        "created_at": "2026-09-27T20:54:29Z"
+      },
+      {
+        "evidence_id": 970,
+        "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+        "evidence_kind": "executor_result",
+        "label": "Local branch FAST/FULL capsule validators passed; FULL ran the safe complete unittest suite and installer shell syntax c",
+        "uri": null,
+        "value_json": "\"Local branch FAST/FULL capsule validators passed; FULL ran the safe complete unittest suite and installer shell syntax check. Focused tests passed: test_content_dedupe.py (13) and test_systemd_assets.py (3); changed-file checks and git diff --check passed.\"",
+        "created_at": "2026-09-27T20:54:29Z"
+      },
+      {
+        "evidence_id": 971,
+        "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+        "evidence_kind": "executor_result",
+        "label": "PR #1 remains open at head 30469dac0889ca734ae24c9c12c50a817eaf888d: https://github.com/gernalix/livinggaul-x-downloader",
+        "uri": null,
+        "value_json": "\"PR #1 remains open at head 30469dac0889ca734ae24c9c12c50a817eaf888d: https://github.com/gernalix/livinggaul-x-downloader/pull/1. GitGuardian passed.\"",
+        "created_at": "2026-09-27T20:54:29Z"
+      },
+      {
+        "evidence_id": 972,
+        "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+        "evidence_kind": "executor_result",
+        "label": "Required Actions job 108705806750 failed before a runner started: runner_id=0, steps=[], annotation says recent account ",
+        "uri": null,
+        "value_json": "\"Required Actions job 108705806750 failed before a runner started: runner_id=0, steps=[], annotation says recent account payments failed or the spending limit must be increased. No CI bypass or merge was performed.\"",
+        "created_at": "2026-09-27T20:54:29Z"
+      },
+      {
+        "evidence_id": 973,
+        "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+        "evidence_kind": "executor_result",
+        "label": "repo-task integration is queued but not merged; isolated branch and PR are preserved for the required CI retry after bil",
+        "uri": null,
+        "value_json": "\"repo-task integration is queued but not merged; isolated branch and PR are preserved for the required CI retry after billing resolution.\"",
+        "created_at": "2026-09-27T20:54:29Z"
+      },
+      {
+        "evidence_id": 1215,
+        "work_item_id": "wi:f4014d28c049406a8777472f0e44622f",
+        "evidence_kind": "blocked_reconcile",
+        "label": "livinggaul-x-downloader PR #1 remains open; required smoke CI failed due account payment/limit.",
+        "uri": null,
+        "value_json": "\"livinggaul-x-downloader PR #1 remains open; required smoke CI failed due account payment/limit.\"",
+        "created_at": "2026-09-27T22:23:04.969785Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  }
+]

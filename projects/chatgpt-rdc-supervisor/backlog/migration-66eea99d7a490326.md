@@ -1,0 +1,92 @@
+# Scope RDC MAX_TABS launch guard to controlled ChatGPT tabs
+
+<!-- migration-66eea99d7a490326 -->
+
+Migrated project backlog. Project: **chatgpt-rdc-supervisor**; project_id: 105.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 105.
+
+Provenance: `wi:ecf935a31a634254bcc89eae6daadccc`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Scope RDC MAX_TABS launch guard to controlled ChatGPT tabs
+
+The launch guard counts all 70 normal-Chrome tabs against MAX_TABS=20, although only 22 are responsive and the supervisor did not cause proliferation. Create scoped guard work; no verified dependency or priority change.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "105",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "105"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:ecf935a31a634254bcc89eae6daadccc",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Scope RDC MAX_TABS launch guard to controlled ChatGPT tabs",
+      "objective": "The launch guard counts all 70 normal-Chrome tabs against MAX_TABS=20, although only 22 are responsive and the supervisor did not cause proliferation. Create scoped guard work; no verified dependency or priority change.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/chatgpt-rdc-supervisor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T09:29:22Z",
+      "updated_at": "2026-09-30T09:29:22Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:ecf935a31a634254bcc89eae6daadccc",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2071,
+        "work_item_id": "wi:ecf935a31a634254bcc89eae6daadccc",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:673ed06467234bc2b31e7cfa934dec11",
+        "uri": "codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"code_location\": null, \"description\": \"Il launch guard di chatgpt-rdc-supervisor usa MAX_TABS=20 su tutte le pagine del browser Playwright; nel Chrome normale reale ci sono 70 tab, 22 responsive. Al primo probe/new_chat il guard creerebbe il kill switch e fermerebbe RDC pur senza alcuna proliferazione causata dal supervisor. Serve contare solo tab ChatGPT/controllate dal supervisor o separare il limite di lanci dal totale della sessione utente.\", \"executor\": null, \"executor_ref\": \"01a0ed4c-bb88-7e23-acff-b332f3b366d3\", \"issue_id\": \"issue:673ed06467234bc2b31e7cfa934dec11\", \"observed_at_ms\": 1790693398948, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T09:29:22Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:673ed06467234bc2b31e7cfa934dec11",
+        "work_item_id": "wi:ecf935a31a634254bcc89eae6daadccc",
+        "role": "decision",
+        "created_at": "2026-09-29T14:49:58Z"
+      }
+    ]
+  }
+]
+```

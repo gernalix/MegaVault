@@ -1,0 +1,79 @@
+[
+  {
+    "routing": {
+      "project": "symphony",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "symphony"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:34dc01ae54474b92a4f4347fb5e23f98",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Namespace Symphony evaluation scratch by work item and run",
+      "objective": "Separate Symphony evaluation scratch files by canonical work-item/run identity so concurrent executors cannot overwrite each others WORKFLOW.md or canary evidence.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "human",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "/home/daniele/projects/symphony",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-29T00:26:27Z",
+      "updated_at": "2026-09-29T00:26:27Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:34dc01ae54474b92a4f4347fb5e23f98",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:34dc01ae54474b92a4f4347fb5e23f98",
+        "tag": "regression"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:34dc01ae54474b92a4f4347fb5e23f98",
+        "to_work_item_id": "wi:52a87ab8460d479dbee0fc970cbc58a0",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-29T00:26:27Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:a7af1143709b4d1bbd13b825154b67b8"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1663,
+        "work_item_id": "wi:34dc01ae54474b92a4f4347fb5e23f98",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:a7af1143709b4d1bbd13b825154b67b8",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Symphony evaluation scratch state collided across concurrent executors: another executor rewrote /home/daniele/.local/share/symphony-eval/real-codex/WORKFLOW.md while this work item was running, changing workspace_root and prompt. Evaluation/canary scratch must be namespaced by canonical work-item/run identity to make evidence reproducible.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:a7af1143709b4d1bbd13b825154b67b8\", \"observed_at_ms\": 1790577719370, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"/home/daniele/projects/symphony\"}",
+        "created_at": "2026-09-29T00:26:27Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:a7af1143709b4d1bbd13b825154b67b8",
+        "work_item_id": "wi:34dc01ae54474b92a4f4347fb5e23f98",
+        "role": "decision",
+        "created_at": "2026-09-28T06:41:59Z"
+      }
+    ]
+  }
+]

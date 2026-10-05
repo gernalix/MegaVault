@@ -1,0 +1,31 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:86d78fb985073fea1f1dc4dde153924c",
+      "description": "C3 post-cutover preparation/dispatch race observed live on 2026-10-02. `c3_auto_prepare.py --apply --limit 1` called the documented `c2_prepare_codex` path, whose contract says preparation leaves the item pending and never dispatches; however the event-driven runtime immediately scheduled the newly materialized spec before the caller could validate/read back the prepared artifact. The first candidate also had acceptance_json=[] and entered Symphony as run f77c639f283c4abd9f85838e1c2d29e9 before supervisor intervention. Make preparation and dispatch sequencing explicit/fenced: preparation must provide a stable validation/readback boundary, and runtime must not auto-dispatch a newly prepared item until that boundary/eligibility gate is satisfied. Preserve normal event-driven scheduling after the gate.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": "wi:38b70e5910464b40bbd52e080fb83abb",
+      "origin_run_id": null,
+      "observed_at_ms": 1790937133189,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-02T10:32:13Z"
+    },
+    "issue_work_item_links": []
+  }
+]

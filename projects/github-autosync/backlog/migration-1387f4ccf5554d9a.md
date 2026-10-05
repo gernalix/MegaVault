@@ -1,0 +1,510 @@
+# Operational task state — infrastructure branch cleanup
+
+<!-- migration-1387f4ccf5554d9a -->
+
+Migrated project backlog. Project: **github-autosync**; project_id: 92.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Merged duplicate/complementary observations and subtasks; every original requirement retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 51, 92.
+
+Provenance: `task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP`, `state:gate:5c9bd667130f639a1d50`, `wi:dad7a0b2953041a597762b7190bd074c`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Operational task state — infrastructure branch cleanup
+
+status: waiting
+
+current_action: Wait for active infrastructure tasks to become terminal; then perform the single bounded local patch-equivalence/deletion pass. Do not delete active/integration branches early.
+
+next_action: After active infrastructure tasks are terminal, execute one bounded local cleanup pass using this inventory, update patch-equivalence results, then delete only proven-safe branches.
+
+blocker: Wait until active integration work is terminal; preserve active and seed branches.
+
+### Resolve blocker: ahead_by>0 can still be squash/cherry-pick equivalent; ancestry alone is insufficient.
+
+status: blocked
+
+next_action: Complete bounded equivalence review after active integrations settle; never delete on ancestry alone.
+
+blocker: Branch cleanup still has ahead_by>0 refs without patch-id/semantic equivalence review, and active integrations could change the comparison.
+
+### Convergere tutti i branch non-main su main e rimuovere quelli integrati
+
+Git globale: per tutti i repository gestiti, riconciliare ogni branch non-main verso main e poi eliminare i branch già integrati. Prima di merge/eliminazione verificare divergenze, worktree/PR/CI e contenuto non ancora integrato; non perdere lavoro e non forzare merge distruttivi. Obiettivo finale: main canonico e nessun branch non-main residuo salvo blocker esplicitamente registrato.
+
+status: pending
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "92",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "92"
+      ]
+    },
+    "source": {
+      "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Operational task state — infrastructure branch cleanup",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Wait for active infrastructure tasks to become terminal; then perform the single bounded local patch-equivalence/deletion pass. Do not delete active/integration branches early.",
+      "next_action": "After active infrastructure tasks are terminal, execute one bounded local cleanup pass using this inventory, update patch-equivalence results, then delete only proven-safe branches.",
+      "blocker": "Wait until active integration work is terminal; preserve active and seed branches.",
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": "CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "task_state",
+      "source_ref": "CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md",
+      "created_at": "2026-09-25T15:54:51Z",
+      "updated_at": "2026-09-26T17:12:41Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [
+      {
+        "checkpoint_id": 7,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "source_file": "CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md",
+        "source_commit": "52bea96d02f55fac91cea210cf2e370b5963cc4f",
+        "source_sha256": "619bdf946b3ab600f6d0451dcd516dbb1568b70b01acbdd3afb4dc87c0e9a58d",
+        "objective": "Leave the infrastructure repositories with only branches that still contain genuinely unintegrated work. Delete branches only after proving their commits are already contained or patch-equivalent to the canonical branch.",
+        "current_step": "Wait for active infrastructure tasks to become terminal; then perform the single bounded local patch-equivalence/deletion pass. Do not delete active/integration branches early.",
+        "next_action": null,
+        "blocker": "pre-migration / retired: historical evidence only",
+        "completed_json": "[\"Enumerated all remote branches in the eight infrastructure repositories.\", \"Compared every non-canonical branch against current main/master.\", \"Identified 25 branches with ahead_by=0.\", \"Preserved every branch with ahead_by>0 for later review.\"]",
+        "remaining_json": "[\"After active tasks finish, fetch all refs locally and run git cherry / patch-id checks on every review branch.\", \"Integrate genuinely unique useful commits before deletion.\", \"Delete ancestry-safe and subsequently proven-equivalent branches with authenticated local/GitHub tooling.\", \"Re-read remote branches and retain only canonical plus intentionally active/seed branches.\"]",
+        "evidence_json": "[\"Remote branch inventory and compare results recorded in this checkpoint.\", \"Parent orchestration state: `operations/task-state/CHATGPT-20260924-GLOBAL-RECOVERY.md`.\", \"Final deletion evidence will be added after the bounded local patch-equivalence pass and remote readback.\"]",
+        "captured_at": "2026-09-25T15:54:51Z"
+      }
+    ],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 106,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "evidence_kind": "completed",
+        "label": "Enumerated all remote branches in the eight infrastructure repositories.",
+        "uri": "state://CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md#completed-02012cf57c7b808e",
+        "value_json": "{\"text\": \"Enumerated all remote branches in the eight infrastructure repositories.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 107,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "evidence_kind": "completed",
+        "label": "Compared every non-canonical branch against current main/master.",
+        "uri": "state://CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md#completed-7553debfb7035aa1",
+        "value_json": "{\"text\": \"Compared every non-canonical branch against current main/master.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 108,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "evidence_kind": "completed",
+        "label": "Identified 25 branches with ahead_by=0.",
+        "uri": "state://CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md#completed-5790563d3bfa3d09",
+        "value_json": "{\"text\": \"Identified 25 branches with ahead_by=0.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 109,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "evidence_kind": "completed",
+        "label": "Preserved every branch with ahead_by>0 for later review.",
+        "uri": "state://CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md#completed-78d9577c163305ee",
+        "value_json": "{\"text\": \"Preserved every branch with ahead_by>0 for later review.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 110,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "evidence_kind": "evidence",
+        "label": "Remote branch inventory and compare results recorded in this checkpoint.",
+        "uri": "state://CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md#evidence-e55a9725f4dc3614",
+        "value_json": "{\"text\": \"Remote branch inventory and compare results recorded in this checkpoint.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 111,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "evidence_kind": "evidence",
+        "label": "Parent orchestration state: `operations/task-state/CHATGPT-20260924-GLOBAL-RECOVERY.md`.",
+        "uri": "state://CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md#evidence-f1933960640a71b9",
+        "value_json": "{\"text\": \"Parent orchestration state: `operations/task-state/CHATGPT-20260924-GLOBAL-RECOVERY.md`.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 112,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "evidence_kind": "evidence",
+        "label": "Final deletion evidence will be added after the bounded local patch-equivalence pass and remote readback.",
+        "uri": "state://CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md#evidence-74ce889ce3f9a2aa",
+        "value_json": "{\"text\": \"Final deletion evidence will be added after the bounded local patch-equivalence pass and remote readback.\"}",
+        "created_at": "2026-09-25T15:54:51Z"
+      },
+      {
+        "evidence_id": 354,
+        "work_item_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+        "evidence_kind": "classification",
+        "label": "GitHub branch inventory 2026-09-26: codex-roadmap, MegaVault, workflowy-importer and other infrastructure repos still ha",
+        "uri": null,
+        "value_json": "\"GitHub branch inventory 2026-09-26: codex-roadmap, MegaVault, workflowy-importer and other infrastructure repos still have active or seed branches; MegaVault PR 107 remains open.\"",
+        "created_at": "2026-09-26T17:12:41Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [],
+    "source_document": {
+      "path": "/home/daniele/projects/codex-roadmap/operations/task-state/CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md",
+      "text": "# Operational task state — infrastructure branch cleanup\n\nTASK_ID: CHATGPT-20260924-INFRA-BRANCH-CLEANUP\nUpdated: 2026-09-24 13:14 Europe/Copenhagen\nParent: operations/task-state/CHATGPT-20260924-GLOBAL-RECOVERY.md\n\n## Objective\nLeave the infrastructure repositories with only branches that still contain genuinely unintegrated work. Delete branches only after proving their commits are already contained or patch-equivalent to the canonical branch.\n\n## Constraints\n- Operational memory only; not roadmap lifecycle state.\n- No chain-of-thought.\n- Canonical branches: main for all listed repos except MegaVault=master.\n- ahead_by=0 is sufficient evidence that a branch is safe to delete.\n- ahead_by>0 requires git cherry/patch-id plus bounded semantic review.\n- Never delete a running/integration branch.\n- Keep seed/eboks-scraper-20260921 until 218695 is executed or cancelled with evidence.\n\n## Plan / checklist\n### Phase 1 — Inventory and safe ancestry classification\n- [x] Enumerate remote branches across the eight infrastructure repositories.\n- [x] Compare every non-canonical branch against current main/master.\n- [x] Mark the 25 branches with `ahead_by=0` as ancestry-safe candidates.\n- [x] Preserve every `ahead_by>0` branch for patch-equivalence/semantic review.\n- [x] Protect active/integration branches and the conditional e-Boks seed branch.\n\n### Phase 2 — Patch-equivalence review\n- [ ] Wait until active infrastructure tasks are terminal.\n- [ ] Fetch all refs locally once and run bounded `git cherry` / patch-id review on every `ahead_by>0` candidate.\n- [ ] Integrate any genuinely unique useful commit before considering its branch deletable.\n- [ ] Record explicit keep/delete disposition for every review branch.\n\n### Phase 3 — Deletion and readback\n- [ ] Delete ancestry-safe and proven-equivalent branches with authenticated local/GitHub tooling.\n- [ ] Re-read all remote branch lists.\n- [ ] Retain only canonical branches plus explicitly justified active/seed branches.\n- [ ] Update this checkpoint with final evidence and close the cleanup lane.\n\n## Current step\nWait for active infrastructure tasks to become terminal; then perform the single bounded local patch-equivalence/deletion pass. Do not delete active/integration branches early.\n\n## Verified facts\n- Eight infrastructure repositories were inventoried against their canonical branch (`main`, except MegaVault=`master`).\n- 25 non-canonical branches are already proven safe by ancestry because `ahead_by=0`.\n- Every `ahead_by>0` branch remains retained pending patch-equivalence/semantic review.\n- `seed/eboks-scraper-20260921` must remain until task 218695 is either executed or explicitly cancelled with evidence.\n- Active/integration task branches are excluded from deletion until terminal.\n\n## Verified safe-to-delete branches (ahead=0)\n\n### gernalix/activity-watch-uploader\n- task/620949\n\n### gernalix/codex-usage-monitor\n- task/credential-provider-20260920\n\n### gernalix/chrome-codex-switcher\n- architecture/prompt-cockpit-proxy\n- task/472615\n\n### gernalix/workflowy-importer\n- architecture/cockpit-migration-polish\n- architecture/roadmap-cockpit\n- task/credential-provider-20260920\n- task/947306\n\n### gernalix/github-autosync\n- architecture/async-integrator-v2\n- architecture/cockpit-state-polish\n- architecture/prompt-cockpit-contract\n- task/async-roadmap-finalize\n- task/systemd-credential-provider-20260920\n- task/246815\n- task/246816\n- task/246817\n- task/246818\n- task/814263\n\n### gernalix/codex-roadmap\n- architecture/async-integrator-v2\n- architecture/workflowy-cockpit-backend\n- chatgpt/running-first-roadmap-view\n- task/async-roadmap-finish-handoff-v2\n- task/wf-ready-463281\n\n### gernalix/MegaVault\n- task/credential-provider-policy-20260920\n- task/613102\n\n### gernalix/prompt-history\n- none proven safe by ancestry\n\nTotal ancestry-safe branches: 25.\n\n## Branches requiring patch-equivalence / semantic review\n\n### gernalix/activity-watch-uploader\n- chatgpt/libsecret-kuma\n\n### gernalix/prompt-history\n- task/571364\n\n### gernalix/codex-usage-monitor\n- analysis/404936-efficiency-hardening\n\n### gernalix/chrome-codex-switcher\n- architecture/prompt-cockpit-bindings\n- chatgpt/systemd-resilience-20260921\n- codex/fix-prompt-pairing\n- feature/active-codex-notes\n- feature/autonomous-runtime-verifier\n- feature/autonomous-runtime-verifier-v2\n- feature/context-search-dashboard\n- feature/persist-full-note-state\n- feature/url-persistent-notes\n- fix/content-script-runtime-errors\n- fix/gnome-clipboard-bridge-519564\n- fix/preserve-flatpak-extension-path\n- fix/workflowy-dashboard-reliability\n- hardening/593872-gnome-heartbeat\n- task/438216\n- task/485236\n- task/604812\n- task/731805\n- task/764382\n- test/e2e-note-state-persistence\n\n### gernalix/workflowy-importer\n- chatgpt/global-python-systemd-resilience-20260921\n- feature/ccs-runtime-verify-link\n- feature/runtime-auto-deploy\n- feature/workflowy-pbf-statuses\n- fix/workflowy-blocked-projection\n- fix/workflowy-dashboard-dedupe-20260920\n- fix/workflowy-dashboard-reliability\n- task/381904\n- task/438217\n- task/764381\n- task/930174\n\n### gernalix/github-autosync\n- analysis/404936-efficiency-hardening\n- chatgpt/libsecret-kuma\n- feature/activity-audit-telegram-20260918\n- feature/global-reconcile-command\n- feature/per-repo-single-writer\n- feature/private-activity-data-mirror-20260918\n- feature/runtime-auto-deploy\n- feature/single-writer-leases-cleanup\n- fix/autonomous-roadmap-reconcile\n- fix/global-reconcile-stale-upstream\n- fix/single-writer-noop-task\n\n### gernalix/codex-roadmap\n- chatgpt/manual-prereq-runnable-fix-20260920\n- codex/retry-rejected-terminal-request\n- feature/repo-task-single-writer-bridge\n- fix/roadmap-claim-gh-404-v2\n- fix/roadmap-claim-gh-404\n- fix/roadmap-start-canonical-repository\n- seed/eboks-scraper-20260921\n- task/async-roadmap-finish-handoff\n\n### gernalix/MegaVault\n- chatgpt/systemd-service-resilience-20260921\n- chatgpt-805417-boundary-refactor\n- policy/per-repo-single-writer\n- task/prompt-id-943492-materialize-command\n- task/prompt-id-fw123-pr-trigger2\n- task/prompt-id-fw123-trigger\n- task/prompt-id-fw123-trigger-v2\n- task/prompt-id-issue-bridge-fix\n- task/prompt-id-luks-recovery-followup-943492\n\n## Decisions\n- Defer all branch deletion until active infrastructure work is terminal to avoid racing the single-writer/integrator workflow.\n- Treat ancestry (`ahead_by=0`) as sufficient proof for deletion eligibility, but require patch-id/semantic equivalence for every `ahead_by>0` branch.\n- Preserve conditional seed branches until their owning roadmap task receives an explicit terminal disposition.\n\n## Completed\n- Enumerated all remote branches in the eight infrastructure repositories.\n- Compared every non-canonical branch against current main/master.\n- Identified 25 branches with ahead_by=0.\n- Preserved every branch with ahead_by>0 for later review.\n\n## Remaining\n- After active tasks finish, fetch all refs locally and run git cherry / patch-id checks on every review branch.\n- Integrate genuinely unique useful commits before deletion.\n- Delete ancestry-safe and subsequently proven-equivalent branches with authenticated local/GitHub tooling.\n- Re-read remote branches and retain only canonical plus intentionally active/seed branches.\n\n## Blockers\n- The current ChatGPT GitHub connector can compare branches but exposes no branch-delete action.\n- ahead_by>0 can still be squash/cherry-pick equivalent; ancestry alone is insufficient.\n\n## Evidence\n- Remote branch inventory and compare results recorded in this checkpoint.\n- Parent orchestration state: `operations/task-state/CHATGPT-20260924-GLOBAL-RECOVERY.md`.\n- Final deletion evidence will be added after the bounded local patch-equivalence pass and remote readback.\n\n## Acceptance criteria\n- No branch with unreviewed unique work is deleted.\n- Every deleted branch is ahead_by=0 or proven equivalent/absorbed.\n- No active task branch is deleted.\n- Each repo ends with only canonical and explicitly justified retained branches.\n\n## Next action\nAfter active infrastructure tasks are terminal, execute one bounded local cleanup pass using this inventory, update patch-equivalence results, then delete only proven-safe branches.\n"
+    }
+  },
+  {
+    "routing": {
+      "project": "92",
+      "reason": "blocker subtask inherits explicitly identified parent project",
+      "related_projects": [
+        "92"
+      ]
+    },
+    "source": {
+      "work_item_id": "state:gate:5c9bd667130f639a1d50",
+      "parent_id": "task:CHATGPT-20260924-INFRA-BRANCH-CLEANUP",
+      "kind": "gate",
+      "title": "Resolve blocker: ahead_by>0 can still be squash/cherry-pick equivalent; ancestry alone is insufficient.",
+      "objective": null,
+      "acceptance_json": null,
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": 1609,
+      "current_action": null,
+      "next_action": "Complete bounded equivalence review after active integrations settle; never delete on ancestry alone.",
+      "blocker": "Branch cleanup still has ahead_by>0 refs without patch-id/semantic equivalence review, and active integrations could change the comparison.",
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "task_state",
+      "source_ref": "CHATGPT-20260924-INFRA-BRANCH-CLEANUP.md#blocker",
+      "created_at": "2026-09-25T15:54:51Z",
+      "updated_at": "2026-09-27T22:23:04.386480Z"
+    },
+    "work_item_tags": [],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1191,
+        "work_item_id": "state:gate:5c9bd667130f639a1d50",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Branch cleanup still has ahead_by>0 refs without patch-id/semantic equivalence review, and active integrations could cha",
+        "uri": null,
+        "value_json": "\"Branch cleanup still has ahead_by>0 refs without patch-id/semantic equivalence review, and active integrations could change the comparison.\"",
+        "created_at": "2026-09-27T22:23:04.386480Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": []
+  },
+  {
+    "routing": {
+      "project": "92",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "92",
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Convergere tutti i branch non-main su main e rimuovere quelli integrati",
+      "objective": "Git globale: per tutti i repository gestiti, riconciliare ogni branch non-main verso main e poi eliminare i branch già integrati. Prima di merge/eliminazione verificare divergenze, worktree/PR/CI e contenuto non ancora integrato; non perdere lavoro e non forzare merge distruttivi. Obiettivo finale: main canonico e nessun branch non-main residuo salvo blocker esplicitamente registrato.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": 90,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T01:18:42Z",
+      "updated_at": "2026-09-27T01:18:42Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "tag": "git"
+      },
+      {
+        "work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "tag": "maintenance"
+      },
+      {
+        "work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [
+      {
+        "work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "depends_on_work_item_id": "wi:d08356a155404433bbea2f6700287927",
+        "required": 1,
+        "note": "c2-intake"
+      }
+    ],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "state:step:ac6183f67a544c3f3bae",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:68ac8aae03946340c602",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:269d460bc9c8f7f6f98f",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:097c406093421d30b617",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:8894fd29bfe2a339c1b4",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:phase:84067e30a578ec7e7aef",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:94ab9c6c690888ddd296",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:06Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:d90165d121f5217509b7",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:07Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:f19677ccb076ab352bc3",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:07Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:82734626a9f3256afad6",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:49:07Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:c41e05c7469d66fe0617",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:7d5e8a8cccc8ddb1c02a",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:342fa12f1bf63362cddb",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:519514145a852408fa95",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:7f67eae1e98200c0a2d7",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:f7438e8a8e78cda3ddb3",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:d314424f62de4c66d5c7",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:ab41bcec03dd8c4dc9b7",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:phase:406e01fae59883091b63",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:phase:ba09a0734fb2b5cdba98",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:13517a9116bec1042d29",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:88da4b732f1fc43d768e",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:a351d7a428d799129f1d",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      },
+      {
+        "from_work_item_id": "state:step:a5412c9ccbb65c395fad",
+        "to_work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "relation_type": "superseded_by",
+        "created_at": "2026-09-28T09:51:16Z",
+        "actor": "c2-descendant-audit",
+        "note": "DUPLICATE_MERGE"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 528,
+        "work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:ee5b5e8ed5944aaf84544c29c388ff1c",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Git globale: per tutti i repository gestiti, riconciliare ogni branch non-main verso main e poi eliminare i branch già integrati. Prima di merge/eliminazione verificare divergenze, worktree/PR/CI e contenuto non ancora integrato; non perdere lavoro e non forzare merge distruttivi. Obiettivo finale: main canonico e nessun branch non-main residuo salvo blocker esplicitamente registrato.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:ee5b5e8ed5944aaf84544c29c388ff1c\", \"observed_at_ms\": 1790466104149, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T01:18:42Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:ee5b5e8ed5944aaf84544c29c388ff1c",
+        "work_item_id": "wi:dad7a0b2953041a597762b7190bd074c",
+        "role": "decision",
+        "created_at": "2026-09-26T23:41:44Z"
+      }
+    ]
+  }
+]
+```

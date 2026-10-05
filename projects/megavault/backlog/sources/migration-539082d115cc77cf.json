@@ -1,0 +1,31 @@
+[
+  {
+    "routing": {
+      "project": "23",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "23"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:36f8601f38c64ee2a7aaf56d8d6efe87",
+      "description": "MegaVault contiene ancora le view quota_overview e quota_diagnostics, ma la tabella sorgente quota_snapshots non esiste nel DB corrente. Sono residui stale/broken e vanno rimossi o riallineati all'owner canonico codex-usage-monitor, evitando una seconda superficie quota in MegaVault.",
+      "repo": "gernalix/MegaVault",
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790873334978,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-01T16:48:54Z"
+    },
+    "issue_work_item_links": []
+  }
+]

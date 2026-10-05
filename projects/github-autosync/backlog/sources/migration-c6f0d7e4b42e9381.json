@@ -1,0 +1,95 @@
+[
+  {
+    "routing": {
+      "project": "92",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "92"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:a6def01900b3499aab85b99a9492a199",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Repository integration head-of-line blocking: repo-integrator serializes codex-roadmap PRs behind an earlier PR (#6090,",
+      "objective": "Repository integration head-of-line blocking: repo-integrator serializes codex-roadmap PRs behind an earlier PR (#6090, then #7168), causing unrelated later P0/C3-critical patches to remain queue-behind-earlier even when isolated and fully tested. Replace strict repository-wide FIFO with conflict-aware ordering: permit independent PRs whose tested heads are current and whose changed paths/resource ownership do not conflict; retain serialization only for genuinely conflicting writer/integration state.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": null,
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T12:21:51Z",
+      "updated_at": "2026-09-30T12:21:51Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:a6def01900b3499aab85b99a9492a199",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2298,
+        "work_item_id": "wi:a6def01900b3499aab85b99a9492a199",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:ce8bf580659347eb9a7f01dfecf9ab59",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Repository integration head-of-line blocking: repo-integrator serializes codex-roadmap PRs behind an earlier PR (#6090, then #7168), causing unrelated later P0/C3-critical patches to remain queue-behind-earlier even when isolated and fully tested. Replace strict repository-wide FIFO with conflict-aware ordering: permit independent PRs whose tested heads are current and whose changed paths/resource ownership do not conflict; retain serialization only for genuinely conflicting writer/integration state.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:ce8bf580659347eb9a7f01dfecf9ab59\", \"observed_at_ms\": 1790761952016, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:21:51Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:ce8bf580659347eb9a7f01dfecf9ab59",
+        "work_item_id": "wi:a6def01900b3499aab85b99a9492a199",
+        "role": "decision",
+        "created_at": "2026-09-30T09:52:32Z"
+      }
+    ]
+  },
+  {
+    "routing": {
+      "project": "92",
+      "reason": "complementary evidence for same explicitly identified objective",
+      "related_projects": [
+        "92"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:2f47a72ce99c4acd42405ff9b0f4d875",
+      "description": "Fresh 2026-10-02 evidence for wi:a6def01900b3499aab85b99a9492a199: repo-integrator left PR #6090 at the head of the codex-roadmap queue even though its owning C3 work item wi:feddc63cc21941a3b386c107350e0b4c was already cancelled as duplicate. #6090 became merge-conflicting as main evolved and blocked new PR #9997 with queue-behind-earlier until manual conflict reconciliation. Prevent cancelled/superseded ownership from leaving stale PRs as head-of-line blockers: terminal ownership should trigger bounded integration review/retirement or allow later safe PRs to progress without resurrecting obsolete work.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": "wi:a6def01900b3499aab85b99a9492a199",
+      "origin_run_id": null,
+      "observed_at_ms": 1790936314319,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-02T10:18:34Z"
+    },
+    "issue_work_item_links": []
+  }
+]

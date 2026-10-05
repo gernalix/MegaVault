@@ -108,12 +108,16 @@ ROOT_ALLOWLIST = {
     ".gitignore",
     "ai",
     "legacy",
+    "projects",
+    "inbox",
+    "operations",
     "megavault.py",
     "megavault.sqlite",
     "tests",
     "tools",
 }
 ALLOWED_TRACKED_MARKDOWN = {
+    "projects/README.md",
     "ai/META_INFRASTRUCTURE.md",
     "ai/BOOTSTRAP.md",
     "ai/MEGAVAULT_PROTOCOL.md",
@@ -133,7 +137,6 @@ TRACKED_FORBIDDEN_PREFIXES = (
     "backups/",
     "secrets/",
     "private/",
-    "projects/",
     "ai/archive/",
     "ai/global/",
     "ai/projects/",
@@ -150,8 +153,8 @@ REQUIRED_PROTOCOL_FAMILIES = {
     "authority_boundaries": (
         "STATUS=SOLE_CROSS_PROJECT_AUTHORITY",
         "authority_project=MegaVault",
-        "authority_lifecycle=C3",
-        "authority_prompt_id=C3",
+        "authority_backlog=project_GitHub_or_Git",
+        "authority_execution=local_task_state",
         "authority_git=github-autosync",
         "authority_observed=Fedora",
         "authority_usage=telemetry_only",
@@ -161,14 +164,14 @@ REQUIRED_PROTOCOL_FAMILIES = {
         "prompt_ids=reserved_forever",
     ),
     "write_boundary": (
-        "single_c3_writer=required",
+        "global_inbox=passive_only",
         "inbox_is_not_work_item=true",
         "projections_are_not_authority=true",
     ),
     "ai_takeover": (
         "coverage=90%+_normal_operations_from_this_document_alone",
-        "## Recovery decision tree",
-        "## Stop conditions",
+        "## Execution and Git",
+        "## Infrastructure and archive",
     ),
 }
 SECRET_PATTERNS = (
@@ -2203,7 +2206,7 @@ def validate() -> int:
             errors.append(f"tracked secret-like path: {path}")
 
     tracked_md = {path for path in tracked if path.endswith(".md")}
-    extra_md = sorted(tracked_md - ALLOWED_TRACKED_MARKDOWN)
+    extra_md = sorted(path for path in tracked_md - ALLOWED_TRACKED_MARKDOWN if not re.fullmatch(r"(?:projects/[^/]+/backlog/(?:sources/)?[^/]+|inbox/(?:sources/)?[^/]+|operations/host-config/[^/]+|operations/c3-retirement-2026-10-05)\.md", path))
     if extra_md:
         errors.append(f"extra tracked markdown: {extra_md}")
 

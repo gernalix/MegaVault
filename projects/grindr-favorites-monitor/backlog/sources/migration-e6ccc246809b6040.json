@@ -1,0 +1,81 @@
+[
+  {
+    "routing": {
+      "project": "104",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "104"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:d3ea91a910f1433c9d2e2def4ce5dfea",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Document verified Grindr behavior and persist scrape provenance",
+      "objective": "Document the supplied verified Grindr Web, Pixel, and TCL behaviors in grindr-favorites-monitor with VERIFIED versus hypothesis boundaries and no secrets. Persist source_platform, source_account, source_device where applicable, observed_at and profile_id for each scrape/snapshot/event; preserve multiple account/platform observations of one profile, add readable provenance queries/views and focused migration/backfill/tests. Use the issue capture as detailed acceptance and evidence.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "https://github.com/gernalix/grindr-favorites-monitor",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T03:57:44Z",
+      "updated_at": "2026-09-30T03:57:44Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:d3ea91a910f1433c9d2e2def4ce5dfea",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1997,
+        "work_item_id": "wi:d3ea91a910f1433c9d2e2def4ce5dfea",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:3bc9d4b73b5e46db9e65b155348c9396",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"[grindr-favorites-monitor] Consolidare nei docs tutte le scoperte verificate emerse interrogando Grindr Web, Grindr Pixel e Grindr TCL, e aggiungere provenance nel DB.\\n\\nObiettivo\\n- Trasformare in documentazione canonica del repo gernalix/grindr-favorites-monitor i comportamenti empiricamente verificati nelle chat del progetto.\\n- Distinguere chiaramente VERIFIED da ipotesi/planned.\\n- Non documentare token, cookie, password o altri segreti.\\n- Integrare nel DB la provenienza di ogni scrape/snapshot: piattaforma e account Grindr usato.\\n\\n1. Grindr Web — API, routing e stato SPA verificati\\n- Favorites: GET /api/v5/favorites. In una cattura verificata ha restituito 255 profili con campi: profileId, distance, hasAlbum, isOnline, lastSeen, lastUpdatedTime, rightNow; non includeva nome/foto/età/bio/tag.\\n- Dettaglio profilo: GET /api/v7/profiles/<profileId>, senza query/body; risposta 200 nel formato {\\\"profiles\\\":[profile]}. È la fonte ricca usata da profileStore.fetchOne.\\n- Il dettaglio può includere identità/display, età/about, status/visibility flags, tribes/tag/pronouns, media metadata e altri array/oggetti opzionali.\\n- Chat: route verificata /chat/<conversationId>; endpoint messaggi verificato /api/v4/chat/conversation/<conversationId>/message?limit=20.\\n- conversationId diretto deterministico: i due profile_id numerici ordinati e uniti da \\\":\\\"; è account-specific. getDirectConversationId lo calcola offline.\\n- Sul principale galatidaniele@gmail.com è stato verificato own profile_id=432438930; esempio conversazione 917507:432438930, da cui l'interlocutore è 917507.\\n- Profilo Web: non esiste una route semplice /profile/:id verificata. open_profile funziona impostando router state/viewingProfileId e ?profile=true.\\n- Aprire il drawer NON prova che i dati del profilo siano accessibili: può comparire \\\"Not much profile information…\\\" o contenuto incompleto.\\n- Controllo verificato: profile_id 269863635 ha aperto drawer pienamente popolato (nome npnc, 23, Bottom, tag, bio, stats, expectations, health).\\n- Signature locale osservata e documentata: drawer completamente vuoto con unico nome esattamente \\\"4\\\" => classificare come profilo che ha bloccato QUELL'account; non generalizzare ad altri drawer vuoti/parziali o ad altri nomi.\\n- Bootstrap Web: /v2/api-tokens; in un test /api/v5/favorites dava 401 prima del bootstrap/reload, poi Favorites/Cascade/Profile davano 200.\\n- Fetch manuale fuori dal normale client/session può dare 401; riusare il client/sessione autenticata e tenere conto della cache che può evitare una nuova request.\\n- Dedicated Chrome/CDP del monitor: 127.0.0.1:9444; la scansione richiede una sola tab Grindr dedicata, autenticata e stabilizzata su Favorites.\\n- Fallimenti scan verificati da documentare: CDP non disponibile/ambiguo/non dedicato, tab/account errato o non autenticato, risposta Favorites fallita, enumerazione incompleta o lista non stabilizzata. Il CLI corrente può nascondere il dettaglio del RuntimeError.\\n- Cascade: rewrite one-shot verificata di /api/v4/cascade/ con heightCmMin=188&heightCmMax=188 => HTTP 200. Il filtro vive nello stato SPA/request, non nella URL della pagina; non esiste un link Web filtrato nativo verificato.\\n- Recovery Web verificati/documentati: reload/F5 e gestione popup iniziale \\\"Let's Go!\\\".\\n- Favorites server-side può contenere un profilo che la UI Favorites non renderizza; esempio TCL/Web: now??? -> profile_id 921535446 presente nella Favorites API e nel Nearby React state.\\n- Accessori osservati: /api/v4/views/<id>, /api/v1/favorites/notes/<id>, endpoint chat.\\n- Discovery/network logging del repo deve restare sanitizzato: metodo/host/path/segmenti numerici sì; niente token/cookie/body sensibili.\\n\\n2. Grindr Web — snapshot/media verificati\\n- Il monitor salva snapshot complete in profile_snapshots e differenze leggibili in human_changes; raw code Grindr non mappati vanno preservati.\\n- Nuova snapshot solo quando cambia il JSON o lastUpdatedTime; enrichment durante scan Favorites, attualmente max 1 profilo per scan.\\n- Media: estrarre i riferimenti dal profilo arricchito e accodare/downloadare subito i CDN media; un fallimento singolo deve lasciare quel media pending senza perdere la snapshot metadata.\\n- Test reale profile_id 811325847: 5/5 JPEG scaricati, 0 errori, state=downloaded, attempts=1; local_path confermato nel DB; storage sotto ~/.local/state/grindr-favorites-monitor/profile-media/.\\n- Full original CDN non è sempre ottenibile su Android, mentre via enrichment Web il downloader del repo ha funzionato sul caso sopra.\\n\\n3. Pixel Android — account galatidaniele@gmail.com\\n- App production non debuggable; run-as indisponibile; gli ID non sono normalmente esposti nella UI/log standard.\\n- ActivityStarter mostra extras solo come \\\"(has extras)\\\" in alcuni casi, quindi non basta per ricavare gli ID.\\n- Su Pixel è stata osservata una zombie/tombstone chat dopo blocco: titolo \\\"4\\\", offline, nessun metadata, impossibile rispondere o favorite; il soggetto corrispondeva allo stesso profilo mostrato normalmente su TCL/Web. Documentare come osservazione account-specific, non come regola universale Android.\\n- Export chat \\\"Fun\\\": revisione finale verificata 587 messaggi, dal 14 marzo 2026 a oggi al momento del test; JSON/CSV/SQLite 587/587/587; history_start_verified=PASS; il precedente limite 26 agosto era falso.\\n- Export precedente del 30 agosto aveva 583 messaggi, Me 263, Fun 318, system/visible 2, range 2026-03-14T18:18:00–2026-08-30T04:39:00.\\n- Media export precedente: 10 immagini salvate su 16 riferimenti, 0 video, 0 album; 1 \\\"Photo Viewed\\\" senza URL/file e 6 URL DOM-visible senza asset recuperabile. Non attribuire la causa a entitlement Unlimited: era solo ipotesi.\\n- Sul Pixel le foto singole chat sono riconoscibili da content-desc \\\"Image message. Tap to view fullscreen.\\\".\\n- ChatRoomPhotosActivity può avere FLAG_SECURE: screencap nero = cattura non valida; non tentare bypass. App non debuggable/run-as indisponibile.\\n- Test album: provarne uno; se non è catturabile, saltare i successivi. Nel test citato erano state ottenute 0 foto valide dal percorso fullscreen protetto.\\n4. TCL Android — account arushofbloodtothehead11@gmail.com\\n- Own TCL Grindr profile_id verificato: 815067741.\\n- ChatActivityV2/dumpsys activity -c espone dati sufficienti per estrarre conversationId e gli ID. Caso verificato: conversationId=31614956:815067741, sender/self=815067741, recipient/profile=31614956.\\n- Regola fondamentale: profile_id è globale; conversation_id dipende dall'account Grindr usato.\\n- Scraping metadata verificato via ADB/UIAutomator: scorrere il profilo e raccogliere metadata fino a YOU MIGHT BE INTO; se quella sezione manca, fermarsi quando il fondo resta invariato (esempio SOCIALS).\\n- Foto profilo fullscreen: un tap per entrare, poi solo swipe orizzontali; usare il contatore N/N come criterio di arresto. Casi verificati: profilo 🃏 5/5, profilo Visiting 3/3.\\n- Sul TCL gli originali CDN non erano direttamente accessibili dal percorso Android; screenshot/catture fullscreen erano invece possibili nei casi testati.\\n- Caso now???: UI TCL verificata con età 27, \\\"Online 30 minutes ago\\\", \\\"Joined Recently\\\", Favorite=true, album presente ma locked.\\n- DB interno dell'app contiene strutture come profile_v2, favorite_lite e chat_conversation_participants con profileId, ma produzione ha allowBackup=false, non è debuggable e non espone provider utile: ADB non può leggere direttamente il DB.\\n- Deep link verificato per chat: grindr://conversation?id=... ; non è stato trovato un deep link pubblico verificato che apra direttamente un profilo da profile_id.\\n- Stesso account TCL su Web: Favorites API restituiva 1 profilo, now??? -> 921535446; la UI Favorites inizialmente non lo rendeva; Nearby React state lo conteneva.\\n- La cattura completa /api/v7/profiles/921535446 non fu completata, quindi non presentarla come riuscita.\\n\\n5. Provenance obbligatoria nel DB del repo\\n- Per ogni osservazione/scrape/snapshot di un profilo registrare almeno: source_platform (web|android), source_account, source_device quando applicabile, observed_at/scraped_at e profile_id.\\n- Account Android noti: Pixel = galatidaniele@gmail.com; TCL = arushofbloodtothehead11@gmail.com.\\n- Per Web non assumere un account fisso: registrare l'account/sessione effettivamente usato; preferire identità derivata dalla sessione/self profile_id rispetto a hardcoding.\\n- La provenance deve essere a granularità scrape/snapshot/evento, non una singola colonna mutabile sul profilo: lo stesso profile_id può essere osservato più volte da piattaforme e account differenti.\\n- Devono essere interrogabili sia lo storico completo delle provenienze sia, per ciascun profilo, l'insieme distinto di piattaforme/account che lo hanno osservato.\\n- Le FK/normalizzazioni possono essere scelte dall'implementazione C2, ma non si deve perdere la molteplicità delle fonti.\\n- Le view umane/Datasette dovrebbero esporre provenance leggibile senza includere token, cookie o segreti di sessione.\\n\\nAcceptance attesi per il processor C2\\n- Aggiornare/creare docs canonici del repo che raccolgano queste scoperte con marcatura VERIFIED/limiti.\\n- Evitare di trasformare osservazioni account-specific in regole universali.\\n- Aggiungere migrazione/schema e persistenza della provenance per nuovi scrape/snapshot, con compatibilità/backfill ragionevole per record storici quando la fonte è ricostruibile.\\n- Esporre provenance nelle query/view umane pertinenti.\\n- Aggiungere test mirati per persistenza multi-account/multi-platform e per non sovrascrivere una provenienza precedente.\\n\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:3bc9d4b73b5e46db9e65b155348c9396\", \"observed_at_ms\": 1790673101792, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"https://github.com/gernalix/grindr-favorites-monitor\"}",
+        "created_at": "2026-09-30T03:57:44Z"
+      },
+      {
+        "evidence_id": 2406,
+        "work_item_id": "wi:d3ea91a910f1433c9d2e2def4ce5dfea",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d61d117cdaf74c20b0558b3f4cbb6642",
+        "uri": "codex://threads/01a0f296-d084-7f52-b5ac-330501c88689",
+        "value_json": "{\"chat_url\": \"codex://threads/01a0f296-d084-7f52-b5ac-330501c88689\", \"code_location\": null, \"description\": \"Candidato comando emerso dal thread Codex 01a0f296-d084-7f52-b5ac-330501c88689: incapsulare il workflow ricorrente \\\"profilo Grindr attualmente aperto → identifica profile_id dalla risposta autenticata/router → attribuisci account sorgente (es. tcl/pixel) → salva snapshot append-only → scarica/collega media → restituisci metadati, path e diff\\\". Oggi richiede più passaggi e discovery di entrypoint/schema/debug bridge; un comando unico parametrico ridurrebbe latenza ed errori e sarebbe riusabile dai monitor.\\n\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d61d117cdaf74c20b0558b3f4cbb6642\", \"observed_at_ms\": 1790777588732, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T14:22:22Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:3bc9d4b73b5e46db9e65b155348c9396",
+        "work_item_id": "wi:d3ea91a910f1433c9d2e2def4ce5dfea",
+        "role": "decision",
+        "created_at": "2026-09-29T09:11:41Z"
+      },
+      {
+        "issue_id": "issue:d61d117cdaf74c20b0558b3f4cbb6642",
+        "work_item_id": "wi:d3ea91a910f1433c9d2e2def4ce5dfea",
+        "role": "decision",
+        "created_at": "2026-09-30T14:22:22Z"
+      }
+    ]
+  }
+]

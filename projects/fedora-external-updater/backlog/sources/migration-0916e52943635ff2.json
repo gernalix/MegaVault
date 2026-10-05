@@ -1,0 +1,127 @@
+[
+  {
+    "routing": {
+      "project": "100",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "100"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:dce555999f864385912180bedadb974d",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Automatizzare la copertura updater del software esterno, incluso RDC",
+      "objective": "fedora-external-updater is active and passing daily runs, but Remote Desktop Commander is installed only inside ~/.npm/_npx/.../@wonderwhy-er/desktop-commander and is not present in inventory/latest.json or reports. The scan roots exclude ~/.npm, and npm_global is report-only anyway, so RDC is outside automatic update coverage despite the repos\n\nRelated governance gap to solve in the same batch:\nUpstream governance gap: fedora-external-updater dynamically inventories software but its managed updater set and per-source apply policy are static; discovered manual/new software is never promoted into managed coverage. MegaVault has no active canonical rule requiring newly installed Fedora software that is outside Fedora/Flatpak/etc automatic update coverage to be registered/reconciled with fedora-external-updater, and no enforcement hook validates that every installed software item has an update owner. fedora-system-monitor already has software inventory/change detection and a software.path trigger, but it does not reconcile ownership/update coverage and its watched paths/metadata sources also omit transient npx cache installs such as RDC. This is the upstream cause of RDC falling through both Fedora and fedora-external-updater.",
+      "acceptance_json": "[]",
+      "status": "blocked",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Read-only npx discovery and update-ownership gap reporting implemented in the existing local-only updater checkout; automatic replacement awaits an explicit process owner.",
+      "next_action": "After the user selects a managed install/restart owner or confirms report-only policy, resume this same updater source branch. If managed, implement an explicit updater and bounded restart/rollback acceptance; preserve the running process until then. Publish the local-only source through an authorized route; the pushed C2 recovery patch preserves the current change.",
+      "blocker": "The only observed RDC process is a manually launched npx @latest terminal session with no managed restart or rollback owner. Auto-updating its live package or replacing the process would be unsafe; the source repository also has no remote publication route.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "fedora-external-updater",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-28T05:46:10Z",
+      "updated_at": "2026-09-28T05:46:10Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "tag": "batch:external-updater-coverage"
+      },
+      {
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [
+      {
+        "receipt_id": "work-item:wi:dce555999f864385912180bedadb974d:a209e741e9e1b515a3b7aca33c504d9e",
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "run_id": null,
+        "prompt_id": null,
+        "outcome": "BLOCKED",
+        "summary": "Read-only npx discovery and update-ownership gap reporting implemented in the existing local-only updater checkout; automatic replacement awaits an explicit process owner.",
+        "completed_json": "[\"Fresh whole-batch 11 reconciliation and MegaVault identity confirmed\", \"npx cache inventory and coverage-gap reporting committed in local canonical updater branch\", \"Focused updater tests 14/14 PASS and live read-only scan found Desktop Commander 0.2.51\", \"Source commit exported as a recovery patch for pushed C2 checkpoint\"]",
+        "remaining_json": "[\"Define managed package/install and restart owner for the live manually launched Desktop Commander process\", \"Implement and verify automatic update only after owner and rollback route are established\", \"Decide durable source publication/integration route for MegaVault project 100 local-only repository\"]",
+        "evidence_json": "[\"MegaVault project 100 has local canonical repository with no remote URL\", \"Commit 3f9086864c5f107c5a3afd0e0ffdfa164182986e on existing codex/391742-external-updater-audit-fix branch\", \"Live npm exec @wonderwhy-er/desktop-commander@latest remote process and node child in one ptyxis scope\", \"Read-only npx cache inventory returned @wonderwhy-er/desktop-commander version 0.2.51\"]",
+        "blocker": "The only observed RDC process is a manually launched npx @latest terminal session with no managed restart or rollback owner. Auto-updating its live package or replacing the process would be unsafe; the source repository also has no remote publication route.",
+        "next_action": "After the user selects a managed install/restart owner or confirms report-only policy, resume this same updater source branch. If managed, implement an explicit updater and bounded restart/rollback acceptance; preserve the running process until then. Publish the local-only source through an authorized route; the pushed C2 recovery patch preserves the current change.",
+        "strict_contract": 1,
+        "payload_sha256": "a209e741e9e1b515a3b7aca33c504d9e87ccb4e811020fbcc53214fe4e9e08d2",
+        "captured_at": 1790609111.2565906
+      }
+    ],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1384,
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d6755e3f5dde4a4ea8d9cd93713c0240",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": \"config/config.json\", \"description\": \"fedora-external-updater is active and passing daily runs, but Remote Desktop Commander is installed only inside ~/.npm/_npx/.../@wonderwhy-er/desktop-commander and is not present in inventory/latest.json or reports. The scan roots exclude ~/.npm, and npm_global is report-only anyway, so RDC is outside automatic update coverage despite the repos\\n\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d6755e3f5dde4a4ea8d9cd93713c0240\", \"observed_at_ms\": 1790570468123, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"fedora-external-updater\"}",
+        "created_at": "2026-09-28T05:46:10Z"
+      },
+      {
+        "evidence_id": 1625,
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "evidence_kind": "executor_result",
+        "label": "MegaVault project 100 has local canonical repository with no remote URL",
+        "uri": null,
+        "value_json": "\"MegaVault project 100 has local canonical repository with no remote URL\"",
+        "created_at": "2026-09-28T15:25:11Z"
+      },
+      {
+        "evidence_id": 1626,
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "evidence_kind": "executor_result",
+        "label": "Commit 3f9086864c5f107c5a3afd0e0ffdfa164182986e on existing codex/391742-external-updater-audit-fix branch",
+        "uri": null,
+        "value_json": "\"Commit 3f9086864c5f107c5a3afd0e0ffdfa164182986e on existing codex/391742-external-updater-audit-fix branch\"",
+        "created_at": "2026-09-28T15:25:11Z"
+      },
+      {
+        "evidence_id": 1627,
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "evidence_kind": "executor_result",
+        "label": "Live npm exec @wonderwhy-er/desktop-commander@latest remote process and node child in one ptyxis scope",
+        "uri": null,
+        "value_json": "\"Live npm exec @wonderwhy-er/desktop-commander@latest remote process and node child in one ptyxis scope\"",
+        "created_at": "2026-09-28T15:25:11Z"
+      },
+      {
+        "evidence_id": 1628,
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "evidence_kind": "executor_result",
+        "label": "Read-only npx cache inventory returned @wonderwhy-er/desktop-commander version 0.2.51",
+        "uri": null,
+        "value_json": "\"Read-only npx cache inventory returned @wonderwhy-er/desktop-commander version 0.2.51\"",
+        "created_at": "2026-09-28T15:25:11Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:d6755e3f5dde4a4ea8d9cd93713c0240",
+        "work_item_id": "wi:dce555999f864385912180bedadb974d",
+        "role": "decision",
+        "created_at": "2026-09-28T04:41:08Z"
+      }
+    ]
+  }
+]

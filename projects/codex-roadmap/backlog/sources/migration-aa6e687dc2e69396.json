@@ -1,0 +1,66 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:a8f30d04208f4bbeb50a8a1f5790c1af",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Il controllo aggregato c2-health può riportare healthy/up mentre c2-master-goal.service è in stato failed: alle 19:53 c2",
+      "objective": "Verificare e correggere la copertura di c2-health sullo stato di c2-master-goal, usando l’evidenza del 2026-09-29 per eliminare falsi positivi senza introdurre controlli ridondanti.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T10:08:36Z",
+      "updated_at": "2026-09-30T10:08:36Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:a8f30d04208f4bbeb50a8a1f5790c1af",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2119,
+        "work_item_id": "wi:a8f30d04208f4bbeb50a8a1f5790c1af",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:89bcacaaad3c458fa118078d02a0f825",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Il controllo aggregato c2-health può riportare healthy/up mentre c2-master-goal.service è in stato failed: alle 19:53 c2-health risultava healthy=true/status=up, ma c2-master-goal ha fallito alle 19:54 e 19:55 con rpc_rejected:thread/resume:-32600. Il health check non sta quindi coprendo adeguatamente il coordinatore Master Goal e può produrre falsi positivi.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:89bcacaaad3c458fa118078d02a0f825\", \"observed_at_ms\": 1790704630112, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T10:08:36Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:89bcacaaad3c458fa118078d02a0f825",
+        "work_item_id": "wi:a8f30d04208f4bbeb50a8a1f5790c1af",
+        "role": "decision",
+        "created_at": "2026-09-29T17:57:10Z"
+      }
+    ]
+  }
+]

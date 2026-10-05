@@ -1,0 +1,157 @@
+[
+  {
+    "routing": {
+      "project": "104",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "104"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Regression: C2 Issue #1310 Grindr favorites history and Telegram actions",
+      "objective": "Bug osservato: bloccando un profilo favorito, il profilo sparisce dalla lista Favorites ma non arriva alcuna notifica Telegram.",
+      "acceptance_json": "[]",
+      "status": "blocked",
+      "executor_policy": "codex",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": "Reconcile work-item/run identity and authoritative code owner before dispatch; do not duplicate active task.",
+      "blocker": "Grindr regression item has no blocker/result receipt, while repo-task575295 is active and issue #1310 owner path is unresolved.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "grindr-favorites-monitor",
+      "prompt_id": "575295",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T01:26:56Z",
+      "updated_at": "2026-09-27T22:23:04.776979Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "575295",
+        "slug": "regression-c2-issue-1310-grindr-favorites-histor-575295",
+        "chat_guidance": null,
+        "prompt_type": "Prompt",
+        "model": "gpt-6-sol",
+        "reasoning": "medium",
+        "megavault_mode": "STANDARD",
+        "campaign_id": null,
+        "explanation": "",
+        "current_path": "falliti/regression-c2-issue-1310-grindr-favorites-histor-575295.md",
+        "materialization_sha256": "1355a88ed59c7e9e90fc3f77c1fac45a20cef169404772d16b75897a9b516303",
+        "created_at": "2026-09-27T10:33:56Z",
+        "updated_at": "2026-09-27T19:22:55Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "575295",
+        "body": "PROMPT_ID=575295\n\nCorreggi SOLO la regressione: quando un favorito Grindr viene bloccato e scompare dalla lista Favorites, deve arrivare la notifica Telegram prevista.\n\nVincoli:\n- parti dal codice e dai test del monitor corrente; non rifare l'architettura;\n- identifica il punto preciso in cui la transizione block/removal perde l'evento/notifica;\n- preserva deduplica, storico append-only, callback e altri eventi già funzionanti;\n- aggiungi una regressione test mirata per il caso block→sparizione→Telegram;\n- nessun refactor estraneo.\n\nAcceptance:\n- caso riprodotto prima/fallisce e passa dopo il fix;\n- suite pertinente PASS;\n- commit+push del fix verificato; report finale conciso con evidenze.\n",
+        "sha256": "1355a88ed59c7e9e90fc3f77c1fac45a20cef169404772d16b75897a9b516303",
+        "created_at": "2026-09-27T10:33:56Z",
+        "actor": "c2-intake"
+      }
+    ],
+    "analyses": [],
+    "executions": [],
+    "status_history": [
+      {
+        "history_id": 1050,
+        "prompt_id": "575295",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-27T10:33:56Z",
+        "actor": "c2-intake",
+        "note": "work item materialized for Codex"
+      },
+      {
+        "history_id": 1074,
+        "prompt_id": "575295",
+        "old_status": "pending",
+        "new_status": "running",
+        "changed_at": "2026-09-27T19:18:51Z",
+        "actor": "codex",
+        "note": "launch-claim:roadmap_start"
+      },
+      {
+        "history_id": 1075,
+        "prompt_id": "575295",
+        "old_status": "running",
+        "new_status": "blocked",
+        "changed_at": "2026-09-27T19:22:55Z",
+        "actor": "codex",
+        "note": "terminal:roadmap_result:BLOCKED"
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "tag": "grindr"
+      },
+      {
+        "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "tag": "telegram"
+      },
+      {
+        "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "tag": "regression"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "to_work_item_id": "wi:010901772b254f11a16ff5da9e33ab6d",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-27T01:26:56Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:047023d6a6e8400f8ad3595ee33f1da5"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 536,
+        "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:047023d6a6e8400f8ad3595ee33f1da5",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Bug osservato: bloccando un profilo favorito, il profilo sparisce dalla lista Favorites ma non arriva alcuna notifica Telegram.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:047023d6a6e8400f8ad3595ee33f1da5\", \"observed_at_ms\": 1790472192513, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"grindr-favorites-monitor\"}",
+        "created_at": "2026-09-27T01:26:56Z"
+      },
+      {
+        "evidence_id": 1206,
+        "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "evidence_kind": "blocked_reconcile",
+        "label": "Grindr regression item has no blocker/result receipt, while repo-task575295 is active and issue #1310 owner path is unre",
+        "uri": null,
+        "value_json": "\"Grindr regression item has no blocker/result receipt, while repo-task575295 is active and issue #1310 owner path is unresolved.\"",
+        "created_at": "2026-09-27T22:23:04.776979Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:047023d6a6e8400f8ad3595ee33f1da5",
+        "work_item_id": "wi:37832d5a38a04e29a6c1bdccabf08f82",
+        "role": "decision",
+        "created_at": "2026-09-27T01:23:12Z"
+      }
+    ]
+  }
+]

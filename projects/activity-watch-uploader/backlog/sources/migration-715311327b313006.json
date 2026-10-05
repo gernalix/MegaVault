@@ -1,0 +1,129 @@
+[
+  {
+    "routing": {
+      "project": "98",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "98"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Regression: Recover activity-watch-uploader service DOWN alert",
+      "objective": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Fedora Service · user:activity-watch-uploader.service (id 59)\nHeartbeat: 2026-09-30 06:26:22.994 (row 685512)\nFailure context: No heartbeat in the time window",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/activity-watch-uploader",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-30T11:57:51Z",
+      "updated_at": "2026-09-30T11:57:51Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+        "tag": "source:issue-inbox"
+      },
+      {
+        "work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+        "tag": "regression"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [
+      {
+        "from_work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+        "to_work_item_id": "wi:7af1b657fcbb4b48b94d50ec263cb8a8",
+        "relation_type": "regression_of",
+        "created_at": "2026-09-30T11:57:51Z",
+        "actor": "c2-issue-triage",
+        "note": "issue:9495f4a182b94aa1ac5ee59f0587d59f"
+      }
+    ],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 2245,
+        "work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:9495f4a182b94aa1ac5ee59f0587d59f",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Service · user:activity-watch-uploader.service (id 59)\\nHeartbeat: 2026-09-30 06:26:22.994 (row 685512)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:9495f4a182b94aa1ac5ee59f0587d59f\", \"observed_at_ms\": 1790749944211, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T11:57:51Z"
+      },
+      {
+        "evidence_id": 2270,
+        "work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c3e969a17569bdbecf51582cec8e3b37",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Uptime Kuma monitor transitioned to DOWN.\\nMonitor: Fedora Service · user:activity-watch-uploader.service (id 59)\\nHeartbeat: 2026-09-30 07:32:21.483 (row 687614)\\nFailure context: No heartbeat in the time window\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c3e969a17569bdbecf51582cec8e3b37\", \"observed_at_ms\": 1790753660929, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-30T12:10:08Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:c3e969a17569bdbecf51582cec8e3b37",
+        "work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+        "role": "matched",
+        "created_at": "2026-09-30T07:34:20Z"
+      },
+      {
+        "issue_id": "issue:9495f4a182b94aa1ac5ee59f0587d59f",
+        "work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+        "role": "decision",
+        "created_at": "2026-09-30T06:32:24Z"
+      },
+      {
+        "issue_id": "issue:c3e969a17569bdbecf51582cec8e3b37",
+        "work_item_id": "wi:02ed2370898f4b8591612f91336c8409",
+        "role": "decision",
+        "created_at": "2026-09-30T07:34:20Z"
+      }
+    ]
+  },
+  {
+    "routing": {
+      "project": "98",
+      "reason": "monitor/service ownership from explicit source text",
+      "related_projects": [
+        "98"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:670b63c20f87227e0d1a72bb8d5cac4c",
+      "description": "Uptime Kuma monitor transitioned to DOWN.\nMonitor: Fedora Service · user:activity-watch-uploader.service (id 59)\nHeartbeat: 2026-10-03 12:31:25.881 (row 833527)\nFailure context: No heartbeat in the time window",
+      "repo": null,
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1791030691249,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-03T12:31:31Z"
+    },
+    "issue_work_item_links": []
+  }
+]

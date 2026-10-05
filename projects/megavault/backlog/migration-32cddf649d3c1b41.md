@@ -1,0 +1,130 @@
+# Progettare il Capsule Score verificabile
+
+<!-- migration-32cddf649d3c1b41 -->
+
+Migrated project backlog. Project: **megavault**; project_id: 23.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 23.
+
+Provenance: `wi:344346f8ef8446cabac86d947fde9c64`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Progettare il Capsule Score verificabile
+
+Sostituisce la cattura troppo breve #2243 ("Progettare il Capsule Score"). Progettare un Capsule Score oggettivo e calcolabile automaticamente per misurare il grado di capsulizzazione di ogni progetto e permettere a C2 di capire immediatamente cosa manca senza dover rifare audit completi. Il punteggio deve essere 0-100 o equivalente, derivato esclusivamente da controlli verificabili e non da giudizi soggettivi. I segnali da coprire devono includere almeno: bootstrap/setup riproducibile; architecture map; dependency map; contratto DB/migrazioni quando rilevanti; mapping file-modificato -> test minimi richiesti; comando di verifica fast e full; procedura deploy/install; rollback/recovery; registro servizi/infrastruttura; invarianti eseguibili tramite test/constraint/validator/CI; fixture o minimal reproducer per i flussi principali; CI disponibile; freshness/consistenza della capsula verificata contro il repo. Definire pesi o regole di scoring trasparenti, trattamento dei criteri non applicabili, distinzione tra presenza dichiarata e verifica realmente PASS, e output machine-readable che mostri sia score complessivo sia gap specifici (es. "94%: manca rollback APK + mapping test migration"). Il sistema deve poter essere consumato da C2/Workflowy/dashboard per prioritizzare il lavoro di capsulizzazione, senza trasformare il punteggio in una metrica cosmetica facilmente aggirabile. Prevedere anche come evitare score falsamente alto per documentazione obsoleta: i check di freshness devono incidere sul punteggio o invalidare sezioni non verificabili. Acceptance criteria: formula/algoritmo deterministico; lista criteri e pesi/semantica; gestione N/A; output strutturato con score + missing checks; strategia anti-staleness; integrazione prevista con lo standard di capsula e con la dashboard C2.
+
+status: waiting
+
+current_action: Parked during roadmap semantic reconciliation.
+
+next_action: Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.
+
+blocker: Deferred pending Symphony migration/replacement decision.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "23",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "23"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Progettare il Capsule Score verificabile",
+      "objective": "Sostituisce la cattura troppo breve #2243 (\"Progettare il Capsule Score\"). Progettare un Capsule Score oggettivo e calcolabile automaticamente per misurare il grado di capsulizzazione di ogni progetto e permettere a C2 di capire immediatamente cosa manca senza dover rifare audit completi. Il punteggio deve essere 0-100 o equivalente, derivato esclusivamente da controlli verificabili e non da giudizi soggettivi. I segnali da coprire devono includere almeno: bootstrap/setup riproducibile; architecture map; dependency map; contratto DB/migrazioni quando rilevanti; mapping file-modificato -> test minimi richiesti; comando di verifica fast e full; procedura deploy/install; rollback/recovery; registro servizi/infrastruttura; invarianti eseguibili tramite test/constraint/validator/CI; fixture o minimal reproducer per i flussi principali; CI disponibile; freshness/consistenza della capsula verificata contro il repo. Definire pesi o regole di scoring trasparenti, trattamento dei criteri non applicabili, distinzione tra presenza dichiarata e verifica realmente PASS, e output machine-readable che mostri sia score complessivo sia gap specifici (es. \"94%: manca rollback APK + mapping test migration\"). Il sistema deve poter essere consumato da C2/Workflowy/dashboard per prioritizzare il lavoro di capsulizzazione, senza trasformare il punteggio in una metrica cosmetica facilmente aggirabile. Prevedere anche come evitare score falsamente alto per documentazione obsoleta: i check di freshness devono incidere sul punteggio o invalidare sezioni non verificabili. Acceptance criteria: formula/algoritmo deterministico; lista criteri e pesi/semantica; gestione N/A; output strutturato con score + missing checks; strategia anti-staleness; integrazione prevista con lo standard di capsula e con la dashboard C2.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": null,
+      "current_action": "Parked during roadmap semantic reconciliation.",
+      "next_action": "Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.",
+      "blocker": "Deferred pending Symphony migration/replacement decision.",
+      "project_id": "51",
+      "project_name": "codex-roadmap",
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T12:46:59Z",
+      "updated_at": "2026-09-28T06:45:00Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "tag": "c2:project-capsule"
+      },
+      {
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "tag": "c2:capsule-score"
+      },
+      {
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "tag": "architecture"
+      },
+      {
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [
+      {
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "depends_on_work_item_id": "wi:d6185f8fb88d466f907814bf6125890e",
+        "required": 1,
+        "note": "c2-intake"
+      }
+    ],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 744,
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:c698a1e2e17c4ae7a2c6ba5c6f6460df",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Sostituisce la cattura troppo breve #2243 (\\\"Progettare il Capsule Score\\\"). Progettare un Capsule Score oggettivo e calcolabile automaticamente per misurare il grado di capsulizzazione di ogni progetto e permettere a C2 di capire immediatamente cosa manca senza dover rifare audit completi. Il punteggio deve essere 0-100 o equivalente, derivato esclusivamente da controlli verificabili e non da giudizi soggettivi. I segnali da coprire devono includere almeno: bootstrap/setup riproducibile; architecture map; dependency map; contratto DB/migrazioni quando rilevanti; mapping file-modificato -> test minimi richiesti; comando di verifica fast e full; procedura deploy/install; rollback/recovery; registro servizi/infrastruttura; invarianti eseguibili tramite test/constraint/validator/CI; fixture o minimal reproducer per i flussi principali; CI disponibile; freshness/consistenza della capsula verificata contro il repo. Definire pesi o regole di scoring trasparenti, trattamento dei criteri non applicabili, distinzione tra presenza dichiarata e verifica realmente PASS, e output machine-readable che mostri sia score complessivo sia gap specifici (es. \\\"94%: manca rollback APK + mapping test migration\\\"). Il sistema deve poter essere consumato da C2/Workflowy/dashboard per prioritizzare il lavoro di capsulizzazione, senza trasformare il punteggio in una metrica cosmetica facilmente aggirabile. Prevedere anche come evitare score falsamente alto per documentazione obsoleta: i check di freshness devono incidere sul punteggio o invalidare sezioni non verificabili. Acceptance criteria: formula/algoritmo deterministico; lista criteri e pesi/semantica; gestione N/A; output strutturato con score + missing checks; strategia anti-staleness; integrazione prevista con lo standard di capsula e con la dashboard C2.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:c698a1e2e17c4ae7a2c6ba5c6f6460df\", \"observed_at_ms\": 1790511984150, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-27T12:46:59Z"
+      },
+      {
+        "evidence_id": 1436,
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "evidence_kind": "classification",
+        "label": "User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to",
+        "uri": null,
+        "value_json": "\"User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to current roadmap execution and should not compete for slots before the migration decision.\"",
+        "created_at": "2026-09-28T06:45:00Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:c698a1e2e17c4ae7a2c6ba5c6f6460df",
+        "work_item_id": "wi:344346f8ef8446cabac86d947fde9c64",
+        "role": "decision",
+        "created_at": "2026-09-27T12:26:24Z"
+      }
+    ]
+  }
+]
+```

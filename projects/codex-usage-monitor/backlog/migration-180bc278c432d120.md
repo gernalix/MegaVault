@@ -1,0 +1,128 @@
+# Attribute model versus tool and queue latency in C2
+
+<!-- migration-180bc278c432d120 -->
+
+Migrated project backlog. Project: **codex-usage-monitor**; project_id: 8.
+
+This entry is passive backlog, not authorization to execute. C3 is retired. Original instructions below are historical requirements; C3 intake/router/worker/writer, PROMPT_ID allocation, automatic scheduling, Workflowy control and global orchestration requirements are superseded by the retirement request of 2026-10-05. Preserve independent functional requirements; do not restart C3 or allocate execution state until a human starts this task.
+
+Reconciliation: Independent request retained. Conflicting historical instructions are preserved explicitly below; none is silently dropped. Source status, blockers, acceptance, priorities, timestamps and dependencies remain attached.
+
+Related projects: 8.
+
+Provenance: `wi:450c736a819842659f8079679976dc54`.
+
+[Complete immutable C3 archive](https://github.com/gernalix/codex-roadmap/tree/eb165d45cdcdcc613ab4a37f45f4c9199178f494/archive/retirement-2026-10-05).
+
+### Attribute model versus tool and queue latency in C2
+
+Retrospective bottleneck from ChatGPT conversation 6ab8f2d7-ad14-83eb-b53b-c386288d3e46: there are long intervals between reasoning checkpoints and the next tool action even when no external tool is running. Example after ~14:59:36 CEST, the next tool action starts only around 15:00:24 (~48 s). Instrument/attribute model-orchestrator latency separately from tool and worker latency to identify whether large-context reasoning, worker-prompt construction, model choice/reasoning effort, or orchestration logic is responsible.
+
+status: waiting
+
+current_action: Parked during roadmap semantic reconciliation.
+
+next_action: Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.
+
+blocker: Deferred pending Symphony migration/replacement decision.
+
+### Original source records and attached context
+
+```json
+[
+  {
+    "routing": {
+      "project": "8",
+      "reason": "semantic correction of source routing; original identity preserved",
+      "related_projects": [
+        "8"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:450c736a819842659f8079679976dc54",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Attribute model versus tool and queue latency in C2",
+      "objective": "Retrospective bottleneck from ChatGPT conversation 6ab8f2d7-ad14-83eb-b53b-c386288d3e46: there are long intervals between reasoning checkpoints and the next tool action even when no external tool is running. Example after ~14:59:36 CEST, the next tool action starts only around 15:00:24 (~48 s). Instrument/attribute model-orchestrator latency separately from tool and worker latency to identify whether large-context reasoning, worker-prompt construction, model choice/reasoning effort, or orchestration logic is responsible.",
+      "acceptance_json": "[]",
+      "status": "waiting",
+      "executor_policy": "auto",
+      "sort_order": 9000,
+      "current_action": "Parked during roadmap semantic reconciliation.",
+      "next_action": "Reassess after Symphony acquisition/migration scope is decided; resume only if the capability remains necessary outside Symphony.",
+      "blocker": "Deferred pending Symphony migration/replacement decision.",
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/codex-roadmap",
+      "prompt_id": null,
+      "task_id": null,
+      "required": 1,
+      "actionable": 0,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-27T21:05:30Z",
+      "updated_at": "2026-09-28T06:45:03Z"
+    },
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:450c736a819842659f8079679976dc54",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1014,
+        "work_item_id": "wi:450c736a819842659f8079679976dc54",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:d093fd5ac0dd43848a35ff22ef9d8f19",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Retrospective bottleneck from ChatGPT conversation 6ab8f2d7-ad14-83eb-b53b-c386288d3e46: there are long intervals between reasoning checkpoints and the next tool action even when no external tool is running. Example after ~14:59:36 CEST, the next tool action starts only around 15:00:24 (~48 s). Instrument/attribute model-orchestrator latency separately from tool and worker latency to identify whether large-context reasoning, worker-prompt construction, model choice/reasoning effort, or orchestration logic is responsible.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:d093fd5ac0dd43848a35ff22ef9d8f19\", \"observed_at_ms\": 1790516612984, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"codex-roadmap\"}",
+        "created_at": "2026-09-27T21:05:30Z"
+      },
+      {
+        "evidence_id": 1034,
+        "work_item_id": "wi:450c736a819842659f8079679976dc54",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:86cc8835c910422483491b6c5f1686ab",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"Cross-cutting optimization derived from timing evidence in ChatGPT conversation 6ab8f2d7-ad14-83eb-b53b-c386288d3e46: add first-class latency attribution for C2/ChatGPT execution, separating at minimum model/reasoning latency, tool-call/RDC latency, external worker/Codex latency, queue/wait latency, retry/recovery latency, and writer/GitHub synchronization latency. Use native event/message timestamps where available and mark inferred deltas explicitly so bottleneck analysis can quantify where wall-clock time is actually spent.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:86cc8835c910422483491b6c5f1686ab\", \"observed_at_ms\": 1790516643019, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": \"codex-roadmap\"}",
+        "created_at": "2026-09-27T21:06:31Z"
+      },
+      {
+        "evidence_id": 1450,
+        "work_item_id": "wi:450c736a819842659f8079679976dc54",
+        "evidence_kind": "classification",
+        "label": "User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to",
+        "uri": null,
+        "value_json": "\"User explicitly directed that C2 will soon be largely replaced by Symphony; this C2-only enhancement is non-essential to current roadmap execution and should not compete for slots before the migration decision.\"",
+        "created_at": "2026-09-28T06:45:03Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:86cc8835c910422483491b6c5f1686ab",
+        "work_item_id": "wi:450c736a819842659f8079679976dc54",
+        "role": "matched",
+        "created_at": "2026-09-27T13:44:03Z"
+      },
+      {
+        "issue_id": "issue:d093fd5ac0dd43848a35ff22ef9d8f19",
+        "work_item_id": "wi:450c736a819842659f8079679976dc54",
+        "role": "decision",
+        "created_at": "2026-09-27T13:43:32Z"
+      },
+      {
+        "issue_id": "issue:86cc8835c910422483491b6c5f1686ab",
+        "work_item_id": "wi:450c736a819842659f8079679976dc54",
+        "role": "decision",
+        "created_at": "2026-09-27T13:44:03Z"
+      }
+    ]
+  }
+]
+```

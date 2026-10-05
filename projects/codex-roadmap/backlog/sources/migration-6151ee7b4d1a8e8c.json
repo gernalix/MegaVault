@@ -1,0 +1,31 @@
+[
+  {
+    "routing": {
+      "project": "51",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "51"
+      ]
+    },
+    "source": {
+      "issue_id": "issue:1c8ef738372aec85ae0e14f16a555e91",
+      "description": "Post-cutover C3 CI is still running legacy tests that require retired artifacts and schemas. Fresh evidence from PR #9997: CI/Roadmap integrity fail because tests expect /home/runner/work/codex-roadmap/codex-roadmap/roadmap.md and spiegazioni.md, expect manual_order_overrides to exist, and expect old manual-order fields in the summary schema. These artifacts/features were intentionally retired by M2. This causes unrelated new C3 changes to fail CI despite targeted post-cutover tests passing. Update/retire the legacy tests and repository-consistency expectations so CI validates the current C3 architecture rather than removed projections/Workflowy ordering, without reintroducing retired components.",
+      "repo": "gernalix/codex-roadmap",
+      "code_location": null,
+      "executor": null,
+      "executor_ref": null,
+      "chat_url": null,
+      "origin_work_item_id": null,
+      "origin_run_id": null,
+      "observed_at_ms": 1790936354086,
+      "state": "pending",
+      "matched_work_item_id": null,
+      "promoted_work_item_id": null,
+      "disposition_reason": null,
+      "triaged_by": null,
+      "triaged_at_ms": null,
+      "created_at": "2026-10-02T10:19:14Z"
+    },
+    "issue_work_item_links": []
+  }
+]

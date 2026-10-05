@@ -1,0 +1,109 @@
+[
+  {
+    "routing": {
+      "project": "104",
+      "reason": "canonical repository identity",
+      "related_projects": [
+        "104"
+      ]
+    },
+    "source": {
+      "work_item_id": "wi:73bd99da6da94ce9857ace787929977b",
+      "parent_id": null,
+      "kind": "task",
+      "title": "Handle Pixel and TCL account routing in Grindr Favorites monitor",
+      "objective": "grindr-favorites-monitor è accoppiato a una singola sessione/account Grindr Web dedicata; quando il profilo da acquisire appartiene all'account TCL ma il browser monitor è autenticato sull'account Pixel, lo scan Favorites non può importarlo. Serve distinguere/gestire sessioni monitor per account/dispositivo o rendere esplicito l'account attivo per evitare scraping del profilo sbagliato.",
+      "acceptance_json": "[]",
+      "status": "pending",
+      "executor_policy": "codex",
+      "sort_order": null,
+      "current_action": null,
+      "next_action": null,
+      "blocker": null,
+      "project_id": null,
+      "project_name": null,
+      "repo": "gernalix/grindr-favorites-monitor",
+      "prompt_id": "941059",
+      "task_id": null,
+      "required": 1,
+      "actionable": 1,
+      "source_kind": "c2-intake",
+      "source_ref": "c2-intake",
+      "created_at": "2026-09-29T13:50:29Z",
+      "updated_at": "2026-09-30T10:45:49Z"
+    },
+    "prompt_metadata": [
+      {
+        "prompt_id": "941059",
+        "slug": "handle-pixel-and-tcl-account-routing-in-grindr-f-941059",
+        "chat_guidance": null,
+        "prompt_type": "Prompt",
+        "model": "GPT-6 Sol",
+        "reasoning": "medium",
+        "megavault_mode": "FAST",
+        "campaign_id": null,
+        "explanation": "",
+        "current_path": "prompts/handle-pixel-and-tcl-account-routing-in-grindr-f-941059.md",
+        "materialization_sha256": "8f3b321f6147f52f9cf61a12c88e460d3f748cd3675ce712ad3ae2276883a63a",
+        "created_at": "2026-09-30T10:45:49Z",
+        "updated_at": "2026-09-30T10:45:49Z"
+      }
+    ],
+    "prompt_materializations": [
+      {
+        "prompt_id": "941059",
+        "body": "PROMPT_ID=941059\n\nResolve work item wi:73bd99da6da94ce9857ace787929977b in gernalix/grindr-favorites-monitor.\n\nC2 launch contract: this task is dispatched by the canonical C2 worker after writer-owned claim/executor_started verification. Do NOT call roadmap_start.py or c2_executor_start.py again; do not create another work item or prompt.\n\nGoal: the monitor is coupled to one dedicated Grindr Web session/account. When the requested profile belongs to the TCL account but the monitored browser is authenticated as Pixel, Favorites scanning can target the wrong account or cannot import the profile. Make account/session routing explicit and safe.\n\nScope:\n- Inspect existing session/profile/account identification and monitor configuration first; preserve current working single-account behavior.\n- Design the minimum deterministic account identity/routing mechanism needed to distinguish Pixel vs TCL monitor sessions and prevent scraping under the wrong authenticated account.\n- Prefer explicit configured/account-observed identity with fail-closed mismatch over heuristic switching.\n- Add focused tests for correct-account route and wrong/unknown-account fail-closed behavior.\n- Do not automate credential extraction/login or broaden into unrelated Grindr scraping changes.\n- Commit and push useful verified work; capture unrelated material findings to C2 Inbox.\n\nAcceptance:\n1. Monitor can represent/identify the active Grindr account/session explicitly.\n2. A requested profile/account is never scraped through a mismatched session.\n3. Pixel and TCL routing is deterministic and test-covered.\n4. Existing single-account behavior remains compatible where account is configured correctly.\n5. Verified changes are committed and pushed.",
+        "sha256": "8f3b321f6147f52f9cf61a12c88e460d3f748cd3675ce712ad3ae2276883a63a",
+        "created_at": "2026-09-30T10:45:49Z",
+        "actor": "c2-intake"
+      }
+    ],
+    "analyses": [],
+    "executions": [],
+    "status_history": [
+      {
+        "history_id": 1117,
+        "prompt_id": "941059",
+        "old_status": null,
+        "new_status": "pending",
+        "changed_at": "2026-09-30T10:45:49Z",
+        "actor": "c2-intake",
+        "note": "work item materialized for Codex"
+      }
+    ],
+    "work_item_tags": [
+      {
+        "work_item_id": "wi:73bd99da6da94ce9857ace787929977b",
+        "tag": "priority:p1"
+      },
+      {
+        "work_item_id": "wi:73bd99da6da94ce9857ace787929977b",
+        "tag": "source:issue-inbox"
+      }
+    ],
+    "work_item_dependencies": [],
+    "work_item_relations": [],
+    "work_item_checkpoints": [],
+    "work_item_result_receipts": [],
+    "work_item_evidence": [
+      {
+        "evidence_id": 1752,
+        "work_item_id": "wi:73bd99da6da94ce9857ace787929977b",
+        "evidence_kind": "issue_inbox",
+        "label": "issue:48d8001dd333432287a0f122472bd0ed",
+        "uri": null,
+        "value_json": "{\"chat_url\": null, \"code_location\": null, \"description\": \"grindr-favorites-monitor è accoppiato a una singola sessione/account Grindr Web dedicata; quando il profilo da acquisire appartiene all'account TCL ma il browser monitor è autenticato sull'account Pixel, lo scan Favorites non può importarlo. Serve distinguere/gestire sessioni monitor per account/dispositivo o rendere esplicito l'account attivo per evitare scraping del profilo sbagliato.\", \"executor\": null, \"executor_ref\": null, \"issue_id\": \"issue:48d8001dd333432287a0f122472bd0ed\", \"observed_at_ms\": 1790609919876, \"origin_run_id\": null, \"origin_work_item_id\": null, \"repo\": null}",
+        "created_at": "2026-09-29T13:50:29Z"
+      }
+    ],
+    "work_item_runs": [],
+    "issue_work_item_links": [
+      {
+        "issue_id": "issue:48d8001dd333432287a0f122472bd0ed",
+        "work_item_id": "wi:73bd99da6da94ce9857ace787929977b",
+        "role": "decision",
+        "created_at": "2026-09-28T15:38:39Z"
+      }
+    ]
+  }
+]
