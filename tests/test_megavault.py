@@ -257,7 +257,7 @@ class MegaVaultTests(unittest.TestCase):
                     None,
                     "oracle-vm",
                     "/etc/caddy/Caddyfile+/etc/cloudflared/config.yml+/opt/uptime-kuma",
-                    None,
+                    "main",
                 ),
                 (
                     33,
@@ -275,7 +275,7 @@ class MegaVaultTests(unittest.TestCase):
                     None,
                     "windows-host",
                     r"C:\Users\seste\Documents\windows\system_logger",
-                    None,
+                    "main",
                 ),
                 (
                     45,
@@ -284,7 +284,7 @@ class MegaVaultTests(unittest.TestCase):
                     None,
                     "windows-host",
                     r"C:\Users\seste\Documents\windows\maintenance",
-                    None,
+                    "main",
                 ),
             ],
             rows,
