@@ -44,7 +44,15 @@ class OperatingContractTests(unittest.TestCase):
         for retired in ('prompt-id-command', '## PROMPT_ID canonici',
                         '## Git: single writer per repository', 'Workflowy'):
             self.assertNotIn(retired, specialist)
-        self.assertNotIn('PROMPT_IDS:', (ROOT / 'ai/personalhubdoc.md').read_text())
+        ph = (ROOT / 'ai/personalhubdoc.md').read_text()
+        if 'PROMPT_IDS:' in ph:
+            # PersonalHub may specialize goal identity, but cannot revive C3.
+            section = ph.split('PROMPT_IDS:', 1)[1].split('\nGIT:', 1)[0]
+            for rule in ('use_one_six_digit_PROMPT_ID', 'propagate_same_PROMPT_ID',
+                         'C2|C3_frozen_archives',
+                         'never_use_Inbox|prompt_allocator|registration|dispatcher|workers|lifecycle_helpers'):
+                self.assertIn(rule, section)
+
 
     def test_document_has_one_authority_for_each_domain(self):
         text = DOCUMENT.read_text()
