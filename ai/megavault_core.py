@@ -150,8 +150,8 @@ REQUIRED_PROTOCOL_FAMILIES = {
     "authority_boundaries": (
         "STATUS=SOLE_CROSS_PROJECT_AUTHORITY",
         "authority_project=MegaVault",
-        "authority_lifecycle=C3",
-        "authority_prompt_id=C3",
+        "authority_lifecycle=GitHub_issues+Git_task_evidence",
+        "authority_prompt_id=retained_Git_reservations",
         "authority_git=github-autosync",
         "authority_observed=Fedora",
         "authority_usage=telemetry_only",
@@ -161,12 +161,12 @@ REQUIRED_PROTOCOL_FAMILIES = {
         "prompt_ids=reserved_forever",
     ),
     "write_boundary": (
-        "single_c3_writer=required",
-        "inbox_is_not_work_item=true",
+        "retired_orchestrators=C2|C3",
         "projections_are_not_authority=true",
+        "## Git single writer and durable tasks",
     ),
     "ai_takeover": (
-        "coverage=90%+_normal_operations_from_this_document_alone",
+        "## Read before acting / new-chat takeover",
         "## Recovery decision tree",
         "## Stop conditions",
     ),
@@ -1790,13 +1790,106 @@ def protocol_semantic_errors(raw: str | None = None) -> list[str]:
         raw = PROTOCOL.read_text(encoding="utf-8")
 
     version_match = re.search(r"(?m)^VERSION=(\d+)$", raw)
-    if not version_match or int(version_match.group(1)) < 61:
-        errors.append("protocol_semantic_missing:version_at_least_61")
+    if not version_match or int(version_match.group(1)) < 62:
+        errors.append("protocol_semantic_missing:version_at_least_62")
 
     for family, snippets in REQUIRED_PROTOCOL_FAMILIES.items():
         for snippet in snippets:
             if snippet not in raw:
                 errors.append(f"protocol_semantic_missing:{family}:{snippet}")
+    return errors
+
+
+def policy_consistency_errors(
+    ph_raw: str | None = None,
+    shared_raw: str | None = None,
+    specialist_raw: str | None = None,
+    index_raw: str | None = None,
+) -> list[str]:
+    """Check active policy ownership, stale routing, and conflicting PH defaults.
+
+    Inputs can be supplied explicitly to test prospective changes without files.
+    Historical records and archived protocols are deliberately not scanned.
+    """
+    sources = {
+        "PH": (ROOT / "ai" / "personalhubdoc.md", ph_raw),
+        "GLOBAL": (ROOT / "ai" / "META_INFRASTRUCTURE.md", shared_raw),
+        "SPECIALIST": (ROOT / "ai" / "MEGAVAULT_PROTOCOL.md", specialist_raw),
+        "INDEX": (ROOT / "ai" / "GLOBAL_INDEX.md", index_raw),
+    }
+    docs: dict[str, str] = {}
+    errors: list[str] = []
+    for name, (path, provided) in sources.items():
+        if provided is not None:
+            docs[name] = provided
+        elif path.is_file():
+            docs[name] = path.read_text(encoding="utf-8")
+        else:
+            errors.append(f"policy_consistency:missing_file:{name}")
+    if errors:
+        return errors
+
+    ph, shared = docs["PH"], docs["GLOBAL"]
+    specialist, index = docs["SPECIALIST"], docs["INDEX"]
+    expected_fallback = (
+        "GLOBAL_FALLBACK=ai/META_INFRASTRUCTURE.md+"
+        "ai/MEGAVAULT_PROTOCOL.md;latest_remote_relevant_sections_only"
+    )
+    if expected_fallback not in ph:
+        errors.append("policy_consistency:PH_fallback_must_be_unpinned")
+    if re.search(r"(?m)^GLOBAL_FALLBACK=.*@\d+", ph):
+        errors.append("policy_consistency:PH_pinned_global_version")
+    if "SOURCE=PH_specific_bootstrap" not in ph:
+        errors.append("policy_consistency:PH_scope_must_be_specialized")
+    if "retired_runtime=C2|C3_frozen_archives" not in ph:
+        errors.append("policy_consistency:PH_retired_runtime_guard_missing")
+    if "retired_orchestrators=C2|C3" not in shared:
+        errors.append("policy_consistency:GLOBAL_retired_orchestrators_missing")
+    if "personalhubdoc.md" not in index:
+        errors.append("policy_consistency:INDEX_PH_route_missing")
+    if "META_INFRASTRUCTURE.md" not in index:
+        errors.append("policy_consistency:INDEX_global_route_missing")
+    if "ai/personalhubdoc.md" not in specialist:
+        errors.append("policy_consistency:SPECIALIST_PH_owner_missing")
+
+    # Retired orchestration may be mentioned as archived; it may not be
+    # prescribed as an active runtime or ownership boundary.
+    forbidden_active = (
+        "authority_lifecycle=C3",
+        "authority_prompt_id=C3",
+        "single_c3_writer=required",
+        "c3_control.py status",
+        "c3_inbox.py",
+        "c2_executor_start.py",
+        "c3-writer.service",
+        "C3-only",
+    )
+    for marker in forbidden_active:
+        if marker in shared:
+            errors.append(f"policy_consistency:GLOBAL_retired_active:{marker}")
+
+    # Project-specific final-delivery and Pixel notifications have one owner.
+    if "PH installato" in specialist or "PH installato" in shared:
+        errors.append("policy_consistency:GLOBAL_PH_install_message")
+    for key in ("PIXEL_NOTIFY", "FINAL_APK_TELEGRAM", "version_goal", "apk_version_gate"):
+        if re.search(rf"(?m)^{key}(?::|=)", shared + "\n" + specialist):
+            errors.append(f"policy_consistency:GLOBAL_duplicate_PH_key:{key}")
+
+    # Fail closed on shadowed key/value rules within the same PH section.
+    section = "HEADER"
+    seen: set[str] = set()
+    for raw_line in ph.splitlines():
+        line = raw_line.strip()
+        if re.fullmatch(r"[A-Z][A-Z_0-9]*:", line):
+            section, seen = line[:-1], set()
+            continue
+        match = re.match(r"([A-Za-z][A-Za-z0-9_]*)=", line)
+        if not match:
+            continue
+        key = match.group(1)
+        if key in seen:
+            errors.append(f"policy_consistency:PH_duplicate_key:{section}:{key}")
+        seen.add(key)
     return errors
 
 
@@ -2208,6 +2301,7 @@ def validate() -> int:
         errors.append(f"extra tracked markdown: {extra_md}")
 
     errors.extend(protocol_semantic_errors())
+    errors.extend(policy_consistency_errors())
     errors.extend(secret_scan_errors(tracked))
 
     print_errors(errors)
