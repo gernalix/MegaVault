@@ -63,7 +63,12 @@ class MegaVaultTests(unittest.TestCase):
     def test_personalhub_routes_to_single_global_contract(self):
         text = PH_BOOTSTRAP.read_text(encoding="utf-8")
         self.assertIn("read_META_INFRASTRUCTURE.md_only", text)
-        self.assertNotIn("PROMPT_IDS:", text)
+        if "PROMPT_IDS:" in text:
+            section = text.split("PROMPT_IDS:", 1)[1].split("\nGIT:", 1)[0]
+            self.assertIn("use_one_six_digit_PROMPT_ID", section)
+            self.assertIn("propagate_same_PROMPT_ID", section)
+            self.assertIn("C2|C3_frozen_archives", section)
+            self.assertIn("never_use_Inbox|prompt_allocator|registration|dispatcher|workers|lifecycle_helpers", section)
 
     def prompt_id_temp_db(self, tmp):
         tmp_db = Path(tmp) / "megavault-prompt-id.sqlite"
