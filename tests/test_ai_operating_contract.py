@@ -1,66 +1,74 @@
-"""Single-document operational coverage; no runtime mutations or external calls."""
+"""Active MegaVault policy ownership and routing; no external calls."""
 from pathlib import Path
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCUMENT = ROOT / 'ai/META_INFRASTRUCTURE.md'
+DOCUMENT = ROOT / "ai/META_INFRASTRUCTURE.md"
+
 
 class OperatingContractTests(unittest.TestCase):
     def test_normal_operation_scenarios_are_self_contained(self):
-        text = DOCUMENT.read_text()
+        text = DOCUMENT.read_text(encoding="utf-8")
         scenarios = {
-            'new chat': ('## Read before acting / new-chat takeover', 'c3_control.py status'),
-            'state readback': ('/api/state', 'work_item_executor_bindings'),
-            'Inbox capture': ('c3_inbox.py', '--issue-id'),
-            'Inbox decisions': ('reconcile_issue_batch', 'work_item_ids', '@alias'),
-            'technical Inbox': ('c3_runtime.py --inbox-only', 'maximum 25'),
-            'work intake': ('`intake`', 'depends_on', 'execution'),
-            'prepare': ('c2_prepare_codex.py --spec', 'readiness_evidence'),
-            'prompt allocation': ('prompt_id_allocate', 'request_id', 'C3-only'),
-            'prompt registration': ('register', 'prompt_text', 'current_path'),
-            'project resolve': ('project-show ID', 'project ALIAS'),
-            'project register': ('register-local-repo', 'register-github-repo'),
-            'executor start/bind': ('c2_executor_start.py', '--executor-ref', '--chat-url'),
-            'terminal result': ('roadmap_finish.py', 'c2_executor_result.py', '--payload'),
-            'Git integration': ('repo_single_writer.py', 'finish --repo', 'status-any'),
-            'monitoring': ('fedora-system-monitor', 'journalctl', 'Kuma administration'),
-            'collision': ('request_key=KEY', 'same immutable request', 'fail-closed'),
-            'recovery': ('## Recovery decision tree', 'quarantined', 'verified_backup'),
-            'stop': ('## Stop conditions', 'Stop immediately', 'No optional audit'),
+            "authority": ("STATUS=SOLE_CROSS_PROJECT_AUTHORITY", "authority_project=MegaVault"),
+            "new chat": ("## Read before acting / new-chat takeover", "remote state"),
+            "project identity": ("megavault.py project ALIAS", "project-show ID"),
+            "PH route": ("personalhubdoc.md", "specialized bootstrap"),
+            "Git ownership": ("repo_single_writer.py start", "repo_single_writer.py finish"),
+            "commit boundary": ("Commit and push the task branch", "Never manually merge"),
+            "PROMPT_ID": ("six-digit", "historical reservations"),
+            "retired system": ("retired_orchestrators=C2|C3", "No active C2/C3 writer"),
+            "scope": ("least expensive safe mode", "targeted verification"),
+            "recovery": ("## Recovery decision tree", "Validator/test failure"),
+            "runtime": ("Fedora System Monitor", "live systemd/journal"),
+            "stop": ("## Stop conditions", "No optional audit"),
         }
-        for scenario, required in scenarios.items():
+        for scenario, markers in scenarios.items():
             with self.subTest(scenario=scenario):
-                for token in required:
-                    self.assertIn(token, text)
-        self.assertEqual(18, len(scenarios))
+                for marker in markers:
+                    self.assertIn(marker, text)
+        self.assertEqual(12, len(scenarios))
+
+    def test_one_authority_for_each_domain(self):
+        text = DOCUMENT.read_text(encoding="utf-8")
+        for marker in (
+            "authority_project=MegaVault",
+            "authority_lifecycle=GitHub_issues+Git_task_evidence",
+            "authority_prompt_id=retained_Git_reservations",
+            "authority_git=github-autosync",
+            "authority_observed=Fedora",
+            "authority_usage=telemetry_only",
+        ):
+            self.assertEqual(1, text.count(marker), marker)
+
+    def test_retired_orchestration_is_not_executable_policy(self):
+        text = DOCUMENT.read_text(encoding="utf-8")
+        for forbidden in (
+            "authority_lifecycle=C3",
+            "authority_prompt_id=C3",
+            "single_c3_writer=required",
+            "c3_control.py status",
+            "c2_executor_start.py",
+        ):
+            self.assertNotIn(forbidden, text)
 
     def test_owner_pointers_do_not_duplicate_operating_rules(self):
-        for name in ('BOOTSTRAP.md', 'GLOBAL_INDEX.md'):
-            text = (ROOT / 'ai' / name).read_text()
-            self.assertIn('META_INFRASTRUCTURE.md', text)
+        for name in ("BOOTSTRAP.md", "GLOBAL_INDEX.md"):
+            text = (ROOT / "ai" / name).read_text(encoding="utf-8")
+            self.assertIn("META_INFRASTRUCTURE.md", text)
             self.assertLess(len(text.split()), 90)
-        specialist = (ROOT / 'ai/MEGAVAULT_PROTOCOL.md').read_text()
-        self.assertIn('STATUS=TASK_SPECIFIC_ONLY', specialist)
-        for retired in ('prompt-id-command', '## PROMPT_ID canonici',
-                        '## Git: single writer per repository', 'Workflowy'):
-            self.assertNotIn(retired, specialist)
-        ph = (ROOT / 'ai/personalhubdoc.md').read_text()
-        if 'PROMPT_IDS:' in ph:
-            # PersonalHub may specialize goal identity, but cannot revive C3.
-            section = ph.split('PROMPT_IDS:', 1)[1].split('\nGIT:', 1)[0]
-            for rule in ('use_one_six_digit_PROMPT_ID', 'propagate_same_PROMPT_ID',
-                         'C2|C3_frozen_archives',
-                         'never_use_Inbox|prompt_allocator|registration|dispatcher|workers|lifecycle_helpers'):
-                self.assertIn(rule, section)
+        specialist = (ROOT / "ai/MEGAVAULT_PROTOCOL.md").read_text(encoding="utf-8")
+        self.assertIn("STATUS=TASK_SPECIFIC_ONLY", specialist)
+        self.assertIn("ai/personalhubdoc.md", specialist)
+        self.assertNotIn("PH installato", specialist)
+        ph = (ROOT / "ai/personalhubdoc.md").read_text(encoding="utf-8")
+        self.assertIn("SOURCE=PH_specific_bootstrap", ph)
+        self.assertIn("GLOBAL_FALLBACK=ai/META_INFRASTRUCTURE.md+", ph)
+        for ph_exclusive in ("PIXEL_NOTIFY:", "FINAL_APK_TELEGRAM:", "version_goal="):
+            self.assertIn(ph_exclusive, ph)
+            self.assertNotIn(ph_exclusive, specialist)
+            self.assertNotIn(ph_exclusive, DOCUMENT.read_text(encoding="utf-8"))
 
 
-    def test_document_has_one_authority_for_each_domain(self):
-        text = DOCUMENT.read_text()
-        for marker in ('authority_project=MegaVault', 'authority_lifecycle=C3',
-                       'authority_prompt_id=C3', 'authority_git=github-autosync',
-                       'authority_observed=Fedora', 'authority_usage=telemetry_only'):
-            self.assertEqual(1, text.count(marker))
-        self.assertIn('coverage=90%+_normal_operations_from_this_document_alone', text)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

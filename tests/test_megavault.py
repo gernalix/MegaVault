@@ -53,22 +53,77 @@ class MegaVaultTests(unittest.TestCase):
 
     def test_protocol_semantic_guard_detects_critical_removal(self):
         text = PROTOCOL.read_text(encoding="utf-8")
-        broken = text.replace("authority_prompt_id=C3", "", 1)
+        marker = "authority_prompt_id=retained_Git_reservations"
+        self.assertIn(marker, text)
+        broken = text.replace(marker, "", 1)
         errors = megavault.protocol_semantic_errors(broken)
         self.assertIn(
-            "protocol_semantic_missing:authority_boundaries:authority_prompt_id=C3",
-            errors,
+            "protocol_semantic_missing:authority_boundaries:" + marker, errors
         )
 
     def test_personalhub_routes_to_single_global_contract(self):
         text = PH_BOOTSTRAP.read_text(encoding="utf-8")
-        self.assertIn("read_META_INFRASTRUCTURE.md_only", text)
-        if "PROMPT_IDS:" in text:
-            section = text.split("PROMPT_IDS:", 1)[1].split("\nGIT:", 1)[0]
-            self.assertIn("use_one_six_digit_PROMPT_ID", section)
-            self.assertIn("propagate_same_PROMPT_ID", section)
-            self.assertIn("C2|C3_frozen_archives", section)
-            self.assertIn("never_use_Inbox|prompt_allocator|registration|dispatcher|workers|lifecycle_helpers", section)
+        self.assertIn("SOURCE=PH_specific_bootstrap", text)
+        self.assertIn(
+            "GLOBAL_FALLBACK=ai/META_INFRASTRUCTURE.md+"
+            "ai/MEGAVAULT_PROTOCOL.md;latest_remote_relevant_sections_only",
+            text,
+        )
+        self.assertIn("read_only_relevant_section_when_needed", text)
+        section = text.split("PROMPT_IDS:", 1)[1].split("\nGIT:", 1)[0]
+        for marker in ("use_one_six_digit_PROMPT_ID",
+                       "propagate_same_PROMPT_ID",
+                       "C2|C3_frozen_archives",
+                       "never_use_Inbox|prompt_allocator|registration|dispatcher|workers|lifecycle_helpers"):
+            self.assertIn(marker, section)
+
+    def test_policy_consistency_accepts_current_documents(self):
+        self.assertEqual([], megavault_core.policy_consistency_errors())
+
+    def test_policy_consistency_rejects_pinned_global_version(self):
+        original = PH_BOOTSTRAP.read_text(encoding="utf-8")
+        broken = original.replace(
+            "GLOBAL_FALLBACK=ai/META_INFRASTRUCTURE.md+"
+            "ai/MEGAVAULT_PROTOCOL.md;latest_remote_relevant_sections_only",
+            "GLOBAL_FALLBACK=MEGAVAULT_PROTOCOL@54+GLOBAL_INDEX@17",
+            1,
+        )
+        errors = megavault_core.policy_consistency_errors(ph_raw=broken)
+        self.assertIn("policy_consistency:PH_pinned_global_version", errors)
+
+    def test_policy_consistency_rejects_duplicate_PH_rule(self):
+        original = PH_BOOTSTRAP.read_text(encoding="utf-8")
+        broken = original.replace(
+            "device_PASS=requires_live_device_evidence",
+            "device_PASS=requires_live_device_evidence\n"
+            "device_PASS=duplicate_rule",
+            1,
+        )
+        errors = megavault_core.policy_consistency_errors(ph_raw=broken)
+        self.assertIn(
+            "policy_consistency:PH_duplicate_key:DEVICE_TESTING:device_PASS",
+            errors,
+        )
+
+    def test_policy_consistency_rejects_retired_active_authority(self):
+        original = PROTOCOL.read_text(encoding="utf-8")
+        broken = original.replace(
+            "authority_lifecycle=GitHub_issues+Git_task_evidence",
+            "authority_lifecycle=C3",
+            1,
+        )
+        errors = megavault_core.policy_consistency_errors(shared_raw=broken)
+        self.assertIn(
+            "policy_consistency:GLOBAL_retired_active:authority_lifecycle=C3",
+            errors,
+        )
+
+    def test_policy_consistency_rejects_global_pixel_messages(self):
+        specialist = (ROOT / "ai" / "MEGAVAULT_PROTOCOL.md").read_text()
+        errors = megavault_core.policy_consistency_errors(
+            specialist_raw=specialist + "\nSend PH installato after every install.\n"
+        )
+        self.assertIn("policy_consistency:GLOBAL_PH_install_message", errors)
 
     def prompt_id_temp_db(self, tmp):
         tmp_db = Path(tmp) / "megavault-prompt-id.sqlite"

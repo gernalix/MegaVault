@@ -191,14 +191,12 @@ Ispezionare schema/path live prima di query o migrazioni. Per SQLite live/concor
 
 ### Physical Pixel
 
-Per test su Pixel fisico:
-
-1. inviare Telegram esatto `smetti di usare il telefono`;
-2. attendere 5 secondi dopo invio confermato;
-3. eseguire la fase di test;
-4. inviare Telegram esatto `testing finito` quando la fase termina.
-
-Per install finale PersonalHub riuscito su Pixel fisico, inviare subito Telegram esatto `PH installato`. Se la notifica pre-test fallisce, non toccare il Pixel e riportare blocker.
+Questo protocollo definisce soltanto i controlli Android comuni (identita',
+package, sicurezza). Notifiche pre/post-test, installazione finale, invio
+APK e messaggi Telegram di PersonalHub appartengono esclusivamente a
+`ai/personalhubdoc.md` (`PIXEL_NOTIFY` e `FINAL_APK_TELEGRAM`).
+Per altri progetti Android, seguire la documentazione del progetto
+proprietario; non dedurre notifiche o messaggi finali da regole PH.
 
 ### Telegram Task Notifications
 
@@ -207,3 +205,6 @@ Quando le notifiche task sono abilitate e non sovrascritte da regola progetto, i
 - formato: `<titolo chat> - <stato>`;
 - stati: `successo`, `pausa`, `fail`;
 - usare il titolo reale Codex Desktop se disponibile, altrimenti titolo prompt/goal senza inventare.
+
+Le eccezioni PersonalHub prevalgono per i soli messaggi PH: consultare
+`ai/personalhubdoc.md` invece di applicare il default terminale globale.
